@@ -6,6 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Under Maintenance - Dot Compliance Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+  body { font-family: 'Inter', sans-serif; }
+  .stripe-wrap { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .stripe {
+    position: absolute; top: -40%; right: -6%; width: 340px; height: 220%;
+    background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 45%, #60a5fa 100%);
+    transform: skewX(-18deg); opacity: 0.9;
+  }
+  .stripe.two { right: -2%; width: 60px; background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%); opacity: 0.5; }
+  .stripe.left { left: -8%; right: auto; top: -60%; width: 260px; opacity: 0.2; }
+
+  @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes spin-slow-rev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+  .gear-1 { animation: spin-slow 8s linear infinite; transform-origin: center; }
+  .gear-2 { animation: spin-slow-rev 6s linear infinite; transform-origin: center; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="root"></div>
