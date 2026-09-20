@@ -10,50 +10,7 @@ export default function Register() {
 
       <div class="relative z-10 w-full max-w-md">
         <div class="flex flex-col items-center mb-8">
-          <svg width="64" height="64" viewBox="0 0 52 52" class="shrink-0 mb-3">
-            <circle
-              cx="26"
-              cy="26"
-              r="25"
-              fill="#0a1122"
-              stroke="#3b82f6"
-              stroke-width="2"
-            />
-            <circle
-              cx="26"
-              cy="26"
-              r="19"
-              fill="#132244"
-              stroke="#dc2626"
-              stroke-width="1.5"
-            />
-            <path
-              d="M26 10 A16 16 0 0 1 40 33"
-              stroke="#3b82f6"
-              stroke-width="3"
-              fill="none"
-              stroke-linecap="round"
-            />
-            <path
-              d="M26 42 A16 16 0 0 1 12 19"
-              stroke="#60a5fa"
-              stroke-width="3"
-              fill="none"
-              stroke-linecap="round"
-            />
-            <circle cx="26" cy="26" r="8" fill="#ffffff" />
-            <text
-              x="26"
-              y="30"
-              text-anchor="middle"
-              font-size="9"
-              font-weight="800"
-              fill="#0a1122"
-              font-family="Inter, sans-serif"
-            >
-              DCS
-            </text>
-          </svg>
+          <img className="w-[100px]" src="/logo.png" />
           <p class="text-white font-extrabold text-lg tracking-wide text-center">
             DOT COMPLIANCE SOLUTIONS LLC
           </p>
