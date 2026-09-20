@@ -1,18 +1,14 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-import Maintenance from "./pages/maintenance";
-
+import { BrowserRouter } from "react-router-dom";
+import "./App.css";
+import Routes from "./routes/Route";
+import AdminRoutes from "./routes/AdminRoute";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <Maintenance />
-    </>
-  )
+    <BrowserRouter>
+      <Routes />
+      <AdminRoutes />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commercial Driver Application & Qualification Packet</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #bdbdbd;
+        font-family: Georgia, "Times New Roman", serif;
+        color: #17202a;
+        padding: 20px 0;
+      }
+
+      /* =========================
+   A4 PAGE
+========================= */
+
+      .page {
+        width: 240mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 17mm 17mm 18mm;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+      }
+
+      /* =========================
+   HEADER
+========================= */
+
+      .header {
+        text-align: center;
+      }
+
+      .header h3 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #202b36;
+        letter-spacing: 0.2px;
+      }
+
+      .header h1 {
+        margin: 0;
+        color: #173f69;
+        font-size: 31px;
+        line-height: 1.22;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+      }
+
+      .subtitle {
+        margin-top: 14px;
+        margin-bottom: 10px;
+        color: #174875;
+        font-size: 21px;
+        line-height: 1.3;
+      }
+
+      /* =========================
+   DRIVER INFORMATION
+========================= */
+
+      .driver-info {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 8px;
+        font-size: 14px;
+      }
+
+      .driver-info td {
+        height: 25px;
+        border-bottom: 1px solid #aebdcc;
+      }
+
+      .driver-info .label {
+        width: 27%;
+        background: #e7eef5;
+        color: #173f69;
+        font-weight: 700;
+        padding: 5px 7px;
+      }
+
+      /* =========================
+   INSTRUCTIONS
+========================= */
+
+      .instructions {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .instructions h2 {
+        margin: 0 0 6px;
+        color: #173f69;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .instructions p {
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 13.5px;
+        line-height: 1.35;
+      }
+
+      /* =========================
+   DOCUMENT SECTION
+========================= */
+
+      .documents-section {
+        margin-top: 12px;
+      }
+
+      .documents-section h2 {
+        margin: 0 0 8px;
+        color: #174875;
+        font-size: 23px;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      /* =========================
+   NOTICE
+========================= */
+
+      .notice {
+        background: #d8e9f6;
+        color: #173f69;
+        padding: 9px 10px;
+        font-size: 13px;
+        line-height: 1.35;
+        font-weight: 600;
+      }
+
+      /* =========================
+   DOCUMENT TABLE
+========================= */
+
+      .documents-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        font-size: 13.5px;
+      }
+
+      .documents-table th {
+        background: #24557f;
+        color: #ffffff;
+        border: 1px solid #1b3e5c;
+        padding: 8px 6px;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .documents-table th:nth-child(1) {
+        width: 34%;
+      }
+
+      .documents-table th:nth-child(2) {
+        width: 32%;
+      }
+
+      .documents-table th:nth-child(3) {
+        width: 34%;
+      }
+
+      .documents-table td {
+        border: 1px solid #555;
+        padding: 7px 6px;
+        vertical-align: top;
+        line-height: 1.22;
+        min-height: 42px;
+      }
+
+      .documents-table .checkbox-cell {
+        vertical-align: middle;
+        font-size: 17px;
+        text-align: left;
+      }
+
+      .documents-table .office-text {
+        vertical-align: middle;
+      }
+
+      /* =========================
+   PRINT
+========================= */
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+
+        html,
+        body {
+          background: white;
+          padding: 0;
+        }
+
+        .page {
+          width: 210mm;
+          min-height: 297mm;
+          margin: 0;
+          box-shadow: none;
+          padding: 17mm 17mm 18mm;
+        }
+      }
+
+      /* =========================
+   RESPONSIVE
+========================= */
+
+      @media screen and (max-width: 800px) {
+        body {
+          padding: 0;
+          background: #ffffff;
+        }
+
+        .page {
+          width: 100%;
+          min-height: auto;
+          padding: 25px;
+          box-shadow: none;
+        }
+
+        .header h1 {
+          font-size: 25px;
+        }
+
+        .subtitle {
+          font-size: 17px;
+        }
+
+        .documents-section h2 {
+          font-size: 19px;
+        }
+
+        .documents-table {
+          min-width: 700px;
+        }
+
+        .documents-section {
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- HEADER -->
+      <div class="header">
+        <h3>DOT COMPLIANCE SOLUTIONS LLC</h3>
+
+        <h1>
+          COMMERCIAL DRIVER<br />
+          APPLICATION &amp; QUALIFICATION PACKET
+        </h1>
+
+        <div class="subtitle">
+          Complete Driver Application, Qualification, Onboarding &amp; Safety
+          Policy Packet
+        </div>
+      </div>
+
+      <!-- DRIVER INFORMATION -->
+      <table class="driver-info">
+        <tr>
+          <td class="label">MOTOR CARRIER / EMPLOYER</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="label">USDOT NUMBER</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="label">APPLICANT NAME</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="label">POSITION APPLIED FOR</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="label">APPLICATION DATE</td>
+          <td></td>
+        </tr>
+      </table>
+
+      <!-- INSTRUCTIONS -->
+      <section class="instructions">
+        <h2>APPLICANT INSTRUCTIONS</h2>
+
+        <p>
+          Complete every applicable section. Use full legal names, complete
+          addresses, and accurate dates. If additional space is needed, attach a
+          signed continuation sheet identifying the section and question. Do not
+          omit prior employers or driving history.
+        </p>
+      </section>
+
+      <!-- DOCUMENTS TITLE -->
+      <section class="documents-section">
+        <h2>DOCUMENTS TO SUBMIT WITH YOUR DRIVER APPLICATION</h2>
+
+        <div class="notice">
+          Upload clear, complete, readable copies. Documents marked
+          <strong>"if applicable"</strong> are required only when they apply to
+          the driver or position. Employment-eligibility documents are handled
+          under Form I-9 rules; applicants may choose which acceptable I-9
+          documents to present.
+        </div>
+
+        <!-- DOCUMENT TABLE -->
+        <table class="documents-table">
+          <thead>
+            <tr>
+              <th>DOCUMENT</th>
+              <th>APPLICANT</th>
+              <th>OFFICE</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Current Driver License / CDL - front and back</td>
+              <td class="checkbox-cell">□</td>
+              <td class="checkbox-cell">□</td>
+            </tr>
+
+            <tr>
+              <td>
+                Work authorization / acceptable Form I-9 documentation - as
+                applicable (employee chooses acceptable documents)
+              </td>
+              <td class="checkbox-cell">□</td>
+              <td class="checkbox-cell">□</td>
+            </tr>
+
+            <tr>
+              <td>
+                Employment Authorization Document / Work Permit - if applicable
+                and presented
+              </td>
+              <td class="checkbox-cell">□</td>
+              <td class="checkbox-cell">□</td>
+            </tr>
+
+            <tr>
+              <td>
+                Social Security card - if presented for I-9 or required for
+                lawful payroll/onboarding purposes
+              </td>
+              <td class="checkbox-cell">□</td>
+              <td class="checkbox-cell">□</td>
+            </tr>
+
+            <tr>
+              <td>
+                Current Medical Examiner's Certificate (DOT medical card), if
+                issued / available
+              </td>
+              <td class="checkbox-cell">□</td>
+              <td class="checkbox-cell">□</td>
+            </tr>
+
+            <tr>
+              <td>
+                Medical Examination Report MCSA-5875 (long-form medical,
+                commonly 5 pages) - only if requested with driver consent;
+                treated as confidential medical information
+              </td>
+              <td class="checkbox-cell">□</td>
+              <td class="checkbox-cell">□</td>
+            </tr>
+
+            <tr>
+              <td>
+                Medical certification verification / CDLIS MVR showing medical
+                status
+              </td>
+              <td class="office-text">Office obtains</td>
+              <td class="checkbox-cell">□</td>
+            </tr>
+
+            <tr>
+              <td>
+                Medical variance / exemption / SPE certificate - if applicable
+              </td>
+              <td class="checkbox-cell">□</td>
+              <td class="checkbox-cell">□</td>
+            </tr>
+
+            <tr>
+              <td>Signed DMV / MVR / CDLIS Records Consent Form</td>
+              <td class="checkbox-cell">□</td>
+              <td class="checkbox-cell">□</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>
