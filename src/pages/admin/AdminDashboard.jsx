@@ -1,4 +1,4 @@
-import DashboardLayout from "@/Layouts/DashboardLayout";
+import DashboardLayout from "@/layouts/DashboardLayout";
 import DashboardCards from "@/components/admin/Cards";
 import MainSubHeader from "@/components/admin/MainSubHeader";
 import Admintable from "@/components/admin/Table";
