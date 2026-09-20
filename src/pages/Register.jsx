@@ -172,7 +172,7 @@ export default function Register() {
 
             <button
               type="submit"
-              class="themebg w-full bg-blue-600 text-white rounded-lg py-2.5 text-sm font-medium transition"
+              class="themebg w-full text-white rounded-lg py-2.5 text-sm font-medium transition"
             >
               Create Account
             </button>
@@ -182,7 +182,7 @@ export default function Register() {
             Already have an account?
             <Link
               to="/login"
-              class=" themecolor text-blue-600 font-medium hover:underline"
+              class=" themecolor font-medium hover:underline"
             >
               Sign in
             </Link>
