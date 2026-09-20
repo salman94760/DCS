@@ -224,7 +224,7 @@ export default function Register() {
           <p class="text-sm text-slate-500 text-center mt-6">
             Already have an account?
             <Link
-              to="/register"
+              to="/login"
               class=" themecolor text-blue-600 font-medium hover:underline"
             >
               Sign in
