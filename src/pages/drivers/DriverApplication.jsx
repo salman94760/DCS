@@ -1018,83 +1018,134 @@ export default function DriverApplication() {
           <section class="mt-1">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14px] sm:text-[15px] md:text-[16px]
+           px-2 py-[7px]"
             >
               A. COMPANY / DRIVER INFORMATION
             </div>
 
-            <div class="mt-5 space-y-[25px]">
-              <div class="grid grid-cols-[235px_208px_95px_1fr] items-center gap-0">
-                <label class="font-bold text-[14px]">
+            <div class="mt-4 sm:mt-5 space-y-4 sm:space-y-[25px]">
+              <div
+                class="grid grid-cols-1 gap-2
+             md:grid-cols-[235px_208px_95px_1fr]
+             md:gap-0 md:items-center"
+              >
+                <label class="font-bold text-[13px] sm:text-[14px]">
                   Motor Carrier / Employer Name:
                 </label>
 
                 <input
                   type="text"
-                  class="h-[26px] border-[1.5px] border-[#26364d] outline-none px-1"
+                  class="w-full h-[32px] md:h-[26px]
+               border-[1.5px] border-[#26364d]
+               outline-none px-1"
                 />
 
-                <label class="font-bold text-[14px] pl-1">USDOT No.:</label>
+                <label
+                  class="font-bold text-[13px] sm:text-[14px]
+               md:pl-1"
+                >
+                  USDOT No.:
+                </label>
 
                 <input
                   type="text"
-                  class="h-[26px] border-[1.5px] border-[#26364d] outline-none px-1"
+                  class="w-full h-[32px] md:h-[26px]
+               border-[1.5px] border-[#26364d]
+               outline-none px-1"
                 />
               </div>
 
-              <div class="grid grid-cols-[310px_100px_120px_1fr] items-center">
-                <label class="font-bold text-[14px]">
+              <div
+                class="grid grid-cols-1 gap-2
+             md:grid-cols-[310px_100px_120px_1fr]
+             md:gap-0 md:items-center"
+              >
+                <label class="font-bold text-[13px] sm:text-[14px]">
                   Designated Employer Representative (DER):
                 </label>
 
                 <input
                   type="text"
-                  class="h-[26px] border-[1.5px] border-[#26364d] outline-none px-1"
+                  class="w-full h-[32px] md:h-[26px]
+               border-[1.5px] border-[#26364d]
+               outline-none px-1"
                 />
 
-                <label class="font-bold text-[14px] pl-1">
+                <label
+                  class="font-bold text-[13px] sm:text-[14px]
+               md:pl-1"
+                >
                   DER Phone / Email:
                 </label>
 
                 <input
                   type="text"
-                  class="h-[26px] border-[1.5px] border-[#26364d] outline-none px-1"
+                  class="w-full h-[32px] md:h-[26px]
+               border-[1.5px] border-[#26364d]
+               outline-none px-1"
                 />
               </div>
 
-              <div class="grid grid-cols-[100px_1fr_120px_1fr] items-center">
-                <label class="font-bold text-[14px]">Driver Name:</label>
+              <div
+                class="grid grid-cols-1 gap-2
+             md:grid-cols-[100px_1fr_120px_1fr]
+             md:gap-0 md:items-center"
+              >
+                <label class="font-bold text-[13px] sm:text-[14px]">
+                  Driver Name:
+                </label>
 
                 <input
                   type="text"
-                  class="h-[26px] border-[1.5px] border-[#26364d] outline-none px-1"
+                  class="w-full h-[32px] md:h-[26px]
+               border-[1.5px] border-[#26364d]
+               outline-none px-1"
                 />
 
-                <label class="font-bold text-[14px] pl-1">
+                <label
+                  class="font-bold text-[13px] sm:text-[14px]
+               md:pl-1"
+                >
                   CDL No. / State:
                 </label>
 
                 <input
                   type="text"
-                  class="h-[26px] border-[1.5px] border-[#26364d] outline-none px-1"
+                  class="w-full h-[32px] md:h-[26px]
+               border-[1.5px] border-[#26364d]
+               outline-none px-1"
                 />
               </div>
 
-              <div class="grid grid-cols-[135px_1fr_165px_1fr] items-center">
-                <label class="font-bold text-[14px]">Date of Hire / Use:</label>
+              <div
+                class="grid grid-cols-1 gap-2
+             md:grid-cols-[135px_1fr_165px_1fr]
+             md:gap-0 md:items-center"
+              >
+                <label class="font-bold text-[13px] sm:text-[14px]">
+                  Date of Hire / Use:
+                </label>
 
                 <input
                   type="text"
-                  class="h-[26px] border-[1.5px] border-[#26364d] outline-none px-1"
+                  class="w-full h-[32px] md:h-[26px]
+               border-[1.5px] border-[#26364d]
+               outline-none px-1"
                 />
 
-                <label class="font-bold text-[14px] pl-1">
+                <label
+                  class="font-bold text-[13px] sm:text-[14px]
+               md:pl-1"
+                >
                   Policy Effective / Revision Date:
                 </label>
 
                 <input
                   type="text"
-                  class="h-[26px] border-[1.5px] border-[#26364d] outline-none px-1"
+                  class="w-full h-[32px] md:h-[26px]
+               border-[1.5px] border-[#26364d]
+               outline-none px-1"
                 />
               </div>
             </div>
@@ -1809,827 +1860,1223 @@ export default function DriverApplication() {
 
       <br />
       <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-        <div>
-     
-
-
-
-  <div class="">
-
-
-
-    <h1
-      class="text-center font-bold text-[20px] leading-[22px] mb-[6px]"
-    >
-      SAFETY PERFORMANCE HISTORY RECORDS REQUEST
-    </h1>
-
-
-
-
-    <div
-      class="border border-[#26364d] bg-[#dbe4f1]
-             h-[32px] flex items-center text-[15px] font-bold"
-    >
-
-      <div
-        class="w-[75px] h-full flex items-center px-[5px]
-               border-r border-[#26364d]"
-      >
-        PART 1:
-      </div>
-
-      <input
-        type="text"
-        class="w-[378px] h-[22px] ml-[4px]
-               border border-[#26364d] bg-white outline-none"
-      />
-
-      <div
-        class="flex-1 border-l border-[#26364d] h-full
-               flex items-center px-[5px] whitespace-nowrap"
-      >
-        TO BE COMPLETED BY PROSPECTIVE EMPLOYEE
-      </div>
-
-    </div>
-
-
-
-
-    <div class="border-x border-b border-[#333] px-[5px] pt-[5px] pb-[6px]">
-
-     
-      <div class="flex items-center h-[20px] text-[14px]">
-
-        <span class="whitespace-nowrap">
-          I, (Print Name):
-        </span>
-
-        <input
-          class="ml-[5px] w-[378px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-        <span class="ml-[8px] whitespace-nowrap">
-          XXX-XX-___
-        </span>
-
-        <span class="ml-[7px] whitespace-nowrap">
-          Social Security Number
-        </span>
-
-      </div>
-
-
-    
-      <div class="flex items-center h-[20px] text-[14px]">
-
-        <span class="whitespace-nowrap">
-          Date of Birth:
-        </span>
-
-        <input
-          class="ml-[5px] w-[190px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-     
-      <div class="flex items-center h-[26px] text-[14px]">
-
-        <span class="whitespace-nowrap">
-          Hereby authorize:
-        </span>
-
-        <input
-          class="ml-[5px] flex-1 h-[26px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-  
-      <div class="flex items-center h-[20px] text-[14px]">
-
-        <span class="whitespace-nowrap">
-          Previous Employer:
-        </span>
-
-        <input
-          class="ml-[5px] w-[337px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-        <span class="ml-[5px] whitespace-nowrap">
-          Email:
-        </span>
-
-        <input
-          class="ml-[4px] w-[142px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-  
-      <div class="flex items-center h-[20px] text-[14px]">
-
-        <span>
-          Street:
-        </span>
-
-        <input
-          class="ml-[5px] w-[333px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-        <span class="ml-[5px]">
-          Telephone:
-        </span>
-
-        <input
-          class="ml-[4px] w-[125px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-    
-      <div class="flex items-center h-[20px] text-[14px]">
-
-        <span>
-          City, State, Zip:
-        </span>
-
-        <input
-          class="ml-[5px] w-[340px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-        <span class="ml-[5px]">
-          Fax No.:
-        </span>
-
-        <input
-          class="ml-[4px] w-[125px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-    
-      <div class="text-[14px] leading-[17px] mt-[3px]">
-
-        To release and forward the information requested by section 3 of this
-        document concerning my Alcohol and Controlled Substances Testing
-        records within the previous 3 years from
-
-        <input
-          class="inline-block w-[174px] h-[24px]
-                 border border-[#26364d] align-middle outline-none"
-        />
-
-        <br />
-
-        (employment application date)
-
-      </div>
-
-
-   
-      <div class="flex items-center h-[25px] text-[14px]">
-
-        <span>
-          Prospective Employer:
-        </span>
-
-        <input
-          class="ml-[5px] w-[355px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-    
-      <div class="flex items-center h-[20px] text-[14px]">
-
-        <span>
-          Attention:
-        </span>
-
-        <input
-          class="ml-[5px] w-[380px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-        <span class="ml-[5px]">
-          Telephone:
-        </span>
-
-        <input
-          class="ml-[4px] w-[120px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-    
-      <div class="flex items-center h-[20px] text-[14px]">
-
-        <span>
-          To: &nbsp;Street:
-        </span>
-
-        <input
-          class="ml-[5px] w-[380px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-     
-      <div class="flex items-center h-[20px] text-[14px]">
-
-        <span class="ml-[32px]">
-          City, State, Zip:
-        </span>
-
-        <input
-          class="ml-[5px] w-[340px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
- 
-      <p class="text-[13px] leading-[16px] mt-[4px] mb-[5px]">
-        In compliance with §40.25(g) and 391.23(h), release of this information
-        must be made in a written form that ensures confidentiality, such as fax,
-        email, or letter.
-      </p>
-
-
- 
-      <div class="flex items-center h-[25px] text-[14px]">
-
-        <span>
-          Prospective employer's fax number:
-        </span>
-
-        <input
-          class="ml-[5px] w-[315px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-    
-      <div class="flex items-center h-[25px] text-[14px]">
-
-        <span>
-          Prospective employer's email address:
-        </span>
-
-        <input
-          class="ml-[5px] w-[285px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-
-      <div class="flex items-center h-[27px] text-[14px]">
-
-        <span>
-          Driver Signature:
-        </span>
-
-        <input
-          class="ml-[5px] w-[360px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-    
-      <div class="flex items-center text-[13px]">
-
-        <div class="w-[365px]"></div>
-
-        <span class="whitespace-nowrap">
-          Applicant's Signature
-        </span>
-
-        <span class="ml-[38px] whitespace-nowrap">
-          Date
-        </span>
-
-      </div>
-
-
-     
-      <div class="flex items-center h-[25px]">
-
-        <div class="w-[365px]"></div>
-
-        <input
-          class="w-[355px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
-
-      </div>
-
-
-      <p class="text-[13px] leading-[16px] mt-[3px]">
-        This information is being requested in compliance with §40.25(g) and
-        391.23.
-      </p>
-
-    </div>
-
-
-
-
-    <div
-      class="border-x border-b border-[#26364d]
-             bg-[#dbe4f1]
-             h-[32px] flex items-center text-[15px] font-bold"
-    >
-
-      <div
-        class="w-[72px] h-full flex items-center px-[5px]
-               border-r border-[#26364d]"
-      >
-        PART 2:
-      </div>
-
-      <input
-        type="text"
-        class="w-[378px] h-[22px] ml-[4px]
-               border border-[#26364d] bg-white outline-none"
-      />
-
-      <div
-        class="flex-1 border-l border-[#26364d] h-full
-               flex items-center px-[5px] whitespace-nowrap"
-      >
-        TO BE COMPLETED BY PREVIOUS EMPLOYER
-      </div>
-
-    </div>
-
-
-  
-
-    <div class="border-x border-b border-[#333] px-[5px] pt-[7px] pb-[6px]">
-
-     
-      <h2
-        class="text-center font-bold text-[17px] leading-[19px] mb-[2px]"
-      >
-        ACCIDENT HISTORY
-      </h2>
-
-
-     
-      <div class="font-bold text-[13px] leading-[17px]">
-
-        The applicant named above was employed by us.
-
-        <span class="ml-[3px]">Yes</span>
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        <span class="ml-[3px]">No</span>
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        <br />
-
-        Employed as
-
-        <input
-          class="w-[160px] h-[23px] border border-[#26364d]
-                 align-middle outline-none"
-        />
-
-        from (m/y)
-
-        <input
-          class="w-[80px] h-[23px] border border-[#26364d]
-                 align-middle outline-none"
-        />
-
-        to (m/y)
-
-        <input
-          class="w-[80px] h-[23px] border border-[#26364d]
-                 align-middle outline-none"
-        />
-
-        <br />
-
-        1. Did he/she drive motor vehicle for you?
-
-        Yes
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        No
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        If yes, what type?
-
-        Straight Truck
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        Tractor-Semitrailer
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        Bus
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        Cargo Tank
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        <br />
-
-        Doubles/Triples
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        Other (Specify)
-
-        <input
-          class="w-[105px] h-[23px] border border-[#26364d]
-                 align-middle outline-none"
-        />
-
-        <br />
-
-        2. Reason for leaving your employment:
-
-        Discharged
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        Resignation
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        Lay Off
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        Military Duty
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        If there is no safety performance history to report,
-        check here
-
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        sign below and return.
-
-      </div>
-
-
-   
-      <div
-        class="font-bold text-[13px] leading-[17px] mt-[2px]"
-      >
-        ACCIDENTS: Complete the following for any accidents included in your
-        accident register (§390.15(b)) that involved the applicant in the 3 years
-        prior to the application date shown above, or check
-
-        <input
-          type="checkbox"
-          class="w-[17px] h-[17px] align-middle"
-        />
-
-        here if there is no accident register data for this driver.
-      </div>
-
-
-    
-
-      <table
-        class="w-full border-collapse border border-[#333]
-               mt-[4px] text-[12px]"
-      >
-
-        <thead>
-          <tr class="h-[28px]">
-
-            <th class="border border-[#333] w-[20%]">
-              Date
-            </th>
-
-            <th class="border border-[#333] w-[20%]">
-              Location
-            </th>
-
-            <th class="border border-[#333] w-[20%]">
-              # Injuries
-            </th>
-
-            <th class="border border-[#333] w-[20%]">
-              # Fatalities
-            </th>
-
-            <th class="border border-[#333] w-[20%]">
-              Hazmat Spill
-            </th>
-
-          </tr>
-        </thead>
-
-        <tbody>
-
-       
-          <tr class="h-[34px]">
-
-            <td class="border border-[#333] p-[3px]">
+        <div class="w-full">
+          <h1
+            class="text-center font-bold
+           text-[16px] sm:text-[18px] md:text-[20px]
+           leading-[20px] sm:leading-[22px]
+           mb-[6px]"
+          >
+            SAFETY PERFORMANCE HISTORY RECORDS REQUEST
+          </h1>
+
+          <div
+            class="border border-[#26364d] bg-[#dbe4f1]
+           min-h-[32px]
+           flex flex-col
+           md:flex-row md:items-center
+           text-[13px] sm:text-[14px] md:text-[15px]
+           font-bold"
+          >
+            <div
+              class="w-full md:w-[75px]
+             min-h-[32px]
+             flex items-center
+             px-[5px]
+             border-b md:border-b-0
+             md:border-r border-[#26364d]"
+            >
+              PART 1:
+            </div>
+
+            <div
+              class="w-full md:w-auto
+             px-[4px] py-[4px]
+             md:p-0"
+            >
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                type="text"
+                class="w-full md:w-[378px]
+               h-[26px] md:h-[22px]
+               border border-[#26364d]
+               bg-white outline-none"
               />
-            </td>
+            </div>
 
-            <td class="border border-[#333] p-[3px]">
+            <div
+              class="w-full md:flex-1
+             min-h-[32px]
+             border-t md:border-t-0
+             md:border-l border-[#26364d]
+             flex items-center
+             px-[5px]
+             py-[5px] md:py-0
+             whitespace-normal md:whitespace-nowrap"
+            >
+              TO BE COMPLETED BY PROSPECTIVE EMPLOYEE
+            </div>
+          </div>
+
+          <div
+            class="border-x border-b border-[#333]
+           px-[5px]
+           pt-[5px]
+           pb-[6px]"
+          >
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             min-h-[20px]
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">I, (Print Name):</span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:flex-1 md:flex-none
+               md:w-[378px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
 
-            <td class="border border-[#333] p-[3px]">
+              <span class="ml-0 sm:ml-[8px] whitespace-nowrap">XXX-XX-___</span>
+
+              <span class="ml-0 sm:ml-[7px] whitespace-nowrap">
+                Social Security Number
+              </span>
+            </div>
+
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             min-h-[20px]
+             mt-2 sm:mt-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">Date of Birth:</span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:w-[190px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
+            </div>
 
-            <td class="border border-[#333] p-[3px]">
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             min-h-[26px]
+             mt-2 sm:mt-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">Hereby authorize:</span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[26px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
+            </div>
 
-            <td class="border border-[#333] p-[3px]">
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             mt-2 sm:mt-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">Previous Employer:</span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:flex-1 md:flex-none
+               md:w-[337px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
 
-          </tr>
+              <span
+                class="ml-0 sm:ml-[5px]
+               whitespace-nowrap"
+              >
+                Email:
+              </span>
 
-
-      
-          <tr class="h-[34px]">
-
-            <td class="border border-[#333] p-[3px]">
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:w-[142px]
+               ml-0 sm:ml-[4px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
+            </div>
 
-            <td class="border border-[#333] p-[3px]">
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             mt-2 sm:mt-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">Street:</span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:flex-1 md:flex-none
+               md:w-[333px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
 
-            <td class="border border-[#333] p-[3px]">
+              <span
+                class="ml-0 sm:ml-[5px]
+               whitespace-nowrap"
+              >
+                Telephone:
+              </span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:w-[125px]
+               ml-0 sm:ml-[4px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
+            </div>
 
-            <td class="border border-[#333] p-[3px]">
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             mt-2 sm:mt-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">City, State, Zip:</span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:flex-1 md:flex-none
+               md:w-[340px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
 
-            <td class="border border-[#333] p-[3px]">
+              <span
+                class="ml-0 sm:ml-[5px]
+               whitespace-nowrap"
+              >
+                Fax No.:
+              </span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:w-[125px]
+               ml-0 sm:ml-[4px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
+            </div>
 
-          </tr>
-
-
- 
-          <tr class="h-[34px]">
-
-            <td class="border border-[#333] p-[3px]">
+            <div
+              class="text-[13px] sm:text-[14px]
+             leading-[17px]
+             mt-[8px] sm:mt-[3px]"
+            >
+              To release and forward the information requested by section 3 of
+              this document concerning my Alcohol and Controlled Substances
+              Testing records within the previous 3 years from
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="inline-block
+               w-full sm:w-[174px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               align-middle
+               outline-none
+               mt-1 sm:mt-0"
               />
-            </td>
+              <br />
+              (employment application date)
+            </div>
 
-            <td class="border border-[#333] p-[3px]">
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             mt-2 sm:mt-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">Prospective Employer:</span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:flex-1 md:flex-none
+               md:w-[355px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
+            </div>
 
-            <td class="border border-[#333] p-[3px]">
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             mt-2 sm:mt-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">Attention:</span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:flex-1 md:flex-none
+               md:w-[380px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
 
-            <td class="border border-[#333] p-[3px]">
+              <span
+                class="ml-0 sm:ml-[5px]
+               whitespace-nowrap"
+              >
+                Telephone:
+              </span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:w-[120px]
+               ml-0 sm:ml-[4px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
+            </div>
 
-            <td class="border border-[#333] p-[3px]">
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             mt-2 sm:mt-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">To: &nbsp;Street:</span>
+
               <input
-                class="w-full h-[27px] border border-[#26364d]
-                       outline-none"
+                class="w-full sm:flex-1 md:flex-none
+               md:w-[380px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
               />
-            </td>
+            </div>
 
-          </tr>
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             mt-2 sm:mt-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span
+                class="ml-0 sm:ml-[32px]
+               whitespace-nowrap"
+              >
+                City, State, Zip:
+              </span>
 
-        </tbody>
+              <input
+                class="w-full sm:w-[340px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
+              />
+            </div>
 
-      </table>
+            <p
+              class="text-[12px] sm:text-[13px]
+             leading-[16px]
+             mt-[8px] sm:mt-[4px]
+             mb-[5px]"
+            >
+              In compliance with §40.25(g) and 391.23(h), release of this
+              information must be made in a written form that ensures
+              confidentiality, such as fax, email, or letter.
+            </p>
 
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">
+                Prospective employer's fax number:
+              </span>
 
+              <input
+                class="w-full sm:flex-1 md:flex-none
+               md:w-[315px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
+              />
+            </div>
 
-      <div class="mt-[20px] text-[13px] leading-[17px]">
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             mt-2 sm:mt-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">
+                Prospective employer's email address:
+              </span>
 
-        Please provide information concerning any other accidents involving the
-        applicant that were reported to government agencies or insurers or
-        retained under internal company policies:
+              <input
+                class="w-full sm:flex-1 md:flex-none
+               md:w-[285px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
+              />
+            </div>
 
-        <input
-          class="w-[575px] h-[24px] border border-[#26364d]
-                 outline-none align-middle"
-        />
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             mt-2 sm:mt-0
+             text-[13px] sm:text-[14px]"
+            >
+              <span class="whitespace-nowrap">Driver Signature:</span>
 
-      </div>
+              <input
+                class="w-full sm:w-[360px]
+               ml-0 sm:ml-[5px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
+              />
+            </div>
 
+            <div
+              class="flex flex-wrap
+             sm:items-center
+             text-[12px] sm:text-[13px]
+             mt-2"
+            >
+              <div class="hidden sm:block sm:w-[365px]"></div>
 
-   
+              <span class="whitespace-nowrap">Applicant's Signature</span>
 
-      <div class="mt-[3px]">
+              <span
+                class="ml-4 sm:ml-[38px]
+               whitespace-nowrap"
+              >
+                Date
+              </span>
+            </div>
 
-        <input
-          class="w-[595px] h-[24px] border border-[#26364d]
-                 outline-none block"
-        />
+            <div class="mt-1">
+              <input
+                class="w-full sm:w-[355px]
+               sm:ml-[365px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
+              />
+            </div>
 
-        <input
-          class="w-[595px] h-[24px] border border-[#26364d]
-                 outline-none block"
-        />
+            <p
+              class="text-[12px] sm:text-[13px]
+             leading-[16px]
+             mt-[5px]"
+            >
+              This information is being requested in compliance with §40.25(g)
+              and 391.23.
+            </p>
+          </div>
 
-      </div>
+          <div
+            class="border-x border-b border-[#26364d]
+           bg-[#dbe4f1]
+           min-h-[32px]
+           flex flex-col
+           md:flex-row md:items-center
+           text-[13px] sm:text-[14px] md:text-[15px]
+           font-bold"
+          >
+            <div
+              class="w-full md:w-[72px]
+             min-h-[32px]
+             flex items-center
+             px-[5px]
+             border-b md:border-b-0
+             md:border-r border-[#26364d]"
+            >
+              PART 2:
+            </div>
 
+            <div
+              class="w-full md:w-auto
+             px-[4px] py-[4px]
+             md:p-0"
+            >
+              <input
+                type="text"
+                class="w-full md:w-[378px]
+               h-[26px] md:h-[22px]
+               border border-[#26364d]
+               bg-white outline-none"
+              />
+            </div>
 
+            <div
+              class="w-full md:flex-1
+             min-h-[32px]
+             border-t md:border-t-0
+             md:border-l border-[#26364d]
+             flex items-center
+             px-[5px]
+             py-[5px] md:py-0
+             whitespace-normal md:whitespace-nowrap"
+            >
+              TO BE COMPLETED BY PREVIOUS EMPLOYER
+            </div>
+          </div>
 
+          <div
+            class="border-x border-b border-[#333]
+           px-[5px]
+           pt-[7px]
+           pb-[6px]"
+          >
+            <h2
+              class="text-center font-bold
+             text-[15px] sm:text-[17px]
+             leading-[19px]
+             mb-[4px]"
+            >
+              ACCIDENT HISTORY
+            </h2>
 
-      <div class="mt-[2px] text-[13px] font-bold">
+            <div
+              class="font-bold
+             text-[12px] sm:text-[13px]
+             leading-[17px]"
+            >
+              The applicant named above was employed by us.
+              <span class="ml-[3px]">Yes</span>
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <span class="ml-[3px]">No</span>
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <br />
+              Employed as
+              <input
+                class="w-[120px] sm:w-[160px]
+               h-[24px]
+               border border-[#26364d]
+               align-middle
+               outline-none"
+              />
+              from (m/y)
+              <input
+                class="w-[65px] sm:w-[80px]
+               h-[24px]
+               border border-[#26364d]
+               align-middle
+               outline-none"
+              />
+              to (m/y)
+              <input
+                class="w-[65px] sm:w-[80px]
+               h-[24px]
+               border border-[#26364d]
+               align-middle
+               outline-none"
+              />
+              <br />
+              1. Did he/she drive motor vehicle for you? Yes
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              No
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              If yes, what type? Straight Truck
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              Tractor-Semitrailer
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              Bus
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              Cargo Tank
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <br />
+              Doubles/Triples
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              Other (Specify)
+              <input
+                class="w-[90px] sm:w-[105px]
+               h-[24px]
+               border border-[#26364d]
+               align-middle
+               outline-none"
+              />
+              <br />
+              2. Reason for leaving your employment: Discharged
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              Resignation
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              Lay Off
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              Military Duty
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              If there is no safety performance history to report, check here
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              sign below and return.
+            </div>
 
-        Any other remarks:
+            <div
+              class="font-bold
+             text-[12px] sm:text-[13px]
+             leading-[17px]
+             mt-[3px]"
+            >
+              ACCIDENTS: Complete the following for any accidents included in
+              your accident register (§390.15(b)) that involved the applicant in
+              the 3 years prior to the application date shown above, or check
+              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              here if there is no accident register data for this driver.
+            </div>
 
-        <input
-          class="w-[575px] h-[24px] border border-[#26364d]
-                 outline-none align-middle"
-        />
+            <div class="w-full overflow-x-auto mt-[4px]">
+              <table
+                class="w-full min-w-[600px]
+               border-collapse
+               border border-[#333]
+               text-[12px]"
+              >
+                <thead>
+                  <tr class="h-[28px]">
+                    <th class="border border-[#333] w-[20%]">Date</th>
 
-      </div>
+                    <th class="border border-[#333] w-[20%]">Location</th>
 
+                    <th class="border border-[#333] w-[20%]"># Injuries</th>
 
-      <div class="mt-[3px]">
+                    <th class="border border-[#333] w-[20%]"># Fatalities</th>
 
-        <input
-          class="w-[595px] h-[24px] border border-[#26364d]
-                 outline-none block"
-        />
+                    <th class="border border-[#333] w-[20%]">Hazmat Spill</th>
+                  </tr>
+                </thead>
 
-        <input
-          class="w-[595px] h-[24px] border border-[#26364d]
-                 outline-none block"
-        />
+                <tbody>
+                  <tr class="h-[34px]">
+                    <td class="border border-[#333] p-[3px]">
+                      <input
+                        class="w-full h-[27px]
+                       border border-[#26364d]
+                       outline-none"
+                      />
+                    </td>
 
-      </div>
+                    <td class="border border-[#333] p-[3px]">
+                      <input
+                        class="w-full h-[27px]
+                       border border-[#26364d]
+                       outline-none"
+                      />
+                    </td>
 
+                    <td class="border border-[#333] p-[3px]">
+                      <input
+                        class="w-full h-[27px]
+                       border border-[#26364d]
+                       outline-none"
+                      />
+                    </td>
 
-    
+                    <td class="border border-[#333] p-[3px]">
+                      <input
+                        class="w-full h-[27px]
+                       border border-[#26364d]
+                       outline-none"
+                      />
+                    </td>
 
-      <div class="flex items-center text-[13px] mt-[2px]">
+                    <td class="border border-[#333] p-[3px]">
+                      <input
+                        class="w-full h-[27px]
+                       border border-[#26364d]
+                       outline-none"
+                      />
+                    </td>
+                  </tr>
 
-        <span>
-          Signature:
-        </span>
+                  <tr class="h-[34px]">
+                    <td class="border border-[#333] p-[3px]">
+                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                    </td>
 
-        <input
-          class="ml-[3px] w-[340px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
+                    <td class="border border-[#333] p-[3px]">
+                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                    </td>
 
-      </div>
+                    <td class="border border-[#333] p-[3px]">
+                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                    </td>
 
+                    <td class="border border-[#333] p-[3px]">
+                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                    </td>
 
-      <div class="flex items-center text-[13px] mt-[2px]">
+                    <td class="border border-[#333] p-[3px]">
+                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                    </td>
+                  </tr>
 
-        <span>
-          Title:
-        </span>
+                  <tr class="h-[34px]">
+                    <td class="border border-[#333] p-[3px]">
+                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                    </td>
 
-        <input
-          class="ml-[3px] w-[180px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
+                    <td class="border border-[#333] p-[3px]">
+                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                    </td>
 
-        <span class="ml-[8px]">
-          Date:
-        </span>
+                    <td class="border border-[#333] p-[3px]">
+                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                    </td>
 
-        <input
-          class="ml-[3px] w-[190px] h-[24px]
-                 border border-[#26364d] outline-none"
-        />
+                    <td class="border border-[#333] p-[3px]">
+                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                    </td>
 
-      </div>
+                    <td class="border border-[#333] p-[3px]">
+                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-    </div>
+            <div
+              class="mt-[15px] sm:mt-[20px]
+             text-[12px] sm:text-[13px]
+             leading-[17px]"
+            >
+              Please provide information concerning any other accidents
+              involving the applicant that were reported to government agencies
+              or insurers or retained under internal company policies:
+              <input
+                class="w-full
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none
+               align-middle
+               mt-1"
+              />
+            </div>
 
-  </div>
+            <div class="mt-[3px]">
+              <input
+                class="w-full
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none block"
+              />
 
-     
+              <input
+                class="w-full
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none block"
+              />
+            </div>
+
+            <div
+              class="mt-[4px]
+             text-[12px] sm:text-[13px]
+             font-bold"
+            >
+              Any other remarks:
+              <input
+                class="w-full
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none
+               align-middle
+               mt-1"
+              />
+            </div>
+
+            <div class="mt-[3px]">
+              <input
+                class="w-full
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none block"
+              />
+
+              <input
+                class="w-full
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none block"
+              />
+            </div>
+
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             text-[12px] sm:text-[13px]
+             mt-[3px]"
+            >
+              <span class="whitespace-nowrap">Signature:</span>
+
+              <input
+                class="w-full sm:w-[340px]
+               ml-0 sm:ml-[3px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
+              />
+            </div>
+
+            <div
+              class="flex flex-col sm:flex-row
+             sm:items-center
+             gap-1 sm:gap-0
+             text-[12px] sm:text-[13px]
+             mt-[3px]"
+            >
+              <span>Title:</span>
+
+              <input
+                class="w-full sm:w-[180px]
+               ml-0 sm:ml-[3px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
+              />
+
+              <span class="ml-0 sm:ml-[8px]">Date:</span>
+
+              <input
+                class="w-full sm:w-[190px]
+               ml-0 sm:ml-[3px]
+               h-[28px] sm:h-[24px]
+               border border-[#26364d]
+               outline-none"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
       {/*****page 10 start********/}
+
+      <br />
+      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div class="w-full">
+            <h1 class="text-center font-bold text-[18px] sm:text-[20px] leading-[22px] mb-[6px]">
+              DRIVER'S ROAD TEST & PROFICIENCY EVALUATION
+            </h1>
+
+            <div class="border border-[#26364d] bg-[#dbe4f1] min-h-[32px] flex flex-col sm:flex-row sm:items-center text-[14px] sm:text-[15px] font-bold">
+              <div class="w-full sm:w-[75px] min-h-[32px] flex items-center px-[5px] border-b sm:border-b-0 sm:border-r border-[#26364d]">
+                PART 1:
+              </div>
+
+              <input
+                type="text"
+                class="w-full sm:w-[378px] h-[24px] sm:h-[22px] my-[4px] sm:my-0 sm:ml-[4px] border border-[#26364d] bg-white outline-none"
+              />
+
+              <div class="w-full sm:flex-1 border-t sm:border-t-0 sm:border-l border-[#26364d] min-h-[32px] flex items-center px-[5px] whitespace-normal sm:whitespace-nowrap">
+                TO BE COMPLETED BY PROSPECTIVE EMPLOYEE
+              </div>
+            </div>
+
+            <div class="border-x border-b border-[#333] px-[5px] pt-[5px] pb-[6px]">
+              <div class="flex flex-col sm:flex-row sm:items-center min-h-[20px] text-[14px] gap-y-[4px]">
+                <span class="whitespace-nowrap">I, (Print Name):</span>
+
+                <input class="w-full sm:w-[378px] h-[24px] sm:ml-[5px] border border-[#26364d] outline-none" />
+
+                <div class="flex items-center gap-[7px]">
+                  <span class="whitespace-nowrap">XXX-XX-___</span>
+                  <span class="whitespace-nowrap">Social Security Number</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center min-h-[20px] text-[14px] gap-y-[4px] mt-[4px] sm:mt-0">
+                <span class="whitespace-nowrap">Date of Birth:</span>
+
+                <input class="w-full sm:w-[190px] h-[24px] sm:ml-[5px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center min-h-[26px] text-[14px] gap-y-[4px] mt-[4px] sm:mt-0">
+                <span class="whitespace-nowrap">Hereby authorize:</span>
+
+                <input class="w-full flex-1 h-[26px] sm:ml-[5px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="flex flex-col md:flex-row md:items-center text-[14px] gap-y-[4px] mt-[4px] md:mt-0">
+                <span class="whitespace-nowrap">Previous Employer:</span>
+
+                <input class="w-full md:w-[337px] h-[24px] md:ml-[5px] border border-[#26364d] outline-none" />
+
+                <span class="md:ml-[5px] whitespace-nowrap">Email:</span>
+
+                <input class="w-full md:w-[142px] h-[24px] md:ml-[4px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="flex flex-col md:flex-row md:items-center text-[14px] gap-y-[4px] mt-[4px] md:mt-0">
+                <span>Street:</span>
+
+                <input class="w-full md:w-[333px] h-[24px] md:ml-[5px] border border-[#26364d] outline-none" />
+
+                <span class="md:ml-[5px]">Telephone:</span>
+
+                <input class="w-full md:w-[125px] h-[24px] md:ml-[4px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="flex flex-col md:flex-row md:items-center text-[14px] gap-y-[4px] mt-[4px] md:mt-0">
+                <span>City, State, Zip:</span>
+
+                <input class="w-full md:w-[340px] h-[24px] md:ml-[5px] border border-[#26364d] outline-none" />
+
+                <span class="md:ml-[5px]">Fax No.:</span>
+
+                <input class="w-full md:w-[125px] h-[24px] md:ml-[4px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="text-[14px] leading-[17px] mt-[5px]">
+                To release and forward the information requested by section 3 of
+                this document concerning my Alcohol and Controlled Substances
+                Testing records within the previous 3 years from
+                <input class="inline-block w-full sm:w-[174px] h-[24px] border border-[#26364d] align-middle outline-none mt-[3px] sm:mt-0" />
+                <br class="hidden sm:block" />
+                (employment application date)
+              </div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center min-h-[25px] text-[14px] mt-[4px]">
+                <span class="whitespace-nowrap">Prospective Employer:</span>
+
+                <input class="w-full sm:w-[355px] h-[24px] sm:ml-[5px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="flex flex-col md:flex-row md:items-center text-[14px] gap-y-[4px] mt-[4px] md:mt-0">
+                <span>Attention:</span>
+
+                <input class="w-full md:w-[380px] h-[24px] md:ml-[5px] border border-[#26364d] outline-none" />
+
+                <span class="md:ml-[5px] whitespace-nowrap">Telephone:</span>
+
+                <input class="w-full md:w-[120px] h-[24px] md:ml-[4px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center text-[14px] gap-y-[4px] mt-[4px] sm:mt-0">
+                <span class="whitespace-nowrap">To: &nbsp;Street:</span>
+
+                <input class="w-full sm:w-[380px] h-[24px] sm:ml-[5px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center text-[14px] gap-y-[4px] mt-[4px] sm:mt-0">
+                <span class="sm:ml-[32px] whitespace-nowrap">
+                  City, State, Zip:
+                </span>
+
+                <input class="w-full sm:w-[340px] h-[24px] sm:ml-[5px] border border-[#26364d] outline-none" />
+              </div>
+
+              <p class="text-[13px] leading-[16px] mt-[5px] mb-[5px]">
+                In compliance with §40.25(g) and 391.23(h), release of this
+                information must be made in a written form that ensures
+                confidentiality, such as fax, email, or letter.
+              </p>
+
+              <div class="flex flex-col sm:flex-row sm:items-center text-[14px] gap-y-[4px] mt-[4px]">
+                <span>Prospective employer's fax number:</span>
+
+                <input class="w-full sm:w-[315px] h-[24px] sm:ml-[5px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center text-[14px] gap-y-[4px] mt-[4px]">
+                <span>Prospective employer's email address:</span>
+
+                <input class="w-full sm:w-[285px] h-[24px] sm:ml-[5px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center text-[14px] gap-y-[4px] mt-[4px]">
+                <span>Driver Signature:</span>
+
+                <input class="w-full sm:w-[360px] h-[24px] sm:ml-[5px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center text-[13px] mt-[4px] gap-[4px]">
+                <div class="hidden sm:block w-[365px]"></div>
+
+                <span class="whitespace-nowrap">Applicant's Signature</span>
+                <span class="sm:ml-[38px] whitespace-nowrap">Date</span>
+              </div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center mt-[4px]">
+                <div class="hidden sm:block w-[365px]"></div>
+
+                <input class="w-full sm:w-[355px] h-[24px] border border-[#26364d] outline-none" />
+              </div>
+
+              <p class="text-[13px] leading-[16px] mt-[4px]">
+                This information is being requested in compliance with §40.25(g)
+                and 391.23.
+              </p>
+            </div>
+
+            <div class="border-x border-b border-[#26364d] bg-[#dbe4f1] min-h-[32px] flex flex-col sm:flex-row sm:items-center text-[14px] sm:text-[15px] font-bold">
+              <div class="w-full sm:w-[72px] min-h-[32px] flex items-center px-[5px] border-b sm:border-b-0 sm:border-r border-[#26364d]">
+                PART 2:
+              </div>
+
+              <input
+                type="text"
+                class="w-full sm:w-[378px] h-[24px] sm:h-[22px] my-[4px] sm:my-0 sm:ml-[4px] border border-[#26364d] bg-white outline-none"
+              />
+
+              <div class="w-full sm:flex-1 border-t sm:border-t-0 sm:border-l border-[#26364d] min-h-[32px] flex items-center px-[5px] whitespace-normal sm:whitespace-nowrap">
+                TO BE COMPLETED BY PREVIOUS EMPLOYER
+              </div>
+            </div>
+
+            <div class="border-x border-b border-[#333] px-[5px] pt-[7px] pb-[6px]">
+              <h2 class="text-center font-bold text-[16px] sm:text-[17px] leading-[19px] mb-[2px]">
+                ACCIDENT HISTORY
+              </h2>
+
+              <div class="font-bold text-[13px] leading-[17px]">
+                The applicant named above was employed by us.
+                <span class="ml-[3px]">Yes</span>
+                <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+                <span class="ml-[3px]">No</span>
+                <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+                <div class="mt-[4px]">
+                  Employed as
+                  <input class="w-full sm:w-[160px] h-[23px] border border-[#26364d] align-middle outline-none" />
+                  <span class="inline-block mt-[3px] sm:mt-0">from (m/y)</span>
+                  <input class="w-[80px] h-[23px] border border-[#26364d] align-middle outline-none" />
+                  <span>to (m/y)</span>
+                  <input class="w-[80px] h-[23px] border border-[#26364d] align-middle outline-none" />
+                </div>
+                <div class="mt-[4px]">
+                  1. Did he/she drive motor vehicle for you? Yes
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                  No
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                  If yes, what type? Straight Truck
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                  Tractor-Semitrailer
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                  Bus
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                  Cargo Tank
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                </div>
+                <div class="mt-[4px]">
+                  Doubles/Triples
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                  Other (Specify)
+                  <input class="w-[105px] h-[23px] border border-[#26364d] align-middle outline-none" />
+                </div>
+                <div class="mt-[4px]">
+                  2. Reason for leaving your employment: Discharged
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                  Resignation
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                  Lay Off
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                  Military Duty
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                  If there is no safety performance history to report, check
+                  here
+                  <input
+                    type="checkbox"
+                    class="w-[17px] h-[17px] align-middle"
+                  />
+                  sign below and return.
+                </div>
+              </div>
+
+              <div class="font-bold text-[13px] leading-[17px] mt-[4px]">
+                ACCIDENTS: Complete the following for any accidents included in
+                your accident register (§390.15(b)) that involved the applicant
+                in the 3 years prior to the application date shown above, or
+                check
+                <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+                here if there is no accident register data for this driver.
+              </div>
+
+              <div class="w-full overflow-x-auto mt-[4px]">
+                <table class="w-full min-w-[600px] border-collapse border border-[#333] text-[12px]">
+                  <thead>
+                    <tr class="h-[28px]">
+                      <th class="border border-[#333] w-[20%]">Date</th>
+                      <th class="border border-[#333] w-[20%]">Location</th>
+                      <th class="border border-[#333] w-[20%]"># Injuries</th>
+                      <th class="border border-[#333] w-[20%]"># Fatalities</th>
+                      <th class="border border-[#333] w-[20%]">Hazmat Spill</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr class="h-[34px]">
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                    </tr>
+
+                    <tr class="h-[34px]">
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                    </tr>
+
+                    <tr class="h-[34px]">
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                      <td class="border border-[#333] p-[3px]">
+                        <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="mt-[20px] text-[13px] leading-[17px]">
+                Please provide information concerning any other accidents
+                involving the applicant that were reported to government
+                agencies or insurers or retained under internal company
+                policies:
+                <input class="w-full h-[24px] border border-[#26364d] outline-none align-middle mt-[4px]" />
+              </div>
+
+              <div class="mt-[3px] space-y-[3px]">
+                <input class="w-full h-[24px] border border-[#26364d] outline-none block" />
+                <input class="w-full h-[24px] border border-[#26364d] outline-none block" />
+              </div>
+
+              <div class="mt-[4px] text-[13px] font-bold">
+                <span>Any other remarks:</span>
+                <input class="w-full h-[24px] border border-[#26364d] outline-none align-middle mt-[4px]" />
+              </div>
+
+              <div class="mt-[3px] space-y-[3px]">
+                <input class="w-full h-[24px] border border-[#26364d] outline-none block" />
+                <input class="w-full h-[24px] border border-[#26364d] outline-none block" />
+              </div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center text-[13px] mt-[4px] gap-y-[4px]">
+                <span>Signature:</span>
+
+                <input class="w-full sm:w-[340px] h-[24px] sm:ml-[3px] border border-[#26364d] outline-none" />
+              </div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center text-[13px] mt-[4px] gap-y-[4px]">
+                <span>Title:</span>
+
+                <input class="w-full sm:w-[180px] h-[24px] sm:ml-[3px] border border-[#26364d] outline-none" />
+
+                <span class="sm:ml-[8px]">Date:</span>
+
+                <input class="w-full sm:w-[190px] h-[24px] sm:ml-[3px] border border-[#26364d] outline-none" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 11 start********/}
     </div>
   );
 }
