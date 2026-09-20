@@ -1,14 +1,34 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+
 export default function Login() {
+  const [errors, setErrors] = useState({});
+
 const handleSubmit = async (e) => {
   e.preventDefault();
 
   const formData = new FormData(e.target);
-
   const data = Object.fromEntries(formData.entries());
 
+  const newErrors = {};
+
+  if (!data.email.trim()) {
+    newErrors.email = "Email is required";
+  }
+
+  if (!data.password.trim()) {
+    newErrors.password = "Password is required";
+  }
+
+  if (Object.keys(newErrors).length > 0) {
+    setErrors(newErrors);
+    return;
+  }
+
+  setErrors({});
+
   try {
-    const response = await fetch("http://localhost:8000/api/login", {
+    const response = await fetch("/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,6 +95,11 @@ const handleSubmit = async (e) => {
                   placeholder="admin@dotcompliance.com"
                   className="w-full pl-9 pr-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
                 />
+                {errors.email && (
+  <p className="text-red-500 text-xs mt-1">
+    {errors.email}
+  </p>
+)}
               </div>
             </div>
 
@@ -102,6 +127,11 @@ const handleSubmit = async (e) => {
                   placeholder="••••••••"
                   className="w-full pl-9 pr-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
                 />
+                {errors.password && (
+  <p className="text-red-500 text-xs mt-1">
+    {errors.password}
+  </p>
+)}
               </div>
             </div>
 
