@@ -8,7 +8,7 @@ class AuthController extends Controller
 {
     public function login(Request $request){
 
-    //     if (!$request->name) {
+    //     if (!$request->email) {
     //     return response()->json([
     //         'success' => false,
     //         'message' => 'Name is required'

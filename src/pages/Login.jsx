@@ -1,48 +1,68 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [serverMessage, setServerMessage] = useState("");
+  const [serverMessageType, setServerMessageType] = useState("");
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const formData = new FormData(e.target);
-  const data = Object.fromEntries(formData.entries());
+    // Agar request already chal rahi hai
+    if (loading) return;
 
-  const newErrors = {};
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
 
-  if (!data.email.trim()) {
-    newErrors.email = "Email is required";
-  }
+    const newErrors = {};
 
-  if (!data.password.trim()) {
-    newErrors.password = "Password is required";
-  }
+    if (!data.email.trim()) {
+      newErrors.email = "Email is required";
+    }
 
-  if (Object.keys(newErrors).length > 0) {
-    setErrors(newErrors);
-    return;
-  }
+    if (!data.password.trim()) {
+      newErrors.password = "Password is required";
+    }
 
-  setErrors({});
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
-  try {
-    const response = await fetch("/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    setErrors({});
+    setServerMessage("");
+    setLoading(true);
 
-    const result = await response.json();
+    try {
+      const response = await fetch("http://localhost:8000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    console.log("Server response:", result);
-  } catch (error) {
-    console.error("Error:", error);
-  }
-};
+      const result = await response.json();
+
+      if (!response.ok) {
+        setServerMessage(result.message || "Something went wrong");
+        setServerMessageType("error");
+        return;
+      }
+
+      setServerMessage(result.message || "Login successful!");
+      setServerMessageType("success");
+    } catch (error) {
+      console.error("Error:", error);
+      setServerMessage("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="bg-[#0a1122] min-h-screen relative overflow-hidden flex items-center justify-center px-4">
       <div className="stripe-wrap">
@@ -60,6 +80,19 @@ const handleSubmit = async (e) => {
           <p className="text-slate-400 text-xs mt-1">
             Safety &nbsp;•&nbsp; Compliance &nbsp;•&nbsp; Our Priority
           </p>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition="Bounce"
+          />
         </div>
 
         <div className="bg-white rounded-xl shadow-xl p-8">
@@ -76,30 +109,17 @@ const handleSubmit = async (e) => {
                 Email address
               </label>
               <div className="relative">
-                <svg
-                  className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
                 <input
                   type="email"
                   name="email"
                   placeholder="admin@dotcompliance.com"
-                  className="w-full pl-9 pr-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  className="w-full pl-2 pr-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
                 />
                 {errors.email && (
-  <p className="text-red-500 text-xs mt-1">
-    {errors.email}
-  </p>
-)}
+                  <p className="text-red-500 text-xs mt-1">
+                    <b>{errors.email}</b>
+                  </p>
+                )}
               </div>
             </div>
 
@@ -108,30 +128,17 @@ const handleSubmit = async (e) => {
                 Password
               </label>
               <div className="relative">
-                <svg
-                  className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 11c1.657 0 3-1.343 3-3V6a3 3 0 00-6 0v2c0 1.657 1.343 3 3 3zm6 3v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4a2 2 0 012-2h8a2 2 0 012 2z"
-                  />
-                </svg>
                 <input
                   type="password"
                   name="password"
                   placeholder="••••••••"
-                  className="w-full pl-9 pr-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  className="w-full pl-2 pr-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
                 />
                 {errors.password && (
-  <p className="text-red-500 text-xs mt-1">
-    {errors.password}
-  </p>
-)}
+                  <p className="text-red-500 text-xs mt-1">
+                    <b>{errors.password}</b>
+                  </p>
+                )}
               </div>
             </div>
 
@@ -153,12 +160,28 @@ const handleSubmit = async (e) => {
 
             <button
               type="submit"
-              className="bg-[#091122] w-full hover:bg-[#091122] text-white rounded-lg py-2.5 text-sm font-medium transition"
+              disabled={loading}
+              className={`w-full text-white rounded-lg py-2.5 text-sm font-medium transition ${
+                loading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-[#091122] hover:bg-[#091122]"
+              }`}
             >
-              Sign In
+              {loading ? "Signing In..." : "Sign In"}
             </button>
           </form>
-
+          {serverMessage && (
+            <div
+              className={`mt-3 mb-3 rounded-lg border px-3 py-2 text-sm text-center ${
+                serverMessageType === "error"
+                  ? "text-red-500"
+                  : "text-green-600"
+              }`}
+              style={{ borderColor: "#091122" }}
+            >
+              {serverMessage}
+            </div>
+          )}
           <p className="text-sm text-slate-500 text-center mt-6">
             Don't have an account?
             <Link
