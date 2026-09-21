@@ -1,20 +1,20 @@
-export default function DriverApplication() {
+export default function DriverApplicationPreview() {
   return (
-    <div className="min-h-screen bg-[#bdbdbd] px-2 py-5 sm:px-4 lg:px-6">
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-        
+    <div className="min-h-screen bg-[#bdbdbd] px-2 py-5 sm:px-4 lg:px-6 font-['Tinos']">
+      <div className="mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+       
         <div className="text-center">
-          <h3 className="mb-[10px] text-[18px] font-bold tracking-[0.2px] text-[#202b36]">
+          <h3 className="mb-[10px] font-['Tinos'] text-[17.4px] font-bold tracking-[0.2px] text-[#133B63]">
             DOT COMPLIANCE SOLUTIONS LLC
           </h3>
 
-          <h1 className="m-0 text-[31px] font-bold leading-[1.22] tracking-[0.3px] text-[#1F355A]">
+          <h1 className="m-0 text-[#133B63] font-['Tinos'] text-[29.4px] font-bold leading-[1.22] tracking-[0.3px]">
             COMMERCIAL DRIVER
             <br />
             APPLICATION &amp; QUALIFICATION PACKET
           </h1>
 
-          <div className="mb-[10px] mt-[14px] text-[21px] leading-[1.3] text-[#174875]">
+          <div className="mb-[10px] mt-[14px] text-[21px] leading-[1.3] text-[#133B63] font-['Tinos'] text-[18px]">
             Complete Driver Application, Qualification, Onboarding &amp; Safety
             Policy Packet
           </div>
@@ -23,7 +23,7 @@ export default function DriverApplication() {
         <table className="mt-2 w-full border-collapse text-[14px]">
           <tbody>
             <tr>
-              <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#173f69]">
+              <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#133B63] font-['Tinos'] text-[12px]">
                 MOTOR CARRIER / EMPLOYER
               </td>
               <td className="h-[25px] border-b border-[#aebdcc]">
@@ -35,7 +35,7 @@ export default function DriverApplication() {
             </tr>
 
             <tr>
-              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#173f69]">
+              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#133B63] font-['Tinos'] text-[12px]">
                 USDOT NUMBER
               </td>
 
@@ -48,7 +48,7 @@ export default function DriverApplication() {
             </tr>
 
             <tr>
-              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#173f69]">
+              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#133B63] font-['Tinos'] text-[12px]">
                 APPLICANT NAME
               </td>
 
@@ -61,7 +61,7 @@ export default function DriverApplication() {
             </tr>
 
             <tr>
-              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#173f69]">
+              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#133B63] font-['Tinos'] text-[12px]">
                 POSITION APPLIED FOR
               </td>
 
@@ -74,7 +74,7 @@ export default function DriverApplication() {
             </tr>
 
             <tr>
-              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#173f69]">
+              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#133B63] font-['Tinos'] text-[12px]">
                 APPLICATION DATE
               </td>
 
@@ -89,11 +89,11 @@ export default function DriverApplication() {
         </table>
 
         <section className="mt-[10px] text-center">
-          <h2 className="mb-[6px] text-[16px] font-bold text-[#173f69]">
+          <h2 className="mb-[6px] text-[16px] font-bold text-[#133B63] font-['Tinos'] text-[14px]">
             APPLICANT INSTRUCTIONS
           </h2>
 
-          <p className="mx-auto my-0 max-w-[700px] text-[13.5px] leading-[1.35]">
+          <p className="mx-auto my-0 max-w-[700px] text-[#133B63] font-['Tinos'] text-[14px] leading-[1.35]">
             Complete every applicable section. Use full legal names, complete
             addresses, and accurate dates. If additional space is needed, attach
             a signed continuation sheet identifying the section and question. Do
@@ -102,11 +102,11 @@ export default function DriverApplication() {
         </section>
 
         <section className="mt-[12px]">
-          <h2 className="mb-[8px] text-[23px] font-bold leading-[1.2] text-[#174875]">
+          <h2 className="mb-[8px] font-bold leading-[1.2] text-[#133B63] font-['Tinos'] text-[18px]">
             DOCUMENTS TO SUBMIT WITH YOUR DRIVER APPLICATION
           </h2>
 
-          <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[13px] font-semibold leading-[1.35] text-[#173f69]">
+          <div className="bg-[#d8e9f6] px-[10px] py-[9px] font-semibold leading-[1.35] text-[#133B63] font-['Tinos'] text-[12px]">
             Upload clear, complete, readable copies. Documents marked
             <strong>"if applicable"</strong> are required only when they apply
             to the driver or position. Employment-eligibility documents are
@@ -118,13 +118,13 @@ export default function DriverApplication() {
             <table className="w-full table-fixed border-collapse text-[13.5px]">
               <thead>
                 <tr>
-                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[14px] font-bold text-white">
+                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[#133B63] font-['Arial'] text-[14px] font-bold text-white">
                     DOCUMENT
                   </th>
-                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[14px] font-bold text-white">
+                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[#133B63] font-['Arial'] text-[14px] font-bold text-white">
                     APPLICANT
                   </th>
-                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[14px] font-bold text-white">
+                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[#133B63] font-['Arial'] text-[14px] font-bold text-white">
                     OFFICE
                   </th>
                 </tr>
@@ -132,7 +132,7 @@ export default function DriverApplication() {
 
               <tbody>
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] font-['Arial'] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Current Driver License / CDL - front and back
                   </td>
 
@@ -150,7 +150,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Work authorization / acceptable Form I-9 documentation - as
                     applicable (employee chooses acceptable documents)
                   </td>
@@ -312,7 +312,7 @@ export default function DriverApplication() {
       <br />
 
       <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-       
+        
         <section className="mt-[12px]">
           <div className="overflow-x-auto">
             <table className="w-full table-fixed border-collapse text-[13.5px]">
@@ -470,7 +470,7 @@ export default function DriverApplication() {
       {/******page 3 start*****/}
       <br />
       <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-       
+     
         <section className="mt-[12px]">
           <h2 className="mb-[8px] text-[21px] font-bold leading-[1.2] text-[#174875]">
             23 DMV / MVR / CDLIS DRIVER RECORDS AUTHORIZATION & CONSENT
