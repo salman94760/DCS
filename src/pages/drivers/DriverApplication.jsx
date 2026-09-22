@@ -1,8 +1,7 @@
 export default function DriverApplication() {
   return (
-    <div className="min-h-screen bg-[#bdbdbd] px-2 py-5 sm:px-4 lg:px-6">
+    <div className="min-h-screen bg-[#bdbdbd] px-2 py-5 sm:px-4 lg:px-6 font-['Tinos']">
       <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-        
         <div className="text-center">
           <h3 className="mb-[10px] text-[18px] font-bold tracking-[0.2px] text-[#202b36]">
             DOT COMPLIANCE SOLUTIONS LLC
@@ -312,7 +311,6 @@ export default function DriverApplication() {
       <br />
 
       <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-       
         <section className="mt-[12px]">
           <div className="overflow-x-auto">
             <table className="w-full table-fixed border-collapse text-[13.5px]">
@@ -470,7 +468,6 @@ export default function DriverApplication() {
       {/******page 3 start*****/}
       <br />
       <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-       
         <section className="mt-[12px]">
           <h2 className="mb-[8px] text-[21px] font-bold leading-[1.2] text-[#174875]">
             23 DMV / MVR / CDLIS DRIVER RECORDS AUTHORIZATION & CONSENT
@@ -6995,13 +6992,17 @@ export default function DriverApplication() {
 
               <div className="mb-2 text-[12.5px]">
                 <p className="text-[11px] text-bold mb-2">
-                  DOT alcohol screening tests are conducted by qualified personnel using approved devices and the DOT Alcohol Testing
-Form. A screening result below 0.02 requires no action under Part 40. A screening result of 0.02 or greater requires a
-confirmation test under Part 40. For FMCSA-covered drivers, a confirmed result of 0.02 through 0.039 requires temporary
-removal from safety-sensitive functions as required by §382.505; a result of 0.04 or greater is a DOT alcohol violation
-requiring immediate removal and the return-to-duty process before resumption of covered functions.
+                  DOT alcohol screening tests are conducted by qualified
+                  personnel using approved devices and the DOT Alcohol Testing
+                  Form. A screening result below 0.02 requires no action under
+                  Part 40. A screening result of 0.02 or greater requires a
+                  confirmation test under Part 40. For FMCSA-covered drivers, a
+                  confirmed result of 0.02 through 0.039 requires temporary
+                  removal from safety-sensitive functions as required by
+                  §382.505; a result of 0.04 or greater is a DOT alcohol
+                  violation requiring immediate removal and the return-to-duty
+                  process before resumption of covered functions.
                 </p>
-                
               </div>
             </section>
 
@@ -7012,19 +7013,24 @@ requiring immediate removal and the return-to-duty process before resumption of 
 
               <div className="mb-2 text-[12.5px]">
                 <p className="text-[11px] text-bold mb-2">
-                  Upon notice of a verified positive DOT drug test, an alcohol concentration of 0.04 or greater, a DOT refusal, or another
-violation that prohibits safety-sensitive performance, the Company will immediately remove the driver from DOT safety-
-sensitive functions. The driver may not be dispatched, operate a covered CMV, or perform another prohibited safety-
-sensitive function until legally eligible to do so.
+                  Upon notice of a verified positive DOT drug test, an alcohol
+                  concentration of 0.04 or greater, a DOT refusal, or another
+                  violation that prohibits safety-sensitive performance, the
+                  Company will immediately remove the driver from DOT safety-
+                  sensitive functions. The driver may not be dispatched, operate
+                  a covered CMV, or perform another prohibited safety- sensitive
+                  function until legally eligible to do so.
                 </p>
 
                 <p className="text-[11px] text-bold mb-2">
-                  Federal removal from safety-sensitive functions is separate from the Company's employment decision. Subject to
-applicable law and Company policy, the Company may terminate employment/contracting, place the driver in a non-
-safety-sensitive status, or consider return after successful completion of the federal return-to-duty process. DOT
-regulations do not require the Company to reinstate a driver.
+                  Federal removal from safety-sensitive functions is separate
+                  from the Company's employment decision. Subject to applicable
+                  law and Company policy, the Company may terminate
+                  employment/contracting, place the driver in a non-
+                  safety-sensitive status, or consider return after successful
+                  completion of the federal return-to-duty process. DOT
+                  regulations do not require the Company to reinstate a driver.
                 </p>
-                
               </div>
             </section>
 
@@ -7035,31 +7041,4221 @@ regulations do not require the Company to reinstate a driver.
 
               <div className="mb-2 text-[12.5px]">
                 <p className="text-[11px] text-bold mb-2">
-                  When required, the Company will provide the driver with information identifying qualified Substance Abuse Professional
-(SAP) resources as required by Part 40. Before returning to any DOT safety-sensitive function after a violation, the driver
-must complete the SAP evaluation and prescribed education/treatment process, be determined eligible for return-to-duty
-testing, and obtain the required negative drug result and/or alcohol result below 0.02 on a directly observed return-to-duty
-test, as applicable.
+                  When required, the Company will provide the driver with
+                  information identifying qualified Substance Abuse Professional
+                  (SAP) resources as required by Part 40. Before returning to
+                  any DOT safety-sensitive function after a violation, the
+                  driver must complete the SAP evaluation and prescribed
+                  education/treatment process, be determined eligible for
+                  return-to-duty testing, and obtain the required negative drug
+                  result and/or alcohol result below 0.02 on a directly observed
+                  return-to-duty test, as applicable.
                 </p>
 
                 <p className="text-[11px] text-bold mb-2">
-                  The SAP establishes the follow-up testing plan. The plan must include at least six unannounced directly observed follow-
-up tests during the first 12 months of safety-sensitive service and may extend for up to 60 months. Follow-up testing is in
-addition to random testing and other testing requirements. The Company will not substitute random tests for SAP-
-prescribed follow-up tests.
+                  The SAP establishes the follow-up testing plan. The plan must
+                  include at least six unannounced directly observed follow- up
+                  tests during the first 12 months of safety-sensitive service
+                  and may extend for up to 60 months. Follow-up testing is in
+                  addition to random testing and other testing requirements. The
+                  Company will not substitute random tests for SAP- prescribed
+                  follow-up tests.
                 </p>
-                
               </div>
             </section>
-
-            
-
-           
           </div>
         </div>
       </div>
 
       {/*****page 35 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+                29.18 FMCSA Drug & Alcohol Clearinghouse
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13px] mb-2">
+                  The Company will comply with the FMCSA Commercial Driver's
+                  License Drug and Alcohol Clearinghouse requirements applicable
+                  to covered drivers. Clearinghouse obligations are related to,
+                  but separate from, the specimen collection and laboratory
+                  process.
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Pre-employment: before permitting a covered driver to
+                    perform safety-sensitive functions, the Company will conduct
+                    the required full Clearinghouse query. The driver must
+                    provide the specific electronic consent required by the
+                    Clearinghouse for a full query.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    During employment: the Company will conduct the required
+                    annual query for each covered driver. When a limited query
+                    is used, the Company will maintain the driver's general
+                    consent as required. If a limited query indicates
+                    information exists, the Company will complete the required
+                    full-query process and obtain electronic consent before
+                    allowing continued safety-sensitive performance as required
+                    by the regulations.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    The Company will report employer-reported violations and
+                    related information to the Clearinghouse when required.
+                    MROs, SAPs and other authorized parties remain responsible
+                    for information the regulations assign to them.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    A driver whose Clearinghouse status is “Prohibited” may not
+                    perform DOT safety-sensitive functions until the
+                    Clearinghouse reflects eligibility consistent with
+                    completion of the return-to-duty process.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+                29.19 Confidentiality, Records and Release of Information
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13px] mb-2">
+                  DOT drug and alcohol records are confidential and will be
+                  maintained with controlled access. The Company will release
+                  records only as authorized or required by Part 40, Part 382,
+                  the Clearinghouse regulations, or other applicable law.
+                  Drug/alcohol records will not be placed in ordinary personnel
+                  files when doing so would undermine required confidentiality
+                  controls.
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    The Company will maintain records for the periods required
+                    by the applicable regulation and will make them available to
+                    authorized DOT/FMCSA representatives when required.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    The Company will maintain the signed certificate showing
+                    that the driver received the required policy and educational
+                    materials.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    The Company will protect MRO, SAP, test-result and
+                    Clearinghouse information from unauthorized disclosure.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+                29.20 DOT vs. Company-Authority / Non-DOT Testing
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13px] mb-2">
+                  If the Company adopts testing beyond the federal DOT minimum,
+                  those provisions must be stated in a separate Company-
+                  authority/non-DOT policy or clearly labeled addendum. DOT and
+                  non-DOT tests must be separate in all respects. A DOT CCF or
+                  DOT Alcohol Testing Form may not be used for a non-DOT test,
+                  and a DOT specimen may not be tested for additional drugs not
+                  authorized by the DOT program.
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span>
+                    Nothing in a non-DOT program may be used to cancel, change,
+                    disregard, or override a valid DOT test result. Any state-
+                    law requirements affecting non-DOT testing, employee
+                    discipline, privacy, medical/recreational marijuana, or
+                    wage/employment practices must be reviewed separately by the
+                    adopting carrier.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+                29.21 Driver Education - Effects, Signs and Safety Consequences
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13px] mb-2">
+                  The Company provides educational information so drivers
+                  understand the safety consequences of alcohol misuse and
+                  controlled-substances use. Alcohol and drugs can impair
+                  judgment, reaction time, coordination, attention, perception
+                  and decision-making. Impairment can increase the risk of
+                  crashes, injuries, fatalities, cargo/property damage,
+                  enforcement action, and loss of the ability to perform
+                  safety-sensitive duties.
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="overflow-x-auto">
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <thead>
+                    <tr>
+                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[11.4px] font-bold text-white">
+                        Area
+                      </th>
+                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[11.4px] font-bold text-white">
+                        Examples of Potential Indicators / Consequences
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22] text-[11.4px]">
+                        Physical
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        Unsteady movement, unusual fatigue, tremors, sweating,
+                        bloodshot eyes, poor coordination, abnormal pupils,
+                        unusual odor, or unexplained deterioration in
+                        appearance.
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        Behavioral / Speech
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        Confusion, agitation, unusual mood changes, slurred or
+                        rapid speech, impaired judgment, inappropriate behavior,
+                        or
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 36 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="overflow-x-auto">
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <tbody>
+                    <tr>
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22] text-[11.4px]"></td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        unexplained changes in reliability.
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        Performance
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        Unsafe driving, repeated errors, unexplained absences,
+                        declining attention, poor decision-making, preventable
+                        incidents, or failure to follow procedures.
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        Safety response
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        A driver who believes he or she cannot safely perform a
+                        safety- sensitive function must immediately stop/decline
+                        the function and contact the Company. This does not
+                        excuse refusal of a required DOT test after
+                        notification.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div className="mb-2">
+                  <p className="text-[13px] mb-2">
+                    These examples are educational and are not a substitute for
+                    the regulatory reasonable-suspicion standard or medical
+                    diagnosis. Supervisors must use the required training and
+                    contemporaneous observations when making a reasonable-
+                    suspicion determination.
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+                29.22 Driver Responsibilities
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Read, understand and comply with this policy and all lawful
+                    testing directions.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Report immediately for testing when notified and remain at
+                    the testing site until properly released.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Carry valid identification and provide the CDL number/state
+                    or other identifier required by current FMCSA/Part 40
+                    procedures.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Do not use alcohol or controlled substances in a manner
+                    prohibited by federal regulation or perform safety-sensitive
+                    duties while impaired or not medically qualified.
+                  </span>
+                </p>
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Remain available for required post-accident testing and
+                    promptly communicate with the DER after an accident.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Cooperate with collectors, BATs/STTs, MROs, SAPs and other
+                    qualified service agents.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Complete required Clearinghouse electronic consents and
+                    respond to lawful Company compliance requests.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Immediately stop performing safety-sensitive functions if
+                    notified that the driver is prohibited from doing so.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+                29.23 Company / DER Responsibilities
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Maintain a compliant written policy and provide required
+                    educational materials before covered testing begins.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Ensure each covered driver signs the required certificate of
+                    receipt and retain the original as required.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Use qualified service agents and current DOT
+                    forms/procedures; monitor C/TPA performance without
+                    delegating away the carrier's compliance responsibility.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Complete required pre-employment and annual Clearinghouse
+                    queries and required reporting.
+                  </span>
+                </p>
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Ensure random testing is scientifically valid, unannounced,
+                    reasonably spread throughout the year, and meets current
+                    FMCSA annual minimum rates.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Ensure supervisors making reasonable-suspicion
+                    determinations receive the required 60 minutes alcohol + 60
+                    minutes controlled-substances training.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Immediately remove prohibited drivers from DOT
+                    safety-sensitive functions and provide SAP information when
+                    required.
+                  </span>
+                </p>
+
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    Maintain records, confidentiality, and required
+                    documentation of missed/delayed post-accident tests and
+                    other compliance events.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+                29.24 Employment / Contract Consequences
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span>
+                    A violation of this policy may result in corrective or
+                    disciplinary action, up to and including termination of
+                    employment or the contractual relationship, subject to
+                    applicable law and the adopting Company's written policies.
+                    The Company will not describe a discretionary employment
+                    consequence as though it were a mandatory DOT consequence.
+                    The mandatory federal consequence of a DOT violation is
+                    removal from covered safety-sensitive functions until the
+                    applicable return-to- duty requirements are satisfied.
+                  </span>
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 37 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+                29.24 Employment / Contract Consequences
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span>
+                    A violation of this policy may result in corrective or
+                    disciplinary action, up to and including termination of
+                    employment or the contractual relationship, subject to
+                    applicable law and the adopting Company's written policies.
+                    The Company will not describe a discretionary employment
+                    consequence as though it were a mandatory DOT consequence.
+                    The mandatory federal consequence of a DOT violation is
+                    removal from covered safety-sensitive functions until the
+                    applicable return-to- duty requirements are satisfied.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+                29.26 Certificate of Receipt and Driver Acknowledgment
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span>
+                    I certify that I received a copy of the Company FMCSA/DOT
+                    Drug & Alcohol Policy and the educational materials provided
+                    under the Company's Part 382 program. I understand that the
+                    policy explains the categories of covered drivers,
+                    safety-sensitive functions, prohibited conduct, testing
+                    circumstances and procedures, refusal rules, consequences,
+                    Clearinghouse requirements, SAP/return-to-duty process, and
+                    the person designated to answer questions. I understand that
+                    my signature confirms receipt and acknowledgment; it does
+                    not waive any rights provided by law.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="overflow-x-auto">
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <thead>
+                    <tr>
+                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[11.4px] font-bold text-white">
+                        Driver Printed Name
+                      </th>
+                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[11.4px] font-bold text-white">
+                        CDL Number / State
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border-black border w-full"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border-black border w-full"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22] text-[11.4px]">
+                        Driver Signature
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border-black border w-full"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border-black border w-full"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border-black border w-full"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        Company / DER Representative
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border-black border w-full"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border-black border w-full"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border-black border w-full"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+                29.27 Carrier Adoption / Compliance Checklist
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13.4px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    <input type="checkbox" /> Carrier legal name, USDOT number,
+                    effective date and DER completed.
+                  </span>
+                </p>
+
+                <p className="text-[13.4px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    <input type="checkbox" /> C/TPA, MRO, collection network and
+                    SAP resource information verified.
+                  </span>
+                </p>
+
+                <p className="text-[13.4px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    <input type="checkbox" /> Current calendar-year FMCSA random
+                    testing rates verified and communicated to program
+                    administrator.
+                  </span>
+                </p>
+
+                <p className="text-[13.4px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    <input type="checkbox" /> Clearinghouse account/roles, query
+                    plan and reporting procedures verified.
+                  </span>
+                </p>
+
+                <p className="text-[13.4px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    <input type="checkbox" /> Pre-employment negative-test and
+                    Clearinghouse controls integrated into dispatch/hiring
+                    process.
+                  </span>
+                </p>
+
+                <p className="text-[13.4px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    <input type="checkbox" /> Supervisor reasonable-suspicion
+                    training records verified.
+                  </span>
+                </p>
+
+                <p className="text-[13.4px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    <input type="checkbox" /> Post-accident decision procedure
+                    and after-hours DER contact established.
+                  </span>
+                </p>
+
+                <p className="text-[13.4px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    <input type="checkbox" /> DOT and any
+                    Company-authority/non-DOT testing policies clearly
+                    separated.
+                  </span>
+                </p>
+
+                <p className="text-[13.4px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    <input type="checkbox" /> Certificate of receipt obtained
+                    from every covered driver before safety-sensitive use.
+                  </span>
+                </p>
+
+                <p className="text-[13.4px] mb-2 flex items-start">
+                  <span className="mr-1">•</span>
+                  <span>
+                    <input type="checkbox" /> Policy reviewed for applicable
+                    state/local employment requirements and any collective
+                    bargaining obligations.
+                  </span>
+                </p>
+
+                <p className="text-[12px] mb-2 flex items-start">
+                  <span>
+                    Regulatory note: This template is intended to support
+                    motor-carrier compliance administration. The adopting motor
+                    carrier remains responsible for tailoring and implementing
+                    its program under the regulations in effect at the time of
+                    use.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+                30 STATEMENT OF ON-DUTY HOURS - PRECEDING 7 DAYS
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13.4px] mb-2 flex items-start">
+                  <span>
+                    Complete on or before the first day the driver begins
+                    covered driving when the Company requires this statement to
+                    establish prior on-duty time. Include compensated work for
+                    motor carriers and other employers as required by the
+                    applicable HOS rules.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <table className="mt-2 w-full border-collapse text-[14px]">
+                <tbody>
+                  <tr>
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Driver Name
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 38 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <table className="mt-2 w-full border-collapse text-[14px]">
+                <tbody>
+                  <tr>
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[11.4px] font-bold text-[#173f69]">
+                      Date / Time Last Relieved From Duty
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="overflow-x-auto">
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <thead>
+                    <tr>
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                        Day / Date
+                      </th>
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                        Total On-Duty Hours
+                      </th>
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                        Employer / Work Performed
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Day 1:</div>
+                          <div>
+                            <input
+                              className="border border-black"
+                              type="date"
+                            />
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Day 2:</div>
+                          <div>
+                            <input
+                              className="border border-black"
+                              type="date"
+                            />
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Day 3:</div>
+                          <div>
+                            <input
+                              className="border border-black"
+                              type="date"
+                            />
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Day 4:</div>
+                          <div>
+                            <input
+                              className="border border-black"
+                              type="date"
+                            />
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Day 5:</div>
+                          <div>
+                            <input
+                              className="border border-black"
+                              type="date"
+                            />
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Day 6:</div>
+                          <div>
+                            <input
+                              className="border border-black"
+                              type="date"
+                            />
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Day 7:</div>
+                          <div>
+                            <input
+                              className="border border-black"
+                              type="date"
+                            />
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[28px] p-2"
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <table className="mt-2 w-full border-collapse text-[14px]">
+                <tbody>
+                  <tr>
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] text-[11.4px] py-[5px] font-bold text-[#173f69]">
+                      Total Hours - 7 Days
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[11.4px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Driver Certification / Signature / Date
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
+                31 DRIVER LICENSE COMPLIANCE & STATUS NOTIFICATION
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span>
+                    The driver certifies that the current commercial driver
+                    license identified below is the only license the driver
+                    presently possesses, except as otherwise lawfully permitted,
+                    and agrees to promptly notify the Company of any suspension,
+                    revocation, cancellation, disqualification, downgrade,
+                    restriction, expiration, or other change affecting driving
+                    privileges. The driver must also provide required notice of
+                    traffic convictions as required by applicable law and
+                    Company policy.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <table className="mt-2 w-full border-collapse text-[14px]">
+                <tbody>
+                  <tr>
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[13px] font-bold text-[#173f69]">
+                      Driver Name
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      CDL Number / State / Class
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Expiration / Endorsements / Restriction
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Driver Signature / Date
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
+                32 PASSENGER AUTHORIZATION (USE ONLY WHEN COMPANY APPROVES)
+              </h2>
+
+              <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[12.4px] leading-[1.35] text-[#173f69]">
+                This form does not itself authorize a passenger. It becomes
+                effective only when signed by an authorized Company official and
+                only for the dates/conditions stated below.
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <table className="mt-2 w-full border-collapse text-[14px]">
+                <tbody>
+                  <tr>
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[13px] font-bold text-[#173f69]">
+                      Driver
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Approved Passenger
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Relationship
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 39 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <table className="mt-2 w-full border-collapse text-[14px]">
+                <tbody>
+                  <tr>
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[11.4px] font-bold text-[#173f69]">
+                      Authorized Dates / Trip
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[11.4px] font-bold text-[#173f69]">
+                      Conditions / Required Documents
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[11.4px] font-bold text-[#173f69]">
+                      Authorized Company Official / Date
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[11.4px] font-bold text-[#173f69]">
+                      Driver Acknowledgment / Date
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="mb-2">
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span>
+                    The passenger may not operate Company equipment or perform
+                    Company work unless separately authorized and qualified. The
+                    driver remains responsible for compliance with seat-belt,
+                    site-access, and Company safety rules. Any separate
+                    release/insurance language should be reviewed for the
+                    applicable jurisdiction before use.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
+                33 PRE-TRIP / EQUIPMENT INSPECTION TRAINING ACKNOWLEDGMENT
+              </h2>
+
+              <div className="mb-2">
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span>
+                    I acknowledge that I received instruction on the Company
+                    pre-trip, post-trip, defect-reporting, out-of-service,
+                    trailer- interchange, roadside-inspection, and
+                    equipment-care procedures. I understand that I must not
+                    knowingly operate unsafe or out-of-service equipment and
+                    must immediately report defects that could affect safe
+                    operation.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <table className="mt-2 w-full border-collapse text-[14px]">
+                <tbody>
+                  <tr>
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[13px] font-bold text-[#173f69]">
+                      Driver Name
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Trainer / Company Representative
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Equipment Type(s)
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Training Date
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Driver Signature / Date
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Trainer Signature / Date
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section className="mt-[12px]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
+                34 FINAL DRIVER POLICY RECEIPT & INITIALS
+              </h2>
+
+              <div className="overflow-x-auto">
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <thead>
+                    <tr>
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                        Policy
+                      </th>
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                        Driver Initials
+                      </th>
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                        Date
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>ELD & Hours-of-Service</div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Pre-Trip/Post-Trip & Equipment Inspection </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Camera/Dash-Cam Non-Tampering </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Seat-Belt & Occupant Restraint </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>No Hand-Held Device / Distracted Driving </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Truck Abandonment & Return of Equipment </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Unauthorized Passenger & Pet </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>
+                            Accident/Citation/Inspection/Violation Reporting
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>
+                            Driver-Caused Damage / Equipment Responsibility
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 40 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="overflow-x-auto">
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <thead>
+                    <tr>
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                        Policy
+                      </th>
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                        Driver Initials
+                      </th>
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                        Date
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Maintenance / Defect / Roadside Repair </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Safe Driving / Fatigue / General Conduct </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>FMCSA/DOT Drug & Alcohol Policy </div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                        <div className="flex w-full items-center justify-between">
+                          <div>Clearinghouse Consent & Query Requirements</div>
+                        </div>
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="text"
+                        />
+                      </td>
+
+                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                        <input
+                          className="border border-3 border-black w-full h-[20px] p-2"
+                          type="date"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <section className="mt-[12px]">
+              <div className="mb-2">
+                <p className="text-[13px] mb-2 flex items-start">
+                  <span>
+                    I acknowledge receipt of the policies identified above and
+                    understand that I am responsible for following applicable
+                    law and lawful Company safety procedures. I had an
+                    opportunity to ask questions. I understand that policy
+                    acknowledgment does not waive rights that cannot lawfully be
+                    waived and does not authorize an unlawful wage deduction or
+                    transfer a legal duty that belongs to the motor carrier.
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <table className="mt-2 w-full border-collapse text-[14px]">
+                <tbody>
+                  <tr>
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[13px] font-bold text-[#173f69]">
+                      Driver Printed Name
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Driver Signature / Date
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      Company Representative / Date
+                    </td>
+                    <td className="h-[25px] border-b border-[#aebdcc]">
+                      <input
+                        className="border border-3 border-black w-full h-[28px] p-2"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section className="mt-[12px]">
+              <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[11.4px] leading-[1.35] text-[#173f69]">
+                WEBSITE / CLIENT USE: Before providing this packet to a
+                motor-carrier client, complete the carrier-specific fields,
+                insert current official government forms where needed, and
+                review state-specific employment/privacy/wage/camera
+                requirements. The official PSP disclosure/authorization must
+                remain a stand-alone document and its required language must not
+                be combined with other consent language.
+              </div>
+
+              <div className="bg-[#EFF6FB] mt-[13px] px-[10px] py-[9px] text-[10.4px] leading-[1.35] text-[#173f69]">
+                <b>IMPORTANT</b> This packet is designed as an employment and
+                driver-qualification application. Form I-9 is a separate
+                post-offer employment- eligibility form and should be completed
+                at the legally appropriate time using the current USCIS edition.
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 41 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full"></div>
+        </div>
+      </div>
+
+      {/*****page 42 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                1 EMPLOYER / POSITION INFORMATION
+              </div>
+
+              <p className="text-[10.4px] mt-2 mb-2 flex items-start">
+                <span>
+                  <i>
+                    To be completed by the applicant unless prefilled by the
+                    motor carrier.
+                  </i>
+                </span>
+              </p>
+
+              <div className="overflow-x-auto">
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <tbody>
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            COMPANY NAME:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">USDOT #:</span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            COMPANY ADDRESS:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            CITY / STATE / ZIP:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            POSITION APPLIED FOR:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            APPLICATION DATE:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="date"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            REFERRED BY:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            DESIRED START DATE:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="date"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br />
+                <div className="flex">
+                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <span>Company Driver</span>
+                  </div>
+                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <span>Owner-Operator</span>
+                  </div>
+                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <span>Lease Driver</span>
+                  </div>
+                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <span>Local</span>
+                  </div>
+                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <span>Regional</span>
+                  </div>
+                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <span>OTR</span>
+                  </div>
+                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <span>Team</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                2 APPLICANT INFORMATION
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <tbody>
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">FIRST NAME:</span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            MIDDLE NAME:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">LAST NAME:</span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">SUFFIX:</span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            DATE OF BIRTH:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="date"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            SOCIAL SECURITY NUMBER:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            PRIMARY PHONE:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            ALTERNATE PHONE:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="date"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">EMAIL:</span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="email"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            CURRENT ADDRESS:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            CITY / STATE / ZIP:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            missing_salman:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            HOW LONG AT CURRENT ADDRESS?:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            PREFERRED CONTACT:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br />
+
+                <div className="text-[11.4px] items-center gap-1 mr-3">
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span>
+                    {" "}
+                    Are you legally eligible to work in the United States? Yes /
+                    No
+                  </span>{" "}
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span> Are you at least 21 years of age? Yes / No</span>{" "}
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span> Do you have a TWIC card? Yes / No</span>{" "}
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span> Do you have a passport? Yes / No</span>{" "}
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span>
+                    {" "}
+                    Have you previously worked for this company? Yes / No
+                  </span>
+                </div>
+
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <tbody>
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            IF PREVIOUSLY EMPLOYED, WHEN?:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            EMPLOYEE / DRIVER ID (IF KNOWN):
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section className="mt-[20px]">
+              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                3 RESIDENCE HISTORY - PREVIOUS 3 YEARS
+              </div>
+
+              <p className="text-[10.4px] mt-2 mb-2 flex items-start">
+                <span>
+                  <i>
+                    List enough prior residences to cover the full three years
+                    immediately preceding this application if your current
+                    residence is less than three years.
+                  </i>
+                </span>
+              </p>
+
+              <div className="overflow-x-auto">
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <tbody>
+                    <p className="text-[10px] mb-2 items-start font-bold">
+                      <span>PRIOR RESIDENCE 1</span>
+                    </p>
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            STREET ADDRESS:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">CITY:</span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            STATE / PROVINCE:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            ZIP / POSTAL CODE:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">COUNTRY:</span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            missing_salman:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <tbody>
+                    <p className="text-[10px] mt-4 mb-1 items-start font-bold">
+                      <span>PRIOR RESIDENCE 2</span>
+                    </p>
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            STREET ADDRESS:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">CITY:</span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            STATE / PROVINCE:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            ZIP / POSTAL CODE:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">COUNTRY:</span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            missing_salman:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table className="w-full table-fixed border-collapse text-[13.5px]">
+                  <tbody>
+                    <p className="text-[10px] mt-4 mb-1 items-start font-bold">
+                      <span>PRIOR RESIDENCE 3</span>
+                    </p>
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            STREET ADDRESS:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">CITY:</span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            STATE / PROVINCE:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr className="border-b border-black">
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            ZIP / POSTAL CODE:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">COUNTRY:</span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap">
+                            missing_salman:
+                          </span>
+                          <input
+                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                            type="text"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 43 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                4 DRIVER LICENSE / PERMIT HISTORY
+              </div>
+
+              <p className="text-[10.4px] mt-2 mb-2 flex items-start">
+                <span>
+                  <i>
+                    List every motor vehicle operator license or permit held
+                    during the preceding 3 years. Enter your name exactly as
+                    shown on the license.
+                  </i>
+                </span>
+              </p>
+
+              <div className="overflow-x-auto">
+                <table className="w-full table-fixed text-[10.4px]">
+                  <thead className="border bg-[#1F355A] text-white border-black">
+                    <tr>
+                      <th>State</th>
+                      <th>License / Permit Number </th>
+                      <th>Class</th>
+                      <th>Endorsements</th>
+                      <th>Issued</th>
+                      <th>Expires</th>
+                      <th>Restrictions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="h-[60px]"></tbody>
+                </table>
+                <br />
+
+                <div className="text-[11.4px] items-center gap-1 mr-3">
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span>Is your current license a CDL? Yes / No</span>
+
+                  <span> CDL State:</span>
+                  <input
+                    type="text"
+                    className="border border-black w-[150px] h-[12px]"
+                  />
+                  <span> CDL Number: </span>
+                  <input
+                    type="text"
+                    className="border border-black w-[150px] h-[12px]"
+                  />
+                </div>
+
+                <div className="text-[11.4px] items-center gap-2 mr-3">
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="mr-2">Current CDL</span>
+
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="mr-2">Class A</span>
+
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="mr-2">Class B</span>
+
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="mr-2">Class C</span>
+
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="mr-2">CLP</span>
+                </div>
+
+                <div className="text-[11.4px] items-center gap-2 mr-3">
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="mr-2">Endorsements: H</span>
+
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="mr-2">N</span>
+
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="mr-2">P</span>
+
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="mr-2">S</span>
+
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="mr-2">T</span>
+
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="mr-2">X</span>
+
+                  <span> Other: </span>
+                  <input
+                    type="text"
+                    className="border border-black w-[75px] h-[12px]"
+                  />
+                </div>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                5 LICENSE DENIALS, SUSPENSIONS & REVOCATIONS
+              </div>
+
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="mr-2">
+                  Have you ever been denied a license, permit, or privilege to
+                  operate a motor vehicle? Yes / No
+                </span>
+              </div>
+
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="mr-2">
+                  Has any license, permit, or driving privilege ever been
+                  suspended or revoked? Yes / No
+                </span>
+              </div>
+
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <span className="mr-2 font-bold text-[10px]">
+                  If YES to either question, explain the date, state, reason,
+                  circumstances, and final disposition:
+                </span>
+              </div>
+
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+            </section>
+
+            <section className="mt-[10px]">
+              <div className="mb-3 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                6 MEDICAL QUALIFICATION & CREDENTIALS
+              </div>
+
+              <table className="w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] w-[37%] align-top leading-[1.22]">
+                      <div className=" items-center w-full">
+                        MEDICAL EXAMINER CERTIFICATE EXPIRATION:
+                        <br />
+                        <span className="text-gray-400 text-[12px]">
+                          MM/DD/YYYY
+                        </span>
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <input
+                          className="w-full border border-black h-[20px]"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          TWIC EXPIRATION:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                          placeholder="MM/DD/YYYY or N/A "
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          PASSPORT EXPIRATION:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                          placeholder="MM/DD/YYYY or N/A "
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="mr-2">
+                  Medical certificate is electronically linked to CDL / MVR, if
+                  applicable: Yes / No / N/A
+                </span>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 44 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                7 COMMERCIAL DRIVING EXPERIENCE
+              </div>
+
+              <p className="text-[10.4px] mt-2 mb-2 flex items-start text-gray-500">
+                <span>
+                  <i>
+                    For each equipment type, show total experience, approximate
+                    dates, and approximate miles.
+                  </i>
+                </span>
+              </p>
+
+              <table className="w-full table-fixed text-[10.4px]">
+                <thead className="border bg-[#1F355A] text-white border-black">
+                  <tr>
+                    <th>Equipment Type </th>
+                    <th>Yes/No</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Approx. Miles</th>
+                    <th>Description / Size</th>
+                  </tr>
+                </thead>
+                <tbody className="h-[60px]">
+                  <tr>
+                    <td className="text-[11px] font-bold">Straight Truck</td>
+                    <td>
+                      <select className="border border-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-[11px] font-bold">Truck-Tractor</td>
+                    <td>
+                      <select className="border border-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-[11px] font-bold">Semi-Trailer</td>
+                    <td>
+                      <select className="border border-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-[11px] font-bold">Doubles / Triples</td>
+                    <td>
+                      <select className="border border-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-[11px] font-bold">Flatbed</td>
+                    <td>
+                      <select className="border border-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-[11px] font-bold">Tank Vehicle</td>
+                    <td>
+                      <select className="border border-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-[11px] font-bold">Bus / Passenger</td>
+                    <td>
+                      <select className="border border-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-[11px] font-bold">Reefer</td>
+                    <td>
+                      <select className="border border-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-[11px] font-bold">Dry Van</td>
+                    <td>
+                      <select className="border border-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-[11px] font-bold">Other</td>
+                    <td>
+                      <select className="border border-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="date" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                8 ACCIDENT / CRASH HISTORY - PREVIOUS 3 YEARS
+              </div>
+
+              <p className="text-[10.4px] mt-2 mb-2 flex items-start text-gray-500">
+                <span>
+                  <i>
+                    List all motor vehicle accidents/crashes during the
+                    preceding 3 years. Include preventable and non-preventable
+                    events, whether or not cited.
+                  </i>
+                </span>
+              </p>
+
+              <table className="w-full table-fixed text-[10.4px]">
+                <thead className="border bg-[#1F355A] text-white border-black">
+                  <tr>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Nature of Accident</th>
+                    <th>Fatalities</th>
+                    <th>Injuries</th>
+                    <th>Hazmat Spill</th>
+                    <th>Preventable?</th>
+                  </tr>
+                </thead>
+                <tbody className="h-[60px]"></tbody>
+              </table>
+              <br />
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="ml-1 mr-2">
+                  No accidents/crashes during the previous 3 years
+                </span>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 45 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                9 TRAFFIC CONVICTIONS / FORFEITURES - PREVIOUS 3 YEARS
+              </div>
+
+              <p className="text-[10.4px] mt-2 mb-2 flex items-start text-gray-500">
+                <span>
+                  <i>
+                    List all motor vehicle traffic convictions and forfeitures
+                    during the preceding 3 years, other than parking violations.
+                  </i>
+                </span>
+              </p>
+
+              <table className="w-full table-fixed text-[10.4px]">
+                <thead className="border bg-[#1F355A] text-white border-black">
+                  <tr>
+                    <th>Date</th>
+                    <th>State</th>
+                    <th>Violation / Offense</th>
+                    <th>Location</th>
+                    <th>Vehicle Type </th>
+                    <th>Penalty / Disposition</th>
+                  </tr>
+                </thead>
+                <tbody className="h-[60px]"></tbody>
+              </table>
+              <br />
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="ml-1 mr-2">
+                  No accidents/crashes during the previous 3 years
+                </span>
+              </div>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                10 EMPLOYMENT HISTORY - REQUIRED 3 YEARS / CDL CMV HISTORY UP TO
+                10 YEARS
+              </div>
+
+              <p className="text-[10.4px] mt-2 mb-2 flex items-start text-gray-500">
+                <span>
+                  <i>
+                    List ALL employers for the preceding 3 years. If you
+                    operated a CMV requiring a CDL, also provide additional
+                    CMV-driving employers needed to cover the preceding 10
+                    years. Explain all gaps in employment.
+                  </i>
+                </span>
+              </p>
+
+              <div className="bg-[#EFF6FB] mt-[13px] px-[10px] py-[9px] text-[10.4px] leading-[1.35] text-[#173f69]">
+                <b>COMPLETE HISTORY </b>Do not omit part-time, temporary,
+                self-employment, owner-operator work, military service,
+                unemployment, school, or other periods necessary to account for
+                the required history.
+              </div>
+              <br />
+              <table className="w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <p className="text-[11px] mb-2 items-start font-bold">
+                    <span>EMPLOYER 1</span>
+                  </p>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EMPLOYER NAME:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">PHONE:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          STREET ADDRESS:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          CITY / STATE / ZIP:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          POSITION HELD:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          SUPERVISOR / CONTACT:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">FROM</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">TO:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          REASON FOR LEAVING:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">EMAIL / FAX:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div className="text-[11.4px] mt-4 items-center gap-1 mr-3">
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>Subject to FMCSRs while employed? Yes / No</span>
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>
+                          {" "}
+                          Safety-sensitive DOT drug/alcohol testing position?
+                          Yes / No / N/A
+                        </span>
+                      </div>
+
+                      <div className="text-[11.4px] items-center gap-1 mr-3">
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>Did you operate a CMV? Yes / No</span>
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span> Was a CDL required? Yes / No</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          Equipment operated / duties:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table className="w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <p className="text-[11px] mt-2 mb-2 items-start font-bold">
+                    <span>EMPLOYER 2</span>
+                  </p>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EMPLOYER NAME:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">PHONE:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          STREET ADDRESS:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          CITY / STATE / ZIP:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          POSITION HELD:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          SUPERVISOR / CONTACT:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">FROM</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">TO:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          REASON FOR LEAVING:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">EMAIL / FAX:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div className="text-[11.4px] mt-4 items-center gap-1 mr-3">
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>Subject to FMCSRs while employed? Yes / No</span>
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>
+                          {" "}
+                          Safety-sensitive DOT drug/alcohol testing position?
+                          Yes / No / N/A
+                        </span>
+                      </div>
+
+                      <div className="text-[11.4px] items-center gap-1 mr-3">
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>Did you operate a CMV? Yes / No</span>
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span> Was a CDL required? Yes / No</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          Equipment operated / duties:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 46 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <table className="w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <p className="text-[11px] mb-2 items-start font-bold">
+                    <span>EMPLOYER 3</span>
+                  </p>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EMPLOYER NAME:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">PHONE:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          STREET ADDRESS:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          CITY / STATE / ZIP:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          POSITION HELD:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          SUPERVISOR / CONTACT:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">FROM</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">TO:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          REASON FOR LEAVING:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">EMAIL / FAX:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div className="text-[11.4px] mt-4 items-center gap-1 mr-3">
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>Subject to FMCSRs while employed? Yes / No</span>
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>
+                          {" "}
+                          Safety-sensitive DOT drug/alcohol testing position?
+                          Yes / No / N/A
+                        </span>
+                      </div>
+
+                      <div className="text-[11.4px] items-center gap-1 mr-3">
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>Did you operate a CMV? Yes / No</span>
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span> Was a CDL required? Yes / No</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          Equipment operated / duties:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table className="w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <p className="text-[11px] mt-2 mb-2 items-start font-bold">
+                    <span>EMPLOYER 4</span>
+                  </p>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EMPLOYER NAME:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">PHONE:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          STREET ADDRESS:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          CITY / STATE / ZIP:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          POSITION HELD:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          SUPERVISOR / CONTACT:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">FROM</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">TO:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          REASON FOR LEAVING:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">EMAIL / FAX:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div className="text-[11.4px] mt-4 items-center gap-1 mr-3">
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>Subject to FMCSRs while employed? Yes / No</span>
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>
+                          {" "}
+                          Safety-sensitive DOT drug/alcohol testing position?
+                          Yes / No / N/A
+                        </span>
+                      </div>
+
+                      <div className="text-[11.4px] items-center gap-1 mr-3">
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>Did you operate a CMV? Yes / No</span>
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span> Was a CDL required? Yes / No</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          Equipment operated / duties:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table className="w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <p className="text-[11px] mt-2 mb-2 items-start font-bold">
+                    <span>EMPLOYER 5</span>
+                  </p>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EMPLOYER NAME:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">PHONE:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          STREET ADDRESS:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          CITY / STATE / ZIP:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          POSITION HELD:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          SUPERVISOR / CONTACT:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">FROM</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">TO:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          REASON FOR LEAVING:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">EMAIL / FAX:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div className="text-[11.4px] mt-4 items-center gap-1 mr-3">
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>Subject to FMCSRs while employed? Yes / No</span>
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>
+                          {" "}
+                          Safety-sensitive DOT drug/alcohol testing position?
+                          Yes / No / N/A
+                        </span>
+                      </div>
+
+                      <div className="text-[11.4px] items-center gap-1 mr-3">
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span>Did you operate a CMV? Yes / No</span>
+                        <input type="checkbox" className="w-[12px] h-[12px]" />
+                        <span> Was a CDL required? Yes / No</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          Equipment operated / duties:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 47 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                11 EMPLOYMENT GAPS / ADDITIONAL 10-YEAR CMV HISTORY
+              </div>
+
+              <p className="text-[10.4px] mt-2 mb-2 flex items-start text-gray-500">
+                <span>
+                  <i>
+                    List all motor vehicle traffic convictions and forfeitures
+                    during the preceding 3 years, other than parking violations.
+                  </i>
+                </span>
+              </p>
+
+              <table className="w-full table-fixed text-[9.4px]">
+                <thead className="text-left border bg-[#1F355A] text-white border-black">
+                  <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Status / Employer / School</th>
+                    <th>City & State</th>
+                    <th>Explanation / CMV Duties </th>
+                  </tr>
+                </thead>
+                <tbody className="h-[60px]"></tbody>
+              </table>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="text-left w-full mb-2 border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                12 MILITARY DRIVING EXPERIENCE (IF APPLICABLE)
+              </div>
+
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">BRANCH:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          DATES OF SERVICE:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">MOS / RATING:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          TYPE OF VEHICLE(S):
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          APPROX. MILES / HOURS:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          DISCHARGE STATUS:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="text-left w-full mb-2 border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                13 ADDITIONAL QUALIFICATIONS
+              </div>
+
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">BRANCH:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          DATES OF SERVICE:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">MOS / RATING:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          TYPE OF VEHICLE(S):
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          APPROX. MILES / HOURS:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          DISCHARGE STATUS:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                5 LICENSE DENIALS, SUSPENSIONS & REVOCATIONS
+              </div>
+
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="mr-2">Hazmat Experience</span>
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="mr-2">Tanker Experience</span>
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="mr-2">Doubles/Triples</span>
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="mr-2">Reefer</span>
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="mr-2">Flatbed</span>
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="mr-2">Port / TWIC</span>
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="mr-2">Mountain</span>
+                <input type="checkbox" className="w-[12px] h-[12px]" />
+                <span className="mr-2">Snow / Ice</span>
+              </div>
+
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <span className="mr-2 font-bold text-[10px]">
+                  Special training, certificates, safety awards, schools, or
+                  other qualifications:
+                </span>
+              </div>
+
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 48 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                14 APPLICANT CERTIFICATION & AUTHORIZATION
+              </div>
+
+              <p className="text-[11px] mt-2 mb-1 flex items-start">
+                I certify that this application was completed by me and that all
+                entries and information provided are true, complete, and
+                accurate to the best of my knowledge. I understand that material
+                omissions, misrepresentations, or false statements may result in
+                disqualification from consideration or termination of
+                employment, subject to applicable law.
+              </p>
+              <p className="text-[11.4px] mb-1 flex items-start">
+                I authorize the prospective motor carrier and its authorized
+                agents to contact employers, schools, licensing agencies,
+                government agencies, and other lawful sources to verify
+                information relevant to my qualifications for employment and
+                operation of commercial motor vehicles, subject to applicable
+                federal and state law.
+              </p>
+              <p className="text-[11.4px] mb-1 flex items-start">
+                I understand that this application does not constitute a
+                contract of employment and that any employment relationship is
+                subject to the employer’s policies and applicable law.
+              </p>
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Applicant Signature:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Printed Name:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Date:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+                15 FAIR CREDIT REPORTING ACT / BACKGROUND REPORT AUTHORIZATION
+              </div>
+
+              <p className="text-[11px] mt-2 mb-1 flex items-start text-gray-500">
+                <i>
+                  Use this section only if the employer’s screening process and
+                  applicable law permit it. A standalone disclosure may be
+                  required; the employer should provide any legally required
+                  separate disclosure and notices.
+                </i>
+              </p>
+              <p className="text-[11.4px] mb-1 flex items-start">
+                I authorize the prospective employer and its designated consumer
+                reporting agency or authorized representative to obtain reports
+                for lawful employment purposes, which may include verification
+                of identity, employment history, education, motor vehicle
+                records, criminal history where permitted by law, and other
+                public records relevant to employment. I understand that
+                additional disclosures, authorizations, and pre- adverse/adverse
+                action notices may apply.
+              </p>
+
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Applicant Signature:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Date:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 49 start********/}
     </div>
   );
 }

@@ -311,7 +311,7 @@ export default function DriverApplicationPreview() {
       {/********page 2 start******/}
       <br />
 
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         
         <section className="mt-[12px]">
           <div className="overflow-x-auto">
@@ -469,7 +469,7 @@ export default function DriverApplicationPreview() {
 
       {/******page 3 start*****/}
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
      
         <section className="mt-[12px]">
           <h2 className="mb-[8px] text-[21px] font-bold leading-[1.2] text-[#174875]">
@@ -634,7 +634,7 @@ export default function DriverApplicationPreview() {
       </div>
       {/******page 4 start*****/}
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <section className="mt-[12px]">
           <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
             24 STANDALONE BACKGROUND / CONSUMER REPORT DISCLOSURE &
@@ -826,7 +826,7 @@ export default function DriverApplicationPreview() {
       </div>
       {/******page 5 start*******/}
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <header class="text-center mb-3">
             <h1
@@ -1098,7 +1098,7 @@ export default function DriverApplicationPreview() {
       {/******page 6 start *******/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <section class="mt-1">
             <div class="mt-5 space-y-[25px]">
@@ -1285,7 +1285,7 @@ export default function DriverApplicationPreview() {
       {/*****page 7 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <section class="mt-1">
             <div class="mt-5 text-[14px] leading-[1.28]">
@@ -1499,7 +1499,7 @@ export default function DriverApplicationPreview() {
       {/*****page 8 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <section class="mt-1">
             <div class="mt-5 text-[14px] leading-[1.28]">
@@ -1692,7 +1692,7 @@ export default function DriverApplicationPreview() {
       {/*****page 9 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full">
           <h1
             class="text-center font-bold
@@ -2495,7 +2495,7 @@ export default function DriverApplicationPreview() {
       {/*****page 10 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
             <h1 className="m-0 text-[24px] text-center font-bold leading-[1.22] tracking-[0.3px] text-[#173f69]">
@@ -2934,7 +2934,7 @@ export default function DriverApplicationPreview() {
       {/*****page 11 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
             <section class="mt-1">
@@ -3505,7 +3505,7 @@ export default function DriverApplicationPreview() {
       {/*****page 12 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
             <section class="mt-1">
@@ -3814,7 +3814,7 @@ export default function DriverApplicationPreview() {
       {/*****page 13 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
             <h1 className="m-0 text-[24px] text-center font-bold leading-[1.22] tracking-[0.3px] text-[#173f69]">
@@ -4091,7 +4091,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <h4 className="m-0 mb-2 text-[13px] text-center font-bold leading-[1.22] tracking-[0.3px] text-black">
@@ -4282,7 +4282,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <h4 className="m-0 mb-2 text-[13px] font-bold leading-[1.22] tracking-[0.3px] text-black">
@@ -4306,7 +4306,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -4452,7 +4452,7 @@ export default function DriverApplicationPreview() {
 
       {/*****page 18 start********/}
       <br />
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -4575,7 +4575,7 @@ export default function DriverApplicationPreview() {
       {/*****page 19 start********/}
 
       <br />
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -4669,7 +4669,7 @@ export default function DriverApplicationPreview() {
       {/*****page 20 start********/}
 
       <br />
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -4786,7 +4786,7 @@ export default function DriverApplicationPreview() {
       {/*****page 21 start********/}
 
       <br />
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -4901,7 +4901,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5105,7 +5105,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5339,7 +5339,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5494,7 +5494,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5670,7 +5670,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5843,7 +5843,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5892,7 +5892,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section class="mt-1">
@@ -6302,7 +6302,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -6461,7 +6461,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -6521,7 +6521,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -6704,7 +6704,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -6790,7 +6790,7 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -6985,79 +6985,78 @@ export default function DriverApplicationPreview() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
-          <div className="w-full">
-            <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#1F355A]">
-                29.15 Alcohol Testing Procedures and Result Consequences
-              </h2>
+      <div className="a4-page relative m-[240mm] h-[297mm] bg-white px-[17mm] py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
-                  DOT alcohol screening tests are conducted by qualified personnel using approved devices and the DOT Alcohol Testing
-Form. A screening result below 0.02 requires no action under Part 40. A screening result of 0.02 or greater requires a
-confirmation test under Part 40. For FMCSA-covered drivers, a confirmed result of 0.02 through 0.039 requires temporary
-removal from safety-sensitive functions as required by §382.505; a result of 0.04 or greater is a DOT alcohol violation
-requiring immediate removal and the return-to-duty process before resumption of covered functions.
-                </p>
-                
-              </div>
-            </section>
+  <div className="w-full">
 
-            <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#1F355A]">
-                29.16 Immediate Removal From Safety-Sensitive Functions
-              </h2>
+    {/* 29.15 */}
+    <section className="mt-[12px]">
+      <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#1F355A]">
+        29.15 Alcohol Testing Procedures and Result Consequences
+      </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
-                  Upon notice of a verified positive DOT drug test, an alcohol concentration of 0.04 or greater, a DOT refusal, or another
-violation that prohibits safety-sensitive performance, the Company will immediately remove the driver from DOT safety-
-sensitive functions. The driver may not be dispatched, operate a covered CMV, or perform another prohibited safety-
-sensitive function until legally eligible to do so.
-                </p>
-
-                <p className="text-[11px] text-bold mb-2">
-                  Federal removal from safety-sensitive functions is separate from the Company's employment decision. Subject to
-applicable law and Company policy, the Company may terminate employment/contracting, place the driver in a non-
-safety-sensitive status, or consider return after successful completion of the federal return-to-duty process. DOT
-regulations do not require the Company to reinstate a driver.
-                </p>
-                
-              </div>
-            </section>
-
-            <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#1F355A]">
-                29.17 SAP Evaluation, Return-to-Duty and Follow-Up Testing
-              </h2>
-
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
-                  When required, the Company will provide the driver with information identifying qualified Substance Abuse Professional
-(SAP) resources as required by Part 40. Before returning to any DOT safety-sensitive function after a violation, the driver
-must complete the SAP evaluation and prescribed education/treatment process, be determined eligible for return-to-duty
-testing, and obtain the required negative drug result and/or alcohol result below 0.02 on a directly observed return-to-duty
-test, as applicable.
-                </p>
-
-                <p className="text-[11px] text-bold mb-2">
-                  The SAP establishes the follow-up testing plan. The plan must include at least six unannounced directly observed follow-
-up tests during the first 12 months of safety-sensitive service and may extend for up to 60 months. Follow-up testing is in
-addition to random testing and other testing requirements. The Company will not substitute random tests for SAP-
-prescribed follow-up tests.
-                </p>
-                
-              </div>
-            </section>
-
-            
-
-           
-          </div>
-        </div>
+      <div className="mb-2">
+        <p className="mb-2 text-[11px] leading-[1.3] font-bold text-[#1F2933]">
+          DOT alcohol screening tests are conducted by qualified personnel using approved devices and the DOT Alcohol Testing Form.
+          A screening result below 0.02 requires no action under Part 40. A screening result of 0.02 or greater requires a
+          confirmation test under Part 40. For FMCSA-covered drivers, a confirmed result of 0.02 through 0.039 requires temporary
+          removal from safety-sensitive functions as required by §382.505; a result of 0.04 or greater is a DOT alcohol violation
+          requiring immediate removal and the return-to-duty process before resumption of covered functions.
+        </p>
       </div>
+    </section>
+
+
+    {/* 29.16 */}
+    <section className="mt-[12px]">
+      <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#1F355A]">
+        29.16 Immediate Removal From Safety-Sensitive Functions
+      </h2>
+
+      <div className="mb-2">
+        <p className="mb-2 text-[11px] leading-[1.3] font-bold text-[#1F2933]">
+          Upon notice of a verified positive DOT drug test, an alcohol concentration of 0.04 or greater, a DOT refusal, or another
+          violation that prohibits safety-sensitive performance, the Company will immediately remove the driver from DOT safety-
+          sensitive functions. The driver may not be dispatched, operate a covered CMV, or perform another prohibited safety-
+          sensitive function until legally eligible to do so.
+        </p>
+
+        <p className="mb-2 text-[11px] leading-[1.3] font-bold text-[#1F2933]">
+          Federal removal from safety-sensitive functions is separate from the Company's employment decision. Subject to
+          applicable law and Company policy, the Company may terminate employment/contracting, place the driver in a non-
+          safety-sensitive status, or consider return after successful completion of the federal return-to-duty process. DOT
+          regulations do not require the Company to reinstate a driver.
+        </p>
+      </div>
+    </section>
+
+
+    {/* 29.17 */}
+    <section className="mt-[12px]">
+      <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#133B63]">
+        29.17 SAP Evaluation, Return-to-Duty and Follow-Up Testing
+      </h2>
+
+      <div className="mb-2">
+        <p className="mb-2 text-[13.4px] leading-[1.3] font-bold text-[#1F2933]">
+          When required, the Company will provide the driver with information identifying qualified Substance Abuse Professional
+          (SAP) resources as required by Part 40. Before returning to any DOT safety-sensitive function after a violation, the driver
+          must complete the SAP evaluation and prescribed education/treatment process, be determined eligible for return-to-duty
+          testing, and obtain the required negative drug result and/or alcohol result below 0.02 on a directly observed return-to-duty
+          test, as applicable.
+        </p>
+
+        <p className="text-[13.4px] leading-[1.3] font-bold text-[#1F2933]">
+          The SAP establishes the follow-up testing plan. The plan must include at least six unannounced directly observed follow-
+          up tests during the first 12 months of safety-sensitive service and may extend for up to 60 months. Follow-up testing is in
+          addition to random testing and other testing requirements. The Company will not substitute random tests for SAP-
+          prescribed follow-up tests.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</div>
 
       {/*****page 35 start********/}
     </div>
