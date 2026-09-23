@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-#[Fillable(['user_id', 'address', 'phone', 'zipcode', 'landmark', 'password_hint','image'])]
+#[Fillable(['user_id', 'address', 'phone', 'zipcode', 'landmark', 'password_hint','image','company','status'])]
 class userInfo extends Model
 {
      use HasFactory, Notifiable;

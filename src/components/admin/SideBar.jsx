@@ -10,7 +10,7 @@ export default function Sidebar() {
       <aside className="w-64 bg-[#0b1220] text-slate-300 flex flex-col justify-between min-h-[calc(100vh-76px)]">
         <nav className="px-3 py-4 space-y-1">
           {/* Dashboard */}
-          <a
+         {/* <a
             href="#"
             className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 text-white font-medium text-sm"
           >
@@ -28,7 +28,7 @@ export default function Sidebar() {
               />
             </svg>
             Dashboard
-          </a>
+          </a>*/}
 
           {/* Drivers */}
           <div>
@@ -78,7 +78,7 @@ export default function Sidebar() {
                   Add Driver
                 </a>
 
-                <a
+            {/*    <a
                   href="#"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
@@ -90,14 +90,14 @@ export default function Sidebar() {
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
                   Driver Violations
-                </a>
+                </a>*/}
               </div>
             )}
           </div>
 
           {/* Citations */}
           <div>
-            <button
+          {/*  <button
               onClick={() => toggleMenu("citations")}
               className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm"
             >
@@ -113,7 +113,7 @@ export default function Sidebar() {
               >
                 ›
               </span>
-            </button>
+            </button>*/}
 
             {openMenu === "citations" && (
               <div className="ml-8 mt-1 space-y-1 border-l border-white/10 pl-3">
@@ -142,22 +142,22 @@ export default function Sidebar() {
           </div>
 
           {/* Reports */}
-          <a
+         {/* <a
             href="#"
             className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm"
           >
             <span className="w-5 text-center">▥</span>
             Reports
-          </a>
+          </a>*/}
 
           {/* Settings */}
-          <a
+     {/*     <a
             href="#"
             className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm"
           >
             <span className="w-5 text-center">⚙</span>
             Settings
-          </a>
+          </a>*/}
 
           {/* Management */}
           <p className="text-[11px] text-slate-500 font-semibold px-3 pt-6 pb-1 tracking-wide">
@@ -187,41 +187,93 @@ export default function Sidebar() {
             {openMenu === "users" && (
               <div className="ml-8 mt-1 space-y-1 border-l border-white/10 pl-3">
                 <a
-                  href="#"
+                  href="/admin-dashboard/users"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
                   All Users
                 </a>
 
                 <a
-                  href="#"
+                  href="/admin-dashboard/users/add"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
                   Add User
                 </a>
 
-                <a
-                  href="#"
+           {/*     <a
+                  href="/admin-dashboard/users/roles"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
                   Roles & Permissions
+                </a>*/}
+              </div>
+            )}
+          </div>
+
+          {/* Company */}
+          <div>
+            <button
+              onClick={() => toggleMenu("company")}
+              className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm"
+            >
+              <span className="flex items-center gap-3">
+                <svg
+  className="w-5 h-5"
+  fill="none"
+  stroke="currentColor"
+  viewBox="0 0 24 24"
+>
+  <path
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="2"
+    d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 7h2m-2 4h2m-2 4h2m4-8h2m-2 4h2m-2 4h2"
+  />
+</svg>
+                Company
+              </span>
+         
+
+              <span
+                className={`transition-transform duration-200 ${
+                  openMenu === "company" ? "rotate-90" : ""
+                }`}
+              >
+                ›
+              </span>
+            </button>
+
+            {openMenu === "company" && (
+              <div className="ml-8 mt-1 space-y-1 border-l border-white/10 pl-3">
+                <a
+                  href="/admin-dashboard/company"
+                  className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
+                >
+                  All Company
+                </a>
+
+                <a
+                  href="/admin-dashboard/company/add"
+                  className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
+                >
+                  Add Company
                 </a>
               </div>
             )}
           </div>
 
           {/* System Logs */}
-          <a
+     {/*     <a
             href="#"
             className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm"
           >
             <span className="w-5 text-center">▤</span>
             System Logs
-          </a>
+          </a>*/}
         </nav>
 
         <div className="px-5 py-4 text-[11px] text-slate-500 border-t border-white/10">
-          © 2025 Dot Compliance Solutions LLC
+          © {new Date().getFullYear()} Dot Compliance Solutions LLC
         </div>
       </aside>
     </>

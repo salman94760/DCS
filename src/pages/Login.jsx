@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import api from "@/api/axios";
 export default function Login() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [serverMessage, setServerMessage] = useState("");
   const [serverMessageType, setServerMessageType] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,28 +39,39 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+  const response = await api.post("/login", {
+    email: data.email,
+    password: data.password,
+  });
 
-      const result = await response.json();
+  const result = response.data;
 
-      if (!response.ok) {
-        setServerMessage(result.message || "Something went wrong");
-        setServerMessageType("error");
-        return;
-      }
+  // Token save
+  localStorage.setItem("token", result.token);
 
-      setServerMessage(result.message || "Login successful!");
-      setServerMessageType("success");
-    } catch (error) {
-      console.error("Error:", error);
-      setServerMessage("Something went wrong. Please try again.");
-    } finally {
+  // User/role bhi save
+  localStorage.setItem("user", JSON.stringify(result.user));
+  localStorage.setItem("userRole", result.user.role);
+
+
+  setServerMessage(result.message);
+  setServerMessageType("success");
+
+  // Role ke hisaab se redirect
+  if (result.user.role === "admin") {
+    navigate("/admin-dashboard", { replace: true });
+  } else {
+    navigate("/dashboard", { replace: true });
+  }
+} catch (error) {
+  const message =
+    error.response?.data?.message || "Something went wrong.";
+
+  setServerMessage(message);
+  setServerMessageType("error");
+
+  // toast.error(message);
+} finally {
       setLoading(false);
     }
   };
@@ -80,7 +92,7 @@ export default function Login() {
           <p className="text-slate-400 text-xs mt-1">
             Safety &nbsp;•&nbsp; Compliance &nbsp;•&nbsp; Our Priority
           </p>
-          <ToastContainer
+{/*          <ToastContainer
             position="top-right"
             autoClose={5000}
             hideProgressBar={false}
@@ -92,7 +104,7 @@ export default function Login() {
             pauseOnHover
             theme="light"
             transition="Bounce"
-          />
+          />*/}
         </div>
 
         <div className="bg-white rounded-xl shadow-xl p-8">
