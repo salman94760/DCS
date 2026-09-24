@@ -1,5 +1,5 @@
-import { useState,useEffect } from "react";
-import {Link} from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import DashboardLayout from "@/layouts/DashboardLayout";
 
 import Admintable from "@/components/admin/Table";
@@ -18,25 +18,23 @@ export default function Users() {
     status: "all",
   });
 
-useEffect(() => {
-  const getUsers = async () => {
-    try {
-      const response = await api.get("/admin/users");
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        const response = await api.get("/admin/users");
 
-      const result = response.data;
+        const result = response.data;
 
-      console.log("Users:", result);
+        console.log("Users:", result);
 
-      setUsers(result.users || []);
-    } catch (error) {
-      console.error("Failed to fetch users:", error);
-    }
-  };
+        setUsers(result.users || []);
+      } catch (error) {
+        console.error("Failed to fetch users:", error);
+      }
+    };
 
-  getUsers();
-}, []);
-
-
+    getUsers();
+  }, []);
 
   // Filter button click
   const handleFilter = () => {
@@ -67,8 +65,7 @@ useEffect(() => {
       user.name.toLowerCase().includes(searchText) ||
       user.email.toLowerCase().includes(searchText);
 
-    const matchesRole =
-      filters.role === "all" || user.role === filters.role;
+    const matchesRole = filters.role === "all" || user.role === filters.role;
 
     const matchesStatus =
       filters.status === "all" || user.status === filters.status;
@@ -78,8 +75,7 @@ useEffect(() => {
 
   return (
     <>
-    
-        {/* Header */}
+      {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Users</h1>
@@ -97,7 +93,7 @@ useEffect(() => {
         </Link>
       </div>
       {/* Filters */}
-{/*      <div className="bg-white rounded-xl border border-slate-200 p-4 mb-5">
+      {/*      <div className="bg-white rounded-xl border border-slate-200 p-4 mb-5">
         <div className="flex items-center gap-3">
 
        
@@ -156,98 +152,89 @@ useEffect(() => {
       {/* Users table */}
       <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
         <table className="w-full text-sm">
-            <thead className="bg-slate-50 border-b">
-              <tr>
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  User
-                </th>
+          <thead className="bg-slate-50 border-b">
+            <tr>
+              <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                User
+              </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  Email
-                </th>
+              <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                Email
+              </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  Role
-                </th>
+              <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                Role
+              </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  Status
-                </th>
+              <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                Status
+              </th>
 
-                <th className="text-right px-6 py-4 font-semibold text-slate-600">
-                  Action
-                </th>
-              </tr>
-            </thead>
+              <th className="text-right px-6 py-4 font-semibold text-slate-600">
+                Action
+              </th>
+            </tr>
+          </thead>
 
-            <tbody className="divide-y">
-              {filteredUsers.map((user) => (
-                <tr key={user.id} className="hover:bg-slate-50">
-                  <td className="px-6 py-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center font-semibold text-slate-600">
-                        {user.name.charAt(0)}
-                      </div>
-
-                      <span className="font-medium text-slate-800">
-                        {user.name}
-                      </span>
+          <tbody className="divide-y">
+            {filteredUsers.map((user) => (
+              <tr key={user.id} className="hover:bg-slate-50">
+                <td className="px-6 py-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center font-semibold text-slate-600">
+                      {user.name.charAt(0)}
                     </div>
-                  </td>
 
-                  <td className="px-6 py-4 text-slate-500">
-                    {user.email}
-                  </td>
-
-                  <td className="px-6 py-4">
-                    <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-medium capitalize">
-                      {user.role}
+                    <span className="font-medium text-slate-800">
+                      {user.name}
                     </span>
-                  </td>
+                  </div>
+                </td>
 
-                  <td className="px-6 py-4">
-                    <span
-                      className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                        user.user_info?.status === 1
-                          ? "bg-green-50 text-green-700"
-                          : "bg-red-50 text-red-700"
-                      }`}
-                    >
+                <td className="px-6 py-4 text-slate-500">{user.email}</td>
 
-                      {
-                        user.user_info?.status === 1? 'Active':'In-active' 
-                      }
-                    </span>
-                  </td>
+                <td className="px-6 py-4">
+                  <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-medium capitalize">
+                    {user.role}
+                  </span>
+                </td>
 
-                  <td className="px-6 py-4 text-right">
-                    <div className="flex justify-end gap-2">
-                      <button className="px-3 py-1.5 border rounded-lg text-xs hover:bg-slate-50">
-                        Edit
-                      </button>
-
-                      <button className="px-3 py-1.5 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50">
-                        Delete
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-
-              {filteredUsers.length === 0 && (
-                <tr>
-                  <td
-                    colSpan="5"
-                    className="text-center py-10 text-slate-500"
+                <td className="px-6 py-4">
+                  <span
+                    className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+                      user.user_info?.status === 1
+                        ? "bg-green-50 text-green-700"
+                        : "bg-red-50 text-red-700"
+                    }`}
                   >
-                    No users found.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+                    {user.user_info?.status === 1 ? "Active" : "In-active"}
+                  </span>
+                </td>
+
+                <td className="px-6 py-4 text-right">
+                  <div className="flex justify-end gap-2">
+                    <button className="px-3 py-1.5 border rounded-lg text-xs hover:bg-slate-50">
+                      Edit
+                    </button>
+
+                    <button className="px-3 py-1.5 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50">
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+
+            {filteredUsers.length === 0 && (
+              <tr>
+                <td colSpan="5" className="text-center py-10 text-slate-500">
+                  No users found.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
- 
     </>
   );
 }

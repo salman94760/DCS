@@ -187,7 +187,7 @@ export default function Register() {
         </div>
 
         <p class="text-center text-slate-500 text-xs mt-6">
-         © {new Date().getFullYear()} Dot Compliance Solutions LLC
+          © {new Date().getFullYear()} Dot Compliance Solutions LLC
         </p>
       </div>
     </div>

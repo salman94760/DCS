@@ -39,39 +39,39 @@ export default function Login() {
     setLoading(true);
 
     try {
-  const response = await api.post("/login", {
-    email: data.email,
-    password: data.password,
-  });
+      const response = await api.post("/login", {
+        email: data.email,
+        password: data.password,
+      });
 
-  const result = response.data;
+      const result = response.data;
 
-  // Token save
-  localStorage.setItem("token", result.token);
+      // Token save
+      localStorage.setItem("token", result.token);
 
-  // User/role bhi save
-  localStorage.setItem("user", JSON.stringify(result.user));
-  localStorage.setItem("userRole", result.user.role);
+      // User/role bhi save
+      localStorage.setItem("user", JSON.stringify(result.user));
+      localStorage.setItem("userRole", result.user.role);
 
+      setServerMessage(result.message);
+      setServerMessageType("success");
 
-  setServerMessage(result.message);
-  setServerMessageType("success");
+      // Role ke hisaab se redirect
+      if (result.user.role === "admin") {
+        navigate("/admin-dashboard", { replace: true });
+      } else if (result.user.role === "company") {
+        navigate("/company-dashboard", { replace: true });
+      } else {
+        navigate("/dashboard", { replace: true });
+      }
+    } catch (error) {
+      const message = error.response?.data?.message || "Something went wrong.";
 
-  // Role ke hisaab se redirect
-  if (result.user.role === "admin") {
-    navigate("/admin-dashboard", { replace: true });
-  } else {
-    navigate("/dashboard", { replace: true });
-  }
-} catch (error) {
-  const message =
-    error.response?.data?.message || "Something went wrong.";
+      setServerMessage(message);
+      setServerMessageType("error");
 
-  setServerMessage(message);
-  setServerMessageType("error");
-
-  // toast.error(message);
-} finally {
+      // toast.error(message);
+    } finally {
       setLoading(false);
     }
   };
@@ -92,7 +92,7 @@ export default function Login() {
           <p className="text-slate-400 text-xs mt-1">
             Safety &nbsp;•&nbsp; Compliance &nbsp;•&nbsp; Our Priority
           </p>
-{/*          <ToastContainer
+          {/*          <ToastContainer
             position="top-right"
             autoClose={5000}
             hideProgressBar={false}

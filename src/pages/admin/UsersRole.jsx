@@ -31,9 +31,7 @@ export default function Roles() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">
-            Roles
-          </h1>
+          <h1 className="text-2xl font-bold text-slate-900">Roles</h1>
 
           <p className="text-sm text-slate-500 mt-1">
             Manage user roles and permissions.
@@ -74,13 +72,9 @@ export default function Roles() {
 
             <div className="border-t mt-5 pt-4 flex items-center justify-between">
               <div>
-                <p className="text-xs text-slate-400">
-                  Users
-                </p>
+                <p className="text-xs text-slate-400">Users</p>
 
-                <p className="font-semibold text-slate-800">
-                  {role.users}
-                </p>
+                <p className="font-semibold text-slate-800">{role.users}</p>
               </div>
 
               <div className="flex gap-2">

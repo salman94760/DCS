@@ -1,34 +1,31 @@
 import { Routes, Route } from "react-router-dom";
 
 import ProtectedRoute from "@/routes/ProtectedRoute";
-import DashboardLayout from "@/layouts/DashboardLayout";
+import CompanyLayout from "@/layouts/CompanyLayout";
 
-import AdminDashboard from "@/pages/admin/AdminDashboard";
+import CompanyDashboard from "@/pages/company/CompanyDashboard";
 import AddUser from "@/pages/admin/Adduser";
 import Users from "@/pages/admin/Users";
 import AddCompany from "@/pages/admin/AddCompany";
-import EditCompany from "@/pages/admin/EditCompany";
 import Company from "@/pages/admin/Company";
 import UsersRole from "@/pages/admin/UsersRole";
 
-export default function AdminRoutes() {
+export default function CompanyRoutes() {
   return (
     <Routes>
       <Route element={<ProtectedRoute />}>
-        <Route path="/admin-dashboard" element={<DashboardLayout />}>
-          <Route index element={<AdminDashboard />} />
+        <Route path="/company-dashboard" element={<CompanyLayout />}>
+          <Route index element={<CompanyDashboard />} />
 
           <Route path="users" element={<Users />} />
 
           <Route path="users/add" element={<AddUser />} />
-          
 
           <Route path="users/roles" element={<UsersRole />} />
 
           <Route path="company" element={<Company />} />
 
           <Route path="company/add" element={<AddCompany />} />
-          <Route path="company/edit/:id" element={<EditCompany />} />
         </Route>
       </Route>
     </Routes>

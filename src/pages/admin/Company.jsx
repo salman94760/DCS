@@ -1,38 +1,78 @@
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import api from "@/api/axios";
 
-export default function Users() {
+import * as XLSX from "xlsx";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+
+import { useCompany } from "@/context/CompanyContext";
+
+export default function Company() {
+  const {
+    company,
+    loading,
+    error,
+
+    fetchCompanies,
+    deleteCompany,
+
+    filters,
+    setFilters,
+    resetFilters,
+  } = useCompany();
+
   const [search, setSearch] = useState("");
   const [role, setRole] = useState("all");
   const [status, setStatus] = useState("all");
-  const [company, setCompany] = useState([]);
 
-  const [filters, setFilters] = useState({
-    search: "",
-    role: "all",
-    status: "all",
-  });
-
+  // ==========================================
+  // GET COMPANIES
+  // ==========================================
   useEffect(() => {
-    const getCompany = async () => {
-      try {
-        const response = await api.get("/admin/company");
-
-        const result = response.data;
-
-      
-
-        setCompany(result.company || []);
-        console.log(result);
-      } catch (error) {
-        console.error("Failed to fetch users:", error);
-      }
-    };
-
-    getCompany();
+    fetchCompanies();
   }, []);
 
+  // ==========================================
+  // FILTER
+  // ==========================================
+const filteredCompany = useMemo(() => {
+  const searchText =
+    filters?.search?.toLowerCase().trim() || "";
+
+  return (Array.isArray(company) ? company : []).filter((com) => {
+    const companyName =
+      com.cname?.toLowerCase() || "";
+
+    const owner =
+      com.owner?.toLowerCase() || "";
+
+    const email =
+      com.email?.toLowerCase() || "";
+
+    const usdot =
+      com.usdot?.toLowerCase() || "";
+
+    const matchesSearch =
+      !searchText ||
+      companyName.includes(searchText) ||
+      owner.includes(searchText) ||
+      email.includes(searchText) ||
+      usdot.includes(searchText);
+
+    const matchesStatus =
+      filters?.status === "all" ||
+      (filters?.status === "active" &&
+        com.user?.user_info?.status === 1) ||
+      (filters?.status === "inactive" &&
+        com.user?.user_info?.status === 0);
+
+    return matchesSearch && matchesStatus;
+  });
+}, [company, filters]);
+
+  // ==========================================
+  // FILTER BUTTON
+  // ==========================================
   const handleFilter = () => {
     setFilters({
       search,
@@ -41,66 +81,174 @@ export default function Users() {
     });
   };
 
+  // ==========================================
+  // RESET
+  // ==========================================
   const handleReset = () => {
     setSearch("");
     setRole("all");
     setStatus("all");
 
-    setFilters({
-      search: "",
-      role: "all",
-      status: "all",
-    });
+    resetFilters();
   };
 
-  const filteredComapny = company.filter((user) => {
-  //   const searchText = filters.search.toLowerCase();
-
-  //   const userName = com.name?.toLowerCase() || "";
-  //   const userEmail = com.email?.toLowerCase() || "";
-
-  //   const matchesSearch =
-  //     userName.includes(searchText) ||
-  //     userEmail.includes(searchText);
-
-  //   const matchesRole =
-  //     filters.role === "all" || com.role === filters.role;
-
-  //   const matchesStatus =
-  //     filters.status === "all" ||
-  //     com.user_info?.status ===
-  //       (filters.status === "active" ? 1 : 0);
-
-  //   return matchesSearch && matchesRole && matchesStatus;
-  });
-
+  // ==========================================
+  // DELETE
+  // ==========================================
   const handleDelete = async (id) => {
     const confirmed = window.confirm(
       "Are you sure you want to delete this company?"
     );
 
-    if (!confirmed) {
-      return;
-    }
+    if (!confirmed) return;
 
     try {
-      // API call
-      // await api.delete(`/admin/users/${id}`);
-
-      setCompany((prevUsers) =>
-        prevUsers.filter((company) => company.id !== id)
-      );
-
-      console.log("Deleted:", id);
+      await deleteCompany(id);
     } catch (error) {
       console.error("Failed to delete:", error);
     }
   };
-console.log(company);
+
+  // ==========================================
+  // EXCEL
+  // ==========================================
+  const handleExportExcel = () => {
+    if (!company || company.length === 0) {
+      alert("No company data available.");
+      return;
+    }
+
+    const data = company.map((com) => ({
+      Username: com.email || "",
+      Password:
+        com.user?.user_info?.password_hint || "",
+      USDOT: com.usdot || "",
+      "Company Owner Name": com.owner || "",
+      "Legal Company Name": com.cname || "",
+      "DBA Name": com.dba || "",
+      "DOT Number": com.dot || "",
+      "MC Number": com.mc || "",
+      "EIN Number": com.ein || "",
+      "Email ID": com.email || "",
+      "Physical Address":
+        com.physicaladdress || "",
+      "Mailing Address":
+        com.mailaddress || "",
+      "Phone Number": com.phone || "",
+      "Alternate Phone Number":
+        com.aphone || "",
+    }));
+
+    const worksheet =
+      XLSX.utils.json_to_sheet(data);
+
+    const workbook =
+      XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(
+      workbook,
+      worksheet,
+      "Companies"
+    );
+
+    XLSX.writeFile(
+      workbook,
+      "companies-report.xlsx"
+    );
+  };
+
+  // ==========================================
+  // PDF
+  // ==========================================
+  const handleExportPDF = () => {
+    if (!company || company.length === 0) {
+      alert("No company data available.");
+      return;
+    }
+
+    const doc = new jsPDF({
+      orientation: "landscape",
+      unit: "mm",
+      format: "a4",
+    });
+
+    doc.setFontSize(16);
+
+    doc.text(
+      "Companies Report",
+      14,
+      15
+    );
+
+    doc.setFontSize(9);
+
+    doc.text(
+      `Total Companies: ${company.length}`,
+      14,
+      22
+    );
+
+    const tableData = company.map(
+      (com) => [
+        com.email || "",
+        com.usdot || "",
+        com.owner || "",
+        com.cname || "",
+        com.dba || "",
+        com.dot || "",
+        com.mc || "",
+        com.ein || "",
+        com.phone || "",
+      ]
+    );
+
+    autoTable(doc, {
+      startY: 28,
+
+      head: [[
+        "Username",
+        "USDOT",
+        "Owner",
+        "Legal Company",
+        "DBA",
+        "DOT",
+        "MC",
+        "EIN",
+        "Phone",
+      ]],
+
+      body: tableData,
+
+      styles: {
+        fontSize: 7,
+        cellPadding: 2,
+      },
+
+      headStyles: {
+        fontSize: 7,
+        fontStyle: "bold",
+      },
+
+      margin: {
+        left: 8,
+        right: 8,
+      },
+    });
+
+    doc.save(
+      "companies-report.pdf"
+    );
+  };
+
   return (
     <div className="w-full min-w-0">
-      {/* Header */}
+
+      {/* ================================= */}
+      {/* HEADER */}
+      {/* ================================= */}
+
       <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+
         <div>
           <h1 className="text-2xl font-bold text-slate-900">
             Company
@@ -117,41 +265,52 @@ console.log(company);
         >
           + Add Company
         </Link>
+
       </div>
 
-      {/* Filters */}
+
+      {/* ================================= */}
+      {/* FILTERS */}
+      {/* ================================= */}
+
       <div className="w-full bg-white rounded-xl border border-slate-200 p-4 mb-5">
+
         <div className="flex flex-col lg:flex-row gap-3">
+
           <input
             type="text"
             placeholder="Search by name or email..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) =>
+              setSearch(e.target.value)
+            }
             className="flex-1 min-w-0 border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
           />
 
-          <select
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            className="lg:w-40 border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-          >
-            <option value="all">All Roles</option>
-            <option value="admin">Admin</option>
-            <option value="manager">Manager</option>
-            <option value="Employee">Employee</option>
-          </select>
 
           <select
             value={status}
-            onChange={(e) => setStatus(e.target.value)}
+            onChange={(e) =>
+              setStatus(e.target.value)
+            }
             className="lg:w-40 border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
           >
-            <option value="all">All Status</option>
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
+            <option value="all">
+              All Status
+            </option>
+
+            <option value="active">
+              Active
+            </option>
+
+            <option value="inactive">
+              Inactive
+            </option>
           </select>
 
+
           <div className="flex gap-3">
+
             <button
               type="button"
               onClick={handleFilter}
@@ -167,18 +326,79 @@ console.log(company);
             >
               Reset
             </button>
+
           </div>
+
+
+          {/* EXPORT */}
+
+          <div className="flex gap-2 lg:ml-auto">
+
+            <button
+              type="button"
+              onClick={handleExportExcel}
+              title="Export Excel"
+              className="w-10 h-10 flex items-center justify-center bg-[#091122] text-white rounded-lg"
+            >
+              <i className="fa-regular fa-file-excel"></i>
+            </button>
+
+
+            <button
+              type="button"
+              onClick={handleExportPDF}
+              title="Export PDF"
+              className="w-10 h-10 flex items-center justify-center bg-[#091122] text-white rounded-lg"
+            >
+              <i className="fa-solid fa-file"></i>
+            </button>
+
+          </div>
+
         </div>
+
       </div>
 
-      {/* Table */}
+
+      {/* ================================= */}
+      {/* ERROR */}
+      {/* ================================= */}
+
+      {error && (
+        <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-lg">
+          {error}
+        </div>
+      )}
+
+
+      {/* ================================= */}
+      {/* TABLE */}
+      {/* ================================= */}
+
       <div className="w-full min-w-0 bg-white rounded-xl border border-slate-200">
-        <div className="w-full overflow-x-auto">
+
+        <div className="w-full max-h-[500px] overflow-auto">
+
           <table className="min-w-[1500px] w-full text-sm">
-            <thead className="bg-slate-50 border-b border-slate-200">
+
+            <thead className="sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
+
               <tr>
-                <th className="sticky left-0 z-10 bg-slate-50 text-left px-6 py-4 font-semibold text-slate-600">
+
+                <th className="sticky left-0 z-30 bg-slate-50 text-left px-6 py-4 font-semibold text-slate-600">
                   Action
+                </th>
+
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  Username
+                </th>
+
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  Password
+                </th>
+
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  Status
                 </th>
 
                 <th className="text-left px-6 py-4 font-semibold text-slate-600">
@@ -232,119 +452,201 @@ console.log(company);
                 <th className="text-left px-6 py-4 font-semibold text-slate-600">
                   Alternate Phone Number
                 </th>
+
               </tr>
+
             </thead>
 
+
             <tbody className="divide-y divide-slate-200">
-              {company.map((com) => (
-        
 
-                <tr
-                  key={com.id}
-                  className="hover:bg-slate-50"
-                >
-                  {/* Action */}
-                  <td className="sticky left-0 z-10 bg-white px-6 py-4">
-                    <div className="flex items-center gap-2">
-                      <Link
-                        to={`/admin-dashboard/edit/${com.id}`}
-                        className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50 whitespace-nowrap"
-                      >
-                        Edit
-                      </Link>
+              {loading ? (
 
-                      <button
-                        type="button"
-                        onClick={() => handleDelete(com.id)}
-                        className="px-3 py-1.5 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50 whitespace-nowrap"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </td>
-
-                  {/* Logo / Status */}
-                <td>
-      				
-      </td>
-
-                  {/* USDOT */}
-                  <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    {com.usdot}
-                  </td>
-
-                  {/* Owner */}
-                  <td className="px-6 py-4">
-                    <span className="font-medium text-slate-800 whitespace-nowrap">
-                      {com.owner}
-                    </span>
-                  </td>
-
-                  {/* Legal Company */}
-                  <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    {com.cname}
-                  </td>
-
-                  {/* DBA */}
-                  <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    {com.dba}
-                  </td>
-
-                  {/* DOT */}
-                  <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    {com.dot}
-                  </td>
-
-                  {/* MC */}
-                  <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    {com.mc}
-                  </td>
-
-                  {/* EIN */}
-                  <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                   {com.ein}
-                  </td>
-
-                  {/* Email */}
-                  <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    {com.email}
-                  </td>
-
-                  {/* Physical Address */}
-                  <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    {com.physicaladdress}
-                  </td>
-
-                  {/* Mailing Address */}
-                  <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    {com.mailaddress}
-                  </td>
-
-                  {/* Phone */}
-                  <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    {com.phone}
-                  </td>
-
-                  <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    {com.aphone}
-                  </td>
-                </tr>
-              ))}
-
-              {company.length === 0 && (
                 <tr>
                   <td
-                    colSpan="13"
+                    colSpan="17"
                     className="text-center py-10 text-slate-500"
                   >
-                    No companies found.
+                    Loading companies...
                   </td>
                 </tr>
+
+              ) : (
+
+                filteredCompany.map((com) => (
+
+                  <tr
+                    key={com.id}
+                    className="hover:bg-slate-50"
+                  >
+
+                    {/* ACTION */}
+
+                    <td className="sticky left-0 z-10 bg-white px-6 py-4">
+
+                      <div className="flex items-center gap-2">
+
+                        <Link
+                          to={`/admin-dashboard/company/edit/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >
+                          Edit
+                        </Link>
+
+
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleDelete(com.id)
+                          }
+                          className="px-3 py-1.5 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50 whitespace-nowrap"
+                        >
+                          Delete
+                        </button>
+
+                      </div>
+
+                    </td>
+
+
+                    {/* USERNAME */}
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.email}
+                    </td>
+
+
+                    {/* PASSWORD */}
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.user?.user_info?.password_hint}
+                    </td>
+
+
+                    {/* STATUS */}
+
+                    <td className="px-6 py-4">
+
+                      <span
+                        className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+                          com.user?.user_info?.status === 1
+                            ? "bg-green-50 text-green-700"
+                            : "bg-red-50 text-red-700"
+                        }`}
+                      >
+                        {com.user?.user_info?.status === 1
+                          ? "Active"
+                          : "In-active"}
+                      </span>
+
+                    </td>
+
+
+                    {/* LOGO */}
+
+                    <td className="px-6 py-4">
+
+                      {com.image ? (
+
+                        <img
+                          className="w-[100px] h-[60px] object-contain"
+                          src={`${
+                            window.location.hostname ===
+                            "localhost"
+                              ? "http://localhost:8000/storage/"
+                              : "/storage/"
+                          }${com.image}`}
+                          alt={com.cname}
+                        />
+
+                      ) : (
+                        "No Image"
+                      )}
+
+                    </td>
+
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.usdot}
+                    </td>
+
+                    <td className="px-6 py-4">
+                      <span className="font-medium text-slate-800 whitespace-nowrap">
+                        {com.owner}
+                      </span>
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.cname}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.dba}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.dot}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.mc}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.ein}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.email}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.physicaladdress}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.mailaddress}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.phone}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.aphone}
+                    </td>
+
+                  </tr>
+
+                ))
+
               )}
+
+
+              {!loading &&
+                filteredCompany.length === 0 && (
+
+                  <tr>
+
+                    <td
+                      colSpan="17"
+                      className="text-center py-10 text-slate-500"
+                    >
+                      No companies found.
+                    </td>
+
+                  </tr>
+
+                )}
+
             </tbody>
+
           </table>
+
         </div>
+
       </div>
+
     </div>
   );
 }

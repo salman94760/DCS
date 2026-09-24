@@ -18,7 +18,7 @@ class MakeAdminUser extends Seeder
         $user = User::create([
             'name' => 'Admin',
             'email' => 'info@dotsafe.net',
-            'role' =>'admin'
+            'role' =>'admin',
             'email_verified_at' => now(),
             'password' => Hash::make('Stockton@2027'),
             'remember_token' =>  Str::random(10)
@@ -31,7 +31,10 @@ class MakeAdminUser extends Seeder
                 'phone' => 'XXXXXX',
                 'zipcode' => 'XXXXXX',
                 'landmark' => 'XXXXXX',
-                'password_hint' => 'XXXXXX'
+                'password_hint' => 'XXXXXX',
+                'company' => 'XXXXXX',
+                'status' => 1,
+                'image' => 'XXXXXX'
             ]);
         }
     }

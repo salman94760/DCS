@@ -29,6 +29,24 @@ class AuthController extends Controller
                 'message' => 'Email does not exist.',
             ], 404);
         }
+
+        if ($user->userInfo->status === 0) {
+            if($user->role === 'admin'){
+                $msg = "admin user not active contact Support .";
+            }else if($user->role === 'manager'){
+                $msg = "User not active contact Support .";
+            }else if($user->role === 'employee'){
+                $msg = "User not active contact Support .";
+            }else if($user->role === 'company'){
+                $msg = "User not active contact Support .";
+            }else if($user->role === 'citation'){
+                $msg = "User not active contact Support .";
+            }
+            return response()->json([
+                'success' => false,
+                'message' => $msg,
+            ], 404);
+        }
         
         if (!Hash::check($password, $user->password)) {
             return response()->json([

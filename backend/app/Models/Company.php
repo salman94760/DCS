@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Company extends Model
 {
     public $fillable = [
         'usdot',
+        'user_id',
         'owner',
         'cname',
         'dot',
@@ -21,4 +23,8 @@ class Company extends Model
         'mailaddress',
         'image'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class,'user_id','id');
+    }
 }

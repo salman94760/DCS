@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 
-import Header from "@/components/admin/Header";
-import Sidebar from "@/components/admin/SideBar";
+import Header from "@/components/company/Header";
+import Sidebar from "@/components/company/SideBar";
 
-export default function DashboardLayout() {
+export default function CompanyLayout() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />

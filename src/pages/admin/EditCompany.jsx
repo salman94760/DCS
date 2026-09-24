@@ -1,14 +1,38 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import api from "@/api/axios";
+import { useParams } from "react-router-dom";
 
-export default function AddCompany() {
+
+
+export default function EditCompany() {
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [serverMessage, setServerMessage] = useState("");
   const [serverMessageType, setServerMessageType] = useState("");
+  const [company, setCompany] = useState([]);
+
+  useEffect(() => {
+    const getCompany = async () => {
+      try {
+        const response = await api.get(`/admin/company/${id}`);
+
+        const result = response.data;
+
+        setCompany(result.company || []);
+        console.log(result.company.physicaladdress);
+      } catch (error) {
+        console.error("Failed to fetch users:", error);
+      }
+    };
+
+    getCompany();
+  }, []);
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -153,11 +177,13 @@ export default function AddCompany() {
       if (image && image.size > 0) {
         uploadData.append("image", image);
       }
+      uploadData.append("_method", "PUT");
 
       // =================================
       // API REQUEST
       // =================================
-      const response = await api.post("/admin/company/add", uploadData);
+    
+    const response = await api.post(`/admin/company/edit/${id}`,uploadData);
 
       const result = response.data;
 
@@ -187,9 +213,9 @@ export default function AddCompany() {
       {/* ================= HEADER ================= */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Add Company</h1>
+          <h1 className="text-2xl font-bold text-slate-900">Edit Company</h1>
 
-          <p className="text-sm text-slate-500 mt-1">Add a new company.</p>
+          <p className="text-sm text-slate-500 mt-1">Edit company detail.</p>
         </div>
 
         <Link
@@ -219,6 +245,7 @@ export default function AddCompany() {
                 type="text"
                 name="usdot"
                 placeholder="USDOT"
+                defaultValue={company.usdot}
                 className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
@@ -232,6 +259,7 @@ export default function AddCompany() {
               <input
                 type="text"
                 name="owner"
+                defaultValue={company.cname}
                 placeholder="Enter company owner"
                 className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
@@ -246,6 +274,7 @@ export default function AddCompany() {
               <input
                 type="text"
                 name="cname"
+                defaultValue={company.owner}
                 placeholder="Enter company name"
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
@@ -264,6 +293,7 @@ export default function AddCompany() {
               <input
                 type="text"
                 name="dot"
+                defaultValue={company.dot}
                 placeholder="DOT number"
                 className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
@@ -286,6 +316,7 @@ export default function AddCompany() {
                 type="text"
                 name="mc"
                 placeholder="MC number"
+                defaultValue={company.mc}
                 className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
 
@@ -307,6 +338,7 @@ export default function AddCompany() {
                 type="text"
                 name="ein"
                 placeholder="EIN number"
+                defaultValue={company.ein}
                 className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
 
@@ -329,6 +361,7 @@ export default function AddCompany() {
               <input
                 type="text"
                 name="dba"
+                defaultValue={company.dba}
                 placeholder="Enter DBA Name"
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
@@ -345,6 +378,7 @@ export default function AddCompany() {
                 type="email"
                 name="email"
                 placeholder="Enter email"
+                defaultValue={company.email}
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
 
@@ -365,9 +399,10 @@ export default function AddCompany() {
             <textarea
               name="physicaladdress"
               rows="3"
+              defaultValue={company.physicaladdress}
               placeholder="Enter physical address"
               className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-            />
+            >{company?.physicaladdress}</textarea>
           </div>
 
           {/* ================= MAILING ADDRESS ================= */}
@@ -379,9 +414,10 @@ export default function AddCompany() {
             <textarea
               name="mailaddress"
               rows="3"
+              defaultValue={company.mailaddress}
               placeholder="Enter mailing address"
               className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-            />
+            >{company.mailaddress}</textarea>
           </div>
 
           {/* ================= PHONE ================= */}
@@ -396,6 +432,7 @@ export default function AddCompany() {
               <input
                 type="text"
                 name="phone"
+                defaultValue={company.phone}
                 placeholder="Enter phone number"
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
@@ -416,11 +453,12 @@ export default function AddCompany() {
               <input
                 type="text"
                 name="aphone"
+                defaultValue={company.aphone}
                 placeholder="Enter alternate phone number"
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
             </div>
-            <div>
+                   <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">
                 Status
               </label>
@@ -479,7 +517,7 @@ export default function AddCompany() {
                   : "bg-[#091122] hover:bg-slate-800"
               }`}
             >
-              {loading ? "Saving..." : "Save Company"}
+              {loading ? "Updating..." : "Update Company"}
             </button>
           </div>
         </form>
