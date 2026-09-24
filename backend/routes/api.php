@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\SignatureController;
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
 // })->middleware('auth:sanctum');
@@ -18,3 +18,7 @@ Route::get('/admin/company/{id}', [CompanyController::class, 'companyDetail']);
 Route::post('/admin/company/add', [CompanyController::class, 'addCompany']);
 Route::put('/admin/company/edit/{id}', [CompanyController::class, 'updateCompany']);
 Route::delete('/admin/company/delete/{id}', [CompanyController::class, 'deleteCompany']);
+Route::post('/signature/save', [
+    SignatureController::class,
+    'save'
+]);

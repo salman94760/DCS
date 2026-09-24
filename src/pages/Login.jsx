@@ -45,7 +45,7 @@ export default function Login() {
       });
 
       const result = response.data;
-
+      console.log(result)
       // Token save
       localStorage.setItem("token", result.token);
 
@@ -65,6 +65,7 @@ export default function Login() {
         navigate("/dashboard", { replace: true });
       }
     } catch (error) {
+      console.log(error);
       const message = error.response?.data?.message || "Something went wrong.";
 
       setServerMessage(message);

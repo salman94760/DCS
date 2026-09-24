@@ -1,7 +1,18 @@
+import SignatureModal from "@/pages/signature/SignatureModal";
+import {useState} from "react";
 export default function DriverApplication() {
+    const [signatureOpen, setSignatureOpen] =
+    useState(false);
   return (
     <div className="min-h-screen bg-[#bdbdbd] px-2 py-5 sm:px-4 lg:px-6 font-['Tinos']">
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <SignatureModal
+        isOpen={signatureOpen}
+        onClose={() => setSignatureOpen(false)}
+        onSaved={(data) => {
+          console.log("Saved Signature:", data);
+        }}
+      />
+      <div className="mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="text-center">
           <h3 className="mb-[10px] text-[18px] font-bold tracking-[0.2px] text-[#202b36]">
             DOT COMPLIANCE SOLUTIONS LLC
@@ -583,10 +594,15 @@ export default function DriverApplication() {
                       Driver signature
                     </span>
                     <br />
-                    <input
+                    <input onClick={() => setSignatureOpen(true)}
                       className="w-full border border-black p-2 h-[40px]"
                       type="text"
                     />
+
+
+            
+
+
                   </td>
 
                   <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
