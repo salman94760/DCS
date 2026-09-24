@@ -4,7 +4,7 @@ import ProtectedRoute from "@/routes/ProtectedRoute";
 import DashboardLayout from "@/layouts/DashboardLayout";
 
 import AdminDashboard from "@/pages/admin/AdminDashboard";
-import AddUser from "@/pages/admin/AddUser";
+import AddUser from "@/pages/admin/Adduser";
 import Users from "@/pages/admin/Users";
 import AddCompany from "@/pages/admin/AddCompany";
 import Company from "@/pages/admin/Company";
