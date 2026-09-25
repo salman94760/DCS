@@ -462,8 +462,8 @@ export default function EditCompany() {
 
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
               >
-                <option value="Active">Active</option>
-                <option value="In-active">In-active</option>
+                <option value="Active">ACTIVE</option>
+                <option value="In-active">IN-ACTIVE</option>
               </select>
 
            
@@ -479,8 +479,8 @@ export default function EditCompany() {
 
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
               >
-                <option value="1">Active</option>
-                <option value="0">In-active</option>
+                <option value="1">ACTIVE</option>
+                <option value="0">IN-ACTIVE</option>
               </select>
 
               

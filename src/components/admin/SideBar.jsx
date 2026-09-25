@@ -90,7 +90,7 @@ useEffect(() => {
                     d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-8a4 4 0 11-8 0 4 4 0 018 0zm6 3a4 4 0 11-8 0 4 4 0 018 0z"
                   />
                 </svg>
-                Drivers
+                DRIVERS
               </span>
 
               <span
@@ -212,7 +212,7 @@ useEffect(() => {
             >
               <span className="flex items-center gap-3">
                 <span className="w-5 text-center">♟</span>
-                Users
+                USERS
               </span>
 
               <span
@@ -230,14 +230,14 @@ useEffect(() => {
                   href="/admin-dashboard/users"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
-                  All Users
+                  ALL USERS
                 </a>
 
                 <a
                   href="/admin-dashboard/users/add"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
-                  Add User
+                  ADD USER
                 </a>
 
                 {/*     <a
@@ -270,7 +270,7 @@ useEffect(() => {
                     d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 7h2m-2 4h2m-2 4h2m4-8h2m-2 4h2m-2 4h2"
                   />
                 </svg>
-                Company
+                COMPANY
               </span>
 
               <span
@@ -288,14 +288,14 @@ useEffect(() => {
                   href="/admin-dashboard/company"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
-                  All Company
+                  ALL COMPANY
                 </a>
 
                 <a
                   href="/admin-dashboard/company/add"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
-                  Add Company
+                  ADD COMPANY
                 </a>
               </div>
             )}
@@ -329,7 +329,7 @@ useEffect(() => {
             />
           </svg>
 
-          <span>Logout</span>
+          <span>LOGOUT</span>
         </button>
         </nav>
 

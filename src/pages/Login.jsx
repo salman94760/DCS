@@ -86,7 +86,7 @@ export default function Login() {
 
       <div className="relative z-10 w-full max-w-md">
         <div className="flex flex-col items-center mb-8">
-          <img className="w-[100px]" src="/logonew.png" />
+          <img className="w-[100px]" src="/logo1.png" />
           <p className="text-white font-extrabold text-lg tracking-wide text-center">
             DOT COMPLIANCE SOLUTIONS LLC
           </p>
@@ -109,16 +109,17 @@ export default function Login() {
         </div>
 
         <div className="bg-white rounded-xl shadow-xl p-8">
-          <h1 className="text-[#091122] text-xl font-bold text-slate-900">
+          <h1 className="cap text-[#091122] text-xl font-bold text-slate-900">
             Welcome back
           </h1>
           <p className="text-sm text-slate-500 mt-1 mb-6">
-            Sign in to access your compliance dashboard.
+            
+            <span className="font-['cursive']"><i>Sign in to access your compliance dashboard.</i></span>
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Email address
               </label>
               <div className="relative">
@@ -137,7 +138,7 @@ export default function Login() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Password
               </label>
               <div className="relative">
@@ -156,7 +157,7 @@ export default function Login() {
             </div>
 
             <div className="flex items-center justify-between text-sm">
-              <label className="flex items-center gap-2 text-slate-600">
+              <label className="cap flex items-center gap-2 text-slate-600">
                 <input
                   type="checkbox"
                   className="rounded border-slate-300 text-blue-600 focus:ring-blue-200"
@@ -165,7 +166,7 @@ export default function Login() {
               </label>
               <a
                 href="#"
-                className="text-[#091122] font-medium hover:underline"
+                className="cap text-[#091122] font-medium hover:underline"
               >
                 Forgot password?
               </a>
@@ -196,7 +197,7 @@ export default function Login() {
             </div>
           )}
           <p className="text-sm text-slate-500 text-center mt-6">
-            Don't have an account?
+            <span className="font-['cursive']"><i>Don't have an account?</i></span>
             <Link
               to="/register"
               className="text-[#091122] font-medium hover:underline"

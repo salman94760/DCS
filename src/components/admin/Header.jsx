@@ -48,7 +48,7 @@ useEffect(() => {
         </div>
 
         <div className="relative z-10 flex items-center gap-3">
-          <img src="/logonew.png" className="w-[80px]" />
+          <img src="/logo1.png" className="w-[80px]" />
 
           <div>
             <p className="text-white font-extrabold text-lg leading-tight tracking-wide">
@@ -77,8 +77,8 @@ useEffect(() => {
       </div>
 
       <div className="leading-tight text-left">
-        <p className="text-sm font-medium">Admin</p>
-        <p className="text-xs text-slate-400">
+        <p className="cap text-sm font-medium">Admin</p>
+        <p className="cap text-xs text-slate-400">
           Administrator
         </p>
       </div>

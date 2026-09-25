@@ -640,8 +640,8 @@ const filteredCompany = useMemo(() => {
                         }`}
                       >
                         {com.user?.user_info?.status === 1
-                          ? "Active"
-                          : "In-active"}
+                          ? "ACTIVE"
+                          : "IN-ACTIVE"}
                       </span>
 
                     </td>

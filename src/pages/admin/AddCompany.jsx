@@ -315,8 +315,8 @@ export default function AddCompany() {
               <input
                 type="text"
                 name="owner"
-                placeholder="cap ENTER COMPANY OWNER NAME"
-                className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+                placeholder="ENTER COMPANY OWNER NAME"
+                className="cap w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
 
