@@ -14,7 +14,6 @@ export const initialState = {
 };
 
 const companyReducer = (state, action) => {
-
   switch (action.type) {
     case "FETCH_COMPANIES_START":
       return {
@@ -23,17 +22,14 @@ const companyReducer = (state, action) => {
         error: null,
       };
 
-
-
-
-      case "FETCH_COMPANIES_SUCCESS":
-  return {
-    ...state,
-    loading: false,
-    company: Array.isArray(action.payload)
-      ? action.payload
-      : [],
-  };
+    case "FETCH_COMPANIES_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        company: Array.isArray(action.payload)
+          ? action.payload
+          : [],
+      };
 
     case "FETCH_COMPANY_ERROR":
       return {
@@ -42,7 +38,38 @@ const companyReducer = (state, action) => {
         error: action.payload,
       };
 
-    case "DELETE_COMPANY_START":
+    // =========================
+    // DELETE
+    // =========================
+    case "DELETE_START":
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+
+    case "DELETE_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        company: state.company.filter(
+          (item) =>
+            String(item.id) !== String(action.payload)
+        ),
+        error: null,
+      };
+
+    case "DELETE_ERROR":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    // =========================
+    // SINGLE COMPANY
+    // =========================
+    case "FETCH_COMPANY_START":
       return {
         ...state,
         loading: true,
@@ -53,18 +80,12 @@ const companyReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        company: state.company.filter(
-          (item) => item.id !== action.payload
-        ),
+        selectedCompany: action.payload,
       };
 
-    case "DELETE_COMPANY_ERROR":
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
-
+    // =========================
+    // FILTERS
+    // =========================
     case "SET_FILTERS":
       return {
         ...state,
@@ -86,22 +107,6 @@ const companyReducer = (state, action) => {
         ...state,
         selectedCompany: action.payload,
       };
-
-      case "SET_FILTERS":
-  return {
-    ...state,
-    filters: action.payload,
-  };
-
-case "RESET_FILTERS":
-  return {
-    ...state,
-    filters: {
-      search: "",
-      role: "all",
-      status: "all",
-    },
-  };
 
     default:
       return state;
