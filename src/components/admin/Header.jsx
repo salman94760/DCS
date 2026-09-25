@@ -2,6 +2,29 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "@/api/axios";
 export default function Header() {
+  const [open, setOpen] = useState(false);
+const dropdownRef = useRef(null);
+const navigate = useNavigate();
+
+useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target)
+    ) {
+      setOpen(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener(
+      "mousedown",
+      handleClickOutside
+    );
+  };
+}, []);
   const handleLogout = async () => {
   try {
     await api.post("/logout");
