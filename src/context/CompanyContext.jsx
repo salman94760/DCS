@@ -154,7 +154,7 @@ const fetchCompanies = async () => {
 
     try {
       await api.delete(
-        `/admin/company/${id}`
+        `/admin/company/delete/${id}`
       );
 
       dispatch({
