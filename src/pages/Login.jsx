@@ -58,7 +58,7 @@ export default function Login() {
 
       // Role ke hisaab se redirect
       if (result.user.role === "admin") {
-        navigate("/admin-dashboard", { replace: true });
+        navigate("/admin-dashboard/company", { replace: true });
       } else if (result.user.role === "company") {
         navigate("/company-dashboard", { replace: true });
       } else {

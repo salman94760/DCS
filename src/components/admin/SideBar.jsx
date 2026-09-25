@@ -64,12 +64,12 @@ export default function Sidebar() {
 
             {openMenu === "drivers" && (
               <div className="ml-8 mt-1 space-y-1 border-l border-white/10 pl-3">
-                <a
+             {/*   <a
                   href="#"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
                   All Drivers
-                </a>
+                </a>*/}
 
                 {/*  <a
                   href="#"
