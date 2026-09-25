@@ -269,6 +269,28 @@ export default function Sidebar() {
             <span className="w-5 text-center">▤</span>
             System Logs
           </a>*/}
+
+                  <button
+          type="button"
+          onClick={handleLogout}
+          className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-red-400 hover:bg-red-500/10"
+        >
+          <svg
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2h5a2 2 0 012 2v1"
+            />
+          </svg>
+
+          <span>Logout</span>
+        </button>
         </nav>
 
         <div className="px-5 py-4 text-[11px] text-slate-500 border-t border-white/10">
