@@ -14,9 +14,9 @@ export default function Register() {
           <p class="text-white font-extrabold text-lg tracking-wide text-center">
             DOT COMPLIANCE SOLUTIONS LLC
           </p>
-          <p class="text-slate-400 text-xs mt-1">
-            Safety &nbsp;•&nbsp; Compliance &nbsp;•&nbsp; Our Priority
-          </p>
+          <p className="text-slate-400 text-xm mt-0.5">
+              <span className="font-['cursive']"><i>Where Safety Meets Compliance</i></span>
+            </p>
         </div>
 
         <div class="bg-white rounded-xl shadow-xl p-8">

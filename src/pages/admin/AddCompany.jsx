@@ -189,7 +189,7 @@ export default function AddCompany() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Add Company</h1>
 
-          <p className="text-sm text-slate-500 mt-1">Add a new company.</p>
+         
         </div>
 
         <Link
@@ -207,64 +207,21 @@ export default function AddCompany() {
           className="space-y-5"
           encType="multipart/form-data"
         >
-          {/* ================= ROW 1 ================= */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {/* USDOT */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
-                USDOT
-              </label>
 
-              <input
-                type="text"
-                name="usdot"
-                placeholder="USDOT"
-                className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-              />
-            </div>
-
-            {/* OWNER */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
-                Company Owner Name
-              </label>
-
-              <input
-                type="text"
-                name="owner"
-                placeholder="Enter company owner"
-                className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-              />
-            </div>
-
-            {/* COMPANY NAME */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
-                Legal Company Name
-              </label>
-
-              <input
-                type="text"
-                name="cname"
-                placeholder="Enter company name"
-                className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
-              />
-            </div>
-          </div>
 
           {/* ================= DOT MC EIN ================= */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {/* DOT */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 DOT Number
                 <span className="text-red-500">*</span>
               </label>
 
               <input
-                type="text"
+                type="number"
                 name="dot"
-                placeholder="DOT number"
+                placeholder="ENTER DOT NUMBER"
                 className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
 
@@ -277,15 +234,15 @@ export default function AddCompany() {
 
             {/* MC */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 MC Number
                 <span className="text-red-500">*</span>
               </label>
 
               <input
-                type="text"
+                type="number"
                 name="mc"
-                placeholder="MC number"
+                placeholder="ENTER MC NUMBER"
                 className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
 
@@ -298,15 +255,15 @@ export default function AddCompany() {
 
             {/* EIN */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 EIN Number
                 <span className="text-red-500">*</span>
               </label>
 
               <input
-                type="text"
+                type="number"
                 name="ein"
-                placeholder="EIN number"
+                placeholder="ENTER EIN NUMBER"
                 className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
 
@@ -318,25 +275,61 @@ export default function AddCompany() {
             </div>
           </div>
 
-          {/* ================= DBA + EMAIL ================= */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {/* DBA */}
+                    {/* ================= ROW 1 ================= */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+
+                        {/* COMPANY NAME */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                Legal Company Name
+              </label>
+
+              <input
+                type="text"
+                name="cname"
+                placeholder="ENTER LEGAL COMPANY NAME"
+                className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
+              />
+            </div>
+               {/* DBA */}
+            <div>
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 DBA Name
               </label>
 
               <input
                 type="text"
                 name="dba"
-                placeholder="Enter DBA Name"
-                className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
+                placeholder="ENTER DBA NAME"
+                className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
+              />
+            </div>
+            
+
+            {/* OWNER */}
+            <div>
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                Company Owner Name
+              </label>
+
+              <input
+                type="text"
+                name="owner"
+                placeholder="cap ENTER COMPANY OWNER NAME"
+                className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
 
+
+          </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+    
+         
+
             {/* EMAIL */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Email ID
                 <span className="text-red-500">*</span>
               </label>
@@ -344,7 +337,7 @@ export default function AddCompany() {
               <input
                 type="email"
                 name="email"
-                placeholder="Enter email"
+                placeholder="Enter EMAIL ID"
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
 
@@ -354,41 +347,10 @@ export default function AddCompany() {
                 </p>
               )}
             </div>
-          </div>
 
-          {/* ================= PHYSICAL ADDRESS ================= */}
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
-              Physical Address
-            </label>
-
-            <textarea
-              name="physicaladdress"
-              rows="3"
-              placeholder="Enter physical address"
-              className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-            />
-          </div>
-
-          {/* ================= MAILING ADDRESS ================= */}
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
-              Mailing Address
-            </label>
-
-            <textarea
-              name="mailaddress"
-              rows="3"
-              placeholder="Enter mailing address"
-              className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-            />
-          </div>
-
-          {/* ================= PHONE ================= */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {/* PHONE */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Phone Number
                 <span className="text-red-500">*</span>
               </label>
@@ -396,7 +358,7 @@ export default function AddCompany() {
               <input
                 type="text"
                 name="phone"
-                placeholder="Enter phone number"
+                placeholder="ENTER PHONE NUMBER"
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
 
@@ -409,19 +371,72 @@ export default function AddCompany() {
 
             {/* ALTERNATE PHONE */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Alternate Phone Number
               </label>
 
               <input
                 type="text"
                 name="aphone"
-                placeholder="Enter alternate phone number"
+                placeholder="ENTER ALTERNATE PHONE NUMBER"
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
             </div>
+          </div>
+
+
+          {/* ================= DBA + EMAIL ================= */}
+
+          {/* ================= PHYSICAL ADDRESS ================= */}
+          <div>
+            <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+              Physical Address
+            </label>
+
+            <textarea
+              name="physicaladdress"
+              rows="3"
+              placeholder="ENTER PHYSICAL ADDRESS"
+              className="cap w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+            />
+          </div>
+
+          {/* ================= MAILING ADDRESS ================= */}
+          <div>
+            <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+              Mailing Address
+            </label>
+
+            <textarea
+              name="mailaddress"
+              rows="3"
+              placeholder="ENTER MAILING  ADDRESS"
+              className="cap w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+            />
+          </div>
+
+          {/* ================= PHONE ================= */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {/* USDOT */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                USDOT
+              </label>
+
+               <select
+                name="usdot"
+
+                className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
+              >
+                <option value="Active">Active</option>
+                <option value="In-active">In-active</option>
+              </select>
+
+           
+            </div>
+            
+            <div>
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Status
               </label>
               <select
@@ -435,11 +450,9 @@ export default function AddCompany() {
 
               
             </div>
-          </div>
-
-          {/* ================= COMPANY LOGO ================= */}
+                  {/* ================= COMPANY LOGO ================= */}
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
               Company Logo
             </label>
 
@@ -460,6 +473,9 @@ export default function AddCompany() {
               </p>
             )}
           </div>
+          </div>
+
+    
 
           {/* ================= BUTTONS ================= */}
           <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">

@@ -215,7 +215,6 @@ export default function EditCompany() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Edit Company</h1>
 
-          <p className="text-sm text-slate-500 mt-1">Edit company detail.</p>
         </div>
 
         <Link
@@ -234,58 +233,13 @@ export default function EditCompany() {
           encType="multipart/form-data"
         >
           {/* ================= ROW 1 ================= */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {/* USDOT */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
-                USDOT
-              </label>
 
-              <input
-                type="text"
-                name="usdot"
-                placeholder="USDOT"
-                defaultValue={company.usdot}
-                className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-              />
-            </div>
-
-            {/* OWNER */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
-                Company Owner Name
-              </label>
-
-              <input
-                type="text"
-                name="owner"
-                defaultValue={company.cname}
-                placeholder="Enter company owner"
-                className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-              />
-            </div>
-
-            {/* COMPANY NAME */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
-                Legal Company Name
-              </label>
-
-              <input
-                type="text"
-                name="cname"
-                defaultValue={company.owner}
-                placeholder="Enter company name"
-                className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
-              />
-            </div>
-          </div>
 
           {/* ================= DOT MC EIN ================= */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {/* DOT */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 DOT Number
                 <span className="text-red-500">*</span>
               </label>
@@ -294,8 +248,8 @@ export default function EditCompany() {
                 type="text"
                 name="dot"
                 defaultValue={company.dot}
-                placeholder="DOT number"
-                className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+                placeholder="ENTER DOT NUMBER"
+                className="cap w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
 
               {errors.dot && (
@@ -307,7 +261,7 @@ export default function EditCompany() {
 
             {/* MC */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 MC Number
                 <span className="text-red-500">*</span>
               </label>
@@ -315,9 +269,9 @@ export default function EditCompany() {
               <input
                 type="text"
                 name="mc"
-                placeholder="MC number"
+                placeholder="ENTER MC NUMBER"
                 defaultValue={company.mc}
-                className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+                className="cap w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
 
               {errors.mc && (
@@ -329,7 +283,7 @@ export default function EditCompany() {
 
             {/* EIN */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 EIN Number
                 <span className="text-red-500">*</span>
               </label>
@@ -337,9 +291,9 @@ export default function EditCompany() {
               <input
                 type="text"
                 name="ein"
-                placeholder="EIN number"
+                placeholder="ENTER EIN NUMBER"
                 defaultValue={company.ein}
-                className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+                className="cap w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
 
               {errors.ein && (
@@ -350,11 +304,23 @@ export default function EditCompany() {
             </div>
           </div>
 
-          {/* ================= DBA + EMAIL ================= */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {/* DBA */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                Legal Company Name
+              </label>
+
+              <input
+                type="text"
+                name="cname"
+                defaultValue={company.owner}
+                placeholder="Enter LEGAL COMPANY NAME"
+                className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
+              />
+            </div>
+
+              <div>
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 DBA Name
               </label>
 
@@ -362,14 +328,43 @@ export default function EditCompany() {
                 type="text"
                 name="dba"
                 defaultValue={company.dba}
-                placeholder="Enter DBA Name"
-                className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
+                placeholder="ENTER DBA NAME"
+                className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
             </div>
 
+            <div>
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                Company Owner Name
+              </label>
+
+              <input
+                type="text"
+                name="owner"
+                defaultValue={company.cname}
+                placeholder="ENTER COMPANY OWNER NAME"
+                className="cap w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+              />
+            </div>
+
+            {/* USDOT */}
+ 
+
+            {/* OWNER */}
+            
+
+            {/* COMPANY NAME */}
+            
+          </div>
+
+          {/* ================= DBA + EMAIL ================= */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {/* DBA */}
+          
+
             {/* EMAIL */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Email ID
                 <span className="text-red-500">*</span>
               </label>
@@ -377,7 +372,7 @@ export default function EditCompany() {
               <input
                 type="email"
                 name="email"
-                placeholder="Enter email"
+                placeholder="ENTER EMAIL ID"
                 defaultValue={company.email}
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
@@ -388,43 +383,8 @@ export default function EditCompany() {
                 </p>
               )}
             </div>
-          </div>
-
-          {/* ================= PHYSICAL ADDRESS ================= */}
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
-              Physical Address
-            </label>
-
-            <textarea
-              name="physicaladdress"
-              rows="3"
-              defaultValue={company.physicaladdress}
-              placeholder="Enter physical address"
-              className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-            >{company?.physicaladdress}</textarea>
-          </div>
-
-          {/* ================= MAILING ADDRESS ================= */}
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
-              Mailing Address
-            </label>
-
-            <textarea
-              name="mailaddress"
-              rows="3"
-              defaultValue={company.mailaddress}
-              placeholder="Enter mailing address"
-              className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-            >{company.mailaddress}</textarea>
-          </div>
-
-          {/* ================= PHONE ================= */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* PHONE */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                   <div>
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Phone Number
                 <span className="text-red-500">*</span>
               </label>
@@ -433,7 +393,7 @@ export default function EditCompany() {
                 type="text"
                 name="phone"
                 defaultValue={company.phone}
-                placeholder="Enter phone number"
+                placeholder="ENTER PHONE NUMBER"
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
 
@@ -446,7 +406,7 @@ export default function EditCompany() {
 
             {/* ALTERNATE PHONE */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Alternate Phone Number
               </label>
 
@@ -454,10 +414,62 @@ export default function EditCompany() {
                 type="text"
                 name="aphone"
                 defaultValue={company.aphone}
-                placeholder="Enter alternate phone number"
+                placeholder="ENTER ALTERNATE PHONE NUMBER"
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
             </div>
+          </div>
+
+          {/* ================= PHYSICAL ADDRESS ================= */}
+          <div>
+            <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+              Physical Address
+            </label>
+
+            <textarea
+              name="physicaladdress"
+              rows="3"
+              defaultValue={company.physicaladdress}
+              placeholder="ENTER PHYSICAL ADDRESS"
+              className="cap w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+            >{company?.physicaladdress}</textarea>
+          </div>
+
+          {/* ================= MAILING ADDRESS ================= */}
+          <div>
+            <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+              Mailing Address
+            </label>
+
+            <textarea
+              name="mailaddress"
+              rows="3"
+              defaultValue={company.mailaddress}
+              placeholder="ENTER MAILING ADDRESS"
+              className="cap w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+            >{company.mailaddress}</textarea>
+          </div>
+
+          {/* ================= PHONE ================= */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div>
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                USDOT
+              </label>
+
+               <select
+                name="usdot"
+
+                className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
+              >
+                <option value="Active">Active</option>
+                <option value="In-active">In-active</option>
+              </select>
+
+           
+            </div>
+            {/* PHONE */}
+     
                    <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">
                 Status
@@ -473,10 +485,7 @@ export default function EditCompany() {
 
               
             </div>
-          </div>
-
-          {/* ================= COMPANY LOGO ================= */}
-          <div>
+                      <div>
             <label className="block text-sm font-medium text-slate-700 mb-1.5">
               Company Logo
             </label>
@@ -498,6 +507,10 @@ export default function EditCompany() {
               </p>
             )}
           </div>
+          </div>
+
+          {/* ================= COMPANY LOGO ================= */}
+
 
           {/* ================= BUTTONS ================= */}
           <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">

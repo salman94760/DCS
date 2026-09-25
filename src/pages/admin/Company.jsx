@@ -385,73 +385,89 @@ const filteredCompany = useMemo(() => {
 
               <tr>
 
-                <th className="sticky left-0 z-30 bg-slate-50 text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="cap sticky left-0 z-30 bg-slate-50 text-left px-6 py-4 font-semibold text-slate-600">
                   Action
                 </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                   Username
                 </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                   Password
                 </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  Status
-                </th>
-
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                   Logo
                 </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  USDOT
-                </th>
-
-                <th className="text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
-                  Company Owner Name
-                </th>
-
-                <th className="text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
-                  Legal Company Name
-                </th>
-
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  DBA Name
-                </th>
-
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                   DOT Number
                 </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                   MC Number
                 </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                   EIN Number
                 </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
+                  Legal Company Name
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  DBA Name
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
+                  Company Owner Name
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                   Email ID
                 </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  Physical Address
-                </th>
-
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  Mailing Address
-                </th>
-
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                   Phone Number
                 </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                   Alternate Phone Number
                 </th>
+
+                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Physical Address
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Mailing Address
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  USDOT
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Status
+                </th>
+
+                
+
+                
+
+                
+
+                
+
+                
+
+               
+
+               
+
+               
 
               </tr>
 
@@ -522,29 +538,7 @@ const filteredCompany = useMemo(() => {
                       {com.user?.user_info?.password_hint}
                     </td>
 
-
-                    {/* STATUS */}
-
-                    <td className="px-6 py-4">
-
-                      <span
-                        className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                          com.user?.user_info?.status === 1
-                            ? "bg-green-50 text-green-700"
-                            : "bg-red-50 text-red-700"
-                        }`}
-                      >
-                        {com.user?.user_info?.status === 1
-                          ? "Active"
-                          : "In-active"}
-                      </span>
-
-                    </td>
-
-
-                    {/* LOGO */}
-
-                    <td className="px-6 py-4">
+                      <td className="px-6 py-4">
 
                       {com.image ? (
 
@@ -565,26 +559,7 @@ const filteredCompany = useMemo(() => {
 
                     </td>
 
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.usdot}
-                    </td>
-
-                    <td className="px-6 py-4">
-                      <span className="font-medium text-slate-800 whitespace-nowrap">
-                        {com.owner}
-                      </span>
-                    </td>
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.cname}
-                    </td>
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.dba}
-                    </td>
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.dot}
                     </td>
 
@@ -596,11 +571,33 @@ const filteredCompany = useMemo(() => {
                       {com.ein}
                     </td>
 
+                    <td className="px-6 py-4">
+                      <span className="font-medium text-slate-800 whitespace-nowrap">
+                        {com.owner}
+                      </span>
+                    </td>
+
+                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.dba}
+                    </td>
+
+                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.cname}
+                    </td>
+
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.email}
                     </td>
 
+                      <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.phone}
+                    </td>
+
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.aphone}
+                    </td>
+
+                      <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.physicaladdress}
                     </td>
 
@@ -608,13 +605,68 @@ const filteredCompany = useMemo(() => {
                       {com.mailaddress}
                     </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.phone}
+                   
+
+
+                    {/* STATUS */}
+
+                    <td className="px-6 py-4">
+
+
+
+
+                  
+
+                      <span
+                        className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+                          com.usdot === "Active"
+                            ? "bg-green-50 text-green-700"
+                            : "bg-red-50 text-red-700"
+                        }`}
+                      >
+                        {com.usdot === "Active"
+                          ? "Active"
+                          : "In-active"}
+                      </span>
+
+                    </td>
+                      <td className="px-6 py-4">
+
+                      <span
+                        className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+                          com.user?.user_info?.status === 1
+                            ? "bg-green-50 text-green-700"
+                            : "bg-red-50 text-red-700"
+                        }`}
+                      >
+                        {com.user?.user_info?.status === 1
+                          ? "Active"
+                          : "In-active"}
+                      </span>
+
                     </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.aphone}
-                    </td>
+
+                    {/* LOGO */}
+
+                  
+
+
+                    
+
+                    
+
+                   
+
+                   
+
+                   
+
+                    
+
+                  
+
+                  
 
                   </tr>
 

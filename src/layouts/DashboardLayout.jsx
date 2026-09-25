@@ -5,7 +5,7 @@ import Sidebar from "@/components/admin/SideBar";
 
 export default function DashboardLayout() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="font-['Tinos'] min-h-screen bg-gray-50">
       <Header />
 
       <div className="flex">
