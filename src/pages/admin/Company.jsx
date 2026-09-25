@@ -554,7 +554,7 @@ const filteredCompany = useMemo(() => {
                             window.location.hostname ===
                             "localhost"
                               ? "http://localhost:8000/storage/"
-                              : "/storage/"
+                              : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
                           }${com.image}`}
                           alt={com.cname}
                         />
