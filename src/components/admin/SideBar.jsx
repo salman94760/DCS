@@ -1,6 +1,46 @@
-import { useState } from "react";
+
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "@/api/axios";
 export default function Sidebar() {
   const [openMenu, setOpenMenu] = useState(null);
+
+    const [open, setOpen] = useState(false);
+const dropdownRef = useRef(null);
+const navigate = useNavigate();
+
+useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target)
+    ) {
+      setOpen(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener(
+      "mousedown",
+      handleClickOutside
+    );
+  };
+}, []);
+  const handleLogout = async () => {
+  try {
+    await api.post("/logout");
+  } catch (error) {
+    console.error("Logout error:", error);
+  } finally {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    sessionStorage.clear();
+
+    navigate("/login", { replace: true });
+  }
+};
 
   const toggleMenu = (menu) => {
     setOpenMenu(openMenu === menu ? null : menu);
