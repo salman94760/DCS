@@ -10,7 +10,7 @@ export default function Register() {
 
       <div class="relative z-10 w-full max-w-md">
         <div class="flex flex-col items-center mb-8">
-          <img className="w-[100px]" src="/logo.png" />
+          <img className="w-[100px]" src="/logonew.png" />
           <p class="text-white font-extrabold text-lg tracking-wide text-center">
             DOT COMPLIANCE SOLUTIONS LLC
           </p>

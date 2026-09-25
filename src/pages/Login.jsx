@@ -86,7 +86,7 @@ export default function Login() {
 
       <div className="relative z-10 w-full max-w-md">
         <div className="flex flex-col items-center mb-8">
-          <img className="w-[100px]" src="/logo.png" />
+          <img className="w-[100px]" src="/logonew.png" />
           <p className="text-white font-extrabold text-lg tracking-wide text-center">
             DOT COMPLIANCE SOLUTIONS LLC
           </p>

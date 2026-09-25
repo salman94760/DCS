@@ -14,7 +14,7 @@ export default function Header() {
             <p className="text-white font-extrabold text-lg leading-tight tracking-wide">
               DOT COMPLIANCE SOLUTIONS LLC
             </p>
-            <p className="text-slate-400 text-xs mt-0.5">
+            <p className="text-slate-400 text-xm mt-0.5">
               Safety &nbsp;•&nbsp; Compliance &nbsp;•&nbsp; Our Priority
             </p>
           </div>

@@ -48,7 +48,7 @@ useEffect(() => {
         </div>
 
         <div className="relative z-10 flex items-center gap-3">
-          <img src="/logo.png" className="w-[80px]" />
+          <img src="/logonew.png" className="w-[80px]" />
 
           <div>
             <p className="text-white font-extrabold text-lg leading-tight tracking-wide">
