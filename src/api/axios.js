@@ -3,7 +3,7 @@ import axios from "axios";
 const baseURL =
   window.location.hostname === "localhost"
     ? "http://localhost:8000/api"
-    : "/api";
+    : "https://palegoldenrod-squid-977714.hostingersite.com/public/api";
 
 const api = axios.create({
   baseURL,
