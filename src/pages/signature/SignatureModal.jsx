@@ -2,11 +2,7 @@ import { useRef, useState } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import api from "@/api/axios";
 
-export default function SignatureModal({
-  isOpen,
-  onClose,
-  onSaved,
-}) {
+export default function SignatureModal({ isOpen, onClose, onSaved }) {
   const signatureRef = useRef(null);
   const [saving, setSaving] = useState(false);
 
@@ -26,25 +22,22 @@ export default function SignatureModal({
 
     const userJson = localStorage.getItem("user");
 
-const user = JSON.parse(userJson);
+    const user = JSON.parse(userJson);
 
-console.log(user);
+    console.log(user);
 
-const userId = user?.id;
+    const userId = user?.id;
 
-console.log("User ID:", userId);
+    console.log("User ID:", userId);
 
     try {
       setSaving(true);
 
-      const signature =
-        signatureRef.current
-          .getCanvas()
-          .toDataURL("image/png");
+      const signature = signatureRef.current.getCanvas().toDataURL("image/png");
 
       const response = await api.post("/signature/save", {
         signature,
-        userId
+        userId,
       });
 
       console.log("Signature saved:", response.data);
@@ -55,10 +48,7 @@ console.log("User ID:", userId);
     } catch (error) {
       console.error("Signature error:", error);
 
-      alert(
-        error.response?.data?.message ||
-          "Failed to save signature"
-      );
+      alert(error.response?.data?.message || "Failed to save signature");
     } finally {
       setSaving(false);
     }
@@ -67,7 +57,6 @@ console.log("User ID:", userId);
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
       <div className="w-full max-w-xl rounded-xl bg-white shadow-xl">
-
         {/* Header */}
         <div className="flex items-center justify-between border-b px-6 py-4">
           <h2 className="text-lg font-semibold text-slate-800">

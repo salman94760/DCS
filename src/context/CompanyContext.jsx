@@ -1,50 +1,37 @@
-import {
-  createContext,
-  useContext,
-  useReducer,
-} from "react";
+import { createContext, useContext, useReducer } from "react";
 
 import api from "@/api/axios";
-import companyReducer, {
-  initialState,
-} from "@/reducers/companyReducer";
+import companyReducer, { initialState } from "@/reducers/companyReducer";
 
 const CompanyContext = createContext(null);
 
 export const CompanyProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(
-    companyReducer,
-    initialState
-  );
+  const [state, dispatch] = useReducer(companyReducer, initialState);
 
   // =====================================
   // GET ALL COMPANIES
   // =====================================
-const fetchCompanies = async () => {
-  dispatch({
-    type: "FETCH_COMPANY_START",
-  });
-
-  try {
-    const response = await api.get("/admin/company");
-
- 
-
+  const fetchCompanies = async () => {
     dispatch({
-      type: "FETCH_COMPANIES_SUCCESS",
-      payload: Array.isArray(response.data.companies)
-        ? response.data.companies
-        : [],
+      type: "FETCH_COMPANY_START",
     });
-  } catch (error) {
-    dispatch({
-      type: "FETCH_COMPANY_ERROR",
-      payload:
-        error.response?.data?.message ||
-        "Failed to fetch companies",
-    });
-  }
-};
+
+    try {
+      const response = await api.get("/admin/company");
+
+      dispatch({
+        type: "FETCH_COMPANIES_SUCCESS",
+        payload: Array.isArray(response.data.companies)
+          ? response.data.companies
+          : [],
+      });
+    } catch (error) {
+      dispatch({
+        type: "FETCH_COMPANY_ERROR",
+        payload: error.response?.data?.message || "Failed to fetch companies",
+      });
+    }
+  };
 
   // =====================================
   // GET SINGLE COMPANY
@@ -55,9 +42,7 @@ const fetchCompanies = async () => {
     });
 
     try {
-      const response = await api.get(
-        `/admin/company/${id}`
-      );
+      const response = await api.get(`/admin/company/${id}`);
 
       dispatch({
         type: "FETCH_COMPANY_SUCCESS",
@@ -68,9 +53,7 @@ const fetchCompanies = async () => {
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload:
-          error.response?.data?.message ||
-          "Failed to fetch company",
+        payload: error.response?.data?.message || "Failed to fetch company",
       });
 
       throw error;
@@ -86,10 +69,7 @@ const fetchCompanies = async () => {
     });
 
     try {
-      const response = await api.post(
-        "/admin/company/add",
-        formData
-      );
+      const response = await api.post("/admin/company/add", formData);
 
       dispatch({
         type: "ADD_SUCCESS",
@@ -100,9 +80,7 @@ const fetchCompanies = async () => {
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload:
-          error.response?.data?.message ||
-          "Failed to add company",
+        payload: error.response?.data?.message || "Failed to add company",
       });
 
       throw error;
@@ -121,10 +99,7 @@ const fetchCompanies = async () => {
       // Laravel method spoofing
       formData.append("_method", "PUT");
 
-      const response = await api.post(
-        `/admin/company/${id}`,
-        formData
-      );
+      const response = await api.post(`/admin/company/${id}`, formData);
 
       dispatch({
         type: "UPDATE_SUCCESS",
@@ -135,9 +110,7 @@ const fetchCompanies = async () => {
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload:
-          error.response?.data?.message ||
-          "Failed to update company",
+        payload: error.response?.data?.message || "Failed to update company",
       });
 
       throw error;
@@ -153,9 +126,7 @@ const fetchCompanies = async () => {
     });
 
     try {
-      await api.delete(
-        `/admin/company/delete/${id}`
-      );
+      await api.delete(`/admin/company/delete/${id}`);
 
       dispatch({
         type: "DELETE_SUCCESS",
@@ -164,9 +135,7 @@ const fetchCompanies = async () => {
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload:
-          error.response?.data?.message ||
-          "Failed to delete company",
+        payload: error.response?.data?.message || "Failed to delete company",
       });
 
       throw error;
@@ -204,17 +173,17 @@ const fetchCompanies = async () => {
   };
 
   const setFilters = (newFilters) => {
-  dispatch({
-    type: "SET_FILTERS",
-    payload: newFilters,
-  });
-};
+    dispatch({
+      type: "SET_FILTERS",
+      payload: newFilters,
+    });
+  };
 
-const resetFilters = () => {
-  dispatch({
-    type: "RESET_FILTERS",
-  });
-};
+  const resetFilters = () => {
+    dispatch({
+      type: "RESET_FILTERS",
+    });
+  };
 
   return (
     <CompanyContext.Provider
@@ -232,8 +201,8 @@ const resetFilters = () => {
         setStatus,
         setPage,
 
-         setFilters,
-      resetFilters,
+        setFilters,
+        resetFilters,
       }}
     >
       {children}
@@ -248,9 +217,7 @@ export const useCompany = () => {
   const context = useContext(CompanyContext);
 
   if (!context) {
-    throw new Error(
-      "useCompany must be used inside CompanyProvider"
-    );
+    throw new Error("useCompany must be used inside CompanyProvider");
   }
 
   return context;

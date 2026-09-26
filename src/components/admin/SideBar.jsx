@@ -1,46 +1,39 @@
-
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "@/api/axios";
 export default function Sidebar() {
   const [openMenu, setOpenMenu] = useState(null);
 
-    const [open, setOpen] = useState(false);
-const dropdownRef = useRef(null);
-const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
-useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target)
-    ) {
-      setOpen(false);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  const handleLogout = async () => {
+    try {
+      await api.post("/logout");
+    } catch (error) {
+      console.error("Logout error:", error);
+    } finally {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      sessionStorage.clear();
+
+      navigate("/login", { replace: true });
     }
   };
-
-  document.addEventListener("mousedown", handleClickOutside);
-
-  return () => {
-    document.removeEventListener(
-      "mousedown",
-      handleClickOutside
-    );
-  };
-}, []);
-  const handleLogout = async () => {
-  try {
-    await api.post("/logout");
-  } catch (error) {
-    console.error("Logout error:", error);
-  } finally {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    sessionStorage.clear();
-
-    navigate("/login", { replace: true });
-  }
-};
 
   const toggleMenu = (menu) => {
     setOpenMenu(openMenu === menu ? null : menu);
@@ -104,7 +97,7 @@ useEffect(() => {
 
             {openMenu === "drivers" && (
               <div className="ml-8 mt-1 space-y-1 border-l border-white/10 pl-3">
-             {/*   <a
+                {/*   <a
                   href="#"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
@@ -310,27 +303,27 @@ useEffect(() => {
             System Logs
           </a>*/}
 
-                  <button
-          type="button"
-          onClick={handleLogout}
-          className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-red-400 hover:bg-red-500/10"
-        >
-          <svg
-            className="h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-red-400 hover:bg-red-500/10"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2h5a2 2 0 012 2v1"
-            />
-          </svg>
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2h5a2 2 0 012 2v1"
+              />
+            </svg>
 
-          <span>LOGOUT</span>
-        </button>
+            <span>LOGOUT</span>
+          </button>
         </nav>
 
         <div className="px-5 py-4 text-[11px] text-slate-500 border-t border-white/10">

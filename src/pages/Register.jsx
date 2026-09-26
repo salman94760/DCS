@@ -15,8 +15,10 @@ export default function Register() {
             DOT COMPLIANCE SOLUTIONS LLC
           </p>
           <p className="text-slate-400 text-xm mt-0.5">
-              <span className="font-['cursive']"><i>Where Safety Meets Compliance</i></span>
-            </p>
+            <span className="font-['cursive']">
+              <i>Where Safety Meets Compliance</i>
+            </span>
+          </p>
         </div>
 
         <div class="bg-white rounded-xl shadow-xl p-8">

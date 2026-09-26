@@ -21,7 +21,6 @@ export default function AdminRoutes() {
           <Route path="users" element={<Users />} />
 
           <Route path="users/add" element={<AddUser />} />
-          
 
           <Route path="users/roles" element={<UsersRole />} />
 

@@ -6,5 +6,5 @@ import { CompanyProvider } from "@/context/CompanyContext";
 createRoot(document.getElementById("root")).render(
   <CompanyProvider>
     <App />
-  </CompanyProvider>
+  </CompanyProvider>,
 );

@@ -188,8 +188,6 @@ export default function AddCompany() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Add Company</h1>
-
-         
         </div>
 
         <Link
@@ -207,8 +205,6 @@ export default function AddCompany() {
           className="space-y-5"
           encType="multipart/form-data"
         >
-
-
           {/* ================= DOT MC EIN ================= */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {/* DOT */}
@@ -275,10 +271,9 @@ export default function AddCompany() {
             </div>
           </div>
 
-                    {/* ================= ROW 1 ================= */}
+          {/* ================= ROW 1 ================= */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-
-                        {/* COMPANY NAME */}
+            {/* COMPANY NAME */}
             <div>
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Legal Company Name
@@ -291,7 +286,7 @@ export default function AddCompany() {
                 className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
             </div>
-               {/* DBA */}
+            {/* DBA */}
             <div>
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 DBA Name
@@ -304,7 +299,6 @@ export default function AddCompany() {
                 className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
               />
             </div>
-            
 
             {/* OWNER */}
             <div>
@@ -319,14 +313,9 @@ export default function AddCompany() {
                 className="cap w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
-
-
           </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-    
-         
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {/* EMAIL */}
             <div>
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
@@ -384,7 +373,6 @@ export default function AddCompany() {
             </div>
           </div>
 
-
           {/* ================= DBA + EMAIL ================= */}
 
           {/* ================= PHYSICAL ADDRESS ================= */}
@@ -423,7 +411,7 @@ export default function AddCompany() {
                 USDOT
               </label>
 
-               <select
+              <select
                 name="usdot"
 
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
@@ -431,10 +419,8 @@ export default function AddCompany() {
                 <option value="Active">Active</option>
                 <option value="In-active">In-active</option>
               </select>
-
-           
             </div>
-            
+
             <div>
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Status
@@ -447,35 +433,31 @@ export default function AddCompany() {
                 <option value="1">Active</option>
                 <option value="0">In-active</option>
               </select>
-
-              
             </div>
-                  {/* ================= COMPANY LOGO ================= */}
-          <div>
-            <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-              Company Logo
-            </label>
+            {/* ================= COMPANY LOGO ================= */}
+            <div>
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                Company Logo
+              </label>
 
-            <input
-              type="file"
-              name="image"
-              accept=".png,.jpg,.jpeg,image/png,image/jpeg"
-              className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
-            />
+              <input
+                type="file"
+                name="image"
+                accept=".png,.jpg,.jpeg,image/png,image/jpeg"
+                className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
+              />
 
-            <p className="text-xs text-slate-400 mt-1">
-              Only PNG, JPG and JPEG files are allowed.
-            </p>
-
-            {errors.image && (
-              <p className="text-red-500 text-xs mt-1">
-                <b>{errors.image}</b>
+              <p className="text-xs text-slate-400 mt-1">
+                Only PNG, JPG and JPEG files are allowed.
               </p>
-            )}
-          </div>
-          </div>
 
-    
+              {errors.image && (
+                <p className="text-red-500 text-xs mt-1">
+                  <b>{errors.image}</b>
+                </p>
+              )}
+            </div>
+          </div>
 
           {/* ================= BUTTONS ================= */}
           <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">

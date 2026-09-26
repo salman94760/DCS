@@ -45,7 +45,7 @@ export default function Login() {
       });
 
       const result = response.data;
-      console.log(result)
+      console.log(result);
       // Token save
       localStorage.setItem("token", result.token);
 
@@ -91,8 +91,10 @@ export default function Login() {
             DOT COMPLIANCE SOLUTIONS LLC
           </p>
           <p className="text-slate-400 text-xm mt-0.5">
-              <span className="font-['cursive']"><i>Where Safety Meets Compliance</i></span>
-            </p>
+            <span className="font-['cursive']">
+              <i>Where Safety Meets Compliance</i>
+            </span>
+          </p>
           {/*          <ToastContainer
             position="top-right"
             autoClose={5000}
@@ -113,8 +115,9 @@ export default function Login() {
             Welcome back
           </h1>
           <p className="text-sm text-slate-500 mt-1 mb-6">
-            
-            <span className="font-['cursive']"><i>Sign in to access your compliance dashboard.</i></span>
+            <span className="font-['cursive']">
+              <i>Sign in to access your compliance dashboard.</i>
+            </span>
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -197,7 +200,9 @@ export default function Login() {
             </div>
           )}
           <p className="text-sm text-slate-500 text-center mt-6">
-            <span className="font-['cursive']"><i>Don't have an account?</i></span>
+            <span className="font-['cursive']">
+              <i>Don't have an account?</i>
+            </span>
             <Link
               to="/register"
               className="text-[#091122] font-medium hover:underline"

@@ -26,9 +26,7 @@ const companyReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        company: Array.isArray(action.payload)
-          ? action.payload
-          : [],
+        company: Array.isArray(action.payload) ? action.payload : [],
       };
 
     case "FETCH_COMPANY_ERROR":
@@ -53,8 +51,7 @@ const companyReducer = (state, action) => {
         ...state,
         loading: false,
         company: state.company.filter(
-          (item) =>
-            String(item.id) !== String(action.payload)
+          (item) => String(item.id) !== String(action.payload),
         ),
         error: null,
       };

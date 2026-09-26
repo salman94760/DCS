@@ -1,11 +1,10 @@
 import SignatureModal from "@/pages/signature/SignatureModal";
-import {useState} from "react";
+import { useState } from "react";
 export default function DriverApplication() {
-    const [signatureOpen, setSignatureOpen] =
-    useState(false);
+  const [signatureOpen, setSignatureOpen] = useState(false);
   return (
     <div className="min-h-screen bg-[#bdbdbd] px-2 py-5 sm:px-4 lg:px-6 font-['Tinos']">
-        <SignatureModal
+      <SignatureModal
         isOpen={signatureOpen}
         onClose={() => setSignatureOpen(false)}
         onSaved={(data) => {
@@ -14,17 +13,17 @@ export default function DriverApplication() {
       />
       <div className="mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="text-center">
-          <h3 className="mb-[10px] text-[18px] font-bold tracking-[0.2px] text-[#202b36]">
+          <h3 className="mb-[10px] font-['Tinos'] text-[17.4px] font-bold tracking-[0.2px] text-[#133B63]">
             DOT COMPLIANCE SOLUTIONS LLC
           </h3>
 
-          <h1 className="m-0 text-[31px] font-bold leading-[1.22] tracking-[0.3px] text-[#1F355A]">
+          <h1 className="m-0 text-[#133B63] font-['Tinos'] text-[29.4px] font-bold leading-[1.22] tracking-[0.3px]">
             COMMERCIAL DRIVER
             <br />
             APPLICATION &amp; QUALIFICATION PACKET
           </h1>
 
-          <div className="mb-[10px] mt-[14px] text-[21px] leading-[1.3] text-[#174875]">
+          <div className="mb-[10px] mt-[14px] text-[21px] leading-[1.3] text-[#133B63] font-['Tinos'] text-[18px]">
             Complete Driver Application, Qualification, Onboarding &amp; Safety
             Policy Packet
           </div>
@@ -33,7 +32,7 @@ export default function DriverApplication() {
         <table className="mt-2 w-full border-collapse text-[14px]">
           <tbody>
             <tr>
-              <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#173f69]">
+              <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#133B63] font-['Tinos'] text-[12px]">
                 MOTOR CARRIER / EMPLOYER
               </td>
               <td className="h-[25px] border-b border-[#aebdcc]">
@@ -45,7 +44,7 @@ export default function DriverApplication() {
             </tr>
 
             <tr>
-              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#173f69]">
+              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#133B63] font-['Tinos'] text-[12px]">
                 USDOT NUMBER
               </td>
 
@@ -58,7 +57,7 @@ export default function DriverApplication() {
             </tr>
 
             <tr>
-              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#173f69]">
+              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#133B63] font-['Tinos'] text-[12px]">
                 APPLICANT NAME
               </td>
 
@@ -71,7 +70,7 @@ export default function DriverApplication() {
             </tr>
 
             <tr>
-              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#173f69]">
+              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#133B63] font-['Tinos'] text-[12px]">
                 POSITION APPLIED FOR
               </td>
 
@@ -84,7 +83,7 @@ export default function DriverApplication() {
             </tr>
 
             <tr>
-              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#173f69]">
+              <td className="h-[25px] border-b border-[#aebdcc] bg-[#e7eef5] px-[7px] py-[5px] font-bold text-[#133B63] font-['Tinos'] text-[12px]">
                 APPLICATION DATE
               </td>
 
@@ -99,11 +98,11 @@ export default function DriverApplication() {
         </table>
 
         <section className="mt-[10px] text-center">
-          <h2 className="mb-[6px] text-[16px] font-bold text-[#173f69]">
+          <h2 className="mb-[6px] text-[16px] font-bold text-[#133B63] font-['Tinos'] text-[14px]">
             APPLICANT INSTRUCTIONS
           </h2>
 
-          <p className="mx-auto my-0 max-w-[700px] text-[13.5px] leading-[1.35]">
+          <p className="mx-auto my-0 max-w-[700px] text-[#133B63] font-['Tinos'] text-[14px] leading-[1.35]">
             Complete every applicable section. Use full legal names, complete
             addresses, and accurate dates. If additional space is needed, attach
             a signed continuation sheet identifying the section and question. Do
@@ -112,11 +111,11 @@ export default function DriverApplication() {
         </section>
 
         <section className="mt-[12px]">
-          <h2 className="mb-[8px] text-[23px] font-bold leading-[1.2] text-[#174875]">
+          <h2 className="mb-[8px] font-bold leading-[1.2] text-[#133B63] font-['Tinos'] text-[18px]">
             DOCUMENTS TO SUBMIT WITH YOUR DRIVER APPLICATION
           </h2>
 
-          <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[13px] font-semibold leading-[1.35] text-[#173f69]">
+          <div className="bg-[#d8e9f6] px-[10px] py-[9px] font-semibold leading-[1.35] text-[#133B63] font-['Tinos'] text-[12px]">
             Upload clear, complete, readable copies. Documents marked
             <strong>"if applicable"</strong> are required only when they apply
             to the driver or position. Employment-eligibility documents are
@@ -128,13 +127,13 @@ export default function DriverApplication() {
             <table className="w-full table-fixed border-collapse text-[13.5px]">
               <thead>
                 <tr>
-                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[14px] font-bold text-white">
+                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-white font-['Arial'] text-[14px] font-bold text-white">
                     DOCUMENT
                   </th>
-                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[14px] font-bold text-white">
+                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-white font-['Arial'] text-[14px] font-bold text-white">
                     APPLICANT
                   </th>
-                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[14px] font-bold text-white">
+                  <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-white font-['Arial'] text-[14px] font-bold text-white">
                     OFFICE
                   </th>
                 </tr>
@@ -142,7 +141,7 @@ export default function DriverApplication() {
 
               <tbody>
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] font-['Arial'] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Current Driver License / CDL - front and back
                   </td>
 
@@ -160,7 +159,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Work authorization / acceptable Form I-9 documentation - as
                     applicable (employee chooses acceptable documents)
                   </td>
@@ -179,7 +178,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Employment Authorization Document / Work Permit - if
                     applicable and presented
                   </td>
@@ -198,7 +197,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Social Security card - if presented for I-9 or required for
                     lawful payroll/onboarding purposes
                   </td>
@@ -217,7 +216,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Current Medical Examiner's Certificate (DOT medical card),
                     if issued / available
                   </td>
@@ -236,7 +235,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Medical Examination Report MCSA-5875 (long-form medical,
                     commonly 5 pages) - only if requested with driver consent;
                     treated as confidential medical information
@@ -256,14 +255,14 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Medical certification verification / CDLIS MVR showing
                     medical status
                   </td>
 
                   <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                     <div className="flex items-center justify-center gap-3">
-                      <span className=" px-[6px] py-[7px] align-middle text-xs">
+                      <span className=" text-[#133B63] text-[12px] px-[6px] py-[7px] align-top leading-[1.22]">
                         Office obtains
                       </span>
                     </div>
@@ -277,7 +276,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Medical variance / exemption / SPE certificate - if
                     applicable
                   </td>
@@ -296,7 +295,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Signed DMV / MVR / CDLIS Records Consent Form
                   </td>
 
@@ -321,13 +320,13 @@ export default function DriverApplication() {
       {/********page 2 start******/}
       <br />
 
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <section className="mt-[12px]">
           <div className="overflow-x-auto">
             <table className="w-full table-fixed border-collapse text-[13.5px]">
               <tbody>
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Signed Background / Consumer Report Authorization -
                     including criminal-history screening where lawful
                   </td>
@@ -346,7 +345,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Safety Performance History authorization for previous
                     DOT-regulated employers
                   </td>
@@ -365,7 +364,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     FMCSA Clearinghouse limited-query consent
                   </td>
 
@@ -383,11 +382,11 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     FMCSA Clearinghouse full-query electronic consent
                   </td>
 
-                  <td className="align-middle border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Driver completes in Clearinghouse
                   </td>
 
@@ -399,14 +398,14 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Pre-employment drug-test documentation / result, as
                     applicable
                   </td>
 
                   <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                     <div className="flex items-center justify-center gap-3">
-                      <span className=" px-[6px] py-[7px] align-middle text-xs">
+                      <span className=" text-[#133B63] text-[12px] px-[6px] py-[7px] align-top leading-[1.22]">
                         Office obtains
                       </span>
                     </div>
@@ -420,13 +419,13 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Road Test Certificate or accepted equivalent
                   </td>
 
                   <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                     <div className="flex items-center justify-center gap-3">
-                      <span className=" px-[6px] py-[7px] align-middle text-xs">
+                      <span className=" text-[#133B63] text-[12px] px-[6px] py-[7px] align-top leading-[1.22]">
                         Office completes
                       </span>
                     </div>
@@ -440,14 +439,14 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                  <td className="text-[#133B63] text-[12px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                     Any additional state, insurance, customer, endorsement,
                     TWIC, permit, or company-required credential
                   </td>
 
                   <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
                     <div className="flex items-center justify-center gap-3">
-                      <span className=" px-[6px] py-[7px] align-middle text-xs">
+                      <span className=" text-[#133B63] text-[12px] px-[6px] py-[7px] align-top leading-[1.22]">
                         if applicable
                       </span>
                     </div>
@@ -478,13 +477,13 @@ export default function DriverApplication() {
 
       {/******page 3 start*****/}
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto  w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <section className="mt-[12px]">
-          <h2 className="mb-[8px] text-[21px] font-bold leading-[1.2] text-[#174875]">
+          <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
             23 DMV / MVR / CDLIS DRIVER RECORDS AUTHORIZATION & CONSENT
           </h2>
 
-          <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[12px] font-semibold leading-[1.35] text-[#173f69]">
+          <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[13px] font-semibold leading-[1.35] text-[#173f69]">
             This authorization is intended to permit the prospective motor
             carrier and its authorized screening provider to obtain driving-
             record information for lawful employment and driver-qualification
@@ -492,7 +491,7 @@ export default function DriverApplication() {
             State agency or screening provider.
           </div>
 
-          <div className="mb-2 text-[12.5px]">
+          <div className="mb-2 text-[13px]">
             I authorize the prospective employer, its authorized agents, and its
             designated consumer reporting or records provider to obtain and
             review motor vehicle records and driver-license information for
@@ -594,15 +593,11 @@ export default function DriverApplication() {
                       Driver signature
                     </span>
                     <br />
-                    <input onClick={() => setSignatureOpen(true)}
+                    <input
+                      onClick={() => setSignatureOpen(true)}
                       className="w-full border border-black p-2 h-[40px]"
                       type="text"
                     />
-
-
-            
-
-
                   </td>
 
                   <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
@@ -647,47 +642,50 @@ export default function DriverApplication() {
       </div>
       {/******page 4 start*****/}
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto  w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <section className="mt-[12px]">
-          <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+          <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
             24 STANDALONE BACKGROUND / CONSUMER REPORT DISCLOSURE &
             AUTHORIZATION
           </h2>
 
-          <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[12px] font-semibold leading-[1.35] text-[#173f69]">
+          <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[11.4px] font-semibold leading-[1.35] text-[#173f69]">
             EMPLOYMENT PURPOSES - This page is intended to stand on its own.
             Employers should review applicable Federal, State, and local
             screening laws and provide any additional notices required for the
             applicant’s location.
           </div>
           <div className="mb-2 text-[12.5px]">
-            <h2 className="mt-2 mb-[8px] text-[15px] font-bold leading-[1.2] text-[#174875]">
+            <h2 className="mt-2 mb-[8px] text-[12.5px] font-bold leading-[1.2] text-[#174875]">
               DISCLOSURE
             </h2>
-            I authorize the prospective employer, its authorized agents, and its
-            designated consumer reporting or records provider to obtain and
-            review motor vehicle records and driver-license information for
-            lawful employment and driver-qualification purposes. This
-            authorization includes records from State Driver Licensing Agencies
-            and, when lawfully available through an authorized source,
-            CDLIS-related information concerning my commercial driver license
-            status, class, endorsements, restrictions, disqualifications,
-            convictions, suspensions/revocations, and medical-certification
-            status.
+            The prospective employer may obtain a consumer report and/or
+            investigative consumer report about you for employment purposes.
+            Depending on the screening ordered and permitted by law, the report
+            may include identity verification, employment and education
+            verification, motor vehicle and commercial driver license records,
+            and criminal-history/public-record information. The employer may use
+            the report in evaluating your application and, where permitted,
+            during employment.
           </div>
 
           <div className="mb-2 text-[12.5px]">
-            <h2 className="mt-2 mb-[8px] text-[15px] font-bold leading-[1.2] text-[#174875]">
+            <h2 className="mt-2 mb-[8px] text-[12.5px] font-bold leading-[1.2] text-[#174875]">
               AUTHORIZATION
             </h2>
-            I authorize such records to be obtained before employment and, to
-            the extent permitted by law, periodically during employment for
-            driver qualification, safety, insurance, and compliance purposes. I
-            understand that additional State-specific notices or authorizations
-            may be required.
+            I authorize the prospective employer and its authorized consumer
+            reporting agency or screening provider to obtain consumer reports
+            and investigative consumer reports about me for lawful employment
+            purposes. I authorize courts, government agencies, licensing
+            agencies, educational institutions, former employers, and other
+            lawful record sources to release information to the authorized
+            screening provider as permitted by law. I understand that this
+            authorization includes criminal-history screening and motor
+            vehicle/CDL-related records when such screening is lawful and
+            requested by the employer.
           </div>
 
-          <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[12px] font-semibold leading-[1.35] text-[#173f69]">
+          <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[11.4px] font-semibold leading-[1.35] text-[#173f69]">
             This authorization does NOT replace the FMCSA Clearinghouse consent
             process. Full Clearinghouse queries require the driver’s specific
             electronic consent inside the FMCSA Clearinghouse.
@@ -697,16 +695,16 @@ export default function DriverApplication() {
             <table className="w-full table-fixed border-collapse text-[13.5px]">
               <tbody>
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
+                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
                     <span className=" px-[6px] py-[7px] align-middle text-xs">
                       Full Legal Name
                     </span>
                   </td>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                  <td className="border border-[#555] align-middle text-left text-[17px]">
                     <div className="flex items-center justify-center gap-3">
                       <input
-                        className="w-full border border-black p-2"
+                        className="w-full h-[30px] border border-black p-2"
                         type="text"
                       />
                     </div>
@@ -714,16 +712,16 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
+                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
                     <span className=" px-[6px] py-[7px] align-middle text-xs">
                       Other / Former Names Used
                     </span>
                   </td>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                  <td className="border border-[#555]  align-middle text-left text-[17px]">
                     <div className="flex items-center justify-center gap-3">
                       <input
-                        className="w-full border border-black p-2"
+                        className="w-full h-[30px] border border-black p-2"
                         type="text"
                       />
                     </div>
@@ -731,16 +729,16 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
+                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
                     <span className=" px-[6px] py-[7px] align-middle text-xs">
                       Date of Birth
                     </span>
                   </td>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                  <td className="border border-[#555] align-middle text-left text-[17px]">
                     <div className="flex items-center justify-center gap-3">
                       <input
-                        className="w-full border border-black p-2"
+                        className="w-full h-[30px] border border-black p-2"
                         type="date"
                       />
                     </div>
@@ -748,13 +746,13 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
+                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
                     <span className=" px-[6px] py-[7px] align-middle text-xs">
                       Current Address
                     </span>
                   </td>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
+                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
                     <div className="flex items-center justify-center gap-3">
                       <textarea className="w-full h-[120px] border border-[#555]"></textarea>
                     </div>
@@ -762,7 +760,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
+                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
                     <span className=" px-[6px] py-[7px] align-middle text-xs">
                       Driver License / CDL Number
                     </span>
@@ -773,7 +771,7 @@ export default function DriverApplication() {
                     />
                   </td>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
+                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
                     <span className=" px-[6px] py-[7px] align-middle text-xs">
                       State:
                     </span>
@@ -786,7 +784,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
+                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
                     <span className=" px-[6px] py-[7px] align-middle text-xs">
                       Applicant Signature
                     </span>
@@ -797,7 +795,7 @@ export default function DriverApplication() {
                     />
                   </td>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
+                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
                     <span className=" px-[6px] py-[7px] align-middle text-xs">
                       Date:
                     </span>
@@ -810,7 +808,7 @@ export default function DriverApplication() {
                 </tr>
 
                 <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
+                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
                     <span className=" px-[6px] py-[7px] align-middle text-xs">
                       Employer / Authorized Representative
                     </span>
@@ -821,7 +819,7 @@ export default function DriverApplication() {
                     />
                   </td>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
+                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
                     <span className=" px-[6px] py-[7px] align-middle text-xs">
                       Date:
                     </span>
@@ -839,12 +837,12 @@ export default function DriverApplication() {
       </div>
       {/******page 5 start*******/}
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto  w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <header class="text-center mb-3">
             <h1
               class="text-[#1d3b61] font-bold uppercase leading-tight
-               text-[22px] tracking-[-0.3px]"
+               text-[21px] tracking-[-0.3px]"
             >
               DOT DRUG &amp; ALCOHOL PROGRAM
             </h1>
@@ -856,7 +854,7 @@ export default function DriverApplication() {
               DRIVER REVIEW, CONSENT &amp; COMPANY POLICY
             </h2>
 
-            <p class="font-bold text-[16px] mt-2">
+            <p class="font-bold text-[12.4px] mt-2">
               49 CFR Part 40 and 49 CFR Part 382
             </p>
           </header>
@@ -864,132 +862,104 @@ export default function DriverApplication() {
           <section class="mt-1">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-           text-[14px] sm:text-[15px] md:text-[16px]
-           px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               A. COMPANY / DRIVER INFORMATION
             </div>
 
             <div class="mt-4 sm:mt-5 space-y-4 sm:space-y-[25px]">
-              <div
-                class="grid grid-cols-1 gap-2
-             md:grid-cols-[235px_208px_95px_1fr]
-             md:gap-0 md:items-center"
-              >
-                <label class="font-bold text-[13px] sm:text-[14px]">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-[auto_1fr_auto_1fr] md:gap-0 md:items-center">
+                <label className="font-bold text-[12px] whitespace-nowrap">
                   Motor Carrier / Employer Name:
                 </label>
 
                 <input
                   type="text"
-                  class="w-full h-[32px] md:h-[26px]
+                  className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
                outline-none px-1"
                 />
 
-                <label
-                  class="font-bold text-[13px] sm:text-[14px]
-               md:pl-1"
-                >
+                <label className="font-bold text-[12px] md:pl-1 whitespace-nowrap">
                   USDOT No.:
                 </label>
 
                 <input
                   type="text"
-                  class="w-full h-[32px] md:h-[26px]
+                  className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
                outline-none px-1"
                 />
               </div>
 
-              <div
-                class="grid grid-cols-1 gap-2
-             md:grid-cols-[310px_100px_120px_1fr]
-             md:gap-0 md:items-center"
-              >
-                <label class="font-bold text-[13px] sm:text-[14px]">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-[auto_1fr_auto_1fr] md:gap-0 md:items-center">
+                <label className="font-bold text-[12px] whitespace-nowrap">
                   Designated Employer Representative (DER):
                 </label>
 
                 <input
                   type="text"
-                  class="w-full h-[32px] md:h-[26px]
+                  className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
                outline-none px-1"
                 />
 
-                <label
-                  class="font-bold text-[13px] sm:text-[14px]
-               md:pl-1"
-                >
+                <label className="font-bold text-[12px] md:pl-1 whitespace-nowrap">
                   DER Phone / Email:
                 </label>
 
                 <input
                   type="text"
-                  class="w-full h-[32px] md:h-[26px]
+                  className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
                outline-none px-1"
                 />
               </div>
 
-              <div
-                class="grid grid-cols-1 gap-2
-             md:grid-cols-[100px_1fr_120px_1fr]
-             md:gap-0 md:items-center"
-              >
-                <label class="font-bold text-[13px] sm:text-[14px]">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-[auto_1fr_auto_1fr] md:gap-0 md:items-center">
+                <label className="font-bold text-[12px] whitespace-nowrap">
                   Driver Name:
                 </label>
 
                 <input
                   type="text"
-                  class="w-full h-[32px] md:h-[26px]
+                  className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
                outline-none px-1"
                 />
 
-                <label
-                  class="font-bold text-[13px] sm:text-[14px]
-               md:pl-1"
-                >
+                <label className="font-bold text-[12px] md:pl-1 whitespace-nowrap">
                   CDL No. / State:
                 </label>
 
                 <input
                   type="text"
-                  class="w-full h-[32px] md:h-[26px]
+                  className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
                outline-none px-1"
                 />
               </div>
 
-              <div
-                class="grid grid-cols-1 gap-2
-             md:grid-cols-[135px_1fr_165px_1fr]
-             md:gap-0 md:items-center"
-              >
-                <label class="font-bold text-[13px] sm:text-[14px]">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-[auto_1fr_auto_1fr] md:gap-0 md:items-center">
+                <label className="font-bold text-[12px] whitespace-nowrap">
                   Date of Hire / Use:
                 </label>
 
                 <input
                   type="text"
-                  class="w-full h-[32px] md:h-[26px]
+                  className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
                outline-none px-1"
                 />
 
-                <label
-                  class="font-bold text-[13px] sm:text-[14px]
-               md:pl-1"
-                >
+                <label className="font-bold text-[12px] md:pl-1 whitespace-nowrap">
                   Policy Effective / Revision Date:
                 </label>
 
                 <input
                   type="text"
-                  class="w-full h-[32px] md:h-[26px]
+                  className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
                outline-none px-1"
                 />
@@ -1000,13 +970,14 @@ export default function DriverApplication() {
           <section class="mt-[33px]">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               B. DRIVER DRUG &amp; ALCOHOL PROGRAM REVIEW
             </div>
 
             <div class="mt-5 px-[-2px]">
-              <p class="text-[14px] leading-[1.28] mb-3">
+              <p class="text-[13.4px] leading-[1.28] mb-3">
                 The driver acknowledges that the Company has explained its DOT
                 controlled-substances and alcohol testing program, including
                 testing circumstances, prohibited conduct, testing procedures,
@@ -1015,7 +986,7 @@ export default function DriverApplication() {
                 before signing.
               </p>
 
-              <div class="space-y-[7px] text-[14px] leading-[1.15]">
+              <div class="space-y-[7px] text-[13.4px] leading-[1.15]">
                 <label class="block">
                   <input type="checkbox" />I understand whether my position is
                   subject to 49 CFR Part 382 and DOT testing requirements.
@@ -1079,12 +1050,13 @@ export default function DriverApplication() {
           <section class="mt-1">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               C. CONSENT AND AUTHORIZATION FOR DOT-REQUIRED TESTING
             </div>
 
-            <div class="mt-5 text-[14px] leading-[1.28]">
+            <div class="mt-5 text-[13.4px] leading-[1.28]">
               <p class="mb-4">
                 I authorize and consent to controlled-substances and alcohol
                 testing required by applicable DOT/FMCSA regulations while I am
@@ -1111,69 +1083,68 @@ export default function DriverApplication() {
       {/******page 6 start *******/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <section class="mt-1">
             <div class="mt-5 space-y-[25px]">
-              <div class="flex w-[100%]">
-                <div className="w-[50%]">
-                  <label class="font-bold text-[14px]">Driver signature:</label>
+              <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto_1fr] md:items-center">
+                <label className="font-bold text-[12px] whitespace-nowrap">
+                  Driver signature:
+                </label>
 
-                  <input
-                    type="text"
-                    class="h-[30px] w-[60%] border-[1.5px] border-[#26364d] outline-none px-1"
-                  />
-                </div>
-                <div className="w-[50%] text-right">
-                  <label class="font-bold text-[14px] pl-1">Date:</label>
+                <input
+                  type="text"
+                  className="h-[30px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
+                />
 
-                  <input
-                    type="date"
-                    class="h-[26px] w-[60%] border-[1.5px] border-[#26364d] outline-none px-1"
-                  />
-                </div>
+                <label className="font-bold text-[12px] md:pl-2 whitespace-nowrap">
+                  Date:
+                </label>
+
+                <input
+                  type="date"
+                  className="h-[26px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
+                />
               </div>
 
-              <div class="flex w-[100%]">
-                <div className="w-[50%]">
-                  <label class="font-bold text-[14px]">Printed Name:</label>
+              <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto_1fr] md:items-center">
+                <label className="font-bold text-[12px] whitespace-nowrap">
+                  Printed Name:
+                </label>
 
-                  <input
-                    type="text"
-                    class="h-[30px] w-[60%] border-[1.5px] border-[#26364d] outline-none px-1"
-                  />
-                </div>
-                <div className="w-[50%] text-right">
-                  <label class="font-bold text-[14px] pl-1">
-                    CDL No. / State:
-                  </label>
+                <input
+                  type="text"
+                  className="h-[30px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
+                />
 
-                  <input
-                    type="text"
-                    class="h-[26px] w-[60%] border-[1.5px] border-[#26364d] outline-none px-1"
-                  />
-                </div>
+                <label className="font-bold text-[12px] md:pl-2 whitespace-nowrap">
+                  CDL No. / State:
+                </label>
+
+                <input
+                  type="date"
+                  className="h-[26px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
+                />
               </div>
 
-              <div class="flex w-[100%]">
-                <div className="w-[50%]">
-                  <label class="font-bold text-[14px]">
-                    Company Representative:
-                  </label>
+              <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto_1fr] md:items-center">
+                <label className="font-bold text-[12px] whitespace-nowrap">
+                  Company Representative:
+                </label>
 
-                  <input
-                    type="text"
-                    class="h-[30px] w-[50%] border-[1.5px] border-[#26364d] outline-none px-1"
-                  />
-                </div>
-                <div className="w-[50%] text-right">
-                  <label class="font-bold text-[14px] pl-1">Date:</label>
+                <input
+                  type="text"
+                  className="h-[30px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
+                />
 
-                  <input
-                    type="date"
-                    class="h-[26px] w-[60%] border-[1.5px] border-[#26364d] outline-none px-1"
-                  />
-                </div>
+                <label className="font-bold text-[12px] md:pl-2 whitespace-nowrap">
+                  Date:
+                </label>
+
+                <input
+                  type="date"
+                  className="h-[26px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
+                />
               </div>
             </div>
           </section>
@@ -1181,13 +1152,14 @@ export default function DriverApplication() {
           <section class="mt-[33px]">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               D. COMPANY DOT DRUG & ALCOHOL POLICY AND PROCEDURES
             </div>
 
             <div class="mt-5 px-[-2px]">
-              <p class="text-[14px] leading-[1.28] mb-3">
+              <p class="text-[13.4px] leading-[1.28] mb-3">
                 Policy Purpose. The Company is committed to public safety and
                 compliance with DOT/FMCSA controlled-substances and alcohol
                 testing requirements. This policy applies to covered drivers
@@ -1217,12 +1189,13 @@ export default function DriverApplication() {
           <section class="mt-1">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               E. PROHIBITED CONDUCT
             </div>
 
-            <div class="mt-5 text-[14px] leading-[1.28]">
+            <div class="mt-5 text-[13.4px] leading-[1.28]">
               <p class="mb-4">
                 • A covered driver may not perform safety-sensitive functions
                 when prohibited by the alcohol rules, including prohibited
@@ -1255,12 +1228,13 @@ export default function DriverApplication() {
           <section class="mt-1">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               F. TYPES OF DOT TESTING
             </div>
 
-            <div class="mt-5 text-[14px] leading-[1.28]">
+            <div class="mt-5 text-[13.4px] leading-[1.28]">
               <p class="mb-4">
                 • Pre-Employment - required controlled-substances testing before
                 first covered safety-sensitive duty, subject to regulatory
@@ -1287,7 +1261,8 @@ export default function DriverApplication() {
           <section class="mt-1">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               G. TESTING PROCEDURES, RESULTS & CONFIDENTIALITY
             </div>
@@ -1298,10 +1273,10 @@ export default function DriverApplication() {
       {/*****page 7 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <section class="mt-1">
-            <div class="mt-5 text-[14px] leading-[1.28]">
+            <div class="mt-5 text-[13.4px] leading-[1.28]">
               <p class="mb-4">
                 DOT testing will use Part 40 procedures and qualified
                 collection/testing personnel and service agents. Drug results
@@ -1321,13 +1296,14 @@ export default function DriverApplication() {
           <section class="mt-[33px]">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               H. CONSEQUENCES, SAP & RETURN-TO-DUTY
             </div>
 
             <div class="mt-5 px-[-2px]">
-              <p class="text-[14px] leading-[1.28] mb-3">
+              <p class="text-[13.4px] leading-[1.28] mb-3">
                 A driver with a verified positive drug test, an alcohol
                 concentration of 0.04 or greater, or a refusal must be removed
                 from DOT safety-sensitive functions. The driver must receive
@@ -1345,12 +1321,13 @@ export default function DriverApplication() {
           <section class="mt-1">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               I. CLEARINGHOUSE PROCEDURES
             </div>
 
-            <div class="mt-5 text-[14px] leading-[1.28]">
+            <div class="mt-5 text-[13.4px] leading-[1.28]">
               <p class="mb-4">
                 The Company will comply with applicable FMCSA Drug & Alcohol
                 Clearinghouse requirements, including required pre-
@@ -1367,12 +1344,13 @@ export default function DriverApplication() {
           <section class="mt-1">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               J. DRIVER EDUCATION / EFFECTS OF DRUGS AND ALCOHOL
             </div>
 
-            <div class="mt-5 text-[14px] leading-[1.28]">
+            <div class="mt-5 text-[13.4px] leading-[1.28]">
               <p class="mb-4">
                 The Company will provide covered drivers with educational
                 materials explaining the DOT/FMCSA program and Company policy,
@@ -1388,7 +1366,8 @@ export default function DriverApplication() {
           <section class="mt-1">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               K. COMPANY-SPECIFIC PROVISIONS - COMPLETE BEFORE ISSUING POLICY
             </div>
@@ -1396,8 +1375,8 @@ export default function DriverApplication() {
             <br />
 
             <div className="overflow-x-auto">
-              <table className="w-full table-fixed text-[13.5px]">
-                <tbody>
+              <table className="w-full table-fixed text-[12px]">
+                <tbody className="font-bold">
                   <tr>
                     <td className=" px-[6px] py-[7px] align-top leading-[1.22]">
                       DER Name / Title
@@ -1512,10 +1491,10 @@ export default function DriverApplication() {
       {/*****page 8 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <section class="mt-1">
-            <div class="mt-5 text-[14px] leading-[1.28]">
+            <div class="mt-5 text-[12px] leading-[1.28]">
               <p class="mb-4">
                 <b>
                   Separate non-DOT / Company-authority testing policy, if any
@@ -1527,14 +1506,15 @@ export default function DriverApplication() {
           <section class="mt-[33px]">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               L. CERTIFICATE OF RECEIPT OF COMPANY POLICY & EDUCATIONAL
               MATERIALS
             </div>
 
             <div class="mt-5 px-[-2px]">
-              <p class="text-[14px] leading-[1.28] mb-3">
+              <p class="text-[13.4px] leading-[1.28] mb-3">
                 I certify that I received a copy of the Company DOT Drug &
                 Alcohol Policy and Procedures and the educational materials
                 provided under the Company FMCSA drug and alcohol program. My
@@ -1545,7 +1525,7 @@ export default function DriverApplication() {
                 <div class="mt-5 space-y-[25px]">
                   <div class="flex w-[100%]">
                     <div className="w-[50%]">
-                      <label class="font-bold text-[14px]">
+                      <label class="font-bold text-[12px]">
                         Driver Printed Name:
                       </label>
 
@@ -1555,7 +1535,7 @@ export default function DriverApplication() {
                       />
                     </div>
                     <div className="w-[50%] text-right">
-                      <label class="font-bold text-[14px] pl-1">
+                      <label class="font-bold text-[12px] pl-1">
                         CDL No. / State:
                       </label>
 
@@ -1568,7 +1548,7 @@ export default function DriverApplication() {
 
                   <div class="flex w-[100%]">
                     <div className="w-[50%]">
-                      <label class="font-bold text-[14px]">
+                      <label class="font-bold text-[12px]">
                         Driver Signature:
                       </label>
 
@@ -1578,7 +1558,7 @@ export default function DriverApplication() {
                       />
                     </div>
                     <div className="w-[50%] text-right">
-                      <label class="font-bold text-[14px] pl-1">Date:</label>
+                      <label class="font-bold text-[12px] pl-1">Date:</label>
 
                       <input
                         type="date"
@@ -1589,7 +1569,7 @@ export default function DriverApplication() {
 
                   <div class="flex w-[100%]">
                     <div className="w-[50%]">
-                      <label class="font-bold text-[14px]">
+                      <label class="font-bold text-[12px]">
                         Company Representative:
                       </label>
 
@@ -1599,7 +1579,7 @@ export default function DriverApplication() {
                       />
                     </div>
                     <div className="w-[50%] text-right">
-                      <label class="font-bold text-[14px] pl-1">Title:</label>
+                      <label class="font-bold text-[12px] pl-1">Title:</label>
 
                       <input
                         type="text"
@@ -1610,7 +1590,7 @@ export default function DriverApplication() {
 
                   <div class="flex w-[100%]">
                     <div className="w-[50%]">
-                      <label class="font-bold text-[14px]">
+                      <label class="font-bold text-[12px]">
                         Representative Signature:
                       </label>
 
@@ -1620,7 +1600,7 @@ export default function DriverApplication() {
                       />
                     </div>
                     <div className="w-[50%] text-right">
-                      <label class="font-bold text-[14px] pl-1">Date:</label>
+                      <label class="font-bold text-[12px] pl-1">Date:</label>
 
                       <input
                         type="date"
@@ -1637,12 +1617,13 @@ export default function DriverApplication() {
           <section class="mt-1">
             <div
               class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+           text-[14.7px] sm:text-[14.7px] md:text-[14.7px]
+           px-1 py-[3px]"
             >
               M. EMPLOYER DRUG & ALCOHOL COMPLIANCE CHECKLIST
             </div>
 
-            <div class="mt-5 text-[14px] leading-[1.28]">
+            <div class="mt-5 text-[13.4px] leading-[1.28]">
               <p class="mb-4">
                 <input type="checkbox" /> Written Part 382 drug and alcohol
                 policy completed with company-specific information.
@@ -1687,7 +1668,7 @@ export default function DriverApplication() {
                 Any non-DOT testing program separately documented and clearly
                 distinguished from DOT testing.
                 <br />
-                <span className="text-[10px] leading-tight">
+                <span className="text-[10.7px] leading-tight">
                   <i>
                     Company completion note: Before issuing this policy,
                     complete all company-specific fields and review any
@@ -1705,30 +1686,28 @@ export default function DriverApplication() {
       {/*****page 9 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full">
           <h1
             class="text-center font-bold
-           text-[16px] sm:text-[18px] md:text-[20px]
-           leading-[20px] sm:leading-[22px]
-           mb-[6px]"
+           text-[16px]"
           >
             SAFETY PERFORMANCE HISTORY RECORDS REQUEST
           </h1>
 
           <div
             class="border border-[#26364d] bg-[#dbe4f1]
-           min-h-[32px]
+           h-[25px]
            flex flex-col
            md:flex-row md:items-center
-           text-[13px] sm:text-[14px] md:text-[15px]
+           text-[12px]
            font-bold"
           >
             <div
               class="w-full md:w-[75px]
-             min-h-[32px]
+             h-[25px]
              flex items-center
-             px-[5px]
+             px-[2px]
              border-b md:border-b-0
              md:border-r border-[#26364d]"
             >
@@ -1750,7 +1729,7 @@ export default function DriverApplication() {
           </div>
 
           <div
-            class="border-x border-b border-[#333]
+            class="text-[10.7px] border-x border-b border-[#333]
            px-[5px]
            pt-[5px]
            pb-[6px]"
@@ -1760,7 +1739,7 @@ export default function DriverApplication() {
              sm:items-center
              gap-1 sm:gap-0
              min-h-[20px]
-             text-[13px] sm:text-[14px]"
+             text-[10.7px]"
             >
               <span class="whitespace-nowrap">I, (Print Name):</span>
 
@@ -1768,12 +1747,21 @@ export default function DriverApplication() {
                 class="w-full sm:flex-1 md:flex-none
                md:w-[378px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[24px]
                border border-[#26364d]
                outline-none"
               />
 
-              <span class="ml-0 sm:ml-[8px] whitespace-nowrap">XXX-XX-___</span>
+              <span class="ml-0 sm:ml-[8px] whitespace-nowrap">
+                <input
+                  class="w-full sm:flex-1 md:flex-none
+              
+               ml-0 sm:ml-[5px]
+               h-[15px] sm:h-[15px]
+               border border-[#26364d]
+               outline-none"
+                />
+              </span>
 
               <span class="ml-0 sm:ml-[7px] whitespace-nowrap">
                 Social Security Number
@@ -1786,14 +1774,14 @@ export default function DriverApplication() {
              gap-1 sm:gap-0
              min-h-[20px]
              mt-2 sm:mt-0
-             text-[13px] sm:text-[14px]"
+             text-[10.7px]"
             >
               <span class="whitespace-nowrap">Date of Birth:</span>
 
               <input
                 class="w-full sm:w-[190px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -1805,14 +1793,16 @@ export default function DriverApplication() {
              gap-1 sm:gap-0
              min-h-[26px]
              mt-2 sm:mt-0
-             text-[13px] sm:text-[14px]"
+             text-[13px] "
             >
-              <span class="whitespace-nowrap">Hereby authorize:</span>
+              <span class="whitespace-nowrap text-[10.7px]">
+                Hereby authorize:
+              </span>
 
               <input
                 class="w-full
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[26px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -1823,7 +1813,7 @@ export default function DriverApplication() {
              sm:items-center
              gap-1 sm:gap-0
              mt-2 sm:mt-0
-             text-[13px] sm:text-[14px]"
+             "
             >
               <span class="whitespace-nowrap">Previous Employer:</span>
 
@@ -1831,7 +1821,7 @@ export default function DriverApplication() {
                 class="w-full sm:flex-1 md:flex-none
                md:w-[337px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -1846,7 +1836,7 @@ export default function DriverApplication() {
               <input
                 class="w-full sm:w-[142px]
                ml-0 sm:ml-[4px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -1857,7 +1847,7 @@ export default function DriverApplication() {
              sm:items-center
              gap-1 sm:gap-0
              mt-2 sm:mt-0
-             text-[13px] sm:text-[14px]"
+             text-[10.7px]"
             >
               <span class="whitespace-nowrap">Street:</span>
 
@@ -1865,7 +1855,7 @@ export default function DriverApplication() {
                 class="w-full sm:flex-1 md:flex-none
                md:w-[333px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -1880,7 +1870,7 @@ export default function DriverApplication() {
               <input
                 class="w-full sm:w-[125px]
                ml-0 sm:ml-[4px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -1891,7 +1881,7 @@ export default function DriverApplication() {
              sm:items-center
              gap-1 sm:gap-0
              mt-2 sm:mt-0
-             text-[13px] sm:text-[14px]"
+             text-[10.7px]"
             >
               <span class="whitespace-nowrap">City, State, Zip:</span>
 
@@ -1899,7 +1889,7 @@ export default function DriverApplication() {
                 class="w-full sm:flex-1 md:flex-none
                md:w-[340px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -1914,14 +1904,14 @@ export default function DriverApplication() {
               <input
                 class="w-full sm:w-[125px]
                ml-0 sm:ml-[4px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
             </div>
 
             <div
-              class="text-[13px] sm:text-[14px]
+              class="text-[10.7px]
              leading-[17px]
              mt-[8px] sm:mt-[3px]"
             >
@@ -1931,7 +1921,7 @@ export default function DriverApplication() {
               <input
                 class="inline-block
                w-full sm:w-[174px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                align-middle
                outline-none
@@ -1946,7 +1936,7 @@ export default function DriverApplication() {
              sm:items-center
              gap-1 sm:gap-0
              mt-2 sm:mt-0
-             text-[13px] sm:text-[14px]"
+             text-[10.7px]"
             >
               <span class="whitespace-nowrap">Prospective Employer:</span>
 
@@ -1954,7 +1944,7 @@ export default function DriverApplication() {
                 class="w-full sm:flex-1 md:flex-none
                md:w-[355px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -1965,7 +1955,7 @@ export default function DriverApplication() {
              sm:items-center
              gap-1 sm:gap-0
              mt-2 sm:mt-0
-             text-[13px] sm:text-[14px]"
+             text-[10.7px]"
             >
               <span class="whitespace-nowrap">Attention:</span>
 
@@ -1973,7 +1963,7 @@ export default function DriverApplication() {
                 class="w-full sm:flex-1 md:flex-none
                md:w-[380px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -1988,7 +1978,7 @@ export default function DriverApplication() {
               <input
                 class="w-full sm:w-[120px]
                ml-0 sm:ml-[4px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -1999,7 +1989,7 @@ export default function DriverApplication() {
              sm:items-center
              gap-1 sm:gap-0
              mt-2 sm:mt-0
-             text-[13px] sm:text-[14px]"
+             text-[10.7px]"
             >
               <span class="whitespace-nowrap">To: &nbsp;Street:</span>
 
@@ -2007,7 +1997,7 @@ export default function DriverApplication() {
                 class="w-full sm:flex-1 md:flex-none
                md:w-[380px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -2018,7 +2008,7 @@ export default function DriverApplication() {
              sm:items-center
              gap-1 sm:gap-0
              mt-2 sm:mt-0
-             text-[13px] sm:text-[14px]"
+             text-[10.7px]"
             >
               <span
                 class="ml-0 sm:ml-[32px]
@@ -2030,14 +2020,14 @@ export default function DriverApplication() {
               <input
                 class="w-full sm:w-[340px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
             </div>
 
             <p
-              class="text-[12px] sm:text-[13px]
+              class="text-[10.7px]
              leading-[16px]
              mt-[8px] sm:mt-[4px]
              mb-[5px]"
@@ -2051,7 +2041,7 @@ export default function DriverApplication() {
               class="flex flex-col sm:flex-row
              sm:items-center
              gap-1 sm:gap-0
-             text-[13px] sm:text-[14px]"
+             text-[10.7px]"
             >
               <span class="whitespace-nowrap">
                 Prospective employer's fax number:
@@ -2061,7 +2051,7 @@ export default function DriverApplication() {
                 class="w-full sm:flex-1 md:flex-none
                md:w-[315px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -2072,7 +2062,7 @@ export default function DriverApplication() {
              sm:items-center
              gap-1 sm:gap-0
              mt-2 sm:mt-0
-             text-[13px] sm:text-[14px]"
+             text-[10.7px]"
             >
               <span class="whitespace-nowrap">
                 Prospective employer's email address:
@@ -2082,7 +2072,7 @@ export default function DriverApplication() {
                 class="w-full sm:flex-1 md:flex-none
                md:w-[285px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
@@ -2093,49 +2083,39 @@ export default function DriverApplication() {
              sm:items-center
              gap-1 sm:gap-0
              mt-2 sm:mt-0
-             text-[13px] sm:text-[14px]"
+             text-[10.7px]"
             >
               <span class="whitespace-nowrap">Driver Signature:</span>
 
               <input
                 class="w-full sm:w-[360px]
                ml-0 sm:ml-[5px]
-               h-[28px] sm:h-[24px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
             </div>
 
             <div
-              class="flex flex-wrap
+              class="flex flex-col sm:flex-row
              sm:items-center
-             text-[12px] sm:text-[13px]
-             mt-2"
+             gap-1 sm:gap-0
+             mt-2 sm:mt-0
+             text-[10.7px]"
             >
-              <div class="hidden sm:block sm:w-[365px]"></div>
+              <span class="whitespace-nowrap">Date:</span>
 
-              <span class="whitespace-nowrap">Applicant's Signature</span>
-
-              <span
-                class="ml-4 sm:ml-[38px]
-               whitespace-nowrap"
-              >
-                Date
-              </span>
-            </div>
-
-            <div class="mt-1">
               <input
-                class="w-full sm:w-[355px]
-               sm:ml-[365px]
-               h-[28px] sm:h-[24px]
+                class="w-full sm:w-[360px]
+               ml-0 sm:ml-[5px]
+               h-[15px] sm:h-[15px]
                border border-[#26364d]
                outline-none"
               />
             </div>
 
             <p
-              class="text-[12px] sm:text-[13px]
+              class="text-[10.7px]
              leading-[16px]
              mt-[5px]"
             >
@@ -2150,12 +2130,12 @@ export default function DriverApplication() {
            min-h-[32px]
            flex flex-col
            md:flex-row md:items-center
-           text-[13px] sm:text-[14px] md:text-[15px]
+           text-[12px]
            font-bold"
           >
             <div
-              class="w-full md:w-[72px]
-             min-h-[32px]
+              class="w-full md:w-[75px]
+             h-[20px]
              flex items-center
              px-[5px]
              border-b md:border-b-0
@@ -2166,7 +2146,7 @@ export default function DriverApplication() {
 
             <div
               class="w-full md:flex-1
-             min-h-[32px]
+             h-[20px]
              border-t md:border-t-0
              md:border-l border-[#26364d]
              flex items-center
@@ -2186,7 +2166,7 @@ export default function DriverApplication() {
           >
             <h2
               class="text-center font-bold
-             text-[15px] sm:text-[17px]
+             text-[13.4px] 
              leading-[19px]
              mb-[4px]"
             >
@@ -2195,19 +2175,19 @@ export default function DriverApplication() {
 
             <div
               class="font-bold
-             text-[12px] sm:text-[13px]
+             text-[10.7px]
              leading-[17px]"
             >
               The applicant named above was employed by us.
               <span class="ml-[3px]">Yes</span>
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               <span class="ml-[3px]">No</span>
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               <br />
               Employed as
               <input
                 class="w-[120px] sm:w-[160px]
-               h-[24px]
+               h-[15px]
                border border-[#26364d]
                align-middle
                outline-none"
@@ -2215,7 +2195,7 @@ export default function DriverApplication() {
               from (m/y)
               <input
                 class="w-[65px] sm:w-[80px]
-               h-[24px]
+               h-[15px]
                border border-[#26364d]
                align-middle
                outline-none"
@@ -2223,59 +2203,59 @@ export default function DriverApplication() {
               to (m/y)
               <input
                 class="w-[65px] sm:w-[80px]
-               h-[24px]
+               h-[15px]
                border border-[#26364d]
                align-middle
                outline-none"
               />
               <br />
               1. Did he/she drive motor vehicle for you? Yes
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               No
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               If yes, what type? Straight Truck
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               Tractor-Semitrailer
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               Bus
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               Cargo Tank
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               <br />
               Doubles/Triples
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               Other (Specify)
               <input
                 class="w-[90px] sm:w-[105px]
-               h-[24px]
+               h-[15px]
                border border-[#26364d]
                align-middle
                outline-none"
               />
               <br />
               2. Reason for leaving your employment: Discharged
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               Resignation
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               Lay Off
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               Military Duty
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               If there is no safety performance history to report, check here
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               sign below and return.
             </div>
 
             <div
               class="font-bold
-             text-[12px] sm:text-[13px]
+             text-[10.7px]
              leading-[17px]
              mt-[3px]"
             >
               ACCIDENTS: Complete the following for any accidents included in
               your accident register (§390.15(b)) that involved the applicant in
               the 3 years prior to the application date shown above, or check
-              <input type="checkbox" class="w-[17px] h-[17px] align-middle" />
+              <input type="checkbox" class="w-[10px] h-[10px] align-middle" />
               here if there is no accident register data for this driver.
             </div>
 
@@ -2287,7 +2267,7 @@ export default function DriverApplication() {
                text-[12px]"
               >
                 <thead>
-                  <tr class="h-[28px]">
+                  <tr class="h-[20px] text-[10.7px] text-['Carlito']">
                     <th class="border border-[#333] w-[20%]">Date</th>
 
                     <th class="border border-[#333] w-[20%]">Location</th>
@@ -2301,10 +2281,10 @@ export default function DriverApplication() {
                 </thead>
 
                 <tbody>
-                  <tr class="h-[34px]">
+                  <tr class="h-[20px]">
                     <td class="border border-[#333] p-[3px]">
                       <input
-                        class="w-full h-[27px]
+                        class="w-full h-[20px]
                        border border-[#26364d]
                        outline-none"
                       />
@@ -2312,7 +2292,7 @@ export default function DriverApplication() {
 
                     <td class="border border-[#333] p-[3px]">
                       <input
-                        class="w-full h-[27px]
+                        class="w-full h-[20px]
                        border border-[#26364d]
                        outline-none"
                       />
@@ -2320,7 +2300,7 @@ export default function DriverApplication() {
 
                     <td class="border border-[#333] p-[3px]">
                       <input
-                        class="w-full h-[27px]
+                        class="w-full h-[20px]
                        border border-[#26364d]
                        outline-none"
                       />
@@ -2328,7 +2308,7 @@ export default function DriverApplication() {
 
                     <td class="border border-[#333] p-[3px]">
                       <input
-                        class="w-full h-[27px]
+                        class="w-full h-[20px]
                        border border-[#26364d]
                        outline-none"
                       />
@@ -2336,54 +2316,54 @@ export default function DriverApplication() {
 
                     <td class="border border-[#333] p-[3px]">
                       <input
-                        class="w-full h-[27px]
+                        class="w-full h-[20px]
                        border border-[#26364d]
                        outline-none"
                       />
                     </td>
                   </tr>
 
-                  <tr class="h-[34px]">
+                  <tr class="h-[20px]">
                     <td class="border border-[#333] p-[3px]">
-                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      <input class="w-full h-[20px] border border-[#26364d] outline-none" />
                     </td>
 
                     <td class="border border-[#333] p-[3px]">
-                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      <input class="w-full h-[20px] border border-[#26364d] outline-none" />
                     </td>
 
                     <td class="border border-[#333] p-[3px]">
-                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      <input class="w-full h-[20px] border border-[#26364d] outline-none" />
                     </td>
 
                     <td class="border border-[#333] p-[3px]">
-                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      <input class="w-full h-[20px] border border-[#26364d] outline-none" />
                     </td>
 
                     <td class="border border-[#333] p-[3px]">
-                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      <input class="w-full h-[20px] border border-[#26364d] outline-none" />
                     </td>
                   </tr>
 
-                  <tr class="h-[34px]">
+                  <tr class="h-[20px]">
                     <td class="border border-[#333] p-[3px]">
-                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      <input class="w-full h-[20px] border border-[#26364d] outline-none" />
                     </td>
 
                     <td class="border border-[#333] p-[3px]">
-                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      <input class="w-full h-[20px] border border-[#26364d] outline-none" />
                     </td>
 
                     <td class="border border-[#333] p-[3px]">
-                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      <input class="w-full h-[20px] border border-[#26364d] outline-none" />
                     </td>
 
                     <td class="border border-[#333] p-[3px]">
-                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      <input class="w-full h-[20px] border border-[#26364d] outline-none" />
                     </td>
 
                     <td class="border border-[#333] p-[3px]">
-                      <input class="w-full h-[27px] border border-[#26364d] outline-none" />
+                      <input class="w-full h-[20px] border border-[#26364d] outline-none" />
                     </td>
                   </tr>
                 </tbody>
@@ -2391,34 +2371,26 @@ export default function DriverApplication() {
             </div>
 
             <div
-              class="mt-[15px] sm:mt-[20px]
-             text-[12px] sm:text-[13px]
+              class="mt-[5px] sm:mt-[5px]
+             text-[10.7px]
              leading-[17px]"
             >
               Please provide information concerning any other accidents
               involving the applicant that were reported to government agencies
               or insurers or retained under internal company policies:
-              <input
-                class="w-full
-               h-[28px] sm:h-[24px]
-               border border-[#26364d]
-               outline-none
-               align-middle
-               mt-1"
-              />
             </div>
 
             <div class="mt-[3px]">
               <input
                 class="w-full
-               h-[28px] sm:h-[24px]
+               h-[20px] sm:h-[20px]
                border border-[#26364d]
                outline-none block"
               />
 
               <input
                 class="w-full
-               h-[28px] sm:h-[24px]
+               h-[20px] sm:h-[20px]
                border border-[#26364d]
                outline-none block"
               />
@@ -2426,31 +2398,23 @@ export default function DriverApplication() {
 
             <div
               class="mt-[4px]
-             text-[12px] sm:text-[13px]
+             text-[10.7px]
              font-bold"
             >
               Any other remarks:
-              <input
-                class="w-full
-               h-[28px] sm:h-[24px]
-               border border-[#26364d]
-               outline-none
-               align-middle
-               mt-1"
-              />
             </div>
 
             <div class="mt-[3px]">
               <input
                 class="w-full
-               h-[28px] sm:h-[24px]
+               h-[20px] sm:h-[20px]
                border border-[#26364d]
                outline-none block"
               />
 
               <input
                 class="w-full
-               h-[28px] sm:h-[24px]
+               h-[20px] sm:h-[20px]
                border border-[#26364d]
                outline-none block"
               />
@@ -2460,7 +2424,7 @@ export default function DriverApplication() {
               class="flex flex-col sm:flex-row
              sm:items-center
              gap-1 sm:gap-0
-             text-[12px] sm:text-[13px]
+             text-[12px]
              mt-[3px]"
             >
               <span class="whitespace-nowrap">Signature:</span>
@@ -2468,7 +2432,7 @@ export default function DriverApplication() {
               <input
                 class="w-full sm:w-[340px]
                ml-0 sm:ml-[3px]
-               h-[28px] sm:h-[24px]
+               h-[20px] sm:h-[20px]
                border border-[#26364d]
                outline-none"
               />
@@ -2478,7 +2442,7 @@ export default function DriverApplication() {
               class="flex flex-col sm:flex-row
              sm:items-center
              gap-1 sm:gap-0
-             text-[12px] sm:text-[13px]
+             text-[12px]
              mt-[3px]"
             >
               <span>Title:</span>
@@ -2486,7 +2450,7 @@ export default function DriverApplication() {
               <input
                 class="w-full sm:w-[180px]
                ml-0 sm:ml-[3px]
-               h-[28px] sm:h-[24px]
+               h-[20px] sm:h-[20px]
                border border-[#26364d]
                outline-none"
               />
@@ -2496,7 +2460,7 @@ export default function DriverApplication() {
               <input
                 class="w-full sm:w-[190px]
                ml-0 sm:ml-[3px]
-               h-[28px] sm:h-[24px]
+               h-[20px] sm:h-[20px]
                border border-[#26364d]
                outline-none"
               />
@@ -2508,10 +2472,10 @@ export default function DriverApplication() {
       {/*****page 10 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
-            <h1 className="m-0 text-[24px] text-center font-bold leading-[1.22] tracking-[0.3px] text-[#173f69]">
+            <h1 className="m-0 text-[21.4px] text-center font-bold leading-[1.22] tracking-[0.3px] text-[#173f69]">
               DRIVER'S ROAD TEST & PROFICIENCY EVALUATION
             </h1>
 
@@ -2529,16 +2493,16 @@ export default function DriverApplication() {
             <section class="mt-1">
               <div
                 class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+               text-[13.4px] px-2 py-[7px]"
               >
                 DRIVER / CARRIER / VEHICLE INFORMATION
               </div>
 
-              <div className="overflow-x-auto">
+              <div className="">
                 <table className="bg-gray-200 w-full table-fixed border-collapse text-[13.5px]">
                   <tbody>
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Driver Full Name</b>
                         </span>
@@ -2546,7 +2510,7 @@ export default function DriverApplication() {
                       <td className="border border-[#555]  align-middle text-left text-[17px]">
                         <div className="flex items-center justify-center">
                           <input
-                            className="h-[28px] w-full border border-black p-2"
+                            className="h-[15px] w-full border border-black p-2"
                             type="text"
                           />
                         </div>
@@ -2554,7 +2518,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>CDL Number / State / Class</b>
                         </span>
@@ -2562,7 +2526,7 @@ export default function DriverApplication() {
                       <td className="border border-[#555]  align-middle text-left text-[17px]">
                         <div className="flex items-center justify-center">
                           <input
-                            className="h-[28px] w-full border border-black p-2"
+                            className="h-[15px] w-full border border-black p-2"
                             type="text"
                           />
                         </div>
@@ -2570,7 +2534,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Motor Carrier Legal Name</b>
                         </span>
@@ -2578,7 +2542,7 @@ export default function DriverApplication() {
                       <td className="border border-[#555]  align-middle text-left text-[17px]">
                         <div className="flex items-center justify-center">
                           <input
-                            className="h-[28px] w-full border border-black p-2"
+                            className="h-[15px] w-full border border-black p-2"
                             type="text"
                           />
                         </div>
@@ -2586,7 +2550,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>USDOT Number</b>
                         </span>
@@ -2594,7 +2558,7 @@ export default function DriverApplication() {
                       <td className="border border-[#555]  align-middle text-left text-[17px]">
                         <div className="flex items-center justify-center">
                           <input
-                            className="h-[28px] w-full border border-black p-2"
+                            className="h-[15px] w-full border border-black p-2"
                             type="text"
                           />
                         </div>
@@ -2602,7 +2566,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Test Date / Start Time / End Time</b>
                         </span>
@@ -2610,7 +2574,7 @@ export default function DriverApplication() {
                       <td className="border border-[#555]  align-middle text-left text-[17px]">
                         <div className="flex items-center justify-center">
                           <input
-                            className="h-[28px] w-full border border-black p-2"
+                            className="h-[15px] w-full border border-black p-2"
                             type="text"
                           />
                         </div>
@@ -2618,7 +2582,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Test Location / Route</b>
                         </span>
@@ -2626,7 +2590,7 @@ export default function DriverApplication() {
                       <td className="border border-[#555]  align-middle text-left text-[17px]">
                         <div className="flex items-center justify-center">
                           <input
-                            className="h-[28px] w-full border border-black p-2"
+                            className="h-[15px] w-full border border-black p-2"
                             type="text"
                           />
                         </div>
@@ -2634,7 +2598,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Power Unit Year / Make / Unit No.</b>
                         </span>
@@ -2642,7 +2606,7 @@ export default function DriverApplication() {
                       <td className="border border-[#555]  align-middle text-left text-[17px]">
                         <div className="flex items-center justify-center">
                           <input
-                            className="h-[28px] w-full border border-black p-2"
+                            className="h-[15px] w-full border border-black p-2"
                             type="text"
                           />
                         </div>
@@ -2650,7 +2614,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Trailer Type / Unit No.</b>
                         </span>
@@ -2658,7 +2622,7 @@ export default function DriverApplication() {
                       <td className="border border-[#555]  align-middle text-left text-[17px]">
                         <div className="flex items-center justify-center">
                           <input
-                            className="h-[28px] w-full border border-black p-2"
+                            className="h-[15px] w-full border border-black p-2"
                             type="text"
                           />
                         </div>
@@ -2666,7 +2630,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Transmission</b>
                         </span>
@@ -2688,7 +2652,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Approximate Road-Test Miles</b>
                         </span>
@@ -2696,7 +2660,7 @@ export default function DriverApplication() {
                       <td className="border border-[#555]  align-middle text-left text-[17px]">
                         <div className="flex items-center justify-center">
                           <input
-                            className="h-[28px] w-full border border-black p-2"
+                            className="h-[15px] w-full border border-black p-2"
                             type="text"
                           />
                         </div>
@@ -2704,7 +2668,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Weather / Road Conditions</b>
                         </span>
@@ -2712,7 +2676,7 @@ export default function DriverApplication() {
                       <td className="border border-[#555]  align-middle text-left text-[17px]">
                         <div className="flex items-center justify-center">
                           <input
-                            className="h-[28px] w-full border border-black p-2"
+                            className="h-[15px] w-full border border-black p-2"
                             type="text"
                           />
                         </div>
@@ -2723,12 +2687,12 @@ export default function DriverApplication() {
               </div>
               <div
                 class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+               text-[13.4px] px-2 py-[7px]"
               >
                 PROFICIENCY RATING SCALE
               </div>
 
-              <p className="text-[11px]">
+              <p className="text-[12px]">
                 Rate each applicable item: 4 = Excellent, 3 = Satisfactory, 2 =
                 Needs Improvement, 1 = Unsatisfactory, N/A = Not Applicable. Any
                 safety- critical unsatisfactory performance should be explained
@@ -2741,25 +2705,29 @@ export default function DriverApplication() {
                 <table className="w-full table-fixed border-collapse border-black text-[13.5px]">
                   <thead className="bg-[#1d3b61] text-white">
                     <tr>
-                      <th className="text-[11px]">Evaluation Item </th>
-                      <th className="text-[11px]">Performance Standard </th>
-                      <th>4</th>
-                      <th>3</th>
-                      <th>2</th>
-                      <th>1</th>
-                      <th>N/A</th>
-                      <th>Comments</th>
+                      <th className="text-[9.4px] w-[110px]">
+                        Evaluation Item{" "}
+                      </th>
+                      <th className="text-[9.4px] w-[90px]">
+                        Performance Standard{" "}
+                      </th>
+                      <th className="text-[9.4px]">4</th>
+                      <th className="text-[9.4px]">3</th>
+                      <th className="text-[9.4px]">2</th>
+                      <th className="text-[9.4px]">1</th>
+                      <th className="text-[9.4px]">N/A</th>
+                      <th className="text-[9.4px]">Comments</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Pre-trip inspection
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Vehicle condition, tires/wheels, lights, brakes, leaks,
                         emergency equipment, required documents
                       </td>
@@ -2785,18 +2753,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[9.4px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Coupling / uncoupling
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Fifth wheel, kingpin, airlines/electrical, landing gear,
                         tug test, visual verification
                       </td>
@@ -2822,18 +2790,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Cab setup / controls
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Seat/mirrors, seat belt, gauges, warning devices,
                         controls, safe start
                       </td>
@@ -2859,18 +2827,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Brake system knowledge
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Air-brake checks if applicable, parking/service brake,
                         low-air warnings, proper use
                       </td>
@@ -2896,18 +2864,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Starting / shifting
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Smooth starts, gear selection, clutch use if applicable,
                         avoids rollback/stall
                       </td>
@@ -2933,7 +2901,7 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
                   </tbody>
@@ -2947,7 +2915,7 @@ export default function DriverApplication() {
       {/*****page 11 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
             <section class="mt-1">
@@ -2955,13 +2923,13 @@ export default function DriverApplication() {
                 <table className="w-full table-fixed border-collapse border-black text-[13.5px]">
                   <tbody>
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Steering / lane control
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Maintains lane, tracks turns, proper hand control,
                         avoids curb/objects
                       </td>
@@ -2987,18 +2955,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Intersections / right-of-way
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Scanning, controlled approach, signs/signals, right-
                         of-way decisions
                       </td>
@@ -3024,18 +2992,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Turns
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Signal timing, lane position, off- tracking awareness,
                         clearance, speed control
                       </td>
@@ -3061,18 +3029,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Lane changes / merging
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Mirrors, signal, blind-spot awareness, spacing, smooth
                         merge
                       </td>
@@ -3098,18 +3066,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Following distance
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Maintains adequate space and adjusts for speed, traffic
                         and conditions
                       </td>
@@ -3135,18 +3103,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Speed management
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Complies with limits and conditions; controls speed on
                         grades/curves
                       </td>
@@ -3172,18 +3140,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Passing / being passed
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Safe decision, clearance, mirrors, signaling, lane
                         return
                       </td>
@@ -3209,18 +3177,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Railroad crossings
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Proper approach, observation and compliance when
                         applicable
                       </td>
@@ -3246,18 +3214,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Braking / stopping
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Smooth, controlled stops; anticipates traffic; avoids
                         harsh braking
                       </td>
@@ -3283,18 +3251,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Backing
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         GOAL when needed, mirror use, controlled speed, setup,
                         clearance, spotter communication
                       </td>
@@ -3320,18 +3288,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Parking / securement
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Safe parking, brake application, transmission, wheel
                         position/chocks as applicable
                       </td>
@@ -3357,18 +3325,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Hazard perception
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Identifies hazards early, escape routes, construction,
                         pedestrians, cyclists
                       </td>
@@ -3394,18 +3362,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Defensive driving
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Space management, patience, distraction avoidance, safe
                         decision-making
                       </td>
@@ -3431,18 +3399,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Communication
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Signals, horn/lights when appropriate, professional
                         interaction
                       </td>
@@ -3468,18 +3436,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           ELD / HOS basic proficiency
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Can locate duty status, logs, annotations and
                       </td>
 
@@ -3504,7 +3472,7 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
                   </tbody>
@@ -3518,7 +3486,7 @@ export default function DriverApplication() {
       {/*****page 12 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
             <section class="mt-1">
@@ -3526,13 +3494,13 @@ export default function DriverApplication() {
                 <table className="w-full table-fixed border-collapse border-black text-[13.5px]">
                   <tbody>
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Missing_salman
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         roadside display/transfer if evaluated
                       </td>
 
@@ -3557,18 +3525,18 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
 
                     <tr className="border border-[#555]">
-                      <td className="border border-[#555] text-[17px] p-1">
+                      <td className="border border-[#555] text-[10px] p-1 w-[110px]">
                         <div className="text-xs font-bold leading-tight">
                           Post-trip / defect reporting
                         </div>
                       </td>
 
-                      <td className="border border-[#555] text-[11px] p-1 leading-[14px]">
+                      <td className="border border-[#555] text-[9.4px] w-[110px] p-1 leading-[14px]">
                         Identifies/report defects and secures vehicle at end of
                         test
                       </td>
@@ -3594,7 +3562,7 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] p-1 align-top">
-                        <textarea className="w-full min-w-0 h-[80px] sm:h-[120px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                        <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
                       </td>
                     </tr>
                   </tbody>
@@ -3605,7 +3573,7 @@ export default function DriverApplication() {
             <section class="mt-1">
               <div
                 class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+               text-[13.4px] px-2 py-[7px]"
               >
                 SAFETY-CRITICAL OBSERVATIONS / REMARKS
               </div>
@@ -3680,13 +3648,13 @@ export default function DriverApplication() {
             <section class="mt-1">
               <div
                 class="bg-[#1d3b61] text-white font-bold uppercase
-               text-[16px] px-2 py-[7px]"
+               text-[13.4px] px-2 py-[7px]"
               >
                 EXAMINER FINAL DETERMINATION
               </div>
 
               <div className="overflow-x-auto">
-                <table className="w-full table-fixed text-[13.5px]">
+                <table className="w-full table-fixed text-[12px]">
                   <tbody>
                     <tr>
                       <td>
@@ -3722,12 +3690,12 @@ export default function DriverApplication() {
                 <table className="bg-gray-200 w-full table-fixed border-collapse text-[13.5px]">
                   <tbody>
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Examiner Name</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3738,12 +3706,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Examiner Title / Organization</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3754,12 +3722,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Examiner Signature</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3770,12 +3738,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Date</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3786,12 +3754,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Driver Signature acknowledging results</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3802,12 +3770,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Date</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3827,10 +3795,10 @@ export default function DriverApplication() {
       {/*****page 13 start********/}
 
       <br />
-      <div className="mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
-            <h1 className="m-0 text-[24px] text-center font-bold leading-[1.22] tracking-[0.3px] text-[#173f69]">
+            <h1 className="m-0 text-[21.4px] text-center font-bold leading-[1.22] tracking-[0.3px] text-[#173f69]">
               CERTIFICATE OF DRIVER'S ROAD TEST
             </h1>
 
@@ -3847,12 +3815,12 @@ export default function DriverApplication() {
                 <table className="bg-gray-200 w-full table-fixed border-collapse text-[13.5px]">
                   <tbody>
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Driver Full Name</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3863,12 +3831,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>CDL / Operator License Number</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3879,12 +3847,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>State / Class / Endorsements</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3895,12 +3863,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Motor Carrier Legal Name</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3911,12 +3879,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>USDOT Number</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3927,12 +3895,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Power Unit Type</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3943,12 +3911,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Trailer(s) / Equipment Type</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3959,12 +3927,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Date of Road Test</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3975,12 +3943,12 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] text-left text-[17px]">
+                      <td className="border border-[#555] text-left text-[11.4px]">
                         <span className=" px-[6px] py-[7px] align-middle text-xs">
                           <b>Approximate Miles</b>
                         </span>
                       </td>
-                      <td className="border border-[#555]  align-middle text-left text-[17px]">
+                      <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                         <div className="flex items-center justify-center">
                           <input
                             className="h-[28px] w-full border border-black p-2"
@@ -3993,7 +3961,7 @@ export default function DriverApplication() {
                 </table>
               </div>
 
-              <p className="text-[11px]">
+              <p className="text-[12px]">
                 I certify that the above-named driver was given a road test
                 under my supervision on the date shown and that the driver
                 demonstrated sufficient driving skill to operate safely the type
@@ -4090,7 +4058,7 @@ export default function DriverApplication() {
                 </table>
               </div>
 
-              <p className="text-[11px]">
+              <p className="text-[12px]">
                 Motor Carrier File Use: Retain the certificate or permitted
                 equivalent in the driver qualification file as applicable.
                 Provide a copy to the driver/examinee when required.
@@ -4104,19 +4072,19 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
-            <h4 className="m-0 mb-2 text-[13px] text-center font-bold leading-[1.22] tracking-[0.3px] text-black">
+            <h4 className="m-0 mb-2 text-[12px] text-center font-bold leading-[1.22] tracking-[0.3px] text-black">
               THE BELOW DISCLOSURE AND AUTHORIZATION LANGUAGE IS FOR MANDATORY
               USE BY ALL ACCOUNT HOLDERS
             </h4>
-            <h4 className="mb-2 text-[15px] text-center font-bold leading-[1.22] tracking-[0.3px] text-black">
+            <h4 className="mb-2 text-[12px] text-center font-bold leading-[1.22] tracking-[0.3px] text-black">
               IMPORTANT DISCLOSURE
               <br />
               REGARDING BACKGROUND REPORTS FROM THE PSP Online Service
             </h4>
-            <p className="text-[12px] mb-1">
+            <p className="text-[10.7px] mb-1">
               In connection with your application for employment with{" "}
               <input className="border border-black" type="text" />{" "}
               (“Prospective Employer”), Prospective Employer, its employees,
@@ -4124,7 +4092,7 @@ export default function DriverApplication() {
               your driving, and safety inspection history from the Federal Motor
               Carrier Safety Administration (FMCSA).
             </p>
-            <p className="text-[12px] mb-1">
+            <p className="text-[10.7px] mb-1">
               When the application for employment is submitted in person, if the
               Prospective Employer uses any information it obtains from FMCSA in
               a decision to not hire you or to make any other adverse employment
@@ -4137,7 +4105,7 @@ export default function DriverApplication() {
               action has been taken and that the action was based in part or in
               whole on this report.
             </p>
-            <p className="text-[12px] mb-1">
+            <p className="text-[10.7px] mb-1">
               When the application for employment is submitted by mail,
               telephone, computer, or other similar means, if the Prospective
               Employer uses any information it obtains from FMCSA in a decision
@@ -4158,7 +4126,7 @@ export default function DriverApplication() {
               Employer must send or provide to you a copy of your report and a
               summary of your rights under the Fair Credit Reporting Act.
             </p>
-            <p className="text-[12px] mb-1">
+            <p className="text-[10.7px] mb-1">
               Neither the Prospective Employer nor the FMCSA contractor
               supplying the crash and safety information has the capability to
               correct any safety data that appears to be incorrect. You may
@@ -4168,7 +4136,7 @@ export default function DriverApplication() {
               this data. Your request will be forwarded by the DataQs system to
               the appropriate State for adjudication.
             </p>
-            <p className="text-[12px] mb-1">
+            <p className="text-[10.7px] mb-1">
               Any crash or inspection in which you were involved will display on
               your PSP report. Since the PSP report does not report, or assign,
               or imply fault, it will include all Commercial Motor Vehicle (CMV)
@@ -4179,18 +4147,18 @@ export default function DriverApplication() {
               Safety Regulations (FMCSR) violations that have been adjudicated
               by a court of law will also appear, and remain, on a PSP report.
             </p>
-            <p className="text-[12px] mb-1">
+            <p className="text-[10.7px] mb-1">
               The Prospective Employer cannot obtain background reports from
               FMCSA without your authorization.
             </p>
-            <h4 className="m-0 mb-2 text-[13px] text-center font-bold leading-[1.22] tracking-[0.3px] text-black">
+            <h4 className="m-0 mb-2 text-[13.4px] text-center font-bold leading-[1.22] tracking-[0.3px] text-black">
               AUTHORIZATION
             </h4>
-            <p className="text-[12px] mb-1">
+            <p className="text-[10.7px] mb-1">
               If you agree that the Prospective Employer may obtain such
               background reports, please read the following and sign below:
             </p>
-            <p className="text-[12px] mb-1">
+            <p className="text-[10.7px] mb-1">
               I authorize <input className="border border-black" type="text" />{" "}
               (“Prospective Employer”) to access the FMCSA Pre-Employment
               Screening Program (PSP) system to seek information regarding my
@@ -4202,7 +4170,7 @@ export default function DriverApplication() {
               release of information may assist the Prospective Employer to make
               a determination regarding my suitability as an employee.
             </p>
-            <p className="text-[12px] mb-1">
+            <p className="text-[10.7px] mb-1">
               I further understand that neither the Prospective Employer nor the
               FMCSA contractor supplying the crash and safety information has
               the capability to correct any safety data that appears to be
@@ -4213,7 +4181,7 @@ export default function DriverApplication() {
               will be forwarded by the DataQs system to the appropriate State
               for adjudication.
             </p>
-            <p className="text-[12px] mb-1">
+            <p className="text-[10.7px] mb-1">
               I understand that any crash or inspection in which I was involved
               will display on my PSP report. Since the PSP report does not
               report, or assign, or imply fault, I acknowledge it will include
@@ -4224,7 +4192,7 @@ export default function DriverApplication() {
               violations that have been adjudicated by a court of law will also
               appear, and remain, on my PSP report.
             </p>
-            <p className="text-[12px] mb-1">
+            <p className="text-[10.7px] mb-1">
               I have read the above Disclosure Regarding Background Reports
               provided to me by Prospective Employer and I understand that if I
               sign this Disclosure and Authorization, Prospective Employer may
@@ -4233,7 +4201,7 @@ export default function DriverApplication() {
               agents, and/or affiliates to obtain the information authorized
               above.
             </p>
-            <br />
+
             <section class="mt-1">
               <div className="overflow-x-auto">
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
@@ -4249,20 +4217,19 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <br />
-                    <br />
+
                     <tr>
                       <td>
                         <input className="border border-black" type="text" />
-                        <br />
                         Name (Please Print)
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <br />
 
-              <p className="text-[11px] text-bold mb-2">
+              <br />
+              <p className="text-[10px] text-bold mb-2">
                 <b>
                   NOTICE: This form is made available to monthly account holders
                   by NIC on behalf of the U.S. Department of Transportation,
@@ -4293,47 +4260,25 @@ export default function DriverApplication() {
 
       {/*****page 15 start********/}
 
-      <br />
-
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
-          <div className="w-full">
-            <h4 className="m-0 mb-2 text-[13px] font-bold leading-[1.22] tracking-[0.3px] text-black">
-              LAST UPDATED 2/11/2016
-            </h4>
-          </div>
-        </div>
-      </div>
-
-      {/*****page 16 start********/}
-
-      <br />
-
-      <div className="relative mx-auto w-full max-w-[240mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
-          <div className="w-full"></div>
-        </div>
-      </div>
-
       {/*****page 17 start********/}
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[24px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 26 COMPANY DRIVER SAFETY POLICIES & OPERATING PROCEDURES
               </h2>
-              <p className="text-[12px] mb-2">
+              <p className="text-[12px] text-gray-500 mb-2">
                 <i>
                   Motor-carrier policy template - carrier-specific fields must
                   be completed before issue
                 </i>
               </p>
 
-              <div className="mb-2 text-[12.5px]">
+              <div className="mb-2 text-[14px]">
                 These policies apply to drivers while operating, possessing, or
                 being responsible for Company equipment, and supplement
                 applicable federal, state, and local law. Where a law,
@@ -4348,7 +4293,7 @@ export default function DriverApplication() {
                   <tbody>
                     <tr>
                       <td>
-                        <span className="text-[11px]">
+                        <span className="text-[13.4px]">
                           Motor Carrier Legal Name:
                         </span>
                         <br />
@@ -4367,12 +4312,12 @@ export default function DriverApplication() {
                     </tr>
                     <tr>
                       <td>
-                        <span className="text-[11px]">DBA (if any):</span>
+                        <span className="text-[13.4px]">DBA (if any):</span>
                         <br />
                         <input className="border border-black" type="text" />
                       </td>
                       <td>
-                        <span className="text-[11px]">
+                        <span className="text-[13.4px]">
                           Policy Effective Date:{" "}
                         </span>
                         <input className="border border-black" type="date" />
@@ -4386,14 +4331,14 @@ export default function DriverApplication() {
                     </tr>
                     <tr>
                       <td>
-                        <span className="text-[11px]">
+                        <span className="text-[13.4px]">
                           Safety/Compliance Contact:
                         </span>
                         <br />
                         <input className="border border-black" type="text" />
                       </td>
                       <td>
-                        <span className="text-[11px]">
+                        <span className="text-[13.4px]">
                           24-Hour Incident Contact:{" "}
                         </span>
                         <input className="border border-black" type="text" />
@@ -4405,49 +4350,49 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 A. ELD & HOURS-OF-SERVICE (HOS) POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className="text-bold mb-2">
                   Drivers must comply with 49 CFR Part 395 and all applicable
                   HOS and ELD requirements. Drivers may not drive or remain on
                   duty when prohibited by applicable HOS limits, and no
                   dispatcher, manager, customer, or delivery schedule authorizes
                   a violation.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Log in only under your own ELD credentials and accurately
                   record all duty statuses, locations, annotations, shipping
                   information, vehicles, trailers, and other required entries.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Review and certify each required record of duty status as
                   complete and accurate. Respond to proposed edits truthfully;
                   never accept an edit that makes the record inaccurate.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Never falsify, erase, conceal, disable, unplug, bypass,
                   manipulate, or tamper with the ELD, ECM connection, GPS/data
                   source, unidentified-driving records, or supporting documents.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Report an ELD malfunction or diagnostic issue to the Company
                   immediately and follow the required malfunction procedure,
                   including reconstruction and use of paper logs when required.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Keep required ELD instructions, transfer instructions,
                   malfunction instructions, and required blank graph-grid logs
                   in the vehicle when applicable.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not use personal conveyance, yard move, team-driver
                   assignment, or any other special driving category to conceal
                   on-duty or driving time.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Submit supporting documents and requested logs promptly.
                   Never destroy or alter fuel, toll, dispatch, scale, repair,
                   trip, or other records used to verify HOS.
@@ -4465,16 +4410,16 @@ export default function DriverApplication() {
 
       {/*****page 18 start********/}
       <br />
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 B. CAMERA, DASH-CAM & SAFETY-EQUIPMENT NON-TAMPERING POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className=" text-bold mb-2">
                   Company-installed outward-facing cameras, inward-facing
                   cameras, dash cameras, telematics devices, collision-avoidance
                   systems, GPS units, ELD hardware, and related safety equipment
@@ -4482,26 +4427,26 @@ export default function DriverApplication() {
                   their normal operation except as specifically authorized in
                   writing by the Company or required for an emergency.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not cover, block, turn, reposition, unplug, disconnect,
                   remove, damage, disable, reset, modify, or obstruct any
                   camera, lens, microphone (where lawfully used), cable, sensor,
                   telematics unit, or recording system.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not place tape, clothing, sunshades, stickers, objects,
                   or other material over a camera or sensor.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not delete, overwrite, conceal, download, copy,
                   distribute, or attempt to access recordings unless authorized
                   by Company officials.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Immediately report a damaged, malfunctioning, loose,
                   obstructed, or non-operating camera or safety device.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Never retaliate against, threaten, or interfere with
                   personnel who review safety footage in accordance with Company
                   policy and applicable law.
@@ -4514,12 +4459,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 C. SEAT-BELT POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className=" text-bold mb-2">
                   The driver must wear a properly installed and adjusted seat
                   belt whenever operating a commercial motor vehicle and must
                   comply with all applicable seat-belt laws. The driver must not
@@ -4528,16 +4473,16 @@ export default function DriverApplication() {
                   movement is specifically permitted by law for repair or safety
                   purposes.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Seat belts must be worn correctly; disabling, defeating,
                   clipping behind the body, or otherwise bypassing the restraint
                   is prohibited.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Authorized passengers must use available required
                   restraints.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Any seat-belt defect must be reported promptly and
                   documented through the Company maintenance/defect-reporting
                   process.
@@ -4546,12 +4491,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 D. NO HAND-HELD DEVICE / DISTRACTED-DRIVING POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className=" text-bold mb-2">
                   Drivers are prohibited from texting or using a hand-held
                   mobile telephone while driving a CMV. Company policy also
                   prohibits holding or manually operating tablets, dispatch
@@ -4559,22 +4504,22 @@ export default function DriverApplication() {
                   moving or temporarily stationary in traffic, except as allowed
                   for emergency communications under applicable law.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Use only lawful hands-free/voice-activated functions and
                   keep the device positioned so it can be operated without
                   unsafe reaching.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Program navigation, ELD entries not permitted while driving,
                   messages, load information, and other manual tasks only when
                   safely parked.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • No watching videos, social media, gaming, typing, reading
                   messages, photographing, or other distracting device use while
                   driving.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • A dispatcher or customer request never authorizes unsafe or
                   unlawful device use. Safely park before responding when manual
                   interaction is required.
@@ -4588,16 +4533,16 @@ export default function DriverApplication() {
       {/*****page 19 start********/}
 
       <br />
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 E. VEHICLE / TRUCK ABANDONMENT & RETURN-OF-EQUIPMENT POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className=" text-bold mb-2">
                   Company equipment must not be abandoned. Upon termination,
                   resignation, removal from service, end of assignment, or
                   written Company direction, the driver must return the truck,
@@ -4605,25 +4550,25 @@ export default function DriverApplication() {
                   equipment, documents, and other Company property to the
                   location designated by the Company.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not leave Company equipment at a residence, truck stop,
                   repair shop, tow yard, customer facility, airport, roadside
                   location, or other location without Company authorization,
                   except when an emergency makes continued operation unsafe or
                   unlawful.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • If an emergency prevents return to the assigned location,
                   immediately contact Company management, secure the equipment,
                   provide the exact location, and follow written recovery
                   instructions.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not transfer possession, keys, fuel cards, access
                   credentials, or equipment to another person without
                   authorization.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Before surrendering equipment, complete the required
                   post-trip inspection, report known defects/damage, remove
                   personal belongings, and return Company records/property.
@@ -4638,37 +4583,37 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 F. PASSENGER & PET POLICY - DRIVER ONLY UNLESS WRITTEN
                 AUTHORIZATION
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className=" text-bold mb-2">
                   Company vehicles are DRIVER ONLY unless the Company provides
                   prior written authorization. No passenger, family member,
                   friend, child, trainee, team driver not assigned by the
                   Company, hitchhiker, or other person may ride in or operate
                   Company equipment without the required written authorization.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • No pets or animals are permitted in Company equipment
                   without prior written Company authorization. Service animals
                   and other legally protected accommodations will be handled as
                   required by applicable law.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Authorization must identify the approved passenger/pet or
                   approved category and any conditions, dates, insurance
                   requirements, or documentation required by the Company.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Verbal permission from a dispatcher, customer, another
                   driver, or non-authorized employee is not sufficient when
                   written approval is required.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • The driver must ensure every authorized occupant complies
                   with safety rules, seat-belt requirements, site restrictions,
                   and Company instructions.
@@ -4682,17 +4627,17 @@ export default function DriverApplication() {
       {/*****page 20 start********/}
 
       <br />
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 G. ACCIDENT, CITATION, INSPECTION & VIOLATION IMMEDIATE-
                 REPORTING POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className=" text-bold mb-2">
                   Drivers must immediately report any crash/accident, vehicle
                   damage, cargo incident, roadside inspection, citation/ticket,
                   warning, out-of-service order, arrest affecting driving
@@ -4702,33 +4647,33 @@ export default function DriverApplication() {
                   is impossible because of an emergency, report as soon as
                   safely possible.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • For an accident: stop safely, protect the scene, call
                   911/law enforcement when required, obtain medical assistance
                   when needed, and notify the Company immediately.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not admit fault, promise payment, argue about liability,
                   or sign non-required statements for another party. Cooperate
                   with law enforcement and provide legally required information.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Photograph/video the scene when safe and lawful, including
                   vehicle positions, damage, plates/unit numbers, road
                   conditions, traffic controls, cargo, and relevant
                   surroundings.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Collect other-party, witness, law-enforcement, tow, and
                   insurance information when available. Preserve dash-camera/ELD
                   data and all documents.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Send the Company every citation, inspection report, warning,
                   court notice, repair order, accident exchange, tow document,
                   and related record immediately.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not conceal, discard, alter, or delay reporting a
                   citation or inspection. Notify the Company of the final
                   court/agency disposition and provide supporting documentation.
@@ -4747,44 +4692,44 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 H. DAMAGE TO COMPANY / LEASED EQUIPMENT & PROPERTY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className=" text-bold mb-2">
                   Drivers must exercise reasonable care over trucks, trailers,
                   cargo equipment, fuel cards, keys, permits, technology, and
                   other property in their possession. All damage, loss, theft,
                   misuse, or suspected mechanical failure must be reported
                   immediately.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not continue operating equipment when doing so would be
                   unsafe, unlawful, or likely to cause additional damage.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not authorize non-emergency repairs, towing, parts
                   replacement, or major expenditures beyond Company limits
                   without approval, unless immediate action is reasonably
                   necessary to protect life/property and Company contact is
                   unavailable.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • The Company may investigate whether damage resulted from
                   normal wear, mechanical failure, third-party conduct, an
                   unavoidable event, negligence, willful misconduct,
                   unauthorized use, or violation of Company policy.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Where a driver is legally responsible for damage caused by
                   the driver’s negligent, intentional, unauthorized, or
                   prohibited use, the Company may seek reimbursement for
                   documented repair/recovery costs to the extent allowed by
                   applicable law and enforceable agreement.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • No wage deduction or chargeback is automatically authorized
                   by this policy. Any deduction from wages/pay must comply with
                   applicable federal and state law and any required written
@@ -4799,40 +4744,40 @@ export default function DriverApplication() {
       {/*****page 21 start********/}
 
       <br />
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 I. VEHICLE CARE, INSPECTION, MAINTENANCE & SECURITY PROCEDURES
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className=" text-bold mb-2">
                   • Conduct required pre-trip/post-trip inspections and monitor
                   the vehicle during operation. Promptly report defects
                   affecting safe operation.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not operate an out-of-service vehicle or equipment with a
                   condition that makes operation unsafe or unlawful.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Keep the cab, sleeper, windshield, mirrors, lights, cameras,
                   license plates, and safety equipment reasonably clean and
                   unobstructed.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Secure the truck, trailer, cargo, keys, fuel cards, permits,
                   and electronic devices whenever unattended. Follow Company
                   parking and high-value cargo instructions.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Do not make unauthorized mechanical, electrical, emissions,
                   speed-governor, ECM, camera, ELD, or safety-system
                   modifications.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Follow fuel, DEF, tire, fluid, preventive-maintenance,
                   roadside-repair, and approved-vendor procedures issued by the
                   Company.
@@ -4841,40 +4786,40 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 J. SAFE DRIVING & GENERAL CONDUCT
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className=" text-bold mb-2">
                   • Operate at a safe and lawful speed for traffic, weather,
                   visibility, road, grade, vehicle, and cargo conditions.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Maintain safe following distance and space management. Avoid
                   aggressive driving, unsafe lane changes, tailgating, racing,
                   road rage, and retaliatory driving.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Never operate while ill, fatigued, impaired, distracted, or
                   otherwise unable to drive safely. Notify dispatch/safety when
                   conditions prevent safe operation.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Obey traffic-control devices, railroad-crossing
                   requirements, size/weight restrictions, route restrictions,
                   bridge/clearance limits, and hazardous-material rules when
                   applicable.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • No alcohol, illegal drugs, unauthorized controlled
                   substances, weapons prohibited by Company policy/law, or other
                   prohibited items in Company equipment. DOT drug/alcohol
                   requirements are addressed separately in the Company DOT Drug
                   & Alcohol Policy.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Follow lawful shipper/receiver rules, cargo securement
                   procedures, seal procedures, parking rules, and customer-site
                   safety requirements.
@@ -4883,12 +4828,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 K. POLICY VIOLATIONS, INVESTIGATION & CORRECTIVE ACTION
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className=" text-bold mb-2">
                   The Company may investigate reported or observed policy
                   violations using lawful sources such as driver statements,
                   inspection/citation records, ELD data, telematics, camera
@@ -4899,7 +4844,7 @@ export default function DriverApplication() {
                   employment/contract, subject to applicable law and Company
                   policy. Regulatory reporting will be completed when required.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   Nothing in these policies requires a driver to operate
                   unsafely, violate the FMCSRs, falsify records, or waive rights
                   that cannot lawfully be waived.
@@ -4914,18 +4859,18 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[24px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 27 DRIVER RECEIPT, ACKNOWLEDGMENT & AGREEMENT
               </h2>
-              <p className="text-[12px] mb-2">
+              <p className="text-[12px] mb-2 text-gray-500">
                 <i>Company Safety Policies & Operating Procedures</i>
               </p>
 
-              <div className="mb-2 text-[12.5px]">
+              <div className="mb-2 text-[14px]">
                 I acknowledge that I received, read, and had an opportunity to
                 ask questions about the Company Driver Safety Policies &
                 Operating Procedures. I understand that compliance with
@@ -4936,7 +4881,7 @@ export default function DriverApplication() {
               </div>
 
               <div className="overflow-x-auto">
-                <table className="w-full table-fixed text-[13.5px]">
+                <table className="w-full table-fixed text-[14px]">
                   <tbody>
                     <tr>
                       <td>
@@ -5014,7 +4959,7 @@ export default function DriverApplication() {
                 </table>
               </div>
 
-              <p className="text-[12px] mb-2">
+              <p className="text-[14px] mb-2">
                 I understand that this acknowledgment does not create an
                 unlawful wage deduction, shift a legal duty that applicable law
                 places on the motor carrier, or waive any non-waivable right.
@@ -5027,54 +4972,54 @@ export default function DriverApplication() {
                   <tbody>
                     <tr>
                       <td>
-                        <span className="text-[11px]">
+                        <span className="text-[13.4px]">
                           Driver Printed Name:
                         </span>
                         <br />
                         <input className="border border-black" type="text" />
                       </td>
                       <td>
-                        <span className="text-[11px]">Driver ID / Unit:</span>
+                        <span className="text-[13.4px]">Driver ID / Unit:</span>
                         <input className="border border-black" type="text" />
                       </td>
                     </tr>
 
                     <tr>
                       <td>
-                        <span className="text-[11px]">Driver Signature:</span>
+                        <span className="text-[13.4px]">Driver Signature:</span>
                         <br />
                         <input className="border border-black" type="text" />
                       </td>
                       <td>
-                        <span className="text-[11px]">Date:</span>
+                        <span className="text-[13.4px]">Date:</span>
                         <input className="border border-black" type="date" />
                       </td>
                     </tr>
 
                     <tr>
                       <td>
-                        <span className="text-[11px]">
+                        <span className="text-[13.4px]">
                           Company Representative:
                         </span>
                         <br />
                         <input className="border border-black" type="text" />
                       </td>
                       <td>
-                        <span className="text-[11px]">Title:</span>
+                        <span className="text-[13.4px]">Title:</span>
                         <input className="border border-black" type="text" />
                       </td>
                     </tr>
 
                     <tr>
                       <td>
-                        <span className="text-[11px]">
+                        <span className="text-[13.4px]">
                           Representative Signature:
                         </span>
                         <br />
                         <input className="border border-black" type="text" />
                       </td>
                       <td>
-                        <span className="text-[11px]">Date:</span>
+                        <span className="text-[13.4px]">Date:</span>
                         <input className="border border-black" type="date" />
                       </td>
                     </tr>
@@ -5084,26 +5029,26 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[22px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[20px] font-bold leading-[1.2] text-[#174875]">
                 EMPLOYER IMPLEMENTATION CHECKLIST
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[13.4px]">
+                <p className=" text-bold mb-2">
                   • Complete the motor-carrier legal name, USDOT number,
                   effective date, and safety contact before issuing the policy.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Provide any state-specific wage-deduction,
                   camera/audio-recording, privacy, passenger, pet/accommodation,
                   or employment- law addenda required for the driver’s work
                   locations.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Train drivers on ELD/HOS, incident reporting, camera/device
                   rules, and return-of-equipment procedures.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className=" text-bold mb-2">
                   • Retain the signed acknowledgment in the appropriate
                   personnel/safety file and document later policy revisions and
                   re- acknowledgments.
@@ -5118,15 +5063,15 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[24px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[18.7px] font-bold leading-[1.2] text-[#174875]">
                 28 DETAILED COMPANY DRIVER SAFETY POLICIES & PROCEDURES
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
+              <div className="mb-2 text-[14px]">
                 This section expands the Company Driver Safety Policies &
                 Operating Procedures into a detailed operating manual. It is
                 intended to be adopted by the motor carrier identified below and
@@ -5136,132 +5081,174 @@ export default function DriverApplication() {
             </section>
 
             <section class="mt-1">
-              <div>
-                <table className="bg-gray-200 w-full table-fixed text-[13.5px]">
-                  <tbody>
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>Motor Carrier Legal Name</b>
-                        </span>
-                      </td>
-                      <td
-                        colspan="3"
-                        className="  align-middle text-left text-[17px]"
-                      >
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>USDOT Number</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  {" "}
+                  <div>
+                    <table className="bg-gray-200 w-full table-fixed text-[13.5px]">
+                      <tbody>
+                        <tr>
+                          <td className="w-full text-left text-[12px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>Motor Carrier Legal Name</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>Effective Date:</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>Safety / Compliance Contact</b>
-                        </span>
-                      </td>
-                      <td
-                        colspan="3"
-                        className="  align-middle text-left text-[17px]"
-                      >
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>24-Hour Accident / Emergency Contact</b>
-                        </span>
-                      </td>
-                      <td
-                        colspan="3"
-                        className=" align-middle text-left text-[17px]"
-                      >
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>DER / Drug & Alcohol Contact</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        <tr>
+                          <td className="w-full text-left text-[12px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>USDOT Number</b>
+                            </span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="w-full text-left text-[12px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>Safety / Compliance Contact</b>
+                            </span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="w-full text-left text-[12px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>24-Hour Accident / Emergency Contact</b>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td className="mt-2 w-full text-left text-[12px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>DER / Drug & Alcohol Contact</b>
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div>
+                  {" "}
+                  <div>
+                    <table className=" w-full table-fixed text-[13.5px]">
+                      <tbody>
+                        <tr>
+                          <td
+                            colspan="3"
+                            className="  align-middle text-left text-[17px]"
+                          >
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[20px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className=" h-[20px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+
+                          <td className=" w-full text-left text-[12px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>Effective Date:</b>
+                            </span>
+                          </td>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[20px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td
+                            colspan="3"
+                            className="  align-middle text-left text-[17px]"
+                          >
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[20px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td
+                            colspan="3"
+                            className="  align-middle text-left text-[17px]"
+                          >
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[20px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td
+                            colspan="3"
+                            className="  align-middle text-left text-[17px]"
+                          >
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[20px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </section>
 
             <section className="mt-[12px]">
-              <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[13px] font-semibold leading-[1.35] text-[#173f69]">
+              <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[12.7px] leading-[1.35] text-[#173f69]">
                 IMPORTANT: These policies establish minimum Company
                 expectations. They do not authorize a driver or motor carrier to
                 violate federal, state, or local law. When a lawful rule is
                 stricter, the stricter rule controls.
               </div>
             </section>
-            <br />
+
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.1 ELD & HOURS-OF-SERVICE POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[14px]">
+                <p className="text-[14px]">
                   The Company requires every driver subject to 49 CFR Part 395
                   to plan, record, and perform work within all applicable
                   hours-of-service limits. Dispatch schedules, customer
@@ -5269,7 +5256,7 @@ export default function DriverApplication() {
                   availability, or load urgency do not authorize an HOS
                   violation.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="text-[13px]">
                   • Property-carrying drivers subject to the standard rule may
                   drive a maximum of 11 hours after 10 consecutive hours off
                   duty and may not drive beyond the 14th consecutive hour after
@@ -5280,26 +5267,26 @@ export default function DriverApplication() {
                   exceptions, adverse-driving provisions, and other lawful
                   exceptions must be used only when the facts actually qualify.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="text-[13px]">
                   • Log in only to the driver account assigned to you. Never
                   share ELD usernames, passwords, PINs, or credentials. Review
                   unidentified driving events and accept only driving that you
                   actually performed; annotate events that do not belong to you.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="text-[13px]">
                   • Accurately record driving, on-duty not driving, sleeper
                   berth, and off-duty time. Accurately enter required vehicle,
                   trailer, shipping-document, location, co-driver, and
                   annotation information.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="text-[13px]">
                   • Certify required records of duty status only after reviewing
                   them. Proposed carrier edits must be accepted only when they
                   make the record accurate. Drivers must never be instructed to
                   approve an inaccurate edit.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="text-[13px]">
                   • Personal conveyance and yard move may be used only when
                   authorized by Company policy and permitted by FMCSA rules.
                   They may never be used to hide driving time, reposition a load
@@ -5307,14 +5294,14 @@ export default function DriverApplication() {
                   violation.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="text-[13px]">
                   • ELD tampering is prohibited. Do not disconnect power/data,
                   unplug the ECM connection, block GPS, alter device settings,
                   create false driver accounts, erase or conceal supporting
                   records, or otherwise manipulate the system.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="text-[13px]">
                   • Immediately report an ELD malfunction, data diagnostic, loss
                   of power, missing driving event, transfer problem, or other
                   issue. Follow the ELD malfunction instructions, reconstruct
@@ -5322,21 +5309,21 @@ export default function DriverApplication() {
                   device is restored or replaced.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="text-[13px]">
                   • Keep the required ELD information packet and blank
                   graph-grid logs in the CMV when applicable. Be able to display
                   and transfer records to an authorized safety official using
                   the ELD methods supported by the device.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="text-[13px]">
                   • Keep fuel, toll, dispatch, scale, repair, trip,
                   bill-of-lading, and other supporting documents accurate and
                   available as required. Never destroy or alter a supporting
                   document to make a log appear compliant.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="text-[13px]">
                   • If a dispatcher, customer, broker, or manager requests
                   movement that cannot lawfully be completed within available
                   hours, the driver must notify Safety/Dispatch and stop or
@@ -5352,16 +5339,16 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.2 PRE-TRIP, POST-TRIP & EQUIPMENT INSPECTION POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   No driver may operate Company-controlled equipment until the
                   driver is satisfied that the vehicle and combination are in
                   safe operating condition. A driver may not rely solely on a
@@ -5369,66 +5356,66 @@ export default function DriverApplication() {
                   vendor, or another carrier to determine that equipment is
                   safe.
                 </p>{" "}
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   Before movement, the driver must conduct a systematic
                   walk-around and cab inspection appropriate to the equipment.
                   At a minimum, inspect or verify the following as applicable:
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Service brakes, parking brake, air-brake system, air lines,
                   glad hands, trailer brake connections, air pressure, warning
                   devices, and observable air leaks.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Steering components, suspension, axles, springs, hangers,
                   torque rods, frame condition, and visible structural defects.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Tires for inflation/condition, tread, cuts/bulges, exposed
                   cord, and obvious damage; wheels/rims, hubs, lug nuts,
                   spacers, and signs of looseness or leakage.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Headlamps, high beams, turn signals, four-way flashers,
                   brake lamps, tail lamps, marker/clearance lamps, reflectors,
                   and conspicuity markings.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Windshield, wipers/washers, mirrors, horn, seat belt,
                   gauges, warning indicators, heater/defroster, and required
                   safety equipment.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Fifth wheel, locking jaws, kingpin, mounting hardware,
                   release handle, platform, sliding fifth-wheel pins, pintle
                   hooks or other coupling devices; verify a proper connection
                   and perform a tug test when appropriate.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Trailer landing gear, crossmembers, floor, roof/walls as
                   visible, doors, hinges, latches, seals, rear-impact guard,
                   mudflaps, and obvious cargo-area damage.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Emergency equipment including required warning devices and a
                   properly secured/charged fire extinguisher.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Fluid leaks, engine compartment concerns, fuel/DEF caps,
                   exhaust components as visible, and any condition likely to
                   cause a breakdown or unsafe operation.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Cargo distribution and securement, straps/chains/load locks
                   where applicable, trailer doors, seal requirements, and
                   weight/axle considerations.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • License plates, registration/cab card, permits, insurance
                   documentation where carried, ELD materials, shipping
                   documents, and other required operating documents.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   Defects and out-of-service conditions. Any defect that could
                   affect safe operation must be reported immediately. The driver
                   must not operate equipment placed out of service or equipment
@@ -5437,7 +5424,7 @@ export default function DriverApplication() {
                   and required repair. The driver must not sign or certify a
                   repair that the driver knows was not completed.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   Drop-and-hook / trailer interchange. Before accepting or
                   moving a trailer, inspect it and document material
                   pre-existing damage or defects. If the trailer is unsafe, do
@@ -5446,14 +5433,14 @@ export default function DriverApplication() {
                   damage when practicable and notify Dispatch/Safety before
                   departure.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   Roadside inspection reports. Immediately transmit roadside
                   inspection reports to the Company. Defects must be reviewed
                   and corrected as required. The driver must cooperate with
                   Company instructions for repair documentation and return of
                   certified inspection reports.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   Post-trip. At the end of the work period or equipment
                   assignment, inspect for new damage, tire/brake/light concerns,
                   leaks, cargo/equipment issues, and other defects. Report
@@ -5464,35 +5451,35 @@ export default function DriverApplication() {
               </div>
             </section>
 
-            <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+            <section className="mt-[15.4px]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.3 CAMERA, DASH-CAM & SAFETY-EQUIPMENT NON-TAMPERING POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   Forward-facing cameras, inward-facing cameras, telematics,
                   collision-warning devices, GPS, ELD hardware, sensors, and
                   other Company-installed safety systems are safety equipment.
                   Drivers must not interfere with their normal operation.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Do not cover, block, turn, reposition, unplug, disconnect,
                   remove, damage, reset, disable, modify, obstruct, or interfere
                   with any camera, lens, sensor, cable, microphone where
                   lawfully used, telematics unit, or recording system.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Do not place tape, clothing, paper, stickers, sunshades,
                   electronic devices, or other objects over or in front of a
                   camera or sensor.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Do not delete, download, copy, distribute, post, or attempt
                   unauthorized access to recordings or system data.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Report a malfunction, loose mount, damaged lens, obstructed
                   view, warning message, or other problem immediately. Do not
                   attempt repairs unless specifically authorized.
@@ -5507,12 +5494,12 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[13px]">
+                <p className="">
                   • Company access and use of camera/audio information must
                   follow applicable privacy, notice, audio-recording, labor, and
                   employment laws. Required state-specific notices or consents
@@ -5522,12 +5509,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.4 SEAT-BELT & OCCUPANT-RESTRAINT POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="mb-2 text-[13px]">
+                <p className="">
                   The driver must wear a properly installed and adjusted seat
                   belt whenever operating a CMV. Authorized occupants must use
                   required restraints. Disabling, bypassing, clipping behind the
@@ -5539,30 +5526,30 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.5 NO HAND-HELD DEVICE / DISTRACTED-DRIVING POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className=" text-[13px]">
+                <p className="">
                   • No texting or hand-held mobile telephone use while driving a
                   CMV. Do not hold or manually manipulate a phone, tablet,
                   dispatch unit, or other device while the vehicle is moving or
                   temporarily stopped in traffic.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Use only lawful hands-free/voice functions that do not
                   require unsafe reaching. Program navigation, review dispatch
                   messages, enter ELD information, photograph documents, or
                   perform other manual tasks only when safely parked.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Watching videos, social media, gaming, typing, reading
                   messages, photographing, video calling, or other distracting
                   electronic activity while driving is prohibited.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • No dispatcher, customer, or load requirement authorizes
                   unsafe device use. Park safely before responding when manual
                   interaction is necessary.
@@ -5571,50 +5558,50 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.6 TRUCK ABANDONMENT & RETURN-OF-EQUIPMENT POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   Company equipment must not be abandoned. Resignation,
                   termination, refusal of dispatch, disagreement, breakdown, or
                   the end of an assignment does not authorize the driver to
                   leave Company equipment at an unapproved location.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Upon Company direction or separation, return the tractor,
                   trailer, keys, fuel cards, toll devices, permits, ELD
                   equipment, paperwork, and other Company property to the
                   location designated by an authorized Company official.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Do not leave equipment at a residence, truck stop, repair
                   facility, tow yard, customer, airport, roadside location,
                   another carrier, or any other location without Company
                   authorization, except when an emergency makes continued
                   operation unsafe or unlawful.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • If an emergency prevents return, immediately notify the
                   Company, provide the exact equipment location and condition,
                   secure the unit, protect cargo/property, and follow written
                   recovery instructions.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Do not transfer keys, credentials, fuel cards, or possession
                   to another person without authorization.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Before surrendering equipment, perform a post-trip
                   inspection, report known damage/defects, remove personal
                   belongings, and return all Company property.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   The Company may seek lawful recovery of documented losses
                   resulting from unauthorized abandonment. Any reimbursement,
                   deduction, offset, or collection must comply with applicable
@@ -5625,12 +5612,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.7 UNAUTHORIZED PASSENGER & PET POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   Company vehicles are DRIVER ONLY unless prior written
                   authorization is issued by an authorized Company official. No
                   family member, friend, child, hitchhiker, trainee, team driver
@@ -5640,7 +5627,7 @@ export default function DriverApplication() {
                   to legally required accommodations.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   Written authorization may specify the approved person/animal,
                   dates, route, insurance/document requirements, and other
                   conditions. Verbal permission from a dispatcher, customer,
@@ -5652,12 +5639,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.8 ACCIDENT, CITATION, INSPECTION & VIOLATION REPORTING POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   Drivers must report immediately any crash, collision, cargo
                   incident, vehicle/property damage, roadside inspection,
                   citation, warning, out-of-service order, tow/impound, arrest
@@ -5668,7 +5655,7 @@ export default function DriverApplication() {
                   report as soon as safely possible.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • At an accident scene: stop safely; protect life and the
                   scene; call 911/law enforcement when required; request medical
                   assistance; and notify the Company immediately.
@@ -5683,12 +5670,12 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   • Do not leave the scene unlawfully. Do not admit fault,
                   promise payment, argue liability, or sign unnecessary
                   statements for another party. Cooperate with law enforcement
@@ -5712,7 +5699,7 @@ export default function DriverApplication() {
                   authority policy requires testing.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   Responsibility. Drivers are responsible for obeying laws
                   applicable to their conduct and may be responsible for driver-
                   attributable fines, penalties, or costs to the extent
@@ -5724,12 +5711,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.9 DRIVER-CAUSED DAMAGE / EQUIPMENT RESPONSIBILITY POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   Drivers must exercise reasonable care over tractors, trailers,
                   cargo equipment, keys, fuel cards, permits, technology, and
                   other property placed in their possession. Damage, loss,
@@ -5737,27 +5724,27 @@ export default function DriverApplication() {
                   reported immediately.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Do not continue operating equipment when continued operation
                   would be unsafe, unlawful, or likely to cause additional
                   damage.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Do not authorize non-emergency towing, major repairs, parts
                   replacement, or expenses outside Company limits without
                   approval unless immediate action is reasonably necessary to
                   protect life/property and Company contact is unavailable.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • The Company may investigate whether damage resulted from
                   normal wear, mechanical failure, third-party conduct,
                   unavoidable conditions, negligence, willful misconduct,
                   unauthorized use, or a policy violation.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • If a driver is legally responsible for damage caused by
                   negligent, intentional, unauthorized, or prohibited use, the
                   Company may seek reimbursement for documented losses/repair
@@ -5765,7 +5752,7 @@ export default function DriverApplication() {
                   enforceable agreement.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • No payroll deduction or chargeback is automatically
                   authorized by this policy. Any deduction from wages or
                   settlement must comply with applicable law and any required
@@ -5775,41 +5762,41 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.10 VEHICLE MAINTENANCE, DEFECT & ROADSIDE-REPAIR POLICY
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   • Promptly report mechanical defects, warning lights,
                   brake/tire issues, fluid leaks, lighting defects,
                   steering/suspension concerns, coupling defects, and other
                   safety problems.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Do not operate a vehicle that has been placed out of service
                   or that the driver knows is unsafe or unlawful to operate.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Use only Company-approved repair vendors and procedures
                   except where an emergency requires immediate protective action
                   and Company contact is unavailable.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Do not make unauthorized ECM, emissions, speed-governor,
                   electrical, camera, ELD, telematics, or safety-system
                   modifications.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Keep the cab, sleeper, windshield, mirrors, lights, cameras,
                   plates, and safety equipment reasonably clean and
                   unobstructed. Secure keys, fuel cards, permits, cargo, and
                   equipment when unattended.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Follow preventive-maintenance, tire, fuel, DEF,
                   roadside-repair, and documentation instructions issued by the
                   Company.
@@ -5818,29 +5805,29 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.11 SAFE DRIVING, FATIGUE & GENERAL CONDUCT
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   • Operate at a lawful and safe speed for traffic, weather,
                   visibility, grade, road surface, vehicle condition, and cargo.
                   Posted speed is not always a safe speed.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Maintain safe following distance and adequate space. No
                   tailgating, aggressive driving, unsafe lane changes, racing,
                   road rage, retaliatory driving, or intentionally blocking
                   other traffic.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Never drive while ill, fatigued, impaired, distracted, or
                   otherwise unable to operate safely. Notify Dispatch/Safety
                   when conditions prevent safe operation.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Obey traffic-control devices, railroad-crossing rules, route
                   restrictions, bridge/clearance limits, size/weight
                   restrictions, hazardous-material requirements when applicable,
@@ -5856,18 +5843,18 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   • Secure cargo and doors and comply with seal/load-security
                   procedures. Stop and correct a cargo-securement issue when
                   required.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • No alcohol, illegal drugs, or other prohibited items may be
                   possessed or used contrary to Company policy or law. DOT
                   drug/alcohol requirements are governed by the separate
@@ -5877,12 +5864,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[15.4px] font-bold leading-[1.2] text-[#174875]">
                 28.12 POLICY VIOLATIONS, INVESTIGATION & CORRECTIVE ACTION
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   The Company may investigate policy violations using lawful
                   evidence including driver statements, inspection/citation
                   records, ELD/telematics data, camera footage, maintenance
@@ -5905,233 +5892,271 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section class="mt-1">
-              <div>
-                <table className="bg-gray-200 w-full table-fixed text-[13.5px]">
-                  <tbody>
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>Motor Carrier / Employer</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  {" "}
+                  <div>
+                    <table className="bg-gray-200 w-full table-fixed text-[13.5px]">
+                      <tbody>
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>Motor Carrier / Employer</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>USDOT Number</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>USDOT Number</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>Designated Employer Representative (DER)</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>Designated Employer Representative (DER)</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>DER Phone / Email</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>DER Phone / Email</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>C/TPA</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>C/TPA</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>Medical Review Officer (MRO)</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>Medical Review Officer (MRO)</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>Primary Collection Site / Instructions</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>Primary Collection Site / Instructions</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>Effective / Revision Date</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>Effective / Revision Date</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>Driver Printed Name</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>Driver Printed Name</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>CDL Number / State</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>CDL Number / State</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>Driver Signature / Date</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <br />
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>Driver Signature / Date</b>
+                            </span>
+                          </td>
+                        </tr>
 
-                    <tr>
-                      <td className=" text-left text-[17px]">
-                        <span className=" px-[6px] py-[7px] align-middle text-xs">
-                          <b>Company / DER Representative / Date</b>
-                        </span>
-                      </td>
-                      <td className="  align-middle text-left text-[17px]">
-                        <div className="flex items-center justify-center">
-                          <input
-                            className="h-[28px] w-full border border-black p-2"
-                            type="date"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        <tr>
+                          <td className=" text-left text-[17px]">
+                            <span className=" px-[6px] py-[7px] align-middle text-xs">
+                              <b>Company / DER Representative / Date</b>
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div>
+                  {" "}
+                  <div>
+                    <table className=" w-full table-fixed text-[13.5px]">
+                      <tbody>
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="text"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td className="  align-middle text-left text-[17px]">
+                            <div className="flex items-center justify-center">
+                              <input
+                                className="h-[25px] w-full border border-black p-2"
+                                type="date"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[24px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[21.4px] font-bold leading-[1.2] text-[#174875]">
                 29 DETAILED FMCSA/DOT DRUG & ALCOHOL POLICY
               </h2>
             </section>
 
-            <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+            <section className="">
+              <h2 className="mb-[8px] text-[14px] font-bold leading-[1.2] text-[#174875]">
                 49 CFR Part 382 / 49 CFR Part 40 - Motor Carrier Policy Template
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   IMPORTANT CARRIER ADOPTION NOTICE: Before using this policy,
                   the adopting motor carrier must complete all company-specific
                   fields, identify its Designated Employer Representative (DER)
@@ -6144,35 +6169,23 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[23px] font-bold leading-[1.2] text-[#174875]">
-                DOCUMENTS TO SUBMIT WITH YOUR DRIVER APPLICATION
-              </h2>
-
-              <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[13px] font-semibold leading-[1.35] text-[#173f69]">
-                Upload clear, complete, readable copies. Documents marked
-                <strong>"if applicable"</strong> are required only when they
-                apply to the driver or position. Employment-eligibility
-                documents are handled under Form I-9 rules; applicants may
-                choose which acceptable I-9 documents to present.
-              </div>
-
               <div className="overflow-x-auto">
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
                   <thead>
                     <tr>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#174875] px-[6px] py-[8px] text-center align-middle text-[14px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#174875] px-[6px] py-[8px] text-center align-middle text-[12.7px] font-bold text-white">
                         Motor Carrier Legal Name
                       </th>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#174875] px-[6px] py-[8px] text-center align-middle text-[14px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#174875] px-[6px] py-[8px] text-center align-middle text-[12.7px] font-bold text-white">
                         USDOT Number
                       </th>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#174875] px-[6px] py-[8px] text-center align-middle text-[14px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#174875] px-[6px] py-[8px] text-center align-middle text-[12.7px] font-bold text-white">
                         Effective / Revision Date
                       </th>
                     </tr>
                   </thead>
 
-                  <tbody>
+                  <tbody className="text-gray-500 text-[12.7px]">
                     <tr>
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                         <input
@@ -6197,11 +6210,11 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                         Designated Employer Representative (DER)
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                         DER Phone / Email{" "}
                         <input
                           className="border border-black w-full"
@@ -6209,7 +6222,7 @@ export default function DriverApplication() {
                         />
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                         C/TPA
                         <input
                           className="border border-black w-full"
@@ -6242,15 +6255,15 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                         Medical Review Officer (MRO)
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                         Primary Collection Site / Network
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                         SAP Resource Contact
                         <input
                           className="border border-black w-full"
@@ -6287,12 +6300,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#174875]">
                 29.1 Purpose, Authority and Policy Objective
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   The Company maintains this controlled-substances and alcohol
                   program to protect drivers, coworkers, customers and the
                   motoring public and to comply with Federal Motor Carrier
@@ -6315,12 +6328,12 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   Participation in the applicable DOT/FMCSA drug and alcohol
                   testing program is a condition of performing covered safety-
                   sensitive functions for the Company. Nothing in this policy
@@ -6332,12 +6345,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#174875]">
                 29.2 Covered Drivers and Safety-Sensitive Functions
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   This policy applies to each driver who is required to hold a
                   commercial driver's license (CDL) or commercial learner's
                   permit (CLP) to operate a commercial motor vehicle subject to
@@ -6348,7 +6361,7 @@ export default function DriverApplication() {
                   job title.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Safety-sensitive time includes all time from the time a
                   driver begins work or is required to be ready to work until
                   relieved from work and all responsibility for performing work,
@@ -6358,7 +6371,7 @@ export default function DriverApplication() {
                   functions within the regulatory definition.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • A manager, supervisor, mechanic, owner, or other employee
                   who is required or expected to operate a covered CMV must be
                   included when Part 382 applies to that individual.
@@ -6367,11 +6380,11 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#174875]">
                 29.3 Designated Employer Representative (DER) and Service Agents
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
+              <div className="text-[13px]">
                 <p className="text-[11px] text-bold mb-2">
                   The DER is the Company official authorized to receive test
                   results and other communications, make required decisions,
@@ -6398,46 +6411,46 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#174875]">
                 29.4 Prohibited Alcohol Conduct
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   A covered driver must not engage in conduct prohibited by Part
                   382. The following rules apply in addition to any separately
                   identified lawful Company-authority rule:
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • No alcohol use while performing safety-sensitive functions.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • No alcohol use within four (4) hours before performing a
                   safety-sensitive function.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • No reporting for or remaining on duty requiring
                   safety-sensitive functions with an alcohol concentration of
                   0.04 or greater.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • A driver with an alcohol concentration of 0.02 through 0.039
                   must be removed from safety-sensitive functions for the period
                   required by FMCSA regulations; this is distinct from a
                   0.04-or-greater DOT violation.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • No prohibited alcohol use following an accident when the
                   driver is required to remain available for FMCSA post-
                   accident testing, subject to the regulatory time limits.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • No refusal to submit to a required alcohol test or failure
                   to cooperate with the testing process.
                 </p>
@@ -6445,19 +6458,19 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#174875]">
                 29.5 Prohibited Controlled-Substances Conduct
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   • No reporting for duty or remaining on duty requiring
                   safety-sensitive functions when the driver uses a controlled
                   substance in a manner prohibited by Part 382 or is otherwise
                   not medically qualified to safely perform the function.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • No performance of safety-sensitive functions after a
                   verified positive DOT drug test, a DOT refusal, or another
                   unresolved DOT drug/alcohol violation until the applicable
@@ -6474,12 +6487,12 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   • Marijuana remains prohibited under the DOT drug-testing
                   program regardless of state recreational or medical marijuana
                   laws. Drivers are responsible for understanding that products
@@ -6488,7 +6501,7 @@ export default function DriverApplication() {
                   verified DOT positive result.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Adulterating, substituting, attempting to defeat a
                   collection, possessing a device intended to interfere with a
                   collection, or otherwise engaging in conduct defined as a
@@ -6498,12 +6511,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#174875]">
                 29.6 Prescription and Over-the-Counter Medication
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   The Company does not instruct drivers to disclose private
                   diagnoses or medication information to dispatch unless
                   disclosure is required for safety or qualification purposes. A
@@ -6516,7 +6529,7 @@ export default function DriverApplication() {
                   40.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   If a medication may impair alertness, coordination, judgment,
                   reaction time, or the ability to safely operate a CMV, the
                   driver must not perform safety-sensitive functions until
@@ -6534,16 +6547,16 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#174875]">
                 29.7 DOT Drug Testing Panel and Specimen Procedures
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   DOT drug testing is limited to the drugs/drug classes
                   authorized by Part 40, including marijuana metabolites,
                   cocaine metabolites, amphetamines, opioids, and phencyclidine
@@ -6552,7 +6565,7 @@ export default function DriverApplication() {
                   completely separate.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   DOT drug collections must use the current Federal Drug Testing
                   Custody and Control Form (CCF) and qualified
                   collection/testing personnel. Part 40 authorizes urine and
@@ -6563,7 +6576,7 @@ export default function DriverApplication() {
                   and hair tests are not DOT drug tests.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   Where Part 40 requires a directly observed collection, the
                   Company and its service agents will follow the current Part 40
                   procedure. If a required collection methodology is
@@ -6575,7 +6588,7 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#174875]">
                 29.8 Required Testing Circumstances
               </h2>
 
@@ -6583,22 +6596,22 @@ export default function DriverApplication() {
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
                   <thead>
                     <tr>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#174875] px-[6px] py-[8px] text-center align-middle text-[14px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#174875] px-[6px] py-[8px] text-center align-middle text-[12.7px] font-bold text-white">
                         Testing Type
                       </th>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#174875] px-[6px] py-[8px] text-center align-middle text-[14px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#174875] px-[6px] py-[8px] text-center align-middle text-[12.7px] font-bold text-white">
                         Company Procedure
                       </th>
                     </tr>
                   </thead>
 
-                  <tbody>
+                  <tbody className="text-[11.7px] leading-[13px]">
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                         Pre-employment
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         A covered driver must receive the required negative DOT
                         drug- test result before first performing a covered
                         safety-sensitive function, unless a specific regulatory
@@ -6610,11 +6623,11 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top ">
                         Random
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                         Covered drivers remain in the appropriate random pool
                         and are subject to unannounced selection using a
                         scientifically valid method. Each covered driver must
@@ -6627,11 +6640,11 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top ">
                         Reasonable suspicion
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                         A trained supervisor may require drug and/or alcohol
                         testing based on specific, contemporaneous, articulable
                         observations concerning appearance, behavior, speech,
@@ -6641,11 +6654,11 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top ">
                         Post-accident
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                         The DER will determine whether the accident meets FMCSA
                         post-accident testing criteria. Not every accident
                         requires a DOT post-accident test. Drivers must
@@ -6655,11 +6668,11 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top ">
                         Return-to-duty
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         Required after a DOT violation and completion of the SAP
                         process before the driver may resume DOT
                         safety-sensitive functions. The test must meet Part 40
@@ -6668,11 +6681,11 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top">
                         Follow-up
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         Required when prescribed by the SAP after return to
                         duty. Follow-up tests are unannounced, directly
                         observed, and are in addition to random and other
@@ -6685,24 +6698,24 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#174875]">
                 29.9 Pre-Employment Testing and Hiring Controls
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   • The Company will identify whether the position is subject to
                   Part 382 before allowing the applicant to perform covered
                   duties.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • The Company will obtain the required negative pre-employment
                   DOT drug-test result, or document a valid regulatory
                   exception, before first safety-sensitive performance.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • The Company will complete the required FMCSA Drug & Alcohol
                   Clearinghouse pre-employment query and will not use a driver
                   in a prohibited status.
@@ -6717,12 +6730,12 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   • A conditional job offer, orientation, paperwork, or
                   non-driving work does not authorize covered driving before all
                   applicable pre-employment requirements are satisfied.
@@ -6731,12 +6744,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#174875]">
                 29.10 Random Testing Program
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   Random selections will be made through the Company or its
                   C/TPA using a scientifically valid method. Once notified, the
                   driver must proceed immediately to the collection/testing site
@@ -6747,7 +6760,7 @@ export default function DriverApplication() {
                   safety-sensitive functions as required by FMCSA.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   A driver may be randomly selected more than once in a year.
                   Prior selection does not remove the driver from the pool or
                   reduce the driver's chance of future selection. The Company
@@ -6759,12 +6772,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#174875]">
                 29.11 Reasonable-Suspicion Testing
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   Reasonable-suspicion determinations will be made by a
                   supervisor or Company official who has completed the required
                   training. Observations must be specific, contemporaneous and
@@ -6774,20 +6787,20 @@ export default function DriverApplication() {
                   the basis for the determination as required.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Supervisors authorized to make reasonable-suspicion
                   determinations must receive at least 60 minutes of training on
                   alcohol misuse and at least 60 minutes on
                   controlled-substances use.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • The driver must follow the testing direction and must not
                   drive a CMV to the collection site when the Company determines
                   transportation should be provided for safety reasons.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • A reasonable-suspicion test is a DOT test only when the
                   regulatory requirements are satisfied. Separate Company-
                   authority testing, if adopted, must be identified and
@@ -6803,16 +6816,16 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.12 Post-Accident Testing and Driver Availability
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   The driver must immediately report every accident/incident to
                   the Company in accordance with the accident-reporting policy.
                   The DER will determine whether FMCSA post-accident testing is
@@ -6821,21 +6834,21 @@ export default function DriverApplication() {
                   associated with a moving-traffic citation within the
                   applicable time period.
                 </p>
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • When required, alcohol testing must be attempted as soon as
                   practicable. If not completed within 2 hours, the Company will
                   document the reason for delay and continue attempts as
                   required; attempts cease after 8 hours.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • When required, controlled-substances testing must be
                   attempted as soon as practicable; attempts cease after 32
                   hours if the test cannot be completed, with required
                   documentation maintained.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • A driver subject to post-accident testing must remain
                   readily available. Leaving the scene for necessary medical
                   care, emergency assistance, or compliance with law-enforcement
@@ -6844,7 +6857,7 @@ export default function DriverApplication() {
                   available when practicable.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • A driver who may be subject to post-accident alcohol testing
                   must not consume alcohol during the prohibited post- accident
                   period or until the required alcohol test is completed,
@@ -6854,63 +6867,63 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.13 Refusal to Test
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   A refusal is treated as a serious DOT violation. Refusal is
                   not limited to verbally saying “no.” Conduct may constitute a
                   refusal when Part 40 or Part 382 defines it as such. Examples
                   include, as applicable:
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Failure to appear for a required test within the
                   required/reasonable time after being directed to report.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Failure to remain at the testing site until the testing
                   process is complete.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Failure to provide a required specimen or sufficient
                   specimen without an adequate medical explanation established
                   through the required process.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Failure to permit a directly observed or monitored
                   collection when required.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Failure to undergo a required medical evaluation or second
                   collection when directed under Part 40.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Failure to cooperate with the collection/testing process,
                   including conduct that prevents completion of the test.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Providing a specimen verified as adulterated or substituted,
                   or admitting adulteration/substitution, when Part 40 treats
                   the conduct as a refusal.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • For alcohol testing, failure to sign the required
                   certification on the Alcohol Testing Form or failure to
                   provide breath when required, when the regulation defines the
                   conduct as a refusal.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   The DER will rely on the determination of the authorized
                   collector, MRO, BAT/STT, or other responsible party as
                   specified by Part 40. The Company will not create its own DOT
@@ -6920,12 +6933,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.14 Drug Collection, Laboratory and MRO Process
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   DOT drug testing will follow the current Part 40
                   chain-of-custody and laboratory procedures. The collector
                   verifies identity, secures the collection, completes the CCF,
@@ -6936,57 +6949,22 @@ export default function DriverApplication() {
                   verified result to the employer.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • Drivers must cooperate with collector instructions and
                   provide accurate contact information so the MRO can reach them
                   when necessary.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • When a non-negative laboratory result requires MRO review,
                   the driver will have the opportunity provided by Part 40 to
                   present a legitimate medical explanation.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   • When applicable, the driver has the Part 40 right to request
                   testing of the split specimen within the prescribed time after
                   MRO notification.
-                </p>
-
-                <p className="text-[11px] text-bold mb-2">
-                  • Failure to permit a directly observed or monitored
-                  collection when required.
-                </p>
-
-                <p className="text-[11px] text-bold mb-2">
-                  • Failure to undergo a required medical evaluation or second
-                  collection when directed under Part 40.
-                </p>
-
-                <p className="text-[11px] text-bold mb-2">
-                  • Failure to cooperate with the collection/testing process,
-                  including conduct that prevents completion of the test.
-                </p>
-
-                <p className="text-[11px] text-bold mb-2">
-                  • Providing a specimen verified as adulterated or substituted,
-                  or admitting adulteration/substitution, when Part 40 treats
-                  the conduct as a refusal.
-                </p>
-
-                <p className="text-[11px] text-bold mb-2">
-                  • For alcohol testing, failure to sign the required
-                  certification on the Alcohol Testing Form or failure to
-                  provide breath when required, when the regulation defines the
-                  conduct as a refusal.
-                </p>
-
-                <p className="text-[11px] text-bold mb-2">
-                  The DER will rely on the determination of the authorized
-                  collector, MRO, BAT/STT, or other responsible party as
-                  specified by Part 40. The Company will not create its own DOT
-                  refusal category outside the regulation.
                 </p>
               </div>
             </section>
@@ -6998,16 +6976,16 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[240mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.15 Alcohol Testing Procedures and Result Consequences
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   DOT alcohol screening tests are conducted by qualified
                   personnel using approved devices and the DOT Alcohol Testing
                   Form. A screening result below 0.02 requires no action under
@@ -7023,12 +7001,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.16 Immediate Removal From Safety-Sensitive Functions
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   Upon notice of a verified positive DOT drug test, an alcohol
                   concentration of 0.04 or greater, a DOT refusal, or another
                   violation that prohibits safety-sensitive performance, the
@@ -7038,7 +7016,7 @@ export default function DriverApplication() {
                   function until legally eligible to do so.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   Federal removal from safety-sensitive functions is separate
                   from the Company's employment decision. Subject to applicable
                   law and Company policy, the Company may terminate
@@ -7051,12 +7029,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.17 SAP Evaluation, Return-to-Duty and Follow-Up Testing
               </h2>
 
-              <div className="mb-2 text-[12.5px]">
-                <p className="text-[11px] text-bold mb-2">
+              <div className="text-[13px]">
+                <p className="">
                   When required, the Company will provide the driver with
                   information identifying qualified Substance Abuse Professional
                   (SAP) resources as required by Part 40. Before returning to
@@ -7068,7 +7046,7 @@ export default function DriverApplication() {
                   return-to-duty test, as applicable.
                 </p>
 
-                <p className="text-[11px] text-bold mb-2">
+                <p className="">
                   The SAP establishes the follow-up testing plan. The plan must
                   include at least six unannounced directly observed follow- up
                   tests during the first 12 months of safety-sensitive service
@@ -7087,16 +7065,16 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.18 FMCSA Drug & Alcohol Clearinghouse
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13px] mb-2">
+                <p className="text-[13px]">
                   The Company will comply with the FMCSA Commercial Driver's
                   License Drug and Alcohol Clearinghouse requirements applicable
                   to covered drivers. Clearinghouse obligations are related to,
@@ -7104,7 +7082,7 @@ export default function DriverApplication() {
                   process.
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Pre-employment: before permitting a covered driver to
@@ -7115,7 +7093,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     During employment: the Company will conduct the required
@@ -7129,7 +7107,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     The Company will report employer-reported violations and
@@ -7139,7 +7117,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     A driver whose Clearinghouse status is “Prohibited” may not
@@ -7152,12 +7130,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.19 Confidentiality, Records and Release of Information
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13px] mb-2">
+                <p className="text-[13px]">
                   DOT drug and alcohol records are confidential and will be
                   maintained with controlled access. The Company will release
                   records only as authorized or required by Part 40, Part 382,
@@ -7167,7 +7145,7 @@ export default function DriverApplication() {
                   controls.
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     The Company will maintain records for the periods required
@@ -7176,7 +7154,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     The Company will maintain the signed certificate showing
@@ -7185,7 +7163,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     The Company will protect MRO, SAP, test-result and
@@ -7196,12 +7174,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.20 DOT vs. Company-Authority / Non-DOT Testing
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13px] mb-2">
+                <p className="text-[13px]">
                   If the Company adopts testing beyond the federal DOT minimum,
                   those provisions must be stated in a separate Company-
                   authority/non-DOT policy or clearly labeled addendum. DOT and
@@ -7211,7 +7189,7 @@ export default function DriverApplication() {
                   authorized by the DOT program.
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span>
                     Nothing in a non-DOT program may be used to cancel, change,
                     disregard, or override a valid DOT test result. Any state-
@@ -7225,12 +7203,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.21 Driver Education - Effects, Signs and Safety Consequences
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13px] mb-2">
+                <p className="text-[13px]">
                   The Company provides educational information so drivers
                   understand the safety consequences of alcohol misuse and
                   controlled-substances use. Alcohol and drugs can impair
@@ -7248,10 +7226,10 @@ export default function DriverApplication() {
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
                   <thead>
                     <tr>
-                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[11.4px] font-bold text-white">
+                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[12.7px] font-bold text-white">
                         Area
                       </th>
-                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[11.4px] font-bold text-white">
+                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[12.7px] font-bold text-white">
                         Examples of Potential Indicators / Consequences
                       </th>
                     </tr>
@@ -7259,11 +7237,11 @@ export default function DriverApplication() {
 
                   <tbody>
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22] text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22] text-[12.7px]">
                         Physical
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px] leading-[13px]">
                         Unsteady movement, unusual fatigue, tremors, sweating,
                         bloodshot eyes, poor coordination, abnormal pupils,
                         unusual odor, or unexplained deterioration in
@@ -7272,11 +7250,11 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className="text-[12.7px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         Behavioral / Speech
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px] leading-[13px]">
                         Confusion, agitation, unusual mood changes, slurred or
                         rapid speech, impaired judgment, inappropriate behavior,
                         or
@@ -7300,21 +7278,21 @@ export default function DriverApplication() {
             <section className="mt-[12px]">
               <div className="overflow-x-auto">
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
-                  <tbody>
+                  <tbody className="text-[12.7px] leading-[13px]">
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22] text-[11.4px]"></td>
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top "></td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         unexplained changes in reliability.
                       </td>
                     </tr>
 
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                         Performance
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         Unsafe driving, repeated errors, unexplained absences,
                         declining attention, poor decision-making, preventable
                         incidents, or failure to follow procedures.
@@ -7322,11 +7300,11 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                         Safety response
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         A driver who believes he or she cannot safely perform a
                         safety- sensitive function must immediately stop/decline
                         the function and contact the Company. This does not
@@ -7348,12 +7326,12 @@ export default function DriverApplication() {
               </div>
             </section>
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.22 Driver Responsibilities
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Read, understand and comply with this policy and all lawful
@@ -7361,7 +7339,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Report immediately for testing when notified and remain at
@@ -7369,7 +7347,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Carry valid identification and provide the CDL number/state
@@ -7378,7 +7356,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Do not use alcohol or controlled substances in a manner
@@ -7386,7 +7364,7 @@ export default function DriverApplication() {
                     duties while impaired or not medically qualified.
                   </span>
                 </p>
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Remain available for required post-accident testing and
@@ -7394,7 +7372,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Cooperate with collectors, BATs/STTs, MROs, SAPs and other
@@ -7402,7 +7380,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Complete required Clearinghouse electronic consents and
@@ -7410,7 +7388,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Immediately stop performing safety-sensitive functions if
@@ -7421,12 +7399,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.23 Company / DER Responsibilities
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Maintain a compliant written policy and provide required
@@ -7434,7 +7412,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Ensure each covered driver signs the required certificate of
@@ -7442,7 +7420,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Use qualified service agents and current DOT
@@ -7451,14 +7429,14 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Complete required pre-employment and annual Clearinghouse
                     queries and required reporting.
                   </span>
                 </p>
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Ensure random testing is scientifically valid, unannounced,
@@ -7467,7 +7445,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Ensure supervisors making reasonable-suspicion
@@ -7476,7 +7454,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Immediately remove prohibited drivers from DOT
@@ -7485,7 +7463,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     Maintain records, confidentiality, and required
@@ -7497,12 +7475,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.24 Employment / Contract Consequences
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span>
                     A violation of this policy may result in corrective or
                     disciplinary action, up to and including termination of
@@ -7525,16 +7503,16 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.24 Employment / Contract Consequences
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span>
                     A violation of this policy may result in corrective or
                     disciplinary action, up to and including termination of
@@ -7551,12 +7529,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.26 Certificate of Receipt and Driver Acknowledgment
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span>
                     I certify that I received a copy of the Company FMCSA/DOT
                     Drug & Alcohol Policy and the educational materials provided
@@ -7578,10 +7556,10 @@ export default function DriverApplication() {
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
                   <thead>
                     <tr>
-                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[11.4px] font-bold text-white">
+                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[12.7px] font-bold text-white">
                         Driver Printed Name
                       </th>
-                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[11.4px] font-bold text-white">
+                      <th className="text-left w-[34%] border border-[#1b3e5c] bg-[#1F355A] px-[6px] py-[8px] text-[12.7px] font-bold text-white">
                         CDL Number / State
                       </th>
                     </tr>
@@ -7589,14 +7567,14 @@ export default function DriverApplication() {
 
                   <tbody>
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
                         <input
                           className="border-black border w-full"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
                         <input
                           className="border-black border w-full"
                           type="text"
@@ -7605,11 +7583,11 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22] text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22] text-[12.7px]">
                         Driver Signature
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
                         <input
                           className="border-black border w-full"
                           type="text"
@@ -7618,14 +7596,14 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
                         <input
                           className="border-black border w-full"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
                         <input
                           className="border-black border w-full"
                           type="text"
@@ -7634,11 +7612,11 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className="text-[12.7px] border border-[#555] px-[6px] py-[7px] align-top">
                         Company / DER Representative
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
                         <input
                           className="border-black border w-full"
                           type="text"
@@ -7646,14 +7624,14 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
                         <input
                           className="border-black border w-full"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
                         <input
                           className="border-black border w-full"
                           type="text"
@@ -7666,12 +7644,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 29.27 Carrier Adoption / Compliance Checklist
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13.4px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     <input type="checkbox" /> Carrier legal name, USDOT number,
@@ -7679,7 +7657,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13.4px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     <input type="checkbox" /> C/TPA, MRO, collection network and
@@ -7687,7 +7665,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13.4px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     <input type="checkbox" /> Current calendar-year FMCSA random
@@ -7696,7 +7674,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13.4px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     <input type="checkbox" /> Clearinghouse account/roles, query
@@ -7704,7 +7682,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13.4px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     <input type="checkbox" /> Pre-employment negative-test and
@@ -7713,7 +7691,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13.4px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     <input type="checkbox" /> Supervisor reasonable-suspicion
@@ -7721,7 +7699,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13.4px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     <input type="checkbox" /> Post-accident decision procedure
@@ -7729,7 +7707,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13.4px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     <input type="checkbox" /> DOT and any
@@ -7738,7 +7716,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13.4px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     <input type="checkbox" /> Certificate of receipt obtained
@@ -7746,7 +7724,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[13.4px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span className="mr-1">•</span>
                   <span>
                     <input type="checkbox" /> Policy reviewed for applicable
@@ -7755,7 +7733,7 @@ export default function DriverApplication() {
                   </span>
                 </p>
 
-                <p className="text-[12px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span>
                     Regulatory note: This template is intended to support
                     motor-carrier compliance administration. The adopting motor
@@ -7768,12 +7746,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <h2 className="mb-[8px] text-[16.2px] font-bold leading-[1.2] text-[#1F355A]">
+              <h2 className="mb-[8px] text-[17.4px] font-bold leading-[1.2] text-[#1F355A]">
                 30 STATEMENT OF ON-DUTY HOURS - PRECEDING 7 DAYS
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13.4px] mb-2 flex items-start">
+                <p className="text-[13.4px] flex items-start">
                   <span>
                     Complete on or before the first day the driver begins
                     covered driving when the Company requires this statement to
@@ -7789,7 +7767,7 @@ export default function DriverApplication() {
               <table className="mt-2 w-full border-collapse text-[14px]">
                 <tbody>
                   <tr>
-                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[12px] text-[#173f69]">
                       Driver Name
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -7810,14 +7788,14 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
               <table className="mt-2 w-full border-collapse text-[14px]">
                 <tbody>
                   <tr>
-                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[11.4px] font-bold text-[#173f69]">
+                    <td className="h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[12px] font-bold text-[#173f69]">
                       Date / Time Last Relieved From Duty
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -7836,21 +7814,21 @@ export default function DriverApplication() {
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
                   <thead>
                     <tr>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[12px] font-bold text-white">
                         Day / Date
                       </th>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[12px] font-bold text-white">
                         Total On-Duty Hours
                       </th>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[12px] font-bold text-white">
                         Employer / Work Performed
                       </th>
                     </tr>
                   </thead>
 
-                  <tbody>
+                  <tbody className="text-[12px]">
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                         <div className="flex w-full items-center justify-between">
                           <div>Day 1:</div>
                           <div>
@@ -7862,14 +7840,14 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
@@ -7878,7 +7856,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top l">
                         <div className="flex w-full items-center justify-between">
                           <div>Day 2:</div>
                           <div>
@@ -7890,14 +7868,14 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
@@ -7906,7 +7884,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>Day 3:</div>
                           <div>
@@ -7918,14 +7896,14 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
@@ -7934,7 +7912,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                         <div className="flex w-full items-center justify-between">
                           <div>Day 4:</div>
                           <div>
@@ -7946,14 +7924,14 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
@@ -7962,7 +7940,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                         <div className="flex w-full items-center justify-between">
                           <div>Day 5:</div>
                           <div>
@@ -7974,14 +7952,14 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
@@ -7990,7 +7968,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                         <div className="flex w-full items-center justify-between">
                           <div>Day 6:</div>
                           <div>
@@ -8002,14 +7980,14 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
@@ -8018,7 +7996,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                         <div className="flex w-full items-center justify-between">
                           <div>Day 7:</div>
                           <div>
@@ -8030,14 +8008,14 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
@@ -8053,7 +8031,7 @@ export default function DriverApplication() {
               <table className="mt-2 w-full border-collapse text-[14px]">
                 <tbody>
                   <tr>
-                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] text-[11.4px] py-[5px] font-bold text-[#173f69]">
+                    <td className="h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] text-[12px] py-[5px] font-bold text-[#173f69]">
                       Total Hours - 7 Days
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8065,7 +8043,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[11.4px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Driver Certification / Signature / Date
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8085,7 +8063,7 @@ export default function DriverApplication() {
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span>
                     The driver certifies that the current commercial driver
                     license identified below is the only license the driver
@@ -8105,7 +8083,7 @@ export default function DriverApplication() {
               <table className="mt-2 w-full border-collapse text-[14px]">
                 <tbody>
                   <tr>
-                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[13px] font-bold text-[#173f69]">
+                    <td className="h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[12px] font-bold text-[#173f69]">
                       Driver Name
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8117,7 +8095,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       CDL Number / State / Class
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8129,7 +8107,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Expiration / Endorsements / Restriction
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8141,7 +8119,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Driver Signature / Date
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8160,7 +8138,7 @@ export default function DriverApplication() {
                 32 PASSENGER AUTHORIZATION (USE ONLY WHEN COMPANY APPROVES)
               </h2>
 
-              <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[12.4px] leading-[1.35] text-[#173f69]">
+              <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[12.7px] leading-[1.35] text-[#173f69]">
                 This form does not itself authorize a passenger. It becomes
                 effective only when signed by an authorized Company official and
                 only for the dates/conditions stated below.
@@ -8171,7 +8149,7 @@ export default function DriverApplication() {
               <table className="mt-2 w-full border-collapse text-[14px]">
                 <tbody>
                   <tr>
-                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[13px] font-bold text-[#173f69]">
+                    <td className="h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[12px] font-bold text-[#173f69]">
                       Driver
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8183,7 +8161,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Approved Passenger
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8195,7 +8173,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Relationship
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8223,7 +8201,7 @@ export default function DriverApplication() {
               <table className="mt-2 w-full border-collapse text-[14px]">
                 <tbody>
                   <tr>
-                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[11.4px] font-bold text-[#173f69]">
+                    <td className="h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[12px] font-bold text-[#173f69]">
                       Authorized Dates / Trip
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8235,7 +8213,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[11.4px] font-bold text-[#173f69]">
+                    <td className="h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[12px] font-bold text-[#173f69]">
                       Conditions / Required Documents
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8247,7 +8225,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[11.4px] font-bold text-[#173f69]">
+                    <td className="h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[12px] font-bold text-[#173f69]">
                       Authorized Company Official / Date
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8259,7 +8237,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[11.4px] font-bold text-[#173f69]">
+                    <td className="h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[11.4px] font-bold text-[#173f69]">
                       Driver Acknowledgment / Date
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8275,7 +8253,7 @@ export default function DriverApplication() {
 
             <section className="mt-[12px]">
               <div className="mb-2">
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span>
                     The passenger may not operate Company equipment or perform
                     Company work unless separately authorized and qualified. The
@@ -8294,7 +8272,7 @@ export default function DriverApplication() {
               </h2>
 
               <div className="mb-2">
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span>
                     I acknowledge that I received instruction on the Company
                     pre-trip, post-trip, defect-reporting, out-of-service,
@@ -8312,7 +8290,7 @@ export default function DriverApplication() {
               <table className="mt-2 w-full border-collapse text-[14px]">
                 <tbody>
                   <tr>
-                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[13px] font-bold text-[#173f69]">
+                    <td className="h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[12px] font-bold text-[#173f69]">
                       Driver Name
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8324,7 +8302,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Trainer / Company Representative
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8336,7 +8314,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Equipment Type(s)
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8348,7 +8326,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Training Date
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8360,7 +8338,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Driver Signature / Date
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8372,7 +8350,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Trainer Signature / Date
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8395,34 +8373,34 @@ export default function DriverApplication() {
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
                   <thead>
                     <tr>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[12px] font-bold text-white">
                         Policy
                       </th>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[12px] font-bold text-white">
                         Driver Initials
                       </th>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[12px] font-bold text-white">
                         Date
                       </th>
                     </tr>
                   </thead>
 
-                  <tbody>
+                  <tbody className="text-[12px]">
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>ELD & Hours-of-Service</div>
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8430,20 +8408,20 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>Pre-Trip/Post-Trip & Equipment Inspection </div>
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8451,20 +8429,20 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>Camera/Dash-Cam Non-Tampering </div>
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8472,20 +8450,20 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>Seat-Belt & Occupant Restraint </div>
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8493,20 +8471,20 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>No Hand-Held Device / Distracted Driving </div>
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8514,20 +8492,20 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>Truck Abandonment & Return of Equipment </div>
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8535,20 +8513,20 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>Unauthorized Passenger & Pet </div>
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8556,7 +8534,7 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>
                             Accident/Citation/Inspection/Violation Reporting
@@ -8564,14 +8542,14 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8579,7 +8557,7 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>
                             Driver-Caused Damage / Equipment Responsibility
@@ -8587,14 +8565,14 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8621,34 +8599,34 @@ export default function DriverApplication() {
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
                   <thead>
                     <tr>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[12px] font-bold text-white">
                         Policy
                       </th>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[12px] font-bold text-white">
                         Driver Initials
                       </th>
-                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[11.4px] font-bold text-white">
+                      <th className="w-[34%] border border-[#1b3e5c] bg-[#24557f] px-[6px] py-[8px] text-center align-middle text-[12px] font-bold text-white">
                         Date
                       </th>
                     </tr>
                   </thead>
 
-                  <tbody>
+                  <tbody className="text-[12px]">
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>Maintenance / Defect / Roadside Repair </div>
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8656,20 +8634,20 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>Safe Driving / Fatigue / General Conduct </div>
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8677,20 +8655,20 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className=" border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>FMCSA/DOT Drug & Alcohol Policy </div>
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8698,20 +8676,20 @@ export default function DriverApplication() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="text-[11.4px] border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
+                      <td className="border border-[#555] px-[6px] py-[7px] align-top leading-[1.22]">
                         <div className="flex w-full items-center justify-between">
                           <div>Clearinghouse Consent & Query Requirements</div>
                         </div>
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="text"
                         />
                       </td>
 
-                      <td className="border border-[#555] align-middle text-left text-[11.4px]">
+                      <td className="border border-[#555] align-middle text-left ">
                         <input
                           className="border border-3 border-black w-full h-[20px] p-2"
                           type="date"
@@ -8724,7 +8702,7 @@ export default function DriverApplication() {
             </section>
             <section className="mt-[12px]">
               <div className="mb-2">
-                <p className="text-[13px] mb-2 flex items-start">
+                <p className="text-[13px] flex items-start">
                   <span>
                     I acknowledge receipt of the policies identified above and
                     understand that I am responsible for following applicable
@@ -8742,7 +8720,7 @@ export default function DriverApplication() {
               <table className="mt-2 w-full border-collapse text-[14px]">
                 <tbody>
                   <tr>
-                    <td className="h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[13px] font-bold text-[#173f69]">
+                    <td className="h-[25px] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] text-[12px] font-bold text-[#173f69]">
                       Driver Printed Name
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8754,7 +8732,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Driver Signature / Date
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8766,7 +8744,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr>
-                    <td className="text-[13px] h-[25px] w-[30%] border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                    <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                       Company Representative / Date
                     </td>
                     <td className="h-[25px] border-b border-[#aebdcc]">
@@ -8780,7 +8758,7 @@ export default function DriverApplication() {
               </table>
             </section>
             <section className="mt-[12px]">
-              <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[11.4px] leading-[1.35] text-[#173f69]">
+              <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[12.7px] leading-[1.35] text-[#173f69]">
                 WEBSITE / CLIENT USE: Before providing this packet to a
                 motor-carrier client, complete the carrier-specific fields,
                 insert current official government forms where needed, and
@@ -8790,7 +8768,7 @@ export default function DriverApplication() {
                 be combined with other consent language.
               </div>
 
-              <div className="bg-[#EFF6FB] mt-[13px] px-[10px] py-[9px] text-[10.4px] leading-[1.35] text-[#173f69]">
+              <div className="bg-[#EFF6FB] mt-[13px] px-[10px] py-[9px] text-[11.7px] leading-[1.35] text-[#173f69]">
                 <b>IMPORTANT</b> This packet is designed as an employment and
                 driver-qualification application. Form I-9 is a separate
                 post-offer employment- eligibility form and should be completed
@@ -8798,16 +8776,6 @@ export default function DriverApplication() {
               </div>
             </section>
           </div>
-        </div>
-      </div>
-
-      {/*****page 41 start********/}
-
-      <br />
-
-      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
-          <div className="w-full"></div>
         </div>
       </div>
 
@@ -8819,11 +8787,11 @@ export default function DriverApplication() {
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 1 EMPLOYER / POSITION INFORMATION
               </div>
 
-              <p className="text-[10.4px] mt-2 mb-2 flex items-start">
+              <p className="text-[11.4px] mt-2 mb-2 flex items-start">
                 <span>
                   <i>
                     To be completed by the applicant unless prefilled by the
@@ -8834,9 +8802,9 @@ export default function DriverApplication() {
 
               <div className="overflow-x-auto">
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
-                  <tbody>
+                  <tbody className="text-[10px]">
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             COMPANY NAME:
@@ -8848,7 +8816,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">USDOT #:</span>
                           <input
@@ -8860,7 +8828,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             COMPANY ADDRESS:
@@ -8872,7 +8840,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             CITY / STATE / ZIP:
@@ -8886,7 +8854,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             POSITION APPLIED FOR:
@@ -8898,7 +8866,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             APPLICATION DATE:
@@ -8912,7 +8880,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             REFERRED BY:
@@ -8924,7 +8892,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             DESIRED START DATE:
@@ -8939,32 +8907,32 @@ export default function DriverApplication() {
                   </tbody>
                 </table>
                 <br />
-                <div className="flex">
-                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                <div className="flex text-[12px]">
+                  <div className=" flex items-center gap-1 mr-3">
                     <input type="checkbox" className="w-[12px] h-[12px]" />
                     <span>Company Driver</span>
                   </div>
-                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                  <div className=" flex items-center gap-1 mr-3">
                     <input type="checkbox" className="w-[12px] h-[12px]" />
                     <span>Owner-Operator</span>
                   </div>
-                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                  <div className=" flex items-center gap-1 mr-3">
                     <input type="checkbox" className="w-[12px] h-[12px]" />
                     <span>Lease Driver</span>
                   </div>
-                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                  <div className=" flex items-center gap-1 mr-3">
                     <input type="checkbox" className="w-[12px] h-[12px]" />
                     <span>Local</span>
                   </div>
-                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                  <div className=" flex items-center gap-1 mr-3">
                     <input type="checkbox" className="w-[12px] h-[12px]" />
                     <span>Regional</span>
                   </div>
-                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                  <div className=" flex items-center gap-1 mr-3">
                     <input type="checkbox" className="w-[12px] h-[12px]" />
                     <span>OTR</span>
                   </div>
-                  <div className="text-[11.4px] flex items-center gap-1 mr-3">
+                  <div className=" flex items-center gap-1 mr-3">
                     <input type="checkbox" className="w-[12px] h-[12px]" />
                     <span>Team</span>
                   </div>
@@ -8973,15 +8941,15 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 2 APPLICANT INFORMATION
               </div>
 
               <div className="overflow-x-auto">
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
-                  <tbody>
+                  <tbody className="text-[10px]">
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">FIRST NAME:</span>
                           <input
@@ -8991,7 +8959,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             MIDDLE NAME:
@@ -9005,7 +8973,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">LAST NAME:</span>
                           <input
@@ -9015,7 +8983,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">SUFFIX:</span>
                           <input
@@ -9027,7 +8995,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             DATE OF BIRTH:
@@ -9039,7 +9007,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             SOCIAL SECURITY NUMBER:
@@ -9053,7 +9021,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             PRIMARY PHONE:
@@ -9065,7 +9033,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             ALTERNATE PHONE:
@@ -9079,7 +9047,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">EMAIL:</span>
                           <input
@@ -9089,7 +9057,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             CURRENT ADDRESS:
@@ -9103,7 +9071,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             CITY / STATE / ZIP:
@@ -9115,7 +9083,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             missing_salman:
@@ -9129,7 +9097,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             HOW LONG AT CURRENT ADDRESS?:
@@ -9141,7 +9109,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             PREFERRED CONTACT:
@@ -9157,7 +9125,7 @@ export default function DriverApplication() {
                 </table>
                 <br />
 
-                <div className="text-[11.4px] items-center gap-1 mr-3">
+                <div className="text-[12px] items-center gap-1 mr-3">
                   <input type="checkbox" className="w-[12px] h-[12px]" />
                   <span>
                     {" "}
@@ -9178,9 +9146,9 @@ export default function DriverApplication() {
                 </div>
 
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
-                  <tbody>
+                  <tbody className="text-[10px]">
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             IF PREVIOUSLY EMPLOYED, WHEN?:
@@ -9192,7 +9160,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold  align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             EMPLOYEE / DRIVER ID (IF KNOWN):
@@ -9210,11 +9178,11 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[20px]">
-              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 3 RESIDENCE HISTORY - PREVIOUS 3 YEARS
               </div>
 
-              <p className="text-[10.4px] mt-2 mb-2 flex items-start">
+              <p className="text-[11.4px] mt-2 mb-2 flex items-start">
                 <span>
                   <i>
                     List enough prior residences to cover the full three years
@@ -9227,11 +9195,11 @@ export default function DriverApplication() {
               <div className="overflow-x-auto">
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
                   <tbody>
-                    <p className="text-[10px] mb-2 items-start font-bold">
+                    <p className="text-[11.4px] mb-2 items-start font-bold">
                       <span>PRIOR RESIDENCE 1</span>
                     </p>
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             STREET ADDRESS:
@@ -9243,7 +9211,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">CITY:</span>
                           <input
@@ -9253,7 +9221,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             STATE / PROVINCE:
@@ -9267,7 +9235,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             ZIP / POSTAL CODE:
@@ -9279,7 +9247,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">COUNTRY:</span>
                           <input
@@ -9289,7 +9257,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             missing_salman:
@@ -9306,11 +9274,11 @@ export default function DriverApplication() {
 
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
                   <tbody>
-                    <p className="text-[10px] mt-4 mb-1 items-start font-bold">
+                    <p className="text-[11.4px] mt-4 mb-1 items-start font-bold">
                       <span>PRIOR RESIDENCE 2</span>
                     </p>
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             STREET ADDRESS:
@@ -9322,7 +9290,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">CITY:</span>
                           <input
@@ -9332,7 +9300,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             STATE / PROVINCE:
@@ -9346,7 +9314,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             ZIP / POSTAL CODE:
@@ -9358,7 +9326,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">COUNTRY:</span>
                           <input
@@ -9368,7 +9336,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             missing_salman:
@@ -9385,11 +9353,11 @@ export default function DriverApplication() {
 
                 <table className="w-full table-fixed border-collapse text-[13.5px]">
                   <tbody>
-                    <p className="text-[10px] mt-4 mb-1 items-start font-bold">
+                    <p className="text-[11.4px] mt-4 mb-1 items-start font-bold">
                       <span>PRIOR RESIDENCE 3</span>
                     </p>
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             STREET ADDRESS:
@@ -9401,7 +9369,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">CITY:</span>
                           <input
@@ -9411,7 +9379,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             STATE / PROVINCE:
@@ -9425,7 +9393,7 @@ export default function DriverApplication() {
                     </tr>
 
                     <tr className="border-b border-black">
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             ZIP / POSTAL CODE:
@@ -9437,7 +9405,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">COUNTRY:</span>
                           <input
@@ -9447,7 +9415,7 @@ export default function DriverApplication() {
                         </div>
                       </td>
 
-                      <td className="font-bold text-[9.4px] align-top leading-[1.22]">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
                             missing_salman:
@@ -9471,15 +9439,15 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 4 DRIVER LICENSE / PERMIT HISTORY
               </div>
 
-              <p className="text-[10.4px] mt-2 mb-2 flex items-start">
+              <p className="text-[11.4px] mt-2 mb-2 flex items-start">
                 <span>
                   <i>
                     List every motor vehicle operator license or permit held
@@ -9490,7 +9458,7 @@ export default function DriverApplication() {
               </p>
 
               <div className="overflow-x-auto">
-                <table className="w-full table-fixed text-[10.4px]">
+                <table className="w-full table-fixed text-[10px]">
                   <thead className="border bg-[#1F355A] text-white border-black">
                     <tr>
                       <th>State</th>
@@ -9506,7 +9474,7 @@ export default function DriverApplication() {
                 </table>
                 <br />
 
-                <div className="text-[11.4px] items-center gap-1 mr-3">
+                <div className="text-[12px] items-center gap-1 mr-3">
                   <input type="checkbox" className="w-[12px] h-[12px]" />
                   <span>Is your current license a CDL? Yes / No</span>
 
@@ -9522,7 +9490,7 @@ export default function DriverApplication() {
                   />
                 </div>
 
-                <div className="text-[11.4px] items-center gap-2 mr-3">
+                <div className="text-[12px] items-center gap-2 mr-3">
                   <input type="checkbox" className="w-[12px] h-[12px]" />
                   <span className="mr-2">Current CDL</span>
 
@@ -9539,7 +9507,7 @@ export default function DriverApplication() {
                   <span className="mr-2">CLP</span>
                 </div>
 
-                <div className="text-[11.4px] items-center gap-2 mr-3">
+                <div className="text-[12px] items-center gap-2 mr-3">
                   <input type="checkbox" className="w-[12px] h-[12px]" />
                   <span className="mr-2">Endorsements: H</span>
 
@@ -9568,11 +9536,11 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 5 LICENSE DENIALS, SUSPENSIONS & REVOCATIONS
               </div>
 
-              <div className="text-[11.4px] items-center gap-2 mr-3">
+              <div className="text-[12px] items-center gap-2 mr-3">
                 <input type="checkbox" className="w-[12px] h-[12px]" />
                 <span className="mr-2">
                   Have you ever been denied a license, permit, or privilege to
@@ -9580,7 +9548,7 @@ export default function DriverApplication() {
                 </span>
               </div>
 
-              <div className="text-[11.4px] items-center gap-2 mr-3">
+              <div className="text-[12px] items-center gap-2 mr-3">
                 <input type="checkbox" className="w-[12px] h-[12px]" />
                 <span className="mr-2">
                   Has any license, permit, or driving privilege ever been
@@ -9622,14 +9590,14 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[10px]">
-              <div className="mb-3 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="mb-3 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 6 MEDICAL QUALIFICATION & CREDENTIALS
               </div>
 
               <table className="w-full table-fixed border-collapse text-[13.5px]">
                 <tbody>
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] w-[37%] align-top leading-[1.22]">
+                    <td className="font-bold text-[9.4px] w-[37%] align-top leading-[1.22]">
                       <div className=" items-center w-full">
                         MEDICAL EXAMINER CERTIFICATE EXPIRATION:
                         <br />
@@ -9679,7 +9647,7 @@ export default function DriverApplication() {
                 </tbody>
               </table>
               <br />
-              <div className="text-[11.4px] items-center gap-2 mr-3">
+              <div className="text-[12px] items-center gap-2 mr-3">
                 <input type="checkbox" className="w-[12px] h-[12px]" />
                 <span className="mr-2">
                   Medical certificate is electronically linked to CDL / MVR, if
@@ -9695,15 +9663,15 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 7 COMMERCIAL DRIVING EXPERIENCE
               </div>
 
-              <p className="text-[10.4px] mt-2 mb-2 flex items-start text-gray-500">
+              <p className="text-[11.4px] mt-2 mb-2 flex items-start text-gray-500">
                 <span>
                   <i>
                     For each equipment type, show total experience, approximate
@@ -9712,7 +9680,7 @@ export default function DriverApplication() {
                 </span>
               </p>
 
-              <table className="w-full table-fixed text-[10.4px]">
+              <table className="w-full table-fixed text-[10px]">
                 <thead className="border bg-[#1F355A] text-white border-black">
                   <tr>
                     <th>Equipment Type </th>
@@ -9723,9 +9691,9 @@ export default function DriverApplication() {
                     <th>Description / Size</th>
                   </tr>
                 </thead>
-                <tbody className="h-[60px]">
+                <tbody className="h-[60px] text-[11.4px]">
                   <tr>
-                    <td className="text-[11px] font-bold">Straight Truck</td>
+                    <td className=" font-bold">Straight Truck</td>
                     <td>
                       <select className="border border-black">
                         <option value="Yes">Yes</option>
@@ -9746,7 +9714,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="text-[11px] font-bold">Truck-Tractor</td>
+                    <td className=" font-bold">Truck-Tractor</td>
                     <td>
                       <select className="border border-black">
                         <option value="Yes">Yes</option>
@@ -9767,7 +9735,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="text-[11px] font-bold">Semi-Trailer</td>
+                    <td className=" font-bold">Semi-Trailer</td>
                     <td>
                       <select className="border border-black">
                         <option value="Yes">Yes</option>
@@ -9788,7 +9756,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="text-[11px] font-bold">Doubles / Triples</td>
+                    <td className=" font-bold">Doubles / Triples</td>
                     <td>
                       <select className="border border-black">
                         <option value="Yes">Yes</option>
@@ -9809,7 +9777,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="text-[11px] font-bold">Flatbed</td>
+                    <td className=" font-bold">Flatbed</td>
                     <td>
                       <select className="border border-black">
                         <option value="Yes">Yes</option>
@@ -9830,7 +9798,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="text-[11px] font-bold">Tank Vehicle</td>
+                    <td className=" font-bold">Tank Vehicle</td>
                     <td>
                       <select className="border border-black">
                         <option value="Yes">Yes</option>
@@ -9851,7 +9819,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="text-[11px] font-bold">Bus / Passenger</td>
+                    <td className=" font-bold">Bus / Passenger</td>
                     <td>
                       <select className="border border-black">
                         <option value="Yes">Yes</option>
@@ -9872,7 +9840,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="text-[11px] font-bold">Reefer</td>
+                    <td className=" font-bold">Reefer</td>
                     <td>
                       <select className="border border-black">
                         <option value="Yes">Yes</option>
@@ -9893,7 +9861,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="text-[11px] font-bold">Dry Van</td>
+                    <td className=" font-bold">Dry Van</td>
                     <td>
                       <select className="border border-black">
                         <option value="Yes">Yes</option>
@@ -9914,7 +9882,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="text-[11px] font-bold">Other</td>
+                    <td className=" font-bold">Other</td>
                     <td>
                       <select className="border border-black">
                         <option value="Yes">Yes</option>
@@ -9939,11 +9907,11 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 8 ACCIDENT / CRASH HISTORY - PREVIOUS 3 YEARS
               </div>
 
-              <p className="text-[10.4px] mt-2 mb-2 flex items-start text-gray-500">
+              <p className="text-[11.4px] mt-2 mb-2 flex items-start text-gray-500">
                 <span>
                   <i>
                     List all motor vehicle accidents/crashes during the
@@ -9953,7 +9921,7 @@ export default function DriverApplication() {
                 </span>
               </p>
 
-              <table className="w-full table-fixed text-[10.4px]">
+              <table className="w-full table-fixed text-[9.4px]">
                 <thead className="border bg-[#1F355A] text-white border-black">
                   <tr>
                     <th>Date</th>
@@ -9968,7 +9936,7 @@ export default function DriverApplication() {
                 <tbody className="h-[60px]"></tbody>
               </table>
               <br />
-              <div className="text-[11.4px] items-center gap-2 mr-3">
+              <div className="text-[12px] items-center gap-2 mr-3">
                 <input type="checkbox" className="w-[12px] h-[12px]" />
                 <span className="ml-1 mr-2">
                   No accidents/crashes during the previous 3 years
@@ -9983,15 +9951,15 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 9 TRAFFIC CONVICTIONS / FORFEITURES - PREVIOUS 3 YEARS
               </div>
 
-              <p className="text-[10.4px] mt-2 mb-2 flex items-start text-gray-500">
+              <p className="text-[11.4px] mt-2 mb-2 flex items-start text-gray-500">
                 <span>
                   <i>
                     List all motor vehicle traffic convictions and forfeitures
@@ -10000,7 +9968,7 @@ export default function DriverApplication() {
                 </span>
               </p>
 
-              <table className="w-full table-fixed text-[10.4px]">
+              <table className="w-full table-fixed text-[9.4px]">
                 <thead className="border bg-[#1F355A] text-white border-black">
                   <tr>
                     <th>Date</th>
@@ -10014,7 +9982,7 @@ export default function DriverApplication() {
                 <tbody className="h-[60px]"></tbody>
               </table>
               <br />
-              <div className="text-[11.4px] items-center gap-2 mr-3">
+              <div className="text-[12px] items-center gap-2 mr-3">
                 <input type="checkbox" className="w-[12px] h-[12px]" />
                 <span className="ml-1 mr-2">
                   No accidents/crashes during the previous 3 years
@@ -10023,12 +9991,12 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 10 EMPLOYMENT HISTORY - REQUIRED 3 YEARS / CDL CMV HISTORY UP TO
                 10 YEARS
               </div>
 
-              <p className="text-[10.4px] mt-2 mb-2 flex items-start text-gray-500">
+              <p className="text-[11.4px] mt-2 mb-2 flex items-start text-gray-500">
                 <span>
                   <i>
                     List ALL employers for the preceding 3 years. If you
@@ -10039,7 +10007,7 @@ export default function DriverApplication() {
                 </span>
               </p>
 
-              <div className="bg-[#EFF6FB] mt-[13px] px-[10px] py-[9px] text-[10.4px] leading-[1.35] text-[#173f69]">
+              <div className="bg-[#EFF6FB] mt-[13px] px-[10px] py-[9px] text-[11.4px] leading-[1.35] text-[#173f69]">
                 <b>COMPLETE HISTORY </b>Do not omit part-time, temporary,
                 self-employment, owner-operator work, military service,
                 unemployment, school, or other periods necessary to account for
@@ -10048,11 +10016,11 @@ export default function DriverApplication() {
               <br />
               <table className="w-full table-fixed border-collapse text-[13.5px]">
                 <tbody>
-                  <p className="text-[11px] mb-2 items-start font-bold">
+                  <p className="text-[12px] mb-2 items-start font-bold">
                     <span>EMPLOYER 1</span>
                   </p>
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           EMPLOYER NAME:
@@ -10064,7 +10032,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">PHONE:</span>
                         <input
@@ -10076,7 +10044,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           STREET ADDRESS:
@@ -10088,7 +10056,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           CITY / STATE / ZIP:
@@ -10102,7 +10070,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           POSITION HELD:
@@ -10114,7 +10082,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           SUPERVISOR / CONTACT:
@@ -10128,7 +10096,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">FROM</span>
                         <input
@@ -10138,7 +10106,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">TO:</span>
                         <input
@@ -10150,7 +10118,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           REASON FOR LEAVING:
@@ -10162,7 +10130,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">EMAIL / FAX:</span>
                         <input
@@ -10194,7 +10162,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[11.4px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           Equipment operated / duties:
@@ -10211,11 +10179,11 @@ export default function DriverApplication() {
 
               <table className="w-full table-fixed border-collapse text-[13.5px]">
                 <tbody>
-                  <p className="text-[11px] mt-2 mb-2 items-start font-bold">
+                  <p className="text-[12px] mt-2 mb-2 items-start font-bold">
                     <span>EMPLOYER 2</span>
                   </p>
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           EMPLOYER NAME:
@@ -10227,7 +10195,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">PHONE:</span>
                         <input
@@ -10239,7 +10207,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           STREET ADDRESS:
@@ -10251,7 +10219,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           CITY / STATE / ZIP:
@@ -10265,7 +10233,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           POSITION HELD:
@@ -10277,7 +10245,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           SUPERVISOR / CONTACT:
@@ -10291,7 +10259,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">FROM</span>
                         <input
@@ -10301,7 +10269,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">TO:</span>
                         <input
@@ -10313,7 +10281,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           REASON FOR LEAVING:
@@ -10325,7 +10293,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">EMAIL / FAX:</span>
                         <input
@@ -10357,7 +10325,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[11.4px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           Equipment operated / duties:
@@ -10380,17 +10348,17 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
               <table className="w-full table-fixed border-collapse text-[13.5px]">
                 <tbody>
-                  <p className="text-[11px] mb-2 items-start font-bold">
+                  <p className="text-[12px] mb-2 items-start font-bold">
                     <span>EMPLOYER 3</span>
                   </p>
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           EMPLOYER NAME:
@@ -10402,7 +10370,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">PHONE:</span>
                         <input
@@ -10414,7 +10382,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           STREET ADDRESS:
@@ -10426,7 +10394,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           CITY / STATE / ZIP:
@@ -10440,7 +10408,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           POSITION HELD:
@@ -10452,7 +10420,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           SUPERVISOR / CONTACT:
@@ -10466,7 +10434,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">FROM</span>
                         <input
@@ -10476,7 +10444,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">TO:</span>
                         <input
@@ -10488,7 +10456,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           REASON FOR LEAVING:
@@ -10500,7 +10468,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">EMAIL / FAX:</span>
                         <input
@@ -10532,7 +10500,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[11.4px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           Equipment operated / duties:
@@ -10549,11 +10517,11 @@ export default function DriverApplication() {
 
               <table className="w-full table-fixed border-collapse text-[13.5px]">
                 <tbody>
-                  <p className="text-[11px] mt-2 mb-2 items-start font-bold">
+                  <p className="text-[12px] mt-2 mb-2 items-start font-bold">
                     <span>EMPLOYER 4</span>
                   </p>
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           EMPLOYER NAME:
@@ -10565,7 +10533,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">PHONE:</span>
                         <input
@@ -10577,7 +10545,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           STREET ADDRESS:
@@ -10589,7 +10557,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           CITY / STATE / ZIP:
@@ -10603,7 +10571,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           POSITION HELD:
@@ -10615,7 +10583,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           SUPERVISOR / CONTACT:
@@ -10629,7 +10597,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">FROM</span>
                         <input
@@ -10639,7 +10607,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">TO:</span>
                         <input
@@ -10651,7 +10619,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           REASON FOR LEAVING:
@@ -10663,7 +10631,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">EMAIL / FAX:</span>
                         <input
@@ -10695,7 +10663,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[11.4px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           Equipment operated / duties:
@@ -10711,11 +10679,11 @@ export default function DriverApplication() {
               </table>
               <table className="w-full table-fixed border-collapse text-[13.5px]">
                 <tbody>
-                  <p className="text-[11px] mt-2 mb-2 items-start font-bold">
+                  <p className="text-[12px] mt-2 mb-2 items-start font-bold">
                     <span>EMPLOYER 5</span>
                   </p>
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           EMPLOYER NAME:
@@ -10727,7 +10695,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">PHONE:</span>
                         <input
@@ -10739,7 +10707,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           STREET ADDRESS:
@@ -10751,7 +10719,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           CITY / STATE / ZIP:
@@ -10765,7 +10733,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           POSITION HELD:
@@ -10777,7 +10745,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           SUPERVISOR / CONTACT:
@@ -10791,7 +10759,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">FROM</span>
                         <input
@@ -10801,7 +10769,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">TO:</span>
                         <input
@@ -10813,7 +10781,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           REASON FOR LEAVING:
@@ -10825,7 +10793,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">EMAIL / FAX:</span>
                         <input
@@ -10857,7 +10825,7 @@ export default function DriverApplication() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[11.4px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           Equipment operated / duties:
@@ -10880,24 +10848,15 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 11 EMPLOYMENT GAPS / ADDITIONAL 10-YEAR CMV HISTORY
               </div>
 
-              <p className="text-[10.4px] mt-2 mb-2 flex items-start text-gray-500">
-                <span>
-                  <i>
-                    List all motor vehicle traffic convictions and forfeitures
-                    during the preceding 3 years, other than parking violations.
-                  </i>
-                </span>
-              </p>
-
-              <table className="w-full table-fixed text-[9.4px]">
+              <table className="w-full table-fixed text-[10px]">
                 <thead className="text-left border bg-[#1F355A] text-white border-black">
                   <tr>
                     <th>From</th>
@@ -10912,14 +10871,14 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <div className="text-left w-full mb-2 border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="text-left w-full mb-2 border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 12 MILITARY DRIVING EXPERIENCE (IF APPLICABLE)
               </div>
 
               <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
                 <tbody>
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">BRANCH:</span>
                         <input
@@ -10929,7 +10888,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           DATES OF SERVICE:
@@ -10943,7 +10902,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">MOS / RATING:</span>
                         <input
@@ -10953,7 +10912,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           TYPE OF VEHICLE(S):
@@ -10967,7 +10926,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           APPROX. MILES / HOURS:
@@ -10979,7 +10938,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           DISCHARGE STATUS:
@@ -10996,14 +10955,14 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <div className="text-left w-full mb-2 border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="text-left w-full mb-2 border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 13 ADDITIONAL QUALIFICATIONS
               </div>
 
               <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
                 <tbody>
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">BRANCH:</span>
                         <input
@@ -11013,7 +10972,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           DATES OF SERVICE:
@@ -11027,7 +10986,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">MOS / RATING:</span>
                         <input
@@ -11037,7 +10996,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           TYPE OF VEHICLE(S):
@@ -11051,7 +11010,7 @@ export default function DriverApplication() {
                   </tr>
 
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           APPROX. MILES / HOURS:
@@ -11063,7 +11022,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
                           DISCHARGE STATUS:
@@ -11080,11 +11039,11 @@ export default function DriverApplication() {
             </section>
 
             <section className="mt-[12px]">
-              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 5 LICENSE DENIALS, SUSPENSIONS & REVOCATIONS
               </div>
 
-              <div className="text-[11.4px] items-center gap-2 mr-3">
+              <div className="text-[12px] items-center gap-2 mr-3">
                 <input type="checkbox" className="w-[12px] h-[12px]" />
                 <span className="mr-2">Hazmat Experience</span>
                 <input type="checkbox" className="w-[12px] h-[12px]" />
@@ -11143,15 +11102,15 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
-              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 14 APPLICANT CERTIFICATION & AUTHORIZATION
               </div>
 
-              <p className="text-[11px] mt-2 mb-1 flex items-start">
+              <p className="text-[12px] mt-2 mb-1 flex items-start">
                 I certify that this application was completed by me and that all
                 entries and information provided are true, complete, and
                 accurate to the best of my knowledge. I understand that material
@@ -11159,7 +11118,7 @@ export default function DriverApplication() {
                 disqualification from consideration or termination of
                 employment, subject to applicable law.
               </p>
-              <p className="text-[11.4px] mb-1 flex items-start">
+              <p className="text-[12px] mb-1 flex items-start">
                 I authorize the prospective motor carrier and its authorized
                 agents to contact employers, schools, licensing agencies,
                 government agencies, and other lawful sources to verify
@@ -11167,7 +11126,7 @@ export default function DriverApplication() {
                 operation of commercial motor vehicles, subject to applicable
                 federal and state law.
               </p>
-              <p className="text-[11.4px] mb-1 flex items-start">
+              <p className="text-[12px] mb-1 flex items-start">
                 I understand that this application does not constitute a
                 contract of employment and that any employment relationship is
                 subject to the employer’s policies and applicable law.
@@ -11175,7 +11134,7 @@ export default function DriverApplication() {
               <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
                 <tbody>
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap text-gray-400">
                           Applicant Signature:
@@ -11187,7 +11146,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap text-gray-400">
                           Printed Name:
@@ -11198,7 +11157,7 @@ export default function DriverApplication() {
                         />
                       </div>
                     </td>
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap text-gray-400">
                           Date:
@@ -11214,11 +11173,11 @@ export default function DriverApplication() {
               </table>
             </section>
             <section className="mt-[12px]">
-              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[14.4px] font-bold text-white">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
                 15 FAIR CREDIT REPORTING ACT / BACKGROUND REPORT AUTHORIZATION
               </div>
 
-              <p className="text-[11px] mt-2 mb-1 flex items-start text-gray-500">
+              <p className="text-[11.4px] mt-2 mb-1 flex items-start text-gray-500">
                 <i>
                   Use this section only if the employer’s screening process and
                   applicable law permit it. A standalone disclosure may be
@@ -11226,7 +11185,7 @@ export default function DriverApplication() {
                   separate disclosure and notices.
                 </i>
               </p>
-              <p className="text-[11.4px] mb-1 flex items-start">
+              <p className="text-[12px] mb-1 flex items-start">
                 I authorize the prospective employer and its designated consumer
                 reporting agency or authorized representative to obtain reports
                 for lawful employment purposes, which may include verification
@@ -11240,7 +11199,7 @@ export default function DriverApplication() {
               <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
                 <tbody>
                   <tr className="border-b border-gray-300">
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap text-gray-400">
                           Applicant Signature:
@@ -11252,7 +11211,7 @@ export default function DriverApplication() {
                       </div>
                     </td>
 
-                    <td className="font-bold text-[8.7px] align-top leading-[1.22]">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap text-gray-400">
                           Date:
@@ -11266,6 +11225,2000 @@ export default function DriverApplication() {
                   </tr>
                 </tbody>
               </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 49 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[15.4px] font-bold text-white">
+                16 FMCSA DRUG & ALCOHOL CLEARINGHOUSE - GENERAL CONSENT FOR
+                LIMITED QUERIES
+              </div>
+
+              <p className="text-[12px] mt-2 items-start">
+                I,{" "}
+                <input
+                  type="text"
+                  className="w-[30%] border border-black h-[15px]"
+                />{" "}
+                provide consent to{" "}
+                <input
+                  type="text"
+                  className="w-[30%] border border-black h-[15px]"
+                />
+                (Employer) to conduct limited queries of the FMCSA Commercial
+                Driver’s License Drug and Alcohol Clearinghouse to determine
+                whether drug or alcohol violation information about me exists in
+                the Clearinghouse.
+              </p>
+              <p className="text-[12px] items-start">
+                <input type="checkbox" />
+                One limited query only
+                <input type="checkbox" />
+                Multiple limited queries during the stated consent period
+                <input type="checkbox" />
+                Annual and other lawful limited queries during employment
+              </p>
+              <p className="text-[12px] mb-1 flex items-start">
+                I understand that a limited query does not disclose specific
+                violation information. If a limited query indicates that
+                information exists, the employer must obtain the additional
+                specific electronic consent required for a full query before
+                detailed information can be released. I further understand that
+                refusal to provide required consent may prohibit me from
+                performing safety-sensitive functions for that employer as
+                required by FMCSA regulations.
+              </p>
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Applicant Signature:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Printed Name:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Date:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
+                17 PRE-EMPLOYMENT DRUG & ALCOHOL INFORMATION
+              </div>
+
+              <p className="text-[12px] mt-2 items-start">
+                <input type="checkbox" />
+                Have you tested positive, or refused to test, on any
+                pre-employment DOT drug or alcohol test during the past 3 years
+                for an employer that did not hire you? Yes / No
+              </p>
+
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <span className="mr-2 font-bold text-[10px]">
+                  If YES, provide the information requested by the employer and
+                  documentation of successful completion of the return-to-duty
+                  process, if applicable:
+                </span>
+              </div>
+
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <input
+                  type="text"
+                  className="border border-black w-[60%] h-[12px]"
+                />
+              </div>
+              <br />
+
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Applicant Signature:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Date:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 49 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[15.4px] font-bold text-white">
+                18 SAFETY PERFORMANCE HISTORY RECORDS REQUEST - APPLICANT
+                AUTHORIZATION
+              </div>
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          APPLICANT / DRIVER NAME:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">SSN - LAST 4:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          PREVIOUS EMPLOYER:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          PREVIOUS EMPLOYER ADDRESS:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          CITY / STATE / ZIP:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          PREVIOUS EMPLOYER PHONE:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">EMAIL / FAX:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EMPLOYMENT FROM:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EMPLOYMENT TO:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p className="text-[11px] mb-1 flex items-start">
+                I authorize the previous employer identified above to release to
+                the prospective motor carrier the information lawfully requested
+                concerning my employment and safety performance history,
+                including applicable accident history and DOT-regulated drug and
+                alcohol information.
+              </p>
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Driver Signature:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Date:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full  text-[12px] font-bold">
+                TO BE COMPLETED BY PREVIOUS EMPLOYER
+              </div>
+
+              <p className="text-[12px] mt-2 items-start">
+                <input type="checkbox" />
+                Applicant was employed by this company: Yes / No{" "}
+                <input type="checkbox" />
+                Dates confirmed: From To
+              </p>
+              <p className="text-[12px] items-start">
+                <input type="checkbox" />
+                Operated CMV: Yes / No
+                <input type="checkbox" />
+                Equipment: Straight Truck / Tractor-Semitrailer / Bus / Tank /
+                Doubles-Triples / Other
+              </p>
+
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          AREASON FOR LEAVING:{" "}
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          ELIGIBLE FOR REHIRE?:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          PERSON COMPLETING FORM:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">TITLE:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          PHONE / EMAIL:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div className="mb-4 text-left w-full  text-[12px] font-bold">
+                ACCIDENT HISTORY
+              </div>
+
+              <table className="w-full text-left text-[9.4px]">
+                <thead className="border bg-[#1F355A] text-white border-black">
+                  <tr>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Injuries</th>
+                    <th>Fatalities</th>
+                    <th>Hazmat Spill</th>
+                    <th>Brief Description</th>
+                  </tr>
+                </thead>
+                <tbody className="h-[60px]"></tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 49 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[15.4px] font-bold text-white">
+                19 DRIVER ROAD TEST EXAMINATION
+              </div>
+
+              <p className="text-[11.4px] mt-2 mb-2 flex items-start text-gray-500">
+                <span>
+                  <i>
+                    To be completed by the motor carrier or qualified examiner
+                    when a road test is required or used.
+                  </i>
+                </span>
+              </p>
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">DRIVER NAME:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">PHONE:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          DRIVER ADDRESS:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          CITY / STATE / ZIP:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          CDL NUMBER / STATE:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EQUIPMENT USED:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section className="mt-[12px]">
+              <table className="w-full text-left text-[10.7px]">
+                <thead className="border bg-[#1F355A] text-white border-black">
+                  <tr>
+                    <th>Performance Item </th>
+                    <th>Rating</th>
+                    <th>Examiner Comments</th>
+                  </tr>
+                </thead>
+
+                <tbody className="h-[60px] text-[11.4px]">
+                  <tr>
+                    <td>Pre-trip inspection</td>
+
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Coupling / uncoupling combination units</td>
+
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Placing equipment in operation</td>
+
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Use of vehicle controls and emergency equipment</td>
+
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Operating in traffic and passing other vehicles</td>
+
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Turning the vehicle</td>
+
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Braking / slowing by means other than braking</td>
+
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Backing and parking</td>
+
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Other: </td>
+
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                    <td>
+                      <input className="border border-black" type="text" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <br />
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          ROAD TEST DATE:{" "}
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          APPROX. MILES:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EXAMINER NAME:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EXAMINER TITLE:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EXAMINER ORGANIZATION:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">RESULT:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <br />
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Examiner Signature
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Date:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[15.4px] font-bold text-white">
+                20 CERTIFICATE OF DRIVER ROAD TEST
+              </div>
+
+              <p className="text-[12px] mt-2 mb-2 flex items-start text-gray-500">
+                I certify that the driver named below was given a road test
+                under my supervision and, based on the examination, demonstrated
+                sufficient driving skill to operate safely the type of
+                commercial motor vehicle identified below.
+              </p>
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">DRIVER NAME:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          CDL NUMBER / STATE:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          TYPE OF POWER UNIT:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          TYPE OF TRAILER(S):
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          PASSENGER VEHICLE / BUS TYPE:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">TEST DATE:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          APPROX. MILES:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          EXAMINER TITLE:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section className="mt-[12px]">
+              <br />
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Examiner Signature
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Organization / Address
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Date:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 49 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[15.4px] font-bold text-white">
+                21 MOTOR CARRIER DRIVER QUALIFICATION FILE - INTERNAL CHECKLIST
+              </div>
+
+              <p className="text-[11.4px] mt-2 mb-2 flex items-start text-gray-500">
+                <span>
+                  <i>
+                    Employer use only. This checklist is provided as an
+                    organizational aid and does not replace the motor carrier’s
+                    responsibility to determine all documents required for the
+                    driver and operation.
+                  </i>
+                </span>
+              </p>
+            </section>
+            <section className="mt-[12px]">
+              <table className="w-full text-left text-[12px] border-collapse">
+                <thead className="border bg-[#1F355A] text-white border-black">
+                  <tr>
+                    <th>Document / Requirement </th>
+                    <th>Received</th>
+                    <th>Reviewed</th>
+                    <th>Date / Notes</th>
+                  </tr>
+                </thead>
+
+                <tbody className="text-[12px]">
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Signed Commercial Driver Employment Application
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      FMCSA DQ 391.21
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Copy of current Driver License / CDL - front and back
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Company / qualification record Verify class, endorsements,
+                      restrictions and expiration
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Work authorization / Form I-9
+acceptable document(s) 
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Employment eligibility -
+maintain I-9 separately
+Employee chooses acceptable
+List A OR List B + List C
+documents; do not require a
+specific document
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Employment Authorization
+Document (work permit), if
+presented/required by the
+employee's status
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      I-9 supporting document, when
+applicable
+Do not require an EAD if the
+employee presents other
+acceptable I-9 documentation
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Social Security card, if presented
+for Form I-9 or needed for lawful
+payroll/onboarding purposes
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Employment / payroll, when
+applicable
+Do not require SS card as the
+specific I-9 document if other
+acceptable documents are
+presented
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Medical Examiner's Certificate /
+current CDLIS medical
+certification status
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      FMCSA DQ
+391.43 / 391.51
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Medical Examination Report
+Form MCSA-5875 (long form,
+commonly 5 pages), if
+voluntarily obtained with driver
+consent
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Confidential medical record -
+NOT a standard DQ-file
+requirement
+Store with restricted medical
+records; FMCSA requires the
+Medical Examiner to retain the
+original
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Medical certification verification
+/ CDLIS MVR showing medical
+status
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      FMCSA DQ for CDL/CLP
+drivers
+Obtain current licensing-state
+CDLIS MVR and verify medical
+status
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Medical variance / exemption /
+SPE documentation, if applicable 
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      FMCSA DQ
+Maintain when applicable
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Iitial MVR / driving record
+from each required State 
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      FMCSA DQ
+391.23
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Signed DMV / MVR / CDLIS
+Records Authorization and
+Consent
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Screening authorization
+Authorizes lawful driving-record
+and CDLIS-related record
+retrieval
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                           Annual MVR and documented
+annual review 
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      FMCSA DQ - recurring
+391.25
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Safety Performance History
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      FMCSA DQ
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 49 start********/}
+
+      <br />
+
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+             
+            </section>
+            <section className="mt-[12px]">
+              <table className="w-full text-left text-[12px] border-collapse">
+             
+
+                <tbody className="text-[12px]">
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          request(s), responses, and
+documented good-faith attempts
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      391.21
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Road Test Certificate or lawful equivalent
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      FMCSA DQ
+391.31 / 391.33
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          FMCSA Clearinghouse pre-
+employment full query
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Drug & alcohol compliance
+Specific electronic consent
+occurs in the Clearinghouse
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          FMCSA Clearinghouse limited-
+query general consent 
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Drug & alcohol compliance
+Retain consent evidence for
+required period
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Pre-employment controlled
+substances test result / CCF
+documentation, when required
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Drug & alcohol compliance
+Part 382 / Part 40
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Pre-employment drug & alcohol
+questionnaire / prior testing
+information, when applicable
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Drug & alcohol compliance
+Part 40 / company process
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Standalone Background /
+Consumer Report Disclosure and
+Authorization
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Employment screening
+FCRA / applicable state law
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Criminal background report, if
+obtained and lawful for the
+position/location
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Confidential screening record
+Follow FCRA and applicable
+state/local restrictions
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          PSP report, if ordered with driver
+authorization
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Optional pre-employment safety
+screening
+Not a substitute for required MVR / SPH inquiries
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          CDLIS / license status
+information obtained through
+authorized source
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Driver qualification screening
+Use for CDL status / medical
+certification verification as
+applicable
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Drug & Alcohol Policy
+acknowledgment / receipt
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Company compliance
+Signed acknowledgment
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          Driver policy / handbook / safety
+policy acknowledgments 
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Company record
+As applicable
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
+                        <div>
+                          I-9 Form
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      Employment eligibility Keep separately from DQ file as
+company practice
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/*****page 49 start********/}
+
+        <br />
+
+      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
+          <div className="w-full">
+            <section className="mt-[12px]">
+              <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
+                25 EMPLOYER REVIEW / FINAL DISPOSITION
+              </div>
+
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">APPLICATION REVIEWED BY:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          DATE: <span className="text-gray-500">MM/DD/YYYY</span>
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          MVR REVIEWED BY:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          TYPE OF TRAILER(S):
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          PREVIOUS EMPLOYER CHECKS BY: 
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">DATE:</span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          CLEARINGHOUSE QUERY BY:
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap">
+                          DATE: <span className="text-gray-500">MM/DD/YYYY</span>
+                        </span>
+                        <input
+                          className="border border-black h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              
+             
+             
+             
+            </section>
+            <section className="mt-[12px]">
+              
+
+              <p className="text-[12px] mt-2 items-start">
+                <input type="checkbox" />
+                Approved for Hire <input type="checkbox" />
+                Conditional / Pending Documents<input type="checkbox" />
+                Not Approved<input type="checkbox" />
+                Withdrawn
+              </p>
+
+              
+
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <span className="mr-2 font-bold text-[10px]">
+                  Comments / outstanding items:
+                </span>
+              </div>
+
+              <div className="text-[11.4px] items-center gap-2 mr-3">
+                <textarea
+                  type="text"
+                  className="border border-black w-full h-[50px]"
+                ></textarea>
+              </div>
+              
+              <br />
+
+              <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Authorized Representative Signature
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Title
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="text"
+                        />
+                      </div>
+                    </td>
+
+                    <td className="font-bold text-[10px] align-top leading-[1.22]">
+                      <div className="flex items-center w-full">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Date:
+                        </span>
+                        <input
+                          className=" h-[20px] flex-1 ml-2 min-w-0"
+                          type="date"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+               <p className="text-[13.4px] mt-2 text-center">
+                WEBSITE VERSION - REV. SEPTEMBER 2026 | EXPANDED DRIVER DOCUMENT & CONSENT PACKAGE
+              </p>
+
+              <p className="text-gray-500 text-[10px] text-center">
+                Prepared for use by motor carriers with administrative support from DOT Compliance Solutions LLC.
+              </p>
             </section>
           </div>
         </div>

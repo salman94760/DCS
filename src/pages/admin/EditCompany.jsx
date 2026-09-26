@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import api from "@/api/axios";
 import { useParams } from "react-router-dom";
 
-
-
 export default function EditCompany() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -31,8 +29,6 @@ export default function EditCompany() {
 
     getCompany();
   }, []);
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -182,8 +178,8 @@ export default function EditCompany() {
       // =================================
       // API REQUEST
       // =================================
-    
-    const response = await api.post(`/admin/company/edit/${id}`,uploadData);
+
+      const response = await api.post(`/admin/company/edit/${id}`, uploadData);
 
       const result = response.data;
 
@@ -214,7 +210,6 @@ export default function EditCompany() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Edit Company</h1>
-
         </div>
 
         <Link
@@ -233,7 +228,6 @@ export default function EditCompany() {
           encType="multipart/form-data"
         >
           {/* ================= ROW 1 ================= */}
-
 
           {/* ================= DOT MC EIN ================= */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -319,7 +313,7 @@ export default function EditCompany() {
               />
             </div>
 
-              <div>
+            <div>
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 DBA Name
               </label>
@@ -348,19 +342,15 @@ export default function EditCompany() {
             </div>
 
             {/* USDOT */}
- 
 
             {/* OWNER */}
-            
 
             {/* COMPANY NAME */}
-            
           </div>
 
           {/* ================= DBA + EMAIL ================= */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {/* DBA */}
-          
 
             {/* EMAIL */}
             <div>
@@ -383,7 +373,7 @@ export default function EditCompany() {
                 </p>
               )}
             </div>
-                   <div>
+            <div>
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Phone Number
                 <span className="text-red-500">*</span>
@@ -432,7 +422,9 @@ export default function EditCompany() {
               defaultValue={company.physicaladdress}
               placeholder="ENTER PHYSICAL ADDRESS"
               className="cap w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-            >{company?.physicaladdress}</textarea>
+            >
+              {company?.physicaladdress}
+            </textarea>
           </div>
 
           {/* ================= MAILING ADDRESS ================= */}
@@ -447,17 +439,19 @@ export default function EditCompany() {
               defaultValue={company.mailaddress}
               placeholder="ENTER MAILING ADDRESS"
               className="cap w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-            >{company.mailaddress}</textarea>
+            >
+              {company.mailaddress}
+            </textarea>
           </div>
 
           {/* ================= PHONE ================= */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div>
+            <div>
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 USDOT
               </label>
 
-               <select
+              <select
                 name="usdot"
 
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
@@ -465,12 +459,10 @@ export default function EditCompany() {
                 <option value="Active">ACTIVE</option>
                 <option value="In-active">IN-ACTIVE</option>
               </select>
-
-           
             </div>
             {/* PHONE */}
-     
-                   <div>
+
+            <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">
                 Status
               </label>
@@ -482,35 +474,32 @@ export default function EditCompany() {
                 <option value="1">ACTIVE</option>
                 <option value="0">IN-ACTIVE</option>
               </select>
-
-              
             </div>
-                      <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
-              Company Logo
-            </label>
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                Company Logo
+              </label>
 
-            <input
-              type="file"
-              name="image"
-              accept=".png,.jpg,.jpeg,image/png,image/jpeg"
-              className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
-            />
+              <input
+                type="file"
+                name="image"
+                accept=".png,.jpg,.jpeg,image/png,image/jpeg"
+                className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
+              />
 
-            <p className="text-xs text-slate-400 mt-1">
-              Only PNG, JPG and JPEG files are allowed.
-            </p>
-
-            {errors.image && (
-              <p className="text-red-500 text-xs mt-1">
-                <b>{errors.image}</b>
+              <p className="text-xs text-slate-400 mt-1">
+                Only PNG, JPG and JPEG files are allowed.
               </p>
-            )}
-          </div>
+
+              {errors.image && (
+                <p className="text-red-500 text-xs mt-1">
+                  <b>{errors.image}</b>
+                </p>
+              )}
+            </div>
           </div>
 
           {/* ================= COMPANY LOGO ================= */}
-
 
           {/* ================= BUTTONS ================= */}
           <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
