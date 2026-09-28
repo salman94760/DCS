@@ -4,13 +4,13 @@ import DashboardLayout from "@/layouts/DashboardLayout";
 
 import Admintable from "@/components/admin/Table";
 import api from "@/api/axios";
-
+import { useNavigate } from "react-router-dom";
 export default function Users() {
   const [search, setSearch] = useState("");
   const [role, setRole] = useState("all");
   const [status, setStatus] = useState("all");
   const [users, setUsers] = useState([]);
-
+  const navigate = useNavigate();
   // Actual applied filters
   const [filters, setFilters] = useState({
     search: "",
@@ -18,23 +18,32 @@ export default function Users() {
     status: "all",
   });
 
+  const getUsers = async () => {
+    try {
+      const response = await api.get("/admin/users");
+
+      const result = response.data;
+
+      console.log("Users:", result);
+
+      setUsers(result.users || []);
+    } catch (error) {
+      console.error("Failed to fetch users:", error);
+    }
+  };
   useEffect(() => {
-    const getUsers = async () => {
-      try {
-        const response = await api.get("/admin/users");
+    const role = localStorage.getItem("userRole");
 
-        const result = response.data;
+    if (role === "admin") {
+      getUsers();
+      return;
+    }
 
-        console.log("Users:", result);
-
-        setUsers(result.users || []);
-      } catch (error) {
-        console.error("Failed to fetch users:", error);
-      }
-    };
-
-    getUsers();
-  }, []);
+    if (role === "company") {
+      navigate("/company-dashboard", { replace: true });
+      return;
+    }
+  }, [navigate]);
 
   // Filter button click
   const handleFilter = () => {

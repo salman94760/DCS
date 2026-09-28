@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import api from "@/api/axios";
 
 export default function AddUser() {
@@ -8,6 +8,17 @@ export default function AddUser() {
   const [loading, setLoading] = useState(false);
   const [serverMessage, setServerMessage] = useState("");
   const [serverMessageType, setServerMessageType] = useState("");
+
+  useEffect(() => {
+    const role = localStorage.getItem("userRole");
+    if (role === "admin") {
+      navigate("/admin-dashboard/company", { replace: true });
+    } else if (role === "company") {
+      navigate("/company-dashboard", { replace: true });
+    } else {
+      // navigate("/dashboard", { replace: true });
+    }
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

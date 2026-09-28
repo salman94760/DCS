@@ -4,11 +4,15 @@ import ProtectedRoute from "@/routes/ProtectedRoute";
 import CompanyLayout from "@/layouts/CompanyLayout";
 
 import CompanyDashboard from "@/pages/company/CompanyDashboard";
-import AddUser from "@/pages/admin/Adduser";
-import Users from "@/pages/admin/Users";
-import AddCompany from "@/pages/admin/AddCompany";
-import Company from "@/pages/admin/Company";
-import UsersRole from "@/pages/admin/UsersRole";
+import AddDriver from "@/pages/company/AddDriver";
+import Drivers from "@/pages/company/Drivers";
+import EditDrivers from "@/pages/company/EditDriver";
+import AddDriverExployment from "@/pages/company/AddDriverEmployment";
+import AddDriverExperience from "@/pages/company/AddDriverExperience";
+import AddDriverDocument from "@/pages/company/AddDriverDocument";
+import DriverExployment from "@/pages/company/DriverEmployment";
+import DriverExperience from "@/pages/company/DriverExperience";
+import DriverDocument from "@/pages/company/DriverDocument";
 
 export default function CompanyRoutes() {
   return (
@@ -17,15 +21,18 @@ export default function CompanyRoutes() {
         <Route path="/company-dashboard" element={<CompanyLayout />}>
           <Route index element={<CompanyDashboard />} />
 
-          <Route path="users" element={<Users />} />
+          <Route path="drivers" element={<Drivers />} />
 
-          <Route path="users/add" element={<AddUser />} />
+          <Route path="driver/add" element={<AddDriver />} />
+          <Route path="driver/employment/add" element={<AddDriverExployment />} />
+          <Route path="driver/experience/add" element={<AddDriverExperience />} />
+          <Route path="driver/document/add" element={<AddDriverDocument />} />
 
-          <Route path="users/roles" element={<UsersRole />} />
+          <Route path="driver/employment-history/:id" element={<DriverExployment />} />
+          <Route path="driver/experience/:id" element={<DriverExperience />} />
+          <Route path="driver/document/:id" element={<DriverDocument />} />
 
-          <Route path="company" element={<Company />} />
-
-          <Route path="company/add" element={<AddCompany />} />
+          <Route path="driver/edit/:id" element={<EditDrivers />} />
         </Route>
       </Route>
     </Routes>

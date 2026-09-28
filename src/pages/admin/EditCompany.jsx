@@ -12,23 +12,33 @@ export default function EditCompany() {
   const [serverMessage, setServerMessage] = useState("");
   const [serverMessageType, setServerMessageType] = useState("");
   const [company, setCompany] = useState([]);
-
   useEffect(() => {
+    const role = localStorage.getItem("userRole");
+
+    if (role === "admin") {
+    }
+
+    if (role === "company") {
+      navigate("/company-dashboard", { replace: true });
+      return;
+    }
+
     const getCompany = async () => {
       try {
         const response = await api.get(`/admin/company/${id}`);
-
         const result = response.data;
 
         setCompany(result.company || []);
-        console.log(result.company.physicaladdress);
+        console.log(result.company?.physicaladdress);
       } catch (error) {
-        console.error("Failed to fetch users:", error);
+        console.error("Failed to fetch company:", error);
       }
     };
 
-    getCompany();
-  }, []);
+    if (id) {
+      getCompany();
+    }
+  }, [id, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

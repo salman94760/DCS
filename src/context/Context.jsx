@@ -1,34 +1,35 @@
 import { createContext, useContext, useReducer } from "react";
 
 import api from "@/api/axios";
-import companyReducer, { initialState } from "@/reducers/companyReducer";
+import Reducer, { initialState } from "@/reducers/Reducer";
 
-const CompanyContext = createContext(null);
+const DContext = createContext(null);
 
-export const CompanyProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(companyReducer, initialState);
+export const ContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(Reducer, initialState);
 
   // =====================================
   // GET ALL COMPANIES
   // =====================================
-  const fetchCompanies = async () => {
+  const fetchAllData = async (url) => {
     dispatch({
-      type: "FETCH_COMPANY_START",
+      type: "FETCH_START",
     });
 
     try {
-      const response = await api.get("/admin/company");
-
+      const response = await api.get(url);
       dispatch({
-        type: "FETCH_COMPANIES_SUCCESS",
-        payload: Array.isArray(response.data.companies)
-          ? response.data.companies
+        type: "FETCH_All_DATA_SUCCESS",
+        payload: Array.isArray(response.data.data)
+          ? response.data.data
           : [],
       });
     } catch (error) {
       dispatch({
-        type: "FETCH_COMPANY_ERROR",
-        payload: error.response?.data?.message || "Failed to fetch companies",
+        type: "FETCH_ERROR",
+        payload:
+          error.response?.data?.message ||
+          "Failed to fetch companies",
       });
     }
   };
@@ -36,24 +37,26 @@ export const CompanyProvider = ({ children }) => {
   // =====================================
   // GET SINGLE COMPANY
   // =====================================
-  const fetchCompany = async (id) => {
+  const fetchDetail = async (url) => {
     dispatch({
-      type: "FETCH_COMPANY_START",
+      type: "FETCH_START",
     });
 
     try {
-      const response = await api.get(`/admin/company/${id}`);
+      const response = await api.get(url);
 
       dispatch({
-        type: "FETCH_COMPANY_SUCCESS",
-        payload: response.data.company,
+        type: "FETCH_SINGLE_SUCCESS",
+        payload: response.data.data,
       });
 
       return response.data.company;
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload: error.response?.data?.message || "Failed to fetch company",
+        payload:
+          error.response?.data?.message ||
+          "Failed to fetch company",
       });
 
       throw error;
@@ -63,13 +66,16 @@ export const CompanyProvider = ({ children }) => {
   // =====================================
   // ADD COMPANY
   // =====================================
-  const addCompany = async (formData) => {
+  const addData = async (formData) => {
     dispatch({
       type: "ADD_START",
     });
 
     try {
-      const response = await api.post("/admin/company/add", formData);
+      const response = await api.post(
+        "/admin/company/add",
+        formData
+      );
 
       dispatch({
         type: "ADD_SUCCESS",
@@ -80,7 +86,9 @@ export const CompanyProvider = ({ children }) => {
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload: error.response?.data?.message || "Failed to add company",
+        payload:
+          error.response?.data?.message ||
+          "Failed to add company",
       });
 
       throw error;
@@ -90,7 +98,7 @@ export const CompanyProvider = ({ children }) => {
   // =====================================
   // UPDATE COMPANY
   // =====================================
-  const updateCompany = async (id, formData) => {
+  const updateData = async (id, formData) => {
     dispatch({
       type: "UPDATE_START",
     });
@@ -99,7 +107,10 @@ export const CompanyProvider = ({ children }) => {
       // Laravel method spoofing
       formData.append("_method", "PUT");
 
-      const response = await api.post(`/admin/company/${id}`, formData);
+      const response = await api.post(
+        `/admin/company/${id}`,
+        formData
+      );
 
       dispatch({
         type: "UPDATE_SUCCESS",
@@ -110,7 +121,9 @@ export const CompanyProvider = ({ children }) => {
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload: error.response?.data?.message || "Failed to update company",
+        payload:
+          error.response?.data?.message ||
+          "Failed to update company",
       });
 
       throw error;
@@ -120,7 +133,7 @@ export const CompanyProvider = ({ children }) => {
   // =====================================
   // DELETE COMPANY
   // =====================================
-  const deleteCompany = async (id) => {
+  const deleteData = async (id) => {
     dispatch({
       type: "DELETE_START",
     });
@@ -135,7 +148,9 @@ export const CompanyProvider = ({ children }) => {
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload: error.response?.data?.message || "Failed to delete company",
+        payload:
+          error.response?.data?.message ||
+          "Failed to delete company",
       });
 
       throw error;
@@ -153,7 +168,7 @@ export const CompanyProvider = ({ children }) => {
   };
 
   // =====================================
-  // STATUS FILTER
+  // STATUS
   // =====================================
   const setStatus = (value) => {
     dispatch({
@@ -172,6 +187,9 @@ export const CompanyProvider = ({ children }) => {
     });
   };
 
+  // =====================================
+  // FILTERS
+  // =====================================
   const setFilters = (newFilters) => {
     dispatch({
       type: "SET_FILTERS",
@@ -185,17 +203,19 @@ export const CompanyProvider = ({ children }) => {
     });
   };
 
+  const loginUserId = JSON.parse(localStorage.getItem("user"))?.id;
   return (
-    <CompanyContext.Provider
+    <DContext.Provider
       value={{
-        ...state,
+        loginUserId,
+        state,
 
-        fetchCompanies,
-        fetchCompany,
+        fetchAllData,
+        fetchDetail,
 
-        addCompany,
-        updateCompany,
-        deleteCompany,
+        addData,
+        updateData,
+        deleteData,
 
         setSearch,
         setStatus,
@@ -206,18 +226,20 @@ export const CompanyProvider = ({ children }) => {
       }}
     >
       {children}
-    </CompanyContext.Provider>
+    </DContext.Provider>
   );
 };
 
 // =====================================
 // CUSTOM HOOK
 // =====================================
-export const useCompany = () => {
-  const context = useContext(CompanyContext);
+export const useDcsContext = () => {
+  const context = useContext(DContext);
 
   if (!context) {
-    throw new Error("useCompany must be used inside CompanyProvider");
+    throw new Error(
+      "useDcsContext must be used inside ContextProvider"
+    );
   }
 
   return context;

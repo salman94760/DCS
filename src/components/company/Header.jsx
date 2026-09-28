@@ -7,15 +7,20 @@ export default function Header() {
           <div className="stripe two"></div>
         </div>
 
-        <div className="relative z-10 flex items-center gap-3">
-          <img src="/logo.png" className="w-[80px]" />
+        <div className="ssss relative z-10 flex items-center gap-3">
+          {JSON.parse(localStorage.getItem("user"))?.logo ? (
+            <img
+              src={JSON.parse(localStorage.getItem("user"))?.logo}
+              className="w-[80px]"
+              alt="Logo"
+            />
+          ) : (
+            ""
+          )}
 
           <div>
             <p className="text-white font-extrabold text-lg leading-tight tracking-wide">
-              DOT COMPLIANCE SOLUTIONS LLC
-            </p>
-            <p className="text-slate-400 text-xm mt-0.5">
-              Safety &nbsp;•&nbsp; Compliance &nbsp;•&nbsp; Our Priority
+              {JSON.parse(localStorage.getItem("user"))?.name}
             </p>
           </div>
         </div>

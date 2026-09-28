@@ -1,6 +1,6 @@
 export const initialState = {
-  company: [],
-  selectedCompany: null,
+  data: [],
+  selectedData: null,
 
   loading: false,
   formLoading: false,
@@ -13,27 +13,51 @@ export const initialState = {
   },
 };
 
-const companyReducer = (state, action) => {
+const Reducer = (state, action) => {
   switch (action.type) {
-    case "FETCH_COMPANIES_START":
+    // =========================
+    // FETCH ALL COMPANIES
+    // =========================
+    case "FETCH_START":
       return {
         ...state,
         loading: true,
         error: null,
       };
 
-    case "FETCH_COMPANIES_SUCCESS":
+    case "FETCH_All_DATA_SUCCESS":
       return {
         ...state,
         loading: false,
-        company: Array.isArray(action.payload) ? action.payload : [],
+        data: Array.isArray(action.payload)
+          ? action.payload
+          : [],
+        error: null,
       };
 
-    case "FETCH_COMPANY_ERROR":
+    case "FETCH_ERROR":
       return {
         ...state,
         loading: false,
         error: action.payload,
+      };
+
+    // =========================
+    // SINGLE COMPANY
+    // =========================
+    case "FETCH_SINGLE_START":
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+
+    case "FETCH_SINGLE_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        selectedData: action.payload,
+        error: null,
       };
 
     // =========================
@@ -50,8 +74,9 @@ const companyReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        company: state.company.filter(
-          (item) => String(item.id) !== String(action.payload),
+        data: state.data.filter(
+          (item) =>
+            String(item.id) !== String(action.payload)
         ),
         error: null,
       };
@@ -61,23 +86,6 @@ const companyReducer = (state, action) => {
         ...state,
         loading: false,
         error: action.payload,
-      };
-
-    // =========================
-    // SINGLE COMPANY
-    // =========================
-    case "FETCH_COMPANY_START":
-      return {
-        ...state,
-        loading: true,
-        error: null,
-      };
-
-    case "FETCH_COMPANY_SUCCESS":
-      return {
-        ...state,
-        loading: false,
-        selectedCompany: action.payload,
       };
 
     // =========================
@@ -99,10 +107,13 @@ const companyReducer = (state, action) => {
         },
       };
 
-    case "SET_SELECTED_COMPANY":
+    // =========================
+    // SELECTED DATA
+    // =========================
+    case "SET_SELECTED_DATA":
       return {
         ...state,
-        selectedCompany: action.payload,
+        selectedData: action.payload,
       };
 
     default:
@@ -110,4 +121,4 @@ const companyReducer = (state, action) => {
   }
 };
 
-export default companyReducer;
+export default Reducer;

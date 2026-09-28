@@ -2,8 +2,20 @@ import DashboardLayout from "@/layouts/DashboardLayout";
 import DashboardCards from "@/components/admin/Cards";
 import MainSubHeader from "@/components/admin/MainSubHeader";
 import Admintable from "@/components/admin/Table";
-
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 export default function AdminDashboard() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const role = localStorage.getItem("userRole");
+    if (role === "admin") {
+      navigate("/admin-dashboard/company", { replace: true });
+    } else if (role === "company") {
+      navigate("/company-dashboard", { replace: true });
+    } else {
+      // navigate("/dashboard", { replace: true });
+    }
+  }, [navigate]);
   return (
     <DashboardLayout>
       <div className="grid grid-cols-6 gap-5">

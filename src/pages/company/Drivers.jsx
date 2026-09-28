@@ -4,30 +4,65 @@ import { Link } from "react-router-dom";
 import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-import { useNavigate } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import { useDcsContext } from "@/context/Context";
 
 export default function Company() {
   const navigate = useNavigate();
-  const {state,fetchAllData,loading,error,filters,setFilters,resetFilters} = useDcsContext();
+  const location = useLocation();
+  const {loginUserId,state,fetchAllData,loading,error,filters,setFilters,resetFilters} = useDcsContext();
+
   const [search, setSearch] = useState("");
   const [role, setRole] = useState("all");
   const [status, setStatus] = useState("all");
-
+  const [success, setSuccess] = useState("");
 
   // ==========================================
   // GET COMPANIES
   // ==========================================
-  useEffect(() => {
-    const role = localStorage.getItem("userRole");
+useEffect(() => {
+  const role = localStorage.getItem("userRole");
 
-    if (role === "admin") {
-      fetchAllData('/admin/company');
-    } else if (role === "company") {
-      navigate("/company-dashboard", { replace: true });
-    }
-  }, []);
-  console.log(state.data);
+  if (role === "admin") {
+    navigate("/admin-dashboard/company", { replace: true });
+    return;
+  }
+
+  if (role === "company") {
+    fetchAllData(`/company/drivers/${loginUserId}`);
+  }
+
+  if (location.state?.success) {
+    setSuccess(location.state.success);
+
+    // History se state remove
+    navigate(location.pathname, {
+      replace: true,
+      state: {},
+    });
+
+    const timer = setTimeout(() => {
+      setSuccess("");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }
+}, [location.state, loginUserId]);
+
+
+
+
+
+console.log(success);
+
+
+
+
+
+
+
+
+
   // ==========================================
   // FILTER
   // ==========================================
@@ -73,9 +108,6 @@ const filtered = useMemo(() => {
   });
 }, [state.data, filters]);
 
-console.log("FILTERED DATA:", filtered);
-
-console.log(filtered);
   // ==========================================
   // FILTER BUTTON
   // ==========================================
@@ -229,22 +261,29 @@ console.log(filtered);
       {/* HEADER */}
       {/* ================================= */}
 
-      <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-900">Company</h1>
+<div className="w-full flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+  <h1 className="text-2xl font-bold text-slate-900 whitespace-nowrap">
+    Drivers
+  </h1>
 
-          <p className="text-sm text-slate-500 mt-1">
-            Manage all companies in your system.
-          </p>
-        </div>
-
-        <Link
-          to="/admin-dashboard/company/add"
-          className="inline-flex items-center justify-center bg-[#091122] text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 whitespace-nowrap"
-        >
-          + Add Company
-        </Link>
+  {success && (
+    <div className="flex-1 flex justify-center">
+      <div className="inline-flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-white text-xs">
+          ✓
+        </span>
+        <span>{success}</span>
       </div>
+    </div>
+  )}
+
+  <Link
+    to="/company-dashboard/driver/add"
+    className="inline-flex items-center justify-center rounded-lg bg-[#091122] px-4 py-2.5 text-sm font-medium text-white whitespace-nowrap hover:bg-slate-800"
+  >
+    + Add Driver
+  </Link>
+</div>
 
       {/* ================================= */}
       {/* FILTERS */}
@@ -330,75 +369,84 @@ console.log(filtered);
 
       <div className="w-full min-w-0 bg-white rounded-xl border border-slate-200">
         <div className="w-full max-h-[500px] overflow-auto">
-          <table className="min-w-[1500px] w-full text-sm">
-            <thead className="sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
+          <table className="min-w-[1500px] w-full text-sm border border-collapse">
+            <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
               <tr>
-                <th className="cap sticky left-0 z-30 bg-slate-50 text-left px-6 py-4 font-semibold text-slate-600">
-                  Action
+                <th className="sticky left-0 z-30 bg-slate-50 text-left px-6 py-4 font-semibold text-slate-600">
+  
+  
+      Action
+
+
+
+
+
+</th>
+
+                
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Full name
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Username
+                  Active date
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Password
+                  dob
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Logo
+                  phone
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  DOT Number
+                  email
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  MC Number
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  EIN Number
+                  Drug test Neagtive Date
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
-                  Legal Company Name
+                  SOCIAL SECURITY
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  DBA Name
+                  APPLIED FOR
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
-                  Company Owner Name
+                  Driver Status
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Email ID
+                  Pre-employment Cleaning House Date
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Phone Number
+                  Termination Date
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Alternate Phone Number
+                  Reason For Leaving / Termination
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Physical Address
+                  Authorized to work in the U.S.?
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Mailing Address
+                  WORK AUTHORIZATION
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  USDOT
+                  USCIS NO
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Status
+                  Work Permit Expiration Date
                 </th>
               </tr>
             </thead>
@@ -412,84 +460,110 @@ console.log(filtered);
                 </tr>
               ) : (
                 filtered.map((com) => (
-                  <tr key={com.id} className="hover:bg-slate-50">
+                  <tr key={com.id} className="cap hover:bg-slate-50">
                     {/* ACTION */}
 
                     <td className="sticky left-0 z-10 bg-white px-6 py-4">
                       <div className="flex items-center gap-2">
                         <Link
-                          to={`/admin-dashboard/company/edit/${com.id}`}
+                          to={`/company-dashboard/driver/edit/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
-                          Edit
+                          Edit   
                         </Link>
 
-                        <button
+                        <Link title="Driver experience"
+                          to={`/company-dashboard/driver/experience/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >Exp
+                        
+                        </Link>
+
+                        <Link title="Employment history"
+                          to={`/company-dashboard/driver/employment-history/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >Emp-hisotry
+                        
+                        </Link>
+
+                        <Link title="Document information"
+                          to={`/company-dashboard/driver/document/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >Doc-info
+                          
+                        </Link>
+
+                        <Link title="Document information"
+                          to={`/company-dashboard/driver/document/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >E-Sign
+                          
+                        </Link>
+
+                        
+
+                         {/*
+                                                <Link
+                          to={`/company-dashboard/driver/edit/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >
+                          Edit    <i className="fa-solid fa-edit"></i>
+                        </Link>
+
+                        <Link title="Driver experience"
+                          to={`/company-dashboard/driver/experience/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >Experience
+                           <i className="fa-solid fa-id-card">sdcsdc</i>
+                        </Link>
+
+                        <Link title="Employment history"
+                          to={`/company-dashboard/driver/employment-history/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >Employment Hisotry
+                           <i className="fa-solid fa-briefcase"></i>
+                        </Link>
+
+                        <Link title="Document information"
+                          to={`/company-dashboard/driver/document/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >Document information
+                           <i className="fa-solid fa-file-lines"></i>
+                        </Link>
+                          */}
+
+                           
+                       
+                                   
+
+
+
+                        {/*<button
                           type="button"
                           onClick={() => handleDelete(com.id)}
                           className="px-3 py-1.5 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50 whitespace-nowrap"
                         >
                           Delete
-                        </button>
+                        </button>*/}
                       </div>
                     </td>
 
                     {/* USERNAME */}
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.email}
+                      {com.fname} {com.mname} {com.lname}
                     </td>
 
                     {/* PASSWORD */}
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.user?.user_info?.password_hint}
+                      {com.activedate}
                     </td>
 
-                    <td className="px-6 py-4">
-                      {com.image ? (
-                        <img
-                          className="w-[100px] h-[60px] object-contain"
-                          src={`${
-                            window.location.hostname === "localhost"
-                              ? "http://localhost:8000/storage/"
-                              : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
-                          }${com.image}`}
-                          alt={com.cname}
-                        />
-                      ) : (
-                        "No Image"
-                      )}
-                    </td>
+                    
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.dot}
-                    </td>
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.mc}
-                    </td>
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.ein}
-                    </td>
-
-                    <td className="px-6 py-4">
-                      <span className="font-medium text-slate-800 whitespace-nowrap">
-                        {com.owner}
-                      </span>
-                    </td>
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.dba}
-                    </td>
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.cname}
-                    </td>
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.email}
+                      {com.dob}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
@@ -497,42 +571,54 @@ console.log(filtered);
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.aphone}
+                      {com.email}
+                    </td>
+
+                    <td className="px-6 py-4">
+                      <span className="font-medium text-slate-800 whitespace-nowrap">
+                        {com.drugnegativedate}
+                      </span>
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.physicaladdress}
+                      {com.socialsecurity}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.mailaddress}
+                      {com.appliedfor}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.driverstatus}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.pclearinghousedate}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.terminationdate}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.reasonleavingortermination}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.legalrightsstatus}
                     </td>
 
                     {/* STATUS */}
 
                     <td className="px-6 py-4">
-                      <span
-                        className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                          com.usdot === "Active"
-                            ? "bg-green-50 text-green-700"
-                            : "bg-red-50 text-red-700"
-                        }`}
-                      >
-                        {com.usdot === "Active" ? "Active" : "In-active"}
-                      </span>
+                      {com.workauthorization}
                     </td>
                     <td className="px-6 py-4">
-                      <span
-                        className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                          com.user?.user_info?.status === 1
-                            ? "bg-green-50 text-green-700"
-                            : "bg-red-50 text-red-700"
-                        }`}
-                      >
-                        {com.user?.user_info?.status === 1
-                          ? "ACTIVE"
-                          : "IN-ACTIVE"}
-                      </span>
+                      {com.permituscisno}
+                    </td>
+
+                     <td className="px-6 py-4">
+                      {com.permitexpdate}
                     </td>
 
                     {/* LOGO */}
