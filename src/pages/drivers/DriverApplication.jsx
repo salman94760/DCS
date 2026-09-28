@@ -320,7 +320,7 @@ export default function DriverApplication() {
       {/********page 2 start******/}
       <br />
 
-      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <section className="mt-[12px]">
           <div className="overflow-x-auto">
             <table className="w-full table-fixed border-collapse text-[13.5px]">
@@ -477,172 +477,173 @@ export default function DriverApplication() {
 
       {/******page 3 start*****/}
       <br />
-      <div className="mx-auto  w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-        <section className="mt-[12px]">
-          <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
-            23 DMV / MVR / CDLIS DRIVER RECORDS AUTHORIZATION & CONSENT
-          </h2>
+      
+<div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+  <section className="mt-2 sm:mt-[12px]">
+    <h2 className="mb-2 text-base sm:text-[18px] font-bold leading-[1.2] text-[#174875]">
+      23 DMV / MVR / CDLIS DRIVER RECORDS AUTHORIZATION & CONSENT
+    </h2>
 
-          <div className="bg-[#d8e9f6] px-[10px] py-[9px] text-[13px] font-semibold leading-[1.35] text-[#173f69]">
-            This authorization is intended to permit the prospective motor
-            carrier and its authorized screening provider to obtain driving-
-            record information for lawful employment and driver-qualification
-            purposes. It does not replace any separate consent required by a
-            State agency or screening provider.
-          </div>
+    <div className="mb-3 bg-[#d8e9f6] px-2.5 py-2 text-[11px] sm:text-[13px] font-semibold leading-[1.35] text-[#173f69]">
+      This authorization is intended to permit the prospective motor carrier
+      and its authorized screening provider to obtain driving-record
+      information for lawful employment and driver-qualification purposes. It
+      does not replace any separate consent required by a State agency or
+      screening provider.
+    </div>
 
-          <div className="mb-2 text-[13px]">
-            I authorize the prospective employer, its authorized agents, and its
-            designated consumer reporting or records provider to obtain and
-            review motor vehicle records and driver-license information for
-            lawful employment and driver-qualification purposes. This
-            authorization includes records from State Driver Licensing Agencies
-            and, when lawfully available through an authorized source,
-            CDLIS-related information concerning my commercial driver license
-            status, class, endorsements, restrictions, disqualifications,
-            convictions, suspensions/revocations, and medical-certification
-            status.
-          </div>
+    <div className="mb-2 text-[11px] sm:text-[13px] leading-[1.5]">
+      I authorize the prospective employer, its authorized agents, and its
+      designated consumer reporting or records provider to obtain and review
+      motor vehicle records and driver-license information for lawful
+      employment and driver-qualification purposes. This authorization includes
+      records from State Driver Licensing Agencies and, when lawfully available
+      through an authorized source, CDLIS-related information concerning my
+      commercial driver license status, class, endorsements, restrictions,
+      disqualifications, convictions, suspensions/revocations, and
+      medical-certification status.
+    </div>
 
-          <div className="mb-2 text-[12.5px]">
-            I authorize such records to be obtained before employment and, to
-            the extent permitted by law, periodically during employment for
-            driver qualification, safety, insurance, and compliance purposes. I
-            understand that additional State-specific notices or authorizations
-            may be required.
-          </div>
+    <div className="mb-3 text-[11px] sm:text-[12.5px] leading-[1.5]">
+      I authorize such records to be obtained before employment and, to the
+      extent permitted by law, periodically during employment for driver
+      qualification, safety, insurance, and compliance purposes. I understand
+      that additional State-specific notices or authorizations may be required.
+    </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full table-fixed border-collapse text-[13.5px]">
-              <tbody>
-                <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
-                    <span className=" px-[6px] py-[7px] align-middle text-xs">
-                      Driver Full Legal Name
-                    </span>
-                  </td>
+    <div className="w-full overflow-hidden">
+      <table className="w-full table-fixed border-collapse text-[11px] sm:text-[13.5px]">
+        <tbody>
+          {/* Driver Name */}
+          <tr>
+            <td className="w-[42%] border border-[#555] px-2 py-2 align-top">
+              <label className="text-[10px] sm:text-xs">
+                Driver Full Legal Name
+              </label>
+            </td>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
-                    <div className="flex items-center justify-center gap-3">
-                      <input
-                        className="w-full border border-black p-2"
-                        type="text"
-                      />
-                    </div>
-                  </td>
-                </tr>
+            <td className="w-[58%] border border-[#555] px-2 py-2">
+              <input
+                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                type="text"
+              />
+            </td>
+          </tr>
 
-                <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
-                    <span className=" px-[6px] py-[7px] align-middle text-xs">
-                      Date of Birth
-                    </span>
-                  </td>
+          {/* DOB */}
+          <tr>
+            <td className="border border-[#555] px-2 py-2 align-top">
+              <label className="text-[10px] sm:text-xs">
+                Date of Birth
+              </label>
+            </td>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
-                    <div className="flex items-center justify-center gap-3">
-                      <input
-                        className="w-full border border-black p-2"
-                        type="date"
-                      />
-                    </div>
-                  </td>
-                </tr>
+            <td className="border border-[#555] px-2 py-2">
+              <input
+                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                type="date"
+              />
+            </td>
+          </tr>
 
-                <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
-                    <span className=" px-[6px] py-[7px] align-middle text-xs">
-                      Driver License / CDL Number
-                    </span>
-                    <br />
-                    <input
-                      className="w-full border border-black p-2 h-[20px]"
-                      type="text"
-                    />
-                  </td>
+          {/* License / State */}
+          <tr>
+            <td className="border border-[#555] px-2 py-2 align-top">
+              <label className="mb-1 block text-[10px] sm:text-xs">
+                Driver License / CDL Number
+              </label>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
-                    <span className=" px-[6px] py-[7px] align-middle text-xs">
-                      State:
-                    </span>
-                    <br />
-                    <input
-                      className="w-full border border-black p-2 h-[20px]"
-                      type="text"
-                    />
-                  </td>
-                </tr>
+              <input
+                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                type="text"
+              />
+            </td>
 
-                <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
-                    <span className=" px-[6px] py-[7px] align-middle text-xs">
-                      Current Address
-                    </span>
-                  </td>
+            <td className="border border-[#555] px-2 py-2 align-top">
+              <label className="mb-1 block text-[10px] sm:text-xs">
+                State:
+              </label>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
-                    <div className="flex items-center justify-center gap-3">
-                      <textarea className="w-full h-[120px] border border-[#555]"></textarea>
-                    </div>
-                  </td>
-                </tr>
+              <input
+                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                type="text"
+              />
+            </td>
+          </tr>
 
-                <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
-                    <span className=" px-[6px] py-[7px] align-middle text-xs">
-                      Driver signature
-                    </span>
-                    <br />
-                    <input
-                      onClick={() => setSignatureOpen(true)}
-                      className="w-full border border-black p-2 h-[40px]"
-                      type="text"
-                    />
-                  </td>
+          {/* Address */}
+          <tr>
+            <td className="border border-[#555] px-2 py-2 align-top">
+              <label className="text-[10px] sm:text-xs">
+                Current Address
+              </label>
+            </td>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
-                    <span className=" px-[6px] py-[7px] align-middle text-xs">
-                      Date:
-                    </span>
-                    <br />
-                    <input
-                      className="w-full border border-black p-2 h-[20px]"
-                      type="date"
-                    />
-                  </td>
-                </tr>
+            <td className="border border-[#555] px-2 py-2">
+              <textarea
+                className="box-border h-24 sm:h-[120px] w-full min-w-0 resize-y border border-[#555] p-2 text-xs sm:text-sm"
+              />
+            </td>
+          </tr>
 
-                <tr>
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
-                    <span className=" px-[6px] py-[7px] align-middle text-xs">
-                      Employer / Authorized Representative
-                    </span>
-                    <br />
-                    <input
-                      className="w-full border border-black p-2 h-[40px]"
-                      type="text"
-                    />
-                  </td>
+          {/* Driver Signature */}
+          <tr>
+            <td className="border border-[#555] px-2 py-2 align-top">
+              <label className="mb-1 block text-[10px] sm:text-xs">
+                Driver Signature
+              </label>
 
-                  <td className="border border-[#555] px-[6px] py-[7px] text-left text-[17px]">
-                    <span className=" px-[6px] py-[7px] align-middle text-xs">
-                      Date:
-                    </span>
-                    <br />
-                    <input
-                      className="w-full border border-black p-2 h-[20px]"
-                      type="date"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-      </div>
+              <input
+                onClick={() => setSignatureOpen(true)}
+                className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                type="text"
+              />
+            </td>
+
+            <td className="border border-[#555] px-2 py-2 align-top">
+              <label className="mb-1 block text-[10px] sm:text-xs">
+                Date:
+              </label>
+
+              <input
+                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                type="date"
+              />
+            </td>
+          </tr>
+
+          {/* Employer */}
+          <tr>
+            <td className="border border-[#555] px-2 py-2 align-top">
+              <label className="mb-1 block text-[10px] sm:text-xs">
+                Employer / Authorized Representative
+              </label>
+
+              <input
+                className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                type="text"
+              />
+            </td>
+
+            <td className="border border-[#555] px-2 py-2 align-top">
+              <label className="mb-1 block text-[10px] sm:text-xs">
+                Date:
+              </label>
+
+              <input
+                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                type="date"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
       {/******page 4 start*****/}
       <br />
-      <div className="mx-auto  w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <section className="mt-[12px]">
           <h2 className="mb-[8px] text-[18px] font-bold leading-[1.2] text-[#174875]">
             24 STANDALONE BACKGROUND / CONSUMER REPORT DISCLOSURE &
@@ -837,7 +838,7 @@ export default function DriverApplication() {
       </div>
       {/******page 5 start*******/}
       <br />
-      <div className="mx-auto  w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <header class="text-center mb-3">
             <h1
@@ -1083,7 +1084,7 @@ export default function DriverApplication() {
       {/******page 6 start *******/}
 
       <br />
-      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <section class="mt-1">
             <div class="mt-5 space-y-[25px]">
@@ -1273,7 +1274,7 @@ export default function DriverApplication() {
       {/*****page 7 start********/}
 
       <br />
-      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <section class="mt-1">
             <div class="mt-5 text-[13.4px] leading-[1.28]">
@@ -1491,7 +1492,7 @@ export default function DriverApplication() {
       {/*****page 8 start********/}
 
       <br />
-      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div>
           <section class="mt-1">
             <div class="mt-5 text-[12px] leading-[1.28]">
@@ -1686,7 +1687,7 @@ export default function DriverApplication() {
       {/*****page 9 start********/}
 
       <br />
-      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full">
           <h1
             class="text-center font-bold
@@ -2472,7 +2473,7 @@ export default function DriverApplication() {
       {/*****page 10 start********/}
 
       <br />
-      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
             <h1 className="m-0 text-[21.4px] text-center font-bold leading-[1.22] tracking-[0.3px] text-[#173f69]">
@@ -2915,7 +2916,7 @@ export default function DriverApplication() {
       {/*****page 11 start********/}
 
       <br />
-      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
             <section class="mt-1">
@@ -3486,7 +3487,7 @@ export default function DriverApplication() {
       {/*****page 12 start********/}
 
       <br />
-      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
             <section class="mt-1">
@@ -3795,7 +3796,7 @@ export default function DriverApplication() {
       {/*****page 13 start********/}
 
       <br />
-      <div className="mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div class="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div class="w-full">
             <h1 className="m-0 text-[21.4px] text-center font-bold leading-[1.22] tracking-[0.3px] text-[#173f69]">
@@ -4072,7 +4073,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <h4 className="m-0 mb-2 text-[12px] text-center font-bold leading-[1.22] tracking-[0.3px] text-black">
@@ -4264,7 +4265,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -4410,7 +4411,7 @@ export default function DriverApplication() {
 
       {/*****page 18 start********/}
       <br />
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -4533,7 +4534,7 @@ export default function DriverApplication() {
       {/*****page 19 start********/}
 
       <br />
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -4627,7 +4628,7 @@ export default function DriverApplication() {
       {/*****page 20 start********/}
 
       <br />
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -4744,7 +4745,7 @@ export default function DriverApplication() {
       {/*****page 21 start********/}
 
       <br />
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -4859,7 +4860,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5063,7 +5064,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5339,7 +5340,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5494,7 +5495,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5670,7 +5671,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5843,7 +5844,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -5892,7 +5893,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section class="mt-1">
@@ -6328,7 +6329,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -6487,7 +6488,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -6547,7 +6548,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -6730,7 +6731,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -6816,7 +6817,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -6976,7 +6977,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -7065,7 +7066,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -7503,7 +7504,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -7788,7 +7789,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -9439,7 +9440,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -9663,7 +9664,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -9951,7 +9952,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -10348,7 +10349,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -10848,7 +10849,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -11102,7 +11103,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -11234,7 +11235,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -11402,7 +11403,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -11678,7 +11679,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -12156,7 +12157,7 @@ export default function DriverApplication() {
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -12248,8 +12249,7 @@ export default function DriverApplication() {
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Work authorization / Form I-9
-acceptable document(s) 
+                          Work authorization / Form I-9 acceptable document(s)
                         </div>
                       </div>
                     </td>
@@ -12269,12 +12269,9 @@ acceptable document(s)
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Employment eligibility -
-maintain I-9 separately
-Employee chooses acceptable
-List A OR List B + List C
-documents; do not require a
-specific document
+                      Employment eligibility - maintain I-9 separately Employee
+                      chooses acceptable List A OR List B + List C documents; do
+                      not require a specific document
                     </td>
                   </tr>
 
@@ -12282,10 +12279,8 @@ specific document
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Employment Authorization
-Document (work permit), if
-presented/required by the
-employee's status
+                          Employment Authorization Document (work permit), if
+                          presented/required by the employee's status
                         </div>
                       </div>
                     </td>
@@ -12305,11 +12300,9 @@ employee's status
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      I-9 supporting document, when
-applicable
-Do not require an EAD if the
-employee presents other
-acceptable I-9 documentation
+                      I-9 supporting document, when applicable Do not require an
+                      EAD if the employee presents other acceptable I-9
+                      documentation
                     </td>
                   </tr>
 
@@ -12317,9 +12310,8 @@ acceptable I-9 documentation
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Social Security card, if presented
-for Form I-9 or needed for lawful
-payroll/onboarding purposes
+                          Social Security card, if presented for Form I-9 or
+                          needed for lawful payroll/onboarding purposes
                         </div>
                       </div>
                     </td>
@@ -12339,12 +12331,9 @@ payroll/onboarding purposes
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Employment / payroll, when
-applicable
-Do not require SS card as the
-specific I-9 document if other
-acceptable documents are
-presented
+                      Employment / payroll, when applicable Do not require SS
+                      card as the specific I-9 document if other acceptable
+                      documents are presented
                     </td>
                   </tr>
 
@@ -12352,9 +12341,8 @@ presented
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Medical Examiner's Certificate /
-current CDLIS medical
-certification status
+                          Medical Examiner's Certificate / current CDLIS medical
+                          certification status
                         </div>
                       </div>
                     </td>
@@ -12374,8 +12362,7 @@ certification status
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      FMCSA DQ
-391.43 / 391.51
+                      FMCSA DQ 391.43 / 391.51
                     </td>
                   </tr>
 
@@ -12383,11 +12370,9 @@ certification status
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Medical Examination Report
-Form MCSA-5875 (long form,
-commonly 5 pages), if
-voluntarily obtained with driver
-consent
+                          Medical Examination Report Form MCSA-5875 (long form,
+                          commonly 5 pages), if voluntarily obtained with driver
+                          consent
                         </div>
                       </div>
                     </td>
@@ -12407,13 +12392,9 @@ consent
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Confidential medical record -
-NOT a standard DQ-file
-requirement
-Store with restricted medical
-records; FMCSA requires the
-Medical Examiner to retain the
-original
+                      Confidential medical record - NOT a standard DQ-file
+                      requirement Store with restricted medical records; FMCSA
+                      requires the Medical Examiner to retain the original
                     </td>
                   </tr>
 
@@ -12421,9 +12402,8 @@ original
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Medical certification verification
-/ CDLIS MVR showing medical
-status
+                          Medical certification verification / CDLIS MVR showing
+                          medical status
                         </div>
                       </div>
                     </td>
@@ -12443,11 +12423,8 @@ status
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      FMCSA DQ for CDL/CLP
-drivers
-Obtain current licensing-state
-CDLIS MVR and verify medical
-status
+                      FMCSA DQ for CDL/CLP drivers Obtain current
+                      licensing-state CDLIS MVR and verify medical status
                     </td>
                   </tr>
 
@@ -12455,8 +12432,8 @@ status
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Medical variance / exemption /
-SPE documentation, if applicable 
+                          Medical variance / exemption / SPE documentation, if
+                          applicable
                         </div>
                       </div>
                     </td>
@@ -12476,8 +12453,7 @@ SPE documentation, if applicable
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      FMCSA DQ
-Maintain when applicable
+                      FMCSA DQ Maintain when applicable
                     </td>
                   </tr>
 
@@ -12485,8 +12461,7 @@ Maintain when applicable
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Iitial MVR / driving record
-from each required State 
+                          Iitial MVR / driving record from each required State
                         </div>
                       </div>
                     </td>
@@ -12506,17 +12481,15 @@ from each required State
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      FMCSA DQ
-391.23
+                      FMCSA DQ 391.23
                     </td>
                   </tr>
                   <tr>
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Signed DMV / MVR / CDLIS
-Records Authorization and
-Consent
+                          Signed DMV / MVR / CDLIS Records Authorization and
+                          Consent
                         </div>
                       </div>
                     </td>
@@ -12536,19 +12509,14 @@ Consent
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Screening authorization
-Authorizes lawful driving-record
-and CDLIS-related record
-retrieval
+                      Screening authorization Authorizes lawful driving-record
+                      and CDLIS-related record retrieval
                     </td>
                   </tr>
                   <tr>
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
-                        <div>
-                           Annual MVR and documented
-annual review 
-                        </div>
+                        <div>Annual MVR and documented annual review</div>
                       </div>
                     </td>
 
@@ -12567,16 +12535,13 @@ annual review
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      FMCSA DQ - recurring
-391.25
+                      FMCSA DQ - recurring 391.25
                     </td>
                   </tr>
                   <tr>
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
-                        <div>
-                          Safety Performance History
-                        </div>
+                        <div>Safety Performance History</div>
                       </div>
                     </td>
 
@@ -12609,23 +12574,19 @@ annual review
 
       <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
-            <section className="mt-[12px]">
-             
-            </section>
+            <section className="mt-[12px]"></section>
             <section className="mt-[12px]">
               <table className="w-full text-left text-[12px] border-collapse">
-             
-
                 <tbody className="text-[12px]">
                   <tr>
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          request(s), responses, and
-documented good-faith attempts
+                          request(s), responses, and documented good-faith
+                          attempts
                         </div>
                       </div>
                     </td>
@@ -12652,8 +12613,34 @@ documented good-faith attempts
                   <tr>
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
+                        <div>Road Test Certificate or lawful equivalent</div>
+                      </div>
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
+                      <input
+                        className="border border-3 border-black w-full p-2"
+                        type="checkbox"
+                      />
+                    </td>
+
+                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
+                      FMCSA DQ 391.31 / 391.33
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
+                      <div className="flex w-full items-center justify-between">
                         <div>
-                          Road Test Certificate or lawful equivalent
+                          FMCSA Clearinghouse pre- employment full query
                         </div>
                       </div>
                     </td>
@@ -12673,8 +12660,8 @@ documented good-faith attempts
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      FMCSA DQ
-391.31 / 391.33
+                      Drug & alcohol compliance Specific electronic consent
+                      occurs in the Clearinghouse
                     </td>
                   </tr>
 
@@ -12682,8 +12669,7 @@ documented good-faith attempts
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          FMCSA Clearinghouse pre-
-employment full query
+                          FMCSA Clearinghouse limited- query general consent
                         </div>
                       </div>
                     </td>
@@ -12703,9 +12689,8 @@ employment full query
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Drug & alcohol compliance
-Specific electronic consent
-occurs in the Clearinghouse
+                      Drug & alcohol compliance Retain consent evidence for
+                      required period
                     </td>
                   </tr>
 
@@ -12713,8 +12698,8 @@ occurs in the Clearinghouse
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          FMCSA Clearinghouse limited-
-query general consent 
+                          Pre-employment controlled substances test result / CCF
+                          documentation, when required
                         </div>
                       </div>
                     </td>
@@ -12734,9 +12719,7 @@ query general consent
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Drug & alcohol compliance
-Retain consent evidence for
-required period
+                      Drug & alcohol compliance Part 382 / Part 40
                     </td>
                   </tr>
 
@@ -12744,9 +12727,8 @@ required period
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Pre-employment controlled
-substances test result / CCF
-documentation, when required
+                          Pre-employment drug & alcohol questionnaire / prior
+                          testing information, when applicable
                         </div>
                       </div>
                     </td>
@@ -12766,8 +12748,7 @@ documentation, when required
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Drug & alcohol compliance
-Part 382 / Part 40
+                      Drug & alcohol compliance Part 40 / company process
                     </td>
                   </tr>
 
@@ -12775,9 +12756,8 @@ Part 382 / Part 40
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Pre-employment drug & alcohol
-questionnaire / prior testing
-information, when applicable
+                          Standalone Background / Consumer Report Disclosure and
+                          Authorization
                         </div>
                       </div>
                     </td>
@@ -12797,8 +12777,7 @@ information, when applicable
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Drug & alcohol compliance
-Part 40 / company process
+                      Employment screening FCRA / applicable state law
                     </td>
                   </tr>
 
@@ -12806,9 +12785,8 @@ Part 40 / company process
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Standalone Background /
-Consumer Report Disclosure and
-Authorization
+                          Criminal background report, if obtained and lawful for
+                          the position/location
                         </div>
                       </div>
                     </td>
@@ -12828,8 +12806,8 @@ Authorization
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Employment screening
-FCRA / applicable state law
+                      Confidential screening record Follow FCRA and applicable
+                      state/local restrictions
                     </td>
                   </tr>
 
@@ -12837,9 +12815,7 @@ FCRA / applicable state law
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Criminal background report, if
-obtained and lawful for the
-position/location
+                          PSP report, if ordered with driver authorization
                         </div>
                       </div>
                     </td>
@@ -12859,9 +12835,8 @@ position/location
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Confidential screening record
-Follow FCRA and applicable
-state/local restrictions
+                      Optional pre-employment safety screening Not a substitute
+                      for required MVR / SPH inquiries
                     </td>
                   </tr>
 
@@ -12869,8 +12844,8 @@ state/local restrictions
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          PSP report, if ordered with driver
-authorization
+                          CDLIS / license status information obtained through
+                          authorized source
                         </div>
                       </div>
                     </td>
@@ -12890,19 +12865,15 @@ authorization
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Optional pre-employment safety
-screening
-Not a substitute for required MVR / SPH inquiries
+                      Driver qualification screening Use for CDL status /
+                      medical certification verification as applicable
                     </td>
                   </tr>
-
                   <tr>
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          CDLIS / license status
-information obtained through
-authorized source
+                          Drug & Alcohol Policy acknowledgment / receipt
                         </div>
                       </div>
                     </td>
@@ -12922,18 +12893,15 @@ authorized source
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Driver qualification screening
-Use for CDL status / medical
-certification verification as
-applicable
+                      Company compliance Signed acknowledgment
                     </td>
                   </tr>
                   <tr>
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
                         <div>
-                          Drug & Alcohol Policy
-acknowledgment / receipt
+                          Driver policy / handbook / safety policy
+                          acknowledgments
                         </div>
                       </div>
                     </td>
@@ -12953,45 +12921,13 @@ acknowledgment / receipt
                     </td>
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Company compliance
-Signed acknowledgment
+                      Company record As applicable
                     </td>
                   </tr>
                   <tr>
                     <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
                       <div className="flex w-full items-center justify-between">
-                        <div>
-                          Driver policy / handbook / safety
-policy acknowledgments 
-                        </div>
-                      </div>
-                    </td>
-
-                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                      <input
-                        className="border border-3 border-black w-full p-2"
-                        type="checkbox"
-                      />
-                    </td>
-
-                    <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                      <input
-                        className="border border-3 border-black w-full p-2"
-                        type="checkbox"
-                      />
-                    </td>
-
-                    <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
-                      Company record
-As applicable
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className=" border border-[#555] px-[6px] py-[7px] align-top ">
-                      <div className="flex w-full items-center justify-between">
-                        <div>
-                          I-9 Form
-                        </div>
+                        <div>I-9 Form</div>
                       </div>
                     </td>
 
@@ -13011,7 +12947,7 @@ As applicable
 
                     <td className="border border-black px-[6px] py-[7px] align-middle text-left ">
                       Employment eligibility Keep separately from DQ file as
-company practice
+                      company practice
                     </td>
                   </tr>
                 </tbody>
@@ -13023,9 +12959,9 @@ company practice
 
       {/*****page 49 start********/}
 
-        <br />
+      <br />
 
-      <div className="relative mx-auto w-[210mm] h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
           <div className="w-full">
             <section className="mt-[12px]">
@@ -13038,7 +12974,9 @@ company practice
                   <tr className="border-b border-gray-300">
                     <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
-                        <span className="whitespace-nowrap">APPLICATION REVIEWED BY:</span>
+                        <span className="whitespace-nowrap">
+                          APPLICATION REVIEWED BY:
+                        </span>
                         <input
                           className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                           type="text"
@@ -13049,7 +12987,8 @@ company practice
                     <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
-                          DATE: <span className="text-gray-500">MM/DD/YYYY</span>
+                          DATE:{" "}
+                          <span className="text-gray-500">MM/DD/YYYY</span>
                         </span>
                         <input
                           className="border border-black h-[20px] flex-1 ml-2 min-w-0"
@@ -13089,7 +13028,7 @@ company practice
                     <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
-                          PREVIOUS EMPLOYER CHECKS BY: 
+                          PREVIOUS EMPLOYER CHECKS BY:
                         </span>
                         <input
                           className="border border-black h-[20px] flex-1 ml-2 min-w-0"
@@ -13125,7 +13064,8 @@ company practice
                     <td className="font-bold text-[10px] align-top leading-[1.22]">
                       <div className="flex items-center w-full">
                         <span className="whitespace-nowrap">
-                          DATE: <span className="text-gray-500">MM/DD/YYYY</span>
+                          DATE:{" "}
+                          <span className="text-gray-500">MM/DD/YYYY</span>
                         </span>
                         <input
                           className="border border-black h-[20px] flex-1 ml-2 min-w-0"
@@ -13136,24 +13076,17 @@ company practice
                   </tr>
                 </tbody>
               </table>
-
-              
-             
-             
-             
             </section>
             <section className="mt-[12px]">
-              
-
               <p className="text-[12px] mt-2 items-start">
                 <input type="checkbox" />
                 Approved for Hire <input type="checkbox" />
-                Conditional / Pending Documents<input type="checkbox" />
-                Not Approved<input type="checkbox" />
+                Conditional / Pending Documents
+                <input type="checkbox" />
+                Not Approved
+                <input type="checkbox" />
                 Withdrawn
               </p>
-
-              
 
               <div className="text-[11.4px] items-center gap-2 mr-3">
                 <span className="mr-2 font-bold text-[10px]">
@@ -13167,7 +13100,7 @@ company practice
                   className="border border-black w-full h-[50px]"
                 ></textarea>
               </div>
-              
+
               <br />
 
               <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
@@ -13212,12 +13145,14 @@ company practice
                 </tbody>
               </table>
 
-               <p className="text-[13.4px] mt-2 text-center">
-                WEBSITE VERSION - REV. SEPTEMBER 2026 | EXPANDED DRIVER DOCUMENT & CONSENT PACKAGE
+              <p className="text-[13.4px] mt-2 text-center">
+                WEBSITE VERSION - REV. SEPTEMBER 2026 | EXPANDED DRIVER DOCUMENT
+                & CONSENT PACKAGE
               </p>
 
               <p className="text-gray-500 text-[10px] text-center">
-                Prepared for use by motor carriers with administrative support from DOT Compliance Solutions LLC.
+                Prepared for use by motor carriers with administrative support
+                from DOT Compliance Solutions LLC.
               </p>
             </section>
           </div>
