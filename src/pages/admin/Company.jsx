@@ -473,18 +473,21 @@ export default function Company() {
                       {com.ein}
                     </td>
 
-                    <td className="px-6 py-4">
-                      <span className="font-medium text-slate-800 whitespace-nowrap">
-                        {com.owner}
-                      </span>
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.cname}
                     </td>
+                    
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.dba}
                     </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.cname}
+                    
+
+                    <td className="px-6 py-4">
+                      <span className="font-medium text-slate-800 whitespace-nowrap">
+                        {com.owner}
+                      </span>
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">

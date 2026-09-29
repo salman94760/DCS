@@ -18,7 +18,7 @@ export default function AddDriverEmployment() {
 
   const fetchDriversDocuments = async () => {
     try {
-      const response = await api.get(`/company/driver-document-view/${slug}/${id}`);
+      const response = await api.get(`/company/documentInformation/${slug}/${id}`);
 
       setDoc(response.data.data);
       setDocuments(response.data.data.document);
