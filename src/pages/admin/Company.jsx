@@ -510,16 +510,16 @@ export default function Company() {
                     {/* STATUS */}
 
                     <td className="px-6 py-4">
-                      <span
-                        className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                          com.usdot === "Active"
-                            ? "bg-green-50 text-green-700"
-                            : "bg-red-50 text-red-700"
-                        }`}
-                      >
-                        {com.usdot === "ACTIVE" ? "ACTIVE" : "IN-ACTIVE"}
-                      </span>
-                    </td>
+  <span
+    className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+      com.usdot?.toUpperCase() === "ACTIVE"
+        ? "bg-green-50 text-green-700"
+        : "bg-red-50 text-red-700"
+    }`}
+  >
+    {com.usdot?.toUpperCase() === "ACTIVE" ? "ACTIVE" : "IN-ACTIVE"}
+  </span>
+</td>
                     <td className="px-6 py-4">
                       <span
                         className={`px-2.5 py-1 rounded-full text-xs font-medium ${
