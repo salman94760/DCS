@@ -135,7 +135,7 @@ export default function AddCompany() {
     }
 
     if (!data.terminationdate) {
-      newErrors.terminationdate = "Termination Date required";
+      // newErrors.terminationdate = "Termination Date required";
     }
 
     if (!data.emecontactno) {
@@ -419,7 +419,7 @@ export default function AddCompany() {
             <PanelFormInput
               title="Termination Date"
               placeholder="enter SOCIAL SECURITY"
-              mandate={true}
+              mandate={false}
               inputype="date"
               name="terminationdate"
               errormsg={errors.terminationdate}

@@ -447,7 +447,7 @@ export default function AddCompany() {
             <PanelFormInput
               title="Termination Date"
               placeholder="enter SOCIAL SECURITY"
-              mandate={true}
+              mandate={false}
               inputype="date"
               name="terminationdate"
               value={res.terminationdate}

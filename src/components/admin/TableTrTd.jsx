@@ -38,7 +38,7 @@ export default function TableTrTd({
         {documentExists && (
           <Link
             target="_blank"
-            to={`/company-dashboard/driver/documentInformation/${encodeURIComponent(
+            to={`/company-dashboard/driver/documents-view/${encodeURIComponent(
               title,
             )}/${driverId}`}
           >

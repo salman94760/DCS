@@ -13,6 +13,7 @@ import AddDriverDocument from "@/pages/company/AddDriverDocument";
 import DriverExployment from "@/pages/company/DriverEmployment";
 import DriverExperience from "@/pages/company/DriverExperience";
 import DriverDocument from "@/pages/company/DriverDocument";
+import DriversDocumentsView from "@/pages/company/DriverDocumentsView";
 
 export default function CompanyRoutes() {
   return (
@@ -42,6 +43,7 @@ export default function CompanyRoutes() {
           <Route path="driver/document/:id" element={<DriverDocument />} />
 
           <Route path="driver/edit/:id" element={<EditDrivers />} />
+          <Route path="driver/documents-view/:slug/:id" element={<DriversDocumentsView />} />
         </Route>
       </Route>
     </Routes>
