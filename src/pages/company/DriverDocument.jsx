@@ -81,20 +81,11 @@ export default function AddDriverEmployment() {
       const docdates = formData.getAll("docdate[]");
       const files = formData.getAll("file[]");
 
-      titles.forEach((value) => {
-        uploadData.append("title[]", value);
-      });
-
-      subtitles.forEach((value) => {
-        uploadData.append("subtitle[]", value);
-      });
-
-      docdates.forEach((value) => {
-        uploadData.append("docdate[]", value);
-      });
-
-      files.forEach((file) => {
+      files.forEach((file, index) => {
         if (file instanceof File && file.size > 0) {
+          uploadData.append("title[]", titles[index] || "");
+          uploadData.append("subtitle[]", subtitles[index] || "");
+          uploadData.append("docdate[]", docdates[index] || "");
           uploadData.append("files[]", file);
         }
       });
@@ -108,20 +99,11 @@ export default function AddDriverEmployment() {
       const drugdates = formData.getAll("drugdate[]");
       const drugfiles = formData.getAll("randomdrugfile[]");
 
-      quarters.forEach((value) => {
-        uploadData.append("quarter[]", value);
-      });
-
-      drugtitles.forEach((value) => {
-        uploadData.append("drugtitle[]", value);
-      });
-
-      drugdates.forEach((value) => {
-        uploadData.append("drugdate[]", value);
-      });
-
-      drugfiles.forEach((file) => {
+      drugfiles.forEach((file, index) => {
         if (file instanceof File && file.size > 0) {
+          uploadData.append("quarter[]", quarters[index] || "");
+          uploadData.append("drugtitle[]", drugtitles[index] || "");
+          uploadData.append("drugdate[]", drugdates[index] || "");
           uploadData.append("randomdrugfile[]", file);
         }
       });
@@ -134,16 +116,10 @@ export default function AddDriverEmployment() {
       const misdates = formData.getAll("miscellaneousdate[]");
       const misfiles = formData.getAll("miscellaneousfile[]");
 
-      mistitles.forEach((value) => {
-        uploadData.append("miscellaneoustitle[]", value);
-      });
-
-      misdates.forEach((value) => {
-        uploadData.append("miscellaneousdate[]", value);
-      });
-
-      misfiles.forEach((file) => {
+      misfiles.forEach((file, index) => {
         if (file instanceof File && file.size > 0) {
+          uploadData.append("miscellaneoustitle[]",mistitles[index] || "");
+          uploadData.append("miscellaneousdate[]",misdates[index] || "");
           uploadData.append("misfile[]", file);
         }
       });

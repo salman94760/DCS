@@ -20,9 +20,9 @@ export default function AddDriverEmployment() {
     try {
       const response = await api.get(`/company/documentInformation/${slug}/${id}`);
 
-      setDoc(response.data.data);
-      setDocuments(response.data.data.document);
-      setDrugTest(response.data.data.drugtest);
+
+      setDocuments(response.data.data);
+
     } catch (error) {
       setErrors("Error fetching driver documents:");
     }
@@ -81,34 +81,62 @@ export default function AddDriverEmployment() {
                   </thead>
 
                   <tbody className="divide-y divide-slate-200">
-                        <tr className="cap hover:bg-slate-50">
+                    {
+                      documents?.map((doc,index)=>{
+
+                    let url = `${
+                      window.location.hostname === "localhost"
+                        ? "http://localhost:8000/storage/"
+                        : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                    }${doc.file}`;
+                        return (
+                           <tr key={index} className="cap hover:bg-slate-50">
       <td className="sticky left-0 z-10 bg-white px-6 py-2">
-        vdfvdfv
+        {doc.title}
         
       </td>
 
       <td className="sticky left-0 z-10 bg-white px-6 py-2">
-          xc xc 
+          {doc.subtitle}
        
       </td>
 
       <td className="sticky left-0 z-10 bg-white px-6 py-2">
-          xc xc 
+          {doc.expiration_date}
        
       </td>
 
      
 
-      <td className="sticky left-0 z-10 bg-white px-6 py-2">
-        <button type="submit">
-          <i className="fa-solid fa-upload"></i>
-        </button>
-      </td>
+      <td className="px-6 py-4">
+         <a
+                            href={`${url}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {doc.file ? (
+                        <img
+                          className="w-[100px] h-[60px] object-contain"
+                          src={`${
+                            window.location.hostname === "localhost"
+                              ? "http://localhost:8000/storage/"
+                              : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                          }${doc.file}`}
+                          alt={doc.title}
+                        />
+                      ) : (
+                        "No Image"
+                      )}
+                          </a>
+                      
+                    </td>
 
-      <td className="sticky left-0 z-10 bg-white px-6 py-2">
-        
-      </td>
-    </tr> 
+     
+    </tr>  
+                        );
+                      })
+                    }
+                       
                   </tbody>
                 </table>
               </div>
@@ -126,3 +154,10 @@ export default function AddDriverEmployment() {
     </div>
   );
 }
+
+
+
+
+
+
+                         

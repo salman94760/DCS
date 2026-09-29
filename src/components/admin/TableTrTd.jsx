@@ -6,7 +6,13 @@ export default function TableTrTd({
   documents = [],
   driverId,
 }) {
-  const documentExists = documents.some((doc) => doc.title === title);
+const document = documents.find((doc) => doc.title === title);
+
+const documentExists = !!document;
+const slug = document?.slug || "";
+const expiration_date = document?.expiration_date || "";
+
+
 
   return (
     <tr className="cap hover:bg-slate-50">
@@ -21,7 +27,7 @@ export default function TableTrTd({
       </td>
 
       <td className="sticky left-0 z-10 bg-white px-6 py-2">
-        <input type="date" name="docdate[]" />
+        <input type="date"  defaultValue={expiration_date} name="docdate[]" />
       </td>
 
       <td className="sticky left-0 z-10 bg-white px-6 py-2">
@@ -39,7 +45,7 @@ export default function TableTrTd({
           <Link
             target="_blank"
             to={`/company-dashboard/driver/documents-view/${encodeURIComponent(
-              title,
+              slug,
             )}/${driverId}`}
           >
             👁
