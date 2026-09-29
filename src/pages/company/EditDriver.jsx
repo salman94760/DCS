@@ -62,6 +62,8 @@ export default function AddCompany() {
       pclearinghousedate: formData.get("pclearinghousedate")?.trim() || "",
 
       terminationdate: formData.get("terminationdate")?.trim() || "",
+      emecontactno: formData.get("emecontactno")?.trim() || "",
+      emecontactperson: formData.get("emecontactperson")?.trim() || "",
       reasonleavingortermination:
         formData.get("reasonleavingortermination")?.trim() || "",
       legalrightsyes: formData.get("legalrightsyes")?.trim() || "",
@@ -136,7 +138,7 @@ export default function AddCompany() {
     }
 
     if (!data.drugnegativedate) {
-      newErrors.drugnegativedate = "Drug test Neagtive Date required";
+      // newErrors.drugnegativedate = "Drug test Neagtive Date required";
     }
 
     if (!data.socialsecurity) {
@@ -148,8 +150,16 @@ export default function AddCompany() {
         "Pre-employment Clearing House Date required";
     }
 
-    if (!data.terminationdate) {
-      newErrors.terminationdate = "Termination Date required";
+    if (!data.emecontactno) {
+      newErrors.emecontactno = "Emergency contact no required";
+    }
+
+    if (!data.emecontactperson) {
+      newErrors.emecontactperson = "Emergency contact person name required";
+    }
+
+    if (!data.emecontactperson) {
+      newErrors.emecontactperson = "Termination Date required";
     }
 
     if (!data.permituscisno) {
@@ -194,6 +204,8 @@ export default function AddCompany() {
       uploadData.append("pclearinghousedate", data.pclearinghousedate);
 
       uploadData.append("terminationdate", data.terminationdate);
+      uploadData.append("emecontactno", data.emecontactno);
+      uploadData.append("emecontactperson", data.emecontactperson);
       uploadData.append(
         "reasonleavingortermination",
         data.reasonleavingortermination,
@@ -369,7 +381,7 @@ export default function AddCompany() {
             <PanelFormInput
               title="Drug test Neagtive Date"
               placeholder=""
-              mandate={true}
+              mandate={false}
               inputype="date"
               name="drugnegativedate"
               value={res.drugnegativedate}
@@ -440,6 +452,24 @@ export default function AddCompany() {
               name="terminationdate"
               value={res.terminationdate}
               errormsg={errors.terminationdate}
+            />
+
+            <PanelFormInput
+              title="Emergency COntact no"
+              placeholder="Emergency COntact no"
+              mandate={true}
+              inputype="text"
+              name="emecontactno"
+              errormsg={errors.emecontactno}
+            />
+
+            <PanelFormInput
+              title="Emergency COntact person name"
+              placeholder="Emergency COntact person name"
+              mandate={true}
+              inputype="text"
+              name="emecontactperson"
+              errormsg={errors.emecontactperson}
             />
           </div>
           <br />

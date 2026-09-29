@@ -435,8 +435,8 @@ export default function AddCompany() {
             />
 
             <PanelFormInput
-              title="Emergency COntact person"
-              placeholder="Emergency COntact person"
+              title="Emergency COntact person name"
+              placeholder="Emergency COntact person name"
               mandate={true}
               inputype="text"
               name="emecontactperson"
