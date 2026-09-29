@@ -20,16 +20,12 @@ export const ContextProvider = ({ children }) => {
       const response = await api.get(url);
       dispatch({
         type: "FETCH_All_DATA_SUCCESS",
-        payload: Array.isArray(response.data.data)
-          ? response.data.data
-          : [],
+        payload: Array.isArray(response.data.data) ? response.data.data : [],
       });
     } catch (error) {
       dispatch({
         type: "FETCH_ERROR",
-        payload:
-          error.response?.data?.message ||
-          "Failed to fetch companies",
+        payload: error.response?.data?.message || "Failed to fetch companies",
       });
     }
   };
@@ -54,9 +50,7 @@ export const ContextProvider = ({ children }) => {
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload:
-          error.response?.data?.message ||
-          "Failed to fetch company",
+        payload: error.response?.data?.message || "Failed to fetch company",
       });
 
       throw error;
@@ -72,10 +66,7 @@ export const ContextProvider = ({ children }) => {
     });
 
     try {
-      const response = await api.post(
-        "/admin/company/add",
-        formData
-      );
+      const response = await api.post("/admin/company/add", formData);
 
       dispatch({
         type: "ADD_SUCCESS",
@@ -86,9 +77,7 @@ export const ContextProvider = ({ children }) => {
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload:
-          error.response?.data?.message ||
-          "Failed to add company",
+        payload: error.response?.data?.message || "Failed to add company",
       });
 
       throw error;
@@ -107,10 +96,7 @@ export const ContextProvider = ({ children }) => {
       // Laravel method spoofing
       formData.append("_method", "PUT");
 
-      const response = await api.post(
-        `/admin/company/${id}`,
-        formData
-      );
+      const response = await api.post(`/admin/company/${id}`, formData);
 
       dispatch({
         type: "UPDATE_SUCCESS",
@@ -121,9 +107,7 @@ export const ContextProvider = ({ children }) => {
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload:
-          error.response?.data?.message ||
-          "Failed to update company",
+        payload: error.response?.data?.message || "Failed to update company",
       });
 
       throw error;
@@ -148,9 +132,7 @@ export const ContextProvider = ({ children }) => {
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
-        payload:
-          error.response?.data?.message ||
-          "Failed to delete company",
+        payload: error.response?.data?.message || "Failed to delete company",
       });
 
       throw error;
@@ -237,9 +219,7 @@ export const useDcsContext = () => {
   const context = useContext(DContext);
 
   if (!context) {
-    throw new Error(
-      "useDcsContext must be used inside ContextProvider"
-    );
+    throw new Error("useDcsContext must be used inside ContextProvider");
   }
 
   return context;
