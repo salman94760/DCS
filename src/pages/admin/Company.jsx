@@ -9,11 +9,18 @@ import { useDcsContext } from "@/context/Context";
 
 export default function Company() {
   const navigate = useNavigate();
-  const {state,fetchAllData,loading,error,filters,setFilters,resetFilters} = useDcsContext();
+  const {
+    state,
+    fetchAllData,
+    loading,
+    error,
+    filters,
+    setFilters,
+    resetFilters,
+  } = useDcsContext();
   const [search, setSearch] = useState("");
   const [role, setRole] = useState("all");
   const [status, setStatus] = useState("all");
-
 
   // ==========================================
   // GET COMPANIES
@@ -22,7 +29,7 @@ export default function Company() {
     const role = localStorage.getItem("userRole");
 
     if (role === "admin") {
-      fetchAllData('/admin/company');
+      fetchAllData("/admin/company");
     } else if (role === "company") {
       navigate("/company-dashboard", { replace: true });
     }
@@ -31,51 +38,43 @@ export default function Company() {
   // ==========================================
   // FILTER
   // ==========================================
-const filtered = useMemo(() => {
-  const companies = Array.isArray(state.data)
-    ? state.data
-    : [];
+  const filtered = useMemo(() => {
+    const companies = Array.isArray(state.data) ? state.data : [];
 
-  const searchText =
-    filters?.search?.toLowerCase().trim() || "";
+    const searchText = filters?.search?.toLowerCase().trim() || "";
 
-  const status = filters?.status || "all";
+    const status = filters?.status || "all";
 
-  return companies.filter((com) => {
-    const companyName =
-      String(com.cname || "").toLowerCase();
+    return companies.filter((com) => {
+      const companyName = String(com.cname || "").toLowerCase();
 
-    const owner =
-      String(com.owner || "").toLowerCase();
+      const owner = String(com.owner || "").toLowerCase();
 
-    const email =
-      String(com.email || "").toLowerCase();
+      const email = String(com.email || "").toLowerCase();
 
-    const usdot =
-      String(com.usdot || "").toLowerCase();
+      const usdot = String(com.usdot || "").toLowerCase();
 
-    const matchesSearch =
-      !searchText ||
-      companyName.includes(searchText) ||
-      owner.includes(searchText) ||
-      email.includes(searchText) ||
-      usdot.includes(searchText);
+      const matchesSearch =
+        !searchText ||
+        companyName.includes(searchText) ||
+        owner.includes(searchText) ||
+        email.includes(searchText) ||
+        usdot.includes(searchText);
 
-    const companyStatus =
-      Number(com.user?.user_info?.status);
+      const companyStatus = Number(com.user?.user_info?.status);
 
-    const matchesStatus =
-      status === "all" ||
-      (status === "active" && companyStatus === 1) ||
-      (status === "inactive" && companyStatus === 0);
+      const matchesStatus =
+        status === "all" ||
+        (status === "active" && companyStatus === 1) ||
+        (status === "inactive" && companyStatus === 0);
 
-    return matchesSearch && matchesStatus;
-  });
-}, [state.data, filters]);
+      return matchesSearch && matchesStatus;
+    });
+  }, [state.data, filters]);
 
-console.log("FILTERED DATA:", filtered);
+  console.log("FILTERED DATA:", filtered);
 
-console.log(filtered);
+  console.log(filtered);
   // ==========================================
   // FILTER BUTTON
   // ==========================================
@@ -403,7 +402,7 @@ console.log(filtered);
               </tr>
             </thead>
 
-            <tbody className="divide-y divide-slate-200">
+            <tbody className="cap divide-y divide-slate-200">
               {loading ? (
                 <tr>
                   <td colSpan="17" className="text-center py-10 text-slate-500">
@@ -518,7 +517,7 @@ console.log(filtered);
                             : "bg-red-50 text-red-700"
                         }`}
                       >
-                        {com.usdot === "Active" ? "Active" : "In-active"}
+                        {com.usdot === "ACTIVE" ? "ACTIVE" : "IN-ACTIVE"}
                       </span>
                     </td>
                     <td className="px-6 py-4">
