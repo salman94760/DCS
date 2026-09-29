@@ -83,8 +83,6 @@ export default function AddCompany() {
     // =========================
     if (!data.dot) {
       newErrors.dot = "DOT is required";
-    } else if (!/^\d{7}$/.test(data.dot)) {
-      newErrors.dot = "DOT must be exactly 7 digits";
     }
 
     // =========================
@@ -92,8 +90,6 @@ export default function AddCompany() {
     // =========================
     if (!data.mc) {
       newErrors.mc = "MC is required";
-    } else if (!/^\d{7}$/.test(data.mc)) {
-      newErrors.mc = "MC must be exactly 7 digits";
     }
 
     // =========================
@@ -101,8 +97,6 @@ export default function AddCompany() {
     // =========================
     if (!data.ein) {
       newErrors.ein = "EIN is required";
-    } else if (!/^\d{9}$/.test(data.ein)) {
-      newErrors.ein = "EIN must be exactly 9 digits";
     }
 
     // =========================
