@@ -72,7 +72,7 @@ export default function Sidebar() {
                   Add Driver
                 </Link>
 
-                <Link
+                {/*<Link
                   to="/company-dashboard/driver/experience/add"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
@@ -91,7 +91,7 @@ export default function Sidebar() {
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
                   Add Document
-                </Link>
+                </Link>*/}
               </div>
             )}
           </div>

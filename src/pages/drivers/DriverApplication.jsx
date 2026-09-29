@@ -477,170 +477,170 @@ export default function DriverApplication() {
 
       {/******page 3 start*****/}
       <br />
-      
-<div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-  <section className="mt-2 sm:mt-[12px]">
-    <h2 className="mb-2 text-base sm:text-[18px] font-bold leading-[1.2] text-[#174875]">
-      23 DMV / MVR / CDLIS DRIVER RECORDS AUTHORIZATION & CONSENT
-    </h2>
 
-    <div className="mb-3 bg-[#d8e9f6] px-2.5 py-2 text-[11px] sm:text-[13px] font-semibold leading-[1.35] text-[#173f69]">
-      This authorization is intended to permit the prospective motor carrier
-      and its authorized screening provider to obtain driving-record
-      information for lawful employment and driver-qualification purposes. It
-      does not replace any separate consent required by a State agency or
-      screening provider.
-    </div>
+      <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <section className="mt-2 sm:mt-[12px]">
+          <h2 className="mb-2 text-base sm:text-[18px] font-bold leading-[1.2] text-[#174875]">
+            23 DMV / MVR / CDLIS DRIVER RECORDS AUTHORIZATION & CONSENT
+          </h2>
 
-    <div className="mb-2 text-[11px] sm:text-[13px] leading-[1.5]">
-      I authorize the prospective employer, its authorized agents, and its
-      designated consumer reporting or records provider to obtain and review
-      motor vehicle records and driver-license information for lawful
-      employment and driver-qualification purposes. This authorization includes
-      records from State Driver Licensing Agencies and, when lawfully available
-      through an authorized source, CDLIS-related information concerning my
-      commercial driver license status, class, endorsements, restrictions,
-      disqualifications, convictions, suspensions/revocations, and
-      medical-certification status.
-    </div>
+          <div className="mb-3 bg-[#d8e9f6] px-2.5 py-2 text-[11px] sm:text-[13px] font-semibold leading-[1.35] text-[#173f69]">
+            This authorization is intended to permit the prospective motor
+            carrier and its authorized screening provider to obtain
+            driving-record information for lawful employment and
+            driver-qualification purposes. It does not replace any separate
+            consent required by a State agency or screening provider.
+          </div>
 
-    <div className="mb-3 text-[11px] sm:text-[12.5px] leading-[1.5]">
-      I authorize such records to be obtained before employment and, to the
-      extent permitted by law, periodically during employment for driver
-      qualification, safety, insurance, and compliance purposes. I understand
-      that additional State-specific notices or authorizations may be required.
-    </div>
+          <div className="mb-2 text-[11px] sm:text-[13px] leading-[1.5]">
+            I authorize the prospective employer, its authorized agents, and its
+            designated consumer reporting or records provider to obtain and
+            review motor vehicle records and driver-license information for
+            lawful employment and driver-qualification purposes. This
+            authorization includes records from State Driver Licensing Agencies
+            and, when lawfully available through an authorized source,
+            CDLIS-related information concerning my commercial driver license
+            status, class, endorsements, restrictions, disqualifications,
+            convictions, suspensions/revocations, and medical-certification
+            status.
+          </div>
 
-    <div className="w-full overflow-hidden">
-      <table className="w-full table-fixed border-collapse text-[11px] sm:text-[13.5px]">
-        <tbody>
-          {/* Driver Name */}
-          <tr>
-            <td className="w-[42%] border border-[#555] px-2 py-2 align-top">
-              <label className="text-[10px] sm:text-xs">
-                Driver Full Legal Name
-              </label>
-            </td>
+          <div className="mb-3 text-[11px] sm:text-[12.5px] leading-[1.5]">
+            I authorize such records to be obtained before employment and, to
+            the extent permitted by law, periodically during employment for
+            driver qualification, safety, insurance, and compliance purposes. I
+            understand that additional State-specific notices or authorizations
+            may be required.
+          </div>
 
-            <td className="w-[58%] border border-[#555] px-2 py-2">
-              <input
-                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
-                type="text"
-              />
-            </td>
-          </tr>
+          <div className="w-full overflow-hidden">
+            <table className="w-full table-fixed border-collapse text-[11px] sm:text-[13.5px]">
+              <tbody>
+                {/* Driver Name */}
+                <tr>
+                  <td className="w-[42%] border border-[#555] px-2 py-2 align-top">
+                    <label className="text-[10px] sm:text-xs">
+                      Driver Full Legal Name
+                    </label>
+                  </td>
 
-          {/* DOB */}
-          <tr>
-            <td className="border border-[#555] px-2 py-2 align-top">
-              <label className="text-[10px] sm:text-xs">
-                Date of Birth
-              </label>
-            </td>
+                  <td className="w-[58%] border border-[#555] px-2 py-2">
+                    <input
+                      className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                      type="text"
+                    />
+                  </td>
+                </tr>
 
-            <td className="border border-[#555] px-2 py-2">
-              <input
-                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
-                type="date"
-              />
-            </td>
-          </tr>
+                {/* DOB */}
+                <tr>
+                  <td className="border border-[#555] px-2 py-2 align-top">
+                    <label className="text-[10px] sm:text-xs">
+                      Date of Birth
+                    </label>
+                  </td>
 
-          {/* License / State */}
-          <tr>
-            <td className="border border-[#555] px-2 py-2 align-top">
-              <label className="mb-1 block text-[10px] sm:text-xs">
-                Driver License / CDL Number
-              </label>
+                  <td className="border border-[#555] px-2 py-2">
+                    <input
+                      className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                      type="date"
+                    />
+                  </td>
+                </tr>
 
-              <input
-                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
-                type="text"
-              />
-            </td>
+                {/* License / State */}
+                <tr>
+                  <td className="border border-[#555] px-2 py-2 align-top">
+                    <label className="mb-1 block text-[10px] sm:text-xs">
+                      Driver License / CDL Number
+                    </label>
 
-            <td className="border border-[#555] px-2 py-2 align-top">
-              <label className="mb-1 block text-[10px] sm:text-xs">
-                State:
-              </label>
+                    <input
+                      className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                      type="text"
+                    />
+                  </td>
 
-              <input
-                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
-                type="text"
-              />
-            </td>
-          </tr>
+                  <td className="border border-[#555] px-2 py-2 align-top">
+                    <label className="mb-1 block text-[10px] sm:text-xs">
+                      State:
+                    </label>
 
-          {/* Address */}
-          <tr>
-            <td className="border border-[#555] px-2 py-2 align-top">
-              <label className="text-[10px] sm:text-xs">
-                Current Address
-              </label>
-            </td>
+                    <input
+                      className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                      type="text"
+                    />
+                  </td>
+                </tr>
 
-            <td className="border border-[#555] px-2 py-2">
-              <textarea
-                className="box-border h-24 sm:h-[120px] w-full min-w-0 resize-y border border-[#555] p-2 text-xs sm:text-sm"
-              />
-            </td>
-          </tr>
+                {/* Address */}
+                <tr>
+                  <td className="border border-[#555] px-2 py-2 align-top">
+                    <label className="text-[10px] sm:text-xs">
+                      Current Address
+                    </label>
+                  </td>
 
-          {/* Driver Signature */}
-          <tr>
-            <td className="border border-[#555] px-2 py-2 align-top">
-              <label className="mb-1 block text-[10px] sm:text-xs">
-                Driver Signature
-              </label>
+                  <td className="border border-[#555] px-2 py-2">
+                    <textarea className="box-border h-24 sm:h-[120px] w-full min-w-0 resize-y border border-[#555] p-2 text-xs sm:text-sm" />
+                  </td>
+                </tr>
 
-              <input
-                onClick={() => setSignatureOpen(true)}
-                className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
-                type="text"
-              />
-            </td>
+                {/* Driver Signature */}
+                <tr>
+                  <td className="border border-[#555] px-2 py-2 align-top">
+                    <label className="mb-1 block text-[10px] sm:text-xs">
+                      Driver Signature
+                    </label>
 
-            <td className="border border-[#555] px-2 py-2 align-top">
-              <label className="mb-1 block text-[10px] sm:text-xs">
-                Date:
-              </label>
+                    <input
+                      onClick={() => setSignatureOpen(true)}
+                      className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                      type="text"
+                    />
+                  </td>
 
-              <input
-                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
-                type="date"
-              />
-            </td>
-          </tr>
+                  <td className="border border-[#555] px-2 py-2 align-top">
+                    <label className="mb-1 block text-[10px] sm:text-xs">
+                      Date:
+                    </label>
 
-          {/* Employer */}
-          <tr>
-            <td className="border border-[#555] px-2 py-2 align-top">
-              <label className="mb-1 block text-[10px] sm:text-xs">
-                Employer / Authorized Representative
-              </label>
+                    <input
+                      className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                      type="date"
+                    />
+                  </td>
+                </tr>
 
-              <input
-                className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
-                type="text"
-              />
-            </td>
+                {/* Employer */}
+                <tr>
+                  <td className="border border-[#555] px-2 py-2 align-top">
+                    <label className="mb-1 block text-[10px] sm:text-xs">
+                      Employer / Authorized Representative
+                    </label>
 
-            <td className="border border-[#555] px-2 py-2 align-top">
-              <label className="mb-1 block text-[10px] sm:text-xs">
-                Date:
-              </label>
+                    <input
+                      className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                      type="text"
+                    />
+                  </td>
 
-              <input
-                className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
-                type="date"
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-</div>
+                  <td className="border border-[#555] px-2 py-2 align-top">
+                    <label className="mb-1 block text-[10px] sm:text-xs">
+                      Date:
+                    </label>
+
+                    <input
+                      className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
+                      type="date"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
       {/******page 4 start*****/}
       <br />
       <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">

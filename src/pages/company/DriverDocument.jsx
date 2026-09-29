@@ -1,259 +1,195 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+
 import PanelFormInput from "@/components/admin/FormInput";
+import TableTrTd from "@/components/admin/TableTrTd";
 import api from "@/api/axios";
 
-export default function DriverDocument() {
+export default function AddDriverEmployment() {
   const navigate = useNavigate();
+  const { id } = useParams();
 
-  const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+
   const [serverMessage, setServerMessage] = useState("");
   const [serverMessageType, setServerMessageType] = useState("");
+  const [doc, setDoc] = useState("");
+  const [documents, setDocuments] = useState([]);
+  const [drugtest, setDrugTest] = useState([]);
+
+  const fetchDriversDocuments = async () => {
+    try {
+      const response = await api.get(`/company/driver-document/${id}`);
+
+      setDoc(response.data.data);
+      setDocuments(response.data.data.document);
+      setDrugTest(response.data.data.drugtest);
+    } catch (error) {
+      setErrors("Error fetching driver documents:");
+    }
+  };
 
   useEffect(() => {
-    const role = localStorage.getItem("userRole");
-    if (role === "admin") {
-      navigate("/admin-dashboard", { replace: true });
-    } else if (role === "company") {
-    } else {
-      navigate("/", { replace: true });
+    if (id) {
+      fetchDriversDocuments();
     }
-  }, [navigate]);
+  }, [id]);
+
+  const documentByTitle = documents.reduce((acc, doc) => {
+    acc[doc.title] = doc;
+    return acc;
+  }, {});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (loading) return;
 
-    const formData = new FormData(e.target);
-
-    const data = {
-      fname: formData.get("fname")?.trim() || "",
-      mname: formData.get("mname")?.trim() || "",
-      lname: formData.get("lname")?.trim() || "",
-      activedate: formData.get("activedate")?.trim() || "",
-
-      dob: formData.get("dob")?.trim() || "",
-      phone: formData.get("phone")?.trim() || "",
-      email: formData.get("email")?.trim() || "",
-      drugnegativedate: formData.get("drugnegativedate")?.trim() || "",
-
-      socialsecurity: formData.get("socialsecurity")?.trim() || "",
-      appliedfor: formData.get("appliedfor")?.trim() || "",
-      driverstatus: formData.get("driverstatus")?.trim() || "",
-      pclearinghousedate: formData.get("pclearinghousedate")?.trim() || "",
-
-      terminationdate: formData.get("terminationdate")?.trim() || "",
-      reasonleavingortermination: formData.get("reasonleavingortermination")?.trim() || "",
-      legalrightsyes: formData.get("legalrightsyes")?.trim() || "",
-      legalrightsno: formData.get("legalrightsno")?.trim() || "",
-      legalrightsstatus: formData.get("legalrightsstatus")?.trim() || "",
-      workauthorization: formData.get("workauthorization")?.trim() || "",
-      permituscisno: formData.get("permituscisno")?.trim() || "",
-      permitexpdate: formData.get("permitexpdate")?.trim() || "",
-
-      currentstreet: formData.get("currentstreet")?.trim() || "",
-      currentcity: formData.get("currentcity")?.trim() || "",
-      currentstate: formData.get("currentstate")?.trim() || "",
-      currentzip: formData.get("currentzip")?.trim() || "",
-      currentyear: formData.get("currentyear")?.trim() || "",
-     
-      mailingstreet: formData.get("mailingstreet")?.trim() || "",
-      mailingcity: formData.get("mailingcity")?.trim() || "",
-      mailingstate: formData.get("mailingstate")?.trim() || "",
-      mailingzip: formData.get("mailingzip")?.trim() || "",
-      mailingyear: formData.get("mailingyear")?.trim() || "",
-
-      previousstreet: formData.get("previousstreet")?.trim() || "",
-      previouscity: formData.get("previouscity")?.trim() || "",
-      previousstate: formData.get("previousstate")?.trim() || "",
-      previouszip: formData.get("previouszip")?.trim() || "",
-      previousyear: formData.get("previousyear")?.trim() || "",
-
-      currentcdlstate: formData.get("currentcdlstate")?.trim() || "",
-      currentcdllicenseno: formData.get("currentcdllicenseno")?.trim() || "",
-      currentcdlclass: formData.get("currentcdlclass")?.trim() || "",
-      currentcdlendorsements: formData.get("currentcdlendorsements")?.trim() || "",
-      currentcdlissuedate: formData.get("currentcdlissuedate")?.trim() || "",
-      currentcdlexpdate: formData.get("currentcdlexpdate")?.trim() || "",
-
-      oldcdlstate: formData.get("oldcdlstate")?.trim() || "",
-      oldcdllicenseno: formData.get("oldcdllicenseno")?.trim() || "",
-      oldcdlclass: formData.get("oldcdlclass")?.trim() || "",
-      oldcdlendorsements: formData.get("oldcdlendorsements")?.trim() || "",
-      oldcdlissuedate: formData.get("oldcdlissuedate")?.trim() || "",
-      oldcdlexpdate: formData.get("oldcdlexpdate")?.trim() || "",
-    };
-
-    const newErrors = {};
-
-    if (!data.fname) {
-      newErrors.fname = "First name is required";
-    }
-
-    if (!data.lname) {
-      newErrors.lname = "Last name is required";
-    }
-
-    if (!data.activedate) {
-      newErrors.activedate = "Active date required";
-    }
-
-
-
-    if (!data.dob) {
-      newErrors.dob = "Date of birth required";
-    }
-
-    if (!data.phone) {
-      newErrors.phone = "Phone number is required";
-    } else if (!/^\d{10}$/.test(data.phone)) {
-      newErrors.phone = "Phone number must be exactly 10 digits";
-    }
-
-    if (!data.email) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-      newErrors.email = "Please enter a valid email";
-    }
-
-    if (!data.drugnegativedate) {
-      newErrors.drugnegativedate = "Drug test Neagtive Date required";
-    }
-
-    if (!data.socialsecurity) {
-      newErrors.socialsecurity = "Social security required";
-    }
-
-    if (!data.pclearinghousedate) {
-      newErrors.pclearinghousedate = "Pre-employment Clearing House Date required";
-    }
-
-    if (!data.terminationdate) {
-      newErrors.terminationdate = "Termination Date required";
-    }
-
-    if (!data.permituscisno) {
-      newErrors.permituscisno = "Work permit USCIS no required";
-    }
-
-    if (!data.permitexpdate) {
-      newErrors.permitexpdate = "Work Permit Expiration Date required";
-    }
-
-    if (!data.currentcdlissuedate) {
-      newErrors.currentcdlissuedate = "Current cdl issue date required";
-    }
-
-    if (!data.currentcdlexpdate) {
-      newErrors.currentcdlexpdate = "Current cdl expiry date required";
-    }
-
-     
-
-  
-
-
- 
-    
-
-
-    
-
- 
-    
-
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-
-    setErrors({});
     setServerMessage("");
+    setServerMessageType("");
     setLoading(true);
 
     try {
+      let user = null;
 
+      try {
+        user = JSON.parse(localStorage.getItem("user") || "null");
+      } catch (error) {
+        console.error("User JSON parse error:", error);
+      }
+
+      const formData = new FormData(e.currentTarget);
       const uploadData = new FormData();
 
-      uploadData.append("fname", data.fname);
-      uploadData.append("mname", data.mname);
-      uploadData.append("lname", data.lname);
-      uploadData.append("activedate", data.activedate);
-      uploadData.append("dob", data.dob);
-      uploadData.append("phone", data.phone);
-      uploadData.append("email", data.email);
-      uploadData.append("drugnegativedate", data.drugnegativedate);
-      uploadData.append("socialsecurity", data.socialsecurity);
-      uploadData.append("appliedfor", data.appliedfor);
-      uploadData.append("driverstatus", data.driverstatus);
-      uploadData.append("pclearinghousedate", data.pclearinghousedate);
+      if (user?.name) {
+        uploadData.append("cname", user.name);
+      }
 
-      uploadData.append("terminationdate", data.terminationdate);
-      uploadData.append("reasonleavingortermination", data.reasonleavingortermination);
-      uploadData.append("legalrightsyes", data.legalrightsyes);
-      uploadData.append("legalrightsno", data.legalrightsno);
-      uploadData.append("legalrightsstatus", data.legalrightsstatus);
-      uploadData.append("workauthorization", data.workauthorization);
-      uploadData.append("permituscisno", data.permituscisno);
-      uploadData.append("permitexpdate", data.permitexpdate);
+      if (user?.id) {
+        uploadData.append("company_id", user.id);
+      }
 
-      uploadData.append("currentstreet", data.currentstreet);
-      uploadData.append("currentcity", data.currentcity);
-      uploadData.append("currentstate", data.currentstate);
-      uploadData.append("currentzip", data.currentzip);
-      uploadData.append("currentyear", data.currentyear);
+      uploadData.append("driver_id", id);
 
-      uploadData.append("mailingstreet", data.mailingstreet);
-      uploadData.append("mailingcity", data.mailingcity);
-      uploadData.append("mailingstate", data.mailingstate);
-      uploadData.append("mailingzip", data.mailingzip);
-      uploadData.append("mailingyear", data.mailingyear);
+      // =========================
+      // DRIVER DOCUMENTS
+      // =========================
 
-      uploadData.append("previousstreet", data.previousstreet);
-      uploadData.append("previouscity", data.previouscity);
-      uploadData.append("previousstate", data.previousstate);
-      uploadData.append("previouszip", data.previouszip);
-      uploadData.append("previousyear", data.previousyear);
+      const titles = formData.getAll("title[]");
+      const subtitles = formData.getAll("subtitle[]");
+      const docdates = formData.getAll("docdate[]");
+      const files = formData.getAll("file[]");
 
-      uploadData.append("currentcdlstate", data.currentcdlstate);
-      uploadData.append("currentcdllicenseno", data.currentcdllicenseno);
-      uploadData.append("currentcdlclass", data.currentcdlclass);
-      uploadData.append("currentcdlendorsements", data.currentcdlendorsements);
-      uploadData.append("currentcdlissuedate", data.currentcdlissuedate);
-      uploadData.append("currentcdlexpdate", data.currentcdlexpdate);
+      titles.forEach((value) => {
+        uploadData.append("title[]", value);
+      });
 
-      uploadData.append("oldcdlstate", data.oldcdlstate);
-      uploadData.append("oldcdllicenseno", data.oldcdllicenseno);
-      uploadData.append("oldcdlclass", data.oldcdlclass);
-      uploadData.append("oldcdlendorsements", data.oldcdlendorsements);
-      uploadData.append("oldcdlissuedate", data.oldcdlissuedate);
-      uploadData.append("oldcdlexpdate", data.oldcdlexpdate);
-      uploadData.append("cname", JSON.parse(localStorage.getItem("user"))?.name);
-      uploadData.append("company_id", JSON.parse(localStorage.getItem("user"))?.id);
+      subtitles.forEach((value) => {
+        uploadData.append("subtitle[]", value);
+      });
 
-   
-   
+      docdates.forEach((value) => {
+        uploadData.append("docdate[]", value);
+      });
 
-    
-      const response = await api.post("/company/driver/add", uploadData);
+      files.forEach((file) => {
+        if (file instanceof File && file.size > 0) {
+          uploadData.append("files[]", file);
+        }
+      });
 
-      const result = response.data;
+      // =========================
+      // DRUG TEST
+      // =========================
 
-      console.log("SUCCESS:", result);
+      const quarters = formData.getAll("quarter[]");
+      const drugtitles = formData.getAll("drugtitle[]");
+      const drugdates = formData.getAll("drugdate[]");
+      const drugfiles = formData.getAll("randomdrugfile[]");
 
-      setServerMessage(result.message || "Driver added successfully");
+      quarters.forEach((value) => {
+        uploadData.append("quarter[]", value);
+      });
+
+      drugtitles.forEach((value) => {
+        uploadData.append("drugtitle[]", value);
+      });
+
+      drugdates.forEach((value) => {
+        uploadData.append("drugdate[]", value);
+      });
+
+      drugfiles.forEach((file) => {
+        if (file instanceof File && file.size > 0) {
+          uploadData.append("randomdrugfile[]", file);
+        }
+      });
+
+      // =========================
+      // MISCELLANEOUS
+      // =========================
+
+      const mistitles = formData.getAll("miscellaneoustitle[]");
+      const misdates = formData.getAll("miscellaneousdate[]");
+      const misfiles = formData.getAll("miscellaneousfile[]");
+
+      mistitles.forEach((value) => {
+        uploadData.append("miscellaneoustitle[]", value);
+      });
+
+      misdates.forEach((value) => {
+        uploadData.append("miscellaneousdate[]", value);
+      });
+
+      misfiles.forEach((file) => {
+        if (file instanceof File && file.size > 0) {
+          uploadData.append("misfile[]", file);
+        }
+      });
+
+      // =========================
+      // CHECK DATA
+      // =========================
+
+      console.log("DOCUMENT TITLES:", titles);
+      console.log("DOCUMENT SUBTITLES:", subtitles);
+      console.log("DOCUMENT DATES:", docdates);
+      console.log("DOCUMENT FILES:", files);
+
+      console.log("DRUG TITLES:", drugtitles);
+      console.log("DRUG DATES:", drugdates);
+      console.log("DRUG FILES:", drugfiles);
+
+      console.log("MISC TITLES:", mistitles);
+      console.log("MISC DATES:", misdates);
+      console.log("MISC FILES:", misfiles);
+
+      for (const [key, value] of uploadData.entries()) {
+        console.log(key, value);
+      }
+
+      const response = await api.post(
+        "/company/driver/document/add",
+        uploadData,
+      );
+
+      fetchDriversDocuments();
+      setServerMessage(
+        result?.message || "Driver documents updated successfully",
+      );
 
       setServerMessageType("success");
-
-      navigate("/company-dashboard/drivers", {
-        replace: true,
-      });
     } catch (error) {
-      console.error("ERROR:", error);
+      console.error("FULL ERROR:", error);
+      console.error("RESPONSE:", error?.response);
+      console.error("RESPONSE DATA:", error?.response?.data);
 
-      const message = error.response?.data?.message || "Something went wrong.";
+      const message =
+        error?.response?.data?.message ||
+        error?.response?.data?.error ||
+        error?.message ||
+        "Something went wrong.";
 
       setServerMessage(message);
       setServerMessageType("error");
@@ -262,11 +198,14 @@ export default function DriverDocument() {
     }
   };
 
+  console.log(doc.miscellaneous);
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Add Driver</h1>
+          <h1 className="text-2xl font-bold text-slate-900">
+            Driver Document Information
+          </h1>
         </div>
 
         <Link
@@ -280,538 +219,792 @@ export default function DriverDocument() {
       <div className="bg-white rounded-xl border border-slate-200 p-6">
         <form
           onSubmit={handleSubmit}
-          className="space-y-5"
+          className="cap space-y-5"
           encType="multipart/form-data"
         >
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-            <PanelFormInput
-              title="first name"
-              placeholder="enter first name"
-              mandate={true}
-              inputype="text"
-              name="fname"
-              errormsg={errors.fname}
-            />
+          <div className="bg-white rounded-xl border border-slate-200">
+            <p className="p-4">Document Information</p>
 
-            <PanelFormInput
-              title="middle name"
-              placeholder="enter middle name"
-              mandate={false}
-              inputype="text"
-              name="mname"
-              errormsg={errors.mname}
-            />
-
-            <PanelFormInput
-              title="last name"
-              placeholder="enter last name"
-              mandate={true}
-              inputype="text"
-              name="lname"
-              errormsg={errors.lname}
-            />
-
-            <PanelFormInput
-              title="Active date"
-              placeholder=""
-              mandate={true}
-              inputype="date"
-              name="activedate"
-              errormsg={errors.activedate}
-            />
-          </div>
-          <br />
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-            <PanelFormInput
-              title="dob (date of Birth)"
-              placeholder="enter first name"
-              mandate={true}
-              inputype="date"
-              name="dob"
-              errormsg={errors.dob}
-            />
-
-            <PanelFormInput
-              title="phone"
-              placeholder="enter middle name"
-              mandate={true}
-              inputype="text"
-              name="phone"
-              errormsg={errors.phone}
-            />
-
-            <PanelFormInput
-              title="email"
-              placeholder="enter email address"
-              mandate={true}
-              inputype="text"
-              name="email"
-              errormsg={errors.email}
-            />
-
-            <PanelFormInput
-              title="Drug test Neagtive Date"
-              placeholder=""
-              mandate={true}
-              inputype="date"
-              name="drugnegativedate"
-              errormsg={errors.drugnegativedate}
-            />
-          </div>
-          <br />
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-            <PanelFormInput
-              title="SOCIAL SECURITY"
-              placeholder="enter SOCIAL SECURITY"
-              mandate={true}
-              inputype="text"
-              name="socialsecurity"
-              errormsg={errors.socialsecurity}
-            />
-
-            <div>
-              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                POSITION APPLIED FOR
-              </label>
-              <select
-                name="appliedfor"
-
-                className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-              >
-                <option value="driver">DRIVER</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                Driver Status
-              </label>
-              <select
-                name="driverstatus"
-
-                className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-              >
-                <option value="active">ACTIVE</option>
-                <option value="insurance approved">INSURANCE APPROVED</option>
-                <option value="pending">PENDING</option>
-                <option value="terminated">TERMINATED</option>
-              </select>
-            </div>
-
-            <PanelFormInput
-              title="Pre-employment Cle-House Date"
-              placeholder=""
-              mandate={true}
-              inputype="date"
-              name="pclearinghousedate"
-              errormsg={errors.pclearinghousedate}
-            />
-          </div>
-          <br />
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-            <PanelFormInput
-              title="Termination Date"
-              placeholder="enter SOCIAL SECURITY"
-              mandate={true}
-              inputype="date"
-              name="terminationdate"
-              errormsg={errors.terminationdate}
-            />
-          </div>
-          <br />
-
-          <div>
-            <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-              Reason For Leaving / Termination
-            </label>
-            <textarea
-              name="reasonleavingortermination"
-              rows="3"
-              placeholder="ENTER Reason For Leaving / Termination"
-              className="cap w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div>
-              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                Do you have legal right to work in the United States?
-              </label>
-            </div>
-            <div>
-              <input value="1" type="checkbox" name="legalrightsstatus"/> YES <input type="checkbox" value="0" name="legalrightsstatus"/> NO
-            </div>
-          </div>
-          <br />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div>
-              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                WORK AUTHORIZATION
-              </label>
-              <select
-                name="workauthorization"
-
-                className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-              >
-                <option value="CITIZEN">CITIZEN</option>
-                <option value="PR/GREEN CARD">PR/GREEN CARD</option>
-                <option value="WORK PERMIT">WORK PERMIT</option>
-              </select>
-            </div>
-
-            <PanelFormInput
-              title="WORK PERMIT USCIS NO"
-              placeholder="enter WORK PERMIT USCIS NO"
-              mandate={true}
-              inputype="text"
-              name="permituscisno"
-              errormsg={errors.permituscisno}
-            />
-
-            <PanelFormInput
-              title="Work Permit Expiration Date"
-              placeholder="enter Driver Status"
-              mandate={true}
-              inputype="date"
-              name="permitexpdate"
-              errormsg={errors.permitexpdate}
-            />
-          </div>
-
-          <p>PREVIOUS THREE YEARS RESIDENCY : </p>
-          <div className="bg-white rounded-xl border border-slate-200 p-2">
-            <p className="mb-2">CURRENT ADDRESS</p>
-
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
-              <PanelFormInput
-                title="STREET"
-                placeholder="enter STREET"
-                mandate={false}
-                inputype="text"
-                name="currentstreet"
-                errormsg={errors.currentstreet}
-              />
-
-              <PanelFormInput
-                title="CITY"
-                placeholder="enter city"
-                mandate={false}
-                inputype="text"
-                name="currentcity"
-                errormsg={errors.currentcity}
-              />
-
-              <PanelFormInput
-                title="STATE"
-                placeholder="enter STATE"
-                mandate={false}
-                inputype="text"
-                name="currentstate"
-                errormsg={errors.currentstate}
-              />
-
-              <PanelFormInput
-                title="ZIPCODE"
-                placeholder="enter ZIPCODE"
-                mandate={false}
-                inputype="text"
-                name="currentzip"
-                errormsg={errors.currentzip}
-              />
-
-              <PanelFormInput
-                title="#OF YEARS AT ADDRESS"
-                placeholder="enter years"
-                mandate={false}
-                inputype="text"
-                name="currentyear"
-                errormsg={errors.currentyear}
-              />
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl border border-slate-200 p-2">
-            <p className="mb-2">MAILING ADDRESS</p>
-
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
-              <PanelFormInput
-                title="STREET"
-                placeholder="enter STREET"
-                mandate={false}
-                inputype="text"
-                name="mailingstreet"
-                errormsg={errors.mailingstreet}
-              />
-
-              <PanelFormInput
-                title="CITY"
-                placeholder="enter city"
-                mandate={false}
-                inputype="text"
-                name="mailingcity"
-                errormsg={errors.mailingcity}
-              />
-
-              <PanelFormInput
-                title="STATE"
-                placeholder="enter STATE"
-                mandate={false}
-                inputype="text"
-                name="mailingstate"
-                errormsg={errors.mailingstate}
-              />
-
-              <PanelFormInput
-                title="ZIPCODE"
-                placeholder="enter ZIPCODE"
-                mandate={false}
-                inputype="text"
-                name="mailingzip"
-                errormsg={errors.mailingzip}
-              />
-
-              <PanelFormInput
-                title="#OF YEARS AT ADDRESS"
-                placeholder="enter years"
-                mandate={false}
-                inputype="text"
-                name="mailingyear"
-                errormsg={errors.mailingyear}
-              />
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl border border-slate-200 p-2">
-            <p className="mb-2">PREVIOUS ADDRESS</p>
-
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
-              <PanelFormInput
-                title="STREET"
-                placeholder="enter STREET"
-                mandate={false}
-                inputype="text"
-                name="previousstreet"
-                errormsg={errors.previousstreet}
-              />
-
-              <PanelFormInput
-                title="CITY"
-                placeholder="enter city"
-                mandate={false}
-                inputype="text"
-                name="previouscity"
-                errormsg={errors.previouscity}
-              />
-
-              <PanelFormInput
-                title="STATE"
-                placeholder="enter STATE"
-                mandate={false}
-                inputype="text"
-                name="previousstate"
-                errormsg={errors.previousstate}
-              />
-
-              <PanelFormInput
-                title="ZIPCODE"
-                placeholder="enter ZIPCODE"
-                mandate={false}
-                inputype="text"
-                name="previouszip"
-                errormsg={errors.previouszip}
-              />
-
-              <PanelFormInput
-                title="#OF YEARS AT ADDRESS"
-                placeholder="enter years"
-                mandate={false}
-                inputype="text"
-                name="previousyear"
-                errormsg={errors.previousyear}
-              />
-            </div>
-          </div>
-
-          <p>LICENSE INFORMATION : </p>
-          <div className="bg-white rounded-xl border border-slate-200 p-2">
-            <p className="mb-2">CURRENT CDL</p>
-
-            <div className="grid grid-cols-1 md:grid-cols-6 gap-3">
-              <PanelFormInput
-                title="STATE "
-                placeholder="enter STATE "
-                mandate={false}
-                inputype="text"
-                name="currentcdlstate"
-                errormsg={errors.currentcdlstate}
-              />
-
-              <PanelFormInput
-                title="LICENSE NO"
-                placeholder="enter LICENSE NO"
-                mandate={true}
-                inputype="text"
-                name="currentcdllicenseno"
-                errormsg={errors.currentcdllicenseno}
-              />
-
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-1">
               <div>
-                <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                  TYPE/CLASS
-                </label>
-                <select
-                  name="currentcdlclass"
+                <table className="w-full text-sm border border-collapse">
+                  <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
+                    <tr>
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        Document
+                      </th>
 
-                  className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-                >
-                  <option value="A">A</option>
-                </select>
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        Document Type
+                      </th>
+
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        Date
+                      </th>
+
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        File
+                      </th>
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        upload
+                      </th>
+
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        view
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody className="divide-y divide-slate-200">
+                    <TableTrTd
+                      documents={documents}
+                      driverId={id}
+                      title="CDL"
+                      subtitle="CDL Expiration Date"
+                    />
+                    <TableTrTd
+                      title="Driver Commercial Medical Certificate"
+                      subtitle=" Expiration Date"
+                      documents={documents}
+                      driverId={id}
+                    />
+
+                    <TableTrTd
+                      title="DMV Driving Record"
+                      subtitle="MVR Record Pull Date"
+                      documents={documents}
+                      driverId={id}
+                    />
+                    <TableTrTd
+                      title="BACKGROUND CHECK DOCUMENT"
+                      subtitle="MVR Record Pull DatBACKGROUND CHECK Pull Date"
+                      documents={documents}
+                      driverId={id}
+                    />
+                    <TableTrTd
+                      title="BACKGROUND CHECK DOCUMENT"
+                      subtitle="MVR Record Pull DatBACKGROUND CHECK Pull Date"
+                      documents={documents}
+                      driverId={id}
+                    />
+                    <TableTrTd
+                      documents={documents}
+                      driverId={id}
+                      title="PSP RECORD"
+                      subtitle="PSP PULL DATE"
+                    />
+                    <TableTrTd
+                      title="Work Authorization Documents"
+                      subtitle="Work Authorization Expire Date"
+                      documents={documents}
+                      driverId={id}
+                    />
+                    <TableTrTd
+                      documents={documents}
+                      driverId={id}
+                      title="SSN Card"
+                      subtitle="WSSN NUMBER"
+                    />
+                    <TableTrTd
+                      title="Pre-employment Clearing House"
+                      subtitle="Pre-employment Clearing House Expiration Date"
+                      documents={documents}
+                      driverId={id}
+                    />
+                    <TableTrTd
+                      title="Pre-employment Drug Test CCF"
+                      subtitle="Pre-employment Drug Test Conduct CCF Date"
+                      documents={documents}
+                      driverId={id}
+                    />
+                    <TableTrTd
+                      title="Pre-employment Drug test Result"
+                      subtitle="Pre-employment Drug Test Result Date"
+                      documents={documents}
+                      driverId={id}
+                    />
+                    <TableTrTd
+                      title="ANNUAL CLEARING HOUSE"
+                      subtitle="ANNUAL CLEARING HOUSE EXPIRATION DATE"
+                      documents={documents}
+                      driverId={id}
+                    />
+                    <TableTrTd
+                      title="PULL NOTICE"
+                      subtitle="PULL NOTICE EXPIRATION DATE"
+                      documents={documents}
+                      driverId={id}
+                    />
+                    <TableTrTd
+                      title="FMCSA National Registry"
+                      subtitle="National registry Expiration Date"
+                      documents={documents}
+                      driverId={id}
+                    />
+                    <TableTrTd
+                      title="Driver Road Test / Driver Proficiency & Vehicle
+                        Authorization Docs"
+                      subtitle="Driver Road Test / Driver Proficiency Date"
+                      documents={documents}
+                      driverId={id}
+                    />
+                  </tbody>
+                </table>
               </div>
-
-              <div>
-                <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                  ENDORSEMENTS
-                </label>
-                <select
-                  name="currentcdlendorsements"
-
-                  className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-                >
-                  <option value="Hazmat (H)">Hazmat (H)</option>
-                  <option value="Tanker (N)">Tanker (N)</option>
-                  <option value="Double/Triple Trailers (T)">Double/Triple Trailers (T)</option>
-                  <option value="Combination Hazmat and Tanker (X)">Combination Hazmat and Tanker (X)</option>
-                  <option value="None">None</option>
-                </select>
-              </div>
-
-              <PanelFormInput
-                title="ISSUE DATE"
-                placeholder="enter years"
-                mandate={true}
-                inputype="date"
-                name="currentcdlissuedate"
-                errormsg={errors.currentcdlissuedate}
-              />
-
-              <PanelFormInput
-                title="EXPIRATION DATE"
-                placeholder="enter years"
-                mandate={true}
-                inputype="date"
-                name="currentcdlexpdate"
-                errormsg={errors.currentcdlexpdate}
-              />
             </div>
           </div>
 
-          <div className="bg-white rounded-xl border border-slate-200 p-2">
-            <p className="mb-2">OLD CDL</p>
-
-            <div className="grid grid-cols-1 md:grid-cols-6 gap-3">
-              <PanelFormInput
-                title="STATE "
-                placeholder="enter STATE "
-                mandate={false}
-                inputype="text"
-                name="oldcdlstate"
-                errormsg={errors.oldcdlstate}
-              />
-
-              <PanelFormInput
-                title="LICENSE NO"
-                placeholder="enter LICENSE NO"
-                mandate={true}
-                inputype="text"
-                name="oldcdllicenseno"
-                errormsg={errors.oldcdllicenseno}
-              />
-
-              
+          <div className="bg-white rounded-xl border border-slate-200">
+            <p className="p-4">Other Document Information</p>
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-1">
               <div>
-                <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                  TYPE/CLASS
-                </label>
-                <select
-                  name="oldcdlclass"
+                <p className="px-4 py-2 text-sm font-semibold text-slate-700">
+                  Quarter: 1
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-1">
+                  <div>
+                    <table className="w-full text-sm border border-collapse">
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="cap hover:bg-slate-50">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            RANDOM DRUG TEST Conduct CCF Date
+                            <input
+                              type="hidden"
+                              value="RANDOM DRUG TEST Conduct CCF Date"
+                              name="drugtitle[]"
+                            />
+                            <input type="hidden" value="1" name="quarter[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input type="date" name="drugdate[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input name="randomdrugfile[]" type="file" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <button type="submit">
+                              <i className="fa-solid fa-upload"></i>
+                            </button>
+                          </td>
 
-                  className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-                >
-                  <option value="A">A</option>
-                </select>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            {(() => {
+                              const item = drugtest?.find(
+                                (item) =>
+                                  item.title?.trim().replace(/\s+/g, " ") ===
+                                    "RANDOM DRUG TEST Conduct CCF Date" &&
+                                  Number(item.quarter) === 1,
+                              );
+
+                              if (!item?.file) return null;
+
+                              const baseUrl =
+                                window.location.hostname === "localhost"
+                                  ? "http://localhost:8000/storage/"
+                                  : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/";
+
+                              const url = `${baseUrl}${item.file}`;
+
+                              console.log("Matched item:", item);
+                              console.log("File:", item.file);
+                              console.log("URL:", url);
+
+                              return (
+                                <a
+                                  href={url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  👁
+                                </a>
+                              );
+                            })()}
+                          </td>
+                        </tr>
+
+                        <tr className="cap hover:bg-slate-50">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            RANDOM DRUG TEST Result Date
+                            <input
+                              type="hidden"
+                              value="RANDOM DRUG TEST Result Date"
+                              name="drugtitle[]"
+                            />
+                            <input type="hidden" value="1" name="quarter[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input type="date" name="drugdate[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input name="randomdrugfile[]" type="file" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <button type="submit">
+                              <i className="fa-solid fa-upload"></i>
+                            </button>
+                          </td>
+
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            {(() => {
+                              const item = drugtest?.find(
+                                (item) =>
+                                  item.title?.trim().replace(/\s+/g, " ") ===
+                                    "RANDOM DRUG TEST Result Date" &&
+                                  Number(item.quarter) === 1,
+                              );
+
+                              if (!item?.file) return null;
+
+                              const baseUrl =
+                                window.location.hostname === "localhost"
+                                  ? "http://localhost:8000/storage/"
+                                  : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/";
+
+                              const url = `${baseUrl}${item.file}`;
+
+                              console.log("Matched item:", item);
+                              console.log("File:", item.file);
+                              console.log("URL:", url);
+
+                              return (
+                                <a
+                                  href={url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  👁
+                                </a>
+                              );
+                            })()}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
-
               <div>
-                <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                  ENDORSEMENTS
-                </label>
-                <select
-                  name="oldcdlendorsements"
+                <p className="px-4 py-2 text-sm font-semibold text-slate-700">
+                  Quarter: 2
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-1">
+                  <div>
+                    <table className="w-full text-sm border border-collapse">
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="cap hover:bg-slate-50">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            RANDOM DRUG TEST Conduct CCF Date
+                            <input
+                              type="hidden"
+                              value="RANDOM DRUG TEST Conduct CCF Date"
+                              name="drugtitle[]"
+                            />
+                            <input type="hidden" value="2" name="quarter[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input type="date" name="drugdate[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input name="randomdrugfile[]" type="file" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <button type="submit">
+                              <i className="fa-solid fa-upload"></i>
+                            </button>
+                          </td>
 
-                  className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-                >
-                  <option value="Hazmat (H)">Hazmat (H)</option>
-                  <option value="Tanker (N)">Tanker (N)</option>
-                  <option value="Double/Triple Trailers (T)">Double/Triple Trailers (T)</option>
-                  <option value="Combination Hazmat and Tanker (X)">Combination Hazmat and Tanker (X)</option>
-                  <option value="None">None</option>
-                </select>
+                                <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            {(() => {
+                              const item = drugtest?.find(
+                                (item) =>
+                                  item.title?.trim().replace(/\s+/g, " ") ===
+                                    "RANDOM DRUG TEST Conduct CCF Date" &&
+                                  Number(item.quarter) === 2,
+                              );
+
+                              if (!item?.file) return null;
+
+                              const baseUrl =
+                                window.location.hostname === "localhost"
+                                  ? "http://localhost:8000/storage/"
+                                  : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/";
+
+                              const url = `${baseUrl}${item.file}`;
+
+                              console.log("Matched item:", item);
+                              console.log("File:", item.file);
+                              console.log("URL:", url);
+
+                              return (
+                                <a
+                                  href={url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  👁
+                                </a>
+                              );
+                            })()}
+                          </td>
+                        </tr>
+
+                        <tr className="cap hover:bg-slate-50">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            RANDOM DRUG TEST Result Date
+                            <input
+                              type="hidden"
+                              value="RANDOM DRUG TEST Result Date"
+                              name="drugtitle[]"
+                            />
+                            <input type="hidden" value="2" name="quarter[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input type="date" name="drugdate[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input name="randomdrugfile[]" type="file" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <button type="submit">
+                              <i className="fa-solid fa-upload"></i>
+                            </button>
+                          </td>
+
+                          
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            {(() => {
+                              const item = drugtest?.find(
+                                (item) =>
+                                  item.title?.trim().replace(/\s+/g, " ") ===
+                                    "RANDOM DRUG TEST Result Date" &&
+                                  Number(item.quarter) === 2,
+                              );
+
+                              if (!item?.file) return null;
+
+                              const baseUrl =
+                                window.location.hostname === "localhost"
+                                  ? "http://localhost:8000/storage/"
+                                  : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/";
+
+                              const url = `${baseUrl}${item.file}`;
+
+                              console.log("Matched item:", item);
+                              console.log("File:", item.file);
+                              console.log("URL:", url);
+
+                              return (
+                                <a
+                                  href={url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  👁
+                                </a>
+                              );
+                            })()}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
+            </div>
 
-              <PanelFormInput
-                title="ISSUE DATE"
-                placeholder="enter years"
-                mandate={false}
-                inputype="date"
-                name="oldcdlissuedate"
-                errormsg={errors.oldcdlissuedate}
-              />
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-1">
+              <div>
+                <p className="px-4 py-2 text-sm font-semibold text-slate-700">
+                  Quarter: 3
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-1">
+                  <div>
+                    <table className="w-full text-sm border border-collapse">
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="cap hover:bg-slate-50">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            RANDOM DRUG TEST Conduct CCF Date
+                            <input
+                              type="hidden"
+                              value="RANDOM DRUG TEST Conduct CCF Date"
+                              name="drugtitle[]"
+                            />
+                            <input type="hidden" value="3" name="quarter[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input type="date" name="drugdate[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input name="randomdrugfile[]" type="file" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <button type="submit">
+                              <i className="fa-solid fa-upload"></i>
+                            </button>
+                          </td>
 
-              <PanelFormInput
-                title="EXPIRATION DATE"
-                placeholder="enter years"
-                mandate={false}
-                inputype="date"
-                name="oldcdlexpdate"
-                errormsg={errors.oldcdlexpdate}
-              />
+                                             <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            {(() => {
+                              const item = drugtest?.find(
+                                (item) =>
+                                  item.title?.trim().replace(/\s+/g, " ") ===
+                                    "RANDOM DRUG TEST Conduct CCF Date" &&
+                                  Number(item.quarter) === 3,
+                              );
+
+                              if (!item?.file) return null;
+
+                              const baseUrl =
+                                window.location.hostname === "localhost"
+                                  ? "http://localhost:8000/storage/"
+                                  : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/";
+
+                              const url = `${baseUrl}${item.file}`;
+
+                              console.log("Matched item:", item);
+                              console.log("File:", item.file);
+                              console.log("URL:", url);
+
+                              return (
+                                <a
+                                  href={url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  👁
+                                </a>
+                              );
+                            })()}
+                          </td>
+                        </tr>
+
+                        <tr className="cap hover:bg-slate-50">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            RANDOM DRUG TEST Result Date
+                            <input
+                              type="hidden"
+                              value="RANDOM DRUG TEST Result Date"
+                              name="drugtitle[]"
+                            />
+                            <input type="hidden" value="3" name="quarter[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input type="date" name="drugdate[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input name="randomdrugfile[]" type="file" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <button type="submit">
+                              <i className="fa-solid fa-upload"></i>
+                            </button>
+                          </td>
+
+                                      <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            {(() => {
+                              const item = drugtest?.find(
+                                (item) =>
+                                  item.title?.trim().replace(/\s+/g, " ") ===
+                                    "RANDOM DRUG TEST Result Date" &&
+                                  Number(item.quarter) === 3,
+                              );
+
+                              if (!item?.file) return null;
+
+                              const baseUrl =
+                                window.location.hostname === "localhost"
+                                  ? "http://localhost:8000/storage/"
+                                  : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/";
+
+                              const url = `${baseUrl}${item.file}`;
+
+                              console.log("Matched item:", item);
+                              console.log("File:", item.file);
+                              console.log("URL:", url);
+
+                              return (
+                                <a
+                                  href={url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  👁
+                                </a>
+                              );
+                            })()}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div>
+                {" "}
+                <p className="px-4 py-2 text-sm font-semibold text-slate-700">
+                  Quarter: 4
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-1">
+                  <div>
+                    <table className="w-full text-sm border border-collapse">
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="cap hover:bg-slate-50">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            RANDOM DRUG TEST Conduct CCF Date
+                            <input
+                              type="hidden"
+                              value="RANDOM DRUG TEST Conduct CCF Date"
+                              name="drugtitle[]"
+                            />
+                            <input type="hidden" value="4" name="quarter[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input type="date" name="drugdate[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input name="randomdrugfile[]" type="file" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <button type="submit">
+                              <i className="fa-solid fa-upload"></i>
+                            </button>
+                          </td>
+
+                                                            <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            {(() => {
+                              const item = drugtest?.find(
+                                (item) =>
+                                  item.title?.trim().replace(/\s+/g, " ") ===
+                                    "RANDOM DRUG TEST Conduct CCF Date" &&
+                                  Number(item.quarter) === 4,
+                              );
+
+                              if (!item?.file) return null;
+
+                              const baseUrl =
+                                window.location.hostname === "localhost"
+                                  ? "http://localhost:8000/storage/"
+                                  : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/";
+
+                              const url = `${baseUrl}${item.file}`;
+
+                              console.log("Matched item:", item);
+                              console.log("File:", item.file);
+                              console.log("URL:", url);
+
+                              return (
+                                <a
+                                  href={url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  👁
+                                </a>
+                              );
+                            })()}
+                          </td>
+                        </tr>
+
+                        <tr className="cap hover:bg-slate-50">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            RANDOM DRUG TEST Result Date
+                            <input
+                              type="hidden"
+                              value="RANDOM DRUG TEST Result Date"
+                              name="drugtitle[]"
+                            />
+                            <input type="hidden" value="4" name="quarter[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input type="date" name="drugdate[]" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <input name="randomdrugfile[]" type="file" />
+                          </td>
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            <button type="submit">
+                              <i className="fa-solid fa-upload"></i>
+                            </button>
+                          </td>
+
+                                         <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                            {(() => {
+                              const item = drugtest?.find(
+                                (item) =>
+                                  item.title?.trim().replace(/\s+/g, " ") ===
+                                    "RANDOM DRUG TEST Result Date" &&
+                                  Number(item.quarter) === 4,
+                              );
+
+                              if (!item?.file) return null;
+
+                              const baseUrl =
+                                window.location.hostname === "localhost"
+                                  ? "http://localhost:8000/storage/"
+                                  : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/";
+
+                              const url = `${baseUrl}${item.file}`;
+
+                              console.log("Matched item:", item);
+                              console.log("File:", item.file);
+                              console.log("URL:", url);
+
+                              return (
+                                <a
+                                  href={url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  👁
+                                </a>
+                              );
+                            })()}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* ================= BUTTONS ================= */}
-          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
-            <Link
-              to="/admin-dashboard/company"
-              className="px-5 py-2.5 rounded-lg border border-slate-200 text-sm font-medium text-slate-600 hover:bg-slate-50"
-            >
-              Cancel
-            </Link>
+          <div className="bg-white rounded-xl border border-slate-200">
+            <p className="p-4">Miscellaneous Doument</p>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className={`px-5 text-white rounded-lg py-2.5 text-sm font-medium transition ${
-                loading
-                  ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-[#091122] hover:bg-slate-800"
-              }`}
-            >
-              {loading ? "Saving..." : "Save Driver"}
-            </button>
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-1">
+              <div>
+                <table className="w-full text-sm border border-collapse">
+                  <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
+                    <tr>
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        Document Name Type
+                      </th>
+
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        Miscellaneous Doument Pull Date
+                      </th>
+
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        Upload File
+                      </th>
+
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        Upload Document
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200">
+                    <tr className="cap hover:bg-slate-50">
+                      <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                        <PanelFormInput
+                          title=""
+                          placeholder="document name/type"
+                          mandate={false}
+                          inputype="text"
+                          name="miscellaneoustitle[]"
+                          errormsg={errors.currentcdlissuedate}
+                        />
+                      </td>
+                      <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                        <PanelFormInput
+                          title=""
+                          placeholder="document name/type"
+                          mandate={false}
+                          inputype="date"
+                          name="miscellaneousdate[]"
+                          errormsg={errors.currentcdlissuedate}
+                        />
+                      </td>
+
+                      <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                        <PanelFormInput
+                          title=""
+                          placeholder="document name/type"
+                          mandate={false}
+                          inputype="file"
+                          name="miscellaneousfile[]"
+                        />
+                      </td>
+                      <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                        <button type="submit">
+                          <i className="fa-solid fa-upload"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </form>
 
-        {/* ================= SERVER MESSAGE ================= */}
+        <div className="bg-white rounded-xl border border-slate-200">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-1">
+            <div>
+              <table className="w-full text-sm border border-collapse">
+                <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
+                  <tr>
+                    <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                      Document Name Type
+                    </th>
+
+                    <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                      Miscellaneous Doument Pull Date
+                    </th>
+
+                    <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                      View Document
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-200">
+                  {doc?.miscellaneous?.map((mis) => {
+                    let url = `${
+                      window.location.hostname === "localhost"
+                        ? "http://localhost:8000/storage/"
+                        : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                    }${mis.file}`;
+
+                    return (
+                      <tr key={mis.id} className="cap hover:bg-slate-50">
+                        <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          {mis.title}
+                        </td>
+                        <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          {mis.date
+                            ? new Date(
+                                `${mis.date}T00:00:00`,
+                              ).toLocaleDateString("en-US")
+                            : ""}
+                        </td>
+
+                        <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          <a
+                            href={`${url}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            👁
+                          </a>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
         {serverMessage && (
           <div
             className={`mt-3 mb-3 rounded-lg border px-3 py-2 text-sm text-center ${
               serverMessageType === "error" ? "text-red-500" : "text-green-600"
             }`}
-            style={{ borderColor: "#091122" }}
+            style={{
+              borderColor: "#091122",
+            }}
           >
             {serverMessage}
           </div>

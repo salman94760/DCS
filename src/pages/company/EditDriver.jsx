@@ -1,4 +1,4 @@
-import { Link, useNavigate,useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import PanelFormInput from "@/components/admin/FormInput";
 import api from "@/api/axios";
@@ -7,7 +7,15 @@ import { useDcsContext } from "@/context/Context";
 export default function AddCompany() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const {loginUserId,state,fetchDetail,error,filters,setFilters,resetFilters} = useDcsContext();
+  const {
+    loginUserId,
+    state,
+    fetchDetail,
+    error,
+    filters,
+    setFilters,
+    resetFilters,
+  } = useDcsContext();
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -27,7 +35,7 @@ export default function AddCompany() {
 
   const res = state.selectedData;
 
-  if(!res){
+  if (!res) {
     return false;
   }
 
@@ -54,7 +62,8 @@ export default function AddCompany() {
       pclearinghousedate: formData.get("pclearinghousedate")?.trim() || "",
 
       terminationdate: formData.get("terminationdate")?.trim() || "",
-      reasonleavingortermination: formData.get("reasonleavingortermination")?.trim() || "",
+      reasonleavingortermination:
+        formData.get("reasonleavingortermination")?.trim() || "",
       legalrightsyes: formData.get("legalrightsyes")?.trim() || "",
       legalrightsno: formData.get("legalrightsno")?.trim() || "",
       legalrightsstatus: formData.get("legalrightsstatus")?.trim() || "",
@@ -67,7 +76,7 @@ export default function AddCompany() {
       currentstate: formData.get("currentstate")?.trim() || "",
       currentzip: formData.get("currentzip")?.trim() || "",
       currentyear: formData.get("currentyear")?.trim() || "",
-     
+
       mailingstreet: formData.get("mailingstreet")?.trim() || "",
       mailingcity: formData.get("mailingcity")?.trim() || "",
       mailingstate: formData.get("mailingstate")?.trim() || "",
@@ -83,7 +92,8 @@ export default function AddCompany() {
       currentcdlstate: formData.get("currentcdlstate")?.trim() || "",
       currentcdllicenseno: formData.get("currentcdllicenseno")?.trim() || "",
       currentcdlclass: formData.get("currentcdlclass")?.trim() || "",
-      currentcdlendorsements: formData.get("currentcdlendorsements")?.trim() || "",
+      currentcdlendorsements:
+        formData.get("currentcdlendorsements")?.trim() || "",
       currentcdlissuedate: formData.get("currentcdlissuedate")?.trim() || "",
       currentcdlexpdate: formData.get("currentcdlexpdate")?.trim() || "",
 
@@ -108,8 +118,6 @@ export default function AddCompany() {
     if (!data.activedate) {
       newErrors.activedate = "Active date required";
     }
-
-
 
     if (!data.dob) {
       newErrors.dob = "Date of birth required";
@@ -136,7 +144,8 @@ export default function AddCompany() {
     }
 
     if (!data.pclearinghousedate) {
-      newErrors.pclearinghousedate = "Pre-employment Clearing House Date required";
+      newErrors.pclearinghousedate =
+        "Pre-employment Clearing House Date required";
     }
 
     if (!data.terminationdate) {
@@ -159,21 +168,6 @@ export default function AddCompany() {
       newErrors.currentcdlexpdate = "Current cdl expiry date required";
     }
 
-     
-
-  
-
-
- 
-    
-
-
-    
-
- 
-    
-
-
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
@@ -184,7 +178,6 @@ export default function AddCompany() {
     setLoading(true);
 
     try {
-
       const uploadData = new FormData();
 
       uploadData.append("fname", data.fname);
@@ -201,7 +194,10 @@ export default function AddCompany() {
       uploadData.append("pclearinghousedate", data.pclearinghousedate);
 
       uploadData.append("terminationdate", data.terminationdate);
-      uploadData.append("reasonleavingortermination", data.reasonleavingortermination);
+      uploadData.append(
+        "reasonleavingortermination",
+        data.reasonleavingortermination,
+      );
       uploadData.append("legalrightsyes", data.legalrightsyes);
       uploadData.append("legalrightsno", data.legalrightsno);
       uploadData.append("legalrightsstatus", data.legalrightsstatus);
@@ -240,8 +236,14 @@ export default function AddCompany() {
       uploadData.append("oldcdlendorsements", data.oldcdlendorsements);
       uploadData.append("oldcdlissuedate", data.oldcdlissuedate);
       uploadData.append("oldcdlexpdate", data.oldcdlexpdate);
-      uploadData.append("cname", JSON.parse(localStorage.getItem("user"))?.name);
-      uploadData.append("company_id", JSON.parse(localStorage.getItem("user"))?.id);
+      uploadData.append(
+        "cname",
+        JSON.parse(localStorage.getItem("user"))?.name,
+      );
+      uploadData.append(
+        "company_id",
+        JSON.parse(localStorage.getItem("user"))?.id,
+      );
       uploadData.append("_method", "PUT");
 
       const response = await api.post(`/company/driver/edit/${id}`, uploadData);
@@ -251,12 +253,10 @@ export default function AddCompany() {
       setServerMessageType("success");
 
       navigate("/company-dashboard/drivers", {
-        
         state: {
           success: "Driver updated successfully!",
         },
       });
-
     } catch (error) {
       console.error("ERROR:", error);
 
@@ -273,7 +273,9 @@ export default function AddCompany() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Update Driver Information</h1>
+          <h1 className="text-2xl font-bold text-slate-900">
+            Update Driver Information
+          </h1>
         </div>
 
         <Link
@@ -404,11 +406,12 @@ export default function AddCompany() {
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 Driver Status
               </label>
-              <select value={res.driverstatus}
+              <select
+                value={res.driverstatus}
                 name="driverstatus"
 
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-              > 
+              >
                 <option value="active">ACTIVE</option>
                 <option value="insurance approved">INSURANCE APPROVED</option>
                 <option value="pending">PENDING</option>
@@ -461,11 +464,24 @@ export default function AddCompany() {
               </label>
             </div>
             <div>
-              <input checked={res.legalrightsstatus === 1 || res.legalrightsstatus === "1"} value="1" type="checkbox" name="legalrightsstatus"/> YES 
-
-
-
-              <input checked={res.legalrightsstatus === 0 || res.legalrightsstatus === "0"} type="checkbox" value="0" name="legalrightsstatus"/> NO
+              <input
+                checked={
+                  res.legalrightsstatus === 1 || res.legalrightsstatus === "1"
+                }
+                value="1"
+                type="checkbox"
+                name="legalrightsstatus"
+              />{" "}
+              YES
+              <input
+                checked={
+                  res.legalrightsstatus === 0 || res.legalrightsstatus === "0"
+                }
+                type="checkbox"
+                value="0"
+                name="legalrightsstatus"
+              />{" "}
+              NO
             </div>
           </div>
           <br />
@@ -475,9 +491,10 @@ export default function AddCompany() {
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 WORK AUTHORIZATION
               </label>
-              <select value={res.workauthorization}
+              <select
+                value={res.workauthorization}
                 name="workauthorization"
-              
+
                 className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
               >
                 <option value="CITIZEN">CITIZEN</option>
@@ -718,15 +735,19 @@ export default function AddCompany() {
                 <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                   ENDORSEMENTS
                 </label>
-                <select 
+                <select
                   name="currentcdlendorsements"
 
                   className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
                 >
                   <option value="Hazmat (H)">Hazmat (H)</option>
                   <option value="Tanker (N)">Tanker (N)</option>
-                  <option value="Double/Triple Trailers (T)">Double/Triple Trailers (T)</option>
-                  <option value="Combination Hazmat and Tanker (X)">Combination Hazmat and Tanker (X)</option>
+                  <option value="Double/Triple Trailers (T)">
+                    Double/Triple Trailers (T)
+                  </option>
+                  <option value="Combination Hazmat and Tanker (X)">
+                    Combination Hazmat and Tanker (X)
+                  </option>
                   <option value="None">None</option>
                 </select>
               </div>
@@ -777,7 +798,6 @@ export default function AddCompany() {
                 errormsg={errors.oldcdllicenseno}
               />
 
-              
               <div>
                 <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                   TYPE/CLASS
@@ -794,7 +814,7 @@ export default function AddCompany() {
               <div>
                 <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                   ENDORSEMENTS
-                </label>  
+                </label>
                 <select
                   name="oldcdlendorsements"
 
@@ -802,8 +822,12 @@ export default function AddCompany() {
                 >
                   <option value="Hazmat (H)">Hazmat (H)</option>
                   <option value="Tanker (N)">Tanker (N)</option>
-                  <option value="Double/Triple Trailers (T)">Double/Triple Trailers (T)</option>
-                  <option value="Combination Hazmat and Tanker (X)">Combination Hazmat and Tanker (X)</option>
+                  <option value="Double/Triple Trailers (T)">
+                    Double/Triple Trailers (T)
+                  </option>
+                  <option value="Combination Hazmat and Tanker (X)">
+                    Combination Hazmat and Tanker (X)
+                  </option>
                   <option value="None">None</option>
                 </select>
               </div>

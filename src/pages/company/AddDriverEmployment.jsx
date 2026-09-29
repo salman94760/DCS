@@ -14,11 +14,7 @@ export default function AddDriverEmployment() {
   const [serverMessageType, setServerMessageType] = useState("");
 
   const [drivers, setDrivers] = useState([]);
-const [driversLoading, setDriversLoading] = useState(false);
-
-
-
-
+  const [driversLoading, setDriversLoading] = useState(false);
 
   // =========================================================
   // EMPTY EMPLOYER
@@ -49,50 +45,33 @@ const [driversLoading, setDriversLoading] = useState(false);
   // EMPLOYERS
   // =========================================================
 
-  const [employers, setEmployers] = useState([
-    { ...emptyEmployer },
-  ]);
+  const [employers, setEmployers] = useState([{ ...emptyEmployer }]);
 
   // =========================================================
   // CHECK ROLE
   // =========================================================
 
-const fetchDrivers = async () => {
-  try {
-    setDriversLoading(true);
+  const fetchDrivers = async () => {
+    try {
+      setDriversLoading(true);
 
-    const loginUser = JSON.parse(
-      localStorage.getItem("user") || "null"
-    );
+      const loginUser = JSON.parse(localStorage.getItem("user") || "null");
 
-    const loginUserId = loginUser?.id;
+      const loginUserId = loginUser?.id;
 
-    if (!loginUserId) {
-      throw new Error("User ID not found");
+      if (!loginUserId) {
+        throw new Error("User ID not found");
+      }
+
+      const response = await api.get(`/company/drivers/${loginUserId}`);
+
+      setDrivers(response.data.data || []);
+    } catch (error) {
+      console.error("Failed to fetch drivers:", error);
+    } finally {
+      setDriversLoading(false);
     }
-
-    const response = await api.get(
-      `/company/drivers/${loginUserId}`
-    );
-
-
-
-    setDrivers(
-      response.data.data || []
-    );
-
-  } catch (error) {
-    console.error(
-      "Failed to fetch drivers:",
-      error
-    );
-
-  
-  } finally {
-    setDriversLoading(false);
-  }
-};
-
+  };
 
   useEffect(() => {
     const role = localStorage.getItem("userRole");
@@ -128,10 +107,7 @@ const fetchDrivers = async () => {
       "TENTH EMPLOYER",
     ];
 
-    return (
-      titles[index] ||
-      `${index + 1}TH EMPLOYER`
-    );
+    return titles[index] || `${index + 1}TH EMPLOYER`;
   };
 
   // =========================================================
@@ -139,10 +115,7 @@ const fetchDrivers = async () => {
   // =========================================================
 
   const addEmployer = () => {
-    setEmployers((prev) => [
-      ...prev,
-      { ...emptyEmployer },
-    ]);
+    setEmployers((prev) => [...prev, { ...emptyEmployer }]);
   };
 
   // =========================================================
@@ -152,37 +125,29 @@ const fetchDrivers = async () => {
   const removeEmployer = (index) => {
     if (index === 0) return;
 
-    setEmployers((prev) =>
-      prev.filter((_, i) => i !== index)
-    );
+    setEmployers((prev) => prev.filter((_, i) => i !== index));
 
     // Remove errors related to employer
     setErrors((prev) => {
       const updatedErrors = {};
 
-      Object.entries(prev).forEach(
-        ([key, value]) => {
-          const match = key.match(
-            /^employers\.(\d+)\.(.+)$/
-          );
+      Object.entries(prev).forEach(([key, value]) => {
+        const match = key.match(/^employers\.(\d+)\.(.+)$/);
 
-          if (!match) {
-            updatedErrors[key] = value;
-            return;
-          }
-
-          const errorIndex = Number(match[1]);
-          const field = match[2];
-
-          if (errorIndex < index) {
-            updatedErrors[key] = value;
-          } else if (errorIndex > index) {
-            updatedErrors[
-              `employers.${errorIndex - 1}.${field}`
-            ] = value;
-          }
+        if (!match) {
+          updatedErrors[key] = value;
+          return;
         }
-      );
+
+        const errorIndex = Number(match[1]);
+        const field = match[2];
+
+        if (errorIndex < index) {
+          updatedErrors[key] = value;
+        } else if (errorIndex > index) {
+          updatedErrors[`employers.${errorIndex - 1}.${field}`] = value;
+        }
+      });
 
       return updatedErrors;
     });
@@ -192,11 +157,7 @@ const fetchDrivers = async () => {
   // EMPLOYER INPUT CHANGE
   // =========================================================
 
-  const handleEmployerChange = (
-    index,
-    field,
-    value
-  ) => {
+  const handleEmployerChange = (index, field, value) => {
     setEmployers((prev) => {
       const updated = [...prev];
 
@@ -212,9 +173,7 @@ const fetchDrivers = async () => {
     setErrors((prev) => {
       const updated = { ...prev };
 
-      delete updated[
-        `employers.${index}.${field}`
-      ];
+      delete updated[`employers.${index}.${field}`];
 
       return updated;
     });
@@ -227,113 +186,82 @@ const fetchDrivers = async () => {
   const validateForm = () => {
     const newErrors = {};
 
-    
+    employers.forEach((employer, index) => {
+      // -----------------------------------------------
+      // COMPANY NAME
+      // -----------------------------------------------
 
-    employers.forEach(
-      (employer, index) => {
+      if (!employer.cname.trim()) {
+        newErrors[`employers.${index}.cname`] = "Company name is required";
+      }
 
- 
-        // -----------------------------------------------
-        // COMPANY NAME
-        // -----------------------------------------------
+      // -----------------------------------------------
+      // CONTACT NUMBER
+      // -----------------------------------------------
 
-        if (!employer.cname.trim()) {
-          newErrors[
-            `employers.${index}.cname`
-          ] = "Company name is required";
-        }
+      if (!employer.contactno.trim()) {
+        newErrors[`employers.${index}.contactno`] = "Contact no is required";
+      }
 
-        // -----------------------------------------------
-        // CONTACT NUMBER
-        // -----------------------------------------------
+      // -----------------------------------------------
+      // EMAIL
+      // -----------------------------------------------
 
-        if (!employer.contactno.trim()) {
-          newErrors[
-            `employers.${index}.contactno`
-          ] = "Contact no is required";
-        }
+      if (!employer.email.trim()) {
+        newErrors[`employers.${index}.email`] = "Email is required";
+      } else {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        // -----------------------------------------------
-        // EMAIL
-        // -----------------------------------------------
-
-        if (!employer.email.trim()) {
-          newErrors[
-            `employers.${index}.email`
-          ] = "Email is required";
-        } else {
-          const emailRegex =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-          if (
-            !emailRegex.test(
-              employer.email.trim()
-            )
-          ) {
-            newErrors[
-              `employers.${index}.email`
-            ] = "Enter a valid email";
-          }
-        }
-
-        // -----------------------------------------------
-        // POSITION
-        // -----------------------------------------------
-
-        if (!employer.positionheld.trim()) {
-          newErrors[
-            `employers.${index}.positionheld`
-          ] = "Position held is required";
-        }
-
-        // -----------------------------------------------
-        // START DATE
-        // -----------------------------------------------
-
-        if (!employer.startdate.trim()) {
-          newErrors[
-            `employers.${index}.startdate`
-          ] = "Start date is required";
-        }
-
-        // -----------------------------------------------
-        // END DATE
-        // -----------------------------------------------
-
-        if (!employer.enddate.trim()) {
-          newErrors[
-            `employers.${index}.enddate`
-          ] = "End date is required";
-        }
-
-        // -----------------------------------------------
-        // FMCSR
-        // -----------------------------------------------
-
-        if (
-          employer.fmcsr !== "1" &&
-          employer.fmcsr !== "0"
-        ) {
-          newErrors[
-            `employers.${index}.fmcsr`
-          ] = "Please select YES or NO";
-        }
-
-        // -----------------------------------------------
-        // SAFETY SENSITIVE
-        // -----------------------------------------------
-
-        if (
-          employer.safetysensitive !== "1" &&
-          employer.safetysensitive !== "0"
-        ) {
-          newErrors[
-            `employers.${index}.safetysensitive`
-          ] =
-            "Please select YES or NO";
+        if (!emailRegex.test(employer.email.trim())) {
+          newErrors[`employers.${index}.email`] = "Enter a valid email";
         }
       }
-    );
+
+      // -----------------------------------------------
+      // POSITION
+      // -----------------------------------------------
+
+      if (!employer.positionheld.trim()) {
+        newErrors[`employers.${index}.positionheld`] =
+          "Position held is required";
+      }
+
+      // -----------------------------------------------
+      // START DATE
+      // -----------------------------------------------
+
+      if (!employer.startdate.trim()) {
+        newErrors[`employers.${index}.startdate`] = "Start date is required";
+      }
+
+      // -----------------------------------------------
+      // END DATE
+      // -----------------------------------------------
+
+      if (!employer.enddate.trim()) {
+        newErrors[`employers.${index}.enddate`] = "End date is required";
+      }
+
+      // -----------------------------------------------
+      // FMCSR
+      // -----------------------------------------------
+
+      if (employer.fmcsr !== "1" && employer.fmcsr !== "0") {
+        newErrors[`employers.${index}.fmcsr`] = "Please select YES or NO";
+      }
+
+      // -----------------------------------------------
+      // SAFETY SENSITIVE
+      // -----------------------------------------------
+
+      if (
+        employer.safetysensitive !== "1" &&
+        employer.safetysensitive !== "0"
+      ) {
+        newErrors[`employers.${index}.safetysensitive`] =
+          "Please select YES or NO";
+      }
+    });
 
     return newErrors;
   };
@@ -345,34 +273,20 @@ const fetchDrivers = async () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-         
-  
-const driver_id =
-  document.getElementsByName("driver_id")[0];
-  const drivererror =
-    document.getElementsByClassName("driver_id")[0];
-if (driver_id.value.trim() === "") {
-  
+    const driver_id = document.getElementsByName("driver_id")[0];
+    const drivererror = document.getElementsByClassName("driver_id")[0];
+    if (driver_id.value.trim() === "") {
+      drivererror.classList.remove("hide");
+    } else {
+      drivererror.classList.add("hide");
+    }
 
-  drivererror.classList.remove("hide");
-}else{
-	drivererror.classList.add("hide");
-}
-
-
-
-    console.log(
-      "=============================="
-    );
+    console.log("==============================");
     console.log("HANDLE SUBMIT FIRED");
-    console.log(
-      "=============================="
-    );
+    console.log("==============================");
 
     if (loading) {
-      console.log(
-        "Submit already in progress"
-      );
+      console.log("Submit already in progress");
       return;
     }
 
@@ -382,22 +296,14 @@ if (driver_id.value.trim() === "") {
 
     const newErrors = validateForm();
 
-    console.log(
-      "VALIDATION ERRORS:",
-      newErrors
-    );
+    console.log("VALIDATION ERRORS:", newErrors);
 
-    if (
-      Object.keys(newErrors).length > 0
-    ) {
+    if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
 
       // Scroll to first error
       setTimeout(() => {
-        const firstError =
-          document.querySelector(
-            ".border-red-500"
-          );
+        const firstError = document.querySelector(".border-red-500");
 
         if (firstError) {
           firstError.scrollIntoView({
@@ -414,13 +320,9 @@ if (driver_id.value.trim() === "") {
     // VALIDATION PASSED
     // =======================================================
 
-    console.log(
-      "=============================="
-    );
+    console.log("==============================");
     console.log("VALIDATION PASSED");
-    console.log(
-      "=============================="
-    );
+    console.log("==============================");
 
     setErrors({});
     setServerMessage("");
@@ -435,15 +337,9 @@ if (driver_id.value.trim() === "") {
       let user = null;
 
       try {
-        user = JSON.parse(
-          localStorage.getItem("user") ||
-            "null"
-        );
+        user = JSON.parse(localStorage.getItem("user") || "null");
       } catch (parseError) {
-        console.error(
-          "User JSON parse error:",
-          parseError
-        );
+        console.error("User JSON parse error:", parseError);
       }
 
       console.log("USER:", user);
@@ -459,157 +355,95 @@ if (driver_id.value.trim() === "") {
       // =====================================================
 
       if (user?.name) {
-        uploadData.append(
-          "cname",
-          user.name
-        );
+        uploadData.append("cname", user.name);
       }
 
       if (user?.id) {
-        uploadData.append(
-          "company_id",
-          user.id
-        );
+        uploadData.append("company_id", user.id);
       }
 
-      uploadData.append("driver_id",driver_id.value);
+      uploadData.append("driver_id", driver_id.value);
 
       // =====================================================
       // EMPLOYERS
       // =====================================================
 
-      employers.forEach(
-        (employer, index) => {
-          Object.entries(
-            employer
-          ).forEach(([key, value]) => {
-            uploadData.append(
-              `employers[${index}][${key}]`,
-              value ?? ""
-            );
-          });
-        }
-      );
+      employers.forEach((employer, index) => {
+        Object.entries(employer).forEach(([key, value]) => {
+          uploadData.append(`employers[${index}][${key}]`, value ?? "");
+        });
+      });
 
       // =====================================================
       // DEBUG FORMDATA
       // =====================================================
 
-      console.log(
-        "=============================="
-      );
+      console.log("==============================");
       console.log("FORM DATA");
-      console.log(
-        "=============================="
-      );
+      console.log("==============================");
 
-      for (const [
-        key,
-        value,
-      ] of uploadData.entries()) {
-        console.log(
-          `${key}:`,
-          value
-        );
+      for (const [key, value] of uploadData.entries()) {
+        console.log(`${key}:`, value);
       }
 
       // =====================================================
       // API REQUEST
       // =====================================================
 
-      console.log(
-        "=============================="
-      );
+      console.log("==============================");
       console.log("API REQUEST START");
-      console.log(
-        "=============================="
-      );
+      console.log("==============================");
 
       const response = await api.post(
         "/company/driver/employment/add",
-        uploadData
+        uploadData,
       );
 
       // =====================================================
       // SUCCESS
       // =====================================================
 
-      console.log(
-        "=============================="
-      );
+      console.log("==============================");
       console.log("API SUCCESS");
-      console.log(
-        "=============================="
-      );
+      console.log("==============================");
 
-      console.log(
-        "STATUS:",
-        response.status
-      );
+      console.log("STATUS:", response.status);
 
-      console.log(
-        "DATA:",
-        response.data
-      );
+      console.log("DATA:", response.data);
 
       const result = response.data;
 
       setServerMessage(
-        result?.message ||
-          "Driver employment added successfully"
+        result?.message || "Driver employment added successfully",
       );
 
-      setServerMessageType(
-        "success"
-      );
+      setServerMessageType("success");
 
       // =====================================================
       // NAVIGATE
       // =====================================================
 
-      navigate(
-        "/company-dashboard/drivers",
-        {
-          replace: true,
-        }
-      );
-
+      navigate("/company-dashboard/drivers", {
+        replace: true,
+      });
     } catch (error) {
       // =====================================================
       // API ERROR
       // =====================================================
 
-      console.error(
-        "=============================="
-      );
+      console.error("==============================");
 
-      console.error(
-        "API ERROR"
-      );
+      console.error("API ERROR");
 
-      console.error(
-        "=============================="
-      );
+      console.error("==============================");
 
-      console.error(
-        "FULL ERROR:",
-        error
-      );
+      console.error("FULL ERROR:", error);
 
-      console.error(
-        "RESPONSE:",
-        error?.response
-      );
+      console.error("RESPONSE:", error?.response);
 
-      console.error(
-        "RESPONSE DATA:",
-        error?.response?.data
-      );
+      console.error("RESPONSE DATA:", error?.response?.data);
 
-      console.error(
-        "STATUS:",
-        error?.response?.status
-      );
+      console.error("STATUS:", error?.response?.status);
 
       // =====================================================
       // ERROR MESSAGE
@@ -621,14 +455,9 @@ if (driver_id.value.trim() === "") {
         error?.message ||
         "Something went wrong.";
 
-      setServerMessage(
-        message
-      );
+      setServerMessage(message);
 
-      setServerMessageType(
-        "error"
-      );
-
+      setServerMessageType("error");
     } finally {
       setLoading(false);
     }
@@ -669,491 +498,366 @@ if (driver_id.value.trim() === "") {
           className="cap space-y-5"
           encType="multipart/form-data"
         >
-  
-        	  <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
-  <div>
-    <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-      Select Driver
-    </label>
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
+            <div>
+              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                Select Driver
+              </label>
 
-    <select
-      name="driver_id"
-      className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-    >
-      <option value="">
-        {driversLoading
-          ? "Loading drivers..."
-          : "Select Driver"}
-      </option>
+              <select
+                name="driver_id"
+                className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
+              >
+                <option value="">
+                  {driversLoading ? "Loading drivers..." : "Select Driver"}
+                </option>
 
-      {drivers.map((driver) => (
-        <option
-          key={driver.id}
-          value={driver.id}
-        >
-          {driver.fname} {driver.mname} {driver.lname}
-        </option>
-      ))}
-    </select>
-     <p className="text-red-500 text-xs mt-1 driver_id hide">
-          <b>Driver is required</b>
-        </p>
-  </div>
-</div>
+                {drivers.map((driver) => (
+                  <option key={driver.id} value={driver.id}>
+                    {driver.fname} {driver.mname} {driver.lname}
+                  </option>
+                ))}
+              </select>
+              <p className="text-red-500 text-xs mt-1 driver_id hide">
+                <b>Driver is required</b>
+              </p>
+            </div>
+          </div>
           {/* =================================================
               EMPLOYERS
           ================================================= */}
 
-          {employers.map(
-            (employer, index) => (
-              <div
-                key={index}
-                className="border border-slate-200 rounded-xl p-5"
-              >
-                {/* =========================================
+          {employers.map((employer, index) => (
+            <div key={index} className="border border-slate-200 rounded-xl p-5">
+              {/* =========================================
                     EMPLOYER HEADER
                 ========================================= */}
 
-                <div className="flex items-center justify-between mb-5">
-                  <p className="font-semibold text-slate-800">
-                    {getEmployerTitle(
-                      index
-                    )}
-                  </p>
+              <div className="flex items-center justify-between mb-5">
+                <p className="font-semibold text-slate-800">
+                  {getEmployerTitle(index)}
+                </p>
 
-                  {index > 0 && (
-                    <button
-                      type="button"
-                      onClick={() =>
-                        removeEmployer(
-                          index
-                        )
-                      }
-                      className="text-red-500 text-sm font-medium hover:text-red-700"
-                    >
-                      Remove
-                    </button>
-                  )}
-                </div>
+                {index > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => removeEmployer(index)}
+                    className="text-red-500 text-sm font-medium hover:text-red-700"
+                  >
+                    Remove
+                  </button>
+                )}
+              </div>
 
-                {/* =========================================
+              {/* =========================================
                     COMPANY INFORMATION
                 ========================================= */}
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <PanelFormInput
-                    title="Company Name"
-                    placeholder="Enter company name"
-                    mandate={true}
-                    inputype="text"
-                    name={`employers[${index}][cname]`}
-                    value={
-                      employer.cname
-                    }
-                    onChange={(e) =>
-                      handleEmployerChange(
-                        index,
-                        "cname",
-                        e.target.value
-                      )
-                    }
-                    errormsg={
-                      errors[
-                        `employers.${index}.cname`
-                      ]
-                    }
-                  />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <PanelFormInput
+                  title="Company Name"
+                  placeholder="Enter company name"
+                  mandate={true}
+                  inputype="text"
+                  name={`employers[${index}][cname]`}
+                  value={employer.cname}
+                  onChange={(e) =>
+                    handleEmployerChange(index, "cname", e.target.value)
+                  }
+                  errormsg={errors[`employers.${index}.cname`]}
+                />
 
-                  <PanelFormInput
-                    title="Contact No"
-                    placeholder="Enter contact number"
-                    mandate={true}
-                    inputype="text"
-                    name={`employers[${index}][contactno]`}
-                    value={
-                      employer.contactno
-                    }
-                    onChange={(e) =>
-                      handleEmployerChange(
-                        index,
-                        "contactno",
-                        e.target.value
-                      )
-                    }
-                    errormsg={
-                      errors[
-                        `employers.${index}.contactno`
-                      ]
-                    }
-                  />
+                <PanelFormInput
+                  title="Contact No"
+                  placeholder="Enter contact number"
+                  mandate={true}
+                  inputype="text"
+                  name={`employers[${index}][contactno]`}
+                  value={employer.contactno}
+                  onChange={(e) =>
+                    handleEmployerChange(index, "contactno", e.target.value)
+                  }
+                  errormsg={errors[`employers.${index}.contactno`]}
+                />
 
-                  <PanelFormInput
-                    title="Email"
-                    placeholder="Enter email"
-                    mandate={true}
-                    inputype="email"
-                    name={`employers[${index}][email]`}
-                    value={
-                      employer.email
-                    }
-                    onChange={(e) =>
-                      handleEmployerChange(
-                        index,
-                        "email",
-                        e.target.value
-                      )
-                    }
-                    errormsg={
-                      errors[
-                        `employers.${index}.email`
-                      ]
-                    }
-                  />
-                </div>
+                <PanelFormInput
+                  title="Email"
+                  placeholder="Enter email"
+                  mandate={true}
+                  inputype="email"
+                  name={`employers[${index}][email]`}
+                  value={employer.email}
+                  onChange={(e) =>
+                    handleEmployerChange(index, "email", e.target.value)
+                  }
+                  errormsg={errors[`employers.${index}.email`]}
+                />
+              </div>
 
-                {/* =========================================
+              {/* =========================================
                     CURRENT ADDRESS
                 ========================================= */}
 
-                <div className="mt-5">
-                  <p className="mb-3 font-medium text-slate-700">
-                    CURRENT ADDRESS
-                  </p>
+              <div className="mt-5">
+                <p className="mb-3 font-medium text-slate-700">
+                  CURRENT ADDRESS
+                </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                    <PanelFormInput
-                      title="STREET"
-                      placeholder="Enter street"
-                      mandate={false}
-                      inputype="text"
-                      name={`employers[${index}][currentstreet]`}
-                      value={
-                        employer.currentstreet
-                      }
-                      onChange={(e) =>
-                        handleEmployerChange(
-                          index,
-                          "currentstreet",
-                          e.target.value
-                        )
-                      }
-                    />
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                  <PanelFormInput
+                    title="STREET"
+                    placeholder="Enter street"
+                    mandate={false}
+                    inputype="text"
+                    name={`employers[${index}][currentstreet]`}
+                    value={employer.currentstreet}
+                    onChange={(e) =>
+                      handleEmployerChange(
+                        index,
+                        "currentstreet",
+                        e.target.value,
+                      )
+                    }
+                  />
 
-                    <PanelFormInput
-                      title="CITY"
-                      placeholder="Enter city"
-                      mandate={false}
-                      inputype="text"
-                      name={`employers[${index}][currentcity]`}
-                      value={
-                        employer.currentcity
-                      }
-                      onChange={(e) =>
-                        handleEmployerChange(
-                          index,
-                          "currentcity",
-                          e.target.value
-                        )
-                      }
-                    />
+                  <PanelFormInput
+                    title="CITY"
+                    placeholder="Enter city"
+                    mandate={false}
+                    inputype="text"
+                    name={`employers[${index}][currentcity]`}
+                    value={employer.currentcity}
+                    onChange={(e) =>
+                      handleEmployerChange(index, "currentcity", e.target.value)
+                    }
+                  />
 
-                    <PanelFormInput
-                      title="STATE"
-                      placeholder="Enter state"
-                      mandate={false}
-                      inputype="text"
-                      name={`employers[${index}][currentstate]`}
-                      value={
-                        employer.currentstate
-                      }
-                      onChange={(e) =>
-                        handleEmployerChange(
-                          index,
-                          "currentstate",
-                          e.target.value
-                        )
-                      }
-                    />
+                  <PanelFormInput
+                    title="STATE"
+                    placeholder="Enter state"
+                    mandate={false}
+                    inputype="text"
+                    name={`employers[${index}][currentstate]`}
+                    value={employer.currentstate}
+                    onChange={(e) =>
+                      handleEmployerChange(
+                        index,
+                        "currentstate",
+                        e.target.value,
+                      )
+                    }
+                  />
 
-                    <PanelFormInput
-                      title="ZIPCODE"
-                      placeholder="Enter zipcode"
-                      mandate={false}
-                      inputype="text"
-                      name={`employers[${index}][currentzip]`}
-                      value={
-                        employer.currentzip
-                      }
-                      onChange={(e) =>
-                        handleEmployerChange(
-                          index,
-                          "currentzip",
-                          e.target.value
-                        )
-                      }
-                    />
-                  </div>
+                  <PanelFormInput
+                    title="ZIPCODE"
+                    placeholder="Enter zipcode"
+                    mandate={false}
+                    inputype="text"
+                    name={`employers[${index}][currentzip]`}
+                    value={employer.currentzip}
+                    onChange={(e) =>
+                      handleEmployerChange(index, "currentzip", e.target.value)
+                    }
+                  />
                 </div>
+              </div>
 
-                {/* =========================================
+              {/* =========================================
                     POSITION / DATES
                 ========================================= */}
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-5">
-                  <PanelFormInput
-                    title="Position Held"
-                    placeholder="Enter position"
-                    mandate={true}
-                    inputype="text"
-                    name={`employers[${index}][positionheld]`}
-                    value={
-                      employer.positionheld
-                    }
-                    onChange={(e) =>
-                      handleEmployerChange(
-                        index,
-                        "positionheld",
-                        e.target.value
-                      )
-                    }
-                    errormsg={
-                      errors[
-                        `employers.${index}.positionheld`
-                      ]
-                    }
-                  />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-5">
+                <PanelFormInput
+                  title="Position Held"
+                  placeholder="Enter position"
+                  mandate={true}
+                  inputype="text"
+                  name={`employers[${index}][positionheld]`}
+                  value={employer.positionheld}
+                  onChange={(e) =>
+                    handleEmployerChange(index, "positionheld", e.target.value)
+                  }
+                  errormsg={errors[`employers.${index}.positionheld`]}
+                />
 
-                  <PanelFormInput
-                    title="Start Date"
-                    mandate={true}
-                    inputype="date"
-                    name={`employers[${index}][startdate]`}
-                    value={
-                      employer.startdate
-                    }
-                    onChange={(e) =>
-                      handleEmployerChange(
-                        index,
-                        "startdate",
-                        e.target.value
-                      )
-                    }
-                    errormsg={
-                      errors[
-                        `employers.${index}.startdate`
-                      ]
-                    }
-                  />
+                <PanelFormInput
+                  title="Start Date"
+                  mandate={true}
+                  inputype="date"
+                  name={`employers[${index}][startdate]`}
+                  value={employer.startdate}
+                  onChange={(e) =>
+                    handleEmployerChange(index, "startdate", e.target.value)
+                  }
+                  errormsg={errors[`employers.${index}.startdate`]}
+                />
 
-                  <PanelFormInput
-                    title="End Date"
-                    mandate={true}
-                    inputype="date"
-                    name={`employers[${index}][enddate]`}
-                    value={
-                      employer.enddate
-                    }
-                    onChange={(e) =>
-                      handleEmployerChange(
-                        index,
-                        "enddate",
-                        e.target.value
-                      )
-                    }
-                    errormsg={
-                      errors[
-                        `employers.${index}.enddate`
-                      ]
-                    }
-                  />
-                </div>
+                <PanelFormInput
+                  title="End Date"
+                  mandate={true}
+                  inputype="date"
+                  name={`employers[${index}][enddate]`}
+                  value={employer.enddate}
+                  onChange={(e) =>
+                    handleEmployerChange(index, "enddate", e.target.value)
+                  }
+                  errormsg={errors[`employers.${index}.enddate`]}
+                />
+              </div>
 
-                {/* =========================================
+              {/* =========================================
                     REASON / GAP
                 ========================================= */}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1.5">
-                      Reason For Leaving / Termination
-                    </label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5">
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                    Reason For Leaving / Termination
+                  </label>
 
-                    <textarea
-                      name={`employers[${index}][reasonleaving]`}
-                      value={
-                        employer.reasonleaving
-                      }
-                      onChange={(e) =>
-                        handleEmployerChange(
-                          index,
-                          "reasonleaving",
-                          e.target.value
-                        )
-                      }
-                      rows="3"
-                      placeholder="Enter reason"
-                      className="cap w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1.5">
-                      Explain Any Gaps In Employment
-                    </label>
-
-                    <textarea
-                      name={`employers[${index}][employmentgap]`}
-                      value={
-                        employer.employmentgap
-                      }
-                      onChange={(e) =>
-                        handleEmployerChange(
-                          index,
-                          "employmentgap",
-                          e.target.value
-                        )
-                      }
-                      rows="3"
-                      placeholder="Include month/year & reason"
-                      className="cap w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-                    />
-                  </div>
+                  <textarea
+                    name={`employers[${index}][reasonleaving]`}
+                    value={employer.reasonleaving}
+                    onChange={(e) =>
+                      handleEmployerChange(
+                        index,
+                        "reasonleaving",
+                        e.target.value,
+                      )
+                    }
+                    rows="3"
+                    placeholder="Enter reason"
+                    className="cap w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  />
                 </div>
 
-                {/* =========================================
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                    Explain Any Gaps In Employment
+                  </label>
+
+                  <textarea
+                    name={`employers[${index}][employmentgap]`}
+                    value={employer.employmentgap}
+                    onChange={(e) =>
+                      handleEmployerChange(
+                        index,
+                        "employmentgap",
+                        e.target.value,
+                      )
+                    }
+                    rows="3"
+                    placeholder="Include month/year & reason"
+                    className="cap w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  />
+                </div>
+              </div>
+
+              {/* =========================================
                     FMCSR
                 ========================================= */}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700">
-                      While employed here, were you subject to the Federal Motor Carrier Safety Regulations?
-                    </label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5">
+                <div>
+                  <label className="block text-sm font-medium text-slate-700">
+                    While employed here, were you subject to the Federal Motor
+                    Carrier Safety Regulations?
+                  </label>
 
-                    {errors[
-                      `employers.${index}.fmcsr`
-                    ] && (
-                      <p className="mt-1 text-sm text-red-500">
-                        {
-                          errors[
-                            `employers.${index}.fmcsr`
-                          ]
-                        }
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="flex items-center gap-6">
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        value="1"
-                        name={`employers[${index}][fmcsr]`}
-                        checked={
-                          employer.fmcsr ===
-                          "1"
-                        }
-                        onChange={(e) =>
-                          handleEmployerChange(
-                            index,
-                            "fmcsr",
-                            e.target.value
-                          )
-                        }
-                      />
-                      YES
-                    </label>
-
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        value="0"
-                        name={`employers[${index}][fmcsr]`}
-                        checked={
-                          employer.fmcsr ===
-                          "0"
-                        }
-                        onChange={(e) =>
-                          handleEmployerChange(
-                            index,
-                            "fmcsr",
-                            e.target.value
-                          )
-                        }
-                      />
-                      NO
-                    </label>
-                  </div>
+                  {errors[`employers.${index}.fmcsr`] && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {errors[`employers.${index}.fmcsr`]}
+                    </p>
+                  )}
                 </div>
 
-                {/* =========================================
+                <div className="flex items-center gap-6">
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      value="1"
+                      name={`employers[${index}][fmcsr]`}
+                      checked={employer.fmcsr === "1"}
+                      onChange={(e) =>
+                        handleEmployerChange(index, "fmcsr", e.target.value)
+                      }
+                    />
+                    YES
+                  </label>
+
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      value="0"
+                      name={`employers[${index}][fmcsr]`}
+                      checked={employer.fmcsr === "0"}
+                      onChange={(e) =>
+                        handleEmployerChange(index, "fmcsr", e.target.value)
+                      }
+                    />
+                    NO
+                  </label>
+                </div>
+              </div>
+
+              {/* =========================================
                     SAFETY SENSITIVE
                 ========================================= */}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700">
-                      Was the job designated as a safety-sensitive function in any Department of Transportation-regulated mode subject to alcohol and controlled substances testing as required by 49 CFR, part 40?
-                    </label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5">
+                <div>
+                  <label className="block text-sm font-medium text-slate-700">
+                    Was the job designated as a safety-sensitive function in any
+                    Department of Transportation-regulated mode subject to
+                    alcohol and controlled substances testing as required by 49
+                    CFR, part 40?
+                  </label>
 
-                    {errors[
-                      `employers.${index}.safetysensitive`
-                    ] && (
-                      <p className="mt-1 text-sm text-red-500">
-                        {
-                          errors[
-                            `employers.${index}.safetysensitive`
-                          ]
-                        }
-                      </p>
-                    )}
-                  </div>
+                  {errors[`employers.${index}.safetysensitive`] && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {errors[`employers.${index}.safetysensitive`]}
+                    </p>
+                  )}
+                </div>
 
-                  <div className="flex items-center gap-6">
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        value="1"
-                        name={`employers[${index}][safetysensitive]`}
-                        checked={
-                          employer.safetysensitive ===
-                          "1"
-                        }
-                        onChange={(e) =>
-                          handleEmployerChange(
-                            index,
-                            "safetysensitive",
-                            e.target.value
-                          )
-                        }
-                      />
-                      YES
-                    </label>
+                <div className="flex items-center gap-6">
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      value="1"
+                      name={`employers[${index}][safetysensitive]`}
+                      checked={employer.safetysensitive === "1"}
+                      onChange={(e) =>
+                        handleEmployerChange(
+                          index,
+                          "safetysensitive",
+                          e.target.value,
+                        )
+                      }
+                    />
+                    YES
+                  </label>
 
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        value="0"
-                        name={`employers[${index}][safetysensitive]`}
-                        checked={
-                          employer.safetysensitive ===
-                          "0"
-                        }
-                        onChange={(e) =>
-                          handleEmployerChange(
-                            index,
-                            "safetysensitive",
-                            e.target.value
-                          )
-                        }
-                      />
-                      NO
-                    </label>
-                  </div>
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      value="0"
+                      name={`employers[${index}][safetysensitive]`}
+                      checked={employer.safetysensitive === "0"}
+                      onChange={(e) =>
+                        handleEmployerChange(
+                          index,
+                          "safetysensitive",
+                          e.target.value,
+                        )
+                      }
+                    />
+                    NO
+                  </label>
                 </div>
               </div>
-            )
-          )}
+            </div>
+          ))}
 
           {/* =================================================
               ADD EMPLOYER
@@ -1165,10 +869,7 @@ if (driver_id.value.trim() === "") {
               onClick={addEmployer}
               className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#091122] hover:bg-slate-800 text-white rounded-lg text-sm font-medium"
             >
-              <span className="text-xl leading-none">
-                +
-              </span>
-
+              <span className="text-xl leading-none">+</span>
               Add Employer
             </button>
           </div>
@@ -1194,9 +895,7 @@ if (driver_id.value.trim() === "") {
                   : "bg-[#091122] hover:bg-slate-800"
               }`}
             >
-              {loading
-                ? "Saving..."
-                : "Save Employment"}
+              {loading ? "Saving..." : "Save Employment"}
             </button>
           </div>
         </form>
@@ -1208,9 +907,7 @@ if (driver_id.value.trim() === "") {
         {serverMessage && (
           <div
             className={`mt-3 mb-3 rounded-lg border px-3 py-2 text-sm text-center ${
-              serverMessageType === "error"
-                ? "text-red-500"
-                : "text-green-600"
+              serverMessageType === "error" ? "text-red-500" : "text-green-600"
             }`}
             style={{
               borderColor: "#091122",

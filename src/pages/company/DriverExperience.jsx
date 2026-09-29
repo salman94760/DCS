@@ -44,7 +44,8 @@ export default function DriverExperience() {
       pclearinghousedate: formData.get("pclearinghousedate")?.trim() || "",
 
       terminationdate: formData.get("terminationdate")?.trim() || "",
-      reasonleavingortermination: formData.get("reasonleavingortermination")?.trim() || "",
+      reasonleavingortermination:
+        formData.get("reasonleavingortermination")?.trim() || "",
       legalrightsyes: formData.get("legalrightsyes")?.trim() || "",
       legalrightsno: formData.get("legalrightsno")?.trim() || "",
       legalrightsstatus: formData.get("legalrightsstatus")?.trim() || "",
@@ -57,7 +58,7 @@ export default function DriverExperience() {
       currentstate: formData.get("currentstate")?.trim() || "",
       currentzip: formData.get("currentzip")?.trim() || "",
       currentyear: formData.get("currentyear")?.trim() || "",
-     
+
       mailingstreet: formData.get("mailingstreet")?.trim() || "",
       mailingcity: formData.get("mailingcity")?.trim() || "",
       mailingstate: formData.get("mailingstate")?.trim() || "",
@@ -73,7 +74,8 @@ export default function DriverExperience() {
       currentcdlstate: formData.get("currentcdlstate")?.trim() || "",
       currentcdllicenseno: formData.get("currentcdllicenseno")?.trim() || "",
       currentcdlclass: formData.get("currentcdlclass")?.trim() || "",
-      currentcdlendorsements: formData.get("currentcdlendorsements")?.trim() || "",
+      currentcdlendorsements:
+        formData.get("currentcdlendorsements")?.trim() || "",
       currentcdlissuedate: formData.get("currentcdlissuedate")?.trim() || "",
       currentcdlexpdate: formData.get("currentcdlexpdate")?.trim() || "",
 
@@ -98,8 +100,6 @@ export default function DriverExperience() {
     if (!data.activedate) {
       newErrors.activedate = "Active date required";
     }
-
-
 
     if (!data.dob) {
       newErrors.dob = "Date of birth required";
@@ -126,7 +126,8 @@ export default function DriverExperience() {
     }
 
     if (!data.pclearinghousedate) {
-      newErrors.pclearinghousedate = "Pre-employment Clearing House Date required";
+      newErrors.pclearinghousedate =
+        "Pre-employment Clearing House Date required";
     }
 
     if (!data.terminationdate) {
@@ -149,21 +150,6 @@ export default function DriverExperience() {
       newErrors.currentcdlexpdate = "Current cdl expiry date required";
     }
 
-     
-
-  
-
-
- 
-    
-
-
-    
-
- 
-    
-
-
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
@@ -174,7 +160,6 @@ export default function DriverExperience() {
     setLoading(true);
 
     try {
-
       const uploadData = new FormData();
 
       uploadData.append("fname", data.fname);
@@ -191,7 +176,10 @@ export default function DriverExperience() {
       uploadData.append("pclearinghousedate", data.pclearinghousedate);
 
       uploadData.append("terminationdate", data.terminationdate);
-      uploadData.append("reasonleavingortermination", data.reasonleavingortermination);
+      uploadData.append(
+        "reasonleavingortermination",
+        data.reasonleavingortermination,
+      );
       uploadData.append("legalrightsyes", data.legalrightsyes);
       uploadData.append("legalrightsno", data.legalrightsno);
       uploadData.append("legalrightsstatus", data.legalrightsstatus);
@@ -230,13 +218,15 @@ export default function DriverExperience() {
       uploadData.append("oldcdlendorsements", data.oldcdlendorsements);
       uploadData.append("oldcdlissuedate", data.oldcdlissuedate);
       uploadData.append("oldcdlexpdate", data.oldcdlexpdate);
-      uploadData.append("cname", JSON.parse(localStorage.getItem("user"))?.name);
-      uploadData.append("company_id", JSON.parse(localStorage.getItem("user"))?.id);
+      uploadData.append(
+        "cname",
+        JSON.parse(localStorage.getItem("user"))?.name,
+      );
+      uploadData.append(
+        "company_id",
+        JSON.parse(localStorage.getItem("user"))?.id,
+      );
 
-   
-   
-
-    
       const response = await api.post("/company/driver/add", uploadData);
 
       const result = response.data;
@@ -442,7 +432,8 @@ export default function DriverExperience() {
               </label>
             </div>
             <div>
-              <input value="1" type="checkbox" name="legalrightsstatus"/> YES <input type="checkbox" value="0" name="legalrightsstatus"/> NO
+              <input value="1" type="checkbox" name="legalrightsstatus" /> YES{" "}
+              <input type="checkbox" value="0" name="legalrightsstatus" /> NO
             </div>
           </div>
           <br />
@@ -683,8 +674,12 @@ export default function DriverExperience() {
                 >
                   <option value="Hazmat (H)">Hazmat (H)</option>
                   <option value="Tanker (N)">Tanker (N)</option>
-                  <option value="Double/Triple Trailers (T)">Double/Triple Trailers (T)</option>
-                  <option value="Combination Hazmat and Tanker (X)">Combination Hazmat and Tanker (X)</option>
+                  <option value="Double/Triple Trailers (T)">
+                    Double/Triple Trailers (T)
+                  </option>
+                  <option value="Combination Hazmat and Tanker (X)">
+                    Combination Hazmat and Tanker (X)
+                  </option>
                   <option value="None">None</option>
                 </select>
               </div>
@@ -731,7 +726,6 @@ export default function DriverExperience() {
                 errormsg={errors.oldcdllicenseno}
               />
 
-              
               <div>
                 <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                   TYPE/CLASS
@@ -756,8 +750,12 @@ export default function DriverExperience() {
                 >
                   <option value="Hazmat (H)">Hazmat (H)</option>
                   <option value="Tanker (N)">Tanker (N)</option>
-                  <option value="Double/Triple Trailers (T)">Double/Triple Trailers (T)</option>
-                  <option value="Combination Hazmat and Tanker (X)">Combination Hazmat and Tanker (X)</option>
+                  <option value="Double/Triple Trailers (T)">
+                    Double/Triple Trailers (T)
+                  </option>
+                  <option value="Combination Hazmat and Tanker (X)">
+                    Combination Hazmat and Tanker (X)
+                  </option>
                   <option value="None">None</option>
                 </select>
               </div>

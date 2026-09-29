@@ -24,11 +24,20 @@ export default function CompanyRoutes() {
           <Route path="drivers" element={<Drivers />} />
 
           <Route path="driver/add" element={<AddDriver />} />
-          <Route path="driver/employment/add" element={<AddDriverExployment />} />
-          <Route path="driver/experience/add" element={<AddDriverExperience />} />
+          <Route
+            path="driver/employment/add"
+            element={<AddDriverExployment />}
+          />
+          <Route
+            path="driver/experience/add"
+            element={<AddDriverExperience />}
+          />
           <Route path="driver/document/add" element={<AddDriverDocument />} />
 
-          <Route path="driver/employment-history/:id" element={<DriverExployment />} />
+          <Route
+            path="driver/employment-history/:id"
+            element={<DriverExployment />}
+          />
           <Route path="driver/experience/:id" element={<DriverExperience />} />
           <Route path="driver/document/:id" element={<DriverDocument />} />
 

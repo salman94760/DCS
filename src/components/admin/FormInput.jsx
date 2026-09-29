@@ -13,9 +13,7 @@ export default function FormInput({
       <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
         {title}
 
-        {mandate && (
-          <span className="text-red-500 ml-1">*</span>
-        )}
+        {mandate && <span className="text-red-500 ml-1">*</span>}
       </label>
 
       <input
@@ -25,9 +23,7 @@ export default function FormInput({
         defaultValue={value ?? ""}
         onChange={onChange}
         className={`cap w-full px-3 py-2.5 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 ${
-          errormsg
-            ? "border-red-500"
-            : "border-slate-200"
+          errormsg ? "border-red-500" : "border-slate-200"
         }`}
       />
 

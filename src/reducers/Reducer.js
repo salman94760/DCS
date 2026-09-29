@@ -29,9 +29,7 @@ const Reducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        data: Array.isArray(action.payload)
-          ? action.payload
-          : [],
+        data: Array.isArray(action.payload) ? action.payload : [],
         error: null,
       };
 
@@ -75,8 +73,7 @@ const Reducer = (state, action) => {
         ...state,
         loading: false,
         data: state.data.filter(
-          (item) =>
-            String(item.id) !== String(action.payload)
+          (item) => String(item.id) !== String(action.payload),
         ),
         error: null,
       };

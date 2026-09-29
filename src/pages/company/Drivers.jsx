@@ -4,13 +4,22 @@ import { Link } from "react-router-dom";
 import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-import { useLocation,useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDcsContext } from "@/context/Context";
 
 export default function Company() {
   const navigate = useNavigate();
   const location = useLocation();
-  const {loginUserId,state,fetchAllData,loading,error,filters,setFilters,resetFilters} = useDcsContext();
+  const {
+    loginUserId,
+    state,
+    fetchAllData,
+    loading,
+    error,
+    filters,
+    setFilters,
+    resetFilters,
+  } = useDcsContext();
 
   const [search, setSearch] = useState("");
   const [role, setRole] = useState("all");
@@ -20,93 +29,73 @@ export default function Company() {
   // ==========================================
   // GET COMPANIES
   // ==========================================
-useEffect(() => {
-  const role = localStorage.getItem("userRole");
+  useEffect(() => {
+    const role = localStorage.getItem("userRole");
 
-  if (role === "admin") {
-    navigate("/admin-dashboard/company", { replace: true });
-    return;
-  }
+    if (role === "admin") {
+      navigate("/admin-dashboard/company", { replace: true });
+      return;
+    }
 
-  if (role === "company") {
-    fetchAllData(`/company/drivers/${loginUserId}`);
-  }
+    if (role === "company") {
+      fetchAllData(`/company/drivers/${loginUserId}`);
+    }
 
-  if (location.state?.success) {
-    setSuccess(location.state.success);
+    if (location.state?.success) {
+      setSuccess(location.state.success);
 
-    // History se state remove
-    navigate(location.pathname, {
-      replace: true,
-      state: {},
-    });
+      // History se state remove
+      navigate(location.pathname, {
+        replace: true,
+        state: {},
+      });
 
-    const timer = setTimeout(() => {
-      setSuccess("");
-    }, 3000);
+      const timer = setTimeout(() => {
+        setSuccess("");
+      }, 3000);
 
-    return () => clearTimeout(timer);
-  }
-}, [location.state, loginUserId]);
+      return () => clearTimeout(timer);
+    }
+  }, [location.state, loginUserId]);
 
-
-
-
-
-console.log(success);
-
-
-
-
-
-
-
-
+  console.log(success);
 
   // ==========================================
   // FILTER
   // ==========================================
-const filtered = useMemo(() => {
-  const companies = Array.isArray(state.data)
-    ? state.data
-    : [];
+  const filtered = useMemo(() => {
+    const companies = Array.isArray(state.data) ? state.data : [];
 
-  const searchText =
-    filters?.search?.toLowerCase().trim() || "";
+    const searchText = filters?.search?.toLowerCase().trim() || "";
 
-  const status = filters?.status || "all";
+    const status = filters?.status || "all";
 
-  return companies.filter((com) => {
-    const companyName =
-      String(com.cname || "").toLowerCase();
+    return companies.filter((com) => {
+      const companyName = String(com.cname || "").toLowerCase();
 
-    const owner =
-      String(com.owner || "").toLowerCase();
+      const owner = String(com.owner || "").toLowerCase();
 
-    const email =
-      String(com.email || "").toLowerCase();
+      const email = String(com.email || "").toLowerCase();
 
-    const usdot =
-      String(com.usdot || "").toLowerCase();
+      const usdot = String(com.usdot || "").toLowerCase();
 
-    const matchesSearch =
-      !searchText ||
-      companyName.includes(searchText) ||
-      owner.includes(searchText) ||
-      email.includes(searchText) ||
-      usdot.includes(searchText);
+      const matchesSearch =
+        !searchText ||
+        companyName.includes(searchText) ||
+        owner.includes(searchText) ||
+        email.includes(searchText) ||
+        usdot.includes(searchText);
 
-    const companyStatus =
-      Number(com.user?.user_info?.status);
+      const companyStatus = Number(com.user?.user_info?.status);
 
-    const matchesStatus =
-      status === "all" ||
-      (status === "active" && companyStatus === 1) ||
-      (status === "inactive" && companyStatus === 0);
+      const matchesStatus =
+        status === "all" ||
+        (status === "active" && companyStatus === 1) ||
+        (status === "inactive" && companyStatus === 0);
 
-    return matchesSearch && matchesStatus;
-  });
-}, [state.data, filters]);
+      return matchesSearch && matchesStatus;
+    });
+  }, [state.data, filters]);
 
   // ==========================================
   // FILTER BUTTON
@@ -261,29 +250,29 @@ const filtered = useMemo(() => {
       {/* HEADER */}
       {/* ================================= */}
 
-<div className="w-full flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
-  <h1 className="text-2xl font-bold text-slate-900 whitespace-nowrap">
-    Drivers
-  </h1>
+      <div className="w-full flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+        <h1 className="text-2xl font-bold text-slate-900 whitespace-nowrap">
+          Drivers
+        </h1>
 
-  {success && (
-    <div className="flex-1 flex justify-center">
-      <div className="inline-flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-white text-xs">
-          ✓
-        </span>
-        <span>{success}</span>
+        {success && (
+          <div className="flex-1 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-white text-xs">
+                ✓
+              </span>
+              <span>{success}</span>
+            </div>
+          </div>
+        )}
+
+        <Link
+          to="/company-dashboard/driver/add"
+          className="inline-flex items-center justify-center rounded-lg bg-[#091122] px-4 py-2.5 text-sm font-medium text-white whitespace-nowrap hover:bg-slate-800"
+        >
+          + Add Driver
+        </Link>
       </div>
-    </div>
-  )}
-
-  <Link
-    to="/company-dashboard/driver/add"
-    className="inline-flex items-center justify-center rounded-lg bg-[#091122] px-4 py-2.5 text-sm font-medium text-white whitespace-nowrap hover:bg-slate-800"
-  >
-    + Add Driver
-  </Link>
-</div>
 
       {/* ================================= */}
       {/* FILTERS */}
@@ -373,17 +362,8 @@ const filtered = useMemo(() => {
             <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
               <tr>
                 <th className="sticky left-0 z-30 bg-slate-50 text-left px-6 py-4 font-semibold text-slate-600">
-  
-  
-      Action
-
-
-
-
-
-</th>
-
-                
+                  Action
+                </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                   Full name
@@ -399,6 +379,14 @@ const filtered = useMemo(() => {
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                   phone
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Emergency contact
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Emergency contact person
                 </th>
 
                 <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
@@ -469,40 +457,42 @@ const filtered = useMemo(() => {
                           to={`/company-dashboard/driver/edit/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
-                          Edit   
+                          Edit
                         </Link>
 
-                        <Link title="Driver experience"
+                       {/* <Link
+                          title="Driver experience"
                           to={`/company-dashboard/driver/experience/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >Exp
-                        
-                        </Link>
+                        >
+                          Exp
+                        </Link>*/}
 
-                        <Link title="Employment history"
+                        <Link
+                          title="Employment history"
                           to={`/company-dashboard/driver/employment-history/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >Emp-hisotry
-                        
+                        >
+                          Emp-hisotry
                         </Link>
 
-                        <Link title="Document information"
+                        <Link
+                          title="Document information"
                           to={`/company-dashboard/driver/document/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >Doc-info
-                          
+                        >
+                          Doc-info
                         </Link>
 
-                        <Link title="Document information"
+                        {/*<Link
+                          title="Document information"
                           to={`/company-dashboard/driver/document/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >E-Sign
-                          
-                        </Link>
+                        >
+                          E-Sign
+                        </Link>*/}
 
-                        
-
-                         {/*
+                        {/*
                                                 <Link
                           to={`/company-dashboard/driver/edit/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
@@ -532,12 +522,6 @@ const filtered = useMemo(() => {
                         </Link>
                           */}
 
-                           
-                       
-                                   
-
-
-
                         {/*<button
                           type="button"
                           onClick={() => handleDelete(com.id)}
@@ -560,14 +544,20 @@ const filtered = useMemo(() => {
                       {com.activedate}
                     </td>
 
-                    
-
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.dob}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.phone}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.emecontactno}
+                    </td>
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.emecontactperson}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
@@ -610,16 +600,10 @@ const filtered = useMemo(() => {
 
                     {/* STATUS */}
 
-                    <td className="px-6 py-4">
-                      {com.workauthorization}
-                    </td>
-                    <td className="px-6 py-4">
-                      {com.permituscisno}
-                    </td>
+                    <td className="px-6 py-4">{com.workauthorization}</td>
+                    <td className="px-6 py-4">{com.permituscisno}</td>
 
-                     <td className="px-6 py-4">
-                      {com.permitexpdate}
-                    </td>
+                    <td className="px-6 py-4">{com.permitexpdate}</td>
 
                     {/* LOGO */}
                   </tr>
