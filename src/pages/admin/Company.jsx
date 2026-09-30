@@ -476,13 +476,10 @@ export default function Company() {
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.cname}
                     </td>
-                    
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.dba}
                     </td>
-
-                    
 
                     <td className="px-6 py-4">
                       <span className="font-medium text-slate-800 whitespace-nowrap">

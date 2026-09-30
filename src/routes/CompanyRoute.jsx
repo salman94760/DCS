@@ -43,7 +43,10 @@ export default function CompanyRoutes() {
           <Route path="driver/document/:id" element={<DriverDocument />} />
 
           <Route path="driver/edit/:id" element={<EditDrivers />} />
-          <Route path="driver/documents-view/:slug/:id" element={<DriversDocumentsView />} />
+          <Route
+            path="driver/documents-view/:slug/:id"
+            element={<DriversDocumentsView />}
+          />
         </Route>
       </Route>
     </Routes>

@@ -470,7 +470,7 @@ export default function AddCompany() {
               mandate={true}
               inputype="text"
               name="emecontactperson"
-               value={res.emecontactperson}
+              value={res.emecontactperson}
               errormsg={errors.emecontactperson}
             />
           </div>

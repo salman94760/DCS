@@ -118,8 +118,8 @@ export default function AddDriverEmployment() {
 
       misfiles.forEach((file, index) => {
         if (file instanceof File && file.size > 0) {
-          uploadData.append("miscellaneoustitle[]",mistitles[index] || "");
-          uploadData.append("miscellaneousdate[]",misdates[index] || "");
+          uploadData.append("miscellaneoustitle[]", mistitles[index] || "");
+          uploadData.append("miscellaneousdate[]", misdates[index] || "");
           uploadData.append("misfile[]", file);
         }
       });
@@ -489,7 +489,7 @@ export default function AddDriverEmployment() {
                             </button>
                           </td>
 
-                                <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
                             {(() => {
                               const item = drugtest?.find(
                                 (item) =>
@@ -546,7 +546,6 @@ export default function AddDriverEmployment() {
                             </button>
                           </td>
 
-                          
                           <td className="sticky left-0 z-10 bg-white px-6 py-2">
                             {(() => {
                               const item = drugtest?.find(
@@ -619,7 +618,7 @@ export default function AddDriverEmployment() {
                             </button>
                           </td>
 
-                                             <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
                             {(() => {
                               const item = drugtest?.find(
                                 (item) =>
@@ -676,7 +675,7 @@ export default function AddDriverEmployment() {
                             </button>
                           </td>
 
-                                      <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
                             {(() => {
                               const item = drugtest?.find(
                                 (item) =>
@@ -746,7 +745,7 @@ export default function AddDriverEmployment() {
                             </button>
                           </td>
 
-                                                            <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
                             {(() => {
                               const item = drugtest?.find(
                                 (item) =>
@@ -803,7 +802,7 @@ export default function AddDriverEmployment() {
                             </button>
                           </td>
 
-                                         <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          <td className="sticky left-0 z-10 bg-white px-6 py-2">
                             {(() => {
                               const item = drugtest?.find(
                                 (item) =>

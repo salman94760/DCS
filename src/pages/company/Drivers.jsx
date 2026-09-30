@@ -250,7 +250,7 @@ export default function Company() {
       {/* HEADER */}
       {/* ================================= */}
 
-      <div className="w-full flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+      <div className="w-full flex items-center gap-3 mb-6">
         <h1 className="text-2xl font-bold text-slate-900 whitespace-nowrap">
           Drivers
         </h1>
@@ -268,7 +268,7 @@ export default function Company() {
 
         <Link
           to="/company-dashboard/driver/add"
-          className="inline-flex items-center justify-center rounded-lg bg-[#091122] px-4 py-2.5 text-sm font-medium text-white whitespace-nowrap hover:bg-slate-800"
+          className="ml-auto inline-flex items-center justify-center rounded-lg bg-[#091122] px-4 py-2.5 text-sm font-medium text-white whitespace-nowrap hover:bg-slate-800"
         >
           + Add Driver
         </Link>
@@ -460,28 +460,31 @@ export default function Company() {
                           Edit
                         </Link>
 
-                       {/* <Link
+                        <Link
+                          target="_blank"
                           title="Driver experience"
                           to={`/company-dashboard/driver/experience/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
-                          Exp
-                        </Link>*/}
+                          Experience
+                        </Link>
 
                         <Link
+                          target="_blank"
                           title="Employment history"
                           to={`/company-dashboard/driver/employment-history/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
-                          Emp-hisotry
+                          Employment hisotry
                         </Link>
 
                         <Link
+                          target="_blank"
                           title="Document information"
                           to={`/company-dashboard/driver/document/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
-                          Doc-info
+                          Document Information
                         </Link>
 
                         {/*<Link

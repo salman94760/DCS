@@ -87,8 +87,6 @@ export default function AddCompany() {
       oldcdlendorsements: formData.get("oldcdlendorsements")?.trim() || "",
       oldcdlissuedate: formData.get("oldcdlissuedate")?.trim() || "",
       oldcdlexpdate: formData.get("oldcdlexpdate")?.trim() || "",
-
-
     };
 
     const newErrors = {};
