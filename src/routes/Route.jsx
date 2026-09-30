@@ -9,7 +9,7 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/driver-application" element={<DriverApplication />} />
+      <Route path="driver/driver-application/:id" element={<DriverApplication />} />
       <Route
         path="/driver-application-preview"
         element={<DriverApplicationPreview />}

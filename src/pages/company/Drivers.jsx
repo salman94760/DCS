@@ -488,7 +488,7 @@ export default function Company() {
                         </Link>
                         {com.esign === 0 ? <Link
                           title="Document information"
-                          to={`/company-dashboard/driver/document/${com.id}`}
+                          to={`/driver/driver-application/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
                           E-Sign
