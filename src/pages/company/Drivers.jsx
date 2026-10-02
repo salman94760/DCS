@@ -453,7 +453,7 @@ export default function Company() {
 
                     <td className="sticky left-0 z-10 bg-white px-6 py-4">
                       <div className="flex items-center gap-2">
-                        <Link
+                        {/*       <Link
                           to={`/company-dashboard/driver/edit/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
@@ -494,41 +494,58 @@ export default function Company() {
                             to={`/driver/driver-application/${com.id}`}
                             className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                           >
-                            E-Sign
+                            E-Sign<i className="fa-solid fa-file-signature"></i>
+                          </Link>
+                        ) : (
+                          ""
+                        )}*/}
+
+                        <Link
+                          title="Driver Detail"
+                          to={`/company-dashboard/driver/edit/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >
+                          <i className="fa-solid fa-edit"></i>
+                        </Link>
+
+                         <Link
+                          title="Employment history"
+                          to={`/company-dashboard/driver/employment-history/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >
+                          <i className="fa-solid fa-briefcase"></i>
+                        </Link>
+
+                        <Link
+                          title="Driver experience"
+                          to={`/company-dashboard/driver/experience/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >
+                          <i className="fa-solid fa-id-card"></i>
+                        </Link>
+
+                       
+
+                        <Link
+                          title="Document information"
+                          to={`/company-dashboard/driver/document/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >
+                          <i className="fa-solid fa-file-lines"></i>
+                        </Link>
+
+                        {com.esign === 0 ? (
+                          <Link
+                            title="Document information"
+                            target="_blank"
+                            to={`/driver/driver-application/${com.id}`}
+                            className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          >
+                            <i className="fa-solid fa-file-signature"></i>
                           </Link>
                         ) : (
                           ""
                         )}
-
-                        {/*
-                                                <Link
-                          to={`/company-dashboard/driver/edit/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >
-                          Edit    <i className="fa-solid fa-edit"></i>
-                        </Link>
-
-                        <Link title="Driver experience"
-                          to={`/company-dashboard/driver/experience/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >Experience
-                           <i className="fa-solid fa-id-card">sdcsdc</i>
-                        </Link>
-
-                        <Link title="Employment history"
-                          to={`/company-dashboard/driver/employment-history/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >Employment Hisotry
-                           <i className="fa-solid fa-briefcase"></i>
-                        </Link>
-
-                        <Link title="Document information"
-                          to={`/company-dashboard/driver/document/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >Document information
-                           <i className="fa-solid fa-file-lines"></i>
-                        </Link>
-                          */}
 
                         {/*<button
                           type="button"

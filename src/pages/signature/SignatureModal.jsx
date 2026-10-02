@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import api from "@/api/axios";
 
-export default function SignatureModal({ isOpen, onClose, onSaved }) {
+export default function SignatureModal({driverId, isOpen, onClose, onSaved }) {
   const signatureRef = useRef(null);
   const [saving, setSaving] = useState(false);
 
@@ -37,7 +37,7 @@ export default function SignatureModal({ isOpen, onClose, onSaved }) {
 
       const response = await api.post("/signature/save", {
         signature,
-        userId,
+        driverId,
       });
 
       console.log("Signature saved:", response.data);

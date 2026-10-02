@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <>
-      <header className="relative bg-[#0a1122] h-[76px] flex items-center justify-between px-6 overflow-hidden">
+      <header className="relative h-[76px] flex items-center justify-between px-6 overflow-hidden bg-gradient-to-r from-slate-900 via-[#17233d] to-[#1d2b49] border-b border-white/10 shadow-[0_4px_20px_rgba(15,23,42,0.15)]">
         <div className="stripe-wrap">
           <div className="stripe"></div>
           <div className="stripe two"></div>

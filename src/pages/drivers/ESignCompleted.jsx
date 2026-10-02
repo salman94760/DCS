@@ -24,14 +24,14 @@ const ESignCompleted = () => {
         </h1>
 
         <p className="mb-6 leading-7 text-gray-600">
-          Thank you for completing your electronic signature. Your
-          E-Signature has been successfully submitted.
+          Thank you for completing your electronic signature. Your E-Signature
+          has been successfully submitted.
         </p>
 
         <p className="mb-6 leading-7 text-gray-600">
-          Your driver application is now complete and has been submitted
-          for review. If any additional information is required, our
-          administrator will contact you.
+          Your driver application is now complete and has been submitted for
+          review. If any additional information is required, our administrator
+          will contact you.
         </p>
 
         {/* Success Message */}
@@ -41,7 +41,7 @@ const ESignCompleted = () => {
           </p>
         </div>
 
-     {/*   <div className="flex flex-col justify-center gap-3 sm:flex-row">
+        {/*   <div className="flex flex-col justify-center gap-3 sm:flex-row">
           <button
             type="button"
             onClick={() => window.history.back()}

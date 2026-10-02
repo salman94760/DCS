@@ -11,7 +11,7 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/driver/esign-cancelled/:id" element={<ESignCancelled />} />
 
-      <Route path="/driver/esign-completed/:id" element={<ESignCompleted />}/>
+      <Route path="/driver/esign-completed/:id" element={<ESignCompleted />} />
 
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />

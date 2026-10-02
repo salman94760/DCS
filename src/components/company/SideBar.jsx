@@ -59,17 +59,34 @@ export default function Sidebar() {
             {openMenu === "drivers" && (
               <div className="ml-8 mt-1 space-y-1 border-l border-white/10 pl-3">
                 <Link
-                  to="/company-dashboard/drivers"
+                  to="/company-dashboard/driver/add"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
-                  All Drivers
+                  New Application
                 </Link>
-
+               {/* <Link
+                  to="/company-dashboard/driver/add"
+                  className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
+                >
+                  Pending Application
+                </Link>
                 <Link
                   to="/company-dashboard/driver/add"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
-                  Add Driver
+                  Active Drivers
+                </Link>
+                <Link
+                  to="/company-dashboard/driver/add"
+                  className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
+                >
+                  Terminated Drivers
+                </Link>*/}
+                <Link
+                  to="/company-dashboard/drivers"
+                  className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
+                >
+                  All Drivers
                 </Link>
 
                 {/*<Link

@@ -41,7 +41,7 @@
 }
 
 .cap {
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 .hide {
   display: none;
@@ -49,3 +49,75 @@
 .pageseries {
   font-size: 10px;
 }
+
+/*.stripe {
+  position: absolute;
+  width: 42px;
+  height: 125px;
+
+  left: 22px;
+  top: -25px;
+
+  transform: rotate(28deg);
+
+  background: linear-gradient(
+    180deg,
+    #60a5fa 0%,
+    #3b82f6 45%,
+    #2563eb 100%
+  );
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 0 18px rgba(59, 130, 246, 0.16);
+}
+
+.stripe.two {
+  left: 64px;
+
+  background: linear-gradient(
+    180deg,
+    #93c5fd 0%,
+    #3b82f6 100%
+  );
+
+  opacity: 0.28;
+
+  box-shadow: none;
+}*/
+
+/*.stripe {
+  position: absolute;
+  width: 42px;
+  height: 125px;
+
+  left: 22px;
+  top: -25px;
+
+  transform: rotate(28deg);
+
+  background: linear-gradient(
+    180deg,
+    #6ee7b7 0%,
+    #34d399 50%,
+    #10b981 100%
+  );
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 4px 18px rgba(16, 185, 129, 0.15);
+}
+
+.stripe.two {
+  left: 64px;
+
+  background: linear-gradient(
+    180deg,
+    #a7f3d0,
+    #34d399
+  );
+
+  opacity: 0.3;
+}*/

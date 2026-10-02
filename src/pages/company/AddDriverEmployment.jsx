@@ -561,8 +561,10 @@ export default function AddDriverEmployment() {
                   mandate={true}
                   inputype="text"
                   name={`employers[${index}][cname]`}
-                  value={JSON.parse(localStorage.getItem("user"))?.company.cname}
-                  disabled = "disabled"
+                  value={
+                    JSON.parse(localStorage.getItem("user"))?.company.cname
+                  }
+                  disabled="disabled"
                   onChange={(e) =>
                     handleEmployerChange(index, "cname", e.target.value)
                   }

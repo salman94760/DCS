@@ -1,11 +1,12 @@
 import SignatureModal from "@/pages/signature/SignatureModal";
-import { useState, useEffect,useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 
 import api from "@/api/axios";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 export default function DriverApplication() {
   const [signatureOpen, setSignatureOpen] = useState(false);
+  const [signatureData, setsignatureData] = useState(false);
   const [driver, setDriver] = useState({});
   const [company, setCompany] = useState({});
   const [loading, setLoading] = useState(false);
@@ -19,75 +20,173 @@ export default function DriverApplication() {
     navigate(`/driver/esign-cancelled/${id}`);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (loading) return;
-
-    const formData = new FormData(e.target);
-
-    const data = {
-      fname: formData.get("fname")?.trim() || "",
-      
-    };
-
-    const newErrors = {};
-
-    if (!data.fname) {
-      newErrors.fname = "First name is required";
-    }
 
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
+  if (loading) return;
 
-    setErrors({});
-    setServerMessage("");
-    setLoading(true);
+  const form = e.currentTarget;
+  const formData = new FormData(form);
 
-    try {
-      const uploadData = new FormData();
+  let firstInvalidField = null;
 
-      uploadData.append("fname", data.fname);
-  
-
-      uploadData.append("terminationdate", data.terminationdate);
-
-      uploadData.append(
-        "cname",
-        JSON.parse(localStorage.getItem("user"))?.name,
+  // Remove old validation styles
+  form
+    .querySelectorAll(
+      "input[required], select[required], textarea[required]"
+    )
+    .forEach((field) => {
+      field.classList.remove(
+        "border-red-500",
+        "ring-2",
+        "ring-red-500",
+        "accent-red-500"
       );
-      uploadData.append(
-        "company_id",
-        JSON.parse(localStorage.getItem("user"))?.id,
+    });
+
+  // -----------------------------------
+  // Required normal fields
+  // -----------------------------------
+  const requiredFields = form.querySelectorAll(
+    "input[required]:not([type='checkbox']), select[required], textarea[required]"
+  );
+
+  requiredFields.forEach((field) => {
+    if (!field.value?.trim()) {
+      field.classList.add(
+        "border-red-500",
+        "ring-2",
+        "ring-red-500"
       );
 
-      const response = await api.post("/company/driver/add", uploadData);
+      if (!firstInvalidField) {
+        firstInvalidField = field;
+      }
+    }
+  });
 
-      const result = response.data;
+  // -----------------------------------
+  // Checkbox validation
+  // -----------------------------------
 
-      console.log("SUCCESS:", result);
+  // Example:
+  // <input type="checkbox" name="driver_license" value="front_back">
+  // <input type="checkbox" name="driver_license" value="other">
 
-      setServerMessage(result.message || "Driver added successfully");
+  const licenseCheckboxes = form.querySelectorAll(
+    'input[name="driver_license"]'
+  );
 
-      setServerMessageType("success");
+  if (licenseCheckboxes.length > 0) {
+    const selectedLicense = form.querySelector(
+      'input[name="driver_license"]:checked'
+    );
 
-      navigate(`/driver/esign-completed/${id}`, {
-        replace: true,
+    if (!selectedLicense) {
+      licenseCheckboxes.forEach((checkbox) => {
+        checkbox.classList.add(
+          "accent-red-500",
+          "ring-2",
+          "ring-red-500"
+        );
       });
-    } catch (error) {
- 
 
-      const message = error.response?.data?.message || "Something went wrong.";
-
-      setServerMessage(message);
-      setServerMessageType("error");
-    } finally {
-      setLoading(false);
+      if (!firstInvalidField) {
+        firstInvalidField = licenseCheckboxes[0];
+      }
     }
+  }
+
+  // -----------------------------------
+  // Stop if validation failed
+  // -----------------------------------
+
+  if (firstInvalidField) {
+    firstInvalidField.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+
+    firstInvalidField.focus?.();
+
+    return;
+  }
+
+  // -----------------------------------
+  // Get form data
+  // -----------------------------------
+
+  const data = {
+    p1fname: formData.get("p1fname")?.trim() || "",
+    p1mname: formData.get("p1mname")?.trim() || "",
+    p1lname: formData.get("p1lname")?.trim() || "",
+
+    driver_license:
+      formData.get("driver_license") || "",
   };
+
+  console.log("DATA:", data);
+
+  setErrors({});
+  setLoading(true);
+
+  try {
+    const uploadData = new FormData();
+
+    uploadData.append("p1fname", data.p1fname);
+    uploadData.append("p1mname", data.p1mname);
+    uploadData.append("p1lname", data.p1lname);
+
+    uploadData.append(
+      "driver_license",
+      data.driver_license
+    );
+
+    uploadData.append(
+      "company_id",
+      JSON.parse(localStorage.getItem("user"))?.id || ""
+    );
+
+    // IMPORTANT:
+    // FormData ko console.log karne ke bajaye entries dekho
+
+    for (const [key, value] of uploadData.entries()) {
+      console.log("UPLOAD:", key, value);
+    }
+
+    const response = await api.post(
+      "/company/driver-esign/add",
+      uploadData
+    );
+
+    const result = response.data;
+
+    console.log("SUCCESS:", result);
+
+    setServerMessage(
+      result.message || "Driver added successfully"
+    );
+
+    setServerMessageType("success");
+
+    navigate(`/driver/esign-completed/${id}`, {
+      replace: true,
+    });
+  } catch (error) {
+    console.error("ERROR:", error);
+
+    const message =
+      error.response?.data?.message ||
+      "Something went wrong.";
+
+    setServerMessage(message);
+    setServerMessageType("error");
+  } finally {
+    setLoading(false);
+  }
+};
 
   useLayoutEffect(() => {
     const getDriverDetail = async () => {
@@ -95,6 +194,7 @@ export default function DriverApplication() {
         const response = await api.get(`/company/driverDetail/${id}`);
         setDriver(response.data.driver);
         setCompany(response.data.company);
+        setsignatureData(response.data.driver.user?.signature);
       } catch (error) {
         console.error("Driver detail error:", error);
       }
@@ -105,21 +205,22 @@ export default function DriverApplication() {
     }
   }, [id]);
 
-// useEffect(() => {
-//     const getDriverDetail = async () => {
-//       try {
-//         const response = await api.get(`/company/driverDetail/${id}`);
-//         setDriver(response.data.driver);
-//         setCompany(response.data.company);
-//       } catch (error) {
-//         console.error("Driver detail error:", error);
-//       }
-//     };
+  // useEffect(() => {
+  //     const getDriverDetail = async () => {
+  //       try {
+  //         const response = await api.get(`/company/driverDetail/${id}`);
+  //         setDriver(response.data.driver);
+  //         setCompany(response.data.company);
+  //       } catch (error) {
+  //         console.error("Driver detail error:", error);
+  //       }
+  //     };
 
-//     if (id) {
-//       getDriverDetail();
-//     }
-//   }, [id]);
+  //     if (id) {
+  //       getDriverDetail();
+  //     }
+  //   }, [id]);
+  console.log(signatureData,'salman');
 
   return (
     <>
@@ -161,11 +262,16 @@ export default function DriverApplication() {
         </div>
       </header>
 
-      <form onSubmit={handleSubmit} className="min-h-screen bg-[#bdbdbd] font-['Tinos']">
+      <form
+        onSubmit={handleSubmit}
+        className="min-h-screen bg-[#bdbdbd] font-['Tinos']"
+      >
         <SignatureModal
+          driverId={id}
           isOpen={signatureOpen}
           onClose={() => setSignatureOpen(false)}
           onSaved={(data) => {
+            setsignatureData(data.signature)
             console.log("Saved Signature:", data);
           }}
         />
@@ -198,7 +304,8 @@ export default function DriverApplication() {
                   MOTOR CARRIER / EMPLOYER
                 </td>
                 <td className="h-[25px] border-b border-[#aebdcc]">
-                  <input name="page_1_motorcarrieremployer"
+                  <input
+                    name="p1motorcarrieremployer"
                     className="border border-3 border-black w-full h-[28px] p-2"
                     type="text"
                   />
@@ -211,7 +318,7 @@ export default function DriverApplication() {
                 </td>
 
                 <td className="h-[25px] border-b border-[#aebdcc]">
-                  <input
+                  <input name="p1usdotnumber" 
                     className="border border-3 border-black w-full h-[28px] p-2"
                     type="text"
                   />
@@ -224,10 +331,10 @@ export default function DriverApplication() {
                 </td>
 
                 <td className="h-[25px] border-b border-[#aebdcc]">
-                  <input
-                    className="border border-3 border-black w-full h-[28px] p-2"
-                    type="text"
-                  />
+                  <span className="pl-3">{driver.fname} {driver.mname} {driver.lname}</span>
+                  <input type="hidden" value={driver.fname} name="p1fname" />
+                  <input type="hidden" value={driver.mname} name="p1mname" />
+                  <input type="hidden" value={driver.lname} name="p1lname" />
                 </td>
               </tr>
 
@@ -237,9 +344,10 @@ export default function DriverApplication() {
                 </td>
 
                 <td className="h-[25px] border-b border-[#aebdcc]">
-                  <input
+                  <span className="pl-3">{driver.appliedfor}</span>
+                  <input name="p1appliedfor" value={driver.appliedfor}
                     className="border border-3 border-black w-full h-[28px] p-2"
-                    type="text"
+                    type="hidden"
                   />
                 </td>
               </tr>
@@ -250,9 +358,9 @@ export default function DriverApplication() {
                 </td>
 
                 <td className="h-[25px] border-b border-[#aebdcc]">
-                  <input
+                  <input name="p1applicationdate"
                     className="border border-3 border-black w-full h-[28px] p-2"
-                    type="text"
+                    type="date"
                   />
                 </td>
               </tr>
@@ -693,7 +801,7 @@ export default function DriverApplication() {
                     </td>
 
                     <td className="w-[58%] border border-[#555] px-2 py-2">
-                      <input
+                      <input required
                         className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
                         type="text"
                       />
@@ -760,12 +868,26 @@ export default function DriverApplication() {
                       <label className="mb-1 block text-[10px] sm:text-xs">
                         Driver Signature
                       </label>
-
-                      <input
+                      {
+                        !signatureData?<input
                         onClick={() => setSignatureOpen(true)}
                         className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
                         type="text"
-                      />
+                      />:<span className="pl-0">{signatureData ? (
+                        <img
+                          className="w-full h-[40px] object-contain"
+                          src={`${
+                            window.location.hostname === "localhost"
+                              ? "http://localhost:8000/storage/"
+                              : "{{ env('APP_URL') . '/storage/app/public/' }}"
+                          }${signatureData}`}
+                          alt={signatureData}
+                        />
+                      ) : (
+                        "No Image"
+                      )}</span>
+                      }
+                      
                     </td>
 
                     <td className="border border-[#555] px-2 py-2 align-top">
