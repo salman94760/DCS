@@ -868,18 +868,18 @@ const handleSubmit = async (e) => {
                       <label className="mb-1 block text-[10px] sm:text-xs">
                         Driver Signature
                       </label>
-                      {
+                   {
                         !signatureData?<input
                         onClick={() => setSignatureOpen(true)}
                         className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
                         type="text"
-                      />:<span className="pl-0">{signatureData ? (
+                      />:<span className="pl-3">{signatureData ? (
                         <img
-                          className="w-full h-[40px] object-contain"
+                          className="w-[100px] h-[60px] object-contain"
                           src={`${
                             window.location.hostname === "localhost"
                               ? "http://localhost:8000/storage/"
-                              : "{{ env('APP_URL') . '/storage/app/public/' }}"
+                              : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
                           }${signatureData}`}
                           alt={signatureData}
                         />
