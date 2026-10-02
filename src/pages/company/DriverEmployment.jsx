@@ -820,8 +820,8 @@ console.log();
                     mandate={true}
                     inputype="text"
                     name={`employers[${index}][cname]`}
-                    value={JSON.parse(localStorage.getItem("user"))?.company.cname}
-                  
+                    value={employer.cname}
+
                     onChange={(e) =>
                       handleEmployerChange(
                         index,
