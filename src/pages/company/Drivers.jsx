@@ -1,16 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDcsContext } from "@/context/Context";
 
 export default function Company() {
   const navigate = useNavigate();
   const location = useLocation();
-
   const {
     loginUserId,
     state,
@@ -28,25 +27,24 @@ export default function Company() {
   const [success, setSuccess] = useState("");
 
   // ==========================================
-  // GET DRIVERS
+  // GET COMPANIES
   // ==========================================
   useEffect(() => {
-    const userRole = localStorage.getItem("userRole");
+    const role = localStorage.getItem("userRole");
 
-    if (userRole === "admin") {
-      navigate("/admin-dashboard/company", {
-        replace: true,
-      });
+    if (role === "admin") {
+      navigate("/admin-dashboard/company", { replace: true });
       return;
     }
 
-    if (userRole === "company") {
+    if (role === "company") {
       fetchAllData(`/company/drivers/${loginUserId}`);
     }
 
     if (location.state?.success) {
       setSuccess(location.state.success);
 
+      // History se state remove
       navigate(location.pathname, {
         replace: true,
         state: {},
@@ -60,52 +58,47 @@ export default function Company() {
     }
   }, [location.state, loginUserId]);
 
+  console.log(success);
+
   // ==========================================
   // FILTER
   // ==========================================
   const filtered = useMemo(() => {
-    const drivers = Array.isArray(state.data)
-      ? state.data
-      : [];
+    const companies = Array.isArray(state.data) ? state.data : [];
 
-    const searchText =
-      filters?.search?.toLowerCase().trim() || "";
+    const searchText = filters?.search?.toLowerCase().trim() || "";
 
-    const selectedStatus =
-      filters?.status || "all";
+    const status = filters?.status || "all";
 
-    return drivers.filter((com) => {
-      const fname = String(com.fname || "").toLowerCase();
-      const mname = String(com.mname || "").toLowerCase();
-      const lname = String(com.lname || "").toLowerCase();
+    return companies.filter((com) => {
+      const companyName = String(com.cname || "").toLowerCase();
+
+      const owner = String(com.owner || "").toLowerCase();
+
       const email = String(com.email || "").toLowerCase();
-      const phone = String(com.phone || "").toLowerCase();
 
-      const fullName =
-        `${fname} ${mname} ${lname}`.trim();
+      const usdot = String(com.usdot || "").toLowerCase();
 
       const matchesSearch =
         !searchText ||
-        fullName.includes(searchText) ||
+        companyName.includes(searchText) ||
+        owner.includes(searchText) ||
         email.includes(searchText) ||
-        phone.includes(searchText);
+        usdot.includes(searchText);
 
-      const driverStatus =
-        Number(com.user?.user_info?.status);
+      const companyStatus = Number(com.user?.user_info?.status);
 
       const matchesStatus =
-        selectedStatus === "all" ||
-        (selectedStatus === "active" &&
-          driverStatus === 1) ||
-        (selectedStatus === "inactive" &&
-          driverStatus === 0);
+        status === "all" ||
+        (status === "active" && companyStatus === 1) ||
+        (status === "inactive" && companyStatus === 0);
 
       return matchesSearch && matchesStatus;
     });
   }, [state.data, filters]);
 
   // ==========================================
-  // FILTER
+  // FILTER BUTTON
   // ==========================================
   const handleFilter = () => {
     setFilters({
@@ -127,68 +120,63 @@ export default function Company() {
   };
 
   // ==========================================
+  // DELETE
+  // ==========================================
+  const handleDelete = async (id) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this company?",
+    );
+
+    if (!confirmed) return;
+
+    try {
+      await deleteCompany(id);
+    } catch (error) {
+      console.error("Failed to delete:", error);
+    }
+  };
+
+  // ==========================================
   // EXCEL
   // ==========================================
   const handleExportExcel = () => {
-    if (!filtered || filtered.length === 0) {
-      alert("No driver data available.");
+    if (!company || company.length === 0) {
+      alert("No company data available.");
       return;
     }
 
-    const data = filtered.map((com) => ({
-      "Full Name":
-        `${com.fname || ""} ${com.mname || ""} ${com.lname || ""}`.trim(),
-
-      "Active Date": com.activedate || "",
-      DOB: com.dob || "",
-      Phone: com.phone || "",
-      "Emergency Contact": com.emecontactno || "",
-      "Emergency Contact Person":
-        com.emecontactperson || "",
-      Email: com.email || "",
-      "Drug Test Negative Date":
-        com.drugnegativedate || "",
-      "Social Security": com.socialsecurity || "",
-      "Applied For": com.appliedfor || "",
-      "Driver Status": com.driverstatus || "",
-      "Pre-employment Clearing House Date":
-        com.pclearinghousedate || "",
-      "Termination Date": com.terminationdate || "",
-      "Reason For Leaving / Termination":
-        com.reasonleavingortermination || "",
-      "Authorized to work in U.S.?":
-        com.legalrightsstatus || "",
-      "Work Authorization":
-        com.workauthorization || "",
-      "USCIS No": com.permituscisno || "",
-      "Work Permit Expiration":
-        com.permitexpdate || "",
+    const data = company.map((com) => ({
+      Username: com.email || "",
+      Password: com.user?.user_info?.password_hint || "",
+      USDOT: com.usdot || "",
+      "Company Owner Name": com.owner || "",
+      "Legal Company Name": com.cname || "",
+      "DBA Name": com.dba || "",
+      "DOT Number": com.dot || "",
+      "MC Number": com.mc || "",
+      "EIN Number": com.ein || "",
+      "Email ID": com.email || "",
+      "Physical Address": com.physicaladdress || "",
+      "Mailing Address": com.mailaddress || "",
+      "Phone Number": com.phone || "",
+      "Alternate Phone Number": com.aphone || "",
     }));
 
-    const worksheet =
-      XLSX.utils.json_to_sheet(data);
+    const worksheet = XLSX.utils.json_to_sheet(data);
 
-    const workbook =
-      XLSX.utils.book_new();
+    const workbook = XLSX.utils.book_new();
 
-    XLSX.utils.book_append_sheet(
-      workbook,
-      worksheet,
-      "Drivers"
-    );
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Companies");
 
-    XLSX.writeFile(
-      workbook,
-      "drivers-report.xlsx"
-    );
+    XLSX.writeFile(workbook, "companies-report.xlsx");
   };
 
   // ==========================================
   // PDF
   // ==========================================
   const handleExportPDF = () => {
-    if (!filtered || filtered.length === 0) {
-      alert("No driver data available.");
+    if (!company || company.length === 0) {
+      alert("No company data available.");
       return;
     }
 
@@ -199,26 +187,23 @@ export default function Company() {
     });
 
     doc.setFontSize(16);
-    doc.text("Drivers Report", 14, 15);
+
+    doc.text("Companies Report", 14, 15);
 
     doc.setFontSize(9);
-    doc.text(
-      `Total Drivers: ${filtered.length}`,
-      14,
-      22
-    );
 
-    const tableData = filtered.map((com) => [
-      `${com.fname || ""} ${com.mname || ""} ${
-        com.lname || ""
-      }`.trim(),
+    doc.text(`Total Companies: ${company.length}`, 14, 22);
 
-      com.activedate || "",
-      com.dob || "",
-      com.phone || "",
+    const tableData = company.map((com) => [
       com.email || "",
-      com.driverstatus || "",
-      com.terminationdate || "",
+      com.usdot || "",
+      com.owner || "",
+      com.cname || "",
+      com.dba || "",
+      com.dot || "",
+      com.mc || "",
+      com.ein || "",
+      com.phone || "",
     ]);
 
     autoTable(doc, {
@@ -226,13 +211,15 @@ export default function Company() {
 
       head: [
         [
-          "Full Name",
-          "Active Date",
-          "DOB",
+          "Username",
+          "USDOT",
+          "Owner",
+          "Legal Company",
+          "DBA",
+          "DOT",
+          "MC",
+          "EIN",
           "Phone",
-          "Email",
-          "Status",
-          "Termination",
         ],
       ],
 
@@ -254,7 +241,7 @@ export default function Company() {
       },
     });
 
-    doc.save("drivers-report.pdf");
+    doc.save("companies-report.pdf");
   };
 
   return (
@@ -263,61 +250,17 @@ export default function Company() {
       {/* HEADER */}
       {/* ================================= */}
 
-      <div
-        className="
-          w-full
-          flex flex-col
-          sm:flex-row
-          sm:items-center
-          gap-3
-          mb-5 sm:mb-6
-        "
-      >
-        <h1
-          className="
-            text-xl
-            sm:text-2xl
-            font-bold
-            text-slate-900
-          "
-        >
+      <div className="w-full flex items-center gap-3 mb-6">
+        <h1 className="text-2xl font-bold text-slate-900 whitespace-nowrap">
           Drivers
         </h1>
 
         {success && (
           <div className="flex-1 flex justify-center">
-            <div
-              className="
-                w-full sm:w-auto
-                inline-flex
-                items-center
-                justify-center
-                gap-2
-                rounded-lg
-                border border-green-200
-                bg-green-50
-                px-3 sm:px-4
-                py-2
-                text-xs sm:text-sm
-                font-medium
-                text-green-700
-              "
-            >
-              <span
-                className="
-                  flex h-5 w-5
-                  flex-shrink-0
-                  items-center
-                  justify-center
-                  rounded-full
-                  bg-green-500
-                  text-white
-                  text-xs
-                "
-              >
+            <div className="inline-flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-white text-xs">
                 ✓
               </span>
-
               <span>{success}</span>
             </div>
           </div>
@@ -325,22 +268,7 @@ export default function Company() {
 
         <Link
           to="/company-dashboard/driver/add"
-          className="
-            w-full sm:w-auto
-            sm:ml-auto
-            inline-flex
-            items-center
-            justify-center
-            rounded-lg
-            bg-[#091122]
-            px-4
-            py-2.5
-            text-sm
-            font-medium
-            text-white
-            hover:bg-slate-800
-            transition
-          "
+          className="ml-auto inline-flex items-center justify-center rounded-lg bg-[#091122] px-4 py-2.5 text-sm font-medium text-white whitespace-nowrap hover:bg-slate-800"
         >
           + Add Driver
         </Link>
@@ -350,107 +278,33 @@ export default function Company() {
       {/* FILTERS */}
       {/* ================================= */}
 
-      <div
-        className="
-          w-full
-          bg-white
-          rounded-xl
-          border border-slate-200
-          p-3 sm:p-4
-          mb-5
-        "
-      >
-        <div
-          className="
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            lg:flex
-            gap-3
-          "
-        >
-          {/* Search */}
+      <div className="w-full bg-white rounded-xl border border-slate-200 p-4 mb-5">
+        <div className="flex flex-col lg:flex-row gap-3">
           <input
             type="text"
             placeholder="Search by name or email..."
             value={search}
-            onChange={(e) =>
-              setSearch(e.target.value)
-            }
-            className="
-              w-full
-              lg:flex-1
-              min-w-0
-              border border-slate-200
-              rounded-lg
-              px-4
-              py-2.5
-              text-sm
-              outline-none
-              focus:border-emerald-400
-              focus:ring-2
-              focus:ring-emerald-100
-            "
+            onChange={(e) => setSearch(e.target.value)}
+            className="flex-1 min-w-0 border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-100"
           />
 
-          {/* Status */}
           <select
             value={status}
-            onChange={(e) =>
-              setStatus(e.target.value)
-            }
-            className="
-              w-full
-              sm:w-auto
-              lg:w-40
-              border border-slate-200
-              rounded-lg
-              px-4
-              py-2.5
-              text-sm
-              outline-none
-              bg-white
-              focus:border-emerald-400
-              focus:ring-2
-              focus:ring-emerald-100
-            "
+            onChange={(e) => setStatus(e.target.value)}
+            className="lg:w-40 border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
           >
-            <option value="all">
-              All Status
-            </option>
+            <option value="all">All Status</option>
 
-            <option value="active">
-              Active
-            </option>
+            <option value="active">Active</option>
 
-            <option value="inactive">
-              Inactive
-            </option>
+            <option value="inactive">Inactive</option>
           </select>
 
-          {/* Buttons */}
-          <div
-            className="
-              grid
-              grid-cols-2
-              gap-3
-              sm:flex
-            "
-          >
+          <div className="flex gap-3">
             <button
               type="button"
               onClick={handleFilter}
-              className="
-                px-5
-                py-2.5
-                rounded-lg
-                bg-[#091122]
-                text-white
-                text-sm
-                font-medium
-                hover:bg-slate-800
-                transition
-              "
+              className="flex-1 lg:flex-none bg-[#091122] text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800"
             >
               Filter
             </button>
@@ -458,45 +312,20 @@ export default function Company() {
             <button
               type="button"
               onClick={handleReset}
-              className="
-                px-5
-                py-2.5
-                rounded-lg
-                border border-slate-200
-                text-slate-600
-                text-sm
-                font-medium
-                hover:bg-slate-50
-                transition
-              "
+              className="flex-1 lg:flex-none border border-slate-200 text-slate-600 px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-50"
             >
               Reset
             </button>
           </div>
 
-          {/* Export */}
-          <div
-            className="
-              flex
-              gap-2
-              sm:col-span-2
-              lg:ml-auto
-            "
-          >
+          {/* EXPORT */}
+
+          <div className="flex gap-2 lg:ml-auto">
             <button
               type="button"
               onClick={handleExportExcel}
               title="Export Excel"
-              className="
-                flex-1 sm:flex-none
-                w-10 h-10
-                flex items-center justify-center
-                bg-[#091122]
-                text-white
-                rounded-lg
-                hover:bg-slate-800
-                transition
-              "
+              className="w-10 h-10 flex items-center justify-center bg-[#091122] text-white rounded-lg"
             >
               <i className="fa-regular fa-file-excel"></i>
             </button>
@@ -505,18 +334,9 @@ export default function Company() {
               type="button"
               onClick={handleExportPDF}
               title="Export PDF"
-              className="
-                flex-1 sm:flex-none
-                w-10 h-10
-                flex items-center justify-center
-                bg-[#091122]
-                text-white
-                rounded-lg
-                hover:bg-slate-800
-                transition
-              "
+              className="w-10 h-10 flex items-center justify-center bg-[#091122] text-white rounded-lg"
             >
-              <i className="fa-solid fa-file-pdf"></i>
+              <i className="fa-solid fa-file"></i>
             </button>
           </div>
         </div>
@@ -527,17 +347,7 @@ export default function Company() {
       {/* ================================= */}
 
       {error && (
-        <div
-          className="
-            mb-4
-            p-3
-            bg-red-50
-            border border-red-100
-            text-red-600
-            rounded-lg
-            text-sm
-          "
-        >
+        <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-lg">
           {error}
         </div>
       )}
@@ -546,153 +356,162 @@ export default function Company() {
       {/* TABLE */}
       {/* ================================= */}
 
-      <div
-        className="
-          w-full
-          min-w-0
-          bg-white
-          rounded-xl
-          border border-slate-200
-          overflow-hidden
-        "
-      >
-        <div
-          className="
-            w-full
-            max-h-[calc(100vh-280px)]
-            min-h-[300px]
-            overflow-auto
-          "
-        >
-          <table
-            className="
-              min-w-[1700px]
-              w-full
-              text-xs sm:text-sm
-              border-collapse
-            "
-          >
-            <thead
-              className="
-                sticky
-                top-0
-                z-20
-                bg-slate-50
-                border-b
-                border-slate-200
-              "
-            >
+      <div className="w-full min-w-0 bg-white rounded-xl border border-slate-200">
+        <div className="w-full max-h-[500px] overflow-auto">
+          <table className="min-w-[1500px] w-full text-sm border border-collapse">
+            <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
               <tr>
-                {[
-                  "Action",
-                  "Full name",
-                  "Active date",
-                  "DOB",
-                  "Phone",
-                  "Emergency contact",
-                  "Emergency contact person",
-                  "Email",
-                  "Drug test Negative Date",
-                  "SOCIAL SECURITY",
-                  "APPLIED FOR",
-                  "Driver Status",
-                  "Pre-employment Clearing House Date",
-                  "Termination Date",
-                  "Reason For Leaving / Termination",
-                  "Authorized to work in the U.S.?",
-                  "WORK AUTHORIZATION",
-                  "USCIS NO",
-                  "Work Permit Expiration Date",
-                ].map((heading, index) => (
-                  <th
-                    key={heading}
-                    className={`
-                      px-4 sm:px-6
-                      py-3 sm:py-4
-                      text-left
-                      font-semibold
-                      text-slate-600
-                      whitespace-nowrap
-                      border-b
-                      border-slate-200
-                      ${
-                        index === 0
-                          ? "sticky left-0 z-30 bg-slate-50"
-                          : ""
-                      }
-                    `}
-                  >
-                    {heading}
-                  </th>
-                ))}
+                <th className="sticky left-0 z-30 bg-slate-50 text-left px-6 py-4 font-semibold text-slate-600">
+                  Action
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Full name
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Active date
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  dob
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  phone
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Emergency contact
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Emergency contact person
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  email
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Drug test Neagtive Date
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
+                  SOCIAL SECURITY
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  APPLIED FOR
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
+                  Driver Status
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Pre-employment Cleaning House Date
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Termination Date
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Reason For Leaving / Termination
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Authorized to work in the U.S.?
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  WORK AUTHORIZATION
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  USCIS NO
+                </th>
+
+                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                  Work Permit Expiration Date
+                </th>
               </tr>
             </thead>
 
             <tbody className="divide-y divide-slate-200">
               {loading ? (
                 <tr>
-                  <td
-                    colSpan="19"
-                    className="
-                      text-center
-                      py-10
-                      text-slate-500
-                    "
-                  >
-                    Loading drivers...
+                  <td colSpan="17" className="text-center py-10 text-slate-500">
+                    Loading companies...
                   </td>
                 </tr>
               ) : (
                 filtered.map((com) => (
-                  <tr
-                    key={com.id}
-                    className="
-                      hover:bg-slate-50
-                      transition-colors
-                    "
-                  >
+                  <tr key={com.id} className="cap hover:bg-slate-50">
                     {/* ACTION */}
-                    <td
-                      className="
-                        sticky
-                        left-0
-                        z-10
-                        bg-white
-                        px-3 sm:px-6
-                        py-3 sm:py-4
-                      "
-                    >
-                      <div className="flex items-center gap-1.5">
+
+                    <td className="sticky left-0 z-10 bg-white px-6 py-4">
+                      <div className="flex items-center gap-2">
+                        {/*       <Link
+                          to={`/company-dashboard/driver/edit/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >
+                          Edit
+                        </Link>
+                        <Link
+                          target="_blank"
+                          title="Employment history"
+                          to={`/company-dashboard/driver/employment-history/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >
+                          Employment hisotry
+                        </Link>
+
+                        <Link
+                          target="_blank"
+                          title="Driver experience"
+                          to={`/company-dashboard/driver/experience/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >
+                          Experience
+                        </Link>
+
+                        
+
+                        <Link
+                          target="_blank"
+                          title="Document information"
+                          to={`/company-dashboard/driver/document/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >
+                          Document Information
+                        </Link>
+                        {com.esign === 0 ? (
+                          <Link
+                            title="Document information"
+                            target="_blank"
+                            to={`/driver/driver-application/${com.id}`}
+                            className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          >
+                            E-Sign<i className="fa-solid fa-file-signature"></i>
+                          </Link>
+                        ) : (
+                          ""
+                        )}*/}
+
                         <Link
                           title="Driver Detail"
                           to={`/company-dashboard/driver/edit/${com.id}`}
-                          className="
-                            w-8 h-8
-                            flex items-center justify-center
-                            border border-slate-200
-                            rounded-lg
-                            text-xs
-                            text-slate-600
-                            hover:bg-slate-50
-                            hover:text-emerald-600
-                          "
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-edit"></i>
                         </Link>
 
-                        <Link
+                         <Link
                           title="Employment history"
                           to={`/company-dashboard/driver/employment-history/${com.id}`}
-                          className="
-                            w-8 h-8
-                            flex items-center justify-center
-                            border border-slate-200
-                            rounded-lg
-                            text-xs
-                            text-slate-600
-                            hover:bg-slate-50
-                            hover:text-emerald-600
-                          "
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-briefcase"></i>
                         </Link>
@@ -700,145 +519,126 @@ export default function Company() {
                         <Link
                           title="Driver experience"
                           to={`/company-dashboard/driver/experience/${com.id}`}
-                          className="
-                            w-8 h-8
-                            flex items-center justify-center
-                            border border-slate-200
-                            rounded-lg
-                            text-xs
-                            text-slate-600
-                            hover:bg-slate-50
-                            hover:text-emerald-600
-                          "
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-id-card"></i>
                         </Link>
 
+                       
+
                         <Link
                           title="Document information"
                           to={`/company-dashboard/driver/document/${com.id}`}
-                          className="
-                            w-8 h-8
-                            flex items-center justify-center
-                            border border-slate-200
-                            rounded-lg
-                            text-xs
-                            text-slate-600
-                            hover:bg-slate-50
-                            hover:text-emerald-600
-                          "
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-file-lines"></i>
                         </Link>
 
-                        {com.esign === 0 && (
+                        {com.esign === 0 ? (
                           <Link
-                            title="E-Sign"
+                            title="Document information"
                             target="_blank"
                             to={`/driver/driver-application/${com.id}`}
-                            className="
-                              w-8 h-8
-                              flex items-center justify-center
-                              border border-slate-200
-                              rounded-lg
-                              text-xs
-                              text-emerald-600
-                              hover:bg-emerald-50
-                            "
+                            className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                           >
                             <i className="fa-solid fa-file-signature"></i>
                           </Link>
+                        ) : (
+                          ""
                         )}
+
+                        {/*<button
+                          type="button"
+                          onClick={() => handleDelete(com.id)}
+                          className="px-3 py-1.5 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50 whitespace-nowrap"
+                        >
+                          Delete
+                        </button>*/}
                       </div>
                     </td>
 
-                    {/* FULL NAME */}
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    {/* USERNAME */}
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.fname} {com.mname} {com.lname}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    {/* PASSWORD */}
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.activedate}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.dob}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.phone}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.emecontactno}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.emecontactperson}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.email}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
-                      {com.drugnegativedate}
+                    <td className="px-6 py-4">
+                      <span className="font-medium text-slate-800 whitespace-nowrap">
+                        {com.drugnegativedate}
+                      </span>
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.socialsecurity}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.appliedfor}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.driverstatus}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.pclearinghousedate}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.terminationdate}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.reasonleavingortermination}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.legalrightsstatus}
                     </td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
-                      {com.workauthorization}
-                    </td>
+                    {/* STATUS */}
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
-                      {com.permituscisno}
-                    </td>
+                    <td className="px-6 py-4">{com.workauthorization}</td>
+                    <td className="px-6 py-4">{com.permituscisno}</td>
 
-                    <td className="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
-                      {com.permitexpdate}
-                    </td>
+                    <td className="px-6 py-4">{com.permitexpdate}</td>
+
+                    {/* LOGO */}
                   </tr>
                 ))
               )}
 
               {!loading && filtered.length === 0 && (
                 <tr>
-                  <td
-                    colSpan="19"
-                    className="
-                      text-center
-                      py-10
-                      text-slate-500
-                    "
-                  >
-                    No drivers found.
+                  <td colSpan="17" className="text-center py-10 text-slate-500">
+                    No companies found.
                   </td>
                 </tr>
               )}
