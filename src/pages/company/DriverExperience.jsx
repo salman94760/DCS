@@ -27,7 +27,6 @@ export default function DriverExperience() {
 
   const [accidents, setAccidents] = useState([{ ...emptyAccident }]);
 
-
   const emptyTrafficConviction = {
     state: "",
     violationType: "",
@@ -41,127 +40,96 @@ export default function DriverExperience() {
   ]);
 
   const fetchDriverExperience = async () => {
-      if (!id) {
-        return;
-      }
+    if (!id) {
+      return;
+    }
 
-      try {
-        setFetchingData(true);
-        setFetchingExperience({});
-        setServerMessage("");
-        setErrors({});
+    try {
+      setFetchingData(true);
+      setFetchingExperience({});
+      setServerMessage("");
+      setErrors({});
 
-        const response = await api.get(`/company/driver-experience/${id}`);
+      const response = await api.get(`/company/driver-experience/${id}`);
 
-        const result = response?.data || {};
-       
-        const payload =
-          result?.data ||
-          result?.driver ||
-          result?.experience ||
-          result;
+      const result = response?.data || {};
 
-   
+      const payload =
+        result?.data || result?.driver || result?.experience || result;
 
-        const fetchedAccidents = Array.isArray(payload?.accidents)
-          ? payload.accidents
-          : [];
+      const fetchedAccidents = Array.isArray(payload?.accidents)
+        ? payload.accidents
+        : [];
 
-        const fetchedConvictions = Array.isArray(
-          payload?.trafficConvictions
-        )
-          ? payload.trafficConvictions
-          : Array.isArray(payload?.traffic_convictions)
+      const fetchedConvictions = Array.isArray(payload?.trafficConvictions)
+        ? payload.trafficConvictions
+        : Array.isArray(payload?.traffic_convictions)
           ? payload.traffic_convictions
           : [];
 
-        const normalizeDate = (value) => {
-          if (!value) return "";
+      const normalizeDate = (value) => {
+        if (!value) return "";
 
-          if (typeof value === "string") {
-            return value.includes("T")
-              ? value.split("T")[0]
-              : value.slice(0, 10);
-          }
+        if (typeof value === "string") {
+          return value.includes("T") ? value.split("T")[0] : value.slice(0, 10);
+        }
 
-          return "";
-        };
+        return "";
+      };
 
-        setFetchingExperience(payload.experience);
+      setFetchingExperience(payload.experience);
 
-        setAccidents(
-          fetchedAccidents.length
-            ? fetchedAccidents.map((item) => ({
-                ...item,
-                id: item?.id ?? item?._id ?? undefined,
-                date: normalizeDate(
-                  item?.date ??
-                    item?.accidentDate ??
-                    item?.accident_date
-                ),
-                nature:
-                  item?.nature ??
-                  item?.natureOfAccident ??
-                  item?.nature_of_accident ??
-                  "",
-                fatalities: String(
-                  item?.fatalities ?? item?.fatality ?? "0"
-                ),
-                injuries: String(
-                  item?.injuries ?? item?.injury ?? "0"
-                ),
-                remark:
-                  item?.remark ??
-                  item?.remarks ??
-                  "",
-              }))
-            : [{ ...emptyAccident }]
-        );
+      setAccidents(
+        fetchedAccidents.length
+          ? fetchedAccidents.map((item) => ({
+              ...item,
+              id: item?.id ?? item?._id ?? undefined,
+              date: normalizeDate(
+                item?.date ?? item?.accidentDate ?? item?.accident_date,
+              ),
+              nature:
+                item?.nature ??
+                item?.natureOfAccident ??
+                item?.nature_of_accident ??
+                "",
+              fatalities: String(item?.fatalities ?? item?.fatality ?? "0"),
+              injuries: String(item?.injuries ?? item?.injury ?? "0"),
+              remark: item?.remark ?? item?.remarks ?? "",
+            }))
+          : [{ ...emptyAccident }],
+      );
 
-        setTrafficConvictions(
-          fetchedConvictions.length
-            ? fetchedConvictions.map((item) => ({
-                ...item,
-                id: item?.id ?? item?._id ?? undefined,
-                state:
-                  item?.state ??
-                  item?.stateOfViolation ??
-                  item?.state_of_violation ??
-                  "",
-                violationType:
-                  item?.violationType ??
-                  item?.violation_type ??
-                  "",
-                ticketDate: normalizeDate(
-                  item?.ticketDate ??
-                    item?.ticket_date
-                ),
-                convictionDate: normalizeDate(
-                  item?.convictionDate ??
-                    item?.conviction_date
-                ),
-                remark:
-                  item?.remark ??
-                  item?.remarks ??
-                  "",
-              }))
-            : [{ ...emptyTrafficConviction }]
-        );
-      } catch (error) {
-        console.error(
-          "FETCH DRIVER EXPERIENCE ERROR:",
-          error
-        );
+      setTrafficConvictions(
+        fetchedConvictions.length
+          ? fetchedConvictions.map((item) => ({
+              ...item,
+              id: item?.id ?? item?._id ?? undefined,
+              state:
+                item?.state ??
+                item?.stateOfViolation ??
+                item?.state_of_violation ??
+                "",
+              violationType: item?.violationType ?? item?.violation_type ?? "",
+              ticketDate: normalizeDate(item?.ticketDate ?? item?.ticket_date),
+              convictionDate: normalizeDate(
+                item?.convictionDate ?? item?.conviction_date,
+              ),
+              remark: item?.remark ?? item?.remarks ?? "",
+            }))
+          : [{ ...emptyTrafficConviction }],
+      );
+    } catch (error) {
+      console.error("FETCH DRIVER EXPERIENCE ERROR:", error);
 
-        setServerMessage(
-          error?.response?.data?.message ||
-            "Unable to fetch existing driver experience."
-        );
-        setServerMessageType("error");
-      } finally {
-        setFetchingData(false);
-      }
-    };
+      setServerMessage(
+        error?.response?.data?.message ||
+          "Unable to fetch existing driver experience.",
+      );
+      setServerMessageType("error");
+    } finally {
+      setFetchingData(false);
+    }
+  };
 
   useEffect(() => {
     const role = localStorage.getItem("userRole");
@@ -176,16 +144,11 @@ export default function DriverExperience() {
   }, [navigate]);
 
   useEffect(() => {
-    
-
     fetchDriverExperience();
   }, [id]);
 
   const addAccident = () => {
-    setAccidents((prev) => [
-      ...prev,
-      { ...emptyAccident },
-    ]);
+    setAccidents((prev) => [...prev, { ...emptyAccident }]);
   };
 
   const removeAccident = (index) => {
@@ -208,18 +171,13 @@ export default function DriverExperience() {
   };
 
   const addTrafficConviction = () => {
-    setTrafficConvictions((prev) => [
-      ...prev,
-      { ...emptyTrafficConviction },
-    ]);
+    setTrafficConvictions((prev) => [...prev, { ...emptyTrafficConviction }]);
   };
 
   const removeTrafficConviction = (index) => {
     if (trafficConvictions.length === 1) return;
 
-    setTrafficConvictions((prev) =>
-      prev.filter((_, i) => i !== index),
-    );
+    setTrafficConvictions((prev) => prev.filter((_, i) => i !== index));
   };
 
   const updateTrafficConviction = (index, field, value) => {
@@ -237,523 +195,435 @@ export default function DriverExperience() {
 
   const validateForm = () => {
     const newErrors = {};
-    accidents.forEach(
-      (accidents, index) => {
-        
-        if (!accidents.date.trim()) {
-          newErrors[
-            `accidents.${index}.date`
-          ] = "Company name is required";
-        }
+    accidents.forEach((accidents, index) => {
+      if (!accidents.date.trim()) {
+        newErrors[`accidents.${index}.date`] = "Company name is required";
+      }
 
-        // CONTACT NUMBER
-        if (!employer.contactno.trim()) {
-          newErrors[
-            `employers.${index}.nature`
-          ] = "Contact no is required";
-        }
+      // CONTACT NUMBER
+      if (!employer.contactno.trim()) {
+        newErrors[`employers.${index}.nature`] = "Contact no is required";
+      }
 
-        // EMAIL
-        if (!employer.email.trim()) {
-          newErrors[
-            `employers.${index}.email`
-          ] = "Email is required";
-        } else {
-          const emailRegex =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // EMAIL
+      if (!employer.email.trim()) {
+        newErrors[`employers.${index}.email`] = "Email is required";
+      } else {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-          if (
-            !emailRegex.test(
-              employer.email.trim()
-            )
-          ) {
-            newErrors[
-              `employers.${index}.email`
-            ] = "Enter a valid email";
-          }
-        }
-
-        // POSITION
-        if (!employer.positionheld.trim()) {
-          newErrors[
-            `employers.${index}.positionheld`
-          ] = "Position held is required";
-        }
-
-        // START DATE
-        if (!employer.startdate.trim()) {
-          newErrors[
-            `employers.${index}.startdate`
-          ] = "Start date is required";
-        }
-
-        // END DATE
-        if (!employer.enddate.trim()) {
-          newErrors[
-            `employers.${index}.enddate`
-          ] = "End date is required";
-        }
-
-        // FMCSR
-        if (
-          employer.fmcsr !== "1" &&
-          employer.fmcsr !== "0"
-        ) {
-          newErrors[
-            `employers.${index}.fmcsr`
-          ] = "Please select YES or NO";
-        }
-
-        // SAFETY SENSITIVE
-        if (
-          employer.safetysensitive !== "1" &&
-          employer.safetysensitive !== "0"
-        ) {
-          newErrors[
-            `employers.${index}.safetysensitive`
-          ] =
-            "Please select YES or NO";
+        if (!emailRegex.test(employer.email.trim())) {
+          newErrors[`employers.${index}.email`] = "Enter a valid email";
         }
       }
-    );
+
+      // POSITION
+      if (!employer.positionheld.trim()) {
+        newErrors[`employers.${index}.positionheld`] =
+          "Position held is required";
+      }
+
+      // START DATE
+      if (!employer.startdate.trim()) {
+        newErrors[`employers.${index}.startdate`] = "Start date is required";
+      }
+
+      // END DATE
+      if (!employer.enddate.trim()) {
+        newErrors[`employers.${index}.enddate`] = "End date is required";
+      }
+
+      // FMCSR
+      if (employer.fmcsr !== "1" && employer.fmcsr !== "0") {
+        newErrors[`employers.${index}.fmcsr`] = "Please select YES or NO";
+      }
+
+      // SAFETY SENSITIVE
+      if (
+        employer.safetysensitive !== "1" &&
+        employer.safetysensitive !== "0"
+      ) {
+        newErrors[`employers.${index}.safetysensitive`] =
+          "Please select YES or NO";
+      }
+    });
 
     return newErrors;
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  if (loading) {
-    return;
-  }
-
-  // =======================================================
-  // CREATE FORM DATA
-  // =======================================================
-
-  const formData = new FormData(e.target);
-
-  const data = {
-    equipment: formData.get("equipment")?.trim() || "",
-    equipmenttype: formData.get("equipmenttype")?.trim() || "",
-    fromdate: formData.get("fromdate")?.trim() || "",
-    todate: formData.get("todate")?.trim() || "",
-    miles: formData.get("miles")?.trim() || "",
-    noaccidents: formData.get("noaccidents")?.trim() || "",
-    notrafficconvictions:
-      formData.get("notrafficconvictions")?.trim() || "",
-    licensedenied:
-      formData.get("licensedenied")?.trim() || "",
-    licensedeniedexplanation:
-      formData.get("licensedeniedexplanation")?.trim() || "",
-    licensesuspended:
-      formData.get("licensesuspended")?.trim() || "",
-    licensesuspendedexplanation:
-      formData.get("licensesuspendedexplanation")?.trim() || "",
-  };
-
-  // =======================================================
-  // VALIDATION
-  // =======================================================
-
-  const newErrors = {};
-
-  // -------------------------------------------------------
-  // DRIVER EXPERIENCE
-  // -------------------------------------------------------
-
-  if (!data.equipment) {
-    newErrors.equipment = "Equipment is required.";
-  }
-
-  if (!data.equipmenttype) {
-    newErrors.equipmenttype = "Equipment type is required.";
-  }
-
-  if (!data.fromdate) {
-    newErrors.fromdate = "From date is required.";
-  }
-
-  if (!data.todate) {
-    newErrors.todate = "To date is required.";
-  }
-
-  // From date / To date
-  if (data.fromdate && data.todate) {
-    if (new Date(data.todate) < new Date(data.fromdate)) {
-      newErrors.todate =
-        "To date must be after or equal to from date.";
-    }
-  }
-
-  // Miles
-  if (!data.miles) {
-    newErrors.miles = "Miles is required.";
-  } else if (
-    isNaN(Number(data.miles)) ||
-    Number(data.miles) < 0
-  ) {
-    newErrors.miles = "Please enter a valid miles value.";
-  }
-
-  // Accident history
-  // if (!data.noaccidents) {
-  //   newErrors.noaccidents =
-  //     "Please select accident history.";
-  // }
-
-  // Traffic conviction history
-  // if (!data.notrafficconvictions) {
-  //   newErrors.notrafficconvictions =
-  //     "Please select traffic conviction history.";
-  // }
-
-  // License denied
-  if (!data.licensedenied) {
-    newErrors.licensedenied =
-      "Please select license denied status.";
-  }
-
-  if (
-    data.licensedenied === "yes" &&
-    !data.licensedeniedexplanation
-  ) {
-    newErrors.licensedeniedexplanation =
-      "Please provide license denied explanation.";
-  }
-
-  // License suspended
-  if (!data.licensesuspended) {
-    newErrors.licensesuspended =
-      "Please select license suspended status.";
-  }
-
-  if (
-    data.licensesuspended === "yes" &&
-    !data.licensesuspendedexplanation
-  ) {
-    newErrors.licensesuspendedexplanation =
-      "Please provide license suspended explanation.";
-  }
-
-  // =======================================================
-  // ACCIDENTS VALIDATION
-  // =======================================================
-
-  accidents.forEach((accident, index) => {
-    // Check whether row contains any actual data
-    const hasAccidentData =
-      accident.date ||
-      accident.nature ||
-      accident.remark ||
-      Number(accident.fatalities) > 0 ||
-      Number(accident.injuries) > 0;
-
-    // Empty/default row ko ignore karo
-    if (!hasAccidentData) {
+    if (loading) {
       return;
     }
 
-    if (!accident.date) {
-      newErrors[`accident_${index}_date`] =
-        "Accident date is required.";
-    }
+    // =======================================================
+    // CREATE FORM DATA
+    // =======================================================
 
-    if (!accident.nature?.trim()) {
-      newErrors[`accident_${index}_nature`] =
-        "Nature is required.";
-    }
+    const formData = new FormData(e.target);
 
-    if (
-      accident.fatalities === "" ||
-      accident.fatalities === null ||
-      accident.fatalities === undefined
-    ) {
-      newErrors[`accident_${index}_fatalities`] =
-        "Fatalities is required.";
-    }
+    const data = {
+      equipment: formData.get("equipment")?.trim() || "",
+      equipmenttype: formData.get("equipmenttype")?.trim() || "",
+      fromdate: formData.get("fromdate")?.trim() || "",
+      todate: formData.get("todate")?.trim() || "",
+      miles: formData.get("miles")?.trim() || "",
+      noaccidents: formData.get("noaccidents")?.trim() || "",
+      notrafficconvictions: formData.get("notrafficconvictions")?.trim() || "",
+      licensedenied: formData.get("licensedenied")?.trim() || "",
+      licensedeniedexplanation:
+        formData.get("licensedeniedexplanation")?.trim() || "",
+      licensesuspended: formData.get("licensesuspended")?.trim() || "",
+      licensesuspendedexplanation:
+        formData.get("licensesuspendedexplanation")?.trim() || "",
+    };
 
-    if (
-      accident.injuries === "" ||
-      accident.injuries === null ||
-      accident.injuries === undefined
-    ) {
-      newErrors[`accident_${index}_injuries`] =
-        "Injuries is required.";
-    }
+    // =======================================================
+    // VALIDATION
+    // =======================================================
 
-    if (!accident.remark?.trim()) {
-      newErrors[`accident_${index}_remark`] =
-        "Remark is required.";
-    }
-  });
+    const newErrors = {};
 
-  // =======================================================
-  // TRAFFIC CONVICTIONS VALIDATION
-  // =======================================================
-
-  trafficConvictions.forEach((traffic, index) => {
-    // Check whether row contains any actual data
-    const hasTrafficData =
-      traffic.state ||
-      traffic.violationType ||
-      traffic.ticketDate ||
-      traffic.convictionDate ||
-      traffic.remark;
-
-    // Empty/default row ko ignore karo
-    if (!hasTrafficData) {
-      return;
-    }
-
-    if (!traffic.state?.trim()) {
-      newErrors[`traffic_${index}_state`] =
-        "State is required.";
-    }
-
-    if (!traffic.violationType?.trim()) {
-      newErrors[`traffic_${index}_violationType`] =
-        "Violation type is required.";
-    }
-
-    if (!traffic.ticketDate) {
-      newErrors[`traffic_${index}_ticketDate`] =
-        "Ticket date is required.";
-    }
-
-    if (!traffic.convictionDate) {
-      newErrors[`traffic_${index}_convictionDate`] =
-        "Conviction date is required.";
-    }
-
-    // Ticket date / conviction date
-    if (
-      traffic.ticketDate &&
-      traffic.convictionDate &&
-      new Date(traffic.convictionDate) <
-        new Date(traffic.ticketDate)
-    ) {
-      newErrors[`traffic_${index}_convictionDate`] =
-        "Conviction date must be after or equal to ticket date.";
-    }
-
-    if (!traffic.remark?.trim()) {
-      newErrors[`traffic_${index}_remark`] =
-        "Remark is required.";
-    }
-  });
-
-  // =======================================================
-  // SHOW VALIDATION ERRORS
-  // =======================================================
-console.log(newErrors);
-  if (Object.keys(newErrors).length > 0) {
-    setErrors(newErrors);
-
-    setTimeout(() => {
-      const firstError =
-        document.querySelector(".border-red-500");
-
-      if (firstError) {
-        firstError.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-
-        firstError.focus?.();
-      }
-    }, 100);
-
-    return;
-  }
- console.log("here");
-  // =======================================================
-  // VALIDATION PASSED
-  // =======================================================
-
-  setErrors({});
-  setServerMessage("");
-  setServerMessageType("");
-  setLoading(true);
-
-  try {
-    // =====================================================
-    // GET USER
-    // =====================================================
-
-    let user = null;
-
-    try {
-      user = JSON.parse(
-        localStorage.getItem("user") || "null"
-      );
-    } catch (parseError) {
-      console.error(
-        "User JSON parse error:",
-        parseError
-      );
-    }
-
-    // =====================================================
-    // CREATE UPLOAD FORM DATA
-    // =====================================================
-
-    const uploadData = new FormData();
-
-    // =====================================================
-    // COMPANY INFORMATION
-    // =====================================================
-
-    if (user?.name) {
-      uploadData.append("cname", user.name);
-    }
-
-    if (user?.id) {
-      uploadData.append("company_id", user.id);
-    }
-
-    // =====================================================
+    // -------------------------------------------------------
     // DRIVER EXPERIENCE
-    // =====================================================
+    // -------------------------------------------------------
 
-    uploadData.append("driver_id", id);
-    uploadData.append("equipment", data.equipment);
-    uploadData.append("equipmenttype", data.equipmenttype);
-    uploadData.append("fromdate", data.fromdate);
-    uploadData.append("todate", data.todate);
-    uploadData.append("miles", data.miles);
-    uploadData.append("noaccidents", data.noaccidents);
-    uploadData.append(
-      "notrafficconvictions",
-      data.notrafficconvictions
-    );
-    uploadData.append(
-      "licensedenied",
-      data.licensedenied
-    );
-    uploadData.append(
-      "licensedeniedexplanation",
-      data.licensedeniedexplanation
-    );
-    uploadData.append(
-      "licensesuspended",
-      data.licensesuspended
-    );
-    uploadData.append(
-      "licensesuspendedexplanation",
-      data.licensesuspendedexplanation
-    );
- console.log("here");
-    // =====================================================
-    // ACCIDENTS
-    // =====================================================
+    if (!data.equipment) {
+      newErrors.equipment = "Equipment is required.";
+    }
+
+    if (!data.equipmenttype) {
+      newErrors.equipmenttype = "Equipment type is required.";
+    }
+
+    if (!data.fromdate) {
+      newErrors.fromdate = "From date is required.";
+    }
+
+    if (!data.todate) {
+      newErrors.todate = "To date is required.";
+    }
+
+    // From date / To date
+    if (data.fromdate && data.todate) {
+      if (new Date(data.todate) < new Date(data.fromdate)) {
+        newErrors.todate = "To date must be after or equal to from date.";
+      }
+    }
+
+    // Miles
+    if (!data.miles) {
+      newErrors.miles = "Miles is required.";
+    } else if (isNaN(Number(data.miles)) || Number(data.miles) < 0) {
+      newErrors.miles = "Please enter a valid miles value.";
+    }
+
+    // Accident history
+    // if (!data.noaccidents) {
+    //   newErrors.noaccidents =
+    //     "Please select accident history.";
+    // }
+
+    // Traffic conviction history
+    // if (!data.notrafficconvictions) {
+    //   newErrors.notrafficconvictions =
+    //     "Please select traffic conviction history.";
+    // }
+
+    // License denied
+    if (!data.licensedenied) {
+      newErrors.licensedenied = "Please select license denied status.";
+    }
+
+    if (data.licensedenied === "yes" && !data.licensedeniedexplanation) {
+      newErrors.licensedeniedexplanation =
+        "Please provide license denied explanation.";
+    }
+
+    // License suspended
+    if (!data.licensesuspended) {
+      newErrors.licensesuspended = "Please select license suspended status.";
+    }
+
+    if (data.licensesuspended === "yes" && !data.licensesuspendedexplanation) {
+      newErrors.licensesuspendedexplanation =
+        "Please provide license suspended explanation.";
+    }
+
+    // =======================================================
+    // ACCIDENTS VALIDATION
+    // =======================================================
 
     accidents.forEach((accident, index) => {
-      Object.entries(accident).forEach(([key, value]) => {
-        uploadData.append(
-          `accidents[${index}][${key}]`,
-          value ?? ""
-        );
-      });
+      // Check whether row contains any actual data
+      const hasAccidentData =
+        accident.date ||
+        accident.nature ||
+        accident.remark ||
+        Number(accident.fatalities) > 0 ||
+        Number(accident.injuries) > 0;
+
+      // Empty/default row ko ignore karo
+      if (!hasAccidentData) {
+        return;
+      }
+
+      if (!accident.date) {
+        newErrors[`accident_${index}_date`] = "Accident date is required.";
+      }
+
+      if (!accident.nature?.trim()) {
+        newErrors[`accident_${index}_nature`] = "Nature is required.";
+      }
+
+      if (
+        accident.fatalities === "" ||
+        accident.fatalities === null ||
+        accident.fatalities === undefined
+      ) {
+        newErrors[`accident_${index}_fatalities`] = "Fatalities is required.";
+      }
+
+      if (
+        accident.injuries === "" ||
+        accident.injuries === null ||
+        accident.injuries === undefined
+      ) {
+        newErrors[`accident_${index}_injuries`] = "Injuries is required.";
+      }
+
+      if (!accident.remark?.trim()) {
+        newErrors[`accident_${index}_remark`] = "Remark is required.";
+      }
     });
 
-    // =====================================================
-    // TRAFFIC CONVICTIONS
-    // =====================================================
+    // =======================================================
+    // TRAFFIC CONVICTIONS VALIDATION
+    // =======================================================
 
     trafficConvictions.forEach((traffic, index) => {
-      Object.entries(traffic).forEach(([key, value]) => {
-        uploadData.append(
-          `traffic[${index}][${key}]`,
-          value ?? ""
-        );
-      });
-    });
-    console.log("here");
-    // =====================================================
-    // DEBUG
-    // =====================================================
+      // Check whether row contains any actual data
+      const hasTrafficData =
+        traffic.state ||
+        traffic.violationType ||
+        traffic.ticketDate ||
+        traffic.convictionDate ||
+        traffic.remark;
 
-    for (const [key, value] of uploadData.entries()) {
-      console.log(`${key}:`, value);
+      // Empty/default row ko ignore karo
+      if (!hasTrafficData) {
+        return;
+      }
+
+      if (!traffic.state?.trim()) {
+        newErrors[`traffic_${index}_state`] = "State is required.";
+      }
+
+      if (!traffic.violationType?.trim()) {
+        newErrors[`traffic_${index}_violationType`] =
+          "Violation type is required.";
+      }
+
+      if (!traffic.ticketDate) {
+        newErrors[`traffic_${index}_ticketDate`] = "Ticket date is required.";
+      }
+
+      if (!traffic.convictionDate) {
+        newErrors[`traffic_${index}_convictionDate`] =
+          "Conviction date is required.";
+      }
+
+      // Ticket date / conviction date
+      if (
+        traffic.ticketDate &&
+        traffic.convictionDate &&
+        new Date(traffic.convictionDate) < new Date(traffic.ticketDate)
+      ) {
+        newErrors[`traffic_${index}_convictionDate`] =
+          "Conviction date must be after or equal to ticket date.";
+      }
+
+      if (!traffic.remark?.trim()) {
+        newErrors[`traffic_${index}_remark`] = "Remark is required.";
+      }
+    });
+
+    // =======================================================
+    // SHOW VALIDATION ERRORS
+    // =======================================================
+    console.log(newErrors);
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+
+      setTimeout(() => {
+        const firstError = document.querySelector(".border-red-500");
+
+        if (firstError) {
+          firstError.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+
+          firstError.focus?.();
+        }
+      }, 100);
+
+      return;
     }
+    console.log("here");
+    // =======================================================
+    // VALIDATION PASSED
+    // =======================================================
 
-    // =====================================================
-    // API REQUEST
-    // =====================================================
+    setErrors({});
+    setServerMessage("");
+    setServerMessageType("");
+    setLoading(true);
 
-    const response = await api.post(
-      `/company/driver-experience/${id}`,
-      uploadData
-    );
+    try {
+      // =====================================================
+      // GET USER
+      // =====================================================
 
-    console.log(
-      "DRIVER EXPERIENCE SAVE RESPONSE:",
-      response.data
-    );
+      let user = null;
 
-    // =====================================================
-    // SUCCESS
-    // =====================================================
+      try {
+        user = JSON.parse(localStorage.getItem("user") || "null");
+      } catch (parseError) {
+        console.error("User JSON parse error:", parseError);
+      }
 
-    const result = response.data;
+      // =====================================================
+      // CREATE UPLOAD FORM DATA
+      // =====================================================
 
-    setServerMessage(
-      result?.message ||
-        "Driver experience saved successfully."
-    );
+      const uploadData = new FormData();
 
-    setServerMessageType("success");
+      // =====================================================
+      // COMPANY INFORMATION
+      // =====================================================
 
-    // =====================================================
-    // RELOAD LATEST SERVER DATA
-    // =====================================================
+      if (user?.name) {
+        uploadData.append("cname", user.name);
+      }
 
-    await fetchDriverExperience();
+      if (user?.id) {
+        uploadData.append("company_id", user.id);
+      }
 
-    // =====================================================
-    // NAVIGATE
-    // =====================================================
+      // =====================================================
+      // DRIVER EXPERIENCE
+      // =====================================================
 
-    navigate("/company-dashboard/drivers", {
-      replace: true,
-      state: {
-        success:
-          result?.message ||
-          "Driver experience saved successfully.",
-      },
-    });
+      uploadData.append("driver_id", id);
+      uploadData.append("equipment", data.equipment);
+      uploadData.append("equipmenttype", data.equipmenttype);
+      uploadData.append("fromdate", data.fromdate);
+      uploadData.append("todate", data.todate);
+      uploadData.append("miles", data.miles);
+      uploadData.append("noaccidents", data.noaccidents);
+      uploadData.append("notrafficconvictions", data.notrafficconvictions);
+      uploadData.append("licensedenied", data.licensedenied);
+      uploadData.append(
+        "licensedeniedexplanation",
+        data.licensedeniedexplanation,
+      );
+      uploadData.append("licensesuspended", data.licensesuspended);
+      uploadData.append(
+        "licensesuspendedexplanation",
+        data.licensesuspendedexplanation,
+      );
+      console.log("here");
+      // =====================================================
+      // ACCIDENTS
+      // =====================================================
 
-  } catch (error) {
-    console.error("==============================");
-    console.error("DRIVER EXPERIENCE API ERROR");
-    console.error("==============================");
+      accidents.forEach((accident, index) => {
+        Object.entries(accident).forEach(([key, value]) => {
+          uploadData.append(`accidents[${index}][${key}]`, value ?? "");
+        });
+      });
 
-    console.error("FULL ERROR:", error);
-    console.error("RESPONSE:", error?.response);
-    console.error(
-      "RESPONSE DATA:",
-      error?.response?.data
-    );
-    console.error(
-      "STATUS:",
-      error?.response?.status
-    );
+      // =====================================================
+      // TRAFFIC CONVICTIONS
+      // =====================================================
 
-    const message =
-      error?.response?.data?.message ||
-      error?.response?.data?.error ||
-      error?.message ||
-      "Something went wrong.";
+      trafficConvictions.forEach((traffic, index) => {
+        Object.entries(traffic).forEach(([key, value]) => {
+          uploadData.append(`traffic[${index}][${key}]`, value ?? "");
+        });
+      });
+      console.log("here");
+      // =====================================================
+      // DEBUG
+      // =====================================================
 
-    setServerMessage(message);
-    setServerMessageType("error");
+      for (const [key, value] of uploadData.entries()) {
+        console.log(`${key}:`, value);
+      }
 
-  } finally {
-    setLoading(false);
-  }
-};
+      // =====================================================
+      // API REQUEST
+      // =====================================================
+
+      const response = await api.post(
+        `/company/driver-experience/${id}`,
+        uploadData,
+      );
+
+      console.log("DRIVER EXPERIENCE SAVE RESPONSE:", response.data);
+
+      // =====================================================
+      // SUCCESS
+      // =====================================================
+
+      const result = response.data;
+
+      setServerMessage(
+        result?.message || "Driver experience saved successfully.",
+      );
+
+      setServerMessageType("success");
+
+      // =====================================================
+      // RELOAD LATEST SERVER DATA
+      // =====================================================
+
+      await fetchDriverExperience();
+
+      // =====================================================
+      // NAVIGATE
+      // =====================================================
+
+      navigate("/company-dashboard/drivers", {
+        replace: true,
+        state: {
+          success: result?.message || "Driver experience saved successfully.",
+        },
+      });
+    } catch (error) {
+      console.error("==============================");
+      console.error("DRIVER EXPERIENCE API ERROR");
+      console.error("==============================");
+
+      console.error("FULL ERROR:", error);
+      console.error("RESPONSE:", error?.response);
+      console.error("RESPONSE DATA:", error?.response?.data);
+      console.error("STATUS:", error?.response?.status);
+
+      const message =
+        error?.response?.data?.message ||
+        error?.response?.data?.error ||
+        error?.message ||
+        "Something went wrong.";
+
+      setServerMessage(message);
+      setServerMessageType("error");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -776,9 +646,7 @@ console.log(newErrors);
       </div>
 
       <div className="bg-white rounded-xl border border-slate-200 p-6">
-        <p className="font-semibold text-slate-800">
-          DRIVING EXPERIENCE
-        </p>
+        <p className="font-semibold text-slate-800">DRIVING EXPERIENCE</p>
 
         {fetchingData && (
           <div className="mt-3 rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-sm text-blue-700">
@@ -807,17 +675,33 @@ console.log(newErrors);
                 name="equipment"
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
               >
-                <option selected={fetchingExperience?.equipment === "straight_truck"} value="straight_truck">STRAIGHT TRUCK</option>
+                <option
+                  selected={fetchingExperience?.equipment === "straight_truck"}
+                  value="straight_truck"
+                >
+                  STRAIGHT TRUCK
+                </option>
 
-                <option selected={fetchingExperience?.equipment === "tractor_semi_trailer"} value="tractor_semi_trailer">
+                <option
+                  selected={
+                    fetchingExperience?.equipment === "tractor_semi_trailer"
+                  }
+                  value="tractor_semi_trailer"
+                >
                   TRACTOR & SEMI-TRAILER
                 </option>
 
-                <option selected={fetchingExperience?.equipment === "tractor_tanker"} value="tractor_tanker">
+                <option
+                  selected={fetchingExperience?.equipment === "tractor_tanker"}
+                  value="tractor_tanker"
+                >
                   TRACTOR & TANKER
                 </option>
 
-                <option selected={fetchingExperience?.equipment === "other"} value="other">
+                <option
+                  selected={fetchingExperience?.equipment === "other"}
+                  value="other"
+                >
                   OTHER
                 </option>
               </select>
@@ -890,7 +774,7 @@ console.log(newErrors);
           <div className="border border-slate-200 rounded-lg p-4">
             <label className="flex items-center gap-3 text-sm text-slate-700">
               <input
-                checked= {fetchingExperience.accidenthistory === 1}
+                checked={fetchingExperience.accidenthistory === 1}
                 type="checkbox"
                 name="noaccidents"
                 value="1"
@@ -898,8 +782,7 @@ console.log(newErrors);
               />
 
               <span>
-                Check this box if you have had no accidents in the
-                past 3 years
+                Check this box if you have had no accidents in the past 3 years
               </span>
             </label>
           </div>
@@ -939,11 +822,7 @@ console.log(newErrors);
                       name={`accidents[${index}][date]`}
                       value={accident.date}
                       onChange={(e) =>
-                        updateAccident(
-                          index,
-                          "date",
-                          e.target.value,
-                        )
+                        updateAccident(index, "date", e.target.value)
                       }
                       className={`w-full border ${
                         errors[`accident_${index}_date`]
@@ -970,11 +849,7 @@ console.log(newErrors);
                       name={`accidents[${index}][nature]`}
                       value={accident.nature}
                       onChange={(e) =>
-                        updateAccident(
-                          index,
-                          "nature",
-                          e.target.value,
-                        )
+                        updateAccident(index, "nature", e.target.value)
                       }
                       placeholder="Head-on, rear-end, upset, etc."
                       className={`w-full border ${
@@ -1001,11 +876,7 @@ console.log(newErrors);
                       value={accident.fatalities}
                       name={`accidents[${index}][fatalities]`}
                       onChange={(e) =>
-                        updateAccident(
-                          index,
-                          "fatalities",
-                          e.target.value,
-                        )
+                        updateAccident(index, "fatalities", e.target.value)
                       }
                       className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
                     >
@@ -1027,11 +898,7 @@ console.log(newErrors);
                       value={accident.injuries}
                       name={`accidents[${index}][injuries]`}
                       onChange={(e) =>
-                        updateAccident(
-                          index,
-                          "injuries",
-                          e.target.value,
-                        )
+                        updateAccident(index, "injuries", e.target.value)
                       }
                       className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
                     >
@@ -1055,11 +922,7 @@ console.log(newErrors);
                     value={accident.remark}
                     name={`accidents[${index}][remark]`}
                     onChange={(e) =>
-                      updateAccident(
-                        index,
-                        "remark",
-                        e.target.value,
-                      )
+                      updateAccident(index, "remark", e.target.value)
                     }
                     placeholder="Enter accident remark"
                     className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
@@ -1077,8 +940,8 @@ console.log(newErrors);
 
           <div className="flex items-center justify-between">
             <p className="font-semibold text-slate-800">
-              TRAFFIC CONVICTIONS AND FORFEITURES FOR THE PAST 3
-              YEARS (OTHER THAN PARKING VIOLATIONS)
+              TRAFFIC CONVICTIONS AND FORFEITURES FOR THE PAST 3 YEARS (OTHER
+              THAN PARKING VIOLATIONS)
             </p>
 
             <button
@@ -1094,7 +957,7 @@ console.log(newErrors);
           <div className="border border-slate-200 rounded-lg p-4">
             <label className="flex items-center gap-3 text-sm text-slate-700">
               <input
-                checked= {fetchingExperience.convictionhistory === 1}
+                checked={fetchingExperience.convictionhistory === 1}
                 type="checkbox"
                 name="notrafficconvictions"
                 value="1"
@@ -1102,8 +965,8 @@ console.log(newErrors);
               />
 
               <span>
-                Check this box if you have no traffic convictions
-                or forfeitures in the past 3 years
+                Check this box if you have no traffic convictions or forfeitures
+                in the past 3 years
               </span>
             </label>
           </div>
@@ -1112,10 +975,7 @@ console.log(newErrors);
           <div className="space-y-4">
             {trafficConvictions.map((item, index) => (
               <div
-                key={
-                  item.id ??
-                  `new-conviction-${index}`
-                }
+                key={item.id ?? `new-conviction-${index}`}
                 className="border border-slate-200 rounded-xl p-4 bg-slate-50"
               >
                 <div className="flex items-center justify-between mb-4">
@@ -1126,9 +986,7 @@ console.log(newErrors);
                   {trafficConvictions.length > 1 && (
                     <button
                       type="button"
-                      onClick={() =>
-                        removeTrafficConviction(index)
-                      }
+                      onClick={() => removeTrafficConviction(index)}
                       className="text-red-600 border border-red-200 bg-white px-3 py-1.5 rounded-lg text-sm hover:bg-red-50"
                     >
                       Remove
@@ -1148,11 +1006,7 @@ console.log(newErrors);
                       name={`traffic[${index}][state]`}
                       value={item.state}
                       onChange={(e) =>
-                        updateTrafficConviction(
-                          index,
-                          "state",
-                          e.target.value,
-                        )
+                        updateTrafficConviction(index, "state", e.target.value)
                       }
                       placeholder="Enter state"
                       className={`w-full border ${
@@ -1188,23 +1042,15 @@ console.log(newErrors);
                       }
                       placeholder="Enter violation type"
                       className={`w-full border ${
-                        errors[
-                          `traffic_${index}_violationType`
-                        ]
+                        errors[`traffic_${index}_violationType`]
                           ? "border-red-500"
                           : "border-slate-200"
                       } rounded-lg px-4 py-2.5 text-sm outline-none`}
                     />
 
-                    {errors[
-                      `traffic_${index}_violationType`
-                    ] && (
+                    {errors[`traffic_${index}_violationType`] && (
                       <p className="text-red-500 text-xs mt-1">
-                        {
-                          errors[
-                            `traffic_${index}_violationType`
-                          ]
-                        }
+                        {errors[`traffic_${index}_violationType`]}
                       </p>
                     )}
                   </div>
@@ -1227,23 +1073,15 @@ console.log(newErrors);
                         )
                       }
                       className={`w-full border ${
-                        errors[
-                          `traffic_${index}_ticketDate`
-                        ]
+                        errors[`traffic_${index}_ticketDate`]
                           ? "border-red-500"
                           : "border-slate-200"
                       } rounded-lg px-4 py-2.5 text-sm outline-none`}
                     />
 
-                    {errors[
-                      `traffic_${index}_ticketDate`
-                    ] && (
+                    {errors[`traffic_${index}_ticketDate`] && (
                       <p className="text-red-500 text-xs mt-1">
-                        {
-                          errors[
-                            `traffic_${index}_ticketDate`
-                          ]
-                        }
+                        {errors[`traffic_${index}_ticketDate`]}
                       </p>
                     )}
                   </div>
@@ -1266,23 +1104,15 @@ console.log(newErrors);
                         )
                       }
                       className={`w-full border ${
-                        errors[
-                          `traffic_${index}_convictionDate`
-                        ]
+                        errors[`traffic_${index}_convictionDate`]
                           ? "border-red-500"
                           : "border-slate-200"
                       } rounded-lg px-4 py-2.5 text-sm outline-none`}
                     />
 
-                    {errors[
-                      `traffic_${index}_convictionDate`
-                    ] && (
+                    {errors[`traffic_${index}_convictionDate`] && (
                       <p className="text-red-500 text-xs mt-1">
-                        {
-                          errors[
-                            `traffic_${index}_convictionDate`
-                          ]
-                        }
+                        {errors[`traffic_${index}_convictionDate`]}
                       </p>
                     )}
                   </div>
@@ -1299,11 +1129,7 @@ console.log(newErrors);
                     value={item.remark}
                     name={`traffic[${index}][remark]`}
                     onChange={(e) =>
-                      updateTrafficConviction(
-                        index,
-                        "remark",
-                        e.target.value,
-                      )
+                      updateTrafficConviction(index, "remark", e.target.value)
                     }
                     placeholder="Enter conviction remark"
                     className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
@@ -1322,15 +1148,15 @@ console.log(newErrors);
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                Have you ever been denied a license, permit, or
-                privilege to operate a motor vehicle?
+                Have you ever been denied a license, permit, or privilege to
+                operate a motor vehicle?
               </label>
             </div>
 
             <div className="flex items-center gap-5">
               <label className="flex items-center gap-2">
                 <input
-                  checked={fetchingExperience.licensedeniedstatus === 'yes'}
+                  checked={fetchingExperience.licensedeniedstatus === "yes"}
                   type="radio"
                   value="yes"
                   name="licensedenied"
@@ -1340,7 +1166,7 @@ console.log(newErrors);
 
               <label className="flex items-center gap-2">
                 <input
-                  checked={fetchingExperience.licensedeniedstatus === 'no'}
+                  checked={fetchingExperience.licensedeniedstatus === "no"}
                   type="radio"
                   value="no"
                   name="licensedenied"
@@ -1367,15 +1193,15 @@ console.log(newErrors);
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                Has any license, permit, or privilege ever been
-                suspended or revoked?
+                Has any license, permit, or privilege ever been suspended or
+                revoked?
               </label>
             </div>
 
             <div className="flex items-center gap-5">
               <label className="flex items-center gap-2">
                 <input
-                  checked={fetchingExperience.licensesuspendedstatus === 'yes'}
+                  checked={fetchingExperience.licensesuspendedstatus === "yes"}
                   type="radio"
                   value="yes"
                   name="licensesuspended"
@@ -1385,7 +1211,7 @@ console.log(newErrors);
 
               <label className="flex items-center gap-2">
                 <input
-                  checked={fetchingExperience.licensesuspendedstatus === 'no'}
+                  checked={fetchingExperience.licensesuspendedstatus === "no"}
                   type="radio"
                   value="no"
                   name="licensesuspended"
@@ -1442,9 +1268,7 @@ console.log(newErrors);
         {serverMessage && (
           <div
             className={`mt-3 mb-3 rounded-lg border px-3 py-2 text-sm text-center ${
-              serverMessageType === "error"
-                ? "text-red-500"
-                : "text-green-600"
+              serverMessageType === "error" ? "text-red-500" : "text-green-600"
             }`}
             style={{ borderColor: "#091122" }}
           >

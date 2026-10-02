@@ -486,14 +486,18 @@ export default function Company() {
                         >
                           Document Information
                         </Link>
-                        {com.esign === 0 ? <Link
-                          title="Document information"
-                          to={`/driver/driver-application/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >
-                          E-Sign
-                        </Link>:''}
-                        
+                        {com.esign === 0 ? (
+                          <Link
+                            title="Document information"
+                            target="_blank"
+                            to={`/driver/driver-application/${com.id}`}
+                            className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          >
+                            E-Sign
+                          </Link>
+                        ) : (
+                          ""
+                        )}
 
                         {/*
                                                 <Link
