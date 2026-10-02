@@ -10209,230 +10209,97 @@ const handleSubmit = async (e) => {
                   </span>
                 </p>
 
-                <table className="w-full table-fixed text-[10px]">
-                  <thead className="border bg-[#1F355A] text-white border-black">
-                    <tr>
-                      <th>Equipment Type </th>
-                      <th>Yes/No</th>
-                      <th>From</th>
-                      <th>To</th>
-                      <th>Approx. Miles</th>
-                      <th>Description / Size</th>
-                    </tr>
-                  </thead>
-                  <tbody className="h-[60px] text-[11.4px]">
-                    <tr>
-                      <td className=" font-bold">Straight Truck</td>
-                      <td>
-                        <select className="border border-black">
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className=" font-bold">Truck-Tractor</td>
-                      <td>
-                        <select className="border border-black">
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className=" font-bold">Semi-Trailer</td>
-                      <td>
-                        <select className="border border-black">
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className=" font-bold">Doubles / Triples</td>
-                      <td>
-                        <select className="border border-black">
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className=" font-bold">Flatbed</td>
-                      <td>
-                        <select className="border border-black">
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className=" font-bold">Tank Vehicle</td>
-                      <td>
-                        <select className="border border-black">
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className=" font-bold">Bus / Passenger</td>
-                      <td>
-                        <select className="border border-black">
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className=" font-bold">Reefer</td>
-                      <td>
-                        <select className="border border-black">
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className=" font-bold">Dry Van</td>
-                      <td>
-                        <select className="border border-black">
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className=" font-bold">Other</td>
-                      <td>
-                        <select className="border border-black">
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="date" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+         
+<div className="w-full overflow-x-auto rounded-sm">
+  <table className="w-full min-w-[900px] table-fixed border-collapse text-[10px]">
+    <thead className="border border-black bg-[#1F355A] text-white">
+      <tr>
+        <th className="w-[18%] border border-black px-2 py-2 text-left">
+          Equipment Type
+        </th>
+
+        <th className="w-[10%] border border-black px-2 py-2 text-center">
+          Yes/No
+        </th>
+
+        <th className="w-[14%] border border-black px-2 py-2 text-center">
+          From
+        </th>
+
+        <th className="w-[14%] border border-black px-2 py-2 text-center">
+          To
+        </th>
+
+        <th className="w-[16%] border border-black px-2 py-2 text-center">
+          Approx. Miles
+        </th>
+
+        <th className="w-[28%] border border-black px-2 py-2 text-left">
+          Description / Size
+        </th>
+      </tr>
+    </thead>
+
+    <tbody className="text-[11px]">
+      {[
+        "Straight Truck",
+        "Truck-Tractor",
+        "Semi-Trailer",
+        "Doubles / Triples",
+        "Flatbed",
+        "Tank Vehicle",
+        "Bus / Passenger",
+        "Reefer",
+        "Dry Van",
+        "Other",
+      ].map((equipment) => (
+        <tr key={equipment}>
+          <td className="border border-black px-2 py-2 font-bold whitespace-nowrap">
+            {equipment}
+          </td>
+
+          <td className="border border-black px-2 py-2">
+            <select
+              className="w-full min-w-[65px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+            >
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </td>
+
+          <td className="border border-black px-2 py-2">
+            <input
+              className="w-full min-w-[125px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+              type="date"
+            />
+          </td>
+
+          <td className="border border-black px-2 py-2">
+            <input
+              className="w-full min-w-[125px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+              type="date"
+            />
+          </td>
+
+          <td className="border border-black px-2 py-2">
+            <input
+              className="w-full min-w-[100px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+              type="text"
+            />
+          </td>
+
+          <td className="border border-black px-2 py-2">
+            <input
+              className="w-full min-w-[200px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+              type="text"
+            />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
               </section>
 
               <section className="mt-[12px]">
