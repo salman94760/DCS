@@ -355,7 +355,7 @@ export default function AddDriverEmployment() {
       // =====================================================
 
       if (user?.name) {
-        uploadData.append("cname", user.name);
+        uploadData.append("cname", user.company.cname);
       }
 
       if (user?.id) {
@@ -363,7 +363,8 @@ export default function AddDriverEmployment() {
       }
 
       uploadData.append("driver_id", driver_id.value);
-
+      console.log(user.company.cname);
+      return false;
       // =====================================================
       // EMPLOYERS
       // =====================================================
@@ -423,9 +424,9 @@ export default function AddDriverEmployment() {
       // NAVIGATE
       // =====================================================
 
-      navigate("/company-dashboard/drivers", {
-        replace: true,
-      });
+      // navigate("/company-dashboard/drivers", {
+      //   replace: true,
+      // });
     } catch (error) {
       // =====================================================
       // API ERROR
@@ -560,7 +561,8 @@ export default function AddDriverEmployment() {
                   mandate={true}
                   inputype="text"
                   name={`employers[${index}][cname]`}
-                  value={employer.cname}
+                  value={JSON.parse(localStorage.getItem("user"))?.company.cname}
+                  disabled = "disabled"
                   onChange={(e) =>
                     handleEmployerChange(index, "cname", e.target.value)
                   }

@@ -1,5 +1,5 @@
 import SignatureModal from "@/pages/signature/SignatureModal";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useLayoutEffect } from "react";
 
 import api from "@/api/axios";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -89,7 +89,7 @@ export default function DriverApplication() {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const getDriverDetail = async () => {
       try {
         const response = await api.get(`/company/driverDetail/${id}`);
@@ -104,6 +104,22 @@ export default function DriverApplication() {
       getDriverDetail();
     }
   }, [id]);
+
+// useEffect(() => {
+//     const getDriverDetail = async () => {
+//       try {
+//         const response = await api.get(`/company/driverDetail/${id}`);
+//         setDriver(response.data.driver);
+//         setCompany(response.data.company);
+//       } catch (error) {
+//         console.error("Driver detail error:", error);
+//       }
+//     };
+
+//     if (id) {
+//       getDriverDetail();
+//     }
+//   }, [id]);
 
   return (
     <>

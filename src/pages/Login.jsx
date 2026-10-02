@@ -52,6 +52,7 @@ export default function Login() {
       // User/role bhi save
       localStorage.setItem("user", JSON.stringify(result.user));
       localStorage.setItem("userRole", result.user.role);
+      localStorage.setItem("userCompany", result.user.company);
 
       setServerMessage(result.message);
       setServerMessageType("success");

@@ -459,6 +459,14 @@ export default function Company() {
                         >
                           Edit
                         </Link>
+                        <Link
+                          target="_blank"
+                          title="Employment history"
+                          to={`/company-dashboard/driver/employment-history/${com.id}`}
+                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                        >
+                          Employment hisotry
+                        </Link>
 
                         <Link
                           target="_blank"
@@ -469,14 +477,7 @@ export default function Company() {
                           Experience
                         </Link>
 
-                        <Link
-                          target="_blank"
-                          title="Employment history"
-                          to={`/company-dashboard/driver/employment-history/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >
-                          Employment hisotry
-                        </Link>
+                        
 
                         <Link
                           target="_blank"
