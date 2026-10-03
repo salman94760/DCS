@@ -432,7 +432,7 @@ export default function AddCompany() {
             </div>
 
             <PanelFormInput
-              title="Pre-employment Cle-House Date"
+              title="Pre-employment Clearinghouse Date"
               placeholder=""
               mandate={true}
               inputype="date"

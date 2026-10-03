@@ -129,7 +129,7 @@ export default function AddCompany() {
 
     if (!data.pclearinghousedate) {
       newErrors.pclearinghousedate =
-        "Pre-employment Clearing House Date required";
+        "Pre-employment Clearinghouse Date required";
     }
 
     if (!data.terminationdate) {
@@ -403,7 +403,7 @@ export default function AddCompany() {
             </div>
 
             <PanelFormInput
-              title="Pre-employment Cle-House Date"
+              title="Pre-employment Clearinghouse Date"
               placeholder=""
               mandate={true}
               inputype="date"
