@@ -64,7 +64,7 @@ export default function Sidebar() {
                 >
                   New Application
                 </Link>
-               {/* <Link
+                {/* <Link
                   to="/company-dashboard/driver/add"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >

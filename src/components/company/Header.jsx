@@ -20,7 +20,7 @@ export default function Header() {
 
           <div>
             <p className="text-white font-extrabold text-lg leading-tight tracking-wide">
-              {JSON.parse(localStorage.getItem("user"))?.company.cname}
+              {JSON.parse(localStorage.getItem("user"))?.company?.cname}
             </p>
           </div>
         </div>

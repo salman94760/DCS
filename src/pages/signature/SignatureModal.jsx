@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import api from "@/api/axios";
 
-export default function SignatureModal({driverId, isOpen, onClose, onSaved }) {
+export default function SignatureModal({ driverId, isOpen, onClose, onSaved }) {
   const signatureRef = useRef(null);
   const [saving, setSaving] = useState(false);
 

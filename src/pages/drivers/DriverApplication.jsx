@@ -11,8 +11,53 @@ export default function DriverApplication() {
   const [company, setCompany] = useState({});
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [cleHDate, setCleHDate] = useState();
+  const [location, setLocation] = useState({});
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const [photo, setPhoto] = useState(null);
+  const [photoLoading, setPhotoLoading] = useState(false);
+
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files?.[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      alert("Please select a valid image.");
+      return;
+    }
+
+    setPhoto(file);
+  };
+
+  const handlePhotoSubmit = async () => {
+    if (!photo) {
+      alert("Please take or upload a photo first.");
+      return;
+    }
+
+    try {
+      setPhotoLoading(true);
+
+      const formData = new FormData();
+
+      formData.append("driver_id", driver?.id);
+      formData.append("photo", photo);
+
+      const response = await api.post("/company/driver/photo", formData);
+
+      console.log(response.data);
+
+      alert("Photo saved successfully.");
+    } catch (error) {
+      console.error(error);
+      alert("Failed to save photo.");
+    } finally {
+      setPhotoLoading(false);
+    }
+  };
 
   const handlePreview = () => {};
 
@@ -20,180 +65,28 @@ export default function DriverApplication() {
     navigate(`/driver/esign-cancelled/${id}`);
   };
 
-
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  if (loading) return;
-
-  const form = e.currentTarget;
-  const formData = new FormData(form);
-
-  let firstInvalidField = null;
-
-  // Remove old validation styles
-  form
-    .querySelectorAll(
-      "input[required], select[required], textarea[required]"
-    )
-    .forEach((field) => {
-      field.classList.remove(
-        "border-red-500",
-        "ring-2",
-        "ring-red-500",
-        "accent-red-500"
-      );
-    });
-
-  // -----------------------------------
-  // Required normal fields
-  // -----------------------------------
-  const requiredFields = form.querySelectorAll(
-    "input[required]:not([type='checkbox']), select[required], textarea[required]"
-  );
-
-  requiredFields.forEach((field) => {
-    if (!field.value?.trim()) {
-      field.classList.add(
-        "border-red-500",
-        "ring-2",
-        "ring-red-500"
-      );
-
-      if (!firstInvalidField) {
-        firstInvalidField = field;
-      }
-    }
-  });
-
-  // -----------------------------------
-  // Checkbox validation
-  // -----------------------------------
-
-  // Example:
-  // <input type="checkbox" name="driver_license" value="front_back">
-  // <input type="checkbox" name="driver_license" value="other">
-
-  const licenseCheckboxes = form.querySelectorAll(
-    'input[name="driver_license"]'
-  );
-
-  if (licenseCheckboxes.length > 0) {
-    const selectedLicense = form.querySelector(
-      'input[name="driver_license"]:checked'
-    );
-
-    if (!selectedLicense) {
-      licenseCheckboxes.forEach((checkbox) => {
-        checkbox.classList.add(
-          "accent-red-500",
-          "ring-2",
-          "ring-red-500"
-        );
-      });
-
-      if (!firstInvalidField) {
-        firstInvalidField = licenseCheckboxes[0];
-      }
-    }
-  }
-
-  // -----------------------------------
-  // Stop if validation failed
-  // -----------------------------------
-
-  if (firstInvalidField) {
-    firstInvalidField.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-
-    firstInvalidField.focus?.();
-
-    return;
-  }
-
-  // -----------------------------------
-  // Get form data
-  // -----------------------------------
-
-  const data = {
-    p1fname: formData.get("p1fname")?.trim() || "",
-    p1mname: formData.get("p1mname")?.trim() || "",
-    p1lname: formData.get("p1lname")?.trim() || "",
-
-    driver_license:
-      formData.get("driver_license") || "",
-  };
-
-  console.log("DATA:", data);
-
-  setErrors({});
-  setLoading(true);
-
-  try {
-    const uploadData = new FormData();
-
-    uploadData.append("p1fname", data.p1fname);
-    uploadData.append("p1mname", data.p1mname);
-    uploadData.append("p1lname", data.p1lname);
-
-    uploadData.append(
-      "driver_license",
-      data.driver_license
-    );
-
-    uploadData.append(
-      "company_id",
-      JSON.parse(localStorage.getItem("user"))?.id || ""
-    );
-
-    // IMPORTANT:
-    // FormData ko console.log karne ke bajaye entries dekho
-
-    for (const [key, value] of uploadData.entries()) {
-      console.log("UPLOAD:", key, value);
-    }
-
-    const response = await api.post(
-      "/company/driver-esign/add",
-      uploadData
-    );
-
-    const result = response.data;
-
-    console.log("SUCCESS:", result);
-
-    setServerMessage(
-      result.message || "Driver added successfully"
-    );
-
-    setServerMessageType("success");
-
-    navigate(`/driver/esign-completed/${id}`, {
-      replace: true,
-    });
-  } catch (error) {
-    console.error("ERROR:", error);
-
-    const message =
-      error.response?.data?.message ||
-      "Something went wrong.";
-
-    setServerMessage(message);
-    setServerMessageType("error");
-  } finally {
-    setLoading(false);
-  }
-};
-
   useLayoutEffect(() => {
     const getDriverDetail = async () => {
       try {
         const response = await api.get(`/company/driverDetail/${id}`);
         setDriver(response.data.driver);
+
+        const documents = response?.data?.driver?.document || [];
+
+        const doc = documents.find(
+          (item) => item?.slug === "pre-employment-clearing-house",
+        );
+
+        if (doc?.expiration_date) {
+          const date = new Date(doc.expiration_date);
+          date.setFullYear(date.getFullYear() - 1);
+
+          setCleHDate(date.toISOString().split("T")[0]);
+        } else {
+          setCleHDate("");
+        }
         setCompany(response.data.company);
+        setLocation(response.data.location);
         setsignatureData(response.data.driver.user?.signature);
       } catch (error) {
         console.error("Driver detail error:", error);
@@ -205,22 +98,150 @@ const handleSubmit = async (e) => {
     }
   }, [id]);
 
-  // useEffect(() => {
-  //     const getDriverDetail = async () => {
-  //       try {
-  //         const response = await api.get(`/company/driverDetail/${id}`);
-  //         setDriver(response.data.driver);
-  //         setCompany(response.data.company);
-  //       } catch (error) {
-  //         console.error("Driver detail error:", error);
-  //       }
-  //     };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  //     if (id) {
-  //       getDriverDetail();
-  //     }
-  //   }, [id]);
-  console.log(signatureData,'salman');
+    if (loading) return;
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    let firstInvalidField = null;
+
+    // Remove old validation styles
+    form
+      .querySelectorAll("input[required], select[required], textarea[required]")
+      .forEach((field) => {
+        field.classList.remove(
+          "border-red-500",
+          "ring-2",
+          "ring-red-500",
+          "accent-red-500",
+        );
+      });
+
+    // -----------------------------------
+    // Required normal fields
+    // -----------------------------------
+    const requiredFields = form.querySelectorAll(
+      "input[required]:not([type='checkbox']), select[required], textarea[required]",
+    );
+
+    requiredFields.forEach((field) => {
+      if (!field.value?.trim()) {
+        field.classList.add("border-red-500", "ring-2", "ring-red-500");
+
+        if (!firstInvalidField) {
+          firstInvalidField = field;
+        }
+      }
+    });
+
+    // -----------------------------------
+    // Checkbox validation
+    // -----------------------------------
+
+    // Example:
+    // <input type="checkbox" name="driver_license" value="front_back">
+    // <input type="checkbox" name="driver_license" value="other">
+
+    const licenseCheckboxes = form.querySelectorAll(
+      'input[name="driver_license"]',
+    );
+
+    if (licenseCheckboxes.length > 0) {
+      const selectedLicense = form.querySelector(
+        'input[name="driver_license"]:checked',
+      );
+
+      if (!selectedLicense) {
+        licenseCheckboxes.forEach((checkbox) => {
+          checkbox.classList.add("accent-red-500", "ring-2", "ring-red-500");
+        });
+
+        if (!firstInvalidField) {
+          firstInvalidField = licenseCheckboxes[0];
+        }
+      }
+    }
+
+    // -----------------------------------
+    // Stop if validation failed
+    // -----------------------------------
+
+    if (firstInvalidField) {
+      firstInvalidField.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+
+      firstInvalidField.focus?.();
+
+      return;
+    }
+
+    // -----------------------------------
+    // Get form data
+    // -----------------------------------
+
+    const data = {
+      p1fname: formData.get("p1fname")?.trim() || "",
+      p1mname: formData.get("p1mname")?.trim() || "",
+      p1lname: formData.get("p1lname")?.trim() || "",
+
+      driver_license: formData.get("driver_license") || "",
+    };
+
+    console.log("DATA:", data);
+
+    setErrors({});
+    setLoading(true);
+
+    try {
+      const uploadData = new FormData();
+
+      uploadData.append("p1fname", data.p1fname);
+      uploadData.append("p1mname", data.p1mname);
+      uploadData.append("p1lname", data.p1lname);
+
+      uploadData.append("driver_license", data.driver_license);
+
+      uploadData.append(
+        "company_id",
+        JSON.parse(localStorage.getItem("user"))?.id || "",
+      );
+
+      // IMPORTANT:
+      // FormData ko console.log karne ke bajaye entries dekho
+
+      for (const [key, value] of uploadData.entries()) {
+        console.log("UPLOAD:", key, value);
+      }
+
+      const response = await api.post("/company/driver-esign/add", uploadData);
+
+      const result = response.data;
+
+      console.log("SUCCESS:", result);
+
+      setServerMessage(result.message || "Driver added successfully");
+
+      setServerMessageType("success");
+
+      navigate(`/driver/esign-completed/${id}`, {
+        replace: true,
+      });
+    } catch (error) {
+      console.error("ERROR:", error);
+
+      const message = error.response?.data?.message || "Something went wrong.";
+
+      setServerMessage(message);
+      setServerMessageType("error");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -271,7 +292,7 @@ const handleSubmit = async (e) => {
           isOpen={signatureOpen}
           onClose={() => setSignatureOpen(false)}
           onSaved={(data) => {
-            setsignatureData(data.signature)
+            setsignatureData(data.signature);
             console.log("Saved Signature:", data);
           }}
         />
@@ -317,11 +338,8 @@ const handleSubmit = async (e) => {
                   USDOT NUMBER
                 </td>
 
-                <td className="h-[25px] border-b border-[#aebdcc]">
-                  <input name="p1usdotnumber" 
-                    className="border border-3 border-black w-full h-[28px] p-2"
-                    type="text"
-                  />
+                <td className="h-[25px] border border-black">
+                  <span className="pl-3">{company.dot}</span>
                 </td>
               </tr>
 
@@ -331,10 +349,9 @@ const handleSubmit = async (e) => {
                 </td>
 
                 <td className="h-[25px] border-b border-[#aebdcc]">
-                  <span className="pl-3">{driver.fname} {driver.mname} {driver.lname}</span>
-                  <input type="hidden" value={driver.fname} name="p1fname" />
-                  <input type="hidden" value={driver.mname} name="p1mname" />
-                  <input type="hidden" value={driver.lname} name="p1lname" />
+                  <span className="pl-3">
+                    {driver.fname} {driver.mname} {driver.lname}
+                  </span>
                 </td>
               </tr>
 
@@ -345,7 +362,9 @@ const handleSubmit = async (e) => {
 
                 <td className="h-[25px] border-b border-[#aebdcc]">
                   <span className="pl-3">{driver.appliedfor}</span>
-                  <input name="p1appliedfor" value={driver.appliedfor}
+                  <input
+                    name="p1appliedfor"
+                    value={driver.appliedfor}
                     className="border border-3 border-black w-full h-[28px] p-2"
                     type="hidden"
                   />
@@ -358,7 +377,9 @@ const handleSubmit = async (e) => {
                 </td>
 
                 <td className="h-[25px] border-b border-[#aebdcc]">
-                  <input name="p1applicationdate"
+                  <input
+                    name="p1applicationdate"
+                    value={cleHDate}
                     className="border border-3 border-black w-full h-[28px] p-2"
                     type="date"
                   />
@@ -587,7 +608,6 @@ const handleSubmit = async (e) => {
           </section>
         </div>
 
-        {/********page 2 start******/}
         <br />
 
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
@@ -748,7 +768,6 @@ const handleSubmit = async (e) => {
           </section>
         </div>
 
-        {/******page 3 start*****/}
         <br />
 
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
@@ -800,11 +819,10 @@ const handleSubmit = async (e) => {
                       </label>
                     </td>
 
-                    <td className="w-[58%] border border-[#555] px-2 py-2">
-                      <input required
-                        className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
-                        type="text"
-                      />
+                    <td className="h-[25px] border border-black">
+                      <span className="pl-3">
+                        {driver.fname} {driver.mname} {driver.lname}
+                      </span>
                     </td>
                   </tr>
 
@@ -817,10 +835,7 @@ const handleSubmit = async (e) => {
                     </td>
 
                     <td className="border border-[#555] px-2 py-2">
-                      <input
-                        className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
-                        type="date"
-                      />
+                      <span className="pl-3">{driver.dob}</span>
                     </td>
                   </tr>
 
@@ -834,6 +849,7 @@ const handleSubmit = async (e) => {
                       <input
                         className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
                         type="text"
+                        value={driver.currentcdllicenseno}
                       />
                     </td>
 
@@ -845,6 +861,7 @@ const handleSubmit = async (e) => {
                       <input
                         className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
                         type="text"
+                        value={driver.currentcdlstate}
                       />
                     </td>
                   </tr>
@@ -858,7 +875,19 @@ const handleSubmit = async (e) => {
                     </td>
 
                     <td className="border border-[#555] px-2 py-2">
-                      <textarea className="box-border h-24 sm:h-[120px] w-full min-w-0 resize-y border border-[#555] p-2 text-xs sm:text-sm" />
+                      <textarea
+                        name="p3currentaddress"
+                        defaultValue={[
+                          driver?.currentstreet,
+                          driver?.currentcity,
+                          driver?.currentstate,
+                          driver?.currentzip,
+                        ]
+                          .filter(Boolean)
+                          .join(", ")}
+                        className="box-border h-24 sm:h-[120px] w-full min-w-0 resize-y border border-[#555] p-2 text-xs sm:text-sm"
+                        placeholder="Current Address"
+                      ></textarea>
                     </td>
                   </tr>
 
@@ -868,26 +897,29 @@ const handleSubmit = async (e) => {
                       <label className="mb-1 block text-[10px] sm:text-xs">
                         Driver Signature
                       </label>
-                   {
-                        !signatureData?<input
-                        onClick={() => setSignatureOpen(true)}
-                        className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
-                        type="text"
-                      />:<span className="pl-3">{signatureData ? (
-                        <img
-                          className="w-[100px] h-[60px] object-contain"
-                          src={`${
-                            window.location.hostname === "localhost"
-                              ? "http://localhost:8000/storage/"
-                              : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
-                          }${signatureData}`}
-                          alt={signatureData}
+                      {!signatureData ? (
+                        <input
+                          onClick={() => setSignatureOpen(true)}
+                          className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                          type="text"
                         />
                       ) : (
-                        "No Image"
-                      )}</span>
-                      }
-                      
+                        <span>
+                          {signatureData ? (
+                            <img
+                              className="w-full h-[40px] object-contain"
+                              src={`${
+                                window.location.hostname === "localhost"
+                                  ? "http://localhost:8000/storage/"
+                                  : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                              }${signatureData}`}
+                              alt={signatureData}
+                            />
+                          ) : (
+                            "No Image"
+                          )}
+                        </span>
+                      )}
                     </td>
 
                     <td className="border border-[#555] px-2 py-2 align-top">
@@ -896,6 +928,7 @@ const handleSubmit = async (e) => {
                       </label>
 
                       <input
+                        value={cleHDate}
                         className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
                         type="date"
                       />
@@ -912,6 +945,7 @@ const handleSubmit = async (e) => {
                       <input
                         className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
                         type="text"
+                        value={company.owner}
                       />
                     </td>
 
@@ -921,6 +955,7 @@ const handleSubmit = async (e) => {
                       </label>
 
                       <input
+                        value={cleHDate}
                         className="box-border w-full min-w-0 border border-black p-1.5 sm:p-2 text-xs sm:text-sm"
                         type="date"
                       />
@@ -931,7 +966,7 @@ const handleSubmit = async (e) => {
             </div>
           </section>
         </div>
-        {/******page 4 start*****/}
+
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -997,10 +1032,9 @@ const handleSubmit = async (e) => {
 
                     <td className="border border-[#555] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input
-                          className="w-full h-[30px] border border-black p-2"
-                          type="text"
-                        />
+                        <span className="pl-3">
+                          {driver.fname} {driver.mname} {driver.lname}
+                        </span>
                       </div>
                     </td>
                   </tr>
@@ -1031,10 +1065,7 @@ const handleSubmit = async (e) => {
 
                     <td className="border border-[#555] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input
-                          className="w-full h-[30px] border border-black p-2"
-                          type="date"
-                        />
+                        <span className="pl-3">{driver.dob}</span>
                       </div>
                     </td>
                   </tr>
@@ -1046,10 +1077,20 @@ const handleSubmit = async (e) => {
                       </span>
                     </td>
 
-                    <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
-                      <div className="flex items-center justify-center gap-3">
-                        <textarea className="w-full h-[120px] border border-[#555]"></textarea>
-                      </div>
+                    <td className="border border-[#555] px-2 py-2">
+                      <textarea
+                        name="p3currentaddress"
+                        defaultValue={[
+                          driver?.currentstreet,
+                          driver?.currentcity,
+                          driver?.currentstate,
+                          driver?.currentzip,
+                        ]
+                          .filter(Boolean)
+                          .join(", ")}
+                        className="box-border h-24 sm:h-[120px] w-full min-w-0 resize-y border border-[#555] p-2 text-xs sm:text-sm"
+                        placeholder="Current Address"
+                      ></textarea>
                     </td>
                   </tr>
 
@@ -1062,6 +1103,7 @@ const handleSubmit = async (e) => {
                       <input
                         className="w-full border border-black p-2 h-[20px]"
                         type="text"
+                        value={driver.currentcdllicenseno}
                       />
                     </td>
 
@@ -1073,6 +1115,7 @@ const handleSubmit = async (e) => {
                       <input
                         className="w-full border border-black p-2 h-[20px]"
                         type="text"
+                        value={driver.currentcdlstate}
                       />
                     </td>
                   </tr>
@@ -1083,10 +1126,29 @@ const handleSubmit = async (e) => {
                         Applicant Signature
                       </span>
                       <br />
-                      <input
-                        className="w-full border border-black p-2 h-[40px]"
-                        type="text"
-                      />
+                      {!signatureData ? (
+                        <input
+                          onClick={() => setSignatureOpen(true)}
+                          className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                          type="text"
+                        />
+                      ) : (
+                        <span>
+                          {signatureData ? (
+                            <img
+                              className="w-full h-[40px] object-contain"
+                              src={`${
+                                window.location.hostname === "localhost"
+                                  ? "http://localhost:8000/storage/"
+                                  : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                              }${signatureData}`}
+                              alt={signatureData}
+                            />
+                          ) : (
+                            "No Image"
+                          )}
+                        </span>
+                      )}
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] text-left text-[11px]">
@@ -1095,6 +1157,7 @@ const handleSubmit = async (e) => {
                       </span>
                       <br />
                       <input
+                        value={cleHDate}
                         className="w-full border border-black p-2 h-[20px]"
                         type="date"
                       />
@@ -1110,6 +1173,7 @@ const handleSubmit = async (e) => {
                       <input
                         className="w-full border border-black p-2 h-[40px]"
                         type="text"
+                        value={company.owner}
                       />
                     </td>
 
@@ -1119,6 +1183,7 @@ const handleSubmit = async (e) => {
                       </span>
                       <br />
                       <input
+                        value={cleHDate}
                         className="w-full border border-black p-2 h-[20px]"
                         type="date"
                       />
@@ -1172,6 +1237,7 @@ const handleSubmit = async (e) => {
                   </label>
 
                   <input
+                    value={company.cname}
                     type="text"
                     className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
@@ -1183,6 +1249,7 @@ const handleSubmit = async (e) => {
                   </label>
 
                   <input
+                    value={company.dot}
                     type="text"
                     className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
@@ -1196,6 +1263,7 @@ const handleSubmit = async (e) => {
                   </label>
 
                   <input
+                    value={company.owner}
                     type="text"
                     className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
@@ -1207,6 +1275,7 @@ const handleSubmit = async (e) => {
                   </label>
 
                   <input
+                    value={company.phone}
                     type="text"
                     className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
@@ -1220,6 +1289,7 @@ const handleSubmit = async (e) => {
                   </label>
 
                   <input
+                    value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                     type="text"
                     className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
@@ -1231,6 +1301,7 @@ const handleSubmit = async (e) => {
                   </label>
 
                   <input
+                    value={`${driver.currentcdllicenseno}/ ${driver.currentcdlstate}`}
                     type="text"
                     className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
@@ -1244,7 +1315,9 @@ const handleSubmit = async (e) => {
                   </label>
 
                   <input
-                    type="text"
+                    type="date"
+                    value={cleHDate}
+                    name="p5dateofhire"
                     className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
                outline-none px-1"
@@ -1255,7 +1328,8 @@ const handleSubmit = async (e) => {
                   </label>
 
                   <input
-                    type="text"
+                    type="date"
+                    name="p5dateofrevision"
                     className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
                outline-none px-1"
@@ -1380,8 +1454,6 @@ const handleSubmit = async (e) => {
           </div>
         </div>
 
-        {/******page 6 start *******/}
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -1395,10 +1467,29 @@ const handleSubmit = async (e) => {
                     Driver signature:
                   </label>
 
-                  <input
-                    type="text"
-                    className="h-[30px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
-                  />
+                  {!signatureData ? (
+                    <input
+                      onClick={() => setSignatureOpen(true)}
+                      className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                      type="text"
+                    />
+                  ) : (
+                    <span className="border border-black">
+                      {signatureData ? (
+                        <img
+                          className="w-full h-[40px] object-contain"
+                          src={`${
+                            window.location.hostname === "localhost"
+                              ? "http://localhost:8000/storage/"
+                              : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                          }${signatureData}`}
+                          alt={signatureData}
+                        />
+                      ) : (
+                        "No Image"
+                      )}
+                    </span>
+                  )}
 
                   <label className="font-bold text-[12px] md:pl-2 whitespace-nowrap">
                     Date:
@@ -1406,6 +1497,7 @@ const handleSubmit = async (e) => {
 
                   <input
                     type="date"
+                    value={cleHDate}
                     className="h-[26px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
                   />
                 </div>
@@ -1417,6 +1509,7 @@ const handleSubmit = async (e) => {
 
                   <input
                     type="text"
+                    value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                     className="h-[30px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
                   />
 
@@ -1425,7 +1518,8 @@ const handleSubmit = async (e) => {
                   </label>
 
                   <input
-                    type="date"
+                    type="text"
+                    value={driver.currentcdllicenseno}
                     className="h-[26px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
                   />
                 </div>
@@ -1437,6 +1531,7 @@ const handleSubmit = async (e) => {
 
                   <input
                     type="text"
+                    value={company.owner}
                     className="h-[30px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
                   />
 
@@ -1446,6 +1541,7 @@ const handleSubmit = async (e) => {
 
                   <input
                     type="date"
+                    value={cleHDate}
                     className="h-[26px] w-full border-[1.5px] border-[#26364d] outline-none px-1"
                   />
                 </div>
@@ -1693,6 +1789,7 @@ const handleSubmit = async (e) => {
                         className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                       >
                         <input
+                          value={company.owner}
                           className="w-full border border-black"
                           type="text"
                         />
@@ -1708,6 +1805,7 @@ const handleSubmit = async (e) => {
                         className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                       >
                         <input
+                          value={`${company.phone}/${company.email}`}
                           className="w-full border border-black"
                           type="text"
                         />
@@ -1723,6 +1821,7 @@ const handleSubmit = async (e) => {
                         className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                       >
                         <input
+                          name="p7consortium"
                           className="w-full border border-black"
                           type="text"
                         />
@@ -1738,6 +1837,7 @@ const handleSubmit = async (e) => {
                         className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                       >
                         <input
+                          name="p7mro"
                           className="w-full border border-black"
                           type="text"
                         />
@@ -1753,6 +1853,7 @@ const handleSubmit = async (e) => {
                         className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                       >
                         <input
+                          name="p7cmro"
                           className="w-full border border-black"
                           type="text"
                         />
@@ -1768,6 +1869,7 @@ const handleSubmit = async (e) => {
                         className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                       >
                         <input
+                          name="p7sap"
                           className="w-full border border-black"
                           type="text"
                         />
@@ -1783,6 +1885,7 @@ const handleSubmit = async (e) => {
                         className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                       >
                         <input
+                          name="p7dotminimum"
                           className="w-full border border-black"
                           type="text"
                         />
@@ -1840,6 +1943,7 @@ const handleSubmit = async (e) => {
                         </label>
 
                         <input
+                          value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                           type="text"
                           className="h-[30px] w-[60%] border-[1.5px] border-[#26364d] outline-none px-1"
                         />
@@ -1850,6 +1954,7 @@ const handleSubmit = async (e) => {
                         </label>
 
                         <input
+                          value={`${driver.currentcdllicenseno}/ ${driver.currentcdlstate}`}
                           type="text"
                           className="h-[26px] w-[60%] border-[1.5px] border-[#26364d] outline-none px-1"
                         />
@@ -1857,15 +1962,34 @@ const handleSubmit = async (e) => {
                     </div>
 
                     <div className="flex w-[100%]">
-                      <div className="w-[50%]">
+                      <div className="w-[50%] flex">
                         <label className="font-bold text-[12px]">
                           Driver Signature:
                         </label>
 
-                        <input
-                          type="text"
-                          className="h-[30px] w-[60%] border-[1.5px] border-[#26364d] outline-none px-1"
-                        />
+                        {!signatureData ? (
+                          <input
+                            onClick={() => setSignatureOpen(true)}
+                            className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                            type="text"
+                          />
+                        ) : (
+                          <span className="w-[66%] border border-black">
+                            {signatureData ? (
+                              <img
+                                className="w-full h-[40px] object-contain"
+                                src={`${
+                                  window.location.hostname === "localhost"
+                                    ? "http://localhost:8000/storage/"
+                                    : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                }${signatureData}`}
+                                alt={signatureData}
+                              />
+                            ) : (
+                              "No Image"
+                            )}
+                          </span>
+                        )}
                       </div>
                       <div className="w-[50%] text-right">
                         <label className="font-bold text-[12px] pl-1">
@@ -1874,6 +1998,7 @@ const handleSubmit = async (e) => {
 
                         <input
                           type="date"
+                          value={cleHDate}
                           className="h-[26px] w-[60%] border-[1.5px] border-[#26364d] outline-none px-1"
                         />
                       </div>
@@ -1886,6 +2011,7 @@ const handleSubmit = async (e) => {
                         </label>
 
                         <input
+                          value={company.owner}
                           type="text"
                           className="h-[30px] w-[50%] border-[1.5px] border-[#26364d] outline-none px-1"
                         />
@@ -1897,6 +2023,7 @@ const handleSubmit = async (e) => {
 
                         <input
                           type="text"
+                          value="Owner"
                           className="h-[26px] w-[60%] border-[1.5px] border-[#26364d] outline-none px-1"
                         />
                       </div>
@@ -1920,6 +2047,7 @@ const handleSubmit = async (e) => {
 
                         <input
                           type="date"
+                          value={cleHDate}
                           className="h-[26px] w-[60%] border-[1.5px] border-[#26364d] outline-none px-1"
                         />
                       </div>
@@ -2064,6 +2192,7 @@ const handleSubmit = async (e) => {
                 <span className="whitespace-nowrap">I, (Print Name):</span>
 
                 <input
+                  value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                   className="w-full sm:flex-1 md:flex-none
                md:w-[378px]
                ml-0 sm:ml-[5px]
@@ -2074,7 +2203,9 @@ const handleSubmit = async (e) => {
 
                 <span className="ml-0 sm:ml-[8px] whitespace-nowrap">
                   <input
+                    value={driver.socialsecurity}
                     className="w-full sm:flex-1 md:flex-none
+                  }
               
                ml-0 sm:ml-[5px]
                h-[15px] sm:h-[15px]
@@ -2099,7 +2230,9 @@ const handleSubmit = async (e) => {
                 <span className="whitespace-nowrap">Date of Birth:</span>
 
                 <input
+                  value={driver.dob}
                   className="w-full sm:w-[190px]
+                }
                ml-0 sm:ml-[5px]
                h-[15px] sm:h-[15px]
                border border-[#26364d]
@@ -2261,7 +2394,9 @@ const handleSubmit = async (e) => {
                 <span className="whitespace-nowrap">Prospective Employer:</span>
 
                 <input
+                  value={company.cname}
                   className="w-full sm:flex-1 md:flex-none
+                }
                md:w-[355px]
                ml-0 sm:ml-[5px]
                h-[15px] sm:h-[15px]
@@ -2280,7 +2415,9 @@ const handleSubmit = async (e) => {
                 <span className="whitespace-nowrap">Attention:</span>
 
                 <input
+                  value={company.owner}
                   className="w-full sm:flex-1 md:flex-none
+                }
                md:w-[380px]
                ml-0 sm:ml-[5px]
                h-[15px] sm:h-[15px]
@@ -2296,7 +2433,10 @@ const handleSubmit = async (e) => {
                 </span>
 
                 <input
+                  type="text"
+                  value={company.phone}
                   className="w-full sm:w-[120px]
+                }
                ml-0 sm:ml-[4px]
                h-[15px] sm:h-[15px]
                border border-[#26364d]
@@ -2389,7 +2529,9 @@ const handleSubmit = async (e) => {
                 </span>
 
                 <input
+                  value={company.email}
                   className="w-full sm:flex-1 md:flex-none
+                }
                md:w-[285px]
                ml-0 sm:ml-[5px]
                h-[15px] sm:h-[15px]
@@ -2407,13 +2549,29 @@ const handleSubmit = async (e) => {
               >
                 <span className="whitespace-nowrap">Driver Signature:</span>
 
-                <input
-                  className="w-full sm:w-[360px]
-               ml-0 sm:ml-[5px]
-               h-[15px] sm:h-[15px]
-               border border-[#26364d]
-               outline-none"
-                />
+                {!signatureData ? (
+                  <input
+                    onClick={() => setSignatureOpen(true)}
+                    className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                    type="text"
+                  />
+                ) : (
+                  <span className="border border-black">
+                    {signatureData ? (
+                      <img
+                        className="w-full h-[40px] object-contain"
+                        src={`${
+                          window.location.hostname === "localhost"
+                            ? "http://localhost:8000/storage/"
+                            : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                        }${signatureData}`}
+                        alt={signatureData}
+                      />
+                    ) : (
+                      "No Image"
+                    )}
+                  </span>
+                )}
               </div>
 
               <div
@@ -2426,6 +2584,8 @@ const handleSubmit = async (e) => {
                 <span className="whitespace-nowrap">Date:</span>
 
                 <input
+                  type="date"
+                  value={cleHDate}
                   className="w-full sm:w-[360px]
                ml-0 sm:ml-[5px]
                h-[15px] sm:h-[15px]
@@ -2886,6 +3046,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                               className="h-[15px] w-full border border-black p-2"
                               type="text"
                             />
@@ -2902,6 +3063,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={`${driver.currentcdllicenseno}/ ${driver.currentcdlstate}/ ${driver.currentcdlclass}`}
                               className="h-[15px] w-full border border-black p-2"
                               type="text"
                             />
@@ -2918,6 +3080,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={company.cname}
                               className="h-[15px] w-full border border-black p-2"
                               type="text"
                             />
@@ -2934,6 +3097,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={company.dot}
                               className="h-[15px] w-full border border-black p-2"
                               type="text"
                             />
@@ -2966,6 +3130,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={company.physicaladdress}
                               className="h-[15px] w-full border border-black p-2"
                               type="text"
                             />
@@ -2982,6 +3147,8 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value="Volvo"
+                              name="p10powerunit"
                               className="h-[15px] w-full border border-black p-2"
                               type="text"
                             />
@@ -2998,6 +3165,8 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value="Van"
+                              name="p10trailertype"
                               className="h-[15px] w-full border border-black p-2"
                               type="text"
                             />
@@ -3014,11 +3183,15 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555] text-left">
                           <div className="flex pl-2">
                             <input
+                              name="p10transmission"
+                              value="1"
                               className="border border-black"
                               type="checkbox"
                             />
                             &nbsp;Manual &nbsp;
                             <input
+                              name="p10transmission"
+                              value="2"
                               className="border border-black"
                               type="checkbox"
                             />
@@ -4080,6 +4253,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={company.owner}
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4096,6 +4270,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={company.cname}
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4142,12 +4317,29 @@ const handleSubmit = async (e) => {
                           </span>
                         </td>
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
-                          <div className="flex items-center justify-center">
+                          {!signatureData ? (
                             <input
-                              className="h-[28px] w-full border border-black p-2"
+                              onClick={() => setSignatureOpen(true)}
+                              className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
                               type="text"
                             />
-                          </div>
+                          ) : (
+                            <span>
+                              {signatureData ? (
+                                <img
+                                  className="w-full h-[40px] object-contain"
+                                  src={`${
+                                    window.location.hostname === "localhost"
+                                      ? "http://localhost:8000/storage/"
+                                      : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                  }${signatureData}`}
+                                  alt={signatureData}
+                                />
+                              ) : (
+                                "No Image"
+                              )}
+                            </span>
+                          )}
                         </td>
                       </tr>
 
@@ -4160,6 +4352,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={cleHDate}
                               className="h-[28px] w-full border border-black p-2"
                               type="date"
                             />
@@ -4208,6 +4401,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4224,6 +4418,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={driver.currentcdllicenseno}
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4240,6 +4435,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={`${driver.currentcdlclass}`}
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4256,6 +4452,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={company.cname}
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4272,6 +4469,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={company.dot}
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4288,6 +4486,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value="Volvo"
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4304,6 +4503,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value="Van"
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4386,6 +4586,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={company.owner}
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4402,6 +4603,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={company.cname}
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4418,6 +4620,7 @@ const handleSubmit = async (e) => {
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              value={company.physicaladdress}
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4475,7 +4678,11 @@ const handleSubmit = async (e) => {
               </h4>
               <p className="text-[10.7px] mb-1">
                 In connection with your application for employment with{" "}
-                <input className="border border-black" type="text" />{" "}
+                <input
+                  className="border border-black"
+                  value={company.cname}
+                  type="text"
+                />{" "}
                 (“Prospective Employer”), Prospective Employer, its employees,
                 agents or contractors may obtain one or more reports regarding
                 your driving, and safety inspection history from the Federal
@@ -4551,7 +4758,11 @@ const handleSubmit = async (e) => {
               </p>
               <p className="text-[10.7px] mb-1">
                 I authorize{" "}
-                <input className="border border-black" type="text" />{" "}
+                <input
+                  className="border border-black"
+                  value={company.cname}
+                  type="text"
+                />{" "}
                 (“Prospective Employer”) to access the FMCSA Pre-Employment
                 Screening Program (PSP) system to seek information regarding my
                 commercial driving safety record and information regarding my
@@ -4602,18 +4813,48 @@ const handleSubmit = async (e) => {
                       <tr>
                         <td>
                           Date:
-                          <input className="border border-black" type="date" />
+                          <input
+                            value={cleHDate}
+                            className="border border-black"
+                            type="date"
+                          />
                         </td>
-                        <td>
+                        <td className="flex">
                           Signature:
-                          <input className="border border-black" type="text" />
+                          {!signatureData ? (
+                            <input
+                              onClick={() => setSignatureOpen(true)}
+                              className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                              type="text"
+                            />
+                          ) : (
+                            <span className="border border-black">
+                              {signatureData ? (
+                                <img
+                                  className="w-full h-[40px] object-contain"
+                                  src={`${
+                                    window.location.hostname === "localhost"
+                                      ? "http://localhost:8000/storage/"
+                                      : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                  }${signatureData}`}
+                                  alt={signatureData}
+                                />
+                              ) : (
+                                "No Image"
+                              )}
+                            </span>
+                          )}
                         </td>
                       </tr>
                       <br />
 
                       <tr>
                         <td>
-                          <input className="border border-black" type="text" />
+                          <input
+                            className="border border-black"
+                            value={`${driver.fname} ${driver.mname} ${driver.lname}`}
+                            type="text"
+                          />
                           Name (Please Print)
                         </td>
                       </tr>
@@ -4694,11 +4935,19 @@ const handleSubmit = async (e) => {
                             Motor Carrier Legal Name:
                           </span>
                           <br />
-                          <input className="border border-black" type="text" />
+                          <input
+                            value={company.cname}
+                            className="border border-black"
+                            type="text"
+                          />
                         </td>
                         <td>
                           <span className="text-[11px]">USDOT #:</span>
-                          <input className="border border-black" type="text" />
+                          <input
+                            value={company.dot}
+                            className="border border-black"
+                            type="text"
+                          />
                         </td>
                       </tr>
                       <tr>
@@ -4732,13 +4981,21 @@ const handleSubmit = async (e) => {
                             Safety/Compliance Contact:
                           </span>
                           <br />
-                          <input className="border border-black" type="text" />
+                          <input
+                            value="DOT COMPLIANCE SOLUTIONS LLC"
+                            className="border border-black w-full"
+                            type="text"
+                          />
                         </td>
                         <td>
                           <span className="text-[13.4px]">
                             24-Hour Incident Contact:{" "}
                           </span>
-                          <input className="border border-black" type="text" />
+                          <input
+                            value={driver.emecontactno}
+                            className="border border-black"
+                            type="text"
+                          />
                         </td>
                       </tr>
                     </tbody>
@@ -5397,7 +5654,11 @@ const handleSubmit = async (e) => {
                             Driver Printed Name:
                           </span>
                           <br />
-                          <input className="border border-black" type="text" />
+                          <input
+                            value={`${driver.fname} ${driver.mname} ${driver.lname}`}
+                            className="border border-black"
+                            type="text"
+                          />
                         </td>
                         <td>
                           <span className="text-[13.4px]">
@@ -5413,11 +5674,37 @@ const handleSubmit = async (e) => {
                             Driver Signature:
                           </span>
                           <br />
-                          <input className="border border-black" type="text" />
+                          {!signatureData ? (
+                            <input
+                              onClick={() => setSignatureOpen(true)}
+                              className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                              type="text"
+                            />
+                          ) : (
+                            <span>
+                              {signatureData ? (
+                                <img
+                                  className="w-[60%] h-[40px]"
+                                  src={`${
+                                    window.location.hostname === "localhost"
+                                      ? "http://localhost:8000/storage/"
+                                      : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                  }${signatureData}`}
+                                  alt={signatureData}
+                                />
+                              ) : (
+                                "No Image"
+                              )}
+                            </span>
+                          )}
                         </td>
                         <td>
                           <span className="text-[13.4px]">Date:</span>
-                          <input className="border border-black" type="date" />
+                          <input
+                            value={cleHDate}
+                            className="border border-black"
+                            type="date"
+                          />
                         </td>
                       </tr>
 
@@ -5427,11 +5714,19 @@ const handleSubmit = async (e) => {
                             Company Representative:
                           </span>
                           <br />
-                          <input className="border border-black" type="text" />
+                          <input
+                            value={company.owner}
+                            className="border border-black"
+                            type="text"
+                          />
                         </td>
                         <td>
                           <span className="text-[13.4px]">Title:</span>
-                          <input className="border border-black" type="text" />
+                          <input
+                            value="Owner"
+                            className="border border-black"
+                            type="text"
+                          />
                         </td>
                       </tr>
 
@@ -5583,6 +5878,7 @@ const handleSubmit = async (e) => {
                             >
                               <div className="flex items-center justify-center">
                                 <input
+                                  value={company.cname}
                                   className="h-[20px] w-full border border-black p-2"
                                   type="text"
                                 />
@@ -5594,6 +5890,7 @@ const handleSubmit = async (e) => {
                             <td className="  align-middle text-left text-[17px]">
                               <div className="flex items-center justify-center">
                                 <input
+                                  value={company.dot}
                                   className=" h-[20px] w-full border border-black p-2"
                                   type="text"
                                 />
@@ -5636,6 +5933,7 @@ const handleSubmit = async (e) => {
                             >
                               <div className="flex items-center justify-center">
                                 <input
+                                  value={driver.emecontactno}
                                   className="h-[20px] w-full border border-black p-2"
                                   type="text"
                                 />
@@ -6465,6 +6763,43 @@ const handleSubmit = async (e) => {
                             <td className="  align-middle text-left text-[17px]">
                               <div className="flex items-center justify-center">
                                 <input
+                                  value={company.cname}
+                                  className="h-[25px] w-full border border-black p-2"
+                                  type="text"
+                                />
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td className="  align-middle text-left text-[17px]">
+                              <div className="flex items-center justify-center">
+                                <input
+                                  value={company.dot}
+                                  className="h-[25px] w-full border border-black p-2"
+                                  type="text"
+                                />
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td className="  align-middle text-left text-[17px]">
+                              <div className="flex items-center justify-center">
+                                <input
+                                  value={company.owner}
+                                  className="h-[25px] w-full border border-black p-2"
+                                  type="text"
+                                />
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td className="  align-middle text-left text-[17px]">
+                              <div className="flex items-center justify-center">
+                                <input
+                                  value={`${company.phone}/ ${company.email}`}
                                   className="h-[25px] w-full border border-black p-2"
                                   type="text"
                                 />
@@ -6520,6 +6855,7 @@ const handleSubmit = async (e) => {
                             <td className="  align-middle text-left text-[17px]">
                               <div className="flex items-center justify-center">
                                 <input
+                                  value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                                   className="h-[25px] w-full border border-black p-2"
                                   type="text"
                                 />
@@ -6531,6 +6867,7 @@ const handleSubmit = async (e) => {
                             <td className="  align-middle text-left text-[17px]">
                               <div className="flex items-center justify-center">
                                 <input
+                                  value={driver.currentcdllicenseno}
                                   className="h-[25px] w-full border border-black p-2"
                                   type="text"
                                 />
@@ -6541,43 +6878,30 @@ const handleSubmit = async (e) => {
                           <tr>
                             <td className="  align-middle text-left text-[17px]">
                               <div className="flex items-center justify-center">
-                                <input
-                                  className="h-[25px] w-full border border-black p-2"
-                                  type="text"
-                                />
-                              </div>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td className="  align-middle text-left text-[17px]">
-                              <div className="flex items-center justify-center">
-                                <input
-                                  className="h-[25px] w-full border border-black p-2"
-                                  type="text"
-                                />
-                              </div>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td className="  align-middle text-left text-[17px]">
-                              <div className="flex items-center justify-center">
-                                <input
-                                  className="h-[25px] w-full border border-black p-2"
-                                  type="text"
-                                />
-                              </div>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td className="  align-middle text-left text-[17px]">
-                              <div className="flex items-center justify-center">
-                                <input
-                                  className="h-[25px] w-full border border-black p-2"
-                                  type="text"
-                                />
+                                {!signatureData ? (
+                                  <input
+                                    onClick={() => setSignatureOpen(true)}
+                                    className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                                    type="text"
+                                  />
+                                ) : (
+                                  <span className="border border-black w-full">
+                                    {signatureData ? (
+                                      <img
+                                        className="w-full h-[30px] object-contain"
+                                        src={`${
+                                          window.location.hostname ===
+                                          "localhost"
+                                            ? "http://localhost:8000/storage/"
+                                            : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                        }${signatureData}`}
+                                        alt={signatureData}
+                                      />
+                                    ) : (
+                                      "No Image"
+                                    )}
+                                  </span>
+                                )}
                               </div>
                             </td>
                           </tr>
@@ -6644,53 +6968,23 @@ const handleSubmit = async (e) => {
 
                     <tbody className="text-gray-500 text-[12.7px]">
                       <tr>
-                        <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
-                          <input
-                            className="border border-black w-full"
-                            type="text"
-                          />
-                        </td>
-
-                        <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
-                          <input
-                            className="border border-black w-full"
-                            type="text"
-                          />
-                        </td>
-
-                        <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
-                          <input
-                            className="border border-black w-full"
-                            type="text"
-                          />
-                        </td>
-                      </tr>
-
-                      <tr>
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                           Designated Employer Representative (DER)
                         </td>
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                           DER Phone / Email{" "}
-                          <input
-                            className="border border-black w-full"
-                            type="text"
-                          />
                         </td>
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                           C/TPA
-                          <input
-                            className="border border-black w-full"
-                            type="text"
-                          />
                         </td>
                       </tr>
 
                       <tr>
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                           <input
+                            value={company.owner}
                             className="border border-black w-full"
                             type="text"
                           />
@@ -6698,6 +6992,7 @@ const handleSubmit = async (e) => {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                           <input
+                            value={company.phone}
                             className="border border-black w-full"
                             type="text"
                           />
@@ -8067,6 +8362,7 @@ const handleSubmit = async (e) => {
                       <tr>
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
                           <input
+                            value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                             className="border-black border w-full"
                             type="text"
                           />
@@ -8074,6 +8370,7 @@ const handleSubmit = async (e) => {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
                           <input
+                            value={driver.currentcdllicenseno}
                             className="border-black border w-full"
                             type="text"
                           />
@@ -8086,26 +8383,29 @@ const handleSubmit = async (e) => {
                         </td>
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
-                          <input
-                            className="border-black border w-full"
-                            type="text"
-                          />
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
-                          <input
-                            className="border-black border w-full"
-                            type="text"
-                          />
-                        </td>
-
-                        <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
-                          <input
-                            className="border-black border w-full"
-                            type="text"
-                          />
+                          {!signatureData ? (
+                            <input
+                              onClick={() => setSignatureOpen(true)}
+                              className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                              type="text"
+                            />
+                          ) : (
+                            <span>
+                              {signatureData ? (
+                                <img
+                                  className="w-full h-[30px] object-contain"
+                                  src={`${
+                                    window.location.hostname === "localhost"
+                                      ? "http://localhost:8000/storage/"
+                                      : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                  }${signatureData}`}
+                                  alt={signatureData}
+                                />
+                              ) : (
+                                "No Image"
+                              )}
+                            </span>
+                          )}
                         </td>
                       </tr>
 
@@ -8116,21 +8416,7 @@ const handleSubmit = async (e) => {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
                           <input
-                            className="border-black border w-full"
-                            type="text"
-                          />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
-                          <input
-                            className="border-black border w-full"
-                            type="text"
-                          />
-                        </td>
-
-                        <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[12.7px]">
-                          <input
+                            value={company.owner}
                             className="border-black border w-full"
                             type="text"
                           />
@@ -8270,6 +8556,7 @@ const handleSubmit = async (e) => {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8589,6 +8876,7 @@ const handleSubmit = async (e) => {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8601,6 +8889,7 @@ const handleSubmit = async (e) => {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          value={driver.currentcdllicenseno}
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8624,10 +8913,29 @@ const handleSubmit = async (e) => {
                         Driver Signature / Date
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
-                        <input
-                          className="border border-3 border-black w-full h-[28px] p-2"
-                          type="text"
-                        />
+                        {!signatureData ? (
+                          <input
+                            onClick={() => setSignatureOpen(true)}
+                            className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                            type="text"
+                          />
+                        ) : (
+                          <span>
+                            {signatureData ? (
+                              <img
+                                className="w-full h-[30px] object-contain"
+                                src={`${
+                                  window.location.hostname === "localhost"
+                                    ? "http://localhost:8000/storage/"
+                                    : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                }${signatureData}`}
+                                alt={signatureData}
+                              />
+                            ) : (
+                              "No Image"
+                            )}
+                          </span>
+                        )}
                       </td>
                     </tr>
                   </tbody>
@@ -8655,6 +8963,7 @@ const handleSubmit = async (e) => {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8799,6 +9108,7 @@ const handleSubmit = async (e) => {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8811,6 +9121,7 @@ const handleSubmit = async (e) => {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          value={company.owner}
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8823,6 +9134,7 @@ const handleSubmit = async (e) => {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          value="Van"
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8842,14 +9154,33 @@ const handleSubmit = async (e) => {
                     </tr>
 
                     <tr>
-                      <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
+                      <td className="text-[12px] h-[25px]  border border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                         Driver Signature / Date
                       </td>
-                      <td className="h-[25px] border-b border-[#aebdcc]">
-                        <input
-                          className="border border-3 border-black w-full h-[28px] p-2"
-                          type="text"
-                        />
+                      <td className="h-[25px] border border-black">
+                        {!signatureData ? (
+                          <input
+                            onClick={() => setSignatureOpen(true)}
+                            className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                            type="text"
+                          />
+                        ) : (
+                          <span>
+                            {signatureData ? (
+                              <img
+                                className="w-full h-[30px] object-contain"
+                                src={`${
+                                  window.location.hostname === "localhost"
+                                    ? "http://localhost:8000/storage/"
+                                    : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                }${signatureData}`}
+                                alt={signatureData}
+                              />
+                            ) : (
+                              "No Image"
+                            )}
+                          </span>
+                        )}
                       </td>
                     </tr>
 
@@ -9237,6 +9568,7 @@ const handleSubmit = async (e) => {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -9247,11 +9579,30 @@ const handleSubmit = async (e) => {
                       <td className="text-[12px] h-[25px]  border-b border-[#aebdcc] bg-gray-200 px-[7px] py-[5px] font-bold text-[#173f69]">
                         Driver Signature / Date
                       </td>
-                      <td className="h-[25px] border-b border-[#aebdcc]">
-                        <input
-                          className="border border-3 border-black w-full h-[28px] p-2"
-                          type="text"
-                        />
+                      <td className="h-[25px] border border-black">
+                        {!signatureData ? (
+                          <input
+                            onClick={() => setSignatureOpen(true)}
+                            className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                            type="text"
+                          />
+                        ) : (
+                          <span>
+                            {signatureData ? (
+                              <img
+                                className="w-full h-[30px] object-contain"
+                                src={`${
+                                  window.location.hostname === "localhost"
+                                    ? "http://localhost:8000/storage/"
+                                    : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                }${signatureData}`}
+                                alt={signatureData}
+                              />
+                            ) : (
+                              "No Image"
+                            )}
+                          </span>
+                        )}
                       </td>
                     </tr>
 
@@ -9261,6 +9612,7 @@ const handleSubmit = async (e) => {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          value={company.owner}
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -9326,6 +9678,7 @@ const handleSubmit = async (e) => {
                               COMPANY NAME:
                             </span>
                             <input
+                              value={company.cname}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9336,6 +9689,7 @@ const handleSubmit = async (e) => {
                           <div className="flex items-center w-full">
                             <span className="whitespace-nowrap">USDOT #:</span>
                             <input
+                              value={company.dot}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9350,6 +9704,7 @@ const handleSubmit = async (e) => {
                               COMPANY ADDRESS:
                             </span>
                             <input
+                              value={company.physicaladdress}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9376,6 +9731,7 @@ const handleSubmit = async (e) => {
                               POSITION APPLIED FOR:
                             </span>
                             <input
+                              value="Driver"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9388,6 +9744,7 @@ const handleSubmit = async (e) => {
                               APPLICATION DATE:
                             </span>
                             <input
+                              value={cleHDate}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="date"
                             />
@@ -9402,6 +9759,7 @@ const handleSubmit = async (e) => {
                               REFERRED BY:
                             </span>
                             <input
+                              value="Friend"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9414,6 +9772,7 @@ const handleSubmit = async (e) => {
                               DESIRED START DATE:
                             </span>
                             <input
+                              value={cleHDate}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="date"
                             />
@@ -9471,6 +9830,7 @@ const handleSubmit = async (e) => {
                               FIRST NAME:
                             </span>
                             <input
+                              value={driver.fname}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9483,6 +9843,7 @@ const handleSubmit = async (e) => {
                               MIDDLE NAME:
                             </span>
                             <input
+                              value={driver.mname}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9497,6 +9858,7 @@ const handleSubmit = async (e) => {
                               LAST NAME:
                             </span>
                             <input
+                              value={driver.lname}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9521,6 +9883,7 @@ const handleSubmit = async (e) => {
                               DATE OF BIRTH:
                             </span>
                             <input
+                              value={driver.dob}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="date"
                             />
@@ -9533,6 +9896,7 @@ const handleSubmit = async (e) => {
                               SOCIAL SECURITY NUMBER:
                             </span>
                             <input
+                              value={driver.socialsecurity}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9547,6 +9911,7 @@ const handleSubmit = async (e) => {
                               PRIMARY PHONE:
                             </span>
                             <input
+                              value={driver.phone}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9559,8 +9924,9 @@ const handleSubmit = async (e) => {
                               ALTERNATE PHONE:
                             </span>
                             <input
+                              value={driver.emecontactno}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="date"
+                              type="text"
                             />
                           </div>
                         </td>
@@ -9571,6 +9937,7 @@ const handleSubmit = async (e) => {
                           <div className="flex items-center w-full">
                             <span className="whitespace-nowrap">EMAIL:</span>
                             <input
+                              value={driver.email}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="email"
                             />
@@ -9583,6 +9950,7 @@ const handleSubmit = async (e) => {
                               CURRENT ADDRESS:
                             </span>
                             <input
+                              value={`${driver.currentstreet}, ${driver.currentcity}, ${driver.currentstate}, ${driver.currentzip}`}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9591,24 +9959,16 @@ const handleSubmit = async (e) => {
                       </tr>
 
                       <tr className="border-b border-black">
-                        <td className="font-bold  align-top leading-[1.22]">
+                        <td
+                          colSpan="2"
+                          className="font-bold  align-top leading-[1.22]"
+                        >
                           <div className="flex items-center w-full">
                             <span className="whitespace-nowrap">
                               CITY / STATE / ZIP:
                             </span>
                             <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-
-                        <td className="font-bold  align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">
-                              missing_salman:
-                            </span>
-                            <input
+                              value={` ${driver.currentcity}/ ${driver.currentstate}/ ${driver.currentzip}`}
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -9794,164 +10154,6 @@ const handleSubmit = async (e) => {
                       </tr>
                     </tbody>
                   </table>
-
-                  <table className="w-full table-fixed border-collapse text-[13.5px]">
-                    <tbody>
-                      <p className="text-[11.4px] mt-4 mb-1 items-start font-bold">
-                        <span>PRIOR RESIDENCE 2</span>
-                      </p>
-                      <tr className="border-b border-black">
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">
-                              STREET ADDRESS:
-                            </span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">CITY:</span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">
-                              STATE / PROVINCE:
-                            </span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr className="border-b border-black">
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">
-                              ZIP / POSTAL CODE:
-                            </span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">COUNTRY:</span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">
-                              missing_salman:
-                            </span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <table className="w-full table-fixed border-collapse text-[13.5px]">
-                    <tbody>
-                      <p className="text-[11.4px] mt-4 mb-1 items-start font-bold">
-                        <span>PRIOR RESIDENCE 3</span>
-                      </p>
-                      <tr className="border-b border-black">
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">
-                              STREET ADDRESS:
-                            </span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">CITY:</span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">
-                              STATE / PROVINCE:
-                            </span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr className="border-b border-black">
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">
-                              ZIP / POSTAL CODE:
-                            </span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">COUNTRY:</span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">
-                              missing_salman:
-                            </span>
-                            <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
                 </div>
               </section>
             </div>
@@ -9984,7 +10186,7 @@ const handleSubmit = async (e) => {
                 </p>
 
                 <div className="overflow-x-auto">
-                  <table className="w-full table-fixed text-[10px]">
+                  <table className="w-full table-fixed border-collapse text-[10px]">
                     <thead className="border bg-[#1F355A] text-white border-black">
                       <tr>
                         <th>State</th>
@@ -9996,7 +10198,17 @@ const handleSubmit = async (e) => {
                         <th>Restrictions</th>
                       </tr>
                     </thead>
-                    <tbody className="h-[60px]"></tbody>
+                    <tbody className="h-[60px]">
+                      <tr className="border border-black">
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
+                      </tr>
+                    </tbody>
                   </table>
                   <br />
 
@@ -10010,6 +10222,16 @@ const handleSubmit = async (e) => {
                       className="border border-black w-[150px] h-[12px]"
                     />
                     <span> CDL Number: </span>
+                    <input
+                      type="text"
+                      className="border border-black w-[150px] h-[12px]"
+                    />
+                    <span> Issue Date: </span>
+                    <input
+                      type="text"
+                      className="border border-black w-[150px] h-[12px]"
+                    />
+                    <span> Expiry Date: </span>
                     <input
                       type="text"
                       className="border border-black w-[150px] h-[12px]"
@@ -10209,97 +10431,93 @@ const handleSubmit = async (e) => {
                   </span>
                 </p>
 
-         
-<div className="w-full overflow-x-auto rounded-sm">
-  <table className="w-full min-w-[900px] table-fixed border-collapse text-[10px]">
-    <thead className="border border-black bg-[#1F355A] text-white">
-      <tr>
-        <th className="w-[18%] border border-black px-2 py-2 text-left">
-          Equipment Type
-        </th>
+                <div className="w-full overflow-x-auto rounded-sm">
+                  <table className="w-full min-w-[900px] table-fixed border-collapse text-[10px]">
+                    <thead className="border border-black bg-[#1F355A] text-white">
+                      <tr>
+                        <th className="w-[18%] border border-black px-2 py-2 text-left">
+                          Equipment Type
+                        </th>
 
-        <th className="w-[10%] border border-black px-2 py-2 text-center">
-          Yes/No
-        </th>
+                        <th className="w-[10%] border border-black px-2 py-2 text-center">
+                          Yes/No
+                        </th>
 
-        <th className="w-[14%] border border-black px-2 py-2 text-center">
-          From
-        </th>
+                        <th className="w-[14%] border border-black px-2 py-2 text-center">
+                          From
+                        </th>
 
-        <th className="w-[14%] border border-black px-2 py-2 text-center">
-          To
-        </th>
+                        <th className="w-[14%] border border-black px-2 py-2 text-center">
+                          To
+                        </th>
 
-        <th className="w-[16%] border border-black px-2 py-2 text-center">
-          Approx. Miles
-        </th>
+                        <th className="w-[16%] border border-black px-2 py-2 text-center">
+                          Approx. Miles
+                        </th>
 
-        <th className="w-[28%] border border-black px-2 py-2 text-left">
-          Description / Size
-        </th>
-      </tr>
-    </thead>
+                        <th className="w-[28%] border border-black px-2 py-2 text-left">
+                          Description / Size
+                        </th>
+                      </tr>
+                    </thead>
 
-    <tbody className="text-[11px]">
-      {[
-        "Straight Truck",
-        "Truck-Tractor",
-        "Semi-Trailer",
-        "Doubles / Triples",
-        "Flatbed",
-        "Tank Vehicle",
-        "Bus / Passenger",
-        "Reefer",
-        "Dry Van",
-        "Other",
-      ].map((equipment) => (
-        <tr key={equipment}>
-          <td className="border border-black px-2 py-2 font-bold whitespace-nowrap">
-            {equipment}
-          </td>
+                    <tbody className="text-[11px]">
+                      {[
+                        "Straight Truck",
+                        "Truck-Tractor",
+                        "Semi-Trailer",
+                        "Doubles / Triples",
+                        "Flatbed",
+                        "Tank Vehicle",
+                        "Bus / Passenger",
+                        "Reefer",
+                        "Dry Van",
+                        "Other",
+                      ].map((equipment) => (
+                        <tr key={equipment}>
+                          <td className="border border-black px-2 py-2 font-bold whitespace-nowrap">
+                            {equipment}
+                          </td>
 
-          <td className="border border-black px-2 py-2">
-            <select
-              className="w-full min-w-[65px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
-            >
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-          </td>
+                          <td className="border border-black px-2 py-2">
+                            <select className="w-full min-w-[65px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]">
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
+                            </select>
+                          </td>
 
-          <td className="border border-black px-2 py-2">
-            <input
-              className="w-full min-w-[125px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
-              type="date"
-            />
-          </td>
+                          <td className="border border-black px-2 py-2">
+                            <input
+                              className="w-full min-w-[125px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+                              type="date"
+                            />
+                          </td>
 
-          <td className="border border-black px-2 py-2">
-            <input
-              className="w-full min-w-[125px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
-              type="date"
-            />
-          </td>
+                          <td className="border border-black px-2 py-2">
+                            <input
+                              className="w-full min-w-[125px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+                              type="date"
+                            />
+                          </td>
 
-          <td className="border border-black px-2 py-2">
-            <input
-              className="w-full min-w-[100px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
-              type="text"
-            />
-          </td>
+                          <td className="border border-black px-2 py-2">
+                            <input
+                              className="w-full min-w-[100px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+                              type="text"
+                            />
+                          </td>
 
-          <td className="border border-black px-2 py-2">
-            <input
-              className="w-full min-w-[200px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
-              type="text"
-            />
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
-
+                          <td className="border border-black px-2 py-2">
+                            <input
+                              className="w-full min-w-[200px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+                              type="text"
+                            />
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </section>
 
               <section className="mt-[12px]">
@@ -10336,6 +10554,11 @@ const handleSubmit = async (e) => {
                   <input type="checkbox" className="w-[12px] h-[12px]" />
                   <span className="ml-1 mr-2">
                     No accidents/crashes during the previous 3 years
+                  </span>
+
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="ml-1 mr-2">
+                    Yes — accidents/crashes in the previous 3 years
                   </span>
                 </div>
               </section>
@@ -10385,7 +10608,12 @@ const handleSubmit = async (e) => {
                 <div className="text-[12px] items-center gap-2 mr-3">
                   <input type="checkbox" className="w-[12px] h-[12px]" />
                   <span className="ml-1 mr-2">
-                    No accidents/crashes during the previous 3 years
+                    No traffic convictions during the previous 3 years
+                  </span>
+
+                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <span className="ml-1 mr-2">
+                    Yes - traffic convictions during the previous 3 years
                   </span>
                 </div>
               </section>
@@ -11632,10 +11860,29 @@ const handleSubmit = async (e) => {
                           <span className="whitespace-nowrap text-gray-400">
                             Applicant Signature:
                           </span>
-                          <input
-                            className=" h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
+                          {!signatureData ? (
+                            <input
+                              onClick={() => setSignatureOpen(true)}
+                              className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                              type="text"
+                            />
+                          ) : (
+                            <span>
+                              {signatureData ? (
+                                <img
+                                  className="w-full h-[40px] object-contain"
+                                  src={`${
+                                    window.location.hostname === "localhost"
+                                      ? "http://localhost:8000/storage/"
+                                      : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                  }${signatureData}`}
+                                  alt={signatureData}
+                                />
+                              ) : (
+                                "No Image"
+                              )}
+                            </span>
+                          )}
                         </div>
                       </td>
 
@@ -11645,6 +11892,7 @@ const handleSubmit = async (e) => {
                             Printed Name:
                           </span>
                           <input
+                            value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                             className=" h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11656,6 +11904,7 @@ const handleSubmit = async (e) => {
                             Date:
                           </span>
                           <input
+                            value={cleHDate}
                             className=" h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11698,10 +11947,29 @@ const handleSubmit = async (e) => {
                           <span className="whitespace-nowrap text-gray-400">
                             Applicant Signature:
                           </span>
-                          <input
-                            className=" h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
+                          {!signatureData ? (
+                            <input
+                              onClick={() => setSignatureOpen(true)}
+                              className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                              type="text"
+                            />
+                          ) : (
+                            <span>
+                              {signatureData ? (
+                                <img
+                                  className="w-full h-[40px] object-contain"
+                                  src={`${
+                                    window.location.hostname === "localhost"
+                                      ? "http://localhost:8000/storage/"
+                                      : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                  }${signatureData}`}
+                                  alt={signatureData}
+                                />
+                              ) : (
+                                "No Image"
+                              )}
+                            </span>
+                          )}
                         </div>
                       </td>
 
@@ -11711,6 +11979,7 @@ const handleSubmit = async (e) => {
                             Date:
                           </span>
                           <input
+                            value={cleHDate}
                             className=" h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11782,10 +12051,29 @@ const handleSubmit = async (e) => {
                           <span className="whitespace-nowrap text-gray-400">
                             Applicant Signature:
                           </span>
-                          <input
-                            className=" h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
+                          {!signatureData ? (
+                            <input
+                              onClick={() => setSignatureOpen(true)}
+                              className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                              type="text"
+                            />
+                          ) : (
+                            <span>
+                              {signatureData ? (
+                                <img
+                                  className="w-full h-[40px] object-contain"
+                                  src={`${
+                                    window.location.hostname === "localhost"
+                                      ? "http://localhost:8000/storage/"
+                                      : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                  }${signatureData}`}
+                                  alt={signatureData}
+                                />
+                              ) : (
+                                "No Image"
+                              )}
+                            </span>
+                          )}
                         </div>
                       </td>
 
@@ -11795,6 +12083,7 @@ const handleSubmit = async (e) => {
                             Printed Name:
                           </span>
                           <input
+                            value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                             className=" h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11806,6 +12095,7 @@ const handleSubmit = async (e) => {
                             Date:
                           </span>
                           <input
+                            value={cleHDate}
                             className=" h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11869,10 +12159,29 @@ const handleSubmit = async (e) => {
                           <span className="whitespace-nowrap text-gray-400">
                             Applicant Signature:
                           </span>
-                          <input
-                            className=" h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
+                          {!signatureData ? (
+                            <input
+                              onClick={() => setSignatureOpen(true)}
+                              className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                              type="text"
+                            />
+                          ) : (
+                            <span>
+                              {signatureData ? (
+                                <img
+                                  className="w-full h-[40px] object-contain"
+                                  src={`${
+                                    window.location.hostname === "localhost"
+                                      ? "http://localhost:8000/storage/"
+                                      : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                  }${signatureData}`}
+                                  alt={signatureData}
+                                />
+                              ) : (
+                                "No Image"
+                              )}
+                            </span>
+                          )}
                         </div>
                       </td>
 
@@ -11882,6 +12191,7 @@ const handleSubmit = async (e) => {
                             Date:
                           </span>
                           <input
+                            value={cleHDate}
                             className=" h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11919,6 +12229,7 @@ const handleSubmit = async (e) => {
                             APPLICANT / DRIVER NAME:
                           </span>
                           <input
+                            value={`${driver.fname} ${driver.mname} ${driver.lname}`}
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -12047,10 +12358,29 @@ const handleSubmit = async (e) => {
                           <span className="whitespace-nowrap text-gray-400">
                             Driver Signature:
                           </span>
-                          <input
-                            className=" h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
+                          {!signatureData ? (
+                            <input
+                              onClick={() => setSignatureOpen(true)}
+                              className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                              type="text"
+                            />
+                          ) : (
+                            <span>
+                              {signatureData ? (
+                                <img
+                                  className="w-full h-[40px] object-contain"
+                                  src={`${
+                                    window.location.hostname === "localhost"
+                                      ? "http://localhost:8000/storage/"
+                                      : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                                  }${signatureData}`}
+                                  alt={signatureData}
+                                />
+                              ) : (
+                                "No Image"
+                              )}
+                            </span>
+                          )}
                         </div>
                       </td>
 
@@ -12185,491 +12515,6 @@ const handleSubmit = async (e) => {
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 48</i>
-          </p>
-          <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
-            <div className="w-full">
-              <section className="mt-[12px]">
-                <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[15.4px] font-bold text-white">
-                  19 DRIVER ROAD TEST EXAMINATION
-                </div>
-
-                <p className="text-[11.4px] mt-2 mb-2 flex items-start text-gray-500">
-                  <span>
-                    <i>
-                      To be completed by the motor carrier or qualified examiner
-                      when a road test is required or used.
-                    </i>
-                  </span>
-                </p>
-                <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
-                  <tbody>
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            DRIVER NAME:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">PHONE:</span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="date"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            DRIVER ADDRESS:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            CITY / STATE / ZIP:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            CDL NUMBER / STATE:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            EQUIPMENT USED:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-              <section className="mt-[12px]">
-                <table className="w-full text-left text-[10.7px]">
-                  <thead className="border bg-[#1F355A] text-white border-black">
-                    <tr>
-                      <th>Performance Item </th>
-                      <th>Rating</th>
-                      <th>Examiner Comments</th>
-                    </tr>
-                  </thead>
-
-                  <tbody className="h-[60px] text-[11.4px]">
-                    <tr>
-                      <td>Pre-trip inspection</td>
-
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Coupling / uncoupling combination units</td>
-
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Placing equipment in operation</td>
-
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Use of vehicle controls and emergency equipment</td>
-
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Operating in traffic and passing other vehicles</td>
-
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Turning the vehicle</td>
-
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Braking / slowing by means other than braking</td>
-
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Backing and parking</td>
-
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Other: </td>
-
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                      <td>
-                        <input className="border border-black" type="text" />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <br />
-                <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
-                  <tbody>
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            ROAD TEST DATE:{" "}
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            APPROX. MILES:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="date"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            EXAMINER NAME:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            EXAMINER TITLE:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            EXAMINER ORGANIZATION:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">RESULT:</span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <br />
-                <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
-                  <tbody>
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap text-gray-400">
-                            Examiner Signature
-                          </span>
-                          <input
-                            className=" h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap text-gray-400">
-                            Date:
-                          </span>
-                          <input
-                            className=" h-[20px] flex-1 ml-2 min-w-0"
-                            type="date"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-
-              <section className="mt-[12px]">
-                <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[15.4px] font-bold text-white">
-                  20 CERTIFICATE OF DRIVER ROAD TEST
-                </div>
-
-                <p className="text-[12px] mt-2 mb-2 flex items-start text-gray-500">
-                  I certify that the driver named below was given a road test
-                  under my supervision and, based on the examination,
-                  demonstrated sufficient driving skill to operate safely the
-                  type of commercial motor vehicle identified below.
-                </p>
-                <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
-                  <tbody>
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            DRIVER NAME:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            CDL NUMBER / STATE:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="date"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            TYPE OF POWER UNIT:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            TYPE OF TRAILER(S):
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            PASSENGER VEHICLE / BUS TYPE:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">TEST DATE:</span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            APPROX. MILES:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            EXAMINER TITLE:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-              <section className="mt-[12px]">
-                <br />
-                <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
-                  <tbody>
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap text-gray-400">
-                            Examiner Signature
-                          </span>
-                          <input
-                            className=" h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap text-gray-400">
-                            Organization / Address
-                          </span>
-                          <input
-                            className=" h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap text-gray-400">
-                            Date:
-                          </span>
-                          <input
-                            className=" h-[20px] flex-1 ml-2 min-w-0"
-                            type="date"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-            </div>
-          </div>
-        </div>
-
-        {/*****page 49 start********/}
-
-        <br />
-
-        <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-          <p className="pageseries cap text-[12px] text-right">
-            <i>page 49</i>
           </p>
           <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
             <div className="w-full">
@@ -13538,6 +13383,7 @@ const handleSubmit = async (e) => {
                             TYPE OF TRAILER(S):
                           </span>
                           <input
+                            value="Van"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13576,6 +13422,7 @@ const handleSubmit = async (e) => {
                             CLEARINGHOUSE QUERY BY:
                           </span>
                           <input
+                            value={company.cname}
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13600,7 +13447,7 @@ const handleSubmit = async (e) => {
               </section>
               <section className="mt-[12px]">
                 <p className="text-[12px] mt-2 items-start">
-                  <input type="checkbox" />
+                  <input type="checkbox" checked />
                   Approved for Hire <input type="checkbox" />
                   Conditional / Pending Documents
                   <input type="checkbox" />
@@ -13675,6 +13522,178 @@ const handleSubmit = async (e) => {
                   Prepared for use by motor carriers with administrative support
                   from DOT Compliance Solutions LLC.
                 </p>
+
+                <br />
+                <br />
+                <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
+                  <tbody>
+                    <tr className="flex border-b border-gray-300">
+                      <td
+                        colSpan="3"
+                        className="font-bold text-[10px] align-top leading-[1.22]"
+                      >
+                        <div className="flex items-center gap-2 flex-nowrap">
+                          {/* Camera */}
+                          <button
+                            type="button"
+                            onClick={() =>
+                              document.getElementById("cameraInput")?.click()
+                            }
+                            className="whitespace-nowrap rounded-lg bg-emerald-600 px-3 py-2 text-xs font-medium text-white"
+                          >
+                            <i className="fa-solid fa-camera mr-1"></i>
+                            Take Photo
+                          </button>
+
+                          {/* Upload */}
+                          <button
+                            type="button"
+                            onClick={() =>
+                              document.getElementById("photoInput")?.click()
+                            }
+                            className="whitespace-nowrap rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700"
+                          >
+                            <i className="fa-solid fa-upload mr-1"></i>
+                            Upload Photo
+                          </button>
+
+                          {/* Save */}
+                          <button
+                            type="button"
+                            onClick={handlePhotoSubmit}
+                            disabled={!photo || photoLoading}
+                            className="whitespace-nowrap rounded-lg bg-[#1F355A] px-3 py-2 text-xs font-medium text-white disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            <i className="fa-solid fa-save mr-1"></i>
+                            {photoLoading ? "Saving..." : "Save Photo"}
+                          </button>
+                        </div>
+
+                        {/* Camera */}
+                        <input
+                          id="cameraInput"
+                          type="file"
+                          accept="image/*"
+                          capture="user"
+                          className="hidden"
+                          onChange={handlePhotoUpload}
+                        />
+
+                        {/* File Upload */}
+                        <input
+                          id="photoInput"
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={handlePhotoUpload}
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+
+                    <tr className="border-b border-gray-300">
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
+                        <span className="whitespace-nowrap text-gray-400">
+                          Driver Photo
+                        </span>
+                      </td>
+
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap text-gray-400">
+                            Ip Address
+                          </span>
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          <span className="whitespace-nowrap text-gray-400">
+                            Location
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        {/* Preview */}
+                        {photo && (
+                          <div className="mt-3 flex items-center gap-2">
+                            <img
+                              src={URL.createObjectURL(photo)}
+                              alt="Driver"
+                              className="h-16 w-16 rounded-lg border object-cover"
+                            />
+
+                            <span className="text-xs font-normal text-slate-500">
+                              {photo.name}
+                            </span>
+                          </div>
+                        )}
+                      </td>
+
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          {location.ip}
+                        </div>
+                      </td>
+
+                      <td className="font-bold text-[10px] align-top leading-[1.22]">
+                        <div className="flex items-center w-full">
+                          {location.city}, {location.state}, {location.country},{" "}
+                          {location.zip}
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </section>
             </div>
           </div>

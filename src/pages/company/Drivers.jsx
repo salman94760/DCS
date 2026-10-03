@@ -508,7 +508,7 @@ export default function Company() {
                           <i className="fa-solid fa-edit"></i>
                         </Link>
 
-                         <Link
+                        <Link
                           title="Employment history"
                           to={`/company-dashboard/driver/employment-history/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
@@ -523,8 +523,6 @@ export default function Company() {
                         >
                           <i className="fa-solid fa-id-card"></i>
                         </Link>
-
-                       
 
                         <Link
                           title="Document information"
