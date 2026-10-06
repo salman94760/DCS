@@ -11,14 +11,9 @@ export default function Companies() {
   const [modalType, setModalType] = useState(null);
   const [searchText, setSearchText] = useState("");
 
-const [selectedCompany, setSelectedCompany] = useState(null);
+  const [selectedCompany, setSelectedCompany] = useState(null);
 
-  const {
-    state,
-    fetchAllData,
-    loading,
-    error,
-  } = useDcsContext();
+  const { state, fetchAllData, loading, error } = useDcsContext();
 
   useEffect(() => {
     const role = localStorage.getItem("userRole");
@@ -116,10 +111,7 @@ const [selectedCompany, setSelectedCompany] = useState(null);
             <tbody>
               {loading ? (
                 <tr>
-                  <td
-                    colSpan="7"
-                    className="py-10 text-center text-slate-500"
-                  >
+                  <td colSpan="7" className="py-10 text-center text-slate-500">
                     Loading companies...
                   </td>
                 </tr>
@@ -138,32 +130,24 @@ const [selectedCompany, setSelectedCompany] = useState(null);
                       {com.owner || "—"}
                       <br />
 
-                      <span className="sub">
-                        {com.phone || "—"}
-                      </span>
+                      <span className="sub">{com.phone || "—"}</span>
                     </td>
 
-                    <td>
-                      {com.trucks || 0} trucks
-                    </td>
+                    <td>{com.trucks || 0} trucks</td>
+
+                    <td>{com.open_permits_count || 0}</td>
 
                     <td>
-                      {com.open_permits_count || 0}
-                    </td>
-
-                    <td>
-                     
-
-                   <button
-        type="button"
-        onClick={() => {
-          setSelectedCompany(com);
-          setModalType("companydetail");
-        }}
-        className="btn small secondary"
-      >
-        Open
-      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setSelectedCompany(com);
+                          setModalType("companydetail");
+                        }}
+                        className="btn small secondary"
+                      >
+                        Open
+                      </button>
                     </td>
                   </tr>
                 ))
@@ -171,13 +155,10 @@ const [selectedCompany, setSelectedCompany] = useState(null);
 
               {!loading && filtered.length === 0 && (
                 <tr>
-                  <td
-                    colSpan="7"
-                    className="py-10 text-center text-slate-500"
-                  >
+                  <td colSpan="7" className="py-10 text-center text-slate-500">
                     <div className="empty card">
-                      No companies found. Click{" "}
-                      <b>+ Add Company</b> to create the first client.
+                      No companies found. Click <b>+ Add Company</b> to create
+                      the first client.
                     </div>
                   </td>
                 </tr>
@@ -186,35 +167,34 @@ const [selectedCompany, setSelectedCompany] = useState(null);
           </table>
         </div>
       </div>
-{/* Modal */}
-{modalType === "company" && (
+      {/* Modal */}
+      {modalType === "company" && (
   <CompanyModal
-    onClose={() => setModalType(null)}
-  />
-)}
-
-{modalType === "companydetail" && selectedCompany && (
-  <CompanyDetailModal
     company={selectedCompany}
     onClose={() => {
       setModalType(null);
       setSelectedCompany(null);
     }}
-    onNewPermit={() => {
-      setSelectedCompany(null);
-      setModalType("permit");
-    }}
   />
 )}
 
-{modalType === "permit" && (
-  <PermitModal
-    onClose={() => setModalType(null)}
-  />
-)}
+      {modalType === "companydetail" && selectedCompany && (
+        <CompanyDetailModal
+          company={selectedCompany}
+          onClose={() => {
+            setModalType(null);
+            setSelectedCompany(null);
+          }}
+          onNewPermit={() => {
+            setSelectedCompany(null);
+            setModalType("permit");
+          }}
+        />
+      )}
 
-
-
+      {modalType === "permit" && (
+        <PermitModal onClose={() => setModalType(null)} />
+      )}
     </section>
   );
 }

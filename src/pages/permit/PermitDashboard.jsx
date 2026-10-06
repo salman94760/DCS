@@ -134,19 +134,21 @@ export default function PermitDashboard() {
                   </thead>
                   <tbody>
                     {state?.data?.slice(0, 10).map((com, index) => {
-  return (
-    <tr key={com.id}>
-      <td>{com.company?.cname}</td>
-      <td>USDOT Number</td>
-      <td>
-        <span className={`pill ${getStatusClass(com.status)}`}>
-          {com.status || "—"}
-        </span>
-      </td>
-      <td>${com.total}</td>
-    </tr>
-  );
-})}
+                      return (
+                        <tr key={com.id}>
+                          <td>{com.company?.cname}</td>
+                          <td>USDOT Number</td>
+                          <td>
+                            <span
+                              className={`pill ${getStatusClass(com.status)}`}
+                            >
+                              {com.status || "—"}
+                            </span>
+                          </td>
+                          <td>${com.total}</td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>

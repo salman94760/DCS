@@ -1,8 +1,10 @@
 import { useState } from "react";
 import PermitModal from "@/modals/PermitModal";
+import CompanyModal from "@/modals/CompanyModal";
+
 function CompanyDetailModal({ company, onClose, onNewPermit }) {
   const [activeTab, setActiveTab] = useState("details");
-   const [modalType, setModalType] = useState(null);
+  const [modalType, setModalType] = useState(null);
 
   const permits = company?.permits || [];
 
@@ -21,37 +23,32 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
           </div>
 
           <div className="actions">
+
+            {/* EDIT COMPANY */}
             <button
               type="button"
               className="btn small secondary"
               onClick={() => {
-                console.log("Edit company:", company);
+                setModalType("company");
               }}
             >
               Edit
             </button>
 
-       
-<button
-  type="button"
-  className="btn small"
-  onClick={() => {
-    onNewPermit();
-  }}
->
-  + Permit
-</button>
-
-
-
-
+            {/* NEW PERMIT */}
+            <button
+              type="button"
+              className="btn small"
+              onClick={onNewPermit}
+            >
+              + Permit
+            </button>
 
           </div>
         </div>
 
         {/* Company Details */}
         <div className="profilegrid">
-
           <div className="profilebox">
             <span>Contact</span>
             <b>
@@ -85,7 +82,6 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
             <span>Secure Documents</span>
             <b>—</b>
           </div>
-
         </div>
 
         {/* Permits */}
@@ -108,7 +104,9 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
                   permits.map((permit) => (
                     <tr key={permit.id}>
                       <td>
-                        {permit.permitname || permit.permit_name || "—"}
+                        {permit.permitname ||
+                          permit.permit_name ||
+                          "—"}
                       </td>
 
                       <td>
@@ -121,9 +119,7 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
                         </span>
                       </td>
 
-                      <td>
-                        {permit.expirydate || "—"}
-                      </td>
+                      <td>{permit.expirydate || "—"}</td>
 
                       <td>
                         ${Number(permit.total || 0).toFixed(2)}
@@ -155,14 +151,26 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
             Close
           </button>
         </div>
-
       </div>
-       {modalType === "permit" && (
-          <PermitModal onClose={() => setModalType(null)} />
-        )}
+
+      {/* COMPANY EDIT MODAL */}
+      {modalType === "company" && (
+        <CompanyModal
+          company={company}
+          onClose={() => setModalType(null)}
+        />
+      )}
+
+      {/* PERMIT MODAL */}
+      {modalType === "permit" && (
+        <PermitModal
+          company={company}
+          onClose={() => setModalType(null)}
+        />
+      )}
     </div>
   );
-};
+}
 
 const getStatusClass = (status) => {
   if (

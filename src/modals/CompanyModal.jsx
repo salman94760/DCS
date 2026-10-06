@@ -182,7 +182,7 @@ const CompanyModal = ({ onClose }) => {
   };
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-4">
-      <div className="dialog relative w-full rounded-xl bg-white p-6 shadow-2xl">
+      <div className="dialog relative w-[60%] rounded-xl bg-white p-6 shadow-2xl">
         <h2 className="text-xl font-semibold text-gray-900">Add Company</h2>
         <p className="color-[#697786] text-[12px]">
           Create the carrier profile used by permits, billing, renewals and
@@ -259,7 +259,7 @@ const CompanyModal = ({ onClose }) => {
                   value=""
                   errormsg={errors.phone}
                 />
-                
+
                 <Input
                   label="Alternate Phone Number"
                   mandate={false}
@@ -323,10 +323,7 @@ const CompanyModal = ({ onClose }) => {
                   {" "}
                   Cancel{" "}
                 </button>
-                <button
-                 
-                  class="btn relative z-[10001] cursor-pointer rounded bg-blue-600 px-4 py-2 text-white"
-                >
+                <button class="btn relative z-[10001] cursor-pointer rounded bg-blue-600 px-4 py-2 text-white">
                   Save Company
                 </button>
               </div>
