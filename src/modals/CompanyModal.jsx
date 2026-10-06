@@ -271,7 +271,7 @@ const CompanyModal = ({ onClose }) => {
 
                 <div class="field">
                   <label>Operation</label>
-                  <select name="operation">
+                  <select className="input" name="operation">
                     <option value="Interstate">Interstate</option>
                     <option value="Intrastate">Intrastate</option>
                     <option value="Both">Both</option>
@@ -289,7 +289,7 @@ const CompanyModal = ({ onClose }) => {
 
                 <div class="field">
                   <label>Hazmat</label>
-                  <select name="hazmat">
+                  <select className="input" name="hazmat">
                     <option value="No">No</option>
                     <option value="Yes">Yes</option>
                   </select>
