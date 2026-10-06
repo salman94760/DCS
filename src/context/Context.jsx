@@ -11,13 +11,15 @@ export const ContextProvider = ({ children }) => {
   // =====================================
   // GET ALL COMPANIES
   // =====================================
-  const fetchAllData = async (url) => {
+  const fetchAllData = async (url, params = {}) => {
     dispatch({
       type: "FETCH_START",
     });
 
     try {
-      const response = await api.get(url);
+      const response = await api.get(url, {
+        params: params,
+      });
       dispatch({
         type: "FETCH_All_DATA_SUCCESS",
         payload: Array.isArray(response.data.data) ? response.data.data : [],

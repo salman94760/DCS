@@ -6,6 +6,9 @@ import CompanyLayout from "@/layouts/CompanyLayout";
 import CompanyDashboard from "@/pages/company/CompanyDashboard";
 import AddDriver from "@/pages/company/AddDriver";
 import Drivers from "@/pages/company/Drivers";
+import PendingDrivers from "@/pages/company/PendingDrivers";
+import ActiveDrivers from "@/pages/company/ActiveDrivers";
+import TerminatedDrivers from "@/pages/company/TerminatedDrivers";
 import EditDrivers from "@/pages/company/EditDriver";
 import AddDriverExployment from "@/pages/company/AddDriverEmployment";
 import AddDriverExperience from "@/pages/company/AddDriverExperience";
@@ -23,6 +26,12 @@ export default function CompanyRoutes() {
           <Route index element={<CompanyDashboard />} />
 
           <Route path="drivers" element={<Drivers />} />
+          <Route
+            path="drivers/pending-application"
+            element={<PendingDrivers />}
+          />
+          <Route path="drivers/active" element={<ActiveDrivers />} />
+          <Route path="drivers/terminted" element={<TerminatedDrivers />} />
 
           <Route path="driver/add" element={<AddDriver />} />
           <Route

@@ -12,7 +12,6 @@ export default function AddUser() {
   useEffect(() => {
     const role = localStorage.getItem("userRole");
     if (role === "admin") {
-      navigate("/admin-dashboard/company", { replace: true });
     } else if (role === "company") {
       navigate("/company-dashboard", { replace: true });
     } else {
@@ -305,6 +304,7 @@ export default function AddUser() {
               >
                 <option value="manager">Manager</option>
                 <option value="admin">Admin</option>
+                <option value="permit">Permit</option>
                 {/*<option value="employee">Employee</option>*/}
               </select>
             </div>

@@ -18,6 +18,10 @@ export default function AddDriverEmployment() {
   const [documents, setDocuments] = useState([]);
   const [drugtest, setDrugTest] = useState([]);
 
+  const DownloadPdf = () => {};
+
+  const EmailPdf = () => {};
+
   const fetchDriversDocuments = async () => {
     try {
       const response = await api.get(`/company/driver-document/${id}`);
@@ -174,7 +178,6 @@ export default function AddDriverEmployment() {
     }
   };
 
-  console.log(doc.miscellaneous);
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
@@ -202,6 +205,71 @@ export default function AddDriverEmployment() {
             <p className="p-4">Document Information</p>
 
             <div className="grid grid-cols-1 md:grid-cols-1 gap-1">
+              <div>
+                <table className="w-full text-sm border border-collapse">
+                  <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
+                    <tr>
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        Document
+                      </th>
+
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        Form Submit Date
+                      </th>
+
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        Download or Email Documents
+                      </th>
+
+                      <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                        view
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody className="divide-y divide-slate-200">
+                    {doc?.driver?.length > 0 && (
+                      <tr className="cap hover:bg-slate-50">
+                        <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          Driver Application
+                        </td>
+
+                        <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          {doc.driver[0]?.time_date || "-"}
+                        </td>
+
+                        <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          <button type="button">
+                            <i
+                              onClick={DownloadPdf}
+                              className="fa-solid fa-download"
+                            ></i>
+                          </button>
+                          <button type="button">
+                            <i
+                              onClick={EmailPdf}
+                              className="fa-solid fa-envelope"
+                            ></i>
+                          </button>
+                        </td>
+
+                        <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          <Link
+                            target="_blank"
+                            to="{`/company-dashboard/driver/documents-view/${encodeURIComponent(
+                          slug
+                        )}/${driverId}`}"
+                          >
+                            👁
+                          </Link>
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+              <br />
+
               <div>
                 <table className="w-full text-sm border border-collapse">
                   <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">

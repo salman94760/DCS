@@ -64,24 +64,24 @@ export default function Sidebar() {
                 >
                   New Application
                 </Link>
-                {/* <Link
-                  to="/company-dashboard/driver/add"
+                <Link
+                  to="/company-dashboard/drivers/pending-application"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
                   Pending Application
                 </Link>
                 <Link
-                  to="/company-dashboard/driver/add"
+                  to="/company-dashboard/drivers/active"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
                   Active Drivers
                 </Link>
                 <Link
-                  to="/company-dashboard/driver/add"
+                  to="/company-dashboard/drivers/terminted"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"
                 >
                   Terminated Drivers
-                </Link>*/}
+                </Link>
                 <Link
                   to="/company-dashboard/drivers"
                   className="block px-3 py-2 rounded-md text-sm hover:bg-white/5 hover:text-white"

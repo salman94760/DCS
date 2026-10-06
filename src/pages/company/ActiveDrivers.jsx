@@ -7,7 +7,7 @@ import autoTable from "jspdf-autotable";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDcsContext } from "@/context/Context";
 
-export default function Company() {
+export default function ActiveDrivers() {
   const navigate = useNavigate();
   const location = useLocation();
   const {
@@ -63,20 +63,16 @@ export default function Company() {
   // ==========================================
   // FILTER
   // ==========================================
+
   const filtered = useMemo(() => {
     const companies = Array.isArray(state.data) ? state.data : [];
 
     const searchText = filters?.search?.toLowerCase().trim() || "";
 
-    const status = filters?.status || "all";
-
     return companies.filter((com) => {
       const companyName = String(com.cname || "").toLowerCase();
-
       const owner = String(com.owner || "").toLowerCase();
-
       const email = String(com.email || "").toLowerCase();
-
       const usdot = String(com.usdot || "").toLowerCase();
 
       const matchesSearch =
@@ -86,14 +82,11 @@ export default function Company() {
         email.includes(searchText) ||
         usdot.includes(searchText);
 
-      const companyStatus = Number(com.user?.user_info?.status);
+      const driverStatus = String(com.driverstatus || "").toLowerCase();
 
-      const matchesStatus =
-        status === "all" ||
-        (status === "active" && companyStatus === 1) ||
-        (status === "inactive" && companyStatus === 0);
+      const matchesDriverStatus = driverStatus === "active";
 
-      return matchesSearch && matchesStatus;
+      return matchesSearch && matchesDriverStatus;
     });
   }, [state.data, filters]);
 
@@ -535,7 +528,7 @@ export default function Company() {
                           <i className="fa-solid fa-file-lines"></i>
                         </Link>
 
-                        {/* {com.esign === 0 ? (
+                        {com.esign === 0 ? (
                           <Link
                             title="Document information"
                             target="_blank"
@@ -546,7 +539,7 @@ export default function Company() {
                           </Link>
                         ) : (
                           ""
-                        )}*/}
+                        )}
 
                         {/*<button
                           type="button"

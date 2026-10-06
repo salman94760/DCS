@@ -62,6 +62,8 @@ export default function Login() {
         navigate("/admin-dashboard/company", { replace: true });
       } else if (result.user.role === "company") {
         navigate("/company-dashboard", { replace: true });
+      } else if (result.user.role === "permit") {
+        navigate("/permit-dashboard", { replace: true });
       } else {
         navigate("/dashboard", { replace: true });
       }

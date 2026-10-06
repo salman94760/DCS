@@ -397,7 +397,9 @@ export default function AddCompany() {
               >
                 <option value="active">ACTIVE</option>
                 <option value="insurance approved">INSURANCE APPROVED</option>
-                <option value="pending">PENDING</option>
+                <option selected value="pending">
+                  PENDING
+                </option>
                 <option value="terminated">TERMINATED</option>
               </select>
             </div>

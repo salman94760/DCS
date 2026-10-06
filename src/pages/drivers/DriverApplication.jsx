@@ -9,11 +9,12 @@ export default function DriverApplication() {
   const [signatureData, setsignatureData] = useState(false);
   const [driver, setDriver] = useState({});
   const [company, setCompany] = useState({});
-  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [cleHDate, setCleHDate] = useState();
   const [location, setLocation] = useState({});
+  const [serverMessage, setServerMessage] = useState({});
   const { id } = useParams();
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const [photo, setPhoto] = useState(null);
@@ -31,35 +32,6 @@ export default function DriverApplication() {
 
     setPhoto(file);
   };
-
-  const handlePhotoSubmit = async () => {
-    if (!photo) {
-      alert("Please take or upload a photo first.");
-      return;
-    }
-
-    try {
-      setPhotoLoading(true);
-
-      const formData = new FormData();
-
-      formData.append("driver_id", driver?.id);
-      formData.append("photo", photo);
-
-      const response = await api.post("/company/driver/photo", formData);
-
-      console.log(response.data);
-
-      alert("Photo saved successfully.");
-    } catch (error) {
-      console.error(error);
-      alert("Failed to save photo.");
-    } finally {
-      setPhotoLoading(false);
-    }
-  };
-
-  const handlePreview = () => {};
 
   const handleCancel = () => {
     navigate(`/driver/esign-cancelled/${id}`);
@@ -108,7 +80,6 @@ export default function DriverApplication() {
 
     let firstInvalidField = null;
 
-    // Remove old validation styles
     form
       .querySelectorAll("input[required], select[required], textarea[required]")
       .forEach((field) => {
@@ -120,9 +91,6 @@ export default function DriverApplication() {
         );
       });
 
-    // -----------------------------------
-    // Required normal fields
-    // -----------------------------------
     const requiredFields = form.querySelectorAll(
       "input[required]:not([type='checkbox']), select[required], textarea[required]",
     );
@@ -136,14 +104,6 @@ export default function DriverApplication() {
         }
       }
     });
-
-    // -----------------------------------
-    // Checkbox validation
-    // -----------------------------------
-
-    // Example:
-    // <input type="checkbox" name="driver_license" value="front_back">
-    // <input type="checkbox" name="driver_license" value="other">
 
     const licenseCheckboxes = form.querySelectorAll(
       'input[name="driver_license"]',
@@ -165,10 +125,6 @@ export default function DriverApplication() {
       }
     }
 
-    // -----------------------------------
-    // Stop if validation failed
-    // -----------------------------------
-
     if (firstInvalidField) {
       firstInvalidField.scrollIntoView({
         behavior: "smooth",
@@ -180,19 +136,211 @@ export default function DriverApplication() {
       return;
     }
 
-    // -----------------------------------
-    // Get form data
-    // -----------------------------------
-
     const data = {
-      p1fname: formData.get("p1fname")?.trim() || "",
-      p1mname: formData.get("p1mname")?.trim() || "",
-      p1lname: formData.get("p1lname")?.trim() || "",
+      p1motorcarrieremployer:
+        formData.get("p1motorcarrieremployer")?.trim() || "",
+      p1appliedfor: formData.get("p1appliedfor")?.trim() || "",
+      p1applicationdate: formData.get("p1applicationdate")?.trim() || "",
+      p1applicantcdl: formData.get("p1applicantcdl")?.trim() || "",
+      p1officecdl: formData.get("p1officecdl")?.trim() || "",
+      p1workauthapplicant: formData.get("p1workauthapplicant")?.trim() || "",
+      p1workauthoffice: formData.get("p1workauthoffice")?.trim() || "",
+      p1workpermitapplicant:
+        formData.get("p1workpermitapplicant")?.trim() || "",
+      p1workpermitoffice: formData.get("p1workpermitoffice")?.trim() || "",
+      p1wssnapplicant: formData.get("p1wssnapplicant")?.trim() || "",
+      p1ssnoffice: formData.get("p1ssnoffice")?.trim() || "",
+      p1cmapplicant: formData.get("p1cmapplicant")?.trim() || "",
+      p1cmeoffice: formData.get("p1cmeoffice")?.trim() || "",
+      p1merapplicant: formData.get("p1merapplicant")?.trim() || "",
+      p1meroffice: formData.get("p1meroffice")?.trim() || "",
+      p1mcvoffice: formData.get("p1mcvoffice")?.trim() || "",
+      p1cdlisapplicant: formData.get("p1cdlisapplicant")?.trim() || "",
+      p1cdlisoffice: formData.get("p1cdlisoffice")?.trim() || "",
+      p1cdlisrecordapplicant:
+        formData.get("p1cdlisrecordapplicant")?.trim() || "",
+      p1cdlisrecordoffice: formData.get("p1cdlisrecordoffice")?.trim() || "",
+
+      //page 2
+      p2consumerrecordapplicant:
+        formData.get("p2consumerrecordapplicant")?.trim() || "",
+      p2consumerrecordoffice:
+        formData.get("p2consumerrecordoffice")?.trim() || "",
+      p2sphapplicant: formData.get("p2sphapplicant")?.trim() || "",
+      p2sphoffice: formData.get("p2sphoffice")?.trim() || "",
+      p2fmcsaapplicant: formData.get("p2fmcsaapplicant")?.trim() || "",
+      p2fmcsaoffice: formData.get("p2fmcsaoffice")?.trim() || "",
+      p2clearinghouseoffice:
+        formData.get("p2clearinghouseoffice")?.trim() || "",
+      p2predrugtestoffice: formData.get("p2predrugtestoffice")?.trim() || "",
+      p2roadtestoffice: formData.get("p2roadtestoffice")?.trim() || "",
+      p2twisoffice: formData.get("p2twisoffice")?.trim() || "",
+      p2clearinghouseoffice:
+        formData.get("p2clearinghouseoffice")?.trim() || "",
+
+      //page 4
+
+      p4formernames: formData.get("p4formernames")?.trim() || "",
+
+      //page 5
+
+      p5revisiondate: formData.get("p5revisiondate")?.trim() || "",
+      p5check1: formData.get("p5check1")?.trim() || "",
+      p5check2: formData.get("p5check2")?.trim() || "",
+      p5check3: formData.get("p5check3")?.trim() || "",
+      p5check4: formData.get("p5check4")?.trim() || "",
+      p5check5: formData.get("p5check5")?.trim() || "",
+      p5check6: formData.get("p5check6")?.trim() || "",
+      p5check7: formData.get("p5check7")?.trim() || "",
+      p5check8: formData.get("p5check8")?.trim() || "",
+      p5check9: formData.get("p5check9")?.trim() || "",
+
+      //page 7
+
+      p7consortium: formData.get("p7consortium")?.trim() || "",
+      p7mro: formData.get("p7mro")?.trim() || "",
+      p7cmro: formData.get("p7cmro")?.trim() || "",
+      p7sap: formData.get("p7sap")?.trim() || "",
+      p7dotminimum: formData.get("p7dotminimum")?.trim() || "",
+
+      //page 8
+      p8check1: formData.get("p8check1")?.trim() || "",
+      p8check2: formData.get("p8check2")?.trim() || "",
+      p8check3: formData.get("p8check3")?.trim() || "",
+      p8check4: formData.get("p8check4")?.trim() || "",
+      p8check5: formData.get("p8check5")?.trim() || "",
+      p8check6: formData.get("p8check6")?.trim() || "",
+      p8check7: formData.get("p8check7")?.trim() || "",
+      p8check8: formData.get("p8check8")?.trim() || "",
+      p8check9: formData.get("p8check9")?.trim() || "",
+      p8check10: formData.get("p8check10")?.trim() || "",
+      p8check11: formData.get("p8check11")?.trim() || "",
+      p8check12: formData.get("p8check12")?.trim() || "",
+
+      //page 13
+
+      p13roadtest: formData.get("p13roadtest")?.trim() || "",
+      p13miles: formData.get("p13miles")?.trim() || "",
+      p13issuecertificate: formData.get("p13issuecertificate")?.trim() || "",
+
+      //page 15
+      p15dbaany: formData.get("p15dbaany")?.trim() || "",
+      p15policyeffective: formData.get("p15policyeffective")?.trim() || "",
+
+      //page 20
+      p20driverid: formData.get("p20driverid")?.trim() || "",
+
+      //page 21
+      p21effectivedate: formData.get("p21effectivedate")?.trim() || "",
+      p21safetycontact: formData.get("p21safetycontact")?.trim() || "",
+      p21derdrug: formData.get("p21derdrug")?.trim() || "",
+
+      //page 26
+      p26tpa: formData.get("p26tpa")?.trim() || "",
+      p26mro: formData.get("p26mro")?.trim() || "",
+      p26collectionsite: formData.get("p26collectionsite")?.trim() || "",
+      p26revisiondate: formData.get("p26revisiondate")?.trim() || "",
+      p26derdatecompany: formData.get("p26derdatecompany")?.trim() || "",
+      p26ctpa: formData.get("p26ctpa")?.trim() || "",
+      p26medicalofficer: formData.get("p26medicalofficer")?.trim() || "",
+      p26pnetwork: formData.get("p26pnetwork")?.trim() || "",
+      p26sapcontact: formData.get("p26sapcontact")?.trim() || "",
+
+      //page 35
+      p35check1: formData.get("p35check1")?.trim() || "",
+      p35check2: formData.get("p35check2")?.trim() || "",
+      p35check3: formData.get("p35check3")?.trim() || "",
+      p35check4: formData.get("p35check4")?.trim() || "",
+      p35check5: formData.get("p35check5")?.trim() || "",
+      p35check6: formData.get("p35check6")?.trim() || "",
+      p35check7: formData.get("p35check7")?.trim() || "",
+      p35check8: formData.get("p35check8")?.trim() || "",
+      p35check9: formData.get("p35check9")?.trim() || "",
+      p35check10: formData.get("p35check10")?.trim() || "",
+
+      //page 36
+      p36lastduty: formData.get("p36lastduty")?.trim() || "",
+
+      p36day1: formData.get("p36day1")?.trim() || "",
+      p36hours1: formData.get("p36hours1")?.trim() || "",
+      p36permormance1: formData.get("p36permormance1")?.trim() || "",
+
+      p36day2: formData.get("p36day2")?.trim() || "",
+      p36hours2: formData.get("p36hours2")?.trim() || "",
+      p36permormance2: formData.get("p36permormance2")?.trim() || "",
+
+      p36day3: formData.get("p36day3")?.trim() || "",
+      p36hours3: formData.get("p36hours3")?.trim() || "",
+      p36permormance3: formData.get("p36permormance3")?.trim() || "",
+
+      p36day4: formData.get("p36day4")?.trim() || "",
+      p36hours4: formData.get("p36hours4")?.trim() || "",
+      p36permormance4: formData.get("p36permormance4")?.trim() || "",
+
+      p36day5: formData.get("p36day5")?.trim() || "",
+      p36hours5: formData.get("p36hours5")?.trim() || "",
+      p36permormance5: formData.get("p36permormance5")?.trim() || "",
+
+      p36day6: formData.get("p36day6")?.trim() || "",
+      p36hours6: formData.get("p36hours6")?.trim() || "",
+      p36permormance6: formData.get("p36permormance6")?.trim() || "",
+
+      p36day7: formData.get("p36day7")?.trim() || "",
+      p36hours7: formData.get("p36hours7")?.trim() || "",
+      p36permormance7: formData.get("p36permormance7")?.trim() || "",
+
+      p36totalhours: formData.get("p36totalhours")?.trim() || "",
+      p36cerdate: formData.get("p36cerdate")?.trim() || "",
+      p36approvedpassenger: formData.get("p36approvedpassenger")?.trim() || "",
+      p36relation: formData.get("p36relation")?.trim() || "",
+
+      //page 37
+      p37trip: formData.get("p37trip")?.trim() || "",
+      p37condition: formData.get("p37condition")?.trim() || "",
+      p37authorized: formData.get("p37authorized")?.trim() || "",
+      p37aknowledge: formData.get("p37aknowledge")?.trim() || "",
+      p37trainingdate: formData.get("p37trainingdate")?.trim() || "",
+
+      p37part34section1: formData.get("p37part34section1")?.trim() || "",
+      p37part34section2: formData.get("p37part34section2")?.trim() || "",
+      p37part34section3: formData.get("p37part34section3")?.trim() || "",
+      p37part34section4: formData.get("p37part34section4")?.trim() || "",
+      p37part34section5: formData.get("p37part34section5")?.trim() || "",
+      p37part34section6: formData.get("p37part34section6")?.trim() || "",
+      p37part34section7: formData.get("p37part34section7")?.trim() || "",
+      p37part34section8: formData.get("p37part34section8")?.trim() || "",
+      p37part34section9: formData.get("p37part34section9")?.trim() || "",
+
+      p37part34sectiondate1:
+        formData.get("p37part34sectiondate1")?.trim() || "",
+      p37part34sectiondate2:
+        formData.get("p37part34sectiondate2")?.trim() || "",
+      p37part34sectiondate3:
+        formData.get("p37part34sectiondate3")?.trim() || "",
+      p37part34sectiondate4:
+        formData.get("p37part34sectiondate4")?.trim() || "",
+      p37part34sectiondate5:
+        formData.get("p37part34sectiondate5")?.trim() || "",
+      p37part34sectiondate6:
+        formData.get("p37part34sectiondate6")?.trim() || "",
+      p37part34sectiondate7:
+        formData.get("p37part34sectiondate7")?.trim() || "",
+      p37part34sectiondate8:
+        formData.get("p37part34sectiondate8")?.trim() || "",
+      p37part34sectiondate9:
+        formData.get("p37part34sectiondate9")?.trim() || "",
+
+      //page38
+      p38section1: formData.get("p38section1")?.trim() || "",
+      p38section12: formData.get("p38section2")?.trim() || "",
+      p38section13: formData.get("p38section3")?.trim() || "",
+
+      p38sectiondate1: formData.get("p38sectiondate1")?.trim() || "",
+      p38sectiondate2: formData.get("p38sectiondate2")?.trim() || "",
+      p38sectiondate3: formData.get("p38sectiondate3")?.trim() || "",
 
       driver_license: formData.get("driver_license") || "",
     };
-
-    console.log("DATA:", data);
 
     setErrors({});
     setLoading(true);
@@ -200,9 +348,201 @@ export default function DriverApplication() {
     try {
       const uploadData = new FormData();
 
-      uploadData.append("p1fname", data.p1fname);
-      uploadData.append("p1mname", data.p1mname);
-      uploadData.append("p1lname", data.p1lname);
+      uploadData.append("p1motorcarrieremployer", data.p1motorcarrieremployer);
+      uploadData.append("p1appliedfor", data.p1appliedfor);
+      uploadData.append("p1applicationdate", data.p1applicationdate);
+      uploadData.append("p1applicantcdl", data.p1applicantcdl);
+      uploadData.append("p1officecdl", data.p1officecdl);
+      uploadData.append("p1workauthapplicant", data.p1workauthapplicant);
+      uploadData.append("p1workauthoffice", data.p1workauthoffice);
+      uploadData.append("p1workpermitapplicant", data.p1workpermitapplicant);
+      uploadData.append("p1workpermitoffice", data.p1workpermitoffice);
+      uploadData.append("p1wssnapplicant", data.p1wssnapplicant);
+      uploadData.append("p1ssnoffice", data.p1ssnoffice);
+      uploadData.append("p1cmapplicant", data.p1cmapplicant);
+      uploadData.append("p1cmeoffice", data.p1cmeoffice);
+      uploadData.append("p1merapplicant", data.p1merapplicant);
+      uploadData.append("p1meroffice", data.p1meroffice);
+      uploadData.append("p1mcvoffice", data.p1mcvoffice);
+      uploadData.append("p1cdlisapplicant", data.p1cdlisapplicant);
+      uploadData.append("p1cdlisoffice", data.p1cdlisoffice);
+      uploadData.append("p1cdlisrecordapplicant", data.p1cdlisrecordapplicant);
+      uploadData.append("p1cdlisrecordoffice", data.p1cdlisrecordoffice);
+
+      //page 2
+      uploadData.append(
+        "p2consumerrecordapplicant",
+        data.p2consumerrecordapplicant,
+      );
+      uploadData.append("p2consumerrecordoffice", data.p2consumerrecordoffice);
+      uploadData.append("p2sphapplicant", data.p2sphapplicant);
+      uploadData.append("p2sphoffice", data.p2sphoffice);
+      uploadData.append("p2fmcsaapplicant", data.p2fmcsaapplicant);
+      uploadData.append("p2fmcsaoffice", data.p2fmcsaoffice);
+      uploadData.append("p2clearinghouseoffice", data.p2clearinghouseoffice);
+      uploadData.append("p2predrugtestoffice", data.p2predrugtestoffice);
+      uploadData.append("p2roadtestoffice", data.p2roadtestoffice);
+      uploadData.append("p2twisoffice", data.p2twisoffice);
+      uploadData.append("p2clearinghouseoffice", data.p2clearinghouseoffice);
+
+      //page 4
+
+      uploadData.append("p4formernames", data.p4formernames);
+
+      //page 5
+
+      uploadData.append("p5revisiondate", data.p5revisiondate);
+      uploadData.append("p5check1", data.p5check1);
+      uploadData.append("p5check2", data.p5check2);
+      uploadData.append("p5check3", data.p5check3);
+      uploadData.append("p5check4", data.p5check4);
+      uploadData.append("p5check5", data.p5check5);
+      uploadData.append("p5check6", data.p5check6);
+      uploadData.append("p5check7", data.p5check7);
+      uploadData.append("p5check8", data.p5check8);
+      uploadData.append("p5check9", data.p5check9);
+
+      //page 7
+
+      uploadData.append("p7consortium", data.p7consortium);
+      uploadData.append("p7mro", data.p7mro);
+      uploadData.append("p7cmro", data.p7cmro);
+      uploadData.append("p7sap", data.p7sap);
+      uploadData.append("p7dotminimum", data.p7dotminimum);
+
+      //page 8
+      uploadData.append("p8check1", data.p8check1);
+      uploadData.append("p8check2", data.p8check2);
+      uploadData.append("p8check3", data.p8check3);
+      uploadData.append("p8check4", data.p8check4);
+      uploadData.append("p8check5", data.p8check5);
+      uploadData.append("p8check6", data.p8check6);
+      uploadData.append("p8check7", data.p8check7);
+      uploadData.append("p8check8", data.p8check8);
+      uploadData.append("p8check9", data.p8check9);
+      uploadData.append("p8check10", data.p8check11);
+      uploadData.append("p8check11", data.p8check12);
+      uploadData.append("p8check12", data.p8check13);
+
+      //9,10,11,12 pending
+
+      //page 13
+
+      uploadData.append("p13roadtest", data.p13roadtest);
+      uploadData.append("p13miles", data.p13miles);
+      uploadData.append("p13issuecertificate", data.p13issuecertificate);
+
+      //page 15
+      uploadData.append("p15dbaany", data.p15dbaany);
+      uploadData.append("p15policyeffective", data.p15policyeffective);
+
+      //page 20
+      uploadData.append("p20driverid", data.p20driverid);
+
+      //page 21
+      uploadData.append("p21effectivedate", data.p21effectivedate);
+      uploadData.append("p21safetycontact", data.p21safetycontact);
+      uploadData.append("p21derdrug", data.p21derdrug);
+
+      //page 26
+      uploadData.append("p26tpa", data.p26tpa);
+      uploadData.append("p26mro", data.p26mro);
+      uploadData.append("p26collectionsite", data.p26collectionsite);
+      uploadData.append("p26revisiondate", data.p26revisiondate);
+      uploadData.append("p26derdatecompany", data.p26derdatecompany);
+      uploadData.append("p26ctpa", data.p26ctpa);
+      uploadData.append("p26medicalofficer", data.p26medicalofficer);
+      uploadData.append("p26pnetwork", data.p26pnetwork);
+      uploadData.append("p26sapcontact", data.p26sapcontact);
+
+      //page 35
+      uploadData.append("p35check1", data.p35check1);
+      uploadData.append("p35check2", data.p35check2);
+      uploadData.append("p35check3", data.p35check3);
+      uploadData.append("p35check4", data.p35check4);
+      uploadData.append("p35check5", data.p35check5);
+      uploadData.append("p35check6", data.p35check6);
+      uploadData.append("p35check7", data.p35check7);
+      uploadData.append("p35check8", data.p35check8);
+      uploadData.append("p35check9", data.p35check9);
+      uploadData.append("p35check10", data.p35check10);
+
+      //page 36
+      uploadData.append("p36lastduty", data.p36lastduty);
+
+      uploadData.append("p36day1", data.p36day1);
+      uploadData.append("p36hours1", data.p36hours1);
+      uploadData.append("p36permormance1", data.p36permormance1);
+
+      uploadData.append("p36day2", data.p36day2);
+      uploadData.append("p36hours2", data.p36hours2);
+      uploadData.append("p36permormance2", data.p36permormance2);
+
+      uploadData.append("p36day3", data.p36day3);
+      uploadData.append("p36hours3", data.p36hours3);
+      uploadData.append("p36permormance3", data.p36permormance3);
+
+      uploadData.append("p36day4", data.p36day4);
+      uploadData.append("p36hours4", data.p36hours4);
+      uploadData.append("p36permormance4", data.p36permormance4);
+
+      uploadData.append("p36day5", data.p36day5);
+      uploadData.append("p36hours5", data.p36hours5);
+      uploadData.append("p36permormance5", data.p36permormance5);
+
+      uploadData.append("p36day6", data.p36day6);
+      uploadData.append("p36hours6", data.p36hours6);
+      uploadData.append("p36permormance6", data.p36permormance6);
+
+      uploadData.append("p36day7", data.p36day7);
+      uploadData.append("p36hours7", data.p36hours7);
+      uploadData.append("p36permormance7", data.p36permormance7);
+
+      uploadData.append("p36totalhours", data.p36totalhours);
+      uploadData.append("p36cerdate", data.p36cerdate);
+      uploadData.append("p36approvedpassenger", data.p36approvedpassenger);
+      uploadData.append("p36relation", data.p36relation);
+
+      //page 37
+      uploadData.append("p37trip", data.p37trip);
+      uploadData.append("p37condition", data.p37condition);
+      uploadData.append("p37authorized", data.p37authorized);
+      uploadData.append("p37aknowledge", data.p37aknowledge);
+      uploadData.append("p37trainingdate", data.p37trainingdate);
+
+      uploadData.append("p37part34section1", data.p37part34section1);
+      uploadData.append("p37part34section2", data.p37part34section2);
+      uploadData.append("p37part34section3", data.p37part34section3);
+      uploadData.append("p37part34section4", data.p37part34section4);
+      uploadData.append("p37part34section5", data.p37part34section5);
+      uploadData.append("p37part34section6", data.p37part34section6);
+      uploadData.append("p37part34section7", data.p37part34section7);
+      uploadData.append("p37part34section8", data.p37part34section8);
+      uploadData.append("p37part34section9", data.p37part34section9);
+
+      uploadData.append("p37part34sectiondate1", data.p37part34sectiondate1);
+      uploadData.append("p37part34sectiondate2", data.p37part34sectiondate2);
+      uploadData.append("p37part34sectiondate3", data.p37part34sectiondate3);
+      uploadData.append("p37part34sectiondate4", data.p37part34sectiondate4);
+      uploadData.append("p37part34sectiondate5", data.p37part34sectiondate5);
+      uploadData.append("p37part34sectiondate6", data.p37part34sectiondate6);
+      uploadData.append("p37part34sectiondate7", data.p37part34sectiondate7);
+      uploadData.append("p37part34sectiondate8", data.p37part34sectiondate8);
+      uploadData.append("p37part34sectiondate9", data.p37part34sectiondate9);
+
+      //page38
+      uploadData.append("p38section1", data.p38section1);
+      uploadData.append("p38section12", data.p38section2);
+      uploadData.append("p38section13", data.p38section3);
+
+      uploadData.append("p38sectiondate1", data.p38sectiondate1);
+      uploadData.append("p38sectiondate2", data.p38sectiondate2);
+      uploadData.append("p38sectiondate3", data.p38sectiondate3);
+
+      //page 39.40 penidng
+
+      uploadData.append("driver_id", id);
+      uploadData.append("photo", photo);
 
       uploadData.append("driver_license", data.driver_license);
 
@@ -211,33 +551,19 @@ export default function DriverApplication() {
         JSON.parse(localStorage.getItem("user"))?.id || "",
       );
 
-      // IMPORTANT:
-      // FormData ko console.log karne ke bajaye entries dekho
-
       for (const [key, value] of uploadData.entries()) {
         console.log("UPLOAD:", key, value);
       }
 
-      const response = await api.post("/company/driver-esign/add", uploadData);
+      const response = await api.post(`/company/driver-esign/add`, uploadData);
 
       const result = response.data;
-
-      console.log("SUCCESS:", result);
-
-      setServerMessage(result.message || "Driver added successfully");
-
-      setServerMessageType("success");
 
       navigate(`/driver/esign-completed/${id}`, {
         replace: true,
       });
     } catch (error) {
-      console.error("ERROR:", error);
-
       const message = error.response?.data?.message || "Something went wrong.";
-
-      setServerMessage(message);
-      setServerMessageType("error");
     } finally {
       setLoading(false);
     }
@@ -246,13 +572,11 @@ export default function DriverApplication() {
   return (
     <>
       <header className="relative flex h-[76px] items-center justify-between overflow-hidden bg-[#0a1122] px-6">
-        {/* Background Stripes */}
         <div className="stripe-wrap pointer-events-none absolute inset-0">
           <div className="stripe"></div>
           <div className="stripe two"></div>
         </div>
 
-        {/* Company Info - Left */}
         <div className="relative z-10 flex items-center gap-4">
           <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm">
             {company?.logo ? (
@@ -275,7 +599,6 @@ export default function DriverApplication() {
           </div>
         </div>
 
-        {/* Center Title */}
         <div className="absolute left-1/2 z-10 -translate-x-1/2">
           <h1 className="font-['Tinos'] text-xl font-bold tracking-wide text-white sm:text-2xl">
             Electronic Sign
@@ -438,13 +761,13 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1applicantcdl" type="checkbox" />
                       </div>
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1officecdl" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -457,13 +780,13 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1workauthapplicant" type="checkbox" />
                       </div>
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1workauthoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -476,13 +799,13 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1workpermitapplicant" type="checkbox" />
                       </div>
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1workpermitoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -495,13 +818,13 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1wssnapplicant" type="checkbox" />
                       </div>
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1ssnoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -514,13 +837,13 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1cmapplicant" type="checkbox" />
                       </div>
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1cmeoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -534,13 +857,13 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1merapplicant" type="checkbox" />
                       </div>
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1meroffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -561,7 +884,7 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1mcvoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -574,13 +897,13 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1cdlisapplicant" type="checkbox" />
                       </div>
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1cdlisoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -592,13 +915,13 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1cdlisrecordapplicant" type="checkbox" />
                       </div>
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p1cdlisrecordoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -626,13 +949,16 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input
+                          name="p2consumerrecordapplicant"
+                          type="checkbox"
+                        />
                       </div>
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p2consumerrecordoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -645,13 +971,13 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p2sphapplicant" type="checkbox" />
                       </div>
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p2sphoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -663,13 +989,13 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p2fmcsaapplicant" type="checkbox" />
                       </div>
                     </td>
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p2fmcsaoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -685,7 +1011,7 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p2clearinghouseoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -706,7 +1032,7 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p2predrugtestoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -726,7 +1052,7 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p2roadtestoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -747,7 +1073,7 @@ export default function DriverApplication() {
 
                     <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
-                        <input type="checkbox" />
+                        <input name="p2twisoffice" type="checkbox" />
                       </div>
                     </td>
                   </tr>
@@ -1049,6 +1375,7 @@ export default function DriverApplication() {
                     <td className="border border-[#555]  align-middle text-left text-[17px]">
                       <div className="flex items-center justify-center gap-3">
                         <input
+                          name="p4formernames"
                           className="w-full h-[30px] border border-black p-2"
                           type="text"
                         />
@@ -1328,8 +1655,8 @@ export default function DriverApplication() {
                   </label>
 
                   <input
+                    name="p5revisiondate"
                     type="date"
-                    name="p5dateofrevision"
                     className="w-full h-[32px] md:h-[26px]
                border-[1.5px] border-[#26364d]
                outline-none px-1"
@@ -1359,60 +1686,61 @@ export default function DriverApplication() {
 
                 <div className="space-y-[7px] text-[13.4px] leading-[1.15]">
                   <label className="block">
-                    <input type="checkbox" />I understand whether my position is
-                    subject to 49 CFR Part 382 and DOT testing requirements.
+                    <input name="p5check1" type="checkbox" />I understand
+                    whether my position is subject to 49 CFR Part 382 and DOT
+                    testing requirements.
                   </label>
 
                   <label className="block">
-                    <input type="checkbox" />
+                    <input name="p5check2" type="checkbox" />
                     Participation in the Company DOT drug and alcohol testing
                     program is required to perform covered safety-sensitive
                     functions.
                   </label>
 
                   <label className="block">
-                    <input type="checkbox" />I reviewed prohibited drug and
-                    alcohol conduct and the circumstances for pre-employment,
-                    random, reasonable-suspicion, post-accident, return-to-duty,
-                    and follow-up testing.
+                    <input name="p5check3" type="checkbox" />I reviewed
+                    prohibited drug and alcohol conduct and the circumstances
+                    for pre-employment, random, reasonable-suspicion,
+                    post-accident, return-to-duty, and follow-up testing.
                   </label>
 
                   <label className="block">
-                    <input type="checkbox" />I understand that a refusal to test
-                    is a DOT violation when the applicable rules define the
-                    conduct as a refusal.
+                    <input name="p5check4" type="checkbox" />I understand that a
+                    refusal to test is a DOT violation when the applicable rules
+                    define the conduct as a refusal.
                   </label>
 
                   <label className="block">
-                    <input type="checkbox" />I understand the consequences of a
-                    verified positive drug test, an alcohol concentration of
-                    0.04 or greater, or a refusal, including removal from
-                    safety-sensitive functions and the SAP/return-to-duty
-                    process.
+                    <input name="p5check5" type="checkbox" />I understand the
+                    consequences of a verified positive drug test, an alcohol
+                    concentration of 0.04 or greater, or a refusal, including
+                    removal from safety-sensitive functions and the
+                    SAP/return-to-duty process.
                   </label>
 
                   <label className="block">
-                    <input type="checkbox" />I understand that an alcohol
-                    concentration of 0.02 through 0.039 requires temporary
-                    removal from safety-sensitive functions as required by the
-                    regulations.
+                    <input name="p5check6" type="checkbox" />I understand that
+                    an alcohol concentration of 0.02 through 0.039 requires
+                    temporary removal from safety-sensitive functions as
+                    required by the regulations.
                   </label>
 
                   <label className="block">
-                    <input type="checkbox" />I understand my obligations
-                    relating to required FMCSA Drug &amp; Alcohol Clearinghouse
-                    queries.
+                    <input name="p5check7" type="checkbox" />I understand my
+                    obligations relating to required FMCSA Drug &amp; Alcohol
+                    Clearinghouse queries.
                   </label>
 
                   <label className="block">
-                    <input type="checkbox" />I received information about the
-                    effects and consequences of alcohol misuse and
-                    controlled-substances use, signs and symptoms, and
-                    intervention resources.
+                    <input name="p5check8" type="checkbox" />I received
+                    information about the effects and consequences of alcohol
+                    misuse and controlled-substances use, signs and symptoms,
+                    and intervention resources.
                   </label>
 
                   <label className="block">
-                    <input type="checkbox" />I understand that
+                    <input name="p5check9" type="checkbox" />I understand that
                     Company-authority/non-DOT testing or discipline must be
                     identified separately from DOT requirements.
                   </label>
@@ -2069,47 +2397,48 @@ export default function DriverApplication() {
 
               <div className="mt-5 text-[13.4px] leading-[1.28]">
                 <p className="mb-4">
-                  <input type="checkbox" /> Written Part 382 drug and alcohol
-                  policy completed with company-specific information.
+                  <input name="p8check1" type="checkbox" /> Written Part 382
+                  drug and alcohol policy completed with company-specific
+                  information.
                   <br />
-                  <input type="checkbox" />
+                  <input name="p8check2" type="checkbox" />
                   Driver received policy and educational materials.
                   <br />
-                  <input type="checkbox" />
+                  <input name="p8check3" type="checkbox" />
                   Signed certificate of receipt retained by employer.
                   <br />
-                  <input type="checkbox" />
+                  <input name="p8check4" type="checkbox" />
                   Pre-employment drug test or qualifying exception documented
                   before first safety-sensitive function.
                   <br />
-                  <input type="checkbox" />
+                  <input name="p8check5" type="checkbox" />
                   Clearinghouse pre-employment query completed and driver not
                   prohibited.
                   <br />
-                  <input type="checkbox" />
+                  <input name="p8check6" type="checkbox" />
                   Driver enrolled in random testing pool/consortium when
                   required.
                   <br />
-                  <input type="checkbox" />
+                  <input name="p8check7" type="checkbox" />
                   Annual Clearinghouse query tracked and completed.
                   <br />
-                  <input type="checkbox" />
+                  <input name="p8check8" type="checkbox" />
                   Prior-employer DOT drug/alcohol information request completed
                   when required.
                   <br />
-                  <input type="checkbox" />
+                  <input name="p8check9" type="checkbox" />
                   Supervisor reasonable-suspicion training documented (at least
                   60 minutes alcohol and 60 minutes controlled substances) for
                   persons who make determinations.
                   <br />
-                  <input type="checkbox" />
+                  <input name="p8check10" type="checkbox" />
                   DOT drug/alcohol records maintained securely with appropriate
                   access controls.
                   <br />
-                  <input type="checkbox" />
+                  <input name="p8check11" type="checkbox" />
                   DER and service-agent contact information current.
                   <br />
-                  <input type="checkbox" />
+                  <input name="p8check12" type="checkbox" />
                   Any non-DOT testing program separately documented and clearly
                   distinguished from DOT testing.
                   <br />
@@ -4520,6 +4849,7 @@ export default function DriverApplication() {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              name="p13roadtest"
                               className="h-[28px] w-full border border-black p-2"
                               type="date"
                             />
@@ -4536,6 +4866,7 @@ export default function DriverApplication() {
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              name="p13miles"
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4637,6 +4968,7 @@ export default function DriverApplication() {
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              name="p13issuecertificate"
                               className="h-[28px] w-full border border-black p-2"
                               type="date"
                             />
@@ -4960,13 +5292,21 @@ export default function DriverApplication() {
                         <td>
                           <span className="text-[13.4px]">DBA (if any):</span>
                           <br />
-                          <input className="border border-black" type="text" />
+                          <input
+                            name="p15dbaany"
+                            className="border border-black"
+                            type="text"
+                          />
                         </td>
                         <td>
                           <span className="text-[13.4px]">
                             Policy Effective Date:{" "}
                           </span>
-                          <input className="border border-black" type="date" />
+                          <input
+                            name="p15policyeffective"
+                            className="border border-black"
+                            type="date"
+                          />
                         </td>
                       </tr>
                       <tr>
@@ -5664,7 +6004,11 @@ export default function DriverApplication() {
                           <span className="text-[13.4px]">
                             Driver ID / Unit:
                           </span>
-                          <input className="border border-black" type="text" />
+                          <input
+                            name="p20driverid"
+                            className="border border-black"
+                            type="text"
+                          />
                         </td>
                       </tr>
 
@@ -5905,8 +6249,9 @@ export default function DriverApplication() {
                             <td className="  align-middle text-left text-[17px]">
                               <div className="flex items-center justify-center">
                                 <input
+                                  name="p21effectivedate"
                                   className="h-[20px] w-full border border-black p-2"
-                                  type="text"
+                                  type="date"
                                 />
                               </div>
                             </td>
@@ -5919,6 +6264,7 @@ export default function DriverApplication() {
                             >
                               <div className="flex items-center justify-center">
                                 <input
+                                  name="p21safetycontact"
                                   className="h-[20px] w-full border border-black p-2"
                                   type="text"
                                 />
@@ -5948,6 +6294,7 @@ export default function DriverApplication() {
                             >
                               <div className="flex items-center justify-center">
                                 <input
+                                  name="p21derdrug"
                                   className="h-[20px] w-full border border-black p-2"
                                   type="text"
                                 />
@@ -6811,6 +7158,7 @@ export default function DriverApplication() {
                             <td className="  align-middle text-left text-[17px]">
                               <div className="flex items-center justify-center">
                                 <input
+                                  name="p26tpa"
                                   className="h-[25px] w-full border border-black p-2"
                                   type="text"
                                 />
@@ -6822,6 +7170,7 @@ export default function DriverApplication() {
                             <td className="  align-middle text-left text-[17px]">
                               <div className="flex items-center justify-center">
                                 <input
+                                  name="p26mro"
                                   className="h-[25px] w-full border border-black p-2"
                                   type="text"
                                 />
@@ -6833,6 +7182,7 @@ export default function DriverApplication() {
                             <td className="  align-middle text-left text-[17px]">
                               <div className="flex items-center justify-center">
                                 <input
+                                  name="p26collectionsite"
                                   className="h-[25px] w-full border border-black p-2"
                                   type="text"
                                 />
@@ -6844,8 +7194,9 @@ export default function DriverApplication() {
                             <td className="  align-middle text-left text-[17px]">
                               <div className="flex items-center justify-center">
                                 <input
+                                  name="p26revisiondate"
                                   className="h-[25px] w-full border border-black p-2"
-                                  type="text"
+                                  type="date"
                                 />
                               </div>
                             </td>
@@ -6910,8 +7261,9 @@ export default function DriverApplication() {
                             <td className="  align-middle text-left text-[17px]">
                               <div className="flex items-center justify-center">
                                 <input
+                                  name="p26derdatecompany"
                                   className="h-[25px] w-full border border-black p-2"
-                                  type="date"
+                                  type="text"
                                 />
                               </div>
                             </td>
@@ -7000,6 +7352,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                           <input
+                            name="p26ctpa"
                             className="border border-black w-full"
                             type="text"
                           />
@@ -7017,16 +7370,13 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left">
                           SAP Resource Contact
-                          <input
-                            className="border border-black w-full"
-                            type="text"
-                          />
                         </td>
                       </tr>
 
                       <tr>
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                           <input
+                            name="p26medicalofficer"
                             className="border border-black w-full"
                             type="text"
                           />
@@ -7034,6 +7384,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                           <input
+                            name="p26pnetwork"
                             className="border border-black w-full"
                             type="text"
                           />
@@ -7041,6 +7392,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left text-[17px]">
                           <input
+                            name="p26sapcontact"
                             className="border border-black w-full"
                             type="text"
                           />
@@ -8436,65 +8788,67 @@ export default function DriverApplication() {
                   <p className="text-[13.4px] flex items-start">
                     <span className="mr-1">•</span>
                     <span>
-                      <input type="checkbox" /> Carrier legal name, USDOT
-                      number, effective date and DER completed.
+                      <input name="p35check1" type="checkbox" /> Carrier legal
+                      name, USDOT number, effective date and DER completed.
                     </span>
                   </p>
 
                   <p className="text-[13.4px] flex items-start">
                     <span className="mr-1">•</span>
                     <span>
-                      <input type="checkbox" /> C/TPA, MRO, collection network
-                      and SAP resource information verified.
+                      <input name="p35check2" type="checkbox" /> C/TPA, MRO,
+                      collection network and SAP resource information verified.
                     </span>
                   </p>
 
                   <p className="text-[13.4px] flex items-start">
                     <span className="mr-1">•</span>
                     <span>
-                      <input type="checkbox" /> Current calendar-year FMCSA
-                      random testing rates verified and communicated to program
-                      administrator.
+                      <input name="p35check3" type="checkbox" /> Current
+                      calendar-year FMCSA random testing rates verified and
+                      communicated to program administrator.
                     </span>
                   </p>
 
                   <p className="text-[13.4px] flex items-start">
                     <span className="mr-1">•</span>
                     <span>
-                      <input type="checkbox" /> Clearinghouse account/roles,
-                      query plan and reporting procedures verified.
+                      <input name="p35check4" type="checkbox" /> Clearinghouse
+                      account/roles, query plan and reporting procedures
+                      verified.
                     </span>
                   </p>
 
                   <p className="text-[13.4px] flex items-start">
                     <span className="mr-1">•</span>
                     <span>
-                      <input type="checkbox" /> Pre-employment negative-test and
-                      Clearinghouse controls integrated into dispatch/hiring
-                      process.
+                      <input name="p35check5" type="checkbox" /> Pre-employment
+                      negative-test and Clearinghouse controls integrated into
+                      dispatch/hiring process.
                     </span>
                   </p>
 
                   <p className="text-[13.4px] flex items-start">
                     <span className="mr-1">•</span>
                     <span>
-                      <input type="checkbox" /> Supervisor reasonable-suspicion
-                      training records verified.
+                      <input name="p35check6" type="checkbox" /> Supervisor
+                      reasonable-suspicion training records verified.
                     </span>
                   </p>
 
                   <p className="text-[13.4px] flex items-start">
                     <span className="mr-1">•</span>
                     <span>
-                      <input type="checkbox" /> Post-accident decision procedure
-                      and after-hours DER contact established.
+                      <input name="p35check7" type="checkbox" /> Post-accident
+                      decision procedure and after-hours DER contact
+                      established.
                     </span>
                   </p>
 
                   <p className="text-[13.4px] flex items-start">
                     <span className="mr-1">•</span>
                     <span>
-                      <input type="checkbox" /> DOT and any
+                      <input name="p35check8" type="checkbox" /> DOT and any
                       Company-authority/non-DOT testing policies clearly
                       separated.
                     </span>
@@ -8503,17 +8857,18 @@ export default function DriverApplication() {
                   <p className="text-[13.4px] flex items-start">
                     <span className="mr-1">•</span>
                     <span>
-                      <input type="checkbox" /> Certificate of receipt obtained
-                      from every covered driver before safety-sensitive use.
+                      <input name="p35check9" type="checkbox" /> Certificate of
+                      receipt obtained from every covered driver before
+                      safety-sensitive use.
                     </span>
                   </p>
 
                   <p className="text-[13.4px] flex items-start">
                     <span className="mr-1">•</span>
                     <span>
-                      <input type="checkbox" /> Policy reviewed for applicable
-                      state/local employment requirements and any collective
-                      bargaining obligations.
+                      <input name="p35check10" type="checkbox" /> Policy
+                      reviewed for applicable state/local employment
+                      requirements and any collective bargaining obligations.
                     </span>
                   </p>
 
@@ -8588,6 +8943,7 @@ export default function DriverApplication() {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          name="p36lastduty"
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8621,6 +8977,7 @@ export default function DriverApplication() {
                             <div>Day 1:</div>
                             <div>
                               <input
+                                name="p36day1"
                                 className="border border-black"
                                 type="date"
                               />
@@ -8630,6 +8987,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36hours1"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8637,6 +8995,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36permormance1"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8649,6 +9008,7 @@ export default function DriverApplication() {
                             <div>Day 2:</div>
                             <div>
                               <input
+                                name="p36day2"
                                 className="border border-black"
                                 type="date"
                               />
@@ -8658,6 +9018,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36hours2"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8665,6 +9026,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36permormance2"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8677,6 +9039,7 @@ export default function DriverApplication() {
                             <div>Day 3:</div>
                             <div>
                               <input
+                                name="p36day3"
                                 className="border border-black"
                                 type="date"
                               />
@@ -8686,6 +9049,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36hours3"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8693,6 +9057,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36permormance3"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8705,6 +9070,7 @@ export default function DriverApplication() {
                             <div>Day 4:</div>
                             <div>
                               <input
+                                name="p36day4"
                                 className="border border-black"
                                 type="date"
                               />
@@ -8714,6 +9080,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36hours4"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8721,6 +9088,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36permormance4"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8733,6 +9101,7 @@ export default function DriverApplication() {
                             <div>Day 5:</div>
                             <div>
                               <input
+                                name="p36day5"
                                 className="border border-black"
                                 type="date"
                               />
@@ -8742,6 +9111,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36hours5"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8749,6 +9119,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36permormance5"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8761,6 +9132,7 @@ export default function DriverApplication() {
                             <div>Day 6:</div>
                             <div>
                               <input
+                                name="p36day6"
                                 className="border border-black"
                                 type="date"
                               />
@@ -8770,6 +9142,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36hours6"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8777,6 +9150,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36permormance6"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8789,6 +9163,7 @@ export default function DriverApplication() {
                             <div>Day 7:</div>
                             <div>
                               <input
+                                name="p36day7"
                                 className="border border-black"
                                 type="date"
                               />
@@ -8798,6 +9173,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36hours7"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8805,6 +9181,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
                           <input
+                            name="p36permormance7"
                             className="border border-3 border-black w-full h-[28px] p-2"
                             type="text"
                           />
@@ -8824,6 +9201,7 @@ export default function DriverApplication() {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          name="p36totalhours"
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8836,6 +9214,7 @@ export default function DriverApplication() {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          name="p36cerdate"
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8902,6 +9281,7 @@ export default function DriverApplication() {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          name="p36restriction"
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8976,6 +9356,7 @@ export default function DriverApplication() {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          name="p36approvedpassenger"
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -8988,6 +9369,7 @@ export default function DriverApplication() {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          name="p36relation"
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -9019,6 +9401,7 @@ export default function DriverApplication() {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          name="p37trip"
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -9031,6 +9414,7 @@ export default function DriverApplication() {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          name="p37condition"
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -9043,6 +9427,7 @@ export default function DriverApplication() {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          name="p37authorized"
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -9055,6 +9440,7 @@ export default function DriverApplication() {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          name="p37aknowledge"
                           className="border border-3 border-black w-full h-[28px] p-2"
                           type="text"
                         />
@@ -9147,8 +9533,9 @@ export default function DriverApplication() {
                       </td>
                       <td className="h-[25px] border-b border-[#aebdcc]">
                         <input
+                          name="p37trainingdate"
                           className="border border-3 border-black w-full h-[28px] p-2"
-                          type="text"
+                          type="date"
                         />
                       </td>
                     </tr>
@@ -9230,6 +9617,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34section1"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9237,6 +9625,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34sectiondate1"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -9253,6 +9642,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34section2"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9260,6 +9650,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34sectiondate2"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -9274,6 +9665,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34section3"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9281,6 +9673,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34sectiondate3"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -9295,6 +9688,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34section4"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9302,6 +9696,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34sectiondate4"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -9316,6 +9711,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34section5"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9323,6 +9719,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34sectiondate5"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -9337,6 +9734,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34section6"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9344,6 +9742,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34sectiondate6"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -9358,6 +9757,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34section7"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9365,6 +9765,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34sectiondate7"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -9381,6 +9782,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34section8"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9388,6 +9790,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34sectiondate8"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -9404,6 +9807,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34section9"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9411,6 +9815,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p37part34sectiondate9"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -9461,6 +9866,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p38section1"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9468,6 +9874,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p38sectiondate1"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -9482,6 +9889,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p38section2"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9489,6 +9897,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p38sectiondate2"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -9503,6 +9912,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p38section3"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="text"
                           />
@@ -9510,6 +9920,7 @@ export default function DriverApplication() {
 
                         <td className="border border-[#555] align-middle text-left ">
                           <input
+                            name="p38sectiondate3"
                             className="border border-3 border-black w-full h-[20px] p-2"
                             type="date"
                           />
@@ -12936,7 +13347,7 @@ export default function DriverApplication() {
 
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
-            <i>page 50</i>
+            <i>page 49</i>
           </p>
           <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
             <div className="w-full">
@@ -13326,7 +13737,7 @@ export default function DriverApplication() {
 
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
-            <i>page 51</i>
+            <i>page 50</i>
           </p>
           <div className="w-full max-w-[900px] mx-auto px-2 sm:px-3">
             <div className="w-full">
@@ -13556,17 +13967,6 @@ export default function DriverApplication() {
                             <i className="fa-solid fa-upload mr-1"></i>
                             Upload Photo
                           </button>
-
-                          {/* Save */}
-                          <button
-                            type="button"
-                            onClick={handlePhotoSubmit}
-                            disabled={!photo || photoLoading}
-                            className="whitespace-nowrap rounded-lg bg-[#1F355A] px-3 py-2 text-xs font-medium text-white disabled:cursor-not-allowed disabled:opacity-50"
-                          >
-                            <i className="fa-solid fa-save mr-1"></i>
-                            {photoLoading ? "Saving..." : "Save Photo"}
-                          </button>
                         </div>
 
                         {/* Camera */}
@@ -13700,6 +14100,1694 @@ export default function DriverApplication() {
         </div>
 
         {/*****page 49 start********/}
+        <br />
+
+        <div className="min-h-screen bg-gray-200 py-5 font-serif text-black">
+          <div className="mx-auto w-[1050px] bg-white px-6 py-5">
+            {/* Header */}
+            <div className="border-t-[5px] border-black">
+              <div className="flex items-start justify-between py-2">
+                <div className="w-[100px]">
+                  <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full border-[3px] border-black text-center text-[8px] font-bold leading-tight">
+                    U.S.
+                    <br />
+                    DEPARTMENT
+                    <br />
+                    OF
+                    <br />
+                    HOMELAND
+                    <br />
+                    SECURITY
+                  </div>
+                </div>
+
+                <div className="flex-1 text-center">
+                  <h1 className="text-[24px] font-bold">
+                    Employment Eligibility Verification
+                  </h1>
+                  <h2 className="text-[17px] font-bold">
+                    Department of Homeland Security
+                  </h2>
+                  <p className="text-[15px]">
+                    U.S. Citizenship and Immigration Services
+                  </p>
+                </div>
+
+                <div className="w-[120px] text-center">
+                  <div className="text-[17px] font-bold">USCIS</div>
+                  <div className="text-[17px] font-bold">Form I-9</div>
+                  <div className="text-[11px]">OMB No. 1615-0047</div>
+                  <div className="text-[11px]">Expires 05/31/2027</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t-[5px] border-black" />
+
+            {/* Top Instructions */}
+            <div className="py-2 text-[12px] leading-tight">
+              <b>START HERE:</b> Employers must ensure the form instructions are
+              available to employees when completing this form. Employers are
+              liable for failing to comply with the requirements for completing
+              this form. See below and the <u>Instructions.</u>
+            </div>
+
+            <div className="pb-2 text-[12px] leading-tight">
+              <b>ANTI-DISCRIMINATION NOTICE:</b> All employees can choose which
+              acceptable documentation to present for Form I-9. Employers cannot
+              ask employees for documentation to verify information in Section
+              1, or specify which acceptable documentation employees must
+              present for Section 2 or Supplement B, Reverification and Rehire.
+            </div>
+
+            {/* Section 1 */}
+            <div className="border border-black bg-gray-200 px-2 py-1 text-[13px] leading-tight">
+              <b>Section 1. Employee Information and Attestation:</b> Employees
+              must complete and sign Section 1 of Form I-9 no later than the{" "}
+              <b>first day of employment</b>, but not before accepting a job
+              offer.
+            </div>
+
+            {/* Employee Information */}
+            <div className="grid grid-cols-12 border-l border-black text-[10px]">
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">Last Name (Family Name)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-r border-black">
+                <div className="px-2 pt-1">First Name (Given Name)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Middle Initial (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-black">
+                <div className="px-2 pt-1">Other Last Names Used (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">
+                  Address (Street Number and Name)
+                </div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Apt. Number (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-r border-black">
+                <div className="px-2 pt-1">City or Town</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-1 border-b border-r border-black">
+                <div className="px-2 pt-1">State</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-black">
+                <div className="px-2 pt-1">ZIP Code</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Date of Birth (mm/dd/yyyy)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">U.S. Social Security Number</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">Employee's Email Address</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-black">
+                <div className="px-2 pt-1">Employee's Telephone Number</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+            </div>
+
+            {/* Attestation */}
+            <div className="grid grid-cols-12 border border-black border-t-0">
+              <div className="col-span-3 border-r border-black p-3 text-[11px] font-bold leading-tight">
+                I am aware that federal law provides for imprisonment and/or
+                fines for false statements, or the use of false documents, in
+                connection with the completion of this form. I attest, under
+                penalty of perjury, that this information, including my
+                selection of the box attesting to my citizenship or immigration
+                status, is true and correct.
+              </div>
+
+              <div className="col-span-9">
+                <div className="border-b border-black px-2 py-1 text-[11px] font-bold">
+                  Check one of the following boxes to attest to your citizenship
+                  or immigration status:
+                </div>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>1.</b>&nbsp; A citizen of the United States
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>2.</b>&nbsp; A noncitizen national of the United States
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>3.</b>&nbsp; A lawful permanent resident (Enter USCIS
+                    A-Number.)
+                    <input className="ml-2 w-[140px] border-b border-black outline-none" />
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>4.</b>&nbsp; An alien authorized to work until
+                    <input className="ml-2 w-[100px] border-b border-black outline-none" />
+                  </span>
+                </label>
+
+                <div className="px-2 py-1 text-[11px] font-bold">
+                  If you check Item Number 4, enter one of these:
+                </div>
+
+                <div className="grid grid-cols-3 border-t border-black text-center text-[10px] font-bold">
+                  <div className="border-r border-black">
+                    <div className="py-1">USCIS A-Number</div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+
+                  <div className="border-r border-black">
+                    <div className="py-1">Form I-94 Admission Number</div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+
+                  <div>
+                    <div className="py-1">
+                      Foreign Passport Number and Country of Issuance
+                    </div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 border-t border-black">
+                  <div className="border-r border-black">
+                    <div className="px-2 pt-1 text-[10px]">
+                      Signature of Employee
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div>
+                    <div className="px-2 pt-1 text-[10px]">
+                      Today's Date (mm/dd/yyyy)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-x border-b border-black px-2 py-1 text-[11px]">
+              If a preparer and/or translator assisted you in completing Section
+              1, that person <b>MUST</b> complete the{" "}
+              <u className="font-bold text-blue-700">
+                Preparer and/or Translator Certification
+              </u>{" "}
+              on Page 3.
+            </div>
+
+            {/* Section 2 */}
+            <div className="mt-1 border border-black">
+              <div className="bg-gray-200 px-2 py-1 text-[12px] leading-tight">
+                <b>Section 2. Employer Review and Verification:</b> Employers or
+                their authorized representative must complete and sign Section 2
+                within three business days after the employee's first day of
+                employment.
+              </div>
+
+              <div className="grid grid-cols-12 border-t border-black text-center text-[13px] font-bold">
+                <div className="col-span-5 border-r border-black py-1">
+                  List A
+                </div>
+                <div className="col-span-3 border-r border-black py-1">
+                  List B
+                </div>
+                <div className="col-span-4 py-1">List C</div>
+              </div>
+
+              <div className="grid grid-cols-12">
+                {/* List A */}
+                <div className="col-span-5 border-r border-black">
+                  {[
+                    "Document Title 1",
+                    "Document Title 2 (if any)",
+                    "Document Title 3 (if any)",
+                  ].map((title) => (
+                    <div key={title} className="border-t border-black">
+                      <div className="grid grid-cols-5">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px] font-bold">
+                          {title}
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Issuing Authority
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Document Number (if any)
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Expiration Date (if any)
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* List B */}
+                <div className="col-span-3 border-r border-black">
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px] font-bold">
+                      Document Title
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Issuing Authority
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Document Number (if any)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Expiration Date (if any)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+                </div>
+
+                {/* Additional Information */}
+                <div className="col-span-4">
+                  <div className="border-b border-black px-2 py-1 text-[13px] font-bold">
+                    Additional Information
+                  </div>
+
+                  <textarea className="h-[275px] w-full resize-none p-2 outline-none" />
+
+                  <label className="flex items-center gap-2 border-t border-black p-2 text-[10px]">
+                    <input type="checkbox" className="h-4 w-4" />
+                    Check here if you used an alternative procedure authorized
+                    by DHS to examine documents.
+                  </label>
+                </div>
+              </div>
+
+              {/* Certification */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-9 p-2 text-[10px] leading-tight">
+                  <b>Certification:</b> I attest, under penalty of perjury, that
+                  (1) I have examined the documentation presented by the
+                  above-named employee, (2) the above-listed documentation
+                  appear to be genuine and to relate to the employee named, and
+                  (3) to the best of my knowledge, the employee is authorized to
+                  work in the United States.
+                </div>
+
+                <div className="col-span-3 border-l border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    First Day of Employment
+                    <br />
+                    (mm/dd/yyyy)
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+
+              {/* Employer Signature */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-5 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Last Name, First Name and Title of Employer or Authorized
+                    Representative
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-4 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Signature of Employer or Authorized Representative
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-3">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Today's Date (mm/dd/yyyy)
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+
+              {/* Employer Address */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-4 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Employer's Business or Organization Name
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-8">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Employer's Business or Organization Address, City or Town,
+                    State, ZIP Code
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="border-b border-black py-2 text-center text-[12px]">
+              For reverification or rehire, complete{" "}
+              <span className="font-bold text-blue-700 underline">
+                Supplement B, Reverification and Rehire
+              </span>{" "}
+              on Page 4.
+            </div>
+
+            <div className="flex justify-between pt-2 text-[11px]">
+              <span>Form I-9 Edition 01/20/25</span>
+              <span>Page 1 of 4</span>
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <div className="min-h-screen bg-gray-200 py-5 font-serif text-black">
+          <div className="mx-auto w-[1050px] bg-white px-6 py-5">
+            {/* Header */}
+            <div className="border-t-[5px] border-black">
+              <div className="flex items-start justify-between py-2">
+                <div className="w-[100px]">
+                  <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full border-[3px] border-black text-center text-[8px] font-bold leading-tight">
+                    U.S.
+                    <br />
+                    DEPARTMENT
+                    <br />
+                    OF
+                    <br />
+                    HOMELAND
+                    <br />
+                    SECURITY
+                  </div>
+                </div>
+
+                <div className="flex-1 text-center">
+                  <h1 className="text-[24px] font-bold">
+                    Employment Eligibility Verification
+                  </h1>
+                  <h2 className="text-[17px] font-bold">
+                    Department of Homeland Security
+                  </h2>
+                  <p className="text-[15px]">
+                    U.S. Citizenship and Immigration Services
+                  </p>
+                </div>
+
+                <div className="w-[120px] text-center">
+                  <div className="text-[17px] font-bold">USCIS</div>
+                  <div className="text-[17px] font-bold">Form I-9</div>
+                  <div className="text-[11px]">OMB No. 1615-0047</div>
+                  <div className="text-[11px]">Expires 05/31/2027</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t-[5px] border-black" />
+
+            {/* Top Instructions */}
+            <div className="py-2 text-[12px] leading-tight">
+              <b>START HERE:</b> Employers must ensure the form instructions are
+              available to employees when completing this form. Employers are
+              liable for failing to comply with the requirements for completing
+              this form. See below and the <u>Instructions.</u>
+            </div>
+
+            <div className="pb-2 text-[12px] leading-tight">
+              <b>ANTI-DISCRIMINATION NOTICE:</b> All employees can choose which
+              acceptable documentation to present for Form I-9. Employers cannot
+              ask employees for documentation to verify information in Section
+              1, or specify which acceptable documentation employees must
+              present for Section 2 or Supplement B, Reverification and Rehire.
+            </div>
+
+            {/* Section 1 */}
+            <div className="border border-black bg-gray-200 px-2 py-1 text-[13px] leading-tight">
+              <b>Section 1. Employee Information and Attestation:</b> Employees
+              must complete and sign Section 1 of Form I-9 no later than the{" "}
+              <b>first day of employment</b>, but not before accepting a job
+              offer.
+            </div>
+
+            {/* Employee Information */}
+            <div className="grid grid-cols-12 border-l border-black text-[10px]">
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">Last Name (Family Name)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-r border-black">
+                <div className="px-2 pt-1">First Name (Given Name)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Middle Initial (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-black">
+                <div className="px-2 pt-1">Other Last Names Used (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">
+                  Address (Street Number and Name)
+                </div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Apt. Number (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-r border-black">
+                <div className="px-2 pt-1">City or Town</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-1 border-b border-r border-black">
+                <div className="px-2 pt-1">State</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-black">
+                <div className="px-2 pt-1">ZIP Code</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Date of Birth (mm/dd/yyyy)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">U.S. Social Security Number</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">Employee's Email Address</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-black">
+                <div className="px-2 pt-1">Employee's Telephone Number</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+            </div>
+
+            {/* Attestation */}
+            <div className="grid grid-cols-12 border border-black border-t-0">
+              <div className="col-span-3 border-r border-black p-3 text-[11px] font-bold leading-tight">
+                I am aware that federal law provides for imprisonment and/or
+                fines for false statements, or the use of false documents, in
+                connection with the completion of this form. I attest, under
+                penalty of perjury, that this information, including my
+                selection of the box attesting to my citizenship or immigration
+                status, is true and correct.
+              </div>
+
+              <div className="col-span-9">
+                <div className="border-b border-black px-2 py-1 text-[11px] font-bold">
+                  Check one of the following boxes to attest to your citizenship
+                  or immigration status:
+                </div>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>1.</b>&nbsp; A citizen of the United States
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>2.</b>&nbsp; A noncitizen national of the United States
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>3.</b>&nbsp; A lawful permanent resident (Enter USCIS
+                    A-Number.)
+                    <input className="ml-2 w-[140px] border-b border-black outline-none" />
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>4.</b>&nbsp; An alien authorized to work until
+                    <input className="ml-2 w-[100px] border-b border-black outline-none" />
+                  </span>
+                </label>
+
+                <div className="px-2 py-1 text-[11px] font-bold">
+                  If you check Item Number 4, enter one of these:
+                </div>
+
+                <div className="grid grid-cols-3 border-t border-black text-center text-[10px] font-bold">
+                  <div className="border-r border-black">
+                    <div className="py-1">USCIS A-Number</div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+
+                  <div className="border-r border-black">
+                    <div className="py-1">Form I-94 Admission Number</div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+
+                  <div>
+                    <div className="py-1">
+                      Foreign Passport Number and Country of Issuance
+                    </div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 border-t border-black">
+                  <div className="border-r border-black">
+                    <div className="px-2 pt-1 text-[10px]">
+                      Signature of Employee
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div>
+                    <div className="px-2 pt-1 text-[10px]">
+                      Today's Date (mm/dd/yyyy)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-x border-b border-black px-2 py-1 text-[11px]">
+              If a preparer and/or translator assisted you in completing Section
+              1, that person <b>MUST</b> complete the{" "}
+              <u className="font-bold text-blue-700">
+                Preparer and/or Translator Certification
+              </u>{" "}
+              on Page 3.
+            </div>
+
+            {/* Section 2 */}
+            <div className="mt-1 border border-black">
+              <div className="bg-gray-200 px-2 py-1 text-[12px] leading-tight">
+                <b>Section 2. Employer Review and Verification:</b> Employers or
+                their authorized representative must complete and sign Section 2
+                within three business days after the employee's first day of
+                employment.
+              </div>
+
+              <div className="grid grid-cols-12 border-t border-black text-center text-[13px] font-bold">
+                <div className="col-span-5 border-r border-black py-1">
+                  List A
+                </div>
+                <div className="col-span-3 border-r border-black py-1">
+                  List B
+                </div>
+                <div className="col-span-4 py-1">List C</div>
+              </div>
+
+              <div className="grid grid-cols-12">
+                {/* List A */}
+                <div className="col-span-5 border-r border-black">
+                  {[
+                    "Document Title 1",
+                    "Document Title 2 (if any)",
+                    "Document Title 3 (if any)",
+                  ].map((title) => (
+                    <div key={title} className="border-t border-black">
+                      <div className="grid grid-cols-5">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px] font-bold">
+                          {title}
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Issuing Authority
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Document Number (if any)
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Expiration Date (if any)
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* List B */}
+                <div className="col-span-3 border-r border-black">
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px] font-bold">
+                      Document Title
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Issuing Authority
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Document Number (if any)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Expiration Date (if any)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+                </div>
+
+                {/* Additional Information */}
+                <div className="col-span-4">
+                  <div className="border-b border-black px-2 py-1 text-[13px] font-bold">
+                    Additional Information
+                  </div>
+
+                  <textarea className="h-[275px] w-full resize-none p-2 outline-none" />
+
+                  <label className="flex items-center gap-2 border-t border-black p-2 text-[10px]">
+                    <input type="checkbox" className="h-4 w-4" />
+                    Check here if you used an alternative procedure authorized
+                    by DHS to examine documents.
+                  </label>
+                </div>
+              </div>
+
+              {/* Certification */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-9 p-2 text-[10px] leading-tight">
+                  <b>Certification:</b> I attest, under penalty of perjury, that
+                  (1) I have examined the documentation presented by the
+                  above-named employee, (2) the above-listed documentation
+                  appear to be genuine and to relate to the employee named, and
+                  (3) to the best of my knowledge, the employee is authorized to
+                  work in the United States.
+                </div>
+
+                <div className="col-span-3 border-l border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    First Day of Employment
+                    <br />
+                    (mm/dd/yyyy)
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+
+              {/* Employer Signature */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-5 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Last Name, First Name and Title of Employer or Authorized
+                    Representative
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-4 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Signature of Employer or Authorized Representative
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-3">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Today's Date (mm/dd/yyyy)
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+
+              {/* Employer Address */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-4 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Employer's Business or Organization Name
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-8">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Employer's Business or Organization Address, City or Town,
+                    State, ZIP Code
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="border-b border-black py-2 text-center text-[12px]">
+              For reverification or rehire, complete{" "}
+              <span className="font-bold text-blue-700 underline">
+                Supplement B, Reverification and Rehire
+              </span>{" "}
+              on Page 4.
+            </div>
+
+            <div className="flex justify-between pt-2 text-[11px]">
+              <span>Form I-9 Edition 01/20/25</span>
+              <span>Page 2 of 4</span>
+            </div>
+          </div>
+        </div>
+        <br />
+
+        <div className="min-h-screen bg-gray-200 py-5 font-serif text-black">
+          <div className="mx-auto w-[1050px] bg-white px-6 py-5">
+            {/* Header */}
+            <div className="border-t-[5px] border-black">
+              <div className="flex items-start justify-between py-2">
+                <div className="w-[100px]">
+                  <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full border-[3px] border-black text-center text-[8px] font-bold leading-tight">
+                    U.S.
+                    <br />
+                    DEPARTMENT
+                    <br />
+                    OF
+                    <br />
+                    HOMELAND
+                    <br />
+                    SECURITY
+                  </div>
+                </div>
+
+                <div className="flex-1 text-center">
+                  <h1 className="text-[24px] font-bold">
+                    Employment Eligibility Verification
+                  </h1>
+                  <h2 className="text-[17px] font-bold">
+                    Department of Homeland Security
+                  </h2>
+                  <p className="text-[15px]">
+                    U.S. Citizenship and Immigration Services
+                  </p>
+                </div>
+
+                <div className="w-[120px] text-center">
+                  <div className="text-[17px] font-bold">USCIS</div>
+                  <div className="text-[17px] font-bold">Form I-9</div>
+                  <div className="text-[11px]">OMB No. 1615-0047</div>
+                  <div className="text-[11px]">Expires 05/31/2027</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t-[5px] border-black" />
+
+            {/* Top Instructions */}
+            <div className="py-2 text-[12px] leading-tight">
+              <b>START HERE:</b> Employers must ensure the form instructions are
+              available to employees when completing this form. Employers are
+              liable for failing to comply with the requirements for completing
+              this form. See below and the <u>Instructions.</u>
+            </div>
+
+            <div className="pb-2 text-[12px] leading-tight">
+              <b>ANTI-DISCRIMINATION NOTICE:</b> All employees can choose which
+              acceptable documentation to present for Form I-9. Employers cannot
+              ask employees for documentation to verify information in Section
+              1, or specify which acceptable documentation employees must
+              present for Section 2 or Supplement B, Reverification and Rehire.
+            </div>
+
+            {/* Section 1 */}
+            <div className="border border-black bg-gray-200 px-2 py-1 text-[13px] leading-tight">
+              <b>Section 1. Employee Information and Attestation:</b> Employees
+              must complete and sign Section 1 of Form I-9 no later than the{" "}
+              <b>first day of employment</b>, but not before accepting a job
+              offer.
+            </div>
+
+            {/* Employee Information */}
+            <div className="grid grid-cols-12 border-l border-black text-[10px]">
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">Last Name (Family Name)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-r border-black">
+                <div className="px-2 pt-1">First Name (Given Name)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Middle Initial (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-black">
+                <div className="px-2 pt-1">Other Last Names Used (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">
+                  Address (Street Number and Name)
+                </div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Apt. Number (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-r border-black">
+                <div className="px-2 pt-1">City or Town</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-1 border-b border-r border-black">
+                <div className="px-2 pt-1">State</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-black">
+                <div className="px-2 pt-1">ZIP Code</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Date of Birth (mm/dd/yyyy)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">U.S. Social Security Number</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">Employee's Email Address</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-black">
+                <div className="px-2 pt-1">Employee's Telephone Number</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+            </div>
+
+            {/* Attestation */}
+            <div className="grid grid-cols-12 border border-black border-t-0">
+              <div className="col-span-3 border-r border-black p-3 text-[11px] font-bold leading-tight">
+                I am aware that federal law provides for imprisonment and/or
+                fines for false statements, or the use of false documents, in
+                connection with the completion of this form. I attest, under
+                penalty of perjury, that this information, including my
+                selection of the box attesting to my citizenship or immigration
+                status, is true and correct.
+              </div>
+
+              <div className="col-span-9">
+                <div className="border-b border-black px-2 py-1 text-[11px] font-bold">
+                  Check one of the following boxes to attest to your citizenship
+                  or immigration status:
+                </div>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>1.</b>&nbsp; A citizen of the United States
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>2.</b>&nbsp; A noncitizen national of the United States
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>3.</b>&nbsp; A lawful permanent resident (Enter USCIS
+                    A-Number.)
+                    <input className="ml-2 w-[140px] border-b border-black outline-none" />
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>4.</b>&nbsp; An alien authorized to work until
+                    <input className="ml-2 w-[100px] border-b border-black outline-none" />
+                  </span>
+                </label>
+
+                <div className="px-2 py-1 text-[11px] font-bold">
+                  If you check Item Number 4, enter one of these:
+                </div>
+
+                <div className="grid grid-cols-3 border-t border-black text-center text-[10px] font-bold">
+                  <div className="border-r border-black">
+                    <div className="py-1">USCIS A-Number</div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+
+                  <div className="border-r border-black">
+                    <div className="py-1">Form I-94 Admission Number</div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+
+                  <div>
+                    <div className="py-1">
+                      Foreign Passport Number and Country of Issuance
+                    </div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 border-t border-black">
+                  <div className="border-r border-black">
+                    <div className="px-2 pt-1 text-[10px]">
+                      Signature of Employee
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div>
+                    <div className="px-2 pt-1 text-[10px]">
+                      Today's Date (mm/dd/yyyy)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-x border-b border-black px-2 py-1 text-[11px]">
+              If a preparer and/or translator assisted you in completing Section
+              1, that person <b>MUST</b> complete the{" "}
+              <u className="font-bold text-blue-700">
+                Preparer and/or Translator Certification
+              </u>{" "}
+              on Page 3.
+            </div>
+
+            {/* Section 2 */}
+            <div className="mt-1 border border-black">
+              <div className="bg-gray-200 px-2 py-1 text-[12px] leading-tight">
+                <b>Section 2. Employer Review and Verification:</b> Employers or
+                their authorized representative must complete and sign Section 2
+                within three business days after the employee's first day of
+                employment.
+              </div>
+
+              <div className="grid grid-cols-12 border-t border-black text-center text-[13px] font-bold">
+                <div className="col-span-5 border-r border-black py-1">
+                  List A
+                </div>
+                <div className="col-span-3 border-r border-black py-1">
+                  List B
+                </div>
+                <div className="col-span-4 py-1">List C</div>
+              </div>
+
+              <div className="grid grid-cols-12">
+                {/* List A */}
+                <div className="col-span-5 border-r border-black">
+                  {[
+                    "Document Title 1",
+                    "Document Title 2 (if any)",
+                    "Document Title 3 (if any)",
+                  ].map((title) => (
+                    <div key={title} className="border-t border-black">
+                      <div className="grid grid-cols-5">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px] font-bold">
+                          {title}
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Issuing Authority
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Document Number (if any)
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Expiration Date (if any)
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* List B */}
+                <div className="col-span-3 border-r border-black">
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px] font-bold">
+                      Document Title
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Issuing Authority
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Document Number (if any)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Expiration Date (if any)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+                </div>
+
+                {/* Additional Information */}
+                <div className="col-span-4">
+                  <div className="border-b border-black px-2 py-1 text-[13px] font-bold">
+                    Additional Information
+                  </div>
+
+                  <textarea className="h-[275px] w-full resize-none p-2 outline-none" />
+
+                  <label className="flex items-center gap-2 border-t border-black p-2 text-[10px]">
+                    <input type="checkbox" className="h-4 w-4" />
+                    Check here if you used an alternative procedure authorized
+                    by DHS to examine documents.
+                  </label>
+                </div>
+              </div>
+
+              {/* Certification */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-9 p-2 text-[10px] leading-tight">
+                  <b>Certification:</b> I attest, under penalty of perjury, that
+                  (1) I have examined the documentation presented by the
+                  above-named employee, (2) the above-listed documentation
+                  appear to be genuine and to relate to the employee named, and
+                  (3) to the best of my knowledge, the employee is authorized to
+                  work in the United States.
+                </div>
+
+                <div className="col-span-3 border-l border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    First Day of Employment
+                    <br />
+                    (mm/dd/yyyy)
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+
+              {/* Employer Signature */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-5 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Last Name, First Name and Title of Employer or Authorized
+                    Representative
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-4 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Signature of Employer or Authorized Representative
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-3">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Today's Date (mm/dd/yyyy)
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+
+              {/* Employer Address */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-4 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Employer's Business or Organization Name
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-8">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Employer's Business or Organization Address, City or Town,
+                    State, ZIP Code
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="border-b border-black py-2 text-center text-[12px]">
+              For reverification or rehire, complete{" "}
+              <span className="font-bold text-blue-700 underline">
+                Supplement B, Reverification and Rehire
+              </span>{" "}
+              on Page 4.
+            </div>
+
+            <div className="flex justify-between pt-2 text-[11px]">
+              <span>Form I-9 Edition 01/20/25</span>
+              <span>Page 3 of 4</span>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div className="min-h-screen bg-gray-200 py-5 font-serif text-black">
+          <div className="mx-auto w-[1050px] bg-white px-6 py-5">
+            {/* Header */}
+            <div className="border-t-[5px] border-black">
+              <div className="flex items-start justify-between py-2">
+                <div className="w-[100px]">
+                  <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full border-[3px] border-black text-center text-[8px] font-bold leading-tight">
+                    U.S.
+                    <br />
+                    DEPARTMENT
+                    <br />
+                    OF
+                    <br />
+                    HOMELAND
+                    <br />
+                    SECURITY
+                  </div>
+                </div>
+
+                <div className="flex-1 text-center">
+                  <h1 className="text-[24px] font-bold">
+                    Employment Eligibility Verification
+                  </h1>
+                  <h2 className="text-[17px] font-bold">
+                    Department of Homeland Security
+                  </h2>
+                  <p className="text-[15px]">
+                    U.S. Citizenship and Immigration Services
+                  </p>
+                </div>
+
+                <div className="w-[120px] text-center">
+                  <div className="text-[17px] font-bold">USCIS</div>
+                  <div className="text-[17px] font-bold">Form I-9</div>
+                  <div className="text-[11px]">OMB No. 1615-0047</div>
+                  <div className="text-[11px]">Expires 05/31/2027</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t-[5px] border-black" />
+
+            {/* Top Instructions */}
+            <div className="py-2 text-[12px] leading-tight">
+              <b>START HERE:</b> Employers must ensure the form instructions are
+              available to employees when completing this form. Employers are
+              liable for failing to comply with the requirements for completing
+              this form. See below and the <u>Instructions.</u>
+            </div>
+
+            <div className="pb-2 text-[12px] leading-tight">
+              <b>ANTI-DISCRIMINATION NOTICE:</b> All employees can choose which
+              acceptable documentation to present for Form I-9. Employers cannot
+              ask employees for documentation to verify information in Section
+              1, or specify which acceptable documentation employees must
+              present for Section 2 or Supplement B, Reverification and Rehire.
+            </div>
+
+            {/* Section 1 */}
+            <div className="border border-black bg-gray-200 px-2 py-1 text-[13px] leading-tight">
+              <b>Section 1. Employee Information and Attestation:</b> Employees
+              must complete and sign Section 1 of Form I-9 no later than the{" "}
+              <b>first day of employment</b>, but not before accepting a job
+              offer.
+            </div>
+
+            {/* Employee Information */}
+            <div className="grid grid-cols-12 border-l border-black text-[10px]">
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">Last Name (Family Name)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-r border-black">
+                <div className="px-2 pt-1">First Name (Given Name)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Middle Initial (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-black">
+                <div className="px-2 pt-1">Other Last Names Used (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">
+                  Address (Street Number and Name)
+                </div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Apt. Number (if any)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-3 border-b border-r border-black">
+                <div className="px-2 pt-1">City or Town</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-1 border-b border-r border-black">
+                <div className="px-2 pt-1">State</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-black">
+                <div className="px-2 pt-1">ZIP Code</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">Date of Birth (mm/dd/yyyy)</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-2 border-b border-r border-black">
+                <div className="px-2 pt-1">U.S. Social Security Number</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-r border-black">
+                <div className="px-2 pt-1">Employee's Email Address</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+
+              <div className="col-span-4 border-b border-black">
+                <div className="px-2 pt-1">Employee's Telephone Number</div>
+                <input className="h-7 w-full px-2 outline-none" />
+              </div>
+            </div>
+
+            {/* Attestation */}
+            <div className="grid grid-cols-12 border border-black border-t-0">
+              <div className="col-span-3 border-r border-black p-3 text-[11px] font-bold leading-tight">
+                I am aware that federal law provides for imprisonment and/or
+                fines for false statements, or the use of false documents, in
+                connection with the completion of this form. I attest, under
+                penalty of perjury, that this information, including my
+                selection of the box attesting to my citizenship or immigration
+                status, is true and correct.
+              </div>
+
+              <div className="col-span-9">
+                <div className="border-b border-black px-2 py-1 text-[11px] font-bold">
+                  Check one of the following boxes to attest to your citizenship
+                  or immigration status:
+                </div>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>1.</b>&nbsp; A citizen of the United States
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>2.</b>&nbsp; A noncitizen national of the United States
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>3.</b>&nbsp; A lawful permanent resident (Enter USCIS
+                    A-Number.)
+                    <input className="ml-2 w-[140px] border-b border-black outline-none" />
+                  </span>
+                </label>
+
+                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
+                  <input type="checkbox" className="h-4 w-4" />
+                  <span>
+                    <b>4.</b>&nbsp; An alien authorized to work until
+                    <input className="ml-2 w-[100px] border-b border-black outline-none" />
+                  </span>
+                </label>
+
+                <div className="px-2 py-1 text-[11px] font-bold">
+                  If you check Item Number 4, enter one of these:
+                </div>
+
+                <div className="grid grid-cols-3 border-t border-black text-center text-[10px] font-bold">
+                  <div className="border-r border-black">
+                    <div className="py-1">USCIS A-Number</div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+
+                  <div className="border-r border-black">
+                    <div className="py-1">Form I-94 Admission Number</div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+
+                  <div>
+                    <div className="py-1">
+                      Foreign Passport Number and Country of Issuance
+                    </div>
+                    <input className="h-7 w-full px-2 outline-none" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 border-t border-black">
+                  <div className="border-r border-black">
+                    <div className="px-2 pt-1 text-[10px]">
+                      Signature of Employee
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div>
+                    <div className="px-2 pt-1 text-[10px]">
+                      Today's Date (mm/dd/yyyy)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-x border-b border-black px-2 py-1 text-[11px]">
+              If a preparer and/or translator assisted you in completing Section
+              1, that person <b>MUST</b> complete the{" "}
+              <u className="font-bold text-blue-700">
+                Preparer and/or Translator Certification
+              </u>{" "}
+              on Page 3.
+            </div>
+
+            {/* Section 2 */}
+            <div className="mt-1 border border-black">
+              <div className="bg-gray-200 px-2 py-1 text-[12px] leading-tight">
+                <b>Section 2. Employer Review and Verification:</b> Employers or
+                their authorized representative must complete and sign Section 2
+                within three business days after the employee's first day of
+                employment.
+              </div>
+
+              <div className="grid grid-cols-12 border-t border-black text-center text-[13px] font-bold">
+                <div className="col-span-5 border-r border-black py-1">
+                  List A
+                </div>
+                <div className="col-span-3 border-r border-black py-1">
+                  List B
+                </div>
+                <div className="col-span-4 py-1">List C</div>
+              </div>
+
+              <div className="grid grid-cols-12">
+                {/* List A */}
+                <div className="col-span-5 border-r border-black">
+                  {[
+                    "Document Title 1",
+                    "Document Title 2 (if any)",
+                    "Document Title 3 (if any)",
+                  ].map((title) => (
+                    <div key={title} className="border-t border-black">
+                      <div className="grid grid-cols-5">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px] font-bold">
+                          {title}
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Issuing Authority
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Document Number (if any)
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+
+                      <div className="grid grid-cols-5 border-t border-black">
+                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
+                          Expiration Date (if any)
+                        </div>
+                        <input className="col-span-3 outline-none" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* List B */}
+                <div className="col-span-3 border-r border-black">
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px] font-bold">
+                      Document Title
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Issuing Authority
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Document Number (if any)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+
+                  <div className="border-t border-black">
+                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
+                      Expiration Date (if any)
+                    </div>
+                    <input className="h-8 w-full outline-none" />
+                  </div>
+                </div>
+
+                {/* Additional Information */}
+                <div className="col-span-4">
+                  <div className="border-b border-black px-2 py-1 text-[13px] font-bold">
+                    Additional Information
+                  </div>
+
+                  <textarea className="h-[275px] w-full resize-none p-2 outline-none" />
+
+                  <label className="flex items-center gap-2 border-t border-black p-2 text-[10px]">
+                    <input type="checkbox" className="h-4 w-4" />
+                    Check here if you used an alternative procedure authorized
+                    by DHS to examine documents.
+                  </label>
+                </div>
+              </div>
+
+              {/* Certification */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-9 p-2 text-[10px] leading-tight">
+                  <b>Certification:</b> I attest, under penalty of perjury, that
+                  (1) I have examined the documentation presented by the
+                  above-named employee, (2) the above-listed documentation
+                  appear to be genuine and to relate to the employee named, and
+                  (3) to the best of my knowledge, the employee is authorized to
+                  work in the United States.
+                </div>
+
+                <div className="col-span-3 border-l border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    First Day of Employment
+                    <br />
+                    (mm/dd/yyyy)
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+
+              {/* Employer Signature */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-5 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Last Name, First Name and Title of Employer or Authorized
+                    Representative
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-4 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Signature of Employer or Authorized Representative
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-3">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Today's Date (mm/dd/yyyy)
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+
+              {/* Employer Address */}
+              <div className="grid grid-cols-12 border-t border-black">
+                <div className="col-span-4 border-r border-black">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Employer's Business or Organization Name
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+
+                <div className="col-span-8">
+                  <div className="px-2 pt-1 text-[10px]">
+                    Employer's Business or Organization Address, City or Town,
+                    State, ZIP Code
+                  </div>
+                  <input className="h-8 w-full outline-none" />
+                </div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="border-b border-black py-2 text-center text-[12px]">
+              For reverification or rehire, complete{" "}
+              <span className="font-bold text-blue-700 underline">
+                Supplement B, Reverification and Rehire
+              </span>{" "}
+              on Page 4.
+            </div>
+
+            <div className="flex justify-between pt-2 text-[11px]">
+              <span>Form I-9 Edition 01/20/25</span>
+              <span>Page 4 of 4</span>
+            </div>
+          </div>
+        </div>
 
         <div className="bg-white mt-6 flex items-center justify-center gap-3 border-t border-gray-200 p-4">
           {/*   <button
@@ -13720,9 +15808,14 @@ export default function DriverApplication() {
 
           <button
             type="submit"
-            className="rounded-lg bg-[#1F355A] px-5 py-2.5 text-sm font-medium text-white transition  focus:outline-none focus:ring-2 focus:ring-blue-300"
+            disabled={loading}
+            className={`px-5 text-white rounded-lg py-2.5 text-sm font-medium transition ${
+              loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-[#091122] hover:bg-slate-800"
+            }`}
           >
-            Submit
+            {loading ? "Saving..." : "Save Application "}
           </button>
         </div>
       </form>

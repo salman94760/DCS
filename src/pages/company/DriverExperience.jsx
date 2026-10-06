@@ -725,7 +725,7 @@ export default function DriverExperience() {
               mandate={true}
               inputype="date"
               name="fromdate"
-              value={fetchingExperience.from_date}
+              value={fetchingExperience?.from_date}
               errormsg={errors.fromdate}
             />
 
@@ -735,7 +735,7 @@ export default function DriverExperience() {
               mandate={true}
               inputype="date"
               name="todate"
-              value={fetchingExperience.to_date}
+              value={fetchingExperience?.to_date}
               errormsg={errors.todate}
             />
 
@@ -745,7 +745,7 @@ export default function DriverExperience() {
               mandate={true}
               inputype="text"
               name="miles"
-              value={fetchingExperience.miles}
+              value={fetchingExperience?.miles}
               errormsg={errors.miles}
             />
           </div>
@@ -774,7 +774,7 @@ export default function DriverExperience() {
           <div className="border border-slate-200 rounded-lg p-4">
             <label className="flex items-center gap-3 text-sm text-slate-700">
               <input
-                checked={fetchingExperience.accidenthistory === 1}
+                checked={fetchingExperience?.accidenthistory === 1}
                 type="checkbox"
                 name="noaccidents"
                 value="1"
@@ -957,7 +957,7 @@ export default function DriverExperience() {
           <div className="border border-slate-200 rounded-lg p-4">
             <label className="flex items-center gap-3 text-sm text-slate-700">
               <input
-                checked={fetchingExperience.convictionhistory === 1}
+                checked={fetchingExperience?.convictionhistory === 1}
                 type="checkbox"
                 name="notrafficconvictions"
                 value="1"
@@ -1156,7 +1156,7 @@ export default function DriverExperience() {
             <div className="flex items-center gap-5">
               <label className="flex items-center gap-2">
                 <input
-                  checked={fetchingExperience.licensedeniedstatus === "yes"}
+                  checked={fetchingExperience?.licensedeniedstatus === "yes"}
                   type="radio"
                   value="yes"
                   name="licensedenied"
@@ -1166,7 +1166,7 @@ export default function DriverExperience() {
 
               <label className="flex items-center gap-2">
                 <input
-                  checked={fetchingExperience.licensedeniedstatus === "no"}
+                  checked={fetchingExperience?.licensedeniedstatus === "no"}
                   type="radio"
                   value="no"
                   name="licensedenied"
@@ -1182,7 +1182,7 @@ export default function DriverExperience() {
             </label>
 
             <textarea
-              defaultValue={fetchingExperience.licensedeniedremarks}
+              defaultValue={fetchingExperience?.licensedeniedremarks}
               name="licensedeniedexplanation"
               rows="3"
               placeholder="Enter explanation"
@@ -1201,7 +1201,7 @@ export default function DriverExperience() {
             <div className="flex items-center gap-5">
               <label className="flex items-center gap-2">
                 <input
-                  checked={fetchingExperience.licensesuspendedstatus === "yes"}
+                  checked={fetchingExperience?.licensesuspendedstatus === "yes"}
                   type="radio"
                   value="yes"
                   name="licensesuspended"
@@ -1211,7 +1211,7 @@ export default function DriverExperience() {
 
               <label className="flex items-center gap-2">
                 <input
-                  checked={fetchingExperience.licensesuspendedstatus === "no"}
+                  checked={fetchingExperience?.licensesuspendedstatus === "no"}
                   type="radio"
                   value="no"
                   name="licensesuspended"
@@ -1227,7 +1227,7 @@ export default function DriverExperience() {
             </label>
 
             <textarea
-              defaultValue={fetchingExperience.licensesuspendedremarks}
+              defaultValue={fetchingExperience?.licensesuspendedremarks}
               name="licensesuspendedexplanation"
               rows="3"
               placeholder="Enter explanation"

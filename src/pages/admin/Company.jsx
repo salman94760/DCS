@@ -544,7 +544,12 @@ export default function Company() {
               {!loading && filtered.length === 0 && (
                 <tr>
                   <td colSpan="17" className="text-center py-10 text-slate-500">
-                    No companies found.
+                    <div id="companyTable">
+                      <div class="empty card">
+                        No companies found. Click <b>+ Add Company</b> to create
+                        the first client.
+                      </div>
+                    </div>
                   </td>
                 </tr>
               )}
