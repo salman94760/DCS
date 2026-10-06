@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Input from "@/components/forms/input";
+import Input from "@/components/forms/Input";
 import api from "@/api/axios";
 import { useDcsContext } from "@/context/Context";
 const CompanyModal = ({ onClose }) => {
