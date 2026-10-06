@@ -14,6 +14,26 @@ export default function PermitDashboard() {
     resetFilters,
   } = useDcsContext();
 
+  const getStatusClass = (status) => {
+    if (["Approved", "Delivered", "Paid", "Completed"].includes(status)) {
+      return "p-green";
+    }
+
+    if (["Submitted", "Ready to File"].includes(status)) {
+      return "p-blue";
+    }
+
+    if (["Waiting on Agency", "Documents Needed", "Open"].includes(status)) {
+      return "p-amber";
+    }
+
+    if (["Overdue", "Expired"].includes(status)) {
+      return "p-red";
+    }
+
+    return "p-gray";
+  };
+
   const navigate = useNavigate();
   const [modalType, setModalType] = useState(null);
   useEffect(() => {
@@ -28,9 +48,20 @@ export default function PermitDashboard() {
       navigate(`/${role}-dashboard`, { replace: true });
       return;
     }
-    fetchAllData("/admin/company", { type: "permit" });
+    fetchAllData("/admin/company", { type: "permit", section: "all" });
   }, [navigate]);
-  console.log(state.data);
+
+  const totalOpenPermits =
+    state.data?.filter((item) => item.status !== "Delivered").length || 0;
+
+  const waitingOnDocuments =
+    state.data?.filter((item) => item.status === "Documents Needed").length ||
+    0;
+
+  const waitingOnAgency =
+    state.data?.filter((item) => item.status === "Waiting on Agency").length ||
+    0;
+
   return (
     <>
       <section id="dashboard" class="page">
@@ -68,7 +99,7 @@ export default function PermitDashboard() {
           <div class="card metric">
             <div class="label">Open Applications</div>
             <div class="value" id="mApps">
-              1
+              {totalOpenPermits}
             </div>
             <div class="hint">Permit work in progress</div>
           </div>
@@ -102,18 +133,20 @@ export default function PermitDashboard() {
                     </tr>
                   </thead>
                   <tbody>
-                    {state?.data.map((com, index) => {
-                      return (
-                        <tr key={com.id}>
-                          <td>{com.cname}</td>
-                          <td>USDOT Number</td>
-                          <td>
-                            <span class="pill p-amber">Documents Needed</span>
-                          </td>
-                          <td>$0.00</td>
-                        </tr>
-                      );
-                    })}
+                    {state?.data?.slice(0, 10).map((com, index) => {
+  return (
+    <tr key={com.id}>
+      <td>{com.company?.cname}</td>
+      <td>USDOT Number</td>
+      <td>
+        <span className={`pill ${getStatusClass(com.status)}`}>
+          {com.status || "—"}
+        </span>
+      </td>
+      <td>${com.total}</td>
+    </tr>
+  );
+})}
                   </tbody>
                 </table>
               </div>
@@ -122,15 +155,16 @@ export default function PermitDashboard() {
           <div class="card">
             <h2>Work Queue</h2>
             <div class="kpi-list" id="queue">
-              <div class="kpirow">
+              <div className="kpirow">
                 <span>Waiting on documents</span>
-                <b>1</b>
+                <b>{waitingOnDocuments}</b>
+              </div>
+
+              <div className="kpirow">
+                <span>Waiting on agency</span>
+                <b>{waitingOnAgency}</b>
               </div>
               {/*<div class="kpirow">
-                <span>Waiting on agency</span>
-                <b>0</b>
-              </div>
-              <div class="kpirow">
                 <span>Overdue tasks</span>
                 <b>0</b>
               </div>

@@ -2,18 +2,24 @@ import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDcsContext } from "@/context/Context";
 import CompanyModal from "@/modals/CompanyModal";
+import CompanyDetailModal from "@/modals/CompanyDetailModal";
+import PermitModal from "@/modals/PermitModal";
+
 export default function Companies() {
   const navigate = useNavigate();
+
   const [modalType, setModalType] = useState(null);
+  const [searchText, setSearchText] = useState("");
+
+const [selectedCompany, setSelectedCompany] = useState(null);
+
   const {
     state,
     fetchAllData,
     loading,
     error,
-    filters,
-    setFilters,
-    resetFilters,
   } = useDcsContext();
+
   useEffect(() => {
     const role = localStorage.getItem("userRole");
 
@@ -26,51 +32,50 @@ export default function Companies() {
       navigate(`/${role}-dashboard`, { replace: true });
       return;
     }
+
     fetchAllData("/admin/company", { type: "permit" });
   }, [navigate]);
 
   const filtered = useMemo(() => {
-    const companies = Array.isArray(state.data) ? state.data : [];
+    const companies = Array.isArray(state?.data) ? state.data : [];
 
-    const searchText = filters?.search?.toLowerCase().trim() || "";
+    const search = searchText.toLowerCase().trim();
 
-    const status = filters?.status || "all";
+    if (!search) {
+      return companies;
+    }
 
     return companies.filter((com) => {
-      const companyName = String(com.cname || "").toLowerCase();
+      const companyName = String(com?.cname || "").toLowerCase();
+      const owner = String(com?.owner || "").toLowerCase();
+      const email = String(com?.email || "").toLowerCase();
+      const dot = String(com?.dot || "").toLowerCase();
+      const mc = String(com?.mc || "").toLowerCase();
+      const phone = String(com?.phone || "").toLowerCase();
 
-      const owner = String(com.owner || "").toLowerCase();
-
-      const email = String(com.email || "").toLowerCase();
-
-      const usdot = String(com.usdot || "").toLowerCase();
-
-      const matchesSearch =
-        !searchText ||
-        companyName.includes(searchText) ||
-        owner.includes(searchText) ||
-        email.includes(searchText) ||
-        usdot.includes(searchText);
-
-      const companyStatus = Number(com.user?.user_info?.status);
-
-      const matchesStatus =
-        status === "all" ||
-        (status === "active" && companyStatus === 1) ||
-        (status === "inactive" && companyStatus === 0);
-
-      return matchesSearch && matchesStatus;
+      return (
+        companyName.includes(search) ||
+        owner.includes(search) ||
+        email.includes(search) ||
+        dot.includes(search) ||
+        mc.includes(search) ||
+        phone.includes(search)
+      );
     });
-  }, [state.data, filters]);
+  }, [state?.data, searchText]);
+
   return (
-    <section id="companies" class="page">
-      <div class="top">
+    <section id="companies" className="page">
+      {/* Header */}
+      <div className="top">
         <div>
           <h1>Companies</h1>
-          <div class="sub">
+
+          <div className="sub">
             Client carrier profiles, contacts, fleet details and permit history
           </div>
         </div>
+
         <button
           type="button"
           onClick={() => setModalType("company")}
@@ -79,16 +84,22 @@ export default function Companies() {
           + Add Company
         </button>
       </div>
-      <div class="toolbar">
+
+      {/* Search */}
+      <div className="toolbar">
         <input
           id="companySearch"
-          class="input"
+          type="text"
+          className="input"
           placeholder="Search company, USDOT, MC, contact..."
-          oninput="renderCompanies()"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
         />
       </div>
+
+      {/* Table */}
       <div id="companyTable">
-        <div class="tablewrap">
+        <div className="tablewrap">
           <table>
             <thead>
               <tr>
@@ -101,10 +112,14 @@ export default function Companies() {
                 <th></th>
               </tr>
             </thead>
+
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan="17" className="text-center py-10 text-slate-500">
+                  <td
+                    colSpan="7"
+                    className="py-10 text-center text-slate-500"
+                  >
                     Loading companies...
                   </td>
                 </tr>
@@ -112,23 +127,43 @@ export default function Companies() {
                 filtered.map((com) => (
                   <tr key={com.id}>
                     <td>
-                      <b>{com.cname}</b>
+                      <b>{com.cname || "—"}</b>
                     </td>
-                    <td>{com.dot}</td>
-                    <td>{com.mc}</td>
+
+                    <td>{com.dot || "—"}</td>
+
+                    <td>{com.mc || "—"}</td>
+
                     <td>
-                      {com.owner}<br />
-                      <span class="sub">{com.phone}</span>
+                      {com.owner || "—"}
+                      <br />
+
+                      <span className="sub">
+                        {com.phone || "—"}
+                      </span>
                     </td>
-                    <td>{com.trucks} trucks</td>
-                    <td>{com.open_permits_count}</td>
+
                     <td>
-                      <button
-                        class="btn small secondary"
-                        onclick="viewCompany('co_muvo6kp9_o77dq')"
-                      >
-                        Open
-                      </button>
+                      {com.trucks || 0} trucks
+                    </td>
+
+                    <td>
+                      {com.open_permits_count || 0}
+                    </td>
+
+                    <td>
+                     
+
+                   <button
+        type="button"
+        onClick={() => {
+          setSelectedCompany(com);
+          setModalType("companydetail");
+        }}
+        className="btn small secondary"
+      >
+        Open
+      </button>
                     </td>
                   </tr>
                 ))
@@ -136,12 +171,13 @@ export default function Companies() {
 
               {!loading && filtered.length === 0 && (
                 <tr>
-                  <td colSpan="17" className="text-center py-10 text-slate-500">
-                    <div id="companyTable">
-                      <div class="empty card">
-                        No companies found. Click <b>+ Add Company</b> to create
-                        the first client.
-                      </div>
+                  <td
+                    colSpan="7"
+                    className="py-10 text-center text-slate-500"
+                  >
+                    <div className="empty card">
+                      No companies found. Click{" "}
+                      <b>+ Add Company</b> to create the first client.
                     </div>
                   </td>
                 </tr>
@@ -150,10 +186,35 @@ export default function Companies() {
           </table>
         </div>
       </div>
+{/* Modal */}
+{modalType === "company" && (
+  <CompanyModal
+    onClose={() => setModalType(null)}
+  />
+)}
 
-      {modalType === "company" && (
-        <CompanyModal onClose={() => setModalType(null)} />
-      )}
+{modalType === "companydetail" && selectedCompany && (
+  <CompanyDetailModal
+    company={selectedCompany}
+    onClose={() => {
+      setModalType(null);
+      setSelectedCompany(null);
+    }}
+    onNewPermit={() => {
+      setSelectedCompany(null);
+      setModalType("permit");
+    }}
+  />
+)}
+
+{modalType === "permit" && (
+  <PermitModal
+    onClose={() => setModalType(null)}
+  />
+)}
+
+
+
     </section>
   );
 }

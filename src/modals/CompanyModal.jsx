@@ -4,24 +4,16 @@ import Input from "@/components/forms/Input";
 import api from "@/api/axios";
 import { useDcsContext } from "@/context/Context";
 const CompanyModal = ({ onClose }) => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [serverMessage, setServerMessage] = useState("");
   const [serverMessageType, setServerMessageType] = useState("");
 
-const {
-    state,
-    fetchAllData,
-    error,
-    filters,
-    setFilters,
-    resetFilters,
-  } = useDcsContext();
+  const { state, fetchAllData, error, filters, setFilters, resetFilters } =
+    useDcsContext();
 
-
-
-      useEffect(() => {
+  useEffect(() => {
     const role = localStorage.getItem("userRole");
 
     if (!role) {
@@ -35,8 +27,6 @@ const {
     }
     fetchAllData("/admin/company", { type: "permit" });
   }, [navigate]);
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -178,6 +168,7 @@ const {
       e.target.reset();
       setErrors({});
       fetchAllData("/admin/company", { type: "permit" });
+      onClose();
     } catch (error) {
       console.error("ERROR:", error);
 
@@ -268,14 +259,7 @@ const {
                   value=""
                   errormsg={errors.phone}
                 />
-                <Input
-                  label="Alternate Phone Number"
-                  mandate={false}
-                  inputType="text"
-                  name="aphone"
-                  value=""
-                  errormsg=""
-                />
+                
                 <Input
                   label="Alternate Phone Number"
                   mandate={false}
@@ -340,7 +324,7 @@ const {
                   Cancel{" "}
                 </button>
                 <button
-                  onClick={() => console.log("clicked")}
+                 
                   class="btn relative z-[10001] cursor-pointer rounded bg-blue-600 px-4 py-2 text-white"
                 >
                   Save Company

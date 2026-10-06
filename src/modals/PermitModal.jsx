@@ -9,15 +9,9 @@ const PermitModal = ({ onClose }) => {
   const [loading, setLoading] = useState(false);
   const [serverMessage, setServerMessage] = useState("");
   const [serverMessageType, setServerMessageType] = useState("");
- 
-  const {
-    state,
-    fetchAllData,
-    error,
-    filters,
-    setFilters,
-    resetFilters,
-  } = useDcsContext();
+
+  const { state, fetchAllData, error, filters, setFilters, resetFilters } =
+    useDcsContext();
 
   useEffect(() => {
     const role = localStorage.getItem("userRole");
@@ -129,14 +123,9 @@ const PermitModal = ({ onClose }) => {
                 <div class="field">
                   <label>Company *</label>
                   <select name="companyId">
-                    {
-                      state?.data?.map((com,index)=>{
-                        return (
-                           <option value={com.user_id}>{com.cname}</option>
-                        );
-                      })
-                    }
-                   
+                    {state?.data?.map((com, index) => {
+                      return <option value={com.user_id}>{com.cname}</option>;
+                    })}
                   </select>
                   {errors.companyId && (
                     <p className="text-red-500 text-xs mt-1">
