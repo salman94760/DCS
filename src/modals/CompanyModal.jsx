@@ -4,12 +4,20 @@ import Input from "@/components/forms/input";
 import api from "@/api/axios";
 import { useDcsContext } from "@/context/Context";
 const CompanyModal = ({ onClose }) => {
+   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [serverMessage, setServerMessage] = useState("");
   const [serverMessageType, setServerMessageType] = useState("");
 
-
+const {
+    state,
+    fetchAllData,
+    error,
+    filters,
+    setFilters,
+    resetFilters,
+  } = useDcsContext();
 
 
 
