@@ -10,7 +10,7 @@ function App() {
       <Routes />
       <AdminRoutes />
       <CompanyRoutes />
-      <PermitRoute />
+      {/*<PermitRoute />*/}
     </BrowserRouter>
   );
 }
