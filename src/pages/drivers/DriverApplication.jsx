@@ -13622,7 +13622,7 @@ const ReceiptItem = ({ text }) => (
         </div>
         {/*****page 49 start********/}
         <br />
-        <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+               <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 50</i>
           </p>
@@ -13985,8 +13985,9 @@ const ReceiptItem = ({ text }) => (
             </div>
           </div>
         </div>
-        {/*****page 49 start********/}
+       
         <br />
+
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <div className="mx-auto">
             {/* Header */}
@@ -14226,153 +14227,210 @@ const ReceiptItem = ({ text }) => (
                 the Additional Information box; see Instructions.
               </div>
 
-              <div>
-                <table className="w-full">
-                  <thead>
-                    <tr>
-                      <th>
-                        <div className="text-[13px] col-span-5 border-r border-black py-1">
-                          List A
-                        </div>
-                      </th>
-                      <th>OR</th>
-                      <th>
-                        <div className="text-[13px] col-span-5 border-r border-black py-1">
-                          List B
-                        </div>
-                      </th>
-                      <th>
-                        <div className="text-[13px] col-span-5 border-r border-black py-1">
-                          AND
-                        </div>
-                      </th>
-                      <th>
-                        <div className="text-[13px] col-span-5 border-r border-black py-1">
-                          List C
-                        </div>
-                      </th>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
+              <div class="w-full bg-white text-black font-sans text-[16px] leading-[1.15]">
 
-              <div className="grid grid-cols-12 border-t border-black text-center text-[13px] font-bold">
-                <div className="col-span-5 border-r border-black py-1">
-                  List A
-                </div>
-                <div className="col-span-3 border-r border-black py-1">
-                  List B
-                </div>
-                <div className="col-span-4 py-1">List C</div>
-              </div>
 
-              <div className="grid grid-cols-12">
-                {/* List A */}
-                <div className="col-span-5 border-r border-black">
-                  {[
-                    "Document Title 1",
-                    "Document Title 2 (if any)",
-                    "Document Title 3 (if any)",
-                  ].map((title) => (
-                    <div key={title} className="border-t border-black">
-                      <div className="grid grid-cols-5">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px] font-bold">
-                          {title}
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
 
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Issuing Authority
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
 
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Document Number (if any)
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
 
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Expiration Date (if any)
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+  <div class="text-[10.7px] grid grid-cols-[44%_2.5%_53.5%] border-x-[2px] border-b-[2px] border-black font-bold text-center">
 
-                {/* List B */}
-                <div className="col-span-3 border-r border-black">
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px] font-bold">
-                      Document Title
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
+    <div class="border-r-[2px]  text-[10.7px] border-black py-0.5">
+      List A
+    </div>
 
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Issuing Authority
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
+    <div class="border-r-[2px] border-black py-0.5">
+      OR
+    </div>
 
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Document Number (if any)
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
+    <div class="grid grid-cols-3">
+      <div class=" py-0.5">
+        List B
+      </div>
+      <div class="py-0.5">
+        AND
+      </div>
+       <div class="py-0.5">
+       List C
+      </div>
+    </div>
 
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Expiration Date (if any)
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-                </div>
+  </div>
 
-                {/* Additional Information */}
-                <div className="col-span-4">
-                  <div className="border-b border-black px-2 py-1 text-[13px] font-bold">
-                    Additional Information
-                  </div>
 
-                  <textarea className="h-[275px] w-full resize-none p-2 outline-none" />
+  <div class="grid grid-cols-[44%_56%] border-x-[2px] border-black h-[430px]">
 
-                  <label className="flex items-center gap-2 border-t border-black p-2 text-[10px]">
-                    <input type="checkbox" className="h-4 w-4" />
-                    Check here if you used an alternative procedure authorized
-                    by DHS to examine documents.
-                  </label>
-                </div>
-              </div>
+   
+    <div class="border-r-[2px] border-black">
 
-              {/* Certification */}
-              <div className="grid grid-cols-12 border-t border-black">
-                <div className="col-span-9 p-2 text-[10px] leading-tight">
-                  <b>Certification:</b> I attest, under penalty of perjury, that
-                  (1) I have examined the documentation presented by the
-                  above-named employee, (2) the above-listed documentation
-                  appear to be genuine and to relate to the employee named, and
-                  (3) to the best of my knowledge, the employee is authorized to
-                  work in the United States.
-                </div>
+      
+      <div class="text-[9.4px] grid grid-cols-[50%_50%]">
+        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3 font-bold">
+          Document Title 1
+        </div>
+        <div class="bg-[#e6f1ff] border-b border-black px-1 py-3"></div>
 
-                <div className="col-span-3 border-l border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    First Day of Employment
-                    <br />
-                    (mm/dd/yyyy)
-                  </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-              </div>
+        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+          Issuing Authority
+        </div>
+        <div class="border-b border-black px-1 py-3"></div>
+
+        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+          Document Number (if any)
+        </div>
+        <div class="border-b border-black px-1 py-3"></div>
+
+        <div class="bg-[#d9d9d9] border-b-[2px] border-r border-black px-1 py-3">
+         Expiration Date (if any)
+        </div>
+        <div class="border-b-[2px] border-black px-1 py-3"></div>
+      </div>
+
+  
+      <div class="text-[9.4px] grid grid-cols-[50%_50%]">
+
+        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3 font-bold">
+          Document Title 2 (if any)
+        </div>
+        <div class="border-b border-black px-1 py-3"></div>
+
+        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+          Issuing Authority
+        </div>
+        <div class="border-b border-black px-1 py-3"></div>
+
+        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+          Document Number (if any)
+        </div>
+        <div class="border-b border-black px-1 py-3"></div>
+
+        <div class="bg-[#d9d9d9] border-b-[2px] border-r border-black px-1 py-3">
+          Expiration Date (if any)
+        </div>
+        <div class="border-b-[2px] border-black px-1 py-3"></div>
+
+      </div>
+
+ 
+      <div class="text-[9.4px] grid grid-cols-[50%_50%]">
+
+        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3 font-bold">
+          Document Title 3 (if any)
+        </div>
+        <div class="border-b border-black px-1 py-3"></div>
+
+        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+          Issuing Authority
+        </div>
+        <div class="border-b border-black px-1 py-3"></div>
+
+        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+          Document Number (if any)
+        </div>
+        <div class="border-b border-black px-1 py-3"></div>
+
+        <div class="bg-[#d9d9d9] border-r border-black px-1 py-3">
+          Expiration Date (if any)
+        </div>
+        <div class="border-b border-black px-1 py-3"></div>
+
+      </div>
+
+    </div>
+
+
+    <div>
+
+  
+      <div class="grid grid-cols-3 grid-cols-[5%_45%_50%]">
+
+     
+        <div class="border-b-[2px] border-black bg-[#d9d9d9]">
+
+        
+
+        </div>
+
+        <div class="border-x-[2px] border-black">
+
+          <div class="h-[36px] border-b border-black"></div>
+          <div class="h-[36px] border-b border-black"></div>
+          <div class="h-[36px] border-b border-black"></div>
+          <div class="h-[36px] border-b-[2px] border-black"></div>
+
+        </div>
+
+  
+        <div>
+
+          <div class="h-[36px] border-b border-black"></div>
+          <div class="h-[36px] border-b border-black"></div>
+          <div class="h-[36px] border-b border-black"></div>
+          <div class="h-[36px] border-b-[2px] border-black"></div>
+
+        </div>
+
+      </div>
+
+ 
+      <div>
+
+        <div class="bg-[#d9d9d9] border-b-[2px] border-black px-2 py-1 font-bold text-[10.7px]">
+          Additional Information
+        </div>
+
+        <div class="h-[218px]"></div>
+
+  
+        <div class="flex items-center gap-2 px-2 py-3 text-[9.4px]">
+         
+          <input type="checkbox" />
+          <span>
+            Check here if you used an alternative procedure authorized by DHS
+            to examine documents.
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="grid grid-cols-[78%_22%] border-t-[1px] border-b-[2px] border-black">
+
+    <div class="px-2 py-2 font-bold text-[10.4px] leading-[1.25] border-r-[2px] border-black">
+      <span class="font-bold">Certification:</span>
+      <span>
+        I attest, under penalty of perjury, that (1) I have examined the
+        documentation presented by the above-named employee, (2) the
+        above-listed documentation appears to be genuine and to relate to the
+        employee named, and (3) to the best of my knowledge, the employee is
+        authorized to work in the United States.
+      </span>
+    </div>
+
+    <div class="grid grid-cols-1">
+
+      <div class="px-3 py-1 text-[9.4px]">
+        First Day of Employment
+        <br />
+        (mm/dd/yyyy):
+        <br />
+        <input type="date"  className="border border-black"/>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+             
+
+            
 
               {/* Employer Signature */}
               <div className="grid grid-cols-12 border-t border-black">
@@ -14381,21 +14439,21 @@ const ReceiptItem = ({ text }) => (
                     Last Name, First Name and Title of Employer or Authorized
                     Representative
                   </div>
-                  <input className="h-8 w-full outline-none" />
+                  <input className="border border-black h-8 w-full outline-none" />
                 </div>
 
                 <div className="col-span-4 border-r border-black">
                   <div className="px-2 pt-1 text-[10px]">
                     Signature of Employer or Authorized Representative
                   </div>
-                  <input className="h-8 w-full outline-none" />
+                  <input className="border border-black h-8 w-full outline-none" />
                 </div>
 
                 <div className="col-span-3">
                   <div className="px-2 pt-1 text-[10px]">
                     Today's Date (mm/dd/yyyy)
                   </div>
-                  <input className="h-8 w-full outline-none" />
+                  <input className="border border-black h-8 w-full outline-none" />
                 </div>
               </div>
 
@@ -14405,7 +14463,7 @@ const ReceiptItem = ({ text }) => (
                   <div className="px-2 pt-1 text-[10px]">
                     Employer's Business or Organization Name
                   </div>
-                  <input className="h-8 w-full outline-none" />
+                  <input className="border border-black h-8 w-full outline-none" />
                 </div>
 
                 <div className="col-span-8">
@@ -14413,7 +14471,7 @@ const ReceiptItem = ({ text }) => (
                     Employer's Business or Organization Address, City or Town,
                     State, ZIP Code
                   </div>
-                  <input className="h-8 w-full outline-none" />
+                  <input className="border border-black h-8 w-full outline-none" />
                 </div>
               </div>
             </div>
@@ -14800,6 +14858,7 @@ const ReceiptItem = ({ text }) => (
   </div>
 </div>
         <br />
+
         <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <div className="mx-auto">
             {/* Header */}
@@ -15330,6 +15389,8 @@ const ReceiptItem = ({ text }) => (
           </div>
         </div>
         <br />
+
+
         <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <div className="mx-auto">
             {/* Header */}
@@ -15541,7 +15602,7 @@ const ReceiptItem = ({ text }) => (
                   <div className=" flex text-[9.4px] p-1">
                     <input
                       type="checkbox"
-                      className="w-[5%] mr-5 border border-gray-500 p-1 w-full"
+                      className="w-[2%]  mr-1 border border-gray-500 p-1 w-full"
                     />
                     Check here if you used an alternative procedure authorized
                     by DHS to examine documents.
@@ -15664,7 +15725,7 @@ const ReceiptItem = ({ text }) => (
                   <div className=" flex text-[9.4px] p-1">
                     <input
                       type="checkbox"
-                      className="w-[5%] mr-5 border border-gray-500 p-1 w-full"
+                      className="w-[2%]  mr-1 border border-gray-500 p-1 w-full"
                     />
                     Check here if you used an alternative procedure authorized
                     by DHS to examine documents.
@@ -15784,10 +15845,10 @@ const ReceiptItem = ({ text }) => (
                 </td>
 
                 <td className="border border-gray-500">
-                  <div className=" flex text-[9.4px] p-1">
+                 <div className=" flex text-[9.4px] p-1">
                     <input
                       type="checkbox"
-                      className="w-[5%] mr-5 border border-gray-500 p-1 w-full"
+                      className=" mr-1 border border-gray-500 p-1 w-full"
                     />
                     Check here if you used an alternative procedure authorized
                     by DHS to examine documents.
@@ -15804,674 +15865,917 @@ const ReceiptItem = ({ text }) => (
           </div>
         </div>
         <br />
-        <div class="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-          <div class="grid grid-cols-[100px_1fr_140px] border-b-2 border-black">
-            <div class="pr-2">
-              <div class="text-[12px]">Form</div>
-              <div class="flex items-baseline">
-                <span class="text-[40px] font-black leading-none">W-4</span>
-              </div>
+        <div className="font-[Arial] mx-auto w-full max-w-[210mm] min-h-screen overflow-hidden bg-white px-2 py-3 shadow-[0_2px_10px_rgba(0,0,0,0.25)] sm:px-4 sm:py-5 md:px-6 lg:px-[17mm] lg:py-[17mm]">
 
-              <div class="mt-4 text-[11px] leading-[1.05]">
-                Department of the Treasury
-                <br />
-                Internal Revenue Service
-              </div>
-            </div>
+  {/* =========================
+      PAGE 1
+  ========================== */}
 
-            <div class="border-l border-r border-black px-3 text-center">
-              <h1 class="m-0 text-[22px] font-black leading-tight">
-                Employee’s Withholding Certificate
-              </h1>
+  {/* Header */}
+  <div className="grid grid-cols-[75px_minmax(0,1fr)_80px] border-b-2 border-black sm:grid-cols-[90px_minmax(0,1fr)_110px] lg:grid-cols-[100px_minmax(0,1fr)_140px]">
 
-              <p class="mt-1 mb-0 text-[12px] font-bold">
-                Complete Form W-4 so that your employer can withhold the correct
-                federal income tax from your pay.
-              </p>
+    {/* Form W-4 */}
+    <div className="relative flex pr-1 sm:pr-2">
+      <div className="relative">
+        <div className="flex items-baseline">
+          <span className="mr-1 text-[7px] sm:text-[8px] lg:text-[8.7px]">
+            Form
+          </span>
 
-              <p class="mt-1 mb-0 text-[13px] font-bold">
-                Give Form W-4 to your employer.
-              </p>
+          <span className="text-[25px] font-black leading-none sm:text-[30px] lg:text-[36px]">
+            W-4
+          </span>
+        </div>
 
-              <p class="mt-1 mb-1 text-[12px] font-bold">
-                Your withholding is subject to review by the IRS.
-              </p>
-            </div>
+        <div className="mt-2 text-[6px] leading-[1.05] sm:mt-3 sm:text-[7px] lg:mt-4 lg:text-[7.7px]">
+          Department of the Treasury
+          <br />
+          Internal Revenue Service
+        </div>
+      </div>
+    </div>
 
-            <div class="pl-3 text-center">
-              <div class="border-b border-black pb-1 text-[11px]">
-                OMB No. 1545-0074
-              </div>
+    {/* Center Header */}
+    <div className="border-l border-r border-black px-1 text-center sm:px-2 lg:px-3">
+      <h1 className="m-0 text-[11px] font-black leading-tight sm:text-[15px] lg:text-[18px]">
+        Employee’s Withholding Certificate
+      </h1>
 
-              <div class="pt-3 text-[32px] font-black leading-none">2026</div>
-            </div>
+      <p className="mt-1 mb-0 text-[7px] font-bold leading-tight sm:text-[9px] lg:text-[10.7px]">
+        Complete Form W-4 so that your employer can withhold the correct
+        federal income tax from your pay.
+      </p>
+
+      <p className="mt-1 mb-0 text-[8px] font-bold leading-tight sm:text-[10px] lg:text-[13px]">
+        Give Form W-4 to your employer.
+      </p>
+
+      <p className="mt-1 mb-1 text-[7px] font-bold leading-tight sm:text-[9px] lg:text-[12px]">
+        Your withholding is subject to review by the IRS.
+      </p>
+    </div>
+
+    {/* Year */}
+    <div className="min-w-0 text-center">
+      <div className="border-b border-black pb-1 text-[6px] sm:text-[8px] lg:text-[9.4px]">
+        OMB No. 1545-0074
+      </div>
+
+      <div className="pt-2 text-[18px] font-black leading-none sm:pt-3 sm:text-[23px] lg:text-[26.7px]">
+        2026
+      </div>
+    </div>
+  </div>
+
+
+  {/* =========================
+      STEP 1
+  ========================== */}
+
+  <div className="grid grid-cols-[75px_minmax(0,1fr)] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)] lg:grid-cols-[100px_minmax(0,1fr)]">
+
+    {/* Step Label */}
+    <div className="border-r border-black py-2 pr-1 sm:pr-2">
+      <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
+        Step 1:
+      </div>
+
+      <div className="mt-2 text-[10px] font-black leading-tight sm:mt-3 sm:text-[12px] lg:text-[13.4px]">
+        Enter
+        <br />
+        Personal
+        <br />
+        Information
+      </div>
+    </div>
+
+    <div>
+
+      {/* Name / SSN */}
+      <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_100px] border-b border-black text-[7px] sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_135px] sm:text-[8.5px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_170px] lg:text-[9.4px]">
+
+        <div className="min-h-[38px] border-r border-black px-1 pt-1 sm:min-h-[42px] sm:px-2">
+          <span className="mr-1 font-bold sm:mr-2">
+            (a)
+          </span>
+
+          First name and middle initial
+        </div>
+
+        <div className="min-h-[38px] border-r border-black px-1 pt-1 sm:min-h-[42px] sm:px-2">
+          Last name
+        </div>
+
+        <div className="min-w-0 px-1 pt-1 sm:px-2">
+          <span className="font-bold">(b)</span>{" "}
+          <span className="font-bold">
+            Social security number
+          </span>
+        </div>
+      </div>
+
+
+      {/* Address */}
+      <div className="grid grid-cols-[minmax(0,1fr)_105px] border-b border-black text-[7px] sm:grid-cols-[minmax(0,1fr)_135px] sm:text-[8.5px] lg:grid-cols-[minmax(0,1fr)_170px] lg:text-[9.4px]">
+
+        {/* Left */}
+        <div className="border-r border-black">
+
+          <div className="border-b border-black px-1 py-2 sm:px-2">
+            Address
           </div>
 
-          <div class="grid grid-cols-[100px_1fr] border-b border-black">
-            <div class="border-r border-black py-2 pr-2">
-              <div class="text-[17px] font-black">Step 1:</div>
-              <div class="mt-3 text-[17px] font-black leading-tight">
-                Enter
-                <br />
-                Personal
-                <br />
-                Information
-              </div>
-            </div>
-
-            <div>
-              <div class="grid grid-cols-[1fr_1fr_170px] border-b border-black">
-                <div class="min-h-[42px] border-r border-black px-2 pt-1">
-                  <span class="mr-2 font-bold">(a)</span>
-                  First name and middle initial
-                </div>
-
-                <div class="min-h-[42px] border-r border-black px-2 pt-1">
-                  Last name
-                </div>
-
-                <div class="px-2 pt-1">
-                  <span class="font-bold">(b)</span>
-                  <span class="font-bold">Social security number</span>
-                </div>
-              </div>
-
-              <div class="border-b border-black px-2 py-2">Address</div>
-
-              <div class="grid grid-cols-[1fr_170px] border-b border-black">
-                <div class="px-2 py-2">City or town, state, and ZIP code</div>
-
-                <div class="border-l border-black px-2 py-2 text-[10px] leading-[1.05]">
-                  <strong>
-                    Does your name match the
-                    <br />
-                    name on your social security
-                    <br />
-                    card?
-                  </strong>{" "}
-                  If not, to ensure you get
-                  <br />
-                  credit for your earnings,
-                  <br />
-                  contact SSA at 800-772-1213
-                  <br />
-                  or go to <i>www.ssa.gov</i>.
-                </div>
-              </div>
-
-              <div class="px-2 py-2">
-                <div class="mb-1">
-                  <span class="mr-2 font-bold">(c)</span>
-
-                  <span class="mr-3 inline-flex items-center">
-                    <span class="mr-1 inline-block h-4 w-4 border border-black"></span>
-                    <strong>Single or Married filing separately</strong>
-                  </span>
-                </div>
-
-                <div class="mb-1 ml-[30px]">
-                  <span class="mr-1 inline-block h-4 w-4 border border-black"></span>
-                  <strong>
-                    Married filing jointly or Qualifying surviving spouse
-                  </strong>
-                </div>
-
-                <div class="ml-[30px]">
-                  <span class="mr-1 inline-block h-4 w-4 border border-black"></span>
-                  <strong>Head of household</strong>
-                  <span>
-                    (Check only if you’re unmarried and pay more than half the
-                    costs of keeping up a home for yourself and a qualifying
-                    individual.)
-                  </span>
-                </div>
-              </div>
-            </div>
+          <div className="px-1 py-2 sm:px-2">
+            City or town, state, and ZIP code
           </div>
 
-          <div class="border-b-2 border-black px-1 py-1 text-[10px] leading-tight">
-            <strong>Caution:</strong>
-            To claim certain credits or deductions on your tax return, you
-            (and/or your spouse if married filing jointly) are required to have
-            a social security number valid for employment. See page 2 for more
-            information.
-          </div>
+        </div>
 
-          <div class="border-b border-black py-2">
-            <p class="m-0 text-[11px] leading-[1.15]">
-              <strong>TIP:</strong>
-              Consider using the estimator at
-              <strong>
-                <i>www.irs.gov/W4App</i>
-              </strong>
-              to determine the most accurate withholding for the rest of the
-              year if you are completing this form after the beginning of the
-              year; expect to work only part of the year; or have changes during
-              the year in your marital status, number of jobs for you (and/or
-              your spouse if married filing jointly), dependents, other income
-              (not from jobs), deductions, or credits. Have you most recent pay
-              stub(s) from this year available when using the estimator. At the
-              beginning of next year, use the estimator again to recheck your
-              withholding.
-            </p>
+        {/* Right */}
+        <div className="px-1 pt-0 pb-2 text-[7px] leading-[1.05] sm:px-2 sm:text-[8.5px] lg:text-[10px]">
 
-            <p class="mt-2 mb-0 text-[11px] font-bold">
-              Complete Steps 2–4 ONLY if they apply to you; otherwise, skip to
-              Step 5. See page 2 for more information on each step, who can
-              claim exemption from withholding, and when to use the estimator at{" "}
-              <i>www.irs.gov/W4App</i>.
-            </p>
-          </div>
+          <strong>
+            Does your name match the
+            <br />
+            name on your social security
+            <br />
+            card?
+          </strong>{" "}
 
-          <div class="grid grid-cols-[100px_1fr] border-b border-black py-2">
-            <div class="border-r border-black pr-2">
-              <div class="text-[17px] font-black">Step 2:</div>
+          If not, to ensure you get
+          <br />
+          credit for your earnings,
+          <br />
+          contact SSA at 800-772-1213
+          <br />
+          or go to <i>www.ssa.gov</i>.
 
-              <div class="mt-2 text-[16px] font-black leading-tight">
-                Multiple Jobs
-                <br />
-                or Spouse
-                <br />
-                Works
-              </div>
-            </div>
+        </div>
+      </div>
 
-            <div class="pl-3 text-[11px]">
-              <p class="m-0">
-                Complete this step if you (1) hold more than one job at a time,
-                or (2) are married filing jointly and your spouse also works.
-                The correct amount of withholding depends on income earned from
-                all of these jobs.
-              </p>
 
-              <p class="mt-2 mb-1 font-bold">Do only one of the following.</p>
+      {/* Filing Status */}
+      <div className="py-2 text-[7px] sm:text-[8.5px] lg:text-[9.4px]">
 
-              <div class="mb-1">
-                <strong>(a)</strong>
-                Use the estimator at <i>www.irs.gov/W4App</i> for the most
-                accurate withholding for this step (and Steps 3–4). If you or
-                your spouse have self-employment income, use this option; or
-              </div>
+        <div className="mb-1">
+          <span className="mr-2 font-bold">
+            (c)
+          </span>
 
-              <div class="mb-1">
-                <strong>(b)</strong>
-                Use the Multiple Jobs Worksheet on page 3 and enter the result
-                in Step 4(c) below; or
-              </div>
-
-              <div>
-                <strong>(c)</strong>
-                If there are only two jobs total, you may check this box. Do the
-                same on Form W-4 for the other job. This option is generally
-                more accurate than Step 2(b) if pay at the lower paying job is
-                more than half of the pay at the higher paying job. Otherwise,
-                Step 2(b) is more accurate.
-                <span class="float-right inline-block h-4 w-4 border border-black"></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="border-b border-black py-1 text-[10px]">
+          <span className="inline-flex items-center">
             <strong>
-              Complete Steps 3–4(b) on Form W-4 for only ONE of these jobs.
+              <input
+                type="checkbox"
+                className="mr-1 h-3 w-3 align-middle"
+              />
+              Single or Married filing separately
             </strong>
-            Leave those steps blank for the other jobs. (Your withholding will
-            be most accurate if you complete Steps 3–4(b) on the Form W-4 for
-            the highest paying job.)
-          </div>
+          </span>
+        </div>
 
-          <div class="grid grid-cols-[100px_1fr_120px] border-b border-black">
-            <div class="border-r border-black py-2 pr-2">
-              <div class="text-[17px] font-black">Step 3:</div>
+        <div className="mb-1 ml-4 sm:ml-5">
+          <strong>
+            <input
+              type="checkbox"
+              className="mr-1 h-3 w-3 align-middle"
+            />
+            Married filing jointly or Qualifying surviving spouse
+          </strong>
+        </div>
 
-              <div class="mt-2 text-[16px] font-black leading-tight">
-                Claim
-                <br />
-                Dependent
-                <br />
-                and Other
-                <br />
-                Credits
-              </div>
-            </div>
+        <div className="ml-4 sm:ml-5">
+          <strong>
+            <input
+              type="checkbox"
+              className="mr-1 h-3 w-3 align-middle"
+            />
+            Head of household
+          </strong>{" "}
 
-            <div class="px-3 py-2 text-[11px]">
-              <p class="m-0">
-                If your total income will be $200,000 or less ($400,000 or less
-                if married filing jointly):
-              </p>
+          <span>
+            (Check only if you’re unmarried and pay more than half the
+            costs of keeping up a home for yourself and a qualifying
+            individual.)
+          </span>
+        </div>
 
-              <div class="mt-2">
-                <strong>(a)</strong>
-                Multiply the number of qualifying children under age 17 by
-                $2,200.
-              </div>
+        {/* Caution */}
+        <div className="mt-2 border-t border-black pt-1">
+          <strong>Caution:</strong>{" "}
+          To claim certain credits or deductions on your tax return, you
+          (and/or your spouse if married filing jointly) are required to have
+          a social security number valid for employment. See page 2 for more
+          information.
+        </div>
 
-              <div class="mt-2">
-                <strong>(b)</strong>
-                Multiply the number of other dependents by $500.
-              </div>
+      </div>
+    </div>
+  </div>
 
-              <div class="mt-2">
-                Add the amounts from Steps 3(a) and 3(b), plus the amount for
-                other credits. Enter the total here.
-              </div>
-            </div>
 
-            <div class="border-l border-black text-[11px]">
-              <div class="border-b border-black px-2 py-3">
-                <strong>3(a)</strong> $
-              </div>
+  {/* =========================
+      TIP
+  ========================== */}
 
-              <div class="border-b border-black px-2 py-3">
-                <strong>3(b)</strong> $
-              </div>
+  <div className="border-b border-black py-2">
 
-              <div class="px-2 py-3">
-                <strong>3</strong> $
-              </div>
-            </div>
-          </div>
+    <p className="m-0 text-[8px] leading-[1.15] sm:text-[9.5px] lg:text-[11px]">
+      <strong>TIP:</strong>{" "}
+      Consider using the estimator at{" "}
+      <strong>
+        <i>www.irs.gov/W4App</i>
+      </strong>{" "}
+      to determine the most accurate withholding for the rest of
+      the year if you are completing this form after the beginning
+      of the year; expect to work only part of the year; or have
+      changes during the year in your marital status, number of jobs
+      for you (and/or your spouse if married filing jointly), dependents,
+      other income (not from jobs), deductions, or credits. Have your
+      most recent pay stub(s) from this year available when using the
+      estimator. At the beginning of next year, use the estimator again
+      to recheck your withholding.
+    </p>
 
-          <div class="grid grid-cols-[100px_1fr_120px] border-b border-black">
-            <div class="border-r border-black py-2 pr-2">
-              <div class="text-[17px] font-black">Step 4:</div>
+    <p className="mt-2 mb-0 text-[8px] font-bold sm:text-[9.5px] lg:text-[11px]">
+      Complete Steps 2–4 ONLY if they apply to you; otherwise, skip to
+      Step 5. See page 2 for more information on each step, who can
+      claim exemption from withholding, and when to use the estimator at{" "}
+      <i>www.irs.gov/W4App</i>.
+    </p>
 
-              <div class="mt-2 text-[16px] font-black leading-tight">
-                Other
-                <br />
-                Adjustments
-              </div>
-            </div>
+  </div>
 
-            <div class="px-3 py-2 text-[11px]">
-              <div class="mb-3">
-                <strong>(a) Other income (not from jobs).</strong>
-                If you want tax withheld for other income you expect this year
-                that won’t have withholding, enter the amount of other income
-                here. This may include interest, dividends, and retirement
-                income.
-              </div>
 
-              <div class="mb-3">
-                <strong>(b) Deductions.</strong>
-                Use the Deductions Worksheet on page 4 to determine the amount
-                of deductions you may claim, which will reduce your withholding.
-                (If you skip this line, your withholding will be based on the
-                standard deduction.)
-              </div>
+  {/* =========================
+      STEP 2
+  ========================== */}
 
-              <div>
-                <strong>(c) Extra withholding.</strong>
-                Enter any additional tax you want withheld each pay period.
-              </div>
-            </div>
+  <div className="grid grid-cols-[75px_minmax(0,1fr)] py-2 sm:grid-cols-[90px_minmax(0,1fr)] lg:grid-cols-[100px_minmax(0,1fr)]">
 
-            <div class="border-l border-black text-[11px]">
-              <div class="border-b border-black px-2 py-4">
-                <strong>4(a)</strong> $
-              </div>
+    <div className="pr-1 sm:pr-2">
 
-              <div class="border-b border-black px-2 py-4">
-                <strong>4(b)</strong> $
-              </div>
+      <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
+        Step 2:
+      </div>
 
-              <div class="px-2 py-4">
-                <strong>4(c)</strong> $
-              </div>
-            </div>
-          </div>
+      <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
+        Multiple Jobs
+        <br />
+        or Spouse
+        <br />
+        Works
+      </div>
 
-          <div class="grid grid-cols-[100px_1fr_25px] border-b border-black">
-            <div class="border-r border-black py-2 pr-2 text-[10px] font-bold">
-              Exempt from
-              <br />
-              withholding
-            </div>
+    </div>
 
-            <div class="px-2 py-2 text-[10px]">
-              I claim exemption from withholding for 2026, and I certify that I
-              meet both of the conditions for exemption for 2026. See{" "}
-              <i>Exemption from withholding</i> on page 2. I understand I will
-              need to submit a new Form W-4 for 2027.
-            </div>
+    <div className="pl-2 text-[8px] sm:pl-3 sm:text-[9.5px] lg:text-[11px]">
 
-            <div class="flex items-center justify-center">
-              <span class="inline-block h-4 w-4 border border-black"></span>
-            </div>
-          </div>
+      <p className="m-0">
+        Complete this step if you (1) hold more than one job at a time,
+        or (2) are married filing jointly and your spouse also works.
+        The correct amount of withholding depends on income earned from
+        all of these jobs.
+      </p>
 
-          <div class="grid grid-cols-[100px_1fr] border-b border-black">
-            <div class="border-r border-black py-2 pr-2">
-              <div class="text-[17px] font-black">Step 5:</div>
+      <p className="mt-2 mb-1 font-bold">
+        Do only one of the following.
+      </p>
 
-              <div class="mt-2 text-[16px] font-black leading-tight">
-                Sign
-                <br />
-                Here
-              </div>
-            </div>
+      <div className="mb-1">
+        <strong>(a)</strong>{" "}
+        Use the estimator at <i>www.irs.gov/W4App</i> for the most
+        accurate withholding for this step (and Steps 3–4). If you or
+        your spouse have self-employment income, use this option; or
+      </div>
 
-            <div class="px-3 py-2 text-[10px]">
-              <p class="m-0">
-                Under penalties of perjury, I declare that this certificate, to
-                the best of my knowledge and belief, is true, correct, and
-                complete.
-              </p>
+      <div className="mb-1">
+        <strong>(b)</strong>{" "}
+        Use the Multiple Jobs Worksheet on page 3 and enter the result
+        in Step 4(c) below; or
+      </div>
 
-              <div class="mt-5 grid grid-cols-[1fr_200px] gap-6">
-                <div>
-                  <div class="h-[20px] border-b border-black"></div>
-                  <div class="mt-1 font-bold">
-                    Employee’s signature
-                    <span class="font-normal">
-                      (This form is not valid unless you sign it.)
-                    </span>
-                  </div>
-                </div>
+      <div>
+        <strong>(c)</strong>{" "}
+        If there are only two jobs total, you may check this box.
+        Do the same on Form W-4 for the other job. This option is
+        generally more accurate than Step 2(b) if pay at the lower
+        paying job is more than half of the pay at the higher paying
+        job. Otherwise, Step 2(b) is more accurate . . . . . . . . . . . . . . .
 
-                <div>
-                  <div class="h-[20px] border-b border-black"></div>
-                  <div class="mt-1 font-bold">Date</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <input
+          type="checkbox"
+          className="ml-1 h-3 w-3 align-middle"
+        />
+      </div>
 
-          <div class="grid grid-cols-[100px_1fr_130px_190px] border-b border-black">
-            <div class="border-r border-black py-2 pr-2 text-[16px] font-black leading-tight">
-              Employers
-              <br />
-              Only
-            </div>
+    </div>
+  </div>
 
-            <div class="border-r border-black px-2 py-2 text-[10px]">
-              Employer’s name and address
-            </div>
 
-            <div class="border-r border-black px-2 py-2 text-[10px]">
-              First date of
-              <br />
-              employment
-            </div>
+  {/* Steps 3-4 Notice */}
+  <div className="border-b border-black py-1 text-[7.5px] sm:text-[9px] lg:text-[10px]">
 
-            <div class="px-2 py-2 text-[10px]">
-              Employer identification
-              <br />
-              number (EIN)
-            </div>
-          </div>
+    <strong>
+      Complete Steps 3–4(b) on Form W-4 for only ONE of these jobs.
+    </strong>{" "}
+    Leave those steps blank for the other jobs. (Your withholding will
+    be most accurate if you complete Steps 3–4(b) on the Form W-4 for
+    the highest paying job.)
 
-          <div class="flex items-center justify-between pt-2 text-[9px] font-bold">
-            <div>
-              For Privacy Act and Paperwork Reduction Act Notice, see page 4.
-            </div>
+  </div>
 
-            <div class="font-normal">Cat. No. 10220Q</div>
 
-            <div class="font-normal">Form W-4 (2026) Created 12/8/25</div>
+  {/* =========================
+      STEP 3
+  ========================== */}
+
+  <div className="grid grid-cols-[75px_minmax(0,1fr)_75px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_95px] lg:grid-cols-[100px_minmax(0,1fr)_120px]">
+
+    <div className="border-r border-black py-2 pr-1 sm:pr-2">
+
+      <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
+        Step 3:
+      </div>
+
+      <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
+        Claim
+        <br />
+        Dependent
+        <br />
+        and Other
+        <br />
+        Credits
+      </div>
+
+    </div>
+
+    <div className="px-2 py-2 text-[8px] sm:px-3 sm:text-[9.5px] lg:text-[11px]">
+
+      <p className="m-0">
+        If your total income will be $200,000 or less ($400,000 or less
+        if married filing jointly):
+      </p>
+
+      <div className="mt-2">
+        <strong>(a)</strong>{" "}
+        Multiply the number of qualifying children under age 17 by
+        $2,200.
+      </div>
+
+      <div className="mt-2">
+        <strong>(b)</strong>{" "}
+        Multiply the number of other dependents by $500.
+      </div>
+
+      <div className="mt-2">
+        Add the amounts from Steps 3(a) and 3(b), plus the amount for
+        other credits. Enter the total here.
+      </div>
+
+    </div>
+
+    <div className="border-l border-black text-[8px] sm:text-[9.5px] lg:text-[11px]">
+
+      <div className="border-b border-black px-1 py-3 sm:px-2">
+        <strong>3(a)</strong> $
+      </div>
+
+      <div className="border-b border-black px-1 py-3 sm:px-2">
+        <strong>3(b)</strong> $
+      </div>
+
+      <div className="px-1 py-3 sm:px-2">
+        <strong>3</strong> $
+      </div>
+
+    </div>
+
+  </div>
+
+
+  {/* =========================
+      STEP 4
+  ========================== */}
+
+  <div className="grid grid-cols-[75px_minmax(0,1fr)_75px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_95px] lg:grid-cols-[100px_minmax(0,1fr)_120px]">
+
+    <div className="border-r border-black py-2 pr-1 sm:pr-2">
+
+      <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
+        Step 4:
+      </div>
+
+      <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
+        Other
+        <br />
+        Adjustments
+      </div>
+
+    </div>
+
+    <div className="px-2 py-2 text-[8px] sm:px-3 sm:text-[9.5px] lg:text-[11px]">
+
+      <div className="mb-3">
+        <strong>(a) Other income (not from jobs).</strong>{" "}
+        If you want tax withheld for other income you expect this year
+        that won’t have withholding, enter the amount of other income
+        here. This may include interest, dividends, and retirement
+        income.
+      </div>
+
+      <div className="mb-3">
+        <strong>(b) Deductions.</strong>{" "}
+        Use the Deductions Worksheet on page 4 to determine the amount
+        of deductions you may claim, which will reduce your withholding.
+        (If you skip this line, your withholding will be based on the
+        standard deduction.)
+      </div>
+
+      <div>
+        <strong>(c) Extra withholding.</strong>{" "}
+        Enter any additional tax you want withheld each pay period.
+      </div>
+
+    </div>
+
+    <div className="border-l border-black text-[8px] sm:text-[9.5px] lg:text-[11px]">
+
+      <div className="border-b border-black px-1 py-4 sm:px-2">
+        <strong>4(a)</strong> $
+      </div>
+
+      <div className="border-b border-black px-1 py-4 sm:px-2">
+        <strong>4(b)</strong> $
+      </div>
+
+      <div className="px-1 py-4 sm:px-2">
+        <strong>4(c)</strong> $
+      </div>
+
+    </div>
+
+  </div>
+
+
+  {/* =========================
+      EXEMPT
+  ========================== */}
+
+  <div className="grid grid-cols-[75px_minmax(0,1fr)_20px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_25px] lg:grid-cols-[100px_minmax(0,1fr)_25px]">
+
+    <div className="border-r border-black py-2 pr-1 text-[7.5px] font-bold sm:pr-2 sm:text-[9px] lg:text-[10px]">
+      Exempt from
+      <br />
+      withholding
+    </div>
+
+    <div className="px-1 py-2 text-[7.5px] sm:px-2 sm:text-[9px] lg:text-[10px]">
+      I claim exemption from withholding for 2026, and I certify that I
+      meet both of the conditions for exemption for 2026. See{" "}
+      <i>Exemption from withholding</i> on page 2. I understand I will
+      need to submit a new Form W-4 for 2027.
+    </div>
+
+    <div className="flex items-center justify-center">
+      <span className="inline-block h-3 w-3 border border-black sm:h-4 sm:w-4" />
+    </div>
+
+  </div>
+
+
+  {/* =========================
+      STEP 5
+  ========================== */}
+
+  <div className="grid grid-cols-[75px_minmax(0,1fr)] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)] lg:grid-cols-[100px_minmax(0,1fr)]">
+
+    <div className="border-r border-black py-2 pr-1 sm:pr-2">
+
+      <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
+        Step 5:
+      </div>
+
+      <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
+        Sign
+        <br />
+        Here
+      </div>
+
+    </div>
+
+    <div className="px-2 py-2 text-[8px] sm:px-3 sm:text-[9px] lg:text-[10px]">
+
+      <p className="m-0">
+        Under penalties of perjury, I declare that this certificate, to
+        the best of my knowledge and belief, is true, correct, and
+        complete.
+      </p>
+
+      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-[minmax(0,1fr)_120px] sm:gap-5 lg:grid-cols-[minmax(0,1fr)_200px] lg:gap-6">
+
+        <div>
+          <div className="h-[20px] border-b border-black" />
+
+          <div className="mt-1 font-bold">
+            Employee’s signature{" "}
+            <span className="font-normal">
+              (This form is not valid unless you sign it.)
+            </span>
           </div>
         </div>
-        <br />
-        <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-          {/* Header */}
-          <div className="mb-3 flex items-center justify-between border-b-2 border-black pb-1 text-[11px]">
-            <span>Form W-4 (2026)</span>
-            <span>Page 2</span>
-          </div>
 
-          {/* Main Two Columns */}
-          <div className="grid grid-cols-2 gap-[0.35in]">
-            {/* LEFT COLUMN */}
-            <div className="text-[11px] leading-[1.08]">
-              <h1 className="mb-1 text-[17px] font-black leading-none">
-                General Instructions
-              </h1>
+        <div>
+          <div className="h-[20px] border-b border-black" />
 
-              <p className="mb-2 text-[11px] leading-tight">
-                Section references are to the Internal Revenue Code unless
-                otherwise noted.
-              </p>
-
-              <h2 className="mb-1 text-[16px] font-black leading-none">
-                Future Developments
-              </h2>
-
-              <p className="mb-2">
-                For the latest information about developments related to Form
-                W-4, such as legislation enacted after it was published, go to{" "}
-                <strong>
-                  <i>www.irs.gov/FormW4</i>
-                </strong>
-                .
-              </p>
-
-              <h2 className="mb-1 text-[17px] font-black leading-none">
-                Purpose of Form
-              </h2>
-
-              <p className="mb-2">
-                Complete Form W-4 so that your employer can withhold the correct
-                federal income tax from your pay. If too little is withheld, you
-                will generally owe tax when you file your tax return and may owe
-                a penalty. If too much is withheld, you will generally be due a
-                refund. Complete a new Form W-4 when changes to your personal or
-                financial situation would change the entries on the form. For
-                more information on withholding and when you must furnish a new
-                Form W-4, see Pub. 505, Tax Withholding and Estimated Tax.
-              </p>
-
-              <p className="mb-2">
-                <strong>Exemption from withholding.</strong> You may claim
-                exemption from withholding for 2026 if you meet both of the
-                following conditions: you had no federal income tax liability in
-                2025 and you expect to have no federal income tax liability in
-                2026. You had no federal income tax liability in 2025 if (1)
-                your total tax on line 24 on your 2025 Form 1040 or 1040-SR is
-                zero (or less than the sum of lines 27a, 28, 29, and 30), or (2)
-                you were not required to file a return because your income was
-                below the filing threshold for your correct filing status. If
-                you claim exemption, you will have no income tax withheld from
-                your paycheck and may owe taxes and penalties when you file your
-                2026 tax return. To claim exemption from withholding, certify
-                that you meet both of the conditions by checking the box in the{" "}
-                <i>Exempt from withholding</i> section. Then, complete Steps
-                1(a), 1(b), and 5. Do not complete any other steps. You will
-                need to submit a new Form W-4 by February 16, 2027.
-              </p>
-
-              <p className="mb-2">
-                <strong>Your privacy.</strong> Steps 2(c) and 4(a) ask for
-                information regarding income you received from sources other
-                than the job associated with this Form W-4. If you have concerns
-                with providing the information asked for in Step 2(c), you may
-                choose Step 2(b) as an alternative; if you have concerns with
-                providing the information asked for in Step 4(a), you may enter
-                an additional amount you want withheld per pay period in Step
-                4(c) as an alternative.
-              </p>
-
-              <p className="mb-1">
-                <strong>When to use the estimator.</strong> Consider using the
-                estimator at
-                <strong>
-                  <i> www.irs.gov/W4App</i>
-                </strong>{" "}
-                if you:
-              </p>
-
-              <ol className="mb-2 list-decimal space-y-1 pl-5">
-                <li>
-                  Are submitting this form after the beginning of the year;
-                </li>
-                <li>Expect to work only part of the year;</li>
-                <li>
-                  Have changes during the year in your marital status, number of
-                  jobs for you (and/or your spouse if married filing jointly),
-                  or number of dependents, or changes in your deductions or
-                  credits;
-                </li>
-                <li>
-                  Receive dividends, capital gains, social security, bonuses, or
-                  business income, or are subject to the Additional Medicare Tax
-                  or Net Investment Income Tax; or
-                </li>
-                <li>
-                  Prefer the most accurate withholding for multiple job
-                  situations.
-                </li>
-              </ol>
-
-              <p className="mb-2">
-                <strong>TIP:</strong> Have your most recent pay stub(s) from
-                this year available when using the estimator to account for
-                federal income tax that has already been withheld this year. At
-                the beginning of next year, use the estimator again to recheck
-                your withholding.
-              </p>
-
-              <p>
-                <strong>Self-employment.</strong> Generally, you will owe both
-                income and self-employment taxes on any self-employment income
-                you receive separate from the wages you receive as an employee.
-                If you want to pay these taxes through withholding from your
-                wages, use the estimator at
-                <strong>
-                  <i> www.irs.gov/W4App</i>
-                </strong>{" "}
-                to figure the amount to have withheld.
-              </p>
-            </div>
-
-            {/* RIGHT COLUMN */}
-            <div className="text-[11px] leading-[1.08]">
-              <p className="mb-3">
-                <strong>Nonresident alien.</strong> If you’re a nonresident
-                alien, see Notice 1392, Supplemental Form W-4 Instructions for
-                Nonresident Aliens, before completing this form.
-              </p>
-
-              <h1 className="mb-1 text-[17px] font-black leading-none">
-                Specific Instructions
-              </h1>
-
-              <p className="mb-2">
-                <strong>Step 1(c).</strong> Check your anticipated filing
-                status. This will determine the standard deduction and tax rates
-                used to compute your withholding.
-              </p>
-
-              <p className="mb-2">
-                <strong>Step 2.</strong> Use this step if you (1) have more than
-                one job at the same time, or (2) are married filing jointly and
-                you and your spouse both work. Submit a separate Form W-4 for
-                each job.
-              </p>
-
-              <p className="mb-2 pl-4">
-                Option <strong>(a)</strong> most accurately calculates the
-                additional tax you need to have withheld, while option{" "}
-                <strong>(b)</strong> does so with a little less accuracy.
-              </p>
-
-              <p className="mb-2 pl-4">
-                Instead, if you (and your spouse) have a total of only two jobs,
-                you may check the box in option
-                <strong> (c)</strong>. The box must also be checked on the Form
-                W-4 for the other job. If the box is checked, the standard
-                deduction and tax brackets will be cut in half for each job to
-                calculate withholding. This option is accurate for jobs with
-                similar pay; otherwise, more tax than necessary may be withheld,
-                and this extra amount of tax withheld will be larger the greater
-                the difference in pay is between the two jobs.
-              </p>
-
-              <div className="mb-2 flex items-start gap-2 border-t border-b border-black py-2">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center bg-black text-[8px] font-black text-white">
-                  ▲
-                  <br />
-                  CAUTION
-                </div>
-
-                <div>
-                  <strong>
-                    <i>Multiple jobs.</i>
-                  </strong>{" "}
-                  Complete Steps 3 through 4(b) only on one Form W-4.
-                  Withholding will be most accurate if you do this on the Form
-                  W-4 for the highest paying job.
-                </div>
-              </div>
-
-              <p className="mb-2">
-                <strong>Step 3.</strong> This step provides instructions for
-                determining the amount of the child tax credit and the credit
-                for other dependents that you may be able to claim when you file
-                your tax return. To qualify for the child tax credit, the child
-                must be under age 17 as of December 31, must be your dependent
-                who generally lives with you for more than half the year, and
-                must have the required social security number. You (and/or your
-                spouse if married filing jointly) must have the required social
-                security number to claim certain credits. You may be able to
-                claim a credit for other dependents for whom a child tax credit
-                can’t be claimed, such as an older child or a qualifying
-                relative. For additional eligibility requirements for these
-                credits, see Pub. 501, Dependents, Standard Deduction, and
-                Filing Information. You can also include other tax credits for
-                which you are eligible in this step, such as the foreign tax
-                credit and the education tax credits. To do so, add an estimate
-                of the amount for the year to your credits for dependents and
-                enter the total amount in Step 3. Including these credits will
-                increase your paycheck and reduce the amount of any refund you
-                may receive when you file your tax return.
-              </p>
-
-              <h2 className="text-[14px] font-black">Step 4.</h2>
-
-              <p className="mb-2 pl-3">
-                <strong>
-                  <i>Step 4(a).</i>
-                </strong>{" "}
-                Enter in this step the total of your other estimated income for
-                the year, if any. You shouldn’t include income from any jobs or
-                self-employment. If you complete Step 4(a), you likely won’t
-                have to make estimated tax payments for that income. If you
-                prefer to pay estimated tax rather than having tax on other
-                income withheld from your paycheck, see Form 1040-ES, Estimated
-                Tax for Individuals.
-              </p>
-
-              <p className="mb-2 pl-3">
-                <strong>
-                  <i>Step 4(b).</i>
-                </strong>{" "}
-                Enter in this step the amount from the Deductions Worksheet,
-                line 15, if you expect to claim deductions other than the basic
-                standard deduction on your 2026 tax return and want to reduce
-                your withholding to account for these deductions. This includes
-                both itemized deductions and other deductions such as for
-                qualified tips, overtime compensation, student loan interest;
-                student loan interest; and IRAs; and seniors. You (and/or your
-                spouse if married filing jointly) must have the required social
-                security number to claim certain deductions. For additional
-                eligibility requirements, see Pub. 501.
-              </p>
-
-              <p className="pl-3">
-                <strong>
-                  <i>Step 4(c).</i>
-                </strong>{" "}
-                Enter in this step any additional tax you want withheld from
-                your pay each pay period, including any amounts from the
-                Multiple Jobs Worksheet, line 4. Entering an amount here will
-                reduce your paycheck, and will either increase your refund or
-                reduce any amount of tax that you owe when you file your tax
-                return.
-              </p>
-            </div>
+          <div className="mt-1 font-bold">
+            Date
           </div>
         </div>
-        <br />
+
+      </div>
+
+    </div>
+  </div>
+
+
+  {/* =========================
+      EMPLOYER
+  ========================== */}
+
+  <div className="grid grid-cols-[75px_minmax(0,1fr)_75px_100px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_100px_140px] lg:grid-cols-[100px_minmax(0,1fr)_130px_190px]">
+
+    <div className="border-r border-black py-2 pr-1 text-[10px] font-black leading-tight sm:pr-2 sm:text-[11px] lg:text-[13.4px]">
+      Employers
+      <br />
+      Only
+    </div>
+
+    <div className="border-r border-black px-1 py-2 text-[7px] sm:px-2 sm:text-[9px] lg:text-[10px]">
+      Employer’s name and address
+    </div>
+
+    <div className="border-r border-black px-1 py-2 text-[7px] sm:px-2 sm:text-[9px] lg:text-[10px]">
+      First date of
+      <br />
+      employment
+    </div>
+
+    <div className="px-1 py-2 text-[7px] sm:px-2 sm:text-[9px] lg:text-[10px]">
+      Employer identification
+      <br />
+      number (EIN)
+    </div>
+
+  </div>
+
+
+  {/* Footer */}
+  <div className="flex flex-col gap-1 pt-2 text-[7px] font-bold sm:flex-row sm:items-center sm:justify-between sm:text-[8px] lg:text-[9px]">
+
+    <div>
+      For Privacy Act and Paperwork Reduction Act Notice, see page 4.
+    </div>
+
+    <div className="font-normal">
+      Cat. No. 10220Q
+    </div>
+
+    <div className="font-normal">
+      Form W-4 (2026) Created 12/8/25
+    </div>
+
+  </div>
+
+</div>
+
+
+<br />
+
+
+{/* =====================================================
+    PAGE 2
+===================================================== */}
+
+<div className="font-[Arial] mx-auto w-full max-w-[210mm] min-h-screen overflow-hidden bg-white px-2 py-3 shadow-[0_2px_10px_rgba(0,0,0,0.25)] sm:px-4 sm:py-5 md:px-6 lg:px-[17mm] lg:py-[17mm]">
+
+  {/* Page Header */}
+  <div className="mb-3 flex items-center justify-between border-b-2 border-black pb-1 text-[8px] sm:text-[10px] lg:text-[11px]">
+
+    <span>
+      Form W-4 (2026)
+    </span>
+
+    <span>
+      Page 2
+    </span>
+
+  </div>
+
+
+  {/* Main Two Columns */}
+  <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-[0.35in]">
+
+
+    {/* =========================
+        LEFT COLUMN
+    ========================== */}
+
+    <div className="text-[9px] leading-[1.08] sm:text-[10px] lg:text-[11px]">
+
+      <h1 className="mb-1 text-[14px] font-black leading-none sm:text-[16px] lg:text-[17px]">
+        General Instructions
+      </h1>
+
+      <p className="mb-2 text-[9px] leading-tight sm:text-[10px] lg:text-[11px]">
+        Section references are to the Internal Revenue Code unless
+        otherwise noted.
+      </p>
+
+
+      <h2 className="mb-1 text-[14px] font-black leading-none sm:text-[15px] lg:text-[16px]">
+        Future Developments
+      </h2>
+
+      <p className="mb-2">
+        For the latest information about developments related to Form
+        W-4, such as legislation enacted after it was published, go to{" "}
+        <strong>
+          <i>www.irs.gov/FormW4</i>
+        </strong>
+        .
+      </p>
+
+
+      <h2 className="mb-1 text-[14px] font-black leading-none sm:text-[16px] lg:text-[17px]">
+        Purpose of Form
+      </h2>
+
+      <p className="mb-2">
+        Complete Form W-4 so that your employer can withhold the correct
+        federal income tax from your pay. If too little is withheld, you
+        will generally owe tax when you file your tax return and may owe
+        a penalty. If too much is withheld, you will generally be due a
+        refund. Complete a new Form W-4 when changes to your personal or
+        financial situation would change the entries on the form. For
+        more information on withholding and when you must furnish a new
+        Form W-4, see Pub. 505, Tax Withholding and Estimated Tax.
+      </p>
+
+
+      <p className="mb-2">
+        <strong>Exemption from withholding.</strong>{" "}
+        You may claim exemption from withholding for 2026 if you meet
+        both of the following conditions: you had no federal income tax
+        liability in 2025 and you expect to have no federal income tax
+        liability in 2026. You had no federal income tax liability in
+        2025 if (1) your total tax on line 24 on your 2025 Form 1040 or
+        1040-SR is zero (or less than the sum of lines 27a, 28, 29, and
+        30), or (2) you were not required to file a return because your
+        income was below the filing threshold for your correct filing
+        status. If you claim exemption, you will have no income tax
+        withheld from your paycheck and may owe taxes and penalties when
+        you file your 2026 tax return. To claim exemption from
+        withholding, certify that you meet both of the conditions by
+        checking the box in the <i>Exempt from withholding</i> section.
+        Then, complete Steps 1(a), 1(b), and 5. Do not complete any
+        other steps. You will need to submit a new Form W-4 by February
+        16, 2027.
+      </p>
+
+
+      <p className="mb-2">
+        <strong>Your privacy.</strong>{" "}
+        Steps 2(c) and 4(a) ask for information regarding income you
+        received from sources other than the job associated with this
+        Form W-4. If you have concerns with providing the information
+        asked for in Step 2(c), you may choose Step 2(b) as an
+        alternative; if you have concerns with providing the information
+        asked for in Step 4(a), you may enter an additional amount you
+        want withheld per pay period in Step 4(c) as an alternative.
+      </p>
+
+
+      <p className="mb-1">
+        <strong>When to use the estimator.</strong>{" "}
+        Consider using the estimator at{" "}
+        <strong>
+          <i>www.irs.gov/W4App</i>
+        </strong>{" "}
+        if you:
+      </p>
+
+
+      <ol className="mb-2 list-decimal space-y-1 pl-5">
+
+        <li>
+          Are submitting this form after the beginning of the year;
+        </li>
+
+        <li>
+          Expect to work only part of the year;
+        </li>
+
+        <li>
+          Have changes during the year in your marital status, number of
+          jobs for you (and/or your spouse if married filing jointly),
+          or number of dependents, or changes in your deductions or
+          credits;
+        </li>
+
+        <li>
+          Receive dividends, capital gains, social security, bonuses, or
+          business income, or are subject to the Additional Medicare Tax
+          or Net Investment Income Tax; or
+        </li>
+
+        <li>
+          Prefer the most accurate withholding for multiple job
+          situations.
+        </li>
+
+      </ol>
+
+
+      <p className="mb-2">
+        <strong>TIP:</strong>{" "}
+        Have your most recent pay stub(s) from this year available when
+        using the estimator to account for federal income tax that has
+        already been withheld this year. At the beginning of next year,
+        use the estimator again to recheck your withholding.
+      </p>
+
+
+      <p>
+        <strong>Self-employment.</strong>{" "}
+        Generally, you will owe both income and self-employment taxes on
+        any self-employment income you receive separate from the wages
+        you receive as an employee. If you want to pay these taxes
+        through withholding from your wages, use the estimator at{" "}
+        <strong>
+          <i>www.irs.gov/W4App</i>
+        </strong>{" "}
+        to figure the amount to have withheld.
+      </p>
+
+    </div>
+
+
+    {/* =========================
+        RIGHT COLUMN
+    ========================== */}
+
+    <div className="text-[9px] leading-[1.08] sm:text-[10px] lg:text-[11px]">
+
+      <p className="mb-3">
+        <strong>Nonresident alien.</strong>{" "}
+        If you’re a nonresident alien, see Notice 1392, Supplemental
+        Form W-4 Instructions for Nonresident Aliens, before completing
+        this form.
+      </p>
+
+
+      <h1 className="mb-1 text-[14px] font-black leading-none sm:text-[16px] lg:text-[17px]">
+        Specific Instructions
+      </h1>
+
+
+      <p className="mb-2">
+        <strong>Step 1(c).</strong>{" "}
+        Check your anticipated filing status. This will determine the
+        standard deduction and tax rates used to compute your
+        withholding.
+      </p>
+
+
+      <p className="mb-2">
+        <strong>Step 2.</strong>{" "}
+        Use this step if you (1) have more than one job at the same time,
+        or (2) are married filing jointly and you and your spouse both
+        work. Submit a separate Form W-4 for each job.
+      </p>
+
+
+      <p className="mb-2 pl-2 sm:pl-4">
+        Option <strong>(a)</strong> most accurately calculates the
+        additional tax you need to have withheld, while option{" "}
+        <strong>(b)</strong> does so with a little less accuracy.
+      </p>
+
+
+      <p className="mb-2 pl-2 sm:pl-4">
+        Instead, if you (and your spouse) have a total of only two jobs,
+        you may check the box in option <strong>(c)</strong>. The box
+        must also be checked on the Form W-4 for the other job. If the
+        box is checked, the standard deduction and tax brackets will be
+        cut in half for each job to calculate withholding. This option is
+        accurate for jobs with similar pay; otherwise, more tax than
+        necessary may be withheld, and this extra amount of tax withheld
+        will be larger the greater the difference in pay is between the
+        two jobs.
+      </p>
+
+
+      {/* CAUTION */}
+      <div className="mb-2 flex items-start gap-2 border-t border-b border-black py-2">
+
+        <div className="flex h-7 w-7 shrink-0 items-center justify-center bg-black text-[7px] font-black text-white sm:h-8 sm:w-8 sm:text-[8px]">
+          ▲
+          <br />
+          CAUTION
+        </div>
+
+        <div>
+          <strong>
+            <i>Multiple jobs.</i>
+          </strong>{" "}
+          Complete Steps 3 through 4(b) only on one Form W-4.
+          Withholding will be most accurate if you do this on the Form
+          W-4 for the highest paying job.
+        </div>
+
+      </div>
+
+
+      <p className="mb-2">
+        <strong>Step 3.</strong>{" "}
+        This step provides instructions for determining the amount of
+        the child tax credit and the credit for other dependents that
+        you may be able to claim when you file your tax return. To
+        qualify for the child tax credit, the child must be under age 17
+        as of December 31, must be your dependent who generally lives
+        with you for more than half the year, and must have the required
+        social security number. You (and/or your spouse if married filing
+        jointly) must have the required social security number to claim
+        certain credits. You may be able to claim a credit for other
+        dependents for whom a child tax credit can’t be claimed, such as
+        an older child or a qualifying relative. For additional
+        eligibility requirements for these credits, see Pub. 501,
+        Dependents, Standard Deduction, and Filing Information. You can
+        also include other tax credits for which you are eligible in
+        this step, such as the foreign tax credit and the education tax
+        credits. To do so, add an estimate of the amount for the year to
+        your credits for dependents and enter the total amount in Step 3.
+        Including these credits will increase your paycheck and reduce
+        the amount of any refund you may receive when you file your tax
+        return.
+      </p>
+
+
+      <h2 className="text-[12px] font-black sm:text-[13px] lg:text-[14px]">
+        Step 4.
+      </h2>
+
+
+      <p className="mb-2 pl-2 sm:pl-3">
+        <strong>
+          <i>Step 4(a).</i>
+        </strong>{" "}
+        Enter in this step the total of your other estimated income for
+        the year, if any. You shouldn’t include income from any jobs or
+        self-employment. If you complete Step 4(a), you likely won’t
+        have to make estimated tax payments for that income. If you
+        prefer to pay estimated tax rather than having tax on other
+        income withheld from your paycheck, see Form 1040-ES, Estimated
+        Tax for Individuals.
+      </p>
+
+
+      <p className="mb-2 pl-2 sm:pl-3">
+        <strong>
+          <i>Step 4(b).</i>
+        </strong>{" "}
+        Enter in this step the amount from the Deductions Worksheet,
+        line 15, if you expect to claim deductions other than the basic
+        standard deduction on your 2026 tax return and want to reduce
+        your withholding to account for these deductions. This includes
+        both itemized deductions and other deductions such as for
+        qualified tips, overtime compensation, student loan interest,
+        IRAs, and seniors. You (and/or your spouse if married filing
+        jointly) must have the required social security number to claim
+        certain deductions. For additional eligibility requirements,
+        see Pub. 501.
+      </p>
+
+
+      <p className="pl-2 sm:pl-3">
+        <strong>
+          <i>Step 4(c).</i>
+        </strong>{" "}
+        Enter in this step any additional tax you want withheld from
+        your pay each pay period, including any amounts from the
+        Multiple Jobs Worksheet, line 4. Entering an amount here will
+        reduce your paycheck, and will either increase your refund or
+        reduce any amount of tax that you owe when you file your tax
+        return.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+<br />
+
         <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <div className="mx-auto max-w-[1000px]">
             {/* Header */}
@@ -17228,6 +17532,7 @@ const ReceiptItem = ({ text }) => (
           </div>
         </div>
         <br />
+        
 <div
   className="
     font-[Arial]

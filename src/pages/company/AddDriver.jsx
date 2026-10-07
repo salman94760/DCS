@@ -1,6 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import PanelFormInput from "@/components/admin/FormInput";
+import DateInput from "@/components/admin/DateInput";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import api from "@/api/axios";
 
 export default function AddCompany() {
@@ -315,14 +318,25 @@ export default function AddCompany() {
               errormsg={errors.lname}
             />
 
-            <PanelFormInput
+         {/*   <PanelFormInput
               title="Active date"
               placeholder=""
               mandate={true}
-              inputype="date"
+              inputype="date" 10/11/2025
               name="activedate"
               errormsg={errors.activedate}
             />
+*/}
+
+            <DateInput
+  name="activedate"
+  value=""
+   mandate={true}
+   title="Active date"
+/>
+
+
+
           </div>
           <br />
 
