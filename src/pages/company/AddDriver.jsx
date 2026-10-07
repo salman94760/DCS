@@ -147,9 +147,12 @@ export default function AddCompany() {
     if (!data.permituscisno) {
       newErrors.permituscisno = "Work permit USCIS no required";
     }
+    console.log(workauthorization);
+    if(data.workauthorization != "CITIZEN"){
 
     if (!data.permitexpdate) {
       newErrors.permitexpdate = "Work Permit Expiration Date required";
+    }
     }
 
     if (!data.currentcdlissuedate) {
@@ -426,8 +429,8 @@ export default function AddCompany() {
             />
 
             <PanelFormInput
-              title="Emergency COntact no"
-              placeholder="Emergency COntact no"
+              title="Emergency Contact no"
+              placeholder="Emergency Contact no"
               mandate={true}
               inputype="text"
               name="emecontactno"

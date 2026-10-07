@@ -22,16 +22,21 @@ export default function AddCompany() {
   const [serverMessage, setServerMessage] = useState("");
   const [serverMessageType, setServerMessageType] = useState("");
 
-  useEffect(() => {
-    const role = localStorage.getItem("userRole");
-    if (role === "admin") {
-      navigate("/admin-dashboard", { replace: true });
-    } else if (role === "company") {
-      fetchDetail(`/company/driver/${loginUserId}/${id}`);
-    } else {
-      navigate("/", { replace: true });
-    }
-  }, [navigate]);
+useEffect(() => {
+  const role = localStorage.getItem("userRole");
+
+  if (role === "admin") {
+    navigate("/admin-dashboard", { replace: true });
+    return;
+  }
+
+  if (role === "company") {
+    fetchDetail(`/company/driver/${loginUserId}/${id}`);
+    return;
+  }
+
+  navigate("/", { replace: true });
+}, [navigate, loginUserId, id]);
 
   const res = state.selectedData;
 
@@ -166,9 +171,11 @@ export default function AddCompany() {
       newErrors.permituscisno = "Work permit USCIS no required";
     }
 
+    if(data.workauthorization != "CITIZEN"){
     if (!data.permitexpdate) {
       newErrors.permitexpdate = "Work Permit Expiration Date required";
     }
+  }
 
     if (!data.currentcdlissuedate) {
       newErrors.currentcdlissuedate = "Current cdl issue date required";
@@ -263,6 +270,7 @@ export default function AddCompany() {
 
       setServerMessage(result.message || "Driver added successfully");
       setServerMessageType("success");
+      await fetchDetail(`/company/driver/${loginUserId}/${id}`);
 
       navigate("/company-dashboard/drivers", {
         state: {
@@ -419,7 +427,7 @@ export default function AddCompany() {
                 Driver Status
               </label>
               <select
-                value={res.driverstatus}
+                defaultValue={res.driverstatus}
                 name="driverstatus"
 
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
@@ -455,8 +463,8 @@ export default function AddCompany() {
             />
 
             <PanelFormInput
-              title="Emergency COntact no"
-              placeholder="Emergency COntact no"
+              title="Emergency Contact no"
+              placeholder="Emergency Contact no"
               mandate={true}
               inputype="text"
               name="emecontactno"
@@ -524,7 +532,7 @@ export default function AddCompany() {
                 WORK AUTHORIZATION
               </label>
               <select
-                value={res.workauthorization}
+                defaultValue={res.workauthorization}
                 name="workauthorization"
 
                 className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
