@@ -29,7 +29,7 @@ export default function Company() {
   // ==========================================
   // GET COMPANIES
   // ==========================================
-  useEffect(async() => {
+  useEffect(() => {
     const role = localStorage.getItem("userRole");
 
     if (role === "admin") {
@@ -38,7 +38,7 @@ export default function Company() {
     }
 
     if (role === "company") {
-      await fetchAllData(`/company/drivers/${loginUserId}`);
+      fetchAllData(`/company/drivers/${loginUserId}`);
     }
 
     if (location.state?.success) {
