@@ -1,5 +1,5 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import PanelFormInput from "@/components/admin/FormInput";
 import api from "@/api/axios";
 import { useDcsContext } from "@/context/Context";
@@ -21,8 +21,24 @@ export default function AddCompany() {
   const [loading, setLoading] = useState(false);
   const [serverMessage, setServerMessage] = useState("");
   const [serverMessageType, setServerMessageType] = useState("");
+  const [res, setRes] = useState("");
 
-useEffect(() => {
+const fetchFileDetail = async (url) => {
+
+
+  try {
+    const response = await api.get(url);
+    const detailData = response.data?.data;
+    setRes(detailData);
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+
+
+useLayoutEffect(() => {
   const role = localStorage.getItem("userRole");
 
   if (role === "admin") {
@@ -31,14 +47,12 @@ useEffect(() => {
   }
 
   if (role === "company") {
-    fetchDetail(`/company/driver/${loginUserId}/${id}`);
+    fetchFileDetail(`/company/driver/${loginUserId}/${id}`);
     return;
   }
 
   navigate("/", { replace: true });
 }, [navigate, loginUserId, id]);
-
-  const res = state.selectedData;
 
   if (!res) {
     return false;
@@ -270,7 +284,8 @@ useEffect(() => {
 
       setServerMessage(result.message || "Driver added successfully");
       setServerMessageType("success");
-      await fetchDetail(`/company/driver/${loginUserId}/${id}`);
+      e.target.reset();
+
 
       navigate("/company-dashboard/drivers", {
         state: {
@@ -473,8 +488,8 @@ useEffect(() => {
             />
 
             <PanelFormInput
-              title="Emergency COntact person name"
-              placeholder="Emergency COntact person name"
+              title="Emergency Contact person name"
+              placeholder="Emergency Contact person name"
               mandate={true}
               inputype="text"
               name="emecontactperson"
@@ -503,26 +518,33 @@ useEffect(() => {
                 Do you have legal right to work in the United States?
               </label>
             </div>
-            <div>
-              <input
-                checked={
-                  res.legalrightsstatus === 1 || res.legalrightsstatus === "1"
-                }
-                value="1"
-                type="checkbox"
-                name="legalrightsstatus"
-              />{" "}
-              YES
-              <input
-                checked={
-                  res.legalrightsstatus === 0 || res.legalrightsstatus === "0"
-                }
-                type="checkbox"
-                value="0"
-                name="legalrightsstatus"
-              />{" "}
-              NO
-            </div>
+          <div className="flex items-center gap-5">
+  <label className="flex items-center gap-2 cursor-pointer">
+    <input
+      type="radio"
+      name="legalrightsstatus"
+      value="1"
+      defaultChecked={
+        res?.legalrightsstatus === 1 ||
+        res?.legalrightsstatus === "1"
+      }
+    />
+    <span>YES</span>
+  </label>
+
+  <label className="flex items-center gap-2 cursor-pointer">
+    <input
+      type="radio"
+      name="legalrightsstatus"
+      value="0"
+      defaultChecked={
+        res?.legalrightsstatus === 0 ||
+        res?.legalrightsstatus === "0"
+      }
+    />
+    <span>NO</span>
+  </label>
+</div>
           </div>
           <br />
 
@@ -776,6 +798,7 @@ useEffect(() => {
                   ENDORSEMENTS
                 </label>
                 <select
+                  defaultValue={res.currentcdlendorsements}
                   name="currentcdlendorsements"
 
                   className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
@@ -857,7 +880,7 @@ useEffect(() => {
                 </label>
                 <select
                   name="oldcdlendorsements"
-
+                  defaultValue={res.oldcdlendorsements}
                   className="cap w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
                 >
                   <option value="Hazmat (H)">Hazmat (H)</option>

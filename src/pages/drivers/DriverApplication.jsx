@@ -20,6 +20,20 @@ export default function DriverApplication() {
   const [photo, setPhoto] = useState(null);
   const [photoLoading, setPhotoLoading] = useState(false);
 
+  const DocumentItem = ({ number, text }) => (
+  <div className="border-b border-gray-500 p-1.5 sm:p-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight flex items-start">
+    <b className="mr-1 shrink-0">{number}</b>
+    <span>{text}</span>
+  </div>
+);
+
+const ReceiptItem = ({ text }) => (
+  <div className="p-1.5 sm:p-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight flex items-start">
+    <b className="mr-1 shrink-0">●</b>
+    <span>{text}</span>
+  </div>
+);
+
   const handlePhotoUpload = (e) => {
     const file = e.target.files?.[0];
 
@@ -930,9 +944,7 @@ export default function DriverApplication() {
             </div>
           </section>
         </div>
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 2</i>
@@ -1093,9 +1105,7 @@ export default function DriverApplication() {
             </div>
           </section>
         </div>
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 3</i>
@@ -1292,7 +1302,6 @@ export default function DriverApplication() {
             </div>
           </section>
         </div>
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -1781,7 +1790,6 @@ export default function DriverApplication() {
             </section>
           </div>
         </div>
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -1997,9 +2005,7 @@ export default function DriverApplication() {
             </section>
           </div>
         </div>
-
         {/*****page 7 start********/}
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -2225,9 +2231,7 @@ export default function DriverApplication() {
             </section>
           </div>
         </div>
-
         {/*****page 8 start********/}
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -2456,9 +2460,7 @@ export default function DriverApplication() {
             </section>
           </div>
         </div>
-
         {/*****page 9 start********/}
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -3330,9 +3332,7 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 10 start********/}
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -3789,9 +3789,7 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 11 start********/}
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -4363,9 +4361,7 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 12 start********/}
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -4695,9 +4691,7 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 13 start********/}
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -4988,11 +4982,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 14 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 14</i>
@@ -5223,13 +5214,9 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 15 start********/}
-
         {/*****page 17 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 15</i>
@@ -5403,7 +5390,6 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 18 start********/}
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
@@ -5529,9 +5515,7 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 19 start********/}
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -5627,9 +5611,7 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 20 start********/}
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -5749,9 +5731,7 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 21 start********/}
-
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
@@ -5867,11 +5847,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 22 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 20</i>
@@ -6123,11 +6100,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 23 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 21</i>
@@ -6411,11 +6385,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 24 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 22</i>
@@ -6571,11 +6542,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 25 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 23</i>
@@ -6753,11 +6721,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 26 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 24</i>
@@ -6932,11 +6897,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 27 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 25</i>
@@ -6984,11 +6946,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 28 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 26</i>
@@ -7427,11 +7386,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 29 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 27</i>
@@ -7591,11 +7547,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 30 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 28</i>
@@ -7654,11 +7607,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 31 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 29</i>
@@ -7842,11 +7792,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 32 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 30</i>
@@ -7934,11 +7881,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 33 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 31</i>
@@ -8097,11 +8041,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 34 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 32</i>
@@ -8190,11 +8131,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 35 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 33</i>
@@ -8402,11 +8340,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 36 start********/}
-
         <br />
-
         <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 34</i>
@@ -8638,11 +8573,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 37 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 35</i>
@@ -8923,11 +8855,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 38 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 36</i>
@@ -9381,11 +9310,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 39 start********/}
-
         <br />
-
         <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 37</i>
@@ -9828,11 +9754,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 40 start********/}
-
         <br />
-
         <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 38</i>
@@ -10054,11 +9977,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 42 start********/}
-
         <br />
-
         <div className="relative mx-auto w-full max-w-[210mm] min-h-[297mm] bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 39</i>
@@ -10570,11 +10490,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 43 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 40</i>
@@ -10817,11 +10734,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 44 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 41</i>
@@ -10976,11 +10890,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 45 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 42</i>
@@ -11414,11 +11325,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 46 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 43</i>
@@ -11965,11 +11873,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 47 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 44</i>
@@ -12226,11 +12131,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 48 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 45</i>
@@ -12403,11 +12305,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 49 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 46</i>
@@ -12615,11 +12514,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 49 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 47</i>
@@ -12918,11 +12814,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 49 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 48</i>
@@ -13340,11 +13233,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 49 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 49</i>
@@ -13730,11 +13620,8 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 49 start********/}
-
         <br />
-
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 50</i>
@@ -14098,30 +13985,20 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         {/*****page 49 start********/}
         <br />
-
-        <div className="min-h-screen bg-gray-200 py-5 font-serif text-black">
-          <div className="mx-auto w-[1050px] bg-white px-6 py-5">
+        <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          <div className="mx-auto">
             {/* Header */}
-            <div className="border-t-[5px] border-black">
+            <div className="">
               <div className="flex items-start justify-between py-2">
                 <div className="w-[100px]">
                   <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full border-[3px] border-black text-center text-[8px] font-bold leading-tight">
-                    U.S.
-                    <br />
-                    DEPARTMENT
-                    <br />
-                    OF
-                    <br />
-                    HOMELAND
-                    <br />
-                    SECURITY
+                    <img src="/homeland.webp" />
                   </div>
                 </div>
 
-                <div className="flex-1 text-center">
+                <div className="font-['Times_New_Roman'] flex-1 text-center">
                   <h1 className="text-[24px] font-bold">
                     Employment Eligibility Verification
                   </h1>
@@ -14142,7 +14019,7 @@ export default function DriverApplication() {
               </div>
             </div>
 
-            <div className="border-t-[5px] border-black" />
+            <div className="border-t-[5px] border-black font-['Times_New_Roman']" />
 
             {/* Top Instructions */}
             <div className="py-2 text-[12px] leading-tight">
@@ -14161,7 +14038,7 @@ export default function DriverApplication() {
             </div>
 
             {/* Section 1 */}
-            <div className="border border-black bg-gray-200 px-2 py-1 text-[13px] leading-tight">
+            <div className="border border-black bg-gray-200 px-2 py-1 text-[12px] leading-tight">
               <b>Section 1. Employee Information and Attestation:</b> Employees
               must complete and sign Section 1 of Form I-9 no later than the{" "}
               <b>first day of employment</b>, but not before accepting a job
@@ -14169,72 +14046,72 @@ export default function DriverApplication() {
             </div>
 
             {/* Employee Information */}
-            <div className="grid grid-cols-12 border-l border-black text-[10px]">
+            <div className="grid grid-cols-12 border border-black text-[9.4px]">
               <div className="col-span-4 border-b border-r border-black">
                 <div className="px-2 pt-1">Last Name (Family Name)</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-3 border-b border-r border-black">
                 <div className="px-2 pt-1">First Name (Given Name)</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-2 border-b border-r border-black">
                 <div className="px-2 pt-1">Middle Initial (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-3 border-b border-black">
                 <div className="px-2 pt-1">Other Last Names Used (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-4 border-b border-r border-black">
                 <div className="px-2 pt-1">
                   Address (Street Number and Name)
                 </div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-2 border-b border-r border-black">
                 <div className="px-2 pt-1">Apt. Number (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-3 border-b border-r border-black">
                 <div className="px-2 pt-1">City or Town</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-1 border-b border-r border-black">
                 <div className="px-2 pt-1">State</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-2 border-b border-black">
                 <div className="px-2 pt-1">ZIP Code</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-2 border-b border-r border-black">
                 <div className="px-2 pt-1">Date of Birth (mm/dd/yyyy)</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-2 border-b border-r border-black">
                 <div className="px-2 pt-1">U.S. Social Security Number</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-4 border-b border-r border-black">
                 <div className="px-2 pt-1">Employee's Email Address</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
 
               <div className="col-span-4 border-b border-black">
                 <div className="px-2 pt-1">Employee's Telephone Number</div>
-                <input className="h-7 w-full px-2 outline-none" />
+                <input className="border border-gray-500 h-7 w-[95%] px-2 outline-none" />
               </div>
             </div>
 
@@ -14342,7 +14219,41 @@ export default function DriverApplication() {
                 <b>Section 2. Employer Review and Verification:</b> Employers or
                 their authorized representative must complete and sign Section 2
                 within three business days after the employee's first day of
-                employment.
+                employment, and must physically examine, or examine consistent
+                with an alternative procedure authorized by the Secretary of
+                DHS, documentation from List A OR a combination of documentation
+                from List B and List C. Enter any additional documentation in
+                the Additional Information box; see Instructions.
+              </div>
+
+              <div>
+                <table className="w-full">
+                  <thead>
+                    <tr>
+                      <th>
+                        <div className="text-[13px] col-span-5 border-r border-black py-1">
+                          List A
+                        </div>
+                      </th>
+                      <th>OR</th>
+                      <th>
+                        <div className="text-[13px] col-span-5 border-r border-black py-1">
+                          List B
+                        </div>
+                      </th>
+                      <th>
+                        <div className="text-[13px] col-span-5 border-r border-black py-1">
+                          AND
+                        </div>
+                      </th>
+                      <th>
+                        <div className="text-[13px] col-span-5 border-r border-black py-1">
+                          List C
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
               </div>
 
               <div className="grid grid-cols-12 border-t border-black text-center text-[13px] font-bold">
@@ -14511,8 +14422,10 @@ export default function DriverApplication() {
             <div className="border-b border-black py-2 text-center text-[12px]">
               For reverification or rehire, complete{" "}
               <span className="font-bold text-blue-700 underline">
-                Supplement B, Reverification and Rehire
-              </span>{" "}
+                <a href="https://www.uscis.gov/i-9">
+                  Supplement B, Reverification and Rehire
+                </a>
+              </span>
               on Page 4.
             </div>
 
@@ -14522,453 +14435,387 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
-
         <br />
+        <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-2 py-4 sm:px-4 sm:py-5 md:px-6 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+  <div className="w-full">
 
-        <div className="min-h-screen bg-gray-200 py-5 font-serif text-black">
-          <div className="mx-auto w-[1050px] bg-white px-6 py-5">
-            {/* Header */}
-            <div className="border-t-[5px] border-black">
-              <div className="flex items-start justify-between py-2">
-                <div className="w-[100px]">
-                  <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full border-[3px] border-black text-center text-[8px] font-bold leading-tight">
-                    U.S.
-                    <br />
-                    DEPARTMENT
-                    <br />
-                    OF
-                    <br />
-                    HOMELAND
-                    <br />
-                    SECURITY
-                  </div>
-                </div>
+    {/* Header */}
+    <div className="border-t-[4px] sm:border-t-[5px] border-black">
+      <div className="py-2 sm:py-3">
+        <div className="text-center px-1 sm:px-2">
 
-                <div className="flex-1 text-center">
-                  <h1 className="text-[24px] font-bold">
-                    Employment Eligibility Verification
-                  </h1>
-                  <h2 className="text-[17px] font-bold">
-                    Department of Homeland Security
-                  </h2>
-                  <p className="text-[15px]">
-                    U.S. Citizenship and Immigration Services
-                  </p>
-                </div>
+          <h1 className="text-[13px] sm:text-[15px] md:text-[16px] lg:text-[17.4px] font-bold leading-tight">
+            LISTS OF ACCEPTABLE DOCUMENTS
+          </h1>
 
-                <div className="w-[120px] text-center">
-                  <div className="text-[17px] font-bold">USCIS</div>
-                  <div className="text-[17px] font-bold">Form I-9</div>
-                  <div className="text-[11px]">OMB No. 1615-0047</div>
-                  <div className="text-[11px]">Expires 05/31/2027</div>
-                </div>
-              </div>
-            </div>
+          <p className="mt-1 text-[9px] sm:text-[10.5px] md:text-[12px] lg:text-[14.7px] leading-tight">
+            All documents containing an expiration date must be unexpired.
+            <br />
+            * Documents extended by the issuing authority are considered
+            unexpired.
+            <br />
+            Employees may present one selection from List A or a combination
+            of one selection from List B and one selection from List C.
+          </p>
 
-            <div className="border-t-[5px] border-black" />
+          <h1 className="mt-1 text-[10px] sm:text-[11px] md:text-[13px] lg:text-[16.4px] font-bold leading-tight">
+            Examples of many of these documents appear in the Handbook for
+            Employers (M-274).
+          </h1>
 
-            {/* Top Instructions */}
-            <div className="py-2 text-[12px] leading-tight">
-              <b>START HERE:</b> Employers must ensure the form instructions are
-              available to employees when completing this form. Employers are
-              liable for failing to comply with the requirements for completing
-              this form. See below and the <u>Instructions.</u>
-            </div>
-
-            <div className="pb-2 text-[12px] leading-tight">
-              <b>ANTI-DISCRIMINATION NOTICE:</b> All employees can choose which
-              acceptable documentation to present for Form I-9. Employers cannot
-              ask employees for documentation to verify information in Section
-              1, or specify which acceptable documentation employees must
-              present for Section 2 or Supplement B, Reverification and Rehire.
-            </div>
-
-            {/* Section 1 */}
-            <div className="border border-black bg-gray-200 px-2 py-1 text-[13px] leading-tight">
-              <b>Section 1. Employee Information and Attestation:</b> Employees
-              must complete and sign Section 1 of Form I-9 no later than the{" "}
-              <b>first day of employment</b>, but not before accepting a job
-              offer.
-            </div>
-
-            {/* Employee Information */}
-            <div className="grid grid-cols-12 border-l border-black text-[10px]">
-              <div className="col-span-4 border-b border-r border-black">
-                <div className="px-2 pt-1">Last Name (Family Name)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-3 border-b border-r border-black">
-                <div className="px-2 pt-1">First Name (Given Name)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">Middle Initial (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-3 border-b border-black">
-                <div className="px-2 pt-1">Other Last Names Used (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-4 border-b border-r border-black">
-                <div className="px-2 pt-1">
-                  Address (Street Number and Name)
-                </div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">Apt. Number (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-3 border-b border-r border-black">
-                <div className="px-2 pt-1">City or Town</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-1 border-b border-r border-black">
-                <div className="px-2 pt-1">State</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-black">
-                <div className="px-2 pt-1">ZIP Code</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">Date of Birth (mm/dd/yyyy)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">U.S. Social Security Number</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-4 border-b border-r border-black">
-                <div className="px-2 pt-1">Employee's Email Address</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-4 border-b border-black">
-                <div className="px-2 pt-1">Employee's Telephone Number</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-            </div>
-
-            {/* Attestation */}
-            <div className="grid grid-cols-12 border border-black border-t-0">
-              <div className="col-span-3 border-r border-black p-3 text-[11px] font-bold leading-tight">
-                I am aware that federal law provides for imprisonment and/or
-                fines for false statements, or the use of false documents, in
-                connection with the completion of this form. I attest, under
-                penalty of perjury, that this information, including my
-                selection of the box attesting to my citizenship or immigration
-                status, is true and correct.
-              </div>
-
-              <div className="col-span-9">
-                <div className="border-b border-black px-2 py-1 text-[11px] font-bold">
-                  Check one of the following boxes to attest to your citizenship
-                  or immigration status:
-                </div>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>1.</b>&nbsp; A citizen of the United States
-                  </span>
-                </label>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>2.</b>&nbsp; A noncitizen national of the United States
-                  </span>
-                </label>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>3.</b>&nbsp; A lawful permanent resident (Enter USCIS
-                    A-Number.)
-                    <input className="ml-2 w-[140px] border-b border-black outline-none" />
-                  </span>
-                </label>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>4.</b>&nbsp; An alien authorized to work until
-                    <input className="ml-2 w-[100px] border-b border-black outline-none" />
-                  </span>
-                </label>
-
-                <div className="px-2 py-1 text-[11px] font-bold">
-                  If you check Item Number 4, enter one of these:
-                </div>
-
-                <div className="grid grid-cols-3 border-t border-black text-center text-[10px] font-bold">
-                  <div className="border-r border-black">
-                    <div className="py-1">USCIS A-Number</div>
-                    <input className="h-7 w-full px-2 outline-none" />
-                  </div>
-
-                  <div className="border-r border-black">
-                    <div className="py-1">Form I-94 Admission Number</div>
-                    <input className="h-7 w-full px-2 outline-none" />
-                  </div>
-
-                  <div>
-                    <div className="py-1">
-                      Foreign Passport Number and Country of Issuance
-                    </div>
-                    <input className="h-7 w-full px-2 outline-none" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 border-t border-black">
-                  <div className="border-r border-black">
-                    <div className="px-2 pt-1 text-[10px]">
-                      Signature of Employee
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-
-                  <div>
-                    <div className="px-2 pt-1 text-[10px]">
-                      Today's Date (mm/dd/yyyy)
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="border-x border-b border-black px-2 py-1 text-[11px]">
-              If a preparer and/or translator assisted you in completing Section
-              1, that person <b>MUST</b> complete the{" "}
-              <u className="font-bold text-blue-700">
-                Preparer and/or Translator Certification
-              </u>{" "}
-              on Page 3.
-            </div>
-
-            {/* Section 2 */}
-            <div className="mt-1 border border-black">
-              <div className="bg-gray-200 px-2 py-1 text-[12px] leading-tight">
-                <b>Section 2. Employer Review and Verification:</b> Employers or
-                their authorized representative must complete and sign Section 2
-                within three business days after the employee's first day of
-                employment.
-              </div>
-
-              <div className="grid grid-cols-12 border-t border-black text-center text-[13px] font-bold">
-                <div className="col-span-5 border-r border-black py-1">
-                  List A
-                </div>
-                <div className="col-span-3 border-r border-black py-1">
-                  List B
-                </div>
-                <div className="col-span-4 py-1">List C</div>
-              </div>
-
-              <div className="grid grid-cols-12">
-                {/* List A */}
-                <div className="col-span-5 border-r border-black">
-                  {[
-                    "Document Title 1",
-                    "Document Title 2 (if any)",
-                    "Document Title 3 (if any)",
-                  ].map((title) => (
-                    <div key={title} className="border-t border-black">
-                      <div className="grid grid-cols-5">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px] font-bold">
-                          {title}
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Issuing Authority
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Document Number (if any)
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Expiration Date (if any)
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* List B */}
-                <div className="col-span-3 border-r border-black">
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px] font-bold">
-                      Document Title
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Issuing Authority
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Document Number (if any)
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Expiration Date (if any)
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-                </div>
-
-                {/* Additional Information */}
-                <div className="col-span-4">
-                  <div className="border-b border-black px-2 py-1 text-[13px] font-bold">
-                    Additional Information
-                  </div>
-
-                  <textarea className="h-[275px] w-full resize-none p-2 outline-none" />
-
-                  <label className="flex items-center gap-2 border-t border-black p-2 text-[10px]">
-                    <input type="checkbox" className="h-4 w-4" />
-                    Check here if you used an alternative procedure authorized
-                    by DHS to examine documents.
-                  </label>
-                </div>
-              </div>
-
-              {/* Certification */}
-              <div className="grid grid-cols-12 border-t border-black">
-                <div className="col-span-9 p-2 text-[10px] leading-tight">
-                  <b>Certification:</b> I attest, under penalty of perjury, that
-                  (1) I have examined the documentation presented by the
-                  above-named employee, (2) the above-listed documentation
-                  appear to be genuine and to relate to the employee named, and
-                  (3) to the best of my knowledge, the employee is authorized to
-                  work in the United States.
-                </div>
-
-                <div className="col-span-3 border-l border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    First Day of Employment
-                    <br />
-                    (mm/dd/yyyy)
-                  </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-              </div>
-
-              {/* Employer Signature */}
-              <div className="grid grid-cols-12 border-t border-black">
-                <div className="col-span-5 border-r border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Last Name, First Name and Title of Employer or Authorized
-                    Representative
-                  </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-
-                <div className="col-span-4 border-r border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Signature of Employer or Authorized Representative
-                  </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-
-                <div className="col-span-3">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Today's Date (mm/dd/yyyy)
-                  </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-              </div>
-
-              {/* Employer Address */}
-              <div className="grid grid-cols-12 border-t border-black">
-                <div className="col-span-4 border-r border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Employer's Business or Organization Name
-                  </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-
-                <div className="col-span-8">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Employer's Business or Organization Address, City or Town,
-                    State, ZIP Code
-                  </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-              </div>
-            </div>
-
-            {/* Footer */}
-            <div className="border-b border-black py-2 text-center text-[12px]">
-              For reverification or rehire, complete{" "}
-              <span className="font-bold text-blue-700 underline">
-                Supplement B, Reverification and Rehire
-              </span>{" "}
-              on Page 4.
-            </div>
-
-            <div className="flex justify-between pt-2 text-[11px]">
-              <span>Form I-9 Edition 01/20/25</span>
-              <span>Page 2 of 4</span>
-            </div>
-          </div>
         </div>
-        <br />
+      </div>
+    </div>
 
-        <div className="min-h-screen bg-gray-200 py-5 font-serif text-black">
-          <div className="mx-auto w-[1050px] bg-white px-6 py-5">
+    {/* Table wrapper */}
+    <div className="w-full overflow-x-auto">
+
+      <table className="w-full min-w-[650px] border border-gray-500 border-collapse font-[Arial] table-fixed">
+
+        {/* Table Header */}
+        <thead>
+          <tr>
+            <th className="w-[31%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px] leading-tight">
+              LIST A
+              <br />
+              Documents that Establish Both Identity and Employment
+              Authorization
+            </th>
+
+            <th className="w-[5%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px]">
+              OR
+            </th>
+
+            <th className="w-[30%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px] leading-tight">
+              LIST B
+              <br />
+              Documents that Establish Identity
+            </th>
+
+            <th className="w-[34%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px] leading-tight">
+              LIST C
+              <br />
+              Documents that Establish Employment Authorization
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          {/* Row 1 */}
+          <tr>
+            <td className="align-top border border-gray-500">
+              <div className="text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] p-1 flex items-start leading-tight">
+                <b className="mr-1 shrink-0">1.</b>
+                <span>
+                  U.S. Passport or U.S. Passport Card
+                </span>
+              </div>
+            </td>
+
+            <td></td>
+
+            {/* LIST B */}
+            <td rowSpan={6} className="align-top border border-gray-500">
+
+              <DocumentItem
+                number="1."
+                text="Driver's license or ID card issued by a State or outlying possession of the United States provided it contains a photograph or information such as name, date of birth, sex, height, eye color, and address"
+              />
+
+              <DocumentItem
+                number="2."
+                text="ID card issued by federal, state or local government agencies or entities, provided it contains a photograph or information such as name, date of birth, sex, height, eye color, and address"
+              />
+
+              <DocumentItem
+                number="3."
+                text="School ID card with a photograph"
+              />
+
+              <DocumentItem
+                number="4."
+                text="Voter's registration card"
+              />
+
+              <DocumentItem
+                number="5."
+                text="U.S. Military card or draft record"
+              />
+
+              <DocumentItem
+                number="6."
+                text="Military dependent's ID card"
+              />
+
+              <DocumentItem
+                number="7."
+                text="U.S. Coast Guard Merchant Mariner Card"
+              />
+
+              <DocumentItem
+                number="8."
+                text="Native American tribal document"
+              />
+
+              <DocumentItem
+                number="9."
+                text="Driver's license issued by a Canadian government authority"
+              />
+
+              <div className="border-t border-gray-500 p-2 text-center text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] leading-tight">
+                <b>
+                  For persons under age 18 who are
+                  <br />
+                  unable to present a document
+                  <br />
+                  listed above:
+                </b>
+              </div>
+
+              <DocumentItem
+                number="10."
+                text="School record or report card"
+              />
+
+              <DocumentItem
+                number="11."
+                text="Clinic, doctor, or hospital record"
+              />
+
+              <DocumentItem
+                number="12."
+                text="Day-care or nursery school record"
+              />
+
+            </td>
+
+            {/* LIST C */}
+            <td rowSpan={6} className="align-top border border-gray-500">
+
+              <DocumentItem
+                number="1."
+                text="A Social Security Account Number card, unless the card includes one of the following restrictions:"
+              />
+
+              <div className="px-2 pb-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight">
+                <div className="flex items-start">
+                  <b className="mr-1 shrink-0">(1)</b>
+                  <span>NOT VALID FOR EMPLOYMENT</span>
+                </div>
+
+                <div className="flex items-start">
+                  <b className="mr-1 shrink-0">(2)</b>
+                  <span>
+                    VALID FOR WORK ONLY WITH INS AUTHORIZATION
+                  </span>
+                </div>
+
+                <div className="flex items-start">
+                  <b className="mr-1 shrink-0">(3)</b>
+                  <span>
+                    VALID FOR WORK ONLY WITH DHS AUTHORIZATION
+                  </span>
+                </div>
+              </div>
+
+              <DocumentItem
+                number="2."
+                text="Certification of report of birth issued by the Department of State (Forms DS-1350, FS-545, FS-240)"
+              />
+
+              <DocumentItem
+                number="3."
+                text="Original or certified copy of birth certificate issued by a State, county, municipal authority, or territory of the United States bearing an official seal"
+              />
+
+              <DocumentItem
+                number="4."
+                text="Native American tribal document"
+              />
+
+              <DocumentItem
+                number="5."
+                text="U.S. Citizen ID Card (Form I-197)"
+              />
+
+              <DocumentItem
+                number="6."
+                text="Identification Card for Use of Resident Citizen in the United States (Form I-179)"
+              />
+
+              <DocumentItem
+                number="7."
+                text="Employment authorization document issued by the Department of Homeland Security"
+              />
+
+              <div className="border-t border-gray-500 p-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight">
+
+                <span>
+                  For examples, see{" "}
+                  <a
+                    className="font-bold text-blue-700 underline"
+                    href="https://www.uscis.gov/i-9-central/form-i-9-resources/handbook-for-employers-m-274/70-evidence-of-employment-authorization-for-certain-categories"
+                  >
+                    Section 7
+                  </a>{" "}
+                  and{" "}
+                  <a
+                    className="font-bold text-blue-700 underline"
+                    href="https://www.uscis.gov/i-9-central/form-i-9-resources/handbook-for-employers-m-274/130-acceptable-documents-for-verifying-employment-authorization-and-identity/133-list-c-documents-that-establish-employment-authorization"
+                  >
+                    Section 13
+                  </a>{" "}
+                  of the M-274 on{" "}
+                  <a
+                    className="font-bold text-blue-700 underline"
+                    href="https://www.uscis.gov/i-9-central"
+                  >
+                    uscis.gov/i-9-central.
+                  </a>
+                </span>
+
+                <br />
+                <br />
+
+                <span>
+                  The Form I-766, Employment Authorization Document, is a List
+                  A, <b>Item Number 4.</b> document, not a List C document.
+                </span>
+
+              </div>
+
+            </td>
+          </tr>
+
+          {/* LIST A ITEMS */}
+          <tr>
+            <td className="border border-gray-500 align-top">
+              <DocumentItem
+                number="2."
+                text="Permanent Resident Card or Alien Registration Receipt Card (Form I-551)"
+              />
+            </td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td className="border border-gray-500 align-top">
+              <DocumentItem
+                number="3."
+                text="Foreign passport that contains a temporary I-551 stamp or temporary I-551 printed notation on a machine-readable immigrant visa"
+              />
+            </td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td className="border border-gray-500 align-top">
+              <DocumentItem
+                number="4."
+                text="Employment Authorization Document that contains a photograph (Form I-766)"
+              />
+            </td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td className="border border-gray-500 align-top">
+              <DocumentItem
+                number="5."
+                text="For an individual temporarily authorized to work for a specific employer because of his or her status or parole: a. Foreign passport; and b. Form I-94 or Form I-94A that has the required endorsement."
+              />
+            </td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td className="border border-gray-500 align-top">
+              <DocumentItem
+                number="6."
+                text="Passport from the Federated States of Micronesia (FSM) or the Republic of the Marshall Islands (RMI) with Form I-94 or Form I-94A indicating nonimmigrant admission under the Compact of Free Association."
+              />
+            </td>
+            <td></td>
+          </tr>
+
+          {/* Acceptable Receipts */}
+          <tr>
+            <td colSpan={4} className="border-t border-gray-500 px-3 sm:px-6 md:px-10 lg:px-[50px] py-3 text-center">
+              <h2 className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15.4px] font-bold">
+                Acceptable Receipts
+              </h2>
+
+              <h3 className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[13.4px] leading-tight">
+                May be presented in lieu of a document listed above for a
+                temporary period. For receipt validity dates, see the M-274.
+              </h3>
+            </td>
+          </tr>
+
+          {/* Receipts */}
+          <tr>
+            <td className="border border-gray-500 align-top">
+              <ReceiptItem text="Receipt for a replacement of a lost, stolen, or damaged List A document." />
+
+              <ReceiptItem text="Form I-94 issued to a lawful permanent resident that contains an I-551 stamp and a photograph of the individual." />
+
+              <ReceiptItem text="Form I-94 with “RE” notation or refugee stamp issued to a refugee." />
+            </td>
+
+            <td className="border border-gray-500 text-center text-[10px] sm:text-[11px] md:text-[12px]">
+              <b>OR</b>
+            </td>
+
+            <td rowSpan={3} className="border border-gray-500 align-top">
+              <ReceiptItem text="Receipt for a replacement of a lost, stolen, or damaged List B document." />
+            </td>
+
+            <td rowSpan={3} className="border border-gray-500 align-top">
+              <ReceiptItem text="Receipt for a replacement of a lost, stolen, or damaged List C document." />
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    {/* Footer */}
+    <div className="border-b border-black py-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[12px] leading-tight">
+      *Refer to the Employment Authorization Extensions page on{" "}
+      <a
+        className="font-bold text-blue-700 underline"
+        href="https://www.uscis.gov/i-9-central/form-i-9-acceptable-documents/employment-authorization-extensions"
+      >
+        I-9 Central
+      </a>{" "}
+      for more information.
+    </div>
+
+    <div className="flex flex-col gap-1 sm:flex-row sm:justify-between pt-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px]">
+      <span>Form I-9 Edition 01/20/25</span>
+      <span>Page 2 of 4</span>
+    </div>
+
+  </div>
+</div>
+        <br />
+        <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          <div className="mx-auto">
             {/* Header */}
-            <div className="border-t-[5px] border-black">
+            <div className="">
               <div className="flex items-start justify-between py-2">
                 <div className="w-[100px]">
-                  <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full border-[3px] border-black text-center text-[8px] font-bold leading-tight">
-                    U.S.
-                    <br />
-                    DEPARTMENT
-                    <br />
-                    OF
-                    <br />
-                    HOMELAND
-                    <br />
-                    SECURITY
+                  <div className="mt-[30px] mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full border-[3px] border-black text-center text-[8px] font-bold leading-tight">
+                    <img src="/homeland.webp" />
                   </div>
                 </div>
 
-                <div className="flex-1 text-center">
-                  <h1 className="text-[24px] font-bold">
-                    Employment Eligibility Verification
+                <div className="font-['Times_New_Roman'] flex-1 text-center">
+                  <h1 className="text-[18px] font-bold">
+                    Supplement A,
+                    <br />
+                    Preparer and/or Translator Certification for Section 1
                   </h1>
                   <h2 className="text-[17px] font-bold">
                     Department of Homeland Security
@@ -14978,388 +14825,503 @@ export default function DriverApplication() {
                   </p>
                 </div>
 
-                <div className="w-[120px] text-center">
-                  <div className="text-[17px] font-bold">USCIS</div>
-                  <div className="text-[17px] font-bold">Form I-9</div>
-                  <div className="text-[11px]">OMB No. 1615-0047</div>
-                  <div className="text-[11px]">Expires 05/31/2027</div>
+                <div className="w-[120px] text-[15px] font-['Times_New_Roman'] text-center">
+                  <div className=" font-bold">USCIS</div>
+                  <div className=" font-bold">Form I-9</div>
+                  <div className=" font-bold">Supplement A</div>
+                  <div className="text-[10.7px]">OMB No. 1615-0047</div>
+                  <div className="text-[10.7px]">Expires 05/31/2027</div>
                 </div>
               </div>
             </div>
 
-            <div className="border-t-[5px] border-black" />
+            <div className="border-t-[5px] mb-[2px] border-black font-['Times_New_Roman']" />
+            <div className="border-t-[1px] border-black font-['Times_New_Roman']" />
+
+            <table className="mt-2 font-[arial] border-collapse w-full">
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Last Name <i>(Family Name)</i> from <b>Section 1.</b>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    First Name <i>(Given Name)</i> from <b>Section 1.</b>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Middle initial (if any) from <b>Section 1.</b>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </table>
 
             {/* Top Instructions */}
             <div className="py-2 text-[12px] leading-tight">
-              <b>START HERE:</b> Employers must ensure the form instructions are
-              available to employees when completing this form. Employers are
-              liable for failing to comply with the requirements for completing
-              this form. See below and the <u>Instructions.</u>
+              <b>Instructions:</b> This supplement must be completed by any
+              preparer and/or translator who assists an employee in completing
+              Section 1 of Form I-9. The preparer and/or translator must enter
+              the employee's name in the spaces provided above. Each preparer or
+              translator must complete, sign, and date a separate certification
+              area. Employers must retain completed supplement sheets with the
+              employee's completed Form I-9.
             </div>
 
-            <div className="pb-2 text-[12px] leading-tight">
-              <b>ANTI-DISCRIMINATION NOTICE:</b> All employees can choose which
-              acceptable documentation to present for Form I-9. Employers cannot
-              ask employees for documentation to verify information in Section
-              1, or specify which acceptable documentation employees must
-              present for Section 2 or Supplement B, Reverification and Rehire.
+            <div className="pt-2 text-[12px] leading-tight">
+              <b>
+                I attest, under penalty of perjury, that I have assisted in the
+                completion of Section 1 of this form and that to the best of my
+                knowledge the information is true and correct.
+              </b>
             </div>
 
-            {/* Section 1 */}
-            <div className="border border-black bg-gray-200 px-2 py-1 text-[13px] leading-tight">
-              <b>Section 1. Employee Information and Attestation:</b> Employees
-              must complete and sign Section 1 of Form I-9 no later than the{" "}
-              <b>first day of employment</b>, but not before accepting a job
-              offer.
-            </div>
-
-            {/* Employee Information */}
-            <div className="grid grid-cols-12 border-l border-black text-[10px]">
-              <div className="col-span-4 border-b border-r border-black">
-                <div className="px-2 pt-1">Last Name (Family Name)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-3 border-b border-r border-black">
-                <div className="px-2 pt-1">First Name (Given Name)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">Middle Initial (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-3 border-b border-black">
-                <div className="px-2 pt-1">Other Last Names Used (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-4 border-b border-r border-black">
-                <div className="px-2 pt-1">
-                  Address (Street Number and Name)
-                </div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">Apt. Number (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-3 border-b border-r border-black">
-                <div className="px-2 pt-1">City or Town</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-1 border-b border-r border-black">
-                <div className="px-2 pt-1">State</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-black">
-                <div className="px-2 pt-1">ZIP Code</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">Date of Birth (mm/dd/yyyy)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">U.S. Social Security Number</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-4 border-b border-r border-black">
-                <div className="px-2 pt-1">Employee's Email Address</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-4 border-b border-black">
-                <div className="px-2 pt-1">Employee's Telephone Number</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-            </div>
-
-            {/* Attestation */}
-            <div className="grid grid-cols-12 border border-black border-t-0">
-              <div className="col-span-3 border-r border-black p-3 text-[11px] font-bold leading-tight">
-                I am aware that federal law provides for imprisonment and/or
-                fines for false statements, or the use of false documents, in
-                connection with the completion of this form. I attest, under
-                penalty of perjury, that this information, including my
-                selection of the box attesting to my citizenship or immigration
-                status, is true and correct.
-              </div>
-
-              <div className="col-span-9">
-                <div className="border-b border-black px-2 py-1 text-[11px] font-bold">
-                  Check one of the following boxes to attest to your citizenship
-                  or immigration status:
-                </div>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>1.</b>&nbsp; A citizen of the United States
-                  </span>
-                </label>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>2.</b>&nbsp; A noncitizen national of the United States
-                  </span>
-                </label>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>3.</b>&nbsp; A lawful permanent resident (Enter USCIS
-                    A-Number.)
-                    <input className="ml-2 w-[140px] border-b border-black outline-none" />
-                  </span>
-                </label>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>4.</b>&nbsp; An alien authorized to work until
-                    <input className="ml-2 w-[100px] border-b border-black outline-none" />
-                  </span>
-                </label>
-
-                <div className="px-2 py-1 text-[11px] font-bold">
-                  If you check Item Number 4, enter one of these:
-                </div>
-
-                <div className="grid grid-cols-3 border-t border-black text-center text-[10px] font-bold">
-                  <div className="border-r border-black">
-                    <div className="py-1">USCIS A-Number</div>
-                    <input className="h-7 w-full px-2 outline-none" />
-                  </div>
-
-                  <div className="border-r border-black">
-                    <div className="py-1">Form I-94 Admission Number</div>
-                    <input className="h-7 w-full px-2 outline-none" />
-                  </div>
-
-                  <div>
-                    <div className="py-1">
-                      Foreign Passport Number and Country of Issuance
-                    </div>
-                    <input className="h-7 w-full px-2 outline-none" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 border-t border-black">
-                  <div className="border-r border-black">
-                    <div className="px-2 pt-1 text-[10px]">
-                      Signature of Employee
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-
-                  <div>
-                    <div className="px-2 pt-1 text-[10px]">
-                      Today's Date (mm/dd/yyyy)
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="border-x border-b border-black px-2 py-1 text-[11px]">
-              If a preparer and/or translator assisted you in completing Section
-              1, that person <b>MUST</b> complete the{" "}
-              <u className="font-bold text-blue-700">
-                Preparer and/or Translator Certification
-              </u>{" "}
-              on Page 3.
-            </div>
-
-            {/* Section 2 */}
-            <div className="mt-1 border border-black">
-              <div className="bg-gray-200 px-2 py-1 text-[12px] leading-tight">
-                <b>Section 2. Employer Review and Verification:</b> Employers or
-                their authorized representative must complete and sign Section 2
-                within three business days after the employee's first day of
-                employment.
-              </div>
-
-              <div className="grid grid-cols-12 border-t border-black text-center text-[13px] font-bold">
-                <div className="col-span-5 border-r border-black py-1">
-                  List A
-                </div>
-                <div className="col-span-3 border-r border-black py-1">
-                  List B
-                </div>
-                <div className="col-span-4 py-1">List C</div>
-              </div>
-
-              <div className="grid grid-cols-12">
-                {/* List A */}
-                <div className="col-span-5 border-r border-black">
-                  {[
-                    "Document Title 1",
-                    "Document Title 2 (if any)",
-                    "Document Title 3 (if any)",
-                  ].map((title) => (
-                    <div key={title} className="border-t border-black">
-                      <div className="grid grid-cols-5">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px] font-bold">
-                          {title}
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Issuing Authority
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Document Number (if any)
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Expiration Date (if any)
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* List B */}
-                <div className="col-span-3 border-r border-black">
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px] font-bold">
-                      Document Title
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Issuing Authority
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Document Number (if any)
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Expiration Date (if any)
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-                </div>
-
-                {/* Additional Information */}
-                <div className="col-span-4">
-                  <div className="border-b border-black px-2 py-1 text-[13px] font-bold">
-                    Additional Information
-                  </div>
-
-                  <textarea className="h-[275px] w-full resize-none p-2 outline-none" />
-
-                  <label className="flex items-center gap-2 border-t border-black p-2 text-[10px]">
-                    <input type="checkbox" className="h-4 w-4" />
-                    Check here if you used an alternative procedure authorized
-                    by DHS to examine documents.
-                  </label>
-                </div>
-              </div>
-
-              {/* Certification */}
-              <div className="grid grid-cols-12 border-t border-black">
-                <div className="col-span-9 p-2 text-[10px] leading-tight">
-                  <b>Certification:</b> I attest, under penalty of perjury, that
-                  (1) I have examined the documentation presented by the
-                  above-named employee, (2) the above-listed documentation
-                  appear to be genuine and to relate to the employee named, and
-                  (3) to the best of my knowledge, the employee is authorized to
-                  work in the United States.
-                </div>
-
-                <div className="col-span-3 border-l border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    First Day of Employment
+            <table className="mt-2 mb-4 font-[arial] border-collapse w-full">
+              <tr>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Signature of Preparer or Translator
                     <br />
-                    (mm/dd/yyyy)
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-              </div>
+                </td>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Date <i>(mm/dd/yyyy)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
 
-              {/* Employer Signature */}
-              <div className="grid grid-cols-12 border-t border-black">
-                <div className="col-span-5 border-r border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Last Name, First Name and Title of Employer or Authorized
-                    Representative
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Last Name <i>(Family Name)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
+                </td>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    First Name <i>(Given Name)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Middle Initial <i>(if any)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
 
-                <div className="col-span-4 border-r border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Signature of Employer or Authorized Representative
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Address <i>(Street Number and Name) </i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    City or Town
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    State
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    ZIP Code
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </table>
 
-                <div className="col-span-3">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Today's Date (mm/dd/yyyy)
-                  </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-              </div>
-
-              {/* Employer Address */}
-              <div className="grid grid-cols-12 border-t border-black">
-                <div className="col-span-4 border-r border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Employer's Business or Organization Name
-                  </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-
-                <div className="col-span-8">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Employer's Business or Organization Address, City or Town,
-                    State, ZIP Code
-                  </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-              </div>
+            <div className="pt-2 text-[12px] leading-tight">
+              <b>
+                I attest, under penalty of perjury, that I have assisted in the
+                completion of Section 1 of this form and that to the best of my
+                knowledge the information is true and correct.
+              </b>
             </div>
+
+            <table className="mt-2 mb-4 font-[arial] border-collapse w-full">
+              <tr>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Signature of Preparer or Translator
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Date <i>(mm/dd/yyyy)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Last Name <i>(Family Name)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    First Name <i>(Given Name)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Middle Initial <i>(if any)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Address <i>(Street Number and Name) </i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    City or Town
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    State
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    ZIP Code
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <div className="pt-2 text-[12px] leading-tight">
+              <b>
+                I attest, under penalty of perjury, that I have assisted in the
+                completion of Section 1 of this form and that to the best of my
+                knowledge the information is true and correct.
+              </b>
+            </div>
+
+            <table className="mt-2 mb-4 font-[arial] border-collapse w-full">
+              <tr>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Signature of Preparer or Translator
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Date <i>(mm/dd/yyyy)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Last Name <i>(Family Name)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    First Name <i>(Given Name)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Middle Initial <i>(if any)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Address <i>(Street Number and Name) </i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    City or Town
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    State
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    ZIP Code
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <div className="pt-2 text-[12px] leading-tight">
+              <b>
+                I attest, under penalty of perjury, that I have assisted in the
+                completion of Section 1 of this form and that to the best of my
+                knowledge the information is true and correct.
+              </b>
+            </div>
+
+            <table className="mt-2 mb-4 font-[arial] border-collapse w-full">
+              <tr>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Signature of Preparer or Translator
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Date <i>(mm/dd/yyyy)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Last Name <i>(Family Name)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    First Name <i>(Given Name)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Middle Initial <i>(if any)</i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    Address <i>(Street Number and Name) </i>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    City or Town
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    State
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[10.7px] p-1">
+                    ZIP Code
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </table>
 
             {/* Footer */}
-            <div className="border-b border-black py-2 text-center text-[12px]">
-              For reverification or rehire, complete{" "}
-              <span className="font-bold text-blue-700 underline">
-                Supplement B, Reverification and Rehire
-              </span>{" "}
-              on Page 4.
-            </div>
+            <div className="border-b border-black py-2 text-[12px]"></div>
 
             <div className="flex justify-between pt-2 text-[11px]">
               <span>Form I-9 Edition 01/20/25</span>
@@ -15368,28 +15330,22 @@ export default function DriverApplication() {
           </div>
         </div>
         <br />
-        <div className="min-h-screen bg-gray-200 py-5 font-serif text-black">
-          <div className="mx-auto w-[1050px] bg-white px-6 py-5">
+        <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          <div className="mx-auto">
             {/* Header */}
-            <div className="border-t-[5px] border-black">
+            <div className="">
               <div className="flex items-start justify-between py-2">
                 <div className="w-[100px]">
-                  <div className="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full border-[3px] border-black text-center text-[8px] font-bold leading-tight">
-                    U.S.
-                    <br />
-                    DEPARTMENT
-                    <br />
-                    OF
-                    <br />
-                    HOMELAND
-                    <br />
-                    SECURITY
+                  <div className="mt-[30px] mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-full border-[3px] border-black text-center text-[8px] font-bold leading-tight">
+                    <img src="/homeland.webp" />
                   </div>
                 </div>
 
-                <div className="flex-1 text-center">
-                  <h1 className="text-[24px] font-bold">
-                    Employment Eligibility Verification
+                <div className="font-['Times_New_Roman'] flex-1 text-center">
+                  <h1 className="text-[18px] font-bold">
+                    Supplement B,
+                    <br />
+                    Reverification and Rehire (formerly Section 3)
                   </h1>
                   <h2 className="text-[17px] font-bold">
                     Department of Homeland Security
@@ -15399,388 +15355,447 @@ export default function DriverApplication() {
                   </p>
                 </div>
 
-                <div className="w-[120px] text-center">
-                  <div className="text-[17px] font-bold">USCIS</div>
-                  <div className="text-[17px] font-bold">Form I-9</div>
-                  <div className="text-[11px]">OMB No. 1615-0047</div>
-                  <div className="text-[11px]">Expires 05/31/2027</div>
+                <div className="w-[120px] text-[15px] font-['Times_New_Roman'] text-center">
+                  <div className=" font-bold">USCIS</div>
+                  <div className=" font-bold">Form I-9</div>
+                  <div className=" font-bold">Supplement A</div>
+                  <div className="text-[10.7px]">OMB No. 1615-0047</div>
+                  <div className="text-[10.7px]">Expires 05/31/2027</div>
                 </div>
               </div>
             </div>
 
-            <div className="border-t-[5px] border-black" />
+            <div className="border-t-[5px] mb-[2px] border-black font-['Times_New_Roman']" />
+            <div className="border-t-[1px] border-black font-['Times_New_Roman']" />
+
+            <table className="mt-2 font-[arial] border-collapse w-full">
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Last Name <i>(Family Name)</i> from <b>Section 1.</b>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    First Name <i>(Given Name)</i> from <b>Section 1.</b>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Middle initial (if any) from <b>Section 1.</b>
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </table>
 
             {/* Top Instructions */}
             <div className="py-2 text-[12px] leading-tight">
-              <b>START HERE:</b> Employers must ensure the form instructions are
-              available to employees when completing this form. Employers are
-              liable for failing to comply with the requirements for completing
-              this form. See below and the <u>Instructions.</u>
+              <b>
+                Instructions: This supplement replaces Section 3 on the previous
+                version of Form I-9. Only use this page if your employee
+                requires reverification, is rehired within three years of the
+                date the original Form I-9 was completed, or provides proof of a
+                legal name change. Enter the employee's name in the fields
+                above. Use a new section for each reverification or rehire.
+                Review the Form I-9 instructions before completing this page.
+                Keep this page as part of the employee's Form I-9 record.
+                Additional guidance can be found in the
+                <br />
+                <a
+                  href="https://www.uscis.gov/i-9-central/form-i-9-resources/handbook-for-employers-m-274"
+                  className="font-bold text-blue-700 underline"
+                >
+                  Handbook for Employers: Guidance for Completing Form I-9
+                  (M-274)
+                </a>
+              </b>
             </div>
 
-            <div className="pb-2 text-[12px] leading-tight">
-              <b>ANTI-DISCRIMINATION NOTICE:</b> All employees can choose which
-              acceptable documentation to present for Form I-9. Employers cannot
-              ask employees for documentation to verify information in Section
-              1, or specify which acceptable documentation employees must
-              present for Section 2 or Supplement B, Reverification and Rehire.
-            </div>
+            <table className="mt-2 font-[arial] border-collapse w-full">
+              <tr className="bg-gray-200">
+                <td className="text-[9.4px] border border-gray-500">
+                  Date of Rehire <i>(if applicable)</i>
+                </td>
+                <td className="text-[9.4px] border border-gray-500" colSpan="3">
+                  New Name (if applicable)
+                </td>
+              </tr>
+              <tr className="bg-gray-300">
+                <td
+                  colSpan="4"
+                  className="border border-gray-500 text-[10.7px]"
+                >
+                  Reverification: If the employee requires reverification, your
+                  employee can choose to present any acceptable List A or List C
+                  documentation to show continued employment authorization.
+                  Enter the document information in the spaces below.
+                </td>
+              </tr>
 
-            {/* Section 1 */}
-            <div className="border border-black bg-gray-200 px-2 py-1 text-[13px] leading-tight">
-              <b>Section 1. Employee Information and Attestation:</b> Employees
-              must complete and sign Section 1 of Form I-9 no later than the{" "}
-              <b>first day of employment</b>, but not before accepting a job
-              offer.
-            </div>
-
-            {/* Employee Information */}
-            <div className="grid grid-cols-12 border-l border-black text-[10px]">
-              <div className="col-span-4 border-b border-r border-black">
-                <div className="px-2 pt-1">Last Name (Family Name)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-3 border-b border-r border-black">
-                <div className="px-2 pt-1">First Name (Given Name)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">Middle Initial (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-3 border-b border-black">
-                <div className="px-2 pt-1">Other Last Names Used (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-4 border-b border-r border-black">
-                <div className="px-2 pt-1">
-                  Address (Street Number and Name)
-                </div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">Apt. Number (if any)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-3 border-b border-r border-black">
-                <div className="px-2 pt-1">City or Town</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-1 border-b border-r border-black">
-                <div className="px-2 pt-1">State</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-black">
-                <div className="px-2 pt-1">ZIP Code</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">Date of Birth (mm/dd/yyyy)</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-2 border-b border-r border-black">
-                <div className="px-2 pt-1">U.S. Social Security Number</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-4 border-b border-r border-black">
-                <div className="px-2 pt-1">Employee's Email Address</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-
-              <div className="col-span-4 border-b border-black">
-                <div className="px-2 pt-1">Employee's Telephone Number</div>
-                <input className="h-7 w-full px-2 outline-none" />
-              </div>
-            </div>
-
-            {/* Attestation */}
-            <div className="grid grid-cols-12 border border-black border-t-0">
-              <div className="col-span-3 border-r border-black p-3 text-[11px] font-bold leading-tight">
-                I am aware that federal law provides for imprisonment and/or
-                fines for false statements, or the use of false documents, in
-                connection with the completion of this form. I attest, under
-                penalty of perjury, that this information, including my
-                selection of the box attesting to my citizenship or immigration
-                status, is true and correct.
-              </div>
-
-              <div className="col-span-9">
-                <div className="border-b border-black px-2 py-1 text-[11px] font-bold">
-                  Check one of the following boxes to attest to your citizenship
-                  or immigration status:
-                </div>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>1.</b>&nbsp; A citizen of the United States
-                  </span>
-                </label>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>2.</b>&nbsp; A noncitizen national of the United States
-                  </span>
-                </label>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>3.</b>&nbsp; A lawful permanent resident (Enter USCIS
-                    A-Number.)
-                    <input className="ml-2 w-[140px] border-b border-black outline-none" />
-                  </span>
-                </label>
-
-                <label className="flex items-center gap-2 px-2 py-1 text-[11px]">
-                  <input type="checkbox" className="h-4 w-4" />
-                  <span>
-                    <b>4.</b>&nbsp; An alien authorized to work until
-                    <input className="ml-2 w-[100px] border-b border-black outline-none" />
-                  </span>
-                </label>
-
-                <div className="px-2 py-1 text-[11px] font-bold">
-                  If you check Item Number 4, enter one of these:
-                </div>
-
-                <div className="grid grid-cols-3 border-t border-black text-center text-[10px] font-bold">
-                  <div className="border-r border-black">
-                    <div className="py-1">USCIS A-Number</div>
-                    <input className="h-7 w-full px-2 outline-none" />
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-normal text-[9.4px] p-1">
+                    Document Title
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-
-                  <div className="border-r border-black">
-                    <div className="py-1">Form I-94 Admission Number</div>
-                    <input className="h-7 w-full px-2 outline-none" />
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Document Number (if any)
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-
-                  <div>
-                    <div className="py-1">
-                      Foreign Passport Number and Country of Issuance
-                    </div>
-                    <input className="h-7 w-full px-2 outline-none" />
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Expiration Date (if any) (mm/dd/yyyy)
+                    <br />
+                    <input
+                      type="date"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-                </div>
+                </td>
+              </tr>
 
-                <div className="grid grid-cols-2 border-t border-black">
-                  <div className="border-r border-black">
-                    <div className="px-2 pt-1 text-[10px]">
-                      Signature of Employee
-                    </div>
-                    <input className="h-8 w-full outline-none" />
+              <tr className="">
+                <td colSpan="3" className="border border-gray-500 text-[10px]">
+                  <b>
+                    I attest, under penalty of perjury, that to the best of my
+                    knowledge, this employee is authorized to work in the United
+                    States, and if the employee presented documentation, the
+                    documentation I examined appears to be genuine and to relate
+                    to the individual who presented it.
+                  </b>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-normal text-[9.4px] p-1">
+                    Name of Employer or Authorized Representative
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-
-                  <div>
-                    <div className="px-2 pt-1 text-[10px]">
-                      Today's Date (mm/dd/yyyy)
-                    </div>
-                    <input className="h-8 w-full outline-none" />
+                </td>
+                <td colSpan="1" className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Signature of Employer or Authorized Representative
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-                </div>
-              </div>
-            </div>
+                </td>
 
-            <div className="border-x border-b border-black px-2 py-1 text-[11px]">
-              If a preparer and/or translator assisted you in completing Section
-              1, that person <b>MUST</b> complete the{" "}
-              <u className="font-bold text-blue-700">
-                Preparer and/or Translator Certification
-              </u>{" "}
-              on Page 3.
-            </div>
-
-            {/* Section 2 */}
-            <div className="mt-1 border border-black">
-              <div className="bg-gray-200 px-2 py-1 text-[12px] leading-tight">
-                <b>Section 2. Employer Review and Verification:</b> Employers or
-                their authorized representative must complete and sign Section 2
-                within three business days after the employee's first day of
-                employment.
-              </div>
-
-              <div className="grid grid-cols-12 border-t border-black text-center text-[13px] font-bold">
-                <div className="col-span-5 border-r border-black py-1">
-                  List A
-                </div>
-                <div className="col-span-3 border-r border-black py-1">
-                  List B
-                </div>
-                <div className="col-span-4 py-1">List C</div>
-              </div>
-
-              <div className="grid grid-cols-12">
-                {/* List A */}
-                <div className="col-span-5 border-r border-black">
-                  {[
-                    "Document Title 1",
-                    "Document Title 2 (if any)",
-                    "Document Title 3 (if any)",
-                  ].map((title) => (
-                    <div key={title} className="border-t border-black">
-                      <div className="grid grid-cols-5">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px] font-bold">
-                          {title}
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Issuing Authority
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Document Number (if any)
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-
-                      <div className="grid grid-cols-5 border-t border-black">
-                        <div className="col-span-2 bg-gray-200 px-1 py-2 text-[10px]">
-                          Expiration Date (if any)
-                        </div>
-                        <input className="col-span-3 outline-none" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* List B */}
-                <div className="col-span-3 border-r border-black">
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px] font-bold">
-                      Document Title
-                    </div>
-                    <input className="h-8 w-full outline-none" />
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Today's Date (mm/dd/yyyy)
+                    <br />
+                    <input
+                      type="date"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Issuing Authority
-                    </div>
-                    <input className="h-8 w-full outline-none" />
+                </td>
+              </tr>
+              <tr>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-normal text-[9.4px] p-1">
+                    Additional Information (Initial and date each notation.)
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
+                </td>
 
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Document Number (if any)
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-
-                  <div className="border-t border-black">
-                    <div className="bg-gray-200 px-2 py-2 text-[10px]">
-                      Expiration Date (if any)
-                    </div>
-                    <input className="h-8 w-full outline-none" />
-                  </div>
-                </div>
-
-                {/* Additional Information */}
-                <div className="col-span-4">
-                  <div className="border-b border-black px-2 py-1 text-[13px] font-bold">
-                    Additional Information
-                  </div>
-
-                  <textarea className="h-[275px] w-full resize-none p-2 outline-none" />
-
-                  <label className="flex items-center gap-2 border-t border-black p-2 text-[10px]">
-                    <input type="checkbox" className="h-4 w-4" />
+                <td className="border border-gray-500">
+                  <div className=" flex text-[9.4px] p-1">
+                    <input
+                      type="checkbox"
+                      className="w-[5%] mr-5 border border-gray-500 p-1 w-full"
+                    />
                     Check here if you used an alternative procedure authorized
                     by DHS to examine documents.
-                  </label>
-                </div>
-              </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table className="mt-2 font-[arial] border-collapse w-full">
+              <tr className="bg-gray-200">
+                <td className="text-[9.4px] border border-gray-500">
+                  Date of Rehire <i>(if applicable)</i>
+                </td>
+                <td className="text-[9.4px] border border-gray-500" colSpan="3">
+                  New Name (if applicable)
+                </td>
+              </tr>
+              <tr className="bg-gray-300">
+                <td
+                  colSpan="4"
+                  className="border border-gray-500 text-[10.7px]"
+                >
+                  Reverification: If the employee requires reverification, your
+                  employee can choose to present any acceptable List A or List C
+                  documentation to show continued employment authorization.
+                  Enter the document information in the spaces below.
+                </td>
+              </tr>
 
-              {/* Certification */}
-              <div className="grid grid-cols-12 border-t border-black">
-                <div className="col-span-9 p-2 text-[10px] leading-tight">
-                  <b>Certification:</b> I attest, under penalty of perjury, that
-                  (1) I have examined the documentation presented by the
-                  above-named employee, (2) the above-listed documentation
-                  appear to be genuine and to relate to the employee named, and
-                  (3) to the best of my knowledge, the employee is authorized to
-                  work in the United States.
-                </div>
-
-                <div className="col-span-3 border-l border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    First Day of Employment
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-normal text-[9.4px] p-1">
+                    Document Title
                     <br />
-                    (mm/dd/yyyy)
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-              </div>
-
-              {/* Employer Signature */}
-              <div className="grid grid-cols-12 border-t border-black">
-                <div className="col-span-5 border-r border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Last Name, First Name and Title of Employer or Authorized
-                    Representative
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Document Number (if any)
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Expiration Date (if any) (mm/dd/yyyy)
+                    <br />
+                    <input
+                      type="date"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
 
-                <div className="col-span-4 border-r border-black">
-                  <div className="px-2 pt-1 text-[10px]">
+              <tr className="">
+                <td colSpan="3" className="border border-gray-500 text-[10px]">
+                  <b>
+                    I attest, under penalty of perjury, that to the best of my
+                    knowledge, this employee is authorized to work in the United
+                    States, and if the employee presented documentation, the
+                    documentation I examined appears to be genuine and to relate
+                    to the individual who presented it.
+                  </b>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-normal text-[9.4px] p-1">
+                    Name of Employer or Authorized Representative
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td colSpan="1" className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
                     Signature of Employer or Authorized Representative
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
+                </td>
 
-                <div className="col-span-3">
-                  <div className="px-2 pt-1 text-[10px]">
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
                     Today's Date (mm/dd/yyyy)
+                    <br />
+                    <input
+                      type="date"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-              </div>
-
-              {/* Employer Address */}
-              <div className="grid grid-cols-12 border-t border-black">
-                <div className="col-span-4 border-r border-black">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Employer's Business or Organization Name
+                </td>
+              </tr>
+              <tr>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-normal text-[9.4px] p-1">
+                    Additional Information (Initial and date each notation.)
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
                   </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
+                </td>
 
-                <div className="col-span-8">
-                  <div className="px-2 pt-1 text-[10px]">
-                    Employer's Business or Organization Address, City or Town,
-                    State, ZIP Code
+                <td className="border border-gray-500">
+                  <div className=" flex text-[9.4px] p-1">
+                    <input
+                      type="checkbox"
+                      className="w-[5%] mr-5 border border-gray-500 p-1 w-full"
+                    />
+                    Check here if you used an alternative procedure authorized
+                    by DHS to examine documents.
                   </div>
-                  <input className="h-8 w-full outline-none" />
-                </div>
-              </div>
-            </div>
+                </td>
+              </tr>
+            </table>
+            <table className="mt-2 font-[arial] border-collapse w-full">
+              <tr className="bg-gray-200">
+                <td className="text-[9.4px] border border-gray-500">
+                  Date of Rehire <i>(if applicable)</i>
+                </td>
+                <td className="text-[9.4px] border border-gray-500" colSpan="3">
+                  New Name (if applicable)
+                </td>
+              </tr>
+              <tr className="bg-gray-300">
+                <td
+                  colSpan="4"
+                  className="border border-gray-500 text-[10.7px]"
+                >
+                  Reverification: If the employee requires reverification, your
+                  employee can choose to present any acceptable List A or List C
+                  documentation to show continued employment authorization.
+                  Enter the document information in the spaces below.
+                </td>
+              </tr>
 
-            {/* Footer */}
-            <div className="border-b border-black py-2 text-center text-[12px]">
-              For reverification or rehire, complete{" "}
-              <span className="font-bold text-blue-700 underline">
-                Supplement B, Reverification and Rehire
-              </span>{" "}
-              on Page 4.
-            </div>
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-normal text-[9.4px] p-1">
+                    Document Title
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Document Number (if any)
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Expiration Date (if any) (mm/dd/yyyy)
+                    <br />
+                    <input
+                      type="date"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+
+              <tr className="">
+                <td colSpan="3" className="border border-gray-500 text-[10px]">
+                  <b>
+                    I attest, under penalty of perjury, that to the best of my
+                    knowledge, this employee is authorized to work in the United
+                    States, and if the employee presented documentation, the
+                    documentation I examined appears to be genuine and to relate
+                    to the individual who presented it.
+                  </b>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="border border-gray-500">
+                  <div className="text-normal text-[9.4px] p-1">
+                    Name of Employer or Authorized Representative
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+                <td colSpan="1" className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Signature of Employer or Authorized Representative
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+
+                <td className="border border-gray-500">
+                  <div className="text-[9.4px] p-1">
+                    Today's Date (mm/dd/yyyy)
+                    <br />
+                    <input
+                      type="date"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colSpan="2" className="border border-gray-500">
+                  <div className="text-normal text-[9.4px] p-1">
+                    Additional Information (Initial and date each notation.)
+                    <br />
+                    <input
+                      type="text"
+                      className="border border-gray-500 p-1 w-full"
+                    />
+                  </div>
+                </td>
+
+                <td className="border border-gray-500">
+                  <div className=" flex text-[9.4px] p-1">
+                    <input
+                      type="checkbox"
+                      className="w-[5%] mr-5 border border-gray-500 p-1 w-full"
+                    />
+                    Check here if you used an alternative procedure authorized
+                    by DHS to examine documents.
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div className="border-b border-black py-2 text-[12px]"></div>
 
             <div className="flex justify-between pt-2 text-[11px]">
               <span>Form I-9 Edition 01/20/25</span>
@@ -15788,7 +15803,3830 @@ export default function DriverApplication() {
             </div>
           </div>
         </div>
+        <br />
+        <div class="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          <div class="grid grid-cols-[100px_1fr_140px] border-b-2 border-black">
+            <div class="pr-2">
+              <div class="text-[12px]">Form</div>
+              <div class="flex items-baseline">
+                <span class="text-[40px] font-black leading-none">W-4</span>
+              </div>
 
+              <div class="mt-4 text-[11px] leading-[1.05]">
+                Department of the Treasury
+                <br />
+                Internal Revenue Service
+              </div>
+            </div>
+
+            <div class="border-l border-r border-black px-3 text-center">
+              <h1 class="m-0 text-[22px] font-black leading-tight">
+                Employee’s Withholding Certificate
+              </h1>
+
+              <p class="mt-1 mb-0 text-[12px] font-bold">
+                Complete Form W-4 so that your employer can withhold the correct
+                federal income tax from your pay.
+              </p>
+
+              <p class="mt-1 mb-0 text-[13px] font-bold">
+                Give Form W-4 to your employer.
+              </p>
+
+              <p class="mt-1 mb-1 text-[12px] font-bold">
+                Your withholding is subject to review by the IRS.
+              </p>
+            </div>
+
+            <div class="pl-3 text-center">
+              <div class="border-b border-black pb-1 text-[11px]">
+                OMB No. 1545-0074
+              </div>
+
+              <div class="pt-3 text-[32px] font-black leading-none">2026</div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[100px_1fr] border-b border-black">
+            <div class="border-r border-black py-2 pr-2">
+              <div class="text-[17px] font-black">Step 1:</div>
+              <div class="mt-3 text-[17px] font-black leading-tight">
+                Enter
+                <br />
+                Personal
+                <br />
+                Information
+              </div>
+            </div>
+
+            <div>
+              <div class="grid grid-cols-[1fr_1fr_170px] border-b border-black">
+                <div class="min-h-[42px] border-r border-black px-2 pt-1">
+                  <span class="mr-2 font-bold">(a)</span>
+                  First name and middle initial
+                </div>
+
+                <div class="min-h-[42px] border-r border-black px-2 pt-1">
+                  Last name
+                </div>
+
+                <div class="px-2 pt-1">
+                  <span class="font-bold">(b)</span>
+                  <span class="font-bold">Social security number</span>
+                </div>
+              </div>
+
+              <div class="border-b border-black px-2 py-2">Address</div>
+
+              <div class="grid grid-cols-[1fr_170px] border-b border-black">
+                <div class="px-2 py-2">City or town, state, and ZIP code</div>
+
+                <div class="border-l border-black px-2 py-2 text-[10px] leading-[1.05]">
+                  <strong>
+                    Does your name match the
+                    <br />
+                    name on your social security
+                    <br />
+                    card?
+                  </strong>{" "}
+                  If not, to ensure you get
+                  <br />
+                  credit for your earnings,
+                  <br />
+                  contact SSA at 800-772-1213
+                  <br />
+                  or go to <i>www.ssa.gov</i>.
+                </div>
+              </div>
+
+              <div class="px-2 py-2">
+                <div class="mb-1">
+                  <span class="mr-2 font-bold">(c)</span>
+
+                  <span class="mr-3 inline-flex items-center">
+                    <span class="mr-1 inline-block h-4 w-4 border border-black"></span>
+                    <strong>Single or Married filing separately</strong>
+                  </span>
+                </div>
+
+                <div class="mb-1 ml-[30px]">
+                  <span class="mr-1 inline-block h-4 w-4 border border-black"></span>
+                  <strong>
+                    Married filing jointly or Qualifying surviving spouse
+                  </strong>
+                </div>
+
+                <div class="ml-[30px]">
+                  <span class="mr-1 inline-block h-4 w-4 border border-black"></span>
+                  <strong>Head of household</strong>
+                  <span>
+                    (Check only if you’re unmarried and pay more than half the
+                    costs of keeping up a home for yourself and a qualifying
+                    individual.)
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-b-2 border-black px-1 py-1 text-[10px] leading-tight">
+            <strong>Caution:</strong>
+            To claim certain credits or deductions on your tax return, you
+            (and/or your spouse if married filing jointly) are required to have
+            a social security number valid for employment. See page 2 for more
+            information.
+          </div>
+
+          <div class="border-b border-black py-2">
+            <p class="m-0 text-[11px] leading-[1.15]">
+              <strong>TIP:</strong>
+              Consider using the estimator at
+              <strong>
+                <i>www.irs.gov/W4App</i>
+              </strong>
+              to determine the most accurate withholding for the rest of the
+              year if you are completing this form after the beginning of the
+              year; expect to work only part of the year; or have changes during
+              the year in your marital status, number of jobs for you (and/or
+              your spouse if married filing jointly), dependents, other income
+              (not from jobs), deductions, or credits. Have you most recent pay
+              stub(s) from this year available when using the estimator. At the
+              beginning of next year, use the estimator again to recheck your
+              withholding.
+            </p>
+
+            <p class="mt-2 mb-0 text-[11px] font-bold">
+              Complete Steps 2–4 ONLY if they apply to you; otherwise, skip to
+              Step 5. See page 2 for more information on each step, who can
+              claim exemption from withholding, and when to use the estimator at{" "}
+              <i>www.irs.gov/W4App</i>.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-[100px_1fr] border-b border-black py-2">
+            <div class="border-r border-black pr-2">
+              <div class="text-[17px] font-black">Step 2:</div>
+
+              <div class="mt-2 text-[16px] font-black leading-tight">
+                Multiple Jobs
+                <br />
+                or Spouse
+                <br />
+                Works
+              </div>
+            </div>
+
+            <div class="pl-3 text-[11px]">
+              <p class="m-0">
+                Complete this step if you (1) hold more than one job at a time,
+                or (2) are married filing jointly and your spouse also works.
+                The correct amount of withholding depends on income earned from
+                all of these jobs.
+              </p>
+
+              <p class="mt-2 mb-1 font-bold">Do only one of the following.</p>
+
+              <div class="mb-1">
+                <strong>(a)</strong>
+                Use the estimator at <i>www.irs.gov/W4App</i> for the most
+                accurate withholding for this step (and Steps 3–4). If you or
+                your spouse have self-employment income, use this option; or
+              </div>
+
+              <div class="mb-1">
+                <strong>(b)</strong>
+                Use the Multiple Jobs Worksheet on page 3 and enter the result
+                in Step 4(c) below; or
+              </div>
+
+              <div>
+                <strong>(c)</strong>
+                If there are only two jobs total, you may check this box. Do the
+                same on Form W-4 for the other job. This option is generally
+                more accurate than Step 2(b) if pay at the lower paying job is
+                more than half of the pay at the higher paying job. Otherwise,
+                Step 2(b) is more accurate.
+                <span class="float-right inline-block h-4 w-4 border border-black"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-b border-black py-1 text-[10px]">
+            <strong>
+              Complete Steps 3–4(b) on Form W-4 for only ONE of these jobs.
+            </strong>
+            Leave those steps blank for the other jobs. (Your withholding will
+            be most accurate if you complete Steps 3–4(b) on the Form W-4 for
+            the highest paying job.)
+          </div>
+
+          <div class="grid grid-cols-[100px_1fr_120px] border-b border-black">
+            <div class="border-r border-black py-2 pr-2">
+              <div class="text-[17px] font-black">Step 3:</div>
+
+              <div class="mt-2 text-[16px] font-black leading-tight">
+                Claim
+                <br />
+                Dependent
+                <br />
+                and Other
+                <br />
+                Credits
+              </div>
+            </div>
+
+            <div class="px-3 py-2 text-[11px]">
+              <p class="m-0">
+                If your total income will be $200,000 or less ($400,000 or less
+                if married filing jointly):
+              </p>
+
+              <div class="mt-2">
+                <strong>(a)</strong>
+                Multiply the number of qualifying children under age 17 by
+                $2,200.
+              </div>
+
+              <div class="mt-2">
+                <strong>(b)</strong>
+                Multiply the number of other dependents by $500.
+              </div>
+
+              <div class="mt-2">
+                Add the amounts from Steps 3(a) and 3(b), plus the amount for
+                other credits. Enter the total here.
+              </div>
+            </div>
+
+            <div class="border-l border-black text-[11px]">
+              <div class="border-b border-black px-2 py-3">
+                <strong>3(a)</strong> $
+              </div>
+
+              <div class="border-b border-black px-2 py-3">
+                <strong>3(b)</strong> $
+              </div>
+
+              <div class="px-2 py-3">
+                <strong>3</strong> $
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[100px_1fr_120px] border-b border-black">
+            <div class="border-r border-black py-2 pr-2">
+              <div class="text-[17px] font-black">Step 4:</div>
+
+              <div class="mt-2 text-[16px] font-black leading-tight">
+                Other
+                <br />
+                Adjustments
+              </div>
+            </div>
+
+            <div class="px-3 py-2 text-[11px]">
+              <div class="mb-3">
+                <strong>(a) Other income (not from jobs).</strong>
+                If you want tax withheld for other income you expect this year
+                that won’t have withholding, enter the amount of other income
+                here. This may include interest, dividends, and retirement
+                income.
+              </div>
+
+              <div class="mb-3">
+                <strong>(b) Deductions.</strong>
+                Use the Deductions Worksheet on page 4 to determine the amount
+                of deductions you may claim, which will reduce your withholding.
+                (If you skip this line, your withholding will be based on the
+                standard deduction.)
+              </div>
+
+              <div>
+                <strong>(c) Extra withholding.</strong>
+                Enter any additional tax you want withheld each pay period.
+              </div>
+            </div>
+
+            <div class="border-l border-black text-[11px]">
+              <div class="border-b border-black px-2 py-4">
+                <strong>4(a)</strong> $
+              </div>
+
+              <div class="border-b border-black px-2 py-4">
+                <strong>4(b)</strong> $
+              </div>
+
+              <div class="px-2 py-4">
+                <strong>4(c)</strong> $
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[100px_1fr_25px] border-b border-black">
+            <div class="border-r border-black py-2 pr-2 text-[10px] font-bold">
+              Exempt from
+              <br />
+              withholding
+            </div>
+
+            <div class="px-2 py-2 text-[10px]">
+              I claim exemption from withholding for 2026, and I certify that I
+              meet both of the conditions for exemption for 2026. See{" "}
+              <i>Exemption from withholding</i> on page 2. I understand I will
+              need to submit a new Form W-4 for 2027.
+            </div>
+
+            <div class="flex items-center justify-center">
+              <span class="inline-block h-4 w-4 border border-black"></span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[100px_1fr] border-b border-black">
+            <div class="border-r border-black py-2 pr-2">
+              <div class="text-[17px] font-black">Step 5:</div>
+
+              <div class="mt-2 text-[16px] font-black leading-tight">
+                Sign
+                <br />
+                Here
+              </div>
+            </div>
+
+            <div class="px-3 py-2 text-[10px]">
+              <p class="m-0">
+                Under penalties of perjury, I declare that this certificate, to
+                the best of my knowledge and belief, is true, correct, and
+                complete.
+              </p>
+
+              <div class="mt-5 grid grid-cols-[1fr_200px] gap-6">
+                <div>
+                  <div class="h-[20px] border-b border-black"></div>
+                  <div class="mt-1 font-bold">
+                    Employee’s signature
+                    <span class="font-normal">
+                      (This form is not valid unless you sign it.)
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="h-[20px] border-b border-black"></div>
+                  <div class="mt-1 font-bold">Date</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[100px_1fr_130px_190px] border-b border-black">
+            <div class="border-r border-black py-2 pr-2 text-[16px] font-black leading-tight">
+              Employers
+              <br />
+              Only
+            </div>
+
+            <div class="border-r border-black px-2 py-2 text-[10px]">
+              Employer’s name and address
+            </div>
+
+            <div class="border-r border-black px-2 py-2 text-[10px]">
+              First date of
+              <br />
+              employment
+            </div>
+
+            <div class="px-2 py-2 text-[10px]">
+              Employer identification
+              <br />
+              number (EIN)
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2 text-[9px] font-bold">
+            <div>
+              For Privacy Act and Paperwork Reduction Act Notice, see page 4.
+            </div>
+
+            <div class="font-normal">Cat. No. 10220Q</div>
+
+            <div class="font-normal">Form W-4 (2026) Created 12/8/25</div>
+          </div>
+        </div>
+        <br />
+        <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          {/* Header */}
+          <div className="mb-3 flex items-center justify-between border-b-2 border-black pb-1 text-[11px]">
+            <span>Form W-4 (2026)</span>
+            <span>Page 2</span>
+          </div>
+
+          {/* Main Two Columns */}
+          <div className="grid grid-cols-2 gap-[0.35in]">
+            {/* LEFT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <h1 className="mb-1 text-[17px] font-black leading-none">
+                General Instructions
+              </h1>
+
+              <p className="mb-2 text-[11px] leading-tight">
+                Section references are to the Internal Revenue Code unless
+                otherwise noted.
+              </p>
+
+              <h2 className="mb-1 text-[16px] font-black leading-none">
+                Future Developments
+              </h2>
+
+              <p className="mb-2">
+                For the latest information about developments related to Form
+                W-4, such as legislation enacted after it was published, go to{" "}
+                <strong>
+                  <i>www.irs.gov/FormW4</i>
+                </strong>
+                .
+              </p>
+
+              <h2 className="mb-1 text-[17px] font-black leading-none">
+                Purpose of Form
+              </h2>
+
+              <p className="mb-2">
+                Complete Form W-4 so that your employer can withhold the correct
+                federal income tax from your pay. If too little is withheld, you
+                will generally owe tax when you file your tax return and may owe
+                a penalty. If too much is withheld, you will generally be due a
+                refund. Complete a new Form W-4 when changes to your personal or
+                financial situation would change the entries on the form. For
+                more information on withholding and when you must furnish a new
+                Form W-4, see Pub. 505, Tax Withholding and Estimated Tax.
+              </p>
+
+              <p className="mb-2">
+                <strong>Exemption from withholding.</strong> You may claim
+                exemption from withholding for 2026 if you meet both of the
+                following conditions: you had no federal income tax liability in
+                2025 and you expect to have no federal income tax liability in
+                2026. You had no federal income tax liability in 2025 if (1)
+                your total tax on line 24 on your 2025 Form 1040 or 1040-SR is
+                zero (or less than the sum of lines 27a, 28, 29, and 30), or (2)
+                you were not required to file a return because your income was
+                below the filing threshold for your correct filing status. If
+                you claim exemption, you will have no income tax withheld from
+                your paycheck and may owe taxes and penalties when you file your
+                2026 tax return. To claim exemption from withholding, certify
+                that you meet both of the conditions by checking the box in the{" "}
+                <i>Exempt from withholding</i> section. Then, complete Steps
+                1(a), 1(b), and 5. Do not complete any other steps. You will
+                need to submit a new Form W-4 by February 16, 2027.
+              </p>
+
+              <p className="mb-2">
+                <strong>Your privacy.</strong> Steps 2(c) and 4(a) ask for
+                information regarding income you received from sources other
+                than the job associated with this Form W-4. If you have concerns
+                with providing the information asked for in Step 2(c), you may
+                choose Step 2(b) as an alternative; if you have concerns with
+                providing the information asked for in Step 4(a), you may enter
+                an additional amount you want withheld per pay period in Step
+                4(c) as an alternative.
+              </p>
+
+              <p className="mb-1">
+                <strong>When to use the estimator.</strong> Consider using the
+                estimator at
+                <strong>
+                  <i> www.irs.gov/W4App</i>
+                </strong>{" "}
+                if you:
+              </p>
+
+              <ol className="mb-2 list-decimal space-y-1 pl-5">
+                <li>
+                  Are submitting this form after the beginning of the year;
+                </li>
+                <li>Expect to work only part of the year;</li>
+                <li>
+                  Have changes during the year in your marital status, number of
+                  jobs for you (and/or your spouse if married filing jointly),
+                  or number of dependents, or changes in your deductions or
+                  credits;
+                </li>
+                <li>
+                  Receive dividends, capital gains, social security, bonuses, or
+                  business income, or are subject to the Additional Medicare Tax
+                  or Net Investment Income Tax; or
+                </li>
+                <li>
+                  Prefer the most accurate withholding for multiple job
+                  situations.
+                </li>
+              </ol>
+
+              <p className="mb-2">
+                <strong>TIP:</strong> Have your most recent pay stub(s) from
+                this year available when using the estimator to account for
+                federal income tax that has already been withheld this year. At
+                the beginning of next year, use the estimator again to recheck
+                your withholding.
+              </p>
+
+              <p>
+                <strong>Self-employment.</strong> Generally, you will owe both
+                income and self-employment taxes on any self-employment income
+                you receive separate from the wages you receive as an employee.
+                If you want to pay these taxes through withholding from your
+                wages, use the estimator at
+                <strong>
+                  <i> www.irs.gov/W4App</i>
+                </strong>{" "}
+                to figure the amount to have withheld.
+              </p>
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <p className="mb-3">
+                <strong>Nonresident alien.</strong> If you’re a nonresident
+                alien, see Notice 1392, Supplemental Form W-4 Instructions for
+                Nonresident Aliens, before completing this form.
+              </p>
+
+              <h1 className="mb-1 text-[17px] font-black leading-none">
+                Specific Instructions
+              </h1>
+
+              <p className="mb-2">
+                <strong>Step 1(c).</strong> Check your anticipated filing
+                status. This will determine the standard deduction and tax rates
+                used to compute your withholding.
+              </p>
+
+              <p className="mb-2">
+                <strong>Step 2.</strong> Use this step if you (1) have more than
+                one job at the same time, or (2) are married filing jointly and
+                you and your spouse both work. Submit a separate Form W-4 for
+                each job.
+              </p>
+
+              <p className="mb-2 pl-4">
+                Option <strong>(a)</strong> most accurately calculates the
+                additional tax you need to have withheld, while option{" "}
+                <strong>(b)</strong> does so with a little less accuracy.
+              </p>
+
+              <p className="mb-2 pl-4">
+                Instead, if you (and your spouse) have a total of only two jobs,
+                you may check the box in option
+                <strong> (c)</strong>. The box must also be checked on the Form
+                W-4 for the other job. If the box is checked, the standard
+                deduction and tax brackets will be cut in half for each job to
+                calculate withholding. This option is accurate for jobs with
+                similar pay; otherwise, more tax than necessary may be withheld,
+                and this extra amount of tax withheld will be larger the greater
+                the difference in pay is between the two jobs.
+              </p>
+
+              <div className="mb-2 flex items-start gap-2 border-t border-b border-black py-2">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center bg-black text-[8px] font-black text-white">
+                  ▲
+                  <br />
+                  CAUTION
+                </div>
+
+                <div>
+                  <strong>
+                    <i>Multiple jobs.</i>
+                  </strong>{" "}
+                  Complete Steps 3 through 4(b) only on one Form W-4.
+                  Withholding will be most accurate if you do this on the Form
+                  W-4 for the highest paying job.
+                </div>
+              </div>
+
+              <p className="mb-2">
+                <strong>Step 3.</strong> This step provides instructions for
+                determining the amount of the child tax credit and the credit
+                for other dependents that you may be able to claim when you file
+                your tax return. To qualify for the child tax credit, the child
+                must be under age 17 as of December 31, must be your dependent
+                who generally lives with you for more than half the year, and
+                must have the required social security number. You (and/or your
+                spouse if married filing jointly) must have the required social
+                security number to claim certain credits. You may be able to
+                claim a credit for other dependents for whom a child tax credit
+                can’t be claimed, such as an older child or a qualifying
+                relative. For additional eligibility requirements for these
+                credits, see Pub. 501, Dependents, Standard Deduction, and
+                Filing Information. You can also include other tax credits for
+                which you are eligible in this step, such as the foreign tax
+                credit and the education tax credits. To do so, add an estimate
+                of the amount for the year to your credits for dependents and
+                enter the total amount in Step 3. Including these credits will
+                increase your paycheck and reduce the amount of any refund you
+                may receive when you file your tax return.
+              </p>
+
+              <h2 className="text-[14px] font-black">Step 4.</h2>
+
+              <p className="mb-2 pl-3">
+                <strong>
+                  <i>Step 4(a).</i>
+                </strong>{" "}
+                Enter in this step the total of your other estimated income for
+                the year, if any. You shouldn’t include income from any jobs or
+                self-employment. If you complete Step 4(a), you likely won’t
+                have to make estimated tax payments for that income. If you
+                prefer to pay estimated tax rather than having tax on other
+                income withheld from your paycheck, see Form 1040-ES, Estimated
+                Tax for Individuals.
+              </p>
+
+              <p className="mb-2 pl-3">
+                <strong>
+                  <i>Step 4(b).</i>
+                </strong>{" "}
+                Enter in this step the amount from the Deductions Worksheet,
+                line 15, if you expect to claim deductions other than the basic
+                standard deduction on your 2026 tax return and want to reduce
+                your withholding to account for these deductions. This includes
+                both itemized deductions and other deductions such as for
+                qualified tips, overtime compensation, student loan interest;
+                student loan interest; and IRAs; and seniors. You (and/or your
+                spouse if married filing jointly) must have the required social
+                security number to claim certain deductions. For additional
+                eligibility requirements, see Pub. 501.
+              </p>
+
+              <p className="pl-3">
+                <strong>
+                  <i>Step 4(c).</i>
+                </strong>{" "}
+                Enter in this step any additional tax you want withheld from
+                your pay each pay period, including any amounts from the
+                Multiple Jobs Worksheet, line 4. Entering an amount here will
+                reduce your paycheck, and will either increase your refund or
+                reduce any amount of tax that you owe when you file your tax
+                return.
+              </p>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          <div className="mx-auto max-w-[1000px]">
+            {/* Header */}
+            <div className="mb-2 flex items-center justify-between border-b border-black pb-1 text-[12px]">
+              <span>Form W-4 (2026)</span>
+              <span>Page 3</span>
+            </div>
+
+            {/* Title */}
+            <div className="mb-5 flex border-b border-black items-center justify-center gap-2">
+              <h1 className="text-[13.4px] font-bold">
+                Step 2(b)—Multiple Jobs Worksheet
+              </h1>
+              <span className="text-[13.4px] italic">
+                (Keep for your records.)
+              </span>
+            </div>
+
+            {/* Intro */}
+            <div className="text-[12px] leading-[1.35]">
+              <p>
+                If you choose the option in Step 2(b) on Form W-4, complete this
+                worksheet (which calculates the total extra tax for all jobs) on{" "}
+                <span className="font-bold">only ONE Form W-4.</span>{" "}
+                Withholding will be most accurate if you complete the worksheet
+                and enter the result on the Form W-4 for the highest paying job.
+                To be accurate, submit a new Form W-4 for all other jobs if you
+                have not updated your withholding since 2019.
+              </p>
+
+              <p className="text-[12px]">
+                <span className="font-bold">Note:</span> If more than one job
+                has annual wages of more than $120,000 or there are more than
+                three jobs, see Pub. 505 for additional tables; or, you can use
+                the online withholding estimator at{" "}
+                <span className="font-bold">www.irs.gov/W4App.</span>
+              </p>
+              <br />
+            </div>
+
+            {/* Section 1 */}
+            <div className="text-[11.4px] mb-5 grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">1</div>
+                <p className="leading-[1.35]">
+                  <span className="font-bold">Two jobs.</span> If you have two
+                  jobs or you’re married filing jointly and you and your spouse
+                  each have one job, find the amount from the appropriate table
+                  on page 5. Using the “Higher Paying Job” row and the “Lower
+                  Paying Job” column, find the value at the intersection of the
+                  two household salaries and enter that value on line 1. Then,{" "}
+                  <span className="font-bold">
+                    skip to line 3. . . . . . . . .{" "}
+                  </span>
+                </p>
+              </div>
+
+              <div className="text-[11.4px] flex items-end gap-2">
+                <span className="font-bold">1</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            {/* Section 2 */}
+            <div className="text-[11.4px] mb-5">
+              <div className="grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4">
+                  <div className="font-bold">2</div>
+                  <p className="leading-[1.35]">
+                    <span className="font-bold">Three jobs.</span> If you and/or
+                    your spouse have three jobs at the same time, complete lines
+                    2a, 2b, and 2c below. Otherwise, skip to line 3.
+                  </p>
+                </div>
+              </div>
+
+              {/* 2a */}
+              <div className="mt-5 grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">a</div>
+                  <p className="leading-[1.35]">
+                    Find the amount from the appropriate table on page 5 using
+                    the annual wages from the highest paying job in the “Higher
+                    Paying Job” row and the annual wages for your next highest
+                    paying job in the “Lower Paying Job” column. Find the value
+                    at the intersection of the two household salaries and enter
+                    that value on line 2a.. . . . . . . . . . . . .
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">2a</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+
+              {/* 2b */}
+              <div className="mt-5 grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">b</div>
+                  <p className="leading-[1.35]">
+                    Add the annual wages of the two highest paying jobs from
+                    line 2a together and use the total as the wages in the
+                    “Higher Paying Job” row and use the annual wages for your
+                    third job in the “Lower Paying Job” column to find the
+                    amount from the appropriate table on page 5 and enter this
+                    amount on line 2b.
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">2b</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+
+              {/* 2c */}
+              <div className="text-[11.4px] mt-5 grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">c</div>
+                  <p className="leading-[1.35]">
+                    Add the amounts from lines 2a and 2b and enter the result on
+                    line 2c.
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">2c</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+            </div>
+
+            {/* Section 3 */}
+            <div className="text-[11.4px] mb-5 grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">3</div>
+                <p className="leading-[1.35]">
+                  Enter the number of pay periods per year for the highest
+                  paying job. For example, if that job pays weekly, enter 52; if
+                  it pays every other week, enter 26; if it pays monthly, enter
+                  12, etc.
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">3</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            {/* Section 4 */}
+            <div className="text-[11.4px] mb-4 grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">4</div>
+                <p className="leading-[1.35]">
+                  Divide the annual amount on line 1 or line 2c by the number of
+                  pay periods on line 3. Enter this amount here and in{" "}
+                  <span className="font-bold">Step 4(c)</span> of Form W-4 for
+                  the highest paying job (plus any other additional amount you
+                  want withheld). . . . . . . . . . . . . . . . . . . . . . . .
+                  .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">4</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            {/* Bottom border */}
+            <div className="mt-4 border-b-2 border-black" />
+          </div>
+        </div>
+        <br />
+        <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          <div>
+            {/* Header */}
+            <div className="mb-2 flex items-center justify-between border-b border-black pb-1 text-[12px]">
+              <span>Form W-4 (2026)</span>
+              <span>Page 4</span>
+            </div>
+
+            {/* Title */}
+            <div className="border-b border-black mb-1 flex items-center justify-center gap-2">
+              <h1 className="text-[13.4px] font-bold">
+                Step 4(b)—Deductions Worksheet (Keep for your records.)
+              </h1>
+              <span className="text-[13.4px] italic">
+                (Keep for your records.)
+              </span>
+            </div>
+
+            {/* Intro */}
+            <div className="text-[11px] leading-[1.35]">
+              <p>
+                See the Instructions for Schedule 1-A (Form 1040) for more
+                information about whether you qualify for the deductions on
+                lines 1a, 1b, 1c, 3a, and 3b.
+              </p>
+            </div>
+
+            {/* Section 1 */}
+            <div className="text-[11px] grid grid-cols-[1fr_145px]">
+              <div className="flex gap-4">
+                <div className="font-bold">1</div>
+                <p>
+                  Deductions for qualified tips, overtime compensation, and
+                  passenger vehicle loan interest.
+                  <br />
+                  <b> a &nbsp;&nbsp;Qualified tips.</b> If your total income is
+                  less than $150,000 ($300,000 if married filing jointly), enter
+                  an estimate of your qualified tips up to $25,000 . . . . . . .
+                  . . . . . . . . . .
+                </p>
+              </div>
+
+              <div className="text-[12px] flex items-end gap-2">
+                <span className="font-bold">1a</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+
+              <div className="flex gap-4">
+                <div className="font-bold"></div>
+                <p>
+                  Deductions for qualified tips, overtime compensation, and
+                  passenger vehicle loan interest.
+                  <br />
+                  <b> b &nbsp;&nbsp;Qualified tips.</b> If your total income is
+                  less than $150,000 ($300,000 if married filing jointly), enter
+                  an estimate of your qualified tips up to $25,000 . . . . . . .
+                  . . . . . . . . . .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">1b</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+              <div className="flex gap-4">
+                <div className="font-bold"></div>
+                <p>
+                  Deductions for qualified tips, overtime compensation, and
+                  passenger vehicle loan interest.
+                  <br />
+                  <b> c &nbsp;&nbsp;Qualified tips.</b> If your total income is
+                  less than $150,000 ($300,000 if married filing jointly), enter
+                  an estimate of your qualified tips up to $25,000 . . . . . . .
+                  . . . . . . . . . .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">1c</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            {/* Section 1 */}
+            <div className="text-[11px] grid grid-cols-[1fr_145px]">
+              <div className="flex gap-4">
+                <div className="font-bold">2</div>
+                <p>
+                  Add lines 1a, 1b, and 1c. Enter the result here . . . . . . .
+                  . . . . . . . . . . . .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">2</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            {/* Section 2 */}
+            <div className="text-[10.4px] mb-1">
+              <div className="grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4">
+                  <div className="font-bold">3</div>
+                  <p className="leading-[1.35]">
+                    <span className="font-bold">Seniors age 65 or older.</span>
+                    If your total income is less than $75,000 ($150,000 if
+                    married filing jointly):
+                  </p>
+                </div>
+              </div>
+
+              {/* 2a */}
+              <div className=" grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">a</div>
+                  <p className="leading-[1.35]">
+                    Enter $6,000 if you are age 65 or older before the end of
+                    the year . . . . . . . . . . .
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">2a</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+
+              {/* 2b */}
+              <div className=" grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">b</div>
+                  <p className="leading-[1.35]">
+                    Enter $6,000 if your spouse is age 65 or older before the
+                    end of the year and has a social security number valid for
+                    employment . . . . . . . . . . . . . . . . . . . . . . .
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">2b</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+            </div>
+
+            {/* Section 3 */}
+            <div className="text-[10.4px] grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">3</div>
+                <p className="leading-[1.35]">
+                  Enter the number of pay periods per year for the highest
+                  paying job. For example, if that job pays weekly, enter 52; if
+                  it pays every other week, enter 26; if it pays monthly, enter
+                  12, etc.
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">3</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            {/* Section 4 */}
+            <div className="text-[10.4px] grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">4</div>
+                <p className="leading-[1.35]">
+                  Add lines 3a and 3b. Enter the result here . . . . . . . . . .
+                  . . . . . . . . . .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">4</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            <div className="text-[10.4px] grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">5</div>
+                <p className="leading-[1.35]">
+                  Enter an estimate of your student loan interest, deductible
+                  IRA contributions, educator expenses, alimony paid, and
+                  certain other adjustments from Schedule 1 (Form 1040), Part
+                  II. See Pub. 505 for more information . . . . . . . . . . . .
+                  . . . . . . . . . . . . . . . .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">5</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            <div className="text-[10.4px] mb-1">
+              <div className="grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4">
+                  <div className="font-bold">6</div>
+                  <p className="leading-[1.35]">
+                    <span className="font-bold">Itemized deductions.</span>Enter
+                    an estimate of your 2026 itemized deductions from Schedule A
+                    (Form 1040). Such deductions may include qualifying:
+                  </p>
+                </div>
+              </div>
+
+              {/* 2a */}
+              <div className=" grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">a</div>
+                  <p className="leading-[1.35]">
+                    <span className="font-bold">
+                      Medical and dental expenses.
+                    </span>{" "}
+                    Enter expenses in excess of 7.5% (0.075) of your total
+                    income .
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">6a</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+
+              {/* 2b */}
+              <div className=" grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">b</div>
+                  <p className="leading-[1.35]">
+                    <b>State and local taxes.</b> If your total income is less
+                    than $505,000 ($252,500 if married filing separately), enter
+                    state and local taxes paid up to $40,400 ($20,200 if married
+                    filing separately) .
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">6b</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+
+              <div className=" grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">c</div>
+                  <p className="leading-[1.35]">
+                    <b>Home mortgage interest.</b> If your home acquisition debt
+                    is less than $750,000 ($375,000 if married filing
+                    separately), enter your home mortgage interest expense
+                    (including mortgage insurance premiums) . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">6c</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+
+              <div className=" grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">d</div>
+                  <p className="leading-[1.35]">
+                    <b>Gifts to charities.</b> Enter contributions in excess of
+                    0.5% (0.005) of your total income . . . .
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">6d</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+
+              <div className=" grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">e</div>
+                  <p className="leading-[1.35]">
+                    <b>Other itemized deductions.</b> Enter the amount for other
+                    itemized deductions . . . . . . .
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">6e</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+            </div>
+
+            <div className="text-[10.4px] grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">7</div>
+                <p className="leading-[1.35]">
+                  Add lines 6a, 6b, 6c, 6d, and 6e. Enter the result here . . .
+                  . . . . . . . . . . . . .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">7</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            <div className="text-[10.4px] mb-1">
+              <div className="grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4">
+                  <div className="font-bold">8</div>
+                  <p className="leading-[1.35]">
+                    <span className="font-bold">
+                      ILimitation on itemized deductions.
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              {/* 2a */}
+              <div className=" grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">a</div>
+                  <p className="leading-[1.35]">
+                    Enter your total income . . . . . . . . . . . . . . . . . .
+                    . . . . . . .
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">8a</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+
+              {/* 2b */}
+              <div className=" grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="font-bold">b</div>
+                  <p className="leading-[1.35]">
+                    Subtract line 4 from line 8a. If line 4 is greater than line
+                    8a, enter -0- here and on line 10. Skip line 9
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">8b</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+            </div>
+
+            <div className="text-[10.4px] grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">9</div>
+                <div className="">Enter:</div>
+                <p className="leading-[1.35] flex items-start">
+                  <span className="font-normal text-[40px] leading-[1] mx-1">{`{`}</span>
+
+                  <span>
+                    • $768700 if you’re married filing jointly or a qualifying
+                    surviving spouse
+                    <br />
+                    • $384350 if you’re married filing separately
+                    <br />• $640600 if you’re single or head of household . . .
+                    . .
+                  </span>
+
+                  <span className="text-[40px] font-normal leading-[1] mx-2">{`}`}</span>
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">9</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            <div className="text-[10.4px] grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">10</div>
+                <p className="leading-[1.35]">
+                  If line 9 is greater than line 8b, enter the amount from line
+                  7. Otherwise, multiply line 7 by 94% (0.94) and enter the
+                  result here . . . . . . . . . . . . . . . . . . . . . . . . .
+                  .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">10</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            <div className="text-[10.4px] mb-1">
+              <div className="grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4">
+                  <div className="font-bold">11</div>
+                  <p className="leading-[1.35]">
+                    <span className="font-bold">Standard deduction.</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* 2a */}
+              <div className=" grid grid-cols-[1fr_145px] gap-6">
+                <div className="flex gap-4 pl-7">
+                  <div className="">Enter:</div>
+                  <p className="leading-[1.35]">
+                    <p className="leading-[1.35] flex items-start">
+                      <span className="font-normal text-[40px] leading-[1] mx-1">{`{`}</span>
+
+                      <span>
+                        • $32,200 if you’re married filing jointly or a
+                        qualifying surviving spouse
+                        <br />
+                        • $24,150 if you’re head of household
+                        <br />• $16,100 if you’re single or married filing
+                        separately
+                      </span>
+
+                      <span className="text-[40px] font-normal leading-[1] mx-2">{`}`}</span>
+                    </p>
+                  </p>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <span className="font-bold">11</span>
+                  <span>$</span>
+                  <div className="h-6 flex-1 border-b border-black" />
+                </div>
+              </div>
+            </div>
+
+            <div className="text-[10.4px] grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">12</div>
+                <p className="leading-[1.35]">
+                  Cash gifts to charities. If you take the standard deduction,
+                  enter cash contributions up to $1,000 ($2,000 if married
+                  filing jointly) . . . . . . . . . . . . . . . . . . . . . . .
+                  .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">12</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            <div className="text-[10.4px] grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">13</div>
+                <p className="leading-[1.35]">
+                  Add lines 11 and 12. Enter the result here . . . . . . . . . .
+                  . . . . . . . . . .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">13</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            <div className="text-[10.4px] grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">14</div>
+                <p className="leading-[1.35]">
+                  If line 10 is greater than line 13, subtract line 11 from line
+                  10 and enter the result here. If line 13 is greater than line
+                  10, enter the amount from line 12 . . . . . . . . . . . . . .
+                  . . .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">14</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+
+            <div className="text-[10.4px] grid grid-cols-[1fr_145px] gap-6">
+              <div className="flex gap-4">
+                <div className="font-bold">15</div>
+                <p className="leading-[1.35]">
+                  Add lines 2, 4, 5, and 14. Enter the result here and in Step
+                  4(b) of Form W-4 . . . . . . . . .
+                </p>
+              </div>
+
+              <div className="flex items-end gap-2">
+                <span className="font-bold">15</span>
+                <span>$</span>
+                <div className="h-6 flex-1 border-b border-black" />
+              </div>
+            </div>
+            <div className="h-6 flex-1 border-b border-black" />
+            <br />
+            <div className="grid grid-cols-2 gap-[0.35in]">
+              {/* LEFT COLUMN */}
+              <div className="text-[8px] leading-[1.08]">
+                <p className="text-[8px] mb-2">
+                  <b>Privacy Act and Paperwork Reduction Act Notice.</b> We ask
+                  for the information on this form to carry out the Internal
+                  Revenue laws of the United States. Internal Revenue Code
+                  sections 3402(f)(2) and 6109 and their regulations require you
+                  to provide this information; your employer uses it to
+                  determine your federal income tax withholding. Failure to
+                  provide a properly completed form will result in your being
+                  treated as a single person with no other entries on the form;
+                  providing fraudulent information may subject you to penalties.
+                  Routine uses of this information include giving it to the
+                  Department of Justice for civil and criminal litigation; to
+                  cities, states, the District of Columbia, and U.S.
+                  commonwealths and territories for use in administering their
+                  tax laws; and to the Department of Health and Human Services
+                  for use in the National Directory of New Hires. We may also
+                  disclose this information to other countries under a tax
+                  treaty, to federal and state agencies to enforce federal
+                  nontax criminal laws, or to federal law enforcement and
+                  intelligence agencies to combat terrorism.
+                </p>
+              </div>
+
+              {/* RIGHT COLUMN */}
+              <div className="text-[8px] leading-[1.08]">
+                <p className="mb-3">
+                  You are not required to provide the information requested on a
+                  form that is subject to the Paperwork Reduction Act unless the
+                  form displays a valid OMB control number. Books or records
+                  relating to a form or its instructions must be retained as
+                  long as their contents may become material in the
+                  administration of any Internal Revenue law. Generally, tax
+                  returns and return information are confidential, as required
+                  by Code section 6103. The average time and expenses required
+                  to complete and file this form will vary depending on
+                  individual circumstances. For estimated averages, see the
+                  instructions for your income tax return. If you have
+                  suggestions for making this form simpler, we would be happy to
+                  hear from you. See the instructions for your income tax
+                  return.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+<div
+  className="
+    font-[Arial]
+    mx-auto
+    w-full
+    max-w-[210mm]
+    min-h-screen
+    bg-white
+    px-2
+    py-4
+    sm:px-4
+    sm:py-5
+    md:px-6
+    md:py-6
+    lg:px-[17mm]
+    lg:py-[17mm]
+    shadow-[0_2px_10px_rgba(0,0,0,0.25)]
+  "
+>
+  <div
+    className="
+      mx-auto
+      w-full
+      max-w-[1000px]
+      text-[9px]
+      sm:text-[10px]
+      md:text-[11px]
+      lg:text-[13px]
+    "
+  >
+    {/* ================= HEADER ================= */}
+    <div
+      className="
+        mb-1
+        flex
+        items-center
+        justify-between
+        gap-2
+        border-b
+        border-black
+        pb-1
+        text-[8px]
+        sm:text-[9px]
+        md:text-[10px]
+        lg:text-[12px]
+      "
+    >
+      <span>Form W-4 (2026)</span>
+      <span>Page 5</span>
+    </div>
+
+    {/* ========================================================= */}
+    {/* ================= MARRIED FILING JOINTLY ================ */}
+    {/* ========================================================= */}
+
+    <h1
+      className="
+        border-b
+        border-black
+        py-1
+        text-center
+        text-[10px]
+        sm:text-[11px]
+        md:text-[12px]
+        lg:text-[14.7px]
+        font-bold
+        leading-tight
+      "
+    >
+      Married Filing Jointly or Qualifying Surviving Spouse
+    </h1>
+
+    {/* Mobile horizontal scroll */}
+    <div className="w-full overflow-x-auto overscroll-x-contain">
+      <table
+        className="
+          w-full
+          min-w-[760px]
+          border-collapse
+          text-center
+        "
+      >
+        <thead>
+          <tr>
+            <th
+              rowSpan="2"
+              className="
+                w-[125px]
+                min-w-[125px]
+                border-b
+                border-r
+                border-black
+                p-1
+                text-left
+                align-middle
+                text-[8px]
+                sm:text-[9px]
+                md:text-[10px]
+                lg:text-[11.4px]
+                font-bold
+                leading-tight
+              "
+            >
+              Higher Paying Job
+              <br />
+              Annual Taxable
+              <br />
+              Wage & Salary
+            </th>
+
+            <th
+              colSpan="12"
+              className="
+                border-b
+                border-black
+                p-1
+                text-[8px]
+                sm:text-[9px]
+                md:text-[10px]
+                lg:text-[11.4px]
+                font-bold
+              "
+            >
+              Lower Paying Job Annual Taxable Wage & Salary
+            </th>
+          </tr>
+
+          <tr
+            className="
+              text-[7px]
+              sm:text-[8px]
+              md:text-[8.5px]
+              lg:text-[9.7px]
+            "
+          >
+            {[
+              "$0 - 9,999",
+              "$10,000 - 19,999",
+              "$20,000 - 29,999",
+              "$30,000 - 39,999",
+              "$40,000 - 49,999",
+              "$50,000 - 59,999",
+              "$60,000 - 69,999",
+              "$70,000 - 79,999",
+              "$80,000 - 89,999",
+              "$90,000 - 99,999",
+              "$100,000 - 109,999",
+              "$110,000 - 120,000",
+            ].map((item) => (
+              <th
+                key={item}
+                className="
+                  min-w-[53px]
+                  border
+                  border-gray-400
+                  px-1
+                  py-1
+                  font-normal
+                  leading-tight
+                "
+              >
+                {item}
+              </th>
+            ))}
+          </tr>
+        </thead>
+
+        <tbody
+          className="
+            text-[7px]
+            sm:text-[8px]
+            md:text-[8.5px]
+            lg:text-[9.7px]
+          "
+        >
+          {[
+            [
+              "$0 - 9,999",
+              0,
+              0,
+              480,
+              850,
+              850,
+              1020,
+              1020,
+              1020,
+              1020,
+              1020,
+              1020,
+              1020,
+            ],
+            [
+              "$10,000 - 19,999",
+              0,
+              480,
+              1480,
+              1850,
+              2050,
+              2220,
+              2220,
+              2220,
+              2220,
+              2220,
+              2220,
+              2620,
+            ],
+            [
+              "$20,000 - 29,999",
+              480,
+              1480,
+              2480,
+              3050,
+              3250,
+              3420,
+              3420,
+              3420,
+              3420,
+              3420,
+              3820,
+              4820,
+            ],
+            [
+              "$30,000 - 39,999",
+              850,
+              1850,
+              3050,
+              3620,
+              3820,
+              3990,
+              3990,
+              3990,
+              3990,
+              4390,
+              5390,
+              6390,
+            ],
+            [
+              "$40,000 - 49,999",
+              850,
+              2050,
+              3250,
+              3820,
+              4020,
+              4190,
+              4360,
+              4590,
+              5590,
+              6590,
+              7590,
+              7590,
+            ],
+            [
+              "$50,000 - 59,999",
+              1020,
+              2220,
+              3420,
+              3990,
+              4190,
+              4360,
+              4760,
+              5760,
+              6760,
+              6760,
+              7760,
+              8760,
+            ],
+            [
+              "$60,000 - 69,999",
+              1020,
+              2220,
+              3420,
+              3990,
+              4190,
+              4360,
+              4760,
+              5760,
+              6760,
+              7760,
+              8760,
+              9760,
+            ],
+            [
+              "$70,000 - 79,999",
+              1020,
+              2220,
+              3420,
+              3990,
+              4190,
+              4760,
+              5760,
+              6760,
+              7760,
+              8760,
+              9760,
+              10760,
+            ],
+            [
+              "$80,000 - 99,999",
+              1020,
+              2220,
+              3420,
+              4240,
+              5440,
+              6610,
+              7610,
+              8610,
+              9610,
+              10610,
+              11610,
+              12610,
+            ],
+            [
+              "$100,000 - 149,999",
+              1870,
+              4070,
+              6270,
+              7840,
+              9040,
+              10210,
+              11210,
+              12210,
+              13210,
+              14210,
+              15360,
+              16560,
+            ],
+            [
+              "$150,000 - 239,999",
+              1870,
+              4100,
+              6500,
+              8270,
+              9670,
+              11040,
+              12240,
+              13440,
+              14640,
+              15840,
+              17040,
+              18240,
+            ],
+            [
+              "$240,000 - 319,999",
+              2040,
+              4440,
+              6840,
+              8610,
+              10010,
+              11380,
+              12580,
+              13780,
+              14980,
+              16180,
+              17380,
+              18580,
+            ],
+            [
+              "$320,000 - 364,999",
+              2040,
+              4440,
+              6840,
+              8610,
+              10010,
+              11380,
+              12580,
+              13860,
+              15860,
+              17860,
+              19860,
+              21860,
+            ],
+            [
+              "$365,000 - 524,999",
+              2720,
+              5920,
+              9390,
+              12260,
+              14760,
+              17230,
+              19530,
+              21830,
+              24130,
+              26430,
+              28730,
+              31030,
+            ],
+            [
+              "$525,000 and over",
+              3140,
+              6840,
+              10540,
+              13610,
+              16310,
+              18980,
+              21480,
+              23980,
+              26480,
+              28980,
+              31480,
+              33990,
+            ],
+          ].map((row) => (
+            <tr key={row[0]}>
+              <th
+                className="
+                  min-w-[125px]
+                  whitespace-nowrap
+                  border
+                  border-gray-400
+                  px-1
+                  py-[2px]
+                  text-left
+                  font-normal
+                "
+              >
+                {row[0]}
+              </th>
+
+              {row.slice(1).map((value, index) => (
+                <td
+                  key={index}
+                  className="
+                    min-w-[53px]
+                    whitespace-nowrap
+                    border
+                    border-gray-400
+                    px-1
+                    py-[2px]
+                  "
+                >
+                  ${value.toLocaleString()}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    {/* ========================================================= */}
+    {/* ============== SINGLE / MARRIED SEPARATELY ============== */}
+    {/* ========================================================= */}
+
+    <h2
+      className="
+        mt-2
+        border-b
+        border-black
+        py-1
+        text-center
+        text-[10px]
+        sm:text-[11px]
+        md:text-[12px]
+        lg:text-[14.7px]
+        font-bold
+        leading-tight
+      "
+    >
+      Single or Married Filing Separately
+    </h2>
+
+    <div className="w-full overflow-x-auto overscroll-x-contain">
+      <table
+        className="
+          w-full
+          min-w-[760px]
+          border-collapse
+          text-center
+        "
+      >
+        <thead>
+          <tr>
+            <th
+              rowSpan="2"
+              className="
+                w-[125px]
+                min-w-[125px]
+                border-b
+                border-r
+                border-black
+                p-1
+                text-left
+                align-middle
+                text-[8px]
+                sm:text-[9px]
+                md:text-[10px]
+                lg:text-[11.4px]
+                font-bold
+                leading-tight
+              "
+            >
+              Higher Paying Job
+              <br />
+              Annual Taxable
+              <br />
+              Wage & Salary
+            </th>
+
+            <th
+              colSpan="12"
+              className="
+                border-b
+                border-black
+                p-1
+                text-[8px]
+                sm:text-[9px]
+                md:text-[10px]
+                lg:text-[11.4px]
+                font-bold
+              "
+            >
+              Lower Paying Job Annual Taxable Wage & Salary
+            </th>
+          </tr>
+
+          <tr
+            className="
+              text-[7px]
+              sm:text-[8px]
+              md:text-[8.5px]
+              lg:text-[9.7px]
+            "
+          >
+            {[
+              "$0 - 9,999",
+              "$10,000 - 19,999",
+              "$20,000 - 29,999",
+              "$30,000 - 39,999",
+              "$40,000 - 49,999",
+              "$50,000 - 59,999",
+              "$60,000 - 69,999",
+              "$70,000 - 79,999",
+              "$80,000 - 89,999",
+              "$90,000 - 99,999",
+              "$100,000 - 109,999",
+              "$110,000 - 120,000",
+            ].map((item) => (
+              <th
+                key={item}
+                className="
+                  min-w-[53px]
+                  border
+                  border-gray-400
+                  px-1
+                  py-1
+                  font-normal
+                  leading-tight
+                "
+              >
+                {item}
+              </th>
+            ))}
+          </tr>
+        </thead>
+
+        <tbody
+          className="
+            text-[7px]
+            sm:text-[8px]
+            md:text-[8.5px]
+            lg:text-[9.7px]
+          "
+        >
+          {[
+            [
+              "$0 - 9,999",
+              90,
+              850,
+              1020,
+              1020,
+              1020,
+              1070,
+              1870,
+              1870,
+              1870,
+              1870,
+              1870,
+              1970,
+            ],
+            [
+              "$10,000 - 19,999",
+              850,
+              1780,
+              1980,
+              1980,
+              2030,
+              3030,
+              3830,
+              3830,
+              3830,
+              3830,
+              3930,
+              4130,
+            ],
+            [
+              "$20,000 - 29,999",
+              1020,
+              1980,
+              2180,
+              2230,
+              3230,
+              4230,
+              5030,
+              5030,
+              5030,
+              5030,
+              5130,
+              5330,
+              5530,
+            ],
+            [
+              "$30,000 - 39,999",
+              1020,
+              1980,
+              2230,
+              3230,
+              4230,
+              5230,
+              6030,
+              6030,
+              6130,
+              6330,
+              6530,
+              6730,
+            ],
+            [
+              "$40,000 - 59,999",
+              1020,
+              2880,
+              4080,
+              5080,
+              6080,
+              7080,
+              7950,
+              8150,
+              8350,
+              8550,
+              8750,
+              8950,
+            ],
+            [
+              "$60,000 - 79,999",
+              1870,
+              3830,
+              5030,
+              6030,
+              7100,
+              8300,
+              9300,
+              9500,
+              9700,
+              9900,
+              10100,
+              10300,
+            ],
+            [
+              "$80,000 - 99,999",
+              1870,
+              3830,
+              5100,
+              6300,
+              7500,
+              8700,
+              9700,
+              9900,
+              10100,
+              10300,
+              10500,
+              10700,
+            ],
+            [
+              "$100,000 - 124,999",
+              2030,
+              4190,
+              5590,
+              6790,
+              7990,
+              9190,
+              10190,
+              10390,
+              10590,
+              10940,
+              11940,
+              12940,
+            ],
+            [
+              "$125,000 - 149,999",
+              2040,
+              4200,
+              5600,
+              6800,
+              8000,
+              9200,
+              10200,
+              10950,
+              11950,
+              12950,
+              13950,
+              14950,
+            ],
+            [
+              "$150,000 - 174,999",
+              2040,
+              4200,
+              5600,
+              6800,
+              8150,
+              10150,
+              11950,
+              12950,
+              13950,
+              14950,
+              16170,
+              17470,
+            ],
+            [
+              "$175,000 - 199,999",
+              2040,
+              4200,
+              6150,
+              8150,
+              10150,
+              12150,
+              13950,
+              15020,
+              16320,
+              17620,
+              18920,
+              20220,
+            ],
+            [
+              "$200,000 - 249,999",
+              2720,
+              5680,
+              7880,
+              10140,
+              12440,
+              14740,
+              16840,
+              18140,
+              19440,
+              20740,
+              22040,
+              23340,
+            ],
+            [
+              "$250,000 - 449,999",
+              2970,
+              6230,
+              8730,
+              11030,
+              13330,
+              15630,
+              17730,
+              19030,
+              20330,
+              21630,
+              22930,
+              24240,
+            ],
+            [
+              "$450,000 and over",
+              3140,
+              6600,
+              9300,
+              11800,
+              14300,
+              16800,
+              19100,
+              20600,
+              22100,
+              23600,
+              25100,
+              26610,
+            ],
+          ].map((row) => (
+            <tr key={row[0]}>
+              <th
+                className="
+                  min-w-[125px]
+                  whitespace-nowrap
+                  border
+                  border-gray-400
+                  px-1
+                  py-[2px]
+                  text-left
+                  font-normal
+                "
+              >
+                {row[0]}
+              </th>
+
+              {row.slice(1).map((value, index) => (
+                <td
+                  key={index}
+                  className="
+                    min-w-[53px]
+                    whitespace-nowrap
+                    border
+                    border-gray-400
+                    px-1
+                    py-[2px]
+                  "
+                >
+                  ${value.toLocaleString()}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    {/* ========================================================= */}
+    {/* =================== HEAD OF HOUSEHOLD =================== */}
+    {/* ========================================================= */}
+
+    <h2
+      className="
+        mt-2
+        border-b
+        border-black
+        py-1
+        text-center
+        text-[10px]
+        sm:text-[11px]
+        md:text-[12px]
+        lg:text-[14.7px]
+        font-bold
+        leading-tight
+      "
+    >
+      Head of Household
+    </h2>
+
+    <div className="w-full overflow-x-auto overscroll-x-contain">
+      <table
+        className="
+          w-full
+          min-w-[760px]
+          border-collapse
+          text-center
+        "
+      >
+        <thead>
+          <tr>
+            <th
+              rowSpan="2"
+              className="
+                w-[125px]
+                min-w-[125px]
+                border-b
+                border-r
+                border-black
+                p-1
+                text-left
+                align-middle
+                text-[8px]
+                sm:text-[9px]
+                md:text-[10px]
+                lg:text-[11.4px]
+                font-bold
+                leading-tight
+              "
+            >
+              Higher Paying Job
+              <br />
+              Annual Taxable
+              <br />
+              Wage & Salary
+            </th>
+
+            <th
+              colSpan="12"
+              className="
+                border-b
+                border-black
+                p-1
+                text-[8px]
+                sm:text-[9px]
+                md:text-[10px]
+                lg:text-[11.4px]
+                font-bold
+              "
+            >
+              Lower Paying Job Annual Taxable Wage & Salary
+            </th>
+          </tr>
+
+          <tr
+            className="
+              text-[7px]
+              sm:text-[8px]
+              md:text-[8.5px]
+              lg:text-[9.7px]
+            "
+          >
+            {[
+              "$0 - 9,999",
+              "$10,000 - 19,999",
+              "$20,000 - 29,999",
+              "$30,000 - 39,999",
+              "$40,000 - 49,999",
+              "$50,000 - 59,999",
+              "$60,000 - 69,999",
+              "$70,000 - 79,999",
+              "$80,000 - 89,999",
+              "$90,000 - 99,999",
+              "$100,000 - 109,999",
+              "$110,000 - 120,000",
+            ].map((item) => (
+              <th
+                key={item}
+                className="
+                  min-w-[53px]
+                  border
+                  border-gray-400
+                  px-1
+                  py-1
+                  font-normal
+                  leading-tight
+                "
+              >
+                {item}
+              </th>
+            ))}
+          </tr>
+        </thead>
+
+        <tbody
+          className="
+            text-[7px]
+            sm:text-[8px]
+            md:text-[8.5px]
+            lg:text-[9.7px]
+          "
+        >
+          {[
+            [
+              "$0 - 9,999",
+              0,
+              280,
+              850,
+              950,
+              1020,
+              1020,
+              1020,
+              1020,
+              1560,
+              1870,
+              1870,
+              1870,
+            ],
+            [
+              "$10,000 - 19,999",
+              280,
+              1280,
+              1950,
+              2150,
+              2220,
+              2220,
+              2220,
+              2760,
+              3760,
+              4070,
+              4070,
+              4210,
+            ],
+            [
+              "$20,000 - 29,999",
+              850,
+              1950,
+              2720,
+              2920,
+              2980,
+              2980,
+              3520,
+              4520,
+              5520,
+              5830,
+              5980,
+              6180,
+            ],
+            [
+              "$30,000 - 39,999",
+              950,
+              2150,
+              2920,
+              3120,
+              3180,
+              3720,
+              4720,
+              5720,
+              6720,
+              7180,
+              7380,
+              7580,
+            ],
+            [
+              "$40,000 - 59,999",
+              1020,
+              2220,
+              2980,
+              3570,
+              4640,
+              5640,
+              6640,
+              7750,
+              8950,
+              9460,
+              9660,
+              9860,
+            ],
+            [
+              "$60,000 - 79,999",
+              1020,
+              2610,
+              4370,
+              5570,
+              6640,
+              7750,
+              8950,
+              10150,
+              11350,
+              11860,
+              12060,
+              12260,
+            ],
+            [
+              "$80,000 - 99,999",
+              1870,
+              4070,
+              5830,
+              7150,
+              8410,
+              9610,
+              10810,
+              12010,
+              13210,
+              13720,
+              13920,
+              14120,
+            ],
+            [
+              "$100,000 - 124,999",
+              1870,
+              4270,
+              6230,
+              7630,
+              8900,
+              10100,
+              11300,
+              12500,
+              13700,
+              14210,
+              14720,
+              15720,
+            ],
+            [
+              "$125,000 - 149,999",
+              2040,
+              4440,
+              6400,
+              7800,
+              9070,
+              10270,
+              11470,
+              12670,
+              14580,
+              15890,
+              16890,
+              17890,
+            ],
+            [
+              "$150,000 - 174,999",
+              2040,
+              4440,
+              6400,
+              7800,
+              9070,
+              10580,
+              12580,
+              14580,
+              16580,
+              17890,
+              18890,
+              20170,
+            ],
+            [
+              "$175,000 - 199,999",
+              2040,
+              4440,
+              6400,
+              8510,
+              10580,
+              12580,
+              14580,
+              16580,
+              18710,
+              20320,
+              21890,
+              22920,
+            ],
+            [
+              "$200,000 - 249,999",
+              2720,
+              5920,
+              8680,
+              10900,
+              13270,
+              15570,
+              17870,
+              20170,
+              22470,
+              24080,
+              25380,
+              26680,
+            ],
+            [
+              "$250,000 - 449,999",
+              2970,
+              6470,
+              9540,
+              12040,
+              14410,
+              16710,
+              19010,
+              21310,
+              23610,
+              25220,
+              26520,
+              27820,
+            ],
+            [
+              "$450,000 and over",
+              3140,
+              6840,
+              10110,
+              12810,
+              15380,
+              17880,
+              20380,
+              22880,
+              25380,
+              27190,
+              28690,
+              30190,
+            ],
+          ].map((row) => (
+            <tr key={row[0]}>
+              <th
+                className="
+                  min-w-[125px]
+                  whitespace-nowrap
+                  border
+                  border-gray-400
+                  px-1
+                  py-[2px]
+                  text-left
+                  font-normal
+                "
+              >
+                {row[0]}
+              </th>
+
+              {row.slice(1).map((value, index) => (
+                <td
+                  key={index}
+                  className="
+                    min-w-[53px]
+                    whitespace-nowrap
+                    border
+                    border-gray-400
+                    px-1
+                    py-[2px]
+                  "
+                >
+                  ${value.toLocaleString()}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+        <br />
+        {/*******page pending request for taxpayer*******/}
+     
+        <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          {/* Header */}
+          <div className="mb-3 flex items-center justify-between border-b-2 border-black pb-1 text-[11px]">
+            <span>Form W-9 (Rev. 3-2024) </span>
+            <span>Page 2</span>
+          </div>
+
+          {/* Main Two Columns */}
+          <div className="grid grid-cols-2 gap-[0.35in]">
+            {/* LEFT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <p className="mb-2 text-[10px] leading-tight">
+                must obtain your correct taxpayer identification number (TIN),
+                which may be your social security number (SSN), individual
+                taxpayer identification number (ITIN), adoption taxpayer
+                identification number (ATIN), or employer identification number
+                (EIN), to report on an information return the amount paid to
+                you, or other amount reportable on an information return.
+                Examples of information returns include, but are not limited to,
+                the following.
+                <br />
+                <div className="mb-1 " />
+                • Form 1099-INT (interest earned or paid).
+                <br />
+                • Form 1099-INT (interest earned or paid).
+                <br />
+                • Form 1099-DIV (dividends, including those from stocks or
+                mutual funds).
+                <br />
+                • Form 1099-MISC (various types of income, prizes, awards, or
+                gross proceeds).
+                <br />
+                • Form 1099-NEC (nonemployee compensation).
+                <br />
+                • Form 1099-B (stock or mutual fund sales and certain other
+                transactions by brokers).
+                <br />
+                • Form 1099-S (proceeds from real estate transactions).
+                <br />
+                • Form 1099-K (merchant card and third-party network
+                transactions).
+                <br />
+                • Form 1098 (home mortgage interest), 1098-E (student loan
+                interest), and 1098-T (tuition).
+                <br />
+                • Form 1099-C (canceled debt).
+                <br />
+                • Form 1099-A (acquisition or abandonment of secured property).
+                <br />
+                <div className="mb-1 " />
+                Use Form W-9 only if you are a U.S. person (including a resident
+                alien), to provide your correct TIN.
+                <br />
+                <b>Caution:</b> If you don’t return Form W-9 to the requester
+                with a TIN, you might be subject to backup withholding. See What
+                is backup withholding, later.
+                <br />
+                <div className="mb-1 " />
+                <b>By signing the filled-out form</b>, you:
+                <br />
+                <div className="mb-1 " />
+                1. Certify that the TIN you are giving is correct (or you are
+                waiting for a number to be issued);
+                <br />
+                2. Certify that you are not subject to backup withholding; or
+                <br />
+                3. Claim exemption from backup withholding if you are a U.S.
+                exempt payee; and
+                <br />
+                4. Certify to your non-foreign status for purposes of
+                withholding under chapter 3 or 4 of the Code (if applicable);
+                and
+                <br />
+                5. Certify that FATCA code(s) entered on this form (if any)
+                indicating that you are exempt from the FATCA reporting is
+                correct. See What Is FATCA Reporting, later, for further
+                information.
+                <br />
+                <div className="mb-1 " />
+                <b>Note:</b> If you are a U.S. person and a requester gives you
+                a form other than Form W-9 to request your TIN, you must use the
+                requester’s form if it is substantially similar to this Form
+                W-9.
+                <br />
+                <div className="mb-1 " />
+                <b>Definition of a U.S. person.</b> For federal tax purposes,
+                you are considered a U.S. person if you are:
+                <br />
+                • An individual who is a U.S. citizen or U.S. resident alien;
+                <br />
+                • A partnership, corporation, company, or association created or
+                organized in the United States or under the laws of the United
+                States;
+                <br />
+                • An estate (other than a foreign estate); or
+                <br />
+                • A domestic trust (as defined in Regulations section
+                301.7701-7).
+                <br />
+                <div className="mb-1 " />
+                <b>
+                  Establishing U.S. status for purposes of chapter 3 and chapter
+                  4 withholding.
+                </b>{" "}
+                Payments made to foreign persons, including certain
+                distributions, allocations of income, or transfers of sales
+                proceeds, may be subject to withholding under chapter 3 or
+                chapter 4 of the Code (sections 1441–1474). Under those rules,
+                if a Form W-9 or other certification of non-foreign status has
+                not been received, a withholding agent, transferee, or
+                partnership (payor) generally applies presumption rules that may
+                require the payor to withhold applicable tax from the recipient,
+                owner, transferor, or partner (payee). See Pub. 515, Withholding
+                of Tax on Nonresident Aliens and Foreign Entities.
+                <br />
+                The following persons must provide Form W-9 to the payor for
+                purposes of establishing its non-foreign status.
+                <br />
+                • In the case of a disregarded entity with a U.S. owner, the
+                U.S. owner of the disregarded entity and not the disregarded
+                entity.
+                <br />
+                • In the case of a grantor trust with a U.S. grantor or other
+                U.S. owner, generally, the U.S. grantor or other U.S. owner of
+                the grantor trust and not the grantor trust.
+                <br />
+                • In the case of a U.S. trust (other than a grantor trust), the
+                U.S. trust and not the beneficiaries of the trust.
+                <br />
+                See Pub. 515 for more information on providing a Form W-9 or a
+                certification of non-foreign status to avoid withholding.
+              </p>
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <p className="mb-2 text-[10px] leading-tight">
+                <b>Foreign person.</b> If you are a foreign person or the U.S.
+                branch of a foreign bank that has elected to be treated as a
+                U.S. person (under Regulations section 1.1441-1(b)(2)(iv) or
+                other applicable section for chapter 3 or 4 purposes), do not
+                use Form W-9. Instead, use the appropriate Form W-8 or Form 8233
+                (see Pub. 515). If you are a qualified foreign pension fund
+                under Regulations section 1.897(l)-1(d), or a partnership that
+                is wholly owned by qualified foreign pension funds, that is
+                treated as a non-foreign person for purposes of section 1445
+                withholding, do not use Form W-9. Instead, use Form W-8EXP (or
+                other certification of non-foreign status).
+                <br />
+                <b>Nonresident alien who becomes a resident alien.</b>{" "}
+                Generally, only a nonresident alien individual may use the terms
+                of a tax treaty to reduce or eliminate U.S. tax on certain types
+                of income. However, most tax treaties contain a provision known
+                as a saving clause. Exceptions specified in the saving clause
+                may permit an exemption from tax to continue for certain types
+                of income even after the payee has otherwise become a U.S.
+                resident alien for tax purposes.
+                <br />
+                If you are a U.S. resident alien who is relying on an exception
+                contained in the saving clause of a tax treaty to claim an
+                exemption from U.S. tax on certain types of income, you must
+                attach a statement to Form W-9 that specifies the following five
+                items.
+                <br />
+                <div className="mb-1 " />
+                1. The treaty country. Generally, this must be the same treaty
+                under which you claimed exemption from tax as a nonresident
+                alien.
+                <br />
+                2. The treaty article addressing the income.
+                <br />
+                3. The article number (or location) in the tax treaty that
+                contains the saving clause and its exceptions.
+                <br />
+                4. The type and amount of income that qualifies for the
+                exemption from tax.
+                <br />
+                5. Sufficient facts to justify the exemption from tax under the
+                terms of the treaty article.
+                <br />
+                <div className="mb-1 " />
+                <b>Example.</b> Article 20 of the U.S.-China income tax treaty
+                allows an exemption from tax for scholarship income received by
+                a Chinese student temporarily present in the United States.
+                Under U.S. law, this student will become a resident alien for
+                tax purposes if their stay in the United States exceeds 5
+                calendar years. However, paragraph 2 of the first Protocol to
+                the U.S.-China treaty (dated April 30, 1984) allows the
+                provisions of Article 20 to continue to apply even after the
+                Chinese student becomes a resident alien of the United States. A
+                Chinese student who qualifies for this exception (under
+                paragraph 2 of the first Protocol) and is relying on this
+                exception to claim an exemption from tax on their scholarship or
+                fellowship income would attach to Form W-9 a statement that
+                includes the information described above to support that
+                exemption.
+                <br />
+                <div className="mb-1 " />
+                If you are a nonresident alien or a foreign entity, give the
+                requester the appropriate completed Form W-8 or Form 8233.
+                <br />
+                <div className="mb-1 " />
+                <b className="text-[16px]">Backup Withholding</b>
+                <br />
+                <div className="mb-1 " />
+                <b>What is backup withholding?</b> Persons making certain
+                payments to you must under certain conditions withhold and pay
+                to the IRS 24% of such payments. This is called “backup
+                withholding.” Payments that may be subject to backup withholding
+                include, but are not limited to, interest, tax-exempt interest,
+                dividends, broker and barter exchange transactions, rents,
+                royalties, nonemployee pay, payments made in settlement of
+                payment card and third-party network transactions, and certain
+                payments from fishing boat operators. Real estate transactions
+                are not subject to backup withholding.
+                <br />
+                <div className="mb-1 " />
+                You will not be subject to backup withholding on payments you
+                receive if you give the requester your correct TIN, make the
+                proper certifications, and report all your taxable interest and
+                dividends on your tax return.
+                <br />
+                <b>
+                  Payments you receive will be subject to backup withholding if:
+                </b>
+                <br />
+                1. You do not furnish your TIN to the requester;
+                <br />
+                2. You do not certify your TIN when required (see the
+                instructions for Part II for details);
+                <br />
+                3. The IRS tells the requester that you furnished an incorrect
+                TIN;
+                <br />
+                4. The IRS tells you that you are subject to backup withholding
+                because you did not report all your interest and dividends on
+                your tax return (for reportable interest and dividends only); or
+                <br />
+                5. You do not certify to the requester that you are not subject
+                to backup withholding, as described in item 4 under “By signing
+                the filled- out form” above (for reportable interest and
+                dividend accounts opened after 1983 only).
+              </p>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          {/* Header */}
+          <div className="mb-3 flex items-center justify-between border-b-2 border-black pb-1 text-[11px]">
+            <span>Form W-9 (Rev. 3-2024) </span>
+            <span>Page 3</span>
+          </div>
+
+          {/* Main Two Columns */}
+          <div className="grid grid-cols-2 gap-[0.35in]">
+            {/* LEFT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <p className="mb-2 text-[10px] leading-tight">
+                Certain payees and payments are exempt from backup withholding.
+                See Exempt payee code, later, and the separate Instructions for
+                the Requester of Form W-9 for more information.
+                <br />
+                <div className="mb-1 " />
+                See also Establishing U.S. status for purposes of chapter 3 and
+                chapter 4 withholding, earlier.
+                <br />
+                <div className="mb-1 " />
+                <b className="text-[16px]">What Is FATCA Reporting?</b> <br />
+                The Foreign Account Tax Compliance Act (FATCA) requires a
+                participating foreign financial institution to report all U.S.
+                account holders that are specified U.S. persons. Certain payees
+                are exempt from FATCA reporting. See Exemption from FATCA
+                reporting code, later, and the Instructions for the Requester of
+                Form W-9 for more information.
+                <br />
+                <div className="mb-1 " />
+                <div className="mb-1 " />
+                <b className="text-[16px]">Updating Your Information</b> <br />
+                You must provide updated information to any person to whom you
+                claimed to be an exempt payee if you are no longer an exempt
+                payee and anticipate receiving reportable payments in the future
+                from this person. For example, you may need to provide updated
+                information if you are a C corporation that elects to be an S
+                corporation, or if you are no longer tax exempt. In addition,
+                you must furnish a new Form W-9 if the name or TIN changes for
+                the account, for example, if the grantor of a grantor trust
+                dies.
+                <br />
+                <div className="mb-1 " />
+                <div className="mb-1 " />
+                <b className="text-[16px]">Penalties</b> <br />
+                <b className="text-[11px]">Failure to furnish TIN.</b> If you
+                fail to furnish your correct TIN to a requester, you are subject
+                to a penalty of $50 for each such failure unless your failure is
+                due to reasonable cause and not to willful neglect.
+                <br />
+                <div className="mb-1 " />
+                <b className="text-[11px]">
+                  Civil penalty for false information with respect to
+                  withholding.
+                </b>{" "}
+                If you make a false statement with no reasonable basis that
+                results in no backup withholding, you are subject to a $500
+                penalty.
+                <br />
+                <div className="mb-1 " />
+                <b className="text-[11px]">
+                  Criminal penalty for falsifying information.
+                </b>{" "}
+                Willfully falsifying certifications or affirmations may subject
+                you to criminal penalties including fines and/or imprisonment.
+                <br />
+                <div className="mb-1 " />
+                <b className="text-[11px]">Misuse of TINs.</b> If the requester
+                discloses or uses TINs in violation of federal law, the
+                requester may be subject to civil and criminal penalties.
+                <br />
+                <div className="mb-1 " />
+                <b className="text-[16px]">Specific Instructions</b>
+                <br />
+                <b>Line 1</b> <br />
+                You must enter one of the following on this line; do not leave
+                this line blank. The name should match the name on your tax
+                return.
+                <br /> <div className="mb-1 " />
+                If this Form W-9 is for a joint account (other than an account
+                maintained by a foreign financial institution (FFI)), list
+                first, and then circle, the name of the person or entity whose
+                number you entered in Part I of Form W-9. If you are providing
+                Form W-9 to an FFI to document a joint account, each holder of
+                the account that is a U.S. person must provide a Form W-9.
+                <br />
+                <div className="mb-1 " />
+                <b>• Individual.</b> Generally, enter the name shown on your tax
+                return. If you have changed your last name without informing the
+                Social Security Administration (SSA) of the name change, enter
+                your first name, the last name as shown on your social security
+                card, and your new last name.
+                <br />
+                <div className="mb-1 " />
+                <b>Note for ITIN applicant:</b> Enter your individual name as it
+                was entered on your Form W-7 application, line 1a. This should
+                also be the same as the name you entered on the Form 1040 you
+                filed with your application.
+                <br />
+                <div className="mb-1 " />
+                <b>• Sole proprietor.</b> Enter your individual name as shown on
+                your Form 1040 on line 1. Enter your business, trade, or “doing
+                business as” (DBA) name on line 2.
+                <br />
+                <div className="mb-1 " />
+                <b>
+                  • Partnership, C corporation, S corporation, or LLC, other
+                  than a disregarded entity.
+                </b>{" "}
+                Enter the entity’s name as shown on the entity’s tax return on
+                line 1 and any business, trade, or DBA name on line 2.
+                <br />
+                <div className="mb-1 " />
+                <b>• Other entities.</b> Enter your name as shown on required
+                U.S. federal tax documents on line 1. This name should match the
+                name shown on the charter or other legal document creating the
+                entity. Enter any business, trade, or DBA name on line 2.
+                <br />
+                <div className="mb-1 " />
+                <b>• Disregarded entity.</b> In general, a business entity that
+                has a single owner, including an LLC, and is not a corporation,
+                is disregarded as an entity separate from its owner (a
+                disregarded entity). See Regulations section 301.7701-2(c)(2). A
+                disregarded entity should check the appropriate box for the tax
+                classification of its owner. Enter the owner’s name on line 1.
+                The name of the owner entered on line 1 should never be a
+                disregarded entity. The name on line 1 should be the name shown
+                on the income tax return on which the income should be reported.
+                For
+              </p>
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <p className="mb-2 text-[10px] leading-tight">
+                example, if a foreign LLC that is treated as a disregarded
+                entity for U.S. federal tax purposes has a single owner that is
+                a U.S. person, the U.S. owner’s name is required to be provided
+                on line 1. If the direct owner of the entity is also a
+                disregarded entity, enter the first owner that is not
+                disregarded for federal tax purposes. Enter the disregarded
+                entity’s name on line 2. If the owner of the disregarded entity
+                is a foreign person, the owner must complete an appropriate Form
+                W-8 instead of a Form W-9. This is the case even if the foreign
+                person has a U.S. TIN.
+                <br />
+                <div className="mb-1 " />
+                <b>Line 2</b>
+                <br />
+                If you have a business name, trade name, DBA name, or
+                disregarded entity name, enter it on line 2.
+                <div className="mb-1 " />
+                <b>Line 3a</b> <br />
+                Check the appropriate box on line 3a for the U.S. federal tax
+                classification of the person whose name is entered on line 1.
+                Check only one box on line 3a.
+                <br />
+                <div className="mb-1 " />
+                <table className="border border-black">
+                  <tr className="border-t border-black">
+                    <th className="w-[50%] border-r border-black">
+                      IF the entity/individual on line 1 is a(n) . . .
+                    </th>
+                    <th>THEN check the box for . . .</th>
+                  </tr>
+                  <tr className="border-t border-black">
+                    <td className="border-r border-black">• Corporation</td>
+                    <td>Corporation.</td>
+                  </tr>
+
+                  <tr className="border-t border-black">
+                    <td className="border-r border-black">
+                      • Individual or
+                      <br />• Sole proprietorship
+                    </td>
+                    <td>Individual/sole proprietor.</td>
+                  </tr>
+
+                  <tr className="border-t border-black">
+                    <td className="border-r border-black">
+                      • LLC classified as a partnership for U.S. federal tax
+                      purposes or
+                      <br />• LLC that has filed Form 8832 or 2553 electing to
+                      be taxed as a corporation
+                    </td>
+                    <td>
+                      Limited liability company and enter the appropriate tax
+                      classification:
+                      <br />
+                      P = Partnership,
+                      <br />
+                      C = C corporation, or
+                      <br />S = S corporation.
+                    </td>
+                  </tr>
+
+                  <tr className="border-t border-black">
+                    <td className="border-r border-black">• Partnership</td>
+                    <td>Partnership.</td>
+                  </tr>
+
+                  <tr className="border-y border-black">
+                    <td className="border-r border-black">• Trust/estate</td>
+                    <td>Trust/estate.</td>
+                  </tr>
+                </table>
+                <div className="mb-1 " />
+                <b>Line 3b</b>
+                <br />
+                Check this box if you are a partnership (including an LLC
+                classified as a partnership for U.S. federal tax purposes),
+                trust, or estate that has any foreign partners, owners, or
+                beneficiaries, and you are providing this form to a partnership,
+                trust, or estate, in which you have an ownership interest. You
+                must check the box on line 3b if you receive a Form W-8 (or
+                documentary evidence) from any partner, owner, or beneficiary
+                establishing foreign status or if you receive a Form W-9 from
+                any partner, owner, or beneficiary that has checked the box on
+                line 3b.
+                <br />
+                <div className="mb-1 " />
+                <b>Note:</b> A partnership that provides a Form W-9 and checks
+                box 3b may be required to complete Schedules K-2 and K-3 (Form
+                1065). For more information, see the Partnership Instructions
+                for Schedules K-2 and K-3 (Form 1065).
+                <br />
+                <div className="mb-1 " />
+                If you are required to complete line 3b but fail to do so, you
+                may not receive the information necessary to file a correct
+                information return with the IRS or furnish a correct payee
+                statement to your partners or beneficiaries. See, for example,
+                sections 6698, 6722, and 6724 for penalties that may apply.
+                <br />
+                <div className="mb-1 " />
+                <b>Line 4 Exemptions</b>
+                <br />
+                If you are exempt from backup withholding and/or FATCA
+                reporting, enter in the appropriate space on line 4 any code(s)
+                that may apply to you.
+                <br />
+                <div className="mb-1 " />
+                <b>Exempt payee code.</b>
+                <br />
+                • Generally, individuals (including sole proprietors) are not
+                exempt from backup withholding.
+                <br />
+                • Except as provided below, corporations are exempt from backup
+                withholding for certain payments, including interest and
+                dividends.
+                <br />
+                • Corporations are not exempt from backup withholding for
+                payments made in settlement of payment card or third-party
+                network transactions.
+                <br />
+                • Corporations are not exempt from backup withholding with
+                respect to attorneys’ fees or gross proceeds paid to attorneys,
+                and corporations that provide medical or health care services
+                are not exempt with respect to payments reportable on Form
+                1099-MISC.
+                <br />
+                The following codes identify payees that are exempt from backup
+                withholding. Enter the appropriate code in the space on line 4.
+                <br />
+                1—An organization exempt from tax under section 501(a), any IRA,
+                or a custodial account under section 403(b)(7) if the account
+                satisfies the requirements of section 401(f)(2).
+              </p>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          {/* Header */}
+          <div className="mb-3 flex items-center justify-between border-b-2 border-black pb-1 text-[11px]">
+            <span>Form W-9 (Rev. 3-2024) </span>
+            <span>Page 4</span>
+          </div>
+
+          {/* Main Two Columns */}
+          <div className="grid grid-cols-2 gap-[0.35in]">
+            {/* LEFT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <p className="mb-2 text-[10px] leading-tight">
+                2—The United States or any of its agencies or instrumentalities.
+                <br />
+                <div className="mb-1 " />
+                3—A state, the District of Columbia, a U.S. commonwealth or
+                territory, or any of their political subdivisions or
+                instrumentalities.
+                <br />
+                <div className="mb-1 " />
+                4—A foreign government or any of its political subdivisions,
+                agencies, or instrumentalities.
+                <br />
+                <div className="mb-1 " />
+                5—A corporation.
+                <br />
+                <div className="mb-1 " />
+                6—A dealer in securities or commodities required to register in
+                the United States, the District of Columbia, or a U.S.
+                commonwealth or territory.
+                <br />
+                <div className="mb-1 " />
+                7—A futures commission merchant registered with the Commodity
+                Futures Trading Commission.
+                <br />
+                <div className="mb-1 " />
+                8—A real estate investment trust.
+                <br />
+                <div className="mb-1 " />
+                9—An entity registered at all times during the tax year under
+                the Investment Company Act of 1940.
+                <br />
+                <div className="mb-1 " />
+                10—A common trust fund operated by a bank under section 584(a).
+                <br />
+                <div className="mb-1 " />
+                11—A financial institution as defined under section 581.
+                <br />
+                <div className="mb-1 " />
+                12—A middleman known in the investment community as a nominee or
+                custodian.
+                <br />
+                <div className="mb-1 " />
+                13—A trust exempt from tax under section 664 or described in
+                section 4947.
+                <br />
+                <div className="mb-1 " />
+                The following chart shows types of payments that may be exempt
+                from backup withholding. The chart applies to the exempt payees
+                listed above, 1 through 13.
+                <table>
+                  <tr className="border-t border-black">
+                    <th className="w-[50%] border-r border-black">
+                      IF the payment is for . . .
+                    </th>
+                    <th>THEN the payment is exempt for . . .</th>
+                  </tr>
+                  <tr className="border-t border-black">
+                    <td className="border-r border-black">
+                      • Interest and dividend payments
+                    </td>
+                    <td>All exempt payees except for 7.</td>
+                  </tr>
+
+                  <tr className="border-t border-black">
+                    <td className="border-r border-black">
+                      • Broker transactions
+                    </td>
+                    <td>
+                      Exempt payees 1 through 4 and 6 through 11 and all C
+                      corporations. S corporations must not enter an exempt
+                      payee code because they are exempt only for sales of
+                      noncovered securities acquired prior to 2012.
+                    </td>
+                  </tr>
+
+                  <tr className="border-t border-black">
+                    <td className="border-r border-black">
+                      • Barter exchange transactions and patronage dividends
+                    </td>
+                    <td>Exempt payees 1 through 4.</td>
+                  </tr>
+
+                  <tr className="border-t border-black">
+                    <td className="border-r border-black">
+                      • Payments over $600 required to be reported and direct
+                      sales over $5,000,<sup>1</sup>
+                    </td>
+                    <td>
+                      Generally, exempt payees 1 through 5.<sup>2</sup>
+                    </td>
+                  </tr>
+
+                  <tr className="border-y border-black">
+                    <td className="border-r border-black">
+                      • Payments made in settlement of payment card or
+                      third-party network transactions
+                    </td>
+                    <td>Exempt payees 1 through 4</td>
+                  </tr>
+                </table>
+                1 See Form 1099-MISC, Miscellaneous Information, and its
+                instructions.
+                <br />
+                <div className="mb-1 " />
+                2 However, the following payments made to a corporation and
+                reportable on Form 1099-MISC are not exempt from backup
+                withholding: medical and health care payments, attorneys’ fees,
+                gross proceeds paid to an attorney reportable under section
+                6045(f), and payments for services paid by a federal executive
+                agency.
+                <br />
+                <div className="mb-1 " />
+                <b>Exemption from FATCA reporting code.</b> The following codes
+                identify payees that are exempt from reporting under FATCA.
+                These codes apply to persons submitting this form for accounts
+                maintained outside of the United States by certain foreign
+                financial institutions. Therefore, if you are only submitting
+                this form for an account you hold in the United States, you may
+                leave this field blank. Consult with the person requesting this
+                form if you are uncertain if the financial institution is
+                subject to these requirements. A requester may indicate that a
+                code is not required by providing you with a Form W-9 with “Not
+                Applicable” (or any similar indication) entered on the line for
+                a FATCA exemption code.
+                <br />
+                <div className="mb-1 " />
+                A—An organization exempt from tax under section 501(a) or any
+                individual retirement plan as defined in section 7701(a)(37).
+                <br />
+                <div className="mb-1 " />
+                B—The United States or any of its agencies or instrumentalities.
+                <br />
+                <div className="mb-1 " />
+                C—A state, the District of Columbia, a U.S. commonwealth or
+                territory, or any of their political subdivisions or
+                instrumentalities.
+                <br />
+                <div className="mb-1 " />
+                D—A corporation the stock of which is regularly traded on one or
+                more established securities markets, as described in Regulations
+                section 1.1472-1(c)(1)(i).
+                <br />
+                <div className="mb-1 " />
+                E—A corporation that is a member of the same expanded affiliated
+                group as a corporation described in Regulations section
+                1.1472-1(c)(1)(i).
+              </p>
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <p className="mb-2 text-[10px] leading-tight">
+                F—A dealer in securities, commodities, or derivative financial
+                instruments (including notional principal contracts, futures,
+                forwards, and options) that is registered as such under the laws
+                of the United States or any state.
+                <br />
+                <div className="mb-1 " />
+                G—A real estate investment trust.
+                <br />
+                <div className="mb-1 " />
+                H—A regulated investment company as defined in section 851 or an
+                entity registered at all times during the tax year under the
+                Investment Company Act of 1940.
+                <br />
+                <div className="mb-1 " />
+                I—A common trust fund as defined in section 584(a).
+                <br />
+                <div className="mb-1 " />
+                J—A bank as defined in section 581.
+                <br />
+                <div className="mb-1 " />
+                K—A broker.
+                <br />
+                <div className="mb-1 " />
+                L—A trust exempt from tax under section 664 or described in
+                section 4947(a)(1).
+                <br />
+                <div className="mb-1 " />
+                M—A tax-exempt trust under a section 403(b) plan or section
+                457(g) plan.
+                <br />
+                <div className="mb-1 " />
+                <b>Note:</b> You may wish to consult with the financial
+                institution requesting this form to determine whether the FATCA
+                code and/or exempt payee code should be completed.
+                <br />
+                <div className="mb-1 " />
+                <b>Line 5</b>
+                <br />
+                <div className="mb-1 " />
+                Enter your address (number, street, and apartment or suite
+                number). This is where the requester of this Form W-9 will mail
+                your information returns. If this address differs from the one
+                the requester already has on file, enter “NEW” at the top. If a
+                new address is provided, there is still a chance the old address
+                will be used until the payor changes your address in their
+                records.
+                <br />
+                <b>Line 6</b>
+                <br />
+                <div className="mb-1 " />
+                Enter your city, state, and ZIP code.
+                <br />
+                <div className="mb-1 " />
+                <b className="text-[14px]">
+                  Part I. Taxpayer Identification Number (TIN)
+                </b>
+                <br />
+                <div className="mb-1 " />
+                Enter your TIN in the appropriate box. If you are a resident
+                alien and you do not have, and are not eligible to get, an SSN,
+                your TIN is your IRS ITIN. Enter it in the entry space for the
+                Social security number. If you do not have an ITIN, see How to
+                get a TIN below.
+                <br />
+                <div className="mb-1 " />
+                If you are a sole proprietor and you have an EIN, you may enter
+                either your SSN or EIN.
+                <br />
+                <div className="mb-1 " />
+                If you are a single-member LLC that is disregarded as an entity
+                separate from its owner, enter the owner’s SSN (or EIN, if the
+                owner has one). If the LLC is classified as a corporation or
+                partnership, enter the entity’s EIN.
+                <br />
+                <div className="mb-1 " />
+                <b>Note:</b> See What Name and Number To Give the Requester,
+                later, for further clarification of name and TIN combinations.
+                <br />
+                <div className="mb-1 " />
+                <b>How to get a TIN.</b> If you do not have a TIN, apply for one
+                immediately. To apply for an SSN, get Form SS-5, Application for
+                a Social Security Card, from your local SSA office or get this
+                form online at www.SSA.gov. You may also get this form by
+                calling 800-772-1213. Use Form W-7, Application for IRS
+                Individual Taxpayer Identification Number, to apply for an ITIN,
+                or Form SS-4, Application for Employer Identification Number, to
+                apply for an EIN. You can apply for an EIN online by accessing
+                the IRS website at www.irs.gov/EIN. Go to www.irs.gov/Forms to
+                view, download, or print Form W-7 and/or Form SS-4. Or, you can
+                go to www.irs.gov/OrderForms to place an order and have Form W-7
+                and/or Form SS-4 mailed to you within 15 business days.
+                <br />
+                <div className="mb-1 " />
+                If you are asked to complete Form W-9 but do not have a TIN,
+                apply for a TIN and enter “Applied For” in the space for the
+                TIN, sign and date the form, and give it to the requester. For
+                interest and dividend payments, and certain payments made with
+                respect to readily tradable instruments, you will generally have
+                60 days to get a TIN and give it to the requester before you are
+                subject to backup withholding on payments. The 60-day rule does
+                not apply to other types of payments. You will be subject to
+                backup withholding on all such payments until you provide your
+                TIN to the requester.
+                <br />
+                <div className="mb-1 " />
+                <b>Note:</b> Entering “Applied For” means that you have already
+                applied for a TIN or that you intend to apply for one soon. See
+                also Establishing U.S. status for purposes of chapter 3 and
+                chapter 4 withholding, earlier, for when you may instead be
+                subject to withholding under chapter 3 or 4 of the Code.
+                <br />
+                <div className="mb-1 " />
+                <b>Caution:</b> A disregarded U.S. entity that has a foreign
+                owner must use the appropriate Form W-8.
+              </p>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          {/* Header */}
+          <div className="mb-3 flex items-center justify-between border-b-2 border-black pb-1 text-[11px]">
+            <span>Form W-9 (Rev. 3-2024) </span>
+            <span>Page 5</span>
+          </div>
+
+          {/* Main Two Columns */}
+          <div className="grid grid-cols-2 gap-[0.35in]">
+            {/* LEFT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <p className="mb-2 text-[10px] leading-tight">
+                <b className="text-[14px]">Part II. Certification</b>
+                <br />
+                <div className="mb-1 " />
+                To establish to the withholding agent that you are a U.S.
+                person, or resident alien, sign Form W-9. You may be requested
+                to sign by the withholding agent even if item 1, 4, or 5 below
+                indicates otherwise.
+                <br />
+                <div className="mb-1 " />
+                For a joint account, only the person whose TIN is shown in Part
+                I should sign (when required). In the case of a disregarded
+                entity, the person identified on line 1 must sign. Exempt
+                payees, see Exempt payee code, earlier.
+                <br />
+                <div className="mb-1 " />
+                <b>Signature requirements.</b> Complete the certification as
+                indicated in items 1 through 5 below.
+                <br />
+                <div className="mb-1 " />
+                <b>
+                  1. Interest, dividend, and barter exchange accounts opened
+                  before 1984 and broker accounts considered active during 1983.
+                </b>
+                You must give your correct TIN, but you do not have to sign the
+                certification.
+                <br />
+                <div className="mb-1 " />
+                <b>
+                  2. Interest, dividend, broker, and barter exchange accounts
+                  opened after 1983 and broker accounts considered inactive
+                  during 1983.
+                </b>{" "}
+                You must sign the certification or backup withholding will
+                apply. If you are subject to backup withholding and you are
+                merely providing your correct TIN to the requester, you must
+                cross out item 2 in the certification before signing the form.
+                <br />
+                <div className="mb-1 " />
+                <b>3. Real estate transactions.</b> You must sign the
+                certification. You may cross out item 2 of the certification.
+                <br />
+                <div className="mb-1 " />
+                <b>4. Other payments.</b> You must give your correct TIN, but
+                you do not have to sign the certification unless you have been
+                notified that you have previously given an incorrect TIN. “Other
+                payments” include payments made in the course of the requester’s
+                trade or business for rents, royalties, goods (other than bills
+                for merchandise), medical and health care services (including
+                payments to corporations), payments to a nonemployee for
+                services, payments made in settlement of payment card and
+                third-party network transactions, payments to certain fishing
+                boat crew members and fishermen, and gross proceeds paid to
+                attorneys (including payments to corporations).
+                <br />
+                <div className="mb-1 " />
+                <b>
+                  5. Mortgage interest paid by you, acquisition or abandonment
+                  of secured property, cancellation of debt, qualified tuition
+                  program payments (under section 529), ABLE accounts (under
+                  section 529A), IRA, Coverdell ESA, Archer MSA or HSA
+                  contributions or distributions, and pension distributions.
+                </b>{" "}
+                You must give your correct TIN, but you do not have to sign the
+                certification.
+                <br />
+                <div className="mb-1 " />
+                <b className="text-[14px]">
+                  What Name and Number To Give the Requester
+                </b>
+                <table>
+                  <tr className="border-y border-black">
+                    <th className="w-[50%] border-r border-black">
+                      For this type of account:{" "}
+                    </th>
+                    <th>Give name and SSN of:</th>
+                  </tr>
+                  <tr>
+                    <td className="border-r border-black">1. Individual</td>
+                    <td>The individual</td>
+                  </tr>
+
+                  <tr>
+                    <td className="border-r border-black">
+                      2. Two or more individuals (joint account) other than an
+                      account maintained by an FFI
+                    </td>
+                    <td>
+                      The actual owner of the account or, if combined funds, the
+                      first individual on the account<sup>1</sup>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="border-r border-black">
+                      3. Two or more U.S. persons (joint account maintained by
+                      an FFI
+                    </td>
+                    <td>Each holder of the account</td>
+                  </tr>
+
+                  <tr>
+                    <td className="border-r border-black">
+                      4. Custodial account of a minor (Uniform Gift to Minors
+                      Act)
+                    </td>
+                    <td>
+                      The minor<sup>2</sup>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="border-r border-black">
+                      5. a. The usual revocable savings trust (grantor is also
+                      trustee)
+                      <br />
+                      b. So-called trust account that is not a legal or valid
+                      trust under state law
+                    </td>
+                    <td>
+                      The grantor-trustee<sup>1</sup>
+                      <br />
+                      The actual owner<sup>1</sup>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="border-r border-black">
+                      6. Sole proprietorship or disregarded entity owned by an
+                      individual
+                    </td>
+                    <td>
+                      The actual owner<sup>1</sup>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-black">
+                    <td className="border-r border-black">
+                      7. Grantor trust filing under Optional Filing Method 1
+                      (see Regulations section 1.671-4(b)(2)(i)(A))**
+                    </td>
+                    <td>
+                      The owner<sup>3</sup>
+                    </td>
+                  </tr>
+                </table>
+              </p>
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <p className="mb-2 text-[10px] leading-tight">
+                <table>
+                  <tr className="border-y border-black">
+                    <th className="w-[50%] border-r border-black">
+                      For this type of account:{" "}
+                    </th>
+                    <th>Give name and EIN of:</th>
+                  </tr>
+                  <tr>
+                    <td className="border-r border-black">
+                      8. Disregarded entity not owned by an individual
+                    </td>
+                    <td>The owner</td>
+                  </tr>
+
+                  <tr>
+                    <td className="border-r border-black">
+                      9. A valid trust, estate, or pension trus
+                    </td>
+                    <td>
+                      Legal entity<sup>4</sup>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="border-r border-black">
+                      10. Corporation or LLC electing corporate status on Form
+                      8832 or Form 2553
+                    </td>
+                    <td>The corporation</td>
+                  </tr>
+
+                  <tr>
+                    <td className="border-r border-black">
+                      11. Association, club, religious, charitable, educational,
+                      or other tax-exempt organization
+                    </td>
+                    <td>The organization</td>
+                  </tr>
+
+                  <tr>
+                    <td className="border-r border-black">
+                      12. Partnership or multi-member LLC
+                    </td>
+                    <td>The partnership</td>
+                  </tr>
+
+                  <tr>
+                    <td className="border-r border-black">
+                      13. A broker or registered nominee
+                    </td>
+                    <td>The broker or nominee</td>
+                  </tr>
+
+                  <tr>
+                    <td className="border-r border-black">
+                      14. Account with the Department of Agriculture in the name
+                      of a public entity (such as a state or local government,
+                      school district, or prison) that receives agricultural
+                      program payments
+                    </td>
+                    <td>The public entity</td>
+                  </tr>
+
+                  <tr className="border-b border-black">
+                    <td className="border-r border-black">
+                      15. Grantor trust filing Form 1041 or under the Optional
+                      Filing Method 2, requiring Form 1099 (see Regulations
+                      section 1.671-4(b)(2)(i)(B))**
+                    </td>
+                    <td>The trust</td>
+                  </tr>
+                </table>
+                example, if a foreign LLC that is treated as a disregarded
+                entity for U.S. federal tax purposes has a single owner that is
+                a U.S. person, the U.S. owner’s name is required to be provided
+                on line 1. If the direct owner of the entity is also a
+                disregarded entity, enter the first owner that is not
+                disregarded for federal tax purposes. Enter the disregarded
+                entity’s name on line 2. If the owner of the disregarded entity
+                is a foreign person, the owner must complete an appropriate Form
+                W-8 instead of a Form W-9. This is the case even if the foreign
+                person has a U.S. TIN.
+                <br />
+                <div className="mb-1 " />
+                <b>Line 2</b>
+                <br />
+                If you have a business name, trade name, DBA name, or
+                disregarded entity name, enter it on line 2.
+                <div className="mb-1 " />
+                <b>Line 3a</b> <br />
+                Check the appropriate box on line 3a for the U.S. federal tax
+                classification of the person whose name is entered on line 1.
+                Check only one box on line 3a.
+                <br />
+                <div className="mb-1 " />
+                <b>Line 3b</b>
+                <br />
+                Check this box if you are a partnership (including an LLC
+                classified as a partnership for U.S. federal tax purposes),
+                trust, or estate that has any foreign partners, owners, or
+                beneficiaries, and you are providing this form to a partnership,
+                trust, or estate, in which you have an ownership interest. You
+                must check the box on line 3b if you receive a Form W-8 (or
+                documentary evidence) from any partner, owner, or beneficiary
+                establishing foreign status or if you receive a Form W-9 from
+                any partner, owner, or beneficiary that has checked the box on
+                line 3b.
+                <br />
+                <div className="mb-1 " />
+                <b>Note:</b> A partnership that provides a Form W-9 and checks
+                box 3b may be required to complete Schedules K-2 and K-3 (Form
+                1065). For more information, see the Partnership Instructions
+                for Schedules K-2 and K-3 (Form 1065).
+                <br />
+                <div className="mb-1 " />
+                If you are required to complete line 3b but fail to do so, you
+                may not receive the information necessary to file a correct
+                information return with the IRS or furnish a correct payee
+                statement to your partners or beneficiaries. See, for example,
+                sections 6698, 6722, and 6724 for penalties that may apply.
+                <br />
+                <div className="mb-1 " />
+                <b>Line 4 Exemptions</b>
+                <br />
+                If you are exempt from backup withholding and/or FATCA
+                reporting, enter in the appropriate space on line 4 any code(s)
+                that may apply to you.
+                <br />
+                <div className="mb-1 " />
+                <b>Exempt payee code.</b>
+                <br />
+                • Generally, individuals (including sole proprietors) are not
+                exempt from backup withholding.
+                <br />
+                • Except as provided below, corporations are exempt from backup
+                withholding for certain payments, including interest and
+                dividends.
+                <br />
+                • Corporations are not exempt from backup withholding for
+                payments made in settlement of payment card or third-party
+                network transactions.
+                <br />
+                • Corporations are not exempt from backup withholding with
+                respect to attorneys’ fees or gross proceeds paid to attorneys,
+                and corporations that provide medical or health care services
+                are not exempt with respect to payments reportable on Form
+                1099-MISC.
+                <br />
+                The following codes identify payees that are exempt from backup
+                withholding. Enter the appropriate code in the space on line 4.
+                <br />
+                1—An organization exempt from tax under section 501(a), any IRA,
+                or a custodial account under section 403(b)(7) if the account
+                satisfies the requirements of section 401(f)(2).
+              </p>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+          {/* Header */}
+          <div className="mb-3 flex items-center justify-between border-b-2 border-black pb-1 text-[11px]">
+            <span>Form W-9 (Rev. 3-2024) </span>
+            <span>Page 6</span>
+          </div>
+
+          {/* Main Two Columns */}
+          <div className="grid grid-cols-2 gap-[0.35in]">
+            {/* LEFT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <p className="mb-2 text-[10px] leading-tight">
+                Victims of identity theft who are experiencing economic harm or
+                a systemic problem, or are seeking help in resolving tax
+                problems that have not been resolved through normal channels,
+                may be eligible for Taxpayer Advocate Service (TAS) assistance.
+                You can reach TAS by calling the TAS toll-free case intake line
+                at 877-777-4778 or TTY/TDD 800-829-4059.
+                <br />
+                <div className="mb-1 " />
+                <b>
+                  Protect yourself from suspicious emails or phishing schemes.
+                </b>
+                Phishing is the creation and use of email and websites designed
+                to mimic legitimate business emails and websites. The most
+                common act is sending an email to a user falsely claiming to be
+                an established legitimate enterprise in an attempt to scam the
+                user into surrendering private information that will be used for
+                identity theft.
+                <br />
+                <div className="mb-1 " />
+                The IRS does not initiate contacts with taxpayers via emails.
+                Also, the IRS does not request personal detailed information
+                through email or ask taxpayers for the PIN numbers, passwords,
+                or similar secret access information for their credit card,
+                bank, or other financial accounts.
+                <br />
+                <div className="mb-1 " />
+                If you receive an unsolicited email claiming to be from the IRS,
+                forward this message to phishing@irs.gov. You may also report
+                misuse of the IRS name, logo, or other IRS property to the
+                Treasury Inspector General for Tax Administration (TIGTA) at
+                800-366-4484. You can forward suspicious emails to the Federal
+                Trade Commission at spam@uce.gov or report them at
+                www.ftc.gov/complaint. You can contact the FTC at
+                www.ftc.gov/idtheft or 877-IDTHEFT (877-438-4338). If you have
+                been the victim of identity theft, see www.IdentityTheft.gov and
+                Pub. 5027.
+                <br />
+                <div className="mb-1 " />
+                Go to www.irs.gov/IdentityTheft to learn more about identity
+                theft and how to reduce your risk.
+              </p>
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <div className="text-[11px] leading-[1.08]">
+              <p className="mb-2 text-[10px] leading-tight">
+                <b className="text-[16px]">Privacy Act Notice</b>
+                <br />
+                <div className="mb-1 " />
+                Section 6109 of the Internal Revenue Code requires you to
+                provide your correct TIN to persons (including federal agencies)
+                who are required to file information returns with the IRS to
+                report interest, dividends, or certain other income paid to you;
+                mortgage interest you paid; the acquisition or abandonment of
+                secured property; the cancellation of debt; or contributions you
+                made to an IRA, Archer MSA, or HSA. The person collecting this
+                form uses the information on the form to file information
+                returns with the IRS, reporting the above information. Routine
+                uses of this information include giving it to the Department of
+                Justice for civil and criminal litigation and to cities, states,
+                the District of Columbia, and U.S. commonwealths and territories
+                for use in administering their laws. The information may also be
+                disclosed to other countries under a treaty, to federal and
+                state agencies to enforce civil and criminal laws, or to federal
+                law enforcement and intelligence agencies to combat terrorism.
+                You must provide your TIN whether or not you are required to
+                file a tax return. Under section 3406, payors must generally
+                withhold a percentage of taxable interest, dividends, and
+                certain other payments to a payee who does not give a TIN to the
+                payor. Certain penalties may also apply for providing false or
+                fraudulent information.
+              </p>
+            </div>
+          </div>
+        </div>
         <div className="bg-white mt-6 flex items-center justify-center gap-3 border-t border-gray-200 p-4">
           {/*   <button
         type="button"

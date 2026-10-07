@@ -48,6 +48,7 @@ const Reducer = (state, action) => {
         ...state,
         loading: true,
         error: null,
+        selectedData: {},
       };
 
     case "FETCH_SINGLE_SUCCESS":

@@ -11,7 +11,6 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 p-4">
       <div className="dialog w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-white">
-
         {/* Header */}
         <div className="company-head">
           <div>
@@ -23,7 +22,6 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
           </div>
 
           <div className="actions">
-
             {/* EDIT COMPANY */}
             <button
               type="button"
@@ -36,14 +34,9 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
             </button>
 
             {/* NEW PERMIT */}
-            <button
-              type="button"
-              className="btn small"
-              onClick={onNewPermit}
-            >
+            <button type="button" className="btn small" onClick={onNewPermit}>
               + Permit
             </button>
-
           </div>
         </div>
 
@@ -103,17 +96,11 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
                 {permits.length > 0 ? (
                   permits.map((permit) => (
                     <tr key={permit.id}>
-                      <td>
-                        {permit.permitname ||
-                          permit.permit_name ||
-                          "—"}
-                      </td>
+                      <td>{permit.permitname || permit.permit_name || "—"}</td>
 
                       <td>
                         <span
-                          className={`pill ${getStatusClass(
-                            permit.status
-                          )}`}
+                          className={`pill ${getStatusClass(permit.status)}`}
                         >
                           {permit.status || "—"}
                         </span>
@@ -121,17 +108,12 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
 
                       <td>{permit.expirydate || "—"}</td>
 
-                      <td>
-                        ${Number(permit.total || 0).toFixed(2)}
-                      </td>
+                      <td>${Number(permit.total || 0).toFixed(2)}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td
-                      colSpan="4"
-                      className="py-8 text-center text-slate-500"
-                    >
+                    <td colSpan="4" className="py-8 text-center text-slate-500">
                       No permits found.
                     </td>
                   </tr>
@@ -143,11 +125,7 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
 
         {/* Footer */}
         <div className="formactions">
-          <button
-            type="button"
-            className="btn secondary"
-            onClick={onClose}
-          >
+          <button type="button" className="btn secondary" onClick={onClose}>
             Close
           </button>
         </div>
@@ -155,45 +133,31 @@ function CompanyDetailModal({ company, onClose, onNewPermit }) {
 
       {/* COMPANY EDIT MODAL */}
       {modalType === "company" && (
-        <CompanyModal
-          company={company}
-          onClose={() => setModalType(null)}
-        />
+        <CompanyModal company={company} onClose={() => setModalType(null)} />
       )}
 
       {/* PERMIT MODAL */}
       {modalType === "permit" && (
-        <PermitModal
-          company={company}
-          onClose={() => setModalType(null)}
-        />
+        <PermitModal company={company} onClose={() => setModalType(null)} />
       )}
     </div>
   );
 }
 
 const getStatusClass = (status) => {
-  if (
-    ["Approved", "Delivered", "Paid", "Completed"].includes(status)
-  ) {
+  if (["Approved", "Delivered", "Paid", "Completed"].includes(status)) {
     return "p-green";
   }
 
-  if (
-    ["Submitted", "Ready to File"].includes(status)
-  ) {
+  if (["Submitted", "Ready to File"].includes(status)) {
     return "p-blue";
   }
 
-  if (
-    ["Waiting on Agency", "Documents Needed", "Open"].includes(status)
-  ) {
+  if (["Waiting on Agency", "Documents Needed", "Open"].includes(status)) {
     return "p-amber";
   }
 
-  if (
-    ["Overdue", "Expired"].includes(status)
-  ) {
+  if (["Overdue", "Expired"].includes(status)) {
     return "p-red";
   }
 

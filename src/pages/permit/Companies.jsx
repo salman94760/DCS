@@ -169,14 +169,14 @@ export default function Companies() {
       </div>
       {/* Modal */}
       {modalType === "company" && (
-  <CompanyModal
-    company={selectedCompany}
-    onClose={() => {
-      setModalType(null);
-      setSelectedCompany(null);
-    }}
-  />
-)}
+        <CompanyModal
+          company={selectedCompany}
+          onClose={() => {
+            setModalType(null);
+            setSelectedCompany(null);
+          }}
+        />
+      )}
 
       {modalType === "companydetail" && selectedCompany && (
         <CompanyDetailModal
