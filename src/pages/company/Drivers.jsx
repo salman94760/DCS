@@ -548,13 +548,13 @@ export default function Company() {
                           ""
                         )}*/}
 
-                        {/*<button
+                        <button
                           type="button"
                           onClick={() => handleDelete(com.id)}
                           className="px-3 py-1.5 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50 whitespace-nowrap"
                         >
                           Delete
-                        </button>*/}
+                        </button>
                       </div>
                     </td>
 
