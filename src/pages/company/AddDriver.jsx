@@ -147,8 +147,7 @@ export default function AddCompany() {
     if (!data.permituscisno) {
       newErrors.permituscisno = "Work permit USCIS no required";
     }
-    console.log(workauthorization);
-    if(data.workauthorization != "CITIZEN"){
+        if(data.workauthorization != "CITIZEN"){
 
     if (!data.permitexpdate) {
       newErrors.permitexpdate = "Work Permit Expiration Date required";
