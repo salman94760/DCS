@@ -6,7 +6,7 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDcsContext } from "@/context/Context";
-
+import api from "@/api/axios";
 export default function Company() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -130,11 +130,20 @@ export default function Company() {
     if (!confirmed) return;
 
     try {
-      await deleteCompany(id);
+    
+
+
+    const response = await api.delete(`/company/driver/delete/${id}`);
+    fetchAllData(`/company/drivers/${loginUserId}`);
+ 
+
     } catch (error) {
       console.error("Failed to delete:", error);
     }
   };
+
+
+
 
   // ==========================================
   // EXCEL
