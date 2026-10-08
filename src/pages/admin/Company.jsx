@@ -427,16 +427,10 @@ export default function Company() {
                 </th>
 
                 <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  DOT Number
+                  DOT / MC / EIN Number
                 </th>
 
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  MC Number
-                </th>
-
-                <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  EIN Number
-                </th>
+               
 
                 <th className="text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
                   Company Owner Name
@@ -506,7 +500,7 @@ export default function Company() {
                           to={`/admin-dashboard/company/edit/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
-                          Edit
+                          <i className="fa-solid fa-edit"></i>
                         </Link>
 
                         <button
@@ -514,8 +508,14 @@ export default function Company() {
                           onClick={() => handleDelete(com.id)}
                           className="px-3 py-1.5 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50 whitespace-nowrap"
                         >
-                          Delete
+                          <i className="fa-solid fa-trash"></i>
                         </button>
+
+
+
+
+
+
                       </div>
                     </td>
 
@@ -524,20 +524,10 @@ export default function Company() {
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.dot}
+                      {com.dot} /  {com.mc} /   {com.ein}
                     </td>
 
-                    {/* MC */}
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.mc}
-                    </td>
-
-                    {/* EIN */}
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.ein}
-                    </td>
+                
 
                     <td className="px-6 py-4">
                       <span className="font-medium text-slate-800 whitespace-nowrap">
