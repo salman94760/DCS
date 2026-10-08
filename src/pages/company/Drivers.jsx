@@ -29,6 +29,14 @@ export default function Company() {
   // ==========================================
   // GET COMPANIES
   // ==========================================
+
+  const formatDate = (dateString) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-US');
+  };
+
+
   useEffect(() => {
     const role = localStorage.getItem("userRole");
 
@@ -454,52 +462,7 @@ export default function Company() {
 
                     <td className="sticky left-0 z-10 bg-white px-6 py-4">
                       <div className="flex items-center gap-2">
-                        {/*       <Link
-                          to={`/company-dashboard/driver/edit/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >
-                          Edit
-                        </Link>
-                        <Link
-                          target="_blank"
-                          title="Employment history"
-                          to={`/company-dashboard/driver/employment-history/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >
-                          Employment hisotry
-                        </Link>
-
-                        <Link
-                          target="_blank"
-                          title="Driver experience"
-                          to={`/company-dashboard/driver/experience/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >
-                          Experience
-                        </Link>
-
                         
-
-                        <Link
-                          target="_blank"
-                          title="Document information"
-                          to={`/company-dashboard/driver/document/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >
-                          Document Information
-                        </Link>
-                        {com.esign === 0 ? (
-                          <Link
-                            title="Document information"
-                            target="_blank"
-                            to={`/driver/driver-application/${com.id}`}
-                            className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                          >
-                            E-Sign<i className="fa-solid fa-file-signature"></i>
-                          </Link>
-                        ) : (
-                          ""
-                        )}*/}
 
                         <Link
                           title="Driver Detail"
@@ -568,11 +531,13 @@ export default function Company() {
                     {/* PASSWORD */}
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.activedate}
+                   
+                      {formatDate(com.activedate)}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.dob}
+                      
+                       {formatDate(com.dob)}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
@@ -581,6 +546,7 @@ export default function Company() {
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.emecontactno}
+
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
@@ -593,7 +559,8 @@ export default function Company() {
 
                     <td className="px-6 py-4">
                       <span className="font-medium text-slate-800 whitespace-nowrap">
-                        {com.drugnegativedate}
+                      
+                         {formatDate(com.drugnegativedate)}
                       </span>
                     </td>
 
@@ -610,11 +577,13 @@ export default function Company() {
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.pclearinghousedate}
+                    
+                      {formatDate(com.pclearinghousedate)}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.terminationdate}
+                    
+                        {formatDate(com.terminationdate)}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
@@ -630,7 +599,7 @@ export default function Company() {
                     <td className="px-6 py-4">{com.workauthorization}</td>
                     <td className="px-6 py-4">{com.permituscisno}</td>
 
-                    <td className="px-6 py-4">{com.permitexpdate}</td>
+                    <td className="px-6 py-4">  {formatDate(com.permitexpdate)}</td>
 
                     {/* LOGO */}
                   </tr>
