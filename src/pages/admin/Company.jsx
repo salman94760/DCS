@@ -427,10 +427,16 @@ export default function Company() {
                 </th>
 
                 <th className="text-left px-6 py-4 font-semibold text-slate-600">
-                  DOT / MC / EIN Number
+                  DOT No.
                 </th>
 
-               
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  MC No.
+                </th>
+
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  EIN No.
+                </th>
 
                 <th className="text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
                   Company Owner Name
@@ -510,12 +516,6 @@ export default function Company() {
                         >
                           <i className="fa-solid fa-trash"></i>
                         </button>
-
-
-
-
-
-
                       </div>
                     </td>
 
@@ -524,10 +524,20 @@ export default function Company() {
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.dot} /  {com.mc} /   {com.ein}
+                      {com.dot}
                     </td>
 
-                
+                    {/* MC */}
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.mc}
+                    </td>
+
+                    {/* EIN */}
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.ein}
+                    </td>
 
                     <td className="px-6 py-4">
                       <span className="font-medium text-slate-800 whitespace-nowrap">
