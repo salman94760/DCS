@@ -58,7 +58,9 @@ export default function Company() {
       const companyName = String(com.cname || "").toLowerCase();
       const owner = String(com.owner || "").toLowerCase();
       const email = String(com.email || "").toLowerCase();
-      const usdot = String(com.usdot || "").toLowerCase();
+      const usdot = String(com.dot || "").toLowerCase();
+      const mc = String(com.mc || "").toLowerCase();
+      const ein = String(com.ein || "").toLowerCase();
 
       const matchesSearch =
         !searchText ||
@@ -66,6 +68,8 @@ export default function Company() {
         owner.includes(searchText) ||
         email.includes(searchText) ||
         usdot.includes(searchText);
+        mc.includes(searchText);
+        ein.includes(searchText);
 
       const companyStatus = Number(com.user?.user_info?.status);
 
