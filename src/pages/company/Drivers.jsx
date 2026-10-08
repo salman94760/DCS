@@ -31,11 +31,10 @@ export default function Company() {
   // ==========================================
 
   const formatDate = (dateString) => {
-    if (!dateString) return '';
+    if (!dateString) return "";
     const date = new Date(dateString);
-    return isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-US');
+    return isNaN(date.getTime()) ? "" : date.toLocaleDateString("en-US");
   };
-
 
   useEffect(() => {
     const role = localStorage.getItem("userRole");
@@ -462,8 +461,6 @@ export default function Company() {
 
                     <td className="sticky left-0 z-10 bg-white px-6 py-4">
                       <div className="flex items-center gap-2">
-                        
-
                         <Link
                           title="Driver Detail"
                           to={`/company-dashboard/driver/edit/${com.id}`}
@@ -531,13 +528,11 @@ export default function Company() {
                     {/* PASSWORD */}
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                   
                       {formatDate(com.activedate)}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      
-                       {formatDate(com.dob)}
+                      {formatDate(com.dob)}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
@@ -546,7 +541,6 @@ export default function Company() {
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.emecontactno}
-
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
@@ -559,8 +553,7 @@ export default function Company() {
 
                     <td className="px-6 py-4">
                       <span className="font-medium text-slate-800 whitespace-nowrap">
-                      
-                         {formatDate(com.drugnegativedate)}
+                        {formatDate(com.drugnegativedate)}
                       </span>
                     </td>
 
@@ -577,13 +570,11 @@ export default function Company() {
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    
                       {formatDate(com.pclearinghousedate)}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                    
-                        {formatDate(com.terminationdate)}
+                      {formatDate(com.terminationdate)}
                     </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
@@ -599,7 +590,10 @@ export default function Company() {
                     <td className="px-6 py-4">{com.workauthorization}</td>
                     <td className="px-6 py-4">{com.permituscisno}</td>
 
-                    <td className="px-6 py-4">  {formatDate(com.permitexpdate)}</td>
+                    <td className="px-6 py-4">
+                      {" "}
+                      {formatDate(com.permitexpdate)}
+                    </td>
 
                     {/* LOGO */}
                   </tr>
