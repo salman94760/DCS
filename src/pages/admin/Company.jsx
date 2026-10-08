@@ -1,14 +1,15 @@
+
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-import { useNavigate } from "react-router-dom";
 import { useDcsContext } from "@/context/Context";
 
 export default function Company() {
   const navigate = useNavigate();
+
   const {
     state,
     fetchAllData,
@@ -18,23 +19,30 @@ export default function Company() {
     setFilters,
     resetFilters,
   } = useDcsContext();
+
   const [search, setSearch] = useState("");
   const [role, setRole] = useState("all");
   const [status, setStatus] = useState("all");
 
   // ==========================================
+  // PAGINATION STATE
+  // ==========================================
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  // ==========================================
   // GET COMPANIES
   // ==========================================
   useEffect(() => {
-    const role = localStorage.getItem("userRole");
+    const userRole = localStorage.getItem("userRole");
 
-    if (role === "admin") {
+    if (userRole === "admin") {
       fetchAllData("/admin/company");
-    } else if (role === "company") {
+    } else if (userRole === "company") {
       navigate("/company-dashboard", { replace: true });
     }
   }, []);
-  console.log(state.data);
+
   // ==========================================
   // FILTER
   // ==========================================
@@ -42,16 +50,12 @@ export default function Company() {
     const companies = Array.isArray(state.data) ? state.data : [];
 
     const searchText = filters?.search?.toLowerCase().trim() || "";
-
-    const status = filters?.status || "all";
+    const currentStatus = filters?.status || "all";
 
     return companies.filter((com) => {
       const companyName = String(com.cname || "").toLowerCase();
-
       const owner = String(com.owner || "").toLowerCase();
-
       const email = String(com.email || "").toLowerCase();
-
       const usdot = String(com.usdot || "").toLowerCase();
 
       const matchesSearch =
@@ -64,17 +68,39 @@ export default function Company() {
       const companyStatus = Number(com.user?.user_info?.status);
 
       const matchesStatus =
-        status === "all" ||
-        (status === "active" && companyStatus === 1) ||
-        (status === "inactive" && companyStatus === 0);
+        currentStatus === "all" ||
+        (currentStatus === "active" && companyStatus === 1) ||
+        (currentStatus === "inactive" && companyStatus === 0);
 
       return matchesSearch && matchesStatus;
     });
   }, [state.data, filters]);
 
-  console.log("FILTERED DATA:", filtered);
+  // ==========================================
+  // PAGINATION
+  // ==========================================
 
-  console.log(filtered);
+  const totalPages = Math.ceil(filtered.length / rowsPerPage);
+
+  const startIndex = (currentPage - 1) * rowsPerPage;
+
+  const endIndex = startIndex + rowsPerPage;
+
+  const paginatedCompanies = filtered.slice(startIndex, endIndex);
+
+  // ==========================================
+  // KEEP PAGE VALID
+  // ==========================================
+  useEffect(() => {
+    if (totalPages > 0 && currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+
+    if (totalPages === 0 && currentPage !== 1) {
+      setCurrentPage(1);
+    }
+  }, [totalPages, currentPage]);
+
   // ==========================================
   // FILTER BUTTON
   // ==========================================
@@ -84,6 +110,9 @@ export default function Company() {
       role,
       status,
     });
+
+    // Filter change ke baad first page
+    setCurrentPage(1);
   };
 
   // ==========================================
@@ -95,6 +124,17 @@ export default function Company() {
     setStatus("all");
 
     resetFilters();
+
+    // Reset ke baad first page
+    setCurrentPage(1);
+  };
+
+  // ==========================================
+  // CHANGE ROWS PER PAGE
+  // ==========================================
+  const handleRowsPerPageChange = (e) => {
+    setRowsPerPage(Number(e.target.value));
+    setCurrentPage(1);
   };
 
   // ==========================================
@@ -102,7 +142,7 @@ export default function Company() {
   // ==========================================
   const handleDelete = async (id) => {
     const confirmed = window.confirm(
-      "Are you sure you want to delete this company?",
+      "Are you sure you want to delete this company?"
     );
 
     if (!confirmed) return;
@@ -118,7 +158,9 @@ export default function Company() {
   // EXCEL
   // ==========================================
   const handleExportExcel = () => {
-    if (!company || company.length === 0) {
+    const company = Array.isArray(state.data) ? state.data : [];
+
+    if (company.length === 0) {
       alert("No company data available.");
       return;
     }
@@ -144,7 +186,11 @@ export default function Company() {
 
     const workbook = XLSX.utils.book_new();
 
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Companies");
+    XLSX.utils.book_append_sheet(
+      workbook,
+      worksheet,
+      "Companies"
+    );
 
     XLSX.writeFile(workbook, "companies-report.xlsx");
   };
@@ -153,7 +199,9 @@ export default function Company() {
   // PDF
   // ==========================================
   const handleExportPDF = () => {
-    if (!company || company.length === 0) {
+    const company = Array.isArray(state.data) ? state.data : [];
+
+    if (company.length === 0) {
       alert("No company data available.");
       return;
     }
@@ -170,7 +218,11 @@ export default function Company() {
 
     doc.setFontSize(9);
 
-    doc.text(`Total Companies: ${company.length}`, 14, 22);
+    doc.text(
+      `Total Companies: ${company.length}`,
+      14,
+      22
+    );
 
     const tableData = company.map((com) => [
       com.email || "",
@@ -222,15 +274,62 @@ export default function Company() {
     doc.save("companies-report.pdf");
   };
 
+  // ==========================================
+  // PAGE NUMBERS
+  // ==========================================
+  const getPageNumbers = () => {
+    const pages = [];
+
+    if (totalPages <= 7) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+
+      return pages;
+    }
+
+    // First pages
+    if (currentPage <= 4) {
+      return [1, 2, 3, 4, 5, "...", totalPages];
+    }
+
+    // Last pages
+    if (currentPage >= totalPages - 3) {
+      return [
+        1,
+        "...",
+        totalPages - 4,
+        totalPages - 3,
+        totalPages - 2,
+        totalPages - 1,
+        totalPages,
+      ];
+    }
+
+    // Middle pages
+    return [
+      1,
+      "...",
+      currentPage - 1,
+      currentPage,
+      currentPage + 1,
+      "...",
+      totalPages,
+    ];
+  };
+
   return (
     <div className="w-full min-w-0">
+
       {/* ================================= */}
       {/* HEADER */}
       {/* ================================= */}
 
       <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Company</h1>
+          <h1 className="text-2xl font-bold text-slate-900">
+            Company
+          </h1>
 
           <p className="text-sm text-slate-500 mt-1">
             Manage all companies in your system.
@@ -250,7 +349,9 @@ export default function Company() {
       {/* ================================= */}
 
       <div className="w-full bg-white rounded-xl border border-slate-200 p-4 mb-5">
+
         <div className="flex flex-col lg:flex-row gap-3">
+
           <input
             type="text"
             placeholder="Search by name or email..."
@@ -264,14 +365,21 @@ export default function Company() {
             onChange={(e) => setStatus(e.target.value)}
             className="lg:w-40 border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
           >
-            <option value="all">All Status</option>
+            <option value="all">
+              All Status
+            </option>
 
-            <option value="active">Active</option>
+            <option value="active">
+              Active
+            </option>
 
-            <option value="inactive">Inactive</option>
+            <option value="inactive">
+              Inactive
+            </option>
           </select>
 
           <div className="flex gap-3">
+
             <button
               type="button"
               onClick={handleFilter}
@@ -287,11 +395,13 @@ export default function Company() {
             >
               Reset
             </button>
+
           </div>
 
           {/* EXPORT */}
 
           <div className="flex gap-2 lg:ml-auto">
+
             <button
               type="button"
               onClick={handleExportExcel}
@@ -309,7 +419,9 @@ export default function Company() {
             >
               <i className="fa-solid fa-file"></i>
             </button>
+
           </div>
+
         </div>
       </div>
 
@@ -328,94 +440,124 @@ export default function Company() {
       {/* ================================= */}
 
       <div className="w-full min-w-0 bg-white rounded-xl border border-slate-200">
+
         <div className="w-full max-h-[500px] overflow-auto">
+
           <table className="min-w-[1500px] w-full text-sm">
+
             <thead className="sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
+
               <tr>
-                <th className="cap sticky left-0 z-30 bg-slate-50 text-left px-6 py-4 font-semibold text-slate-600">
+
+
+
+                <th className="sticky left-0 z-30 bg-slate-50 text-left px-6 py-4 font-semibold text-slate-600">
                   Action
                 </th>
 
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Username
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Password
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Logo
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  DOT Number
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  MC Number
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  EIN Number
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
+<th className="text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
                   Legal Company Name
                 </th>
 
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  DBA Name
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  DOT Number
                 </th>
 
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  MC Number
+                </th>
+
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  EIN Number
+                </th>
+
+                <th className="text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
                   Company Owner Name
                 </th>
 
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
                   Email ID
                 </th>
 
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
                   Phone Number
                 </th>
 
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Alternate Phone Number
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                   <th className="text-left px-6 py-4 font-semibold text-slate-600">
                   Physical Address
                 </th>
 
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
                   Mailing Address
                 </th>
 
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  Username
+                </th>
+
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  Password
+                </th>
+
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  Logo
+                </th>
+
+                
+
+                
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  DBA Name
+                </th>
+
+                
+
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
+                  Alternate Phone Number
+                </th>
+
+             
+
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
                   USDOT
                 </th>
 
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="text-left px-6 py-4 font-semibold text-slate-600">
                   Status
                 </th>
+
               </tr>
+
             </thead>
 
-            <tbody className="cap divide-y divide-slate-200">
+            <tbody className="divide-y divide-slate-200">
+
               {loading ? (
+
                 <tr>
-                  <td colSpan="17" className="text-center py-10 text-slate-500">
+                  <td
+                    colSpan="17"
+                    className="text-center py-10 text-slate-500"
+                  >
                     Loading companies...
                   </td>
                 </tr>
+
               ) : (
-                filtered.map((com) => (
-                  <tr key={com.id} className="hover:bg-slate-50">
+
+                paginatedCompanies.map((com) => (
+
+                  <tr
+                    key={com.id}
+                    className="hover:bg-slate-50"
+                  >
+
                     {/* ACTION */}
 
                     <td className="sticky left-0 z-10 bg-white px-6 py-4">
+
                       <div className="flex items-center gap-2">
+
                         <Link
                           to={`/admin-dashboard/company/edit/${com.id}`}
                           className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
@@ -430,10 +572,64 @@ export default function Company() {
                         >
                           Delete
                         </button>
+
                       </div>
+
                     </td>
 
+                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.cname}
+                    </td>
+
+                      <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.dot}
+                    </td>
+
+                    {/* MC */}
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.mc}
+                    </td>
+
+                    {/* EIN */}
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.ein}
+                    </td>
+
+
+                     <td className="px-6 py-4">
+
+                      <span className="font-medium text-slate-800 whitespace-nowrap">
+                        {com.owner}
+                      </span>
+
+                    </td>
+
+                    {/* EMAIL */}
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.email}
+                    </td>
+
+                    {/* PHONE */}
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.phone}
+                    </td>
                     {/* USERNAME */}
+
+                    
+
+                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.physicaladdress}
+                    </td>
+
+                    {/* MAILING ADDRESS */}
+
+                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                      {com.mailaddress}
+                    </td>
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.email}
@@ -445,8 +641,12 @@ export default function Company() {
                       {com.user?.user_info?.password_hint}
                     </td>
 
+                    {/* LOGO */}
+
                     <td className="px-6 py-4">
+
                       {com.image ? (
+
                         <img
                           className="w-[100px] h-[60px] object-contain"
                           src={`${
@@ -456,73 +656,53 @@ export default function Company() {
                           }${com.image}`}
                           alt={com.cname}
                         />
+
                       ) : (
+
                         "No Image"
+
                       )}
+
                     </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.dot}
-                    </td>
+                    {/* DOT */}
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.mc}
-                    </td>
+                  
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.ein}
-                    </td>
+                    {/* COMPANY */}
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.cname}
-                    </td>
+                   
+
+                    {/* DBA */}
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.dba}
                     </td>
 
-                    <td className="px-6 py-4">
-                      <span className="font-medium text-slate-800 whitespace-nowrap">
-                        {com.owner}
-                      </span>
-                    </td>
+                    {/* OWNER */}
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.email}
-                    </td>
+                   
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.phone}
-                    </td>
+                    {/* ALTERNATE PHONE */}
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
                       {com.aphone}
                     </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.physicaladdress}
-                    </td>
+                    {/* PHYSICAL ADDRESS */}
+
+                   
+
+                    {/* USDOT */}
 
                     <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.mailaddress}
+                      {com.usdot}
                     </td>
 
                     {/* STATUS */}
 
                     <td className="px-6 py-4">
-                      <span
-                        className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                          com.usdot?.toUpperCase() === "ACTIVE"
-                            ? "bg-green-50 text-green-700"
-                            : "bg-red-50 text-red-700"
-                        }`}
-                      >
-                        {com.usdot?.toUpperCase() === "ACTIVE"
-                          ? "ACTIVE"
-                          : "IN-ACTIVE"}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4">
+
                       <span
                         className={`px-2.5 py-1 rounded-full text-xs font-medium ${
                           com.user?.user_info?.status === 1
@@ -534,29 +714,175 @@ export default function Company() {
                           ? "ACTIVE"
                           : "IN-ACTIVE"}
                       </span>
+
                     </td>
 
-                    {/* LOGO */}
                   </tr>
+
                 ))
+
               )}
 
+              {/* NO DATA */}
+
               {!loading && filtered.length === 0 && (
+
                 <tr>
-                  <td colSpan="17" className="text-center py-10 text-slate-500">
-                    <div id="companyTable">
-                      <div class="empty card">
-                        No companies found. Click <b>+ Add Company</b> to create
-                        the first client.
-                      </div>
-                    </div>
+
+                  <td
+                    colSpan="17"
+                    className="text-center py-10 text-slate-500"
+                  >
+                    No companies found. Click{" "}
+                    <b>+ Add Company</b> to create the first
+                    client.
                   </td>
+
                 </tr>
+
               )}
+
             </tbody>
+
           </table>
+
         </div>
+
+        {/* ================================= */}
+        {/* PAGINATION FOOTER */}
+        {/* ================================= */}
+
+        {!loading && filtered.length > 0 && (
+
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 px-5 py-4 border-t border-slate-200">
+
+            {/* SHOWING TEXT */}
+
+            <div className="text-sm text-slate-500">
+
+              Showing{" "}
+
+              <span className="font-medium text-slate-700">
+                {startIndex + 1}
+              </span>
+
+              {" "}to{" "}
+
+              <span className="font-medium text-slate-700">
+                {Math.min(endIndex, filtered.length)}
+              </span>
+
+              {" "}of{" "}
+
+              <span className="font-medium text-slate-700">
+                {filtered.length}
+              </span>
+
+              {" "}entries
+
+            </div>
+
+            {/* PAGINATION CONTROLS */}
+
+            <div className="flex flex-wrap items-center gap-2">
+
+              {/* ROWS PER PAGE */}
+
+              <select
+                value={rowsPerPage}
+                onChange={handleRowsPerPageChange}
+                className="border border-slate-200 rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-100"
+              >
+                <option value={10}>
+                  10
+                </option>
+
+                <option value={25}>
+                  25
+                </option>
+
+                <option value={50}>
+                  50
+                </option>
+
+                <option value={100}>
+                  100
+                </option>
+              </select>
+
+              {/* PREVIOUS */}
+
+              <button
+                type="button"
+                disabled={currentPage === 1}
+                onClick={() =>
+                  setCurrentPage((prev) => prev - 1)
+                }
+                className="px-3 py-2 border border-slate-200 rounded-lg text-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                Previous
+              </button>
+
+              {/* PAGE NUMBERS */}
+
+              {getPageNumbers().map((page, index) => {
+
+                if (page === "...") {
+
+                  return (
+                    <span
+                      key={`dots-${index}`}
+                      className="px-2 py-2 text-slate-500"
+                    >
+                      ...
+                    </span>
+                  );
+
+                }
+
+                return (
+                  <button
+                    key={page}
+                    type="button"
+                    onClick={() =>
+                      setCurrentPage(page)
+                    }
+                    className={`min-w-[38px] px-3 py-2 rounded-lg text-sm ${
+                      currentPage === page
+                        ? "bg-[#091122] text-white"
+                        : "border border-slate-200 text-slate-600 hover:bg-slate-50"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                );
+
+              })}
+
+              {/* NEXT */}
+
+              <button
+                type="button"
+                disabled={
+                  currentPage === totalPages ||
+                  totalPages === 0
+                }
+                onClick={() =>
+                  setCurrentPage((prev) => prev + 1)
+                }
+                className="px-3 py-2 border border-slate-200 rounded-lg text-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                Next
+              </button>
+
+            </div>
+
+          </div>
+
+        )}
+
       </div>
+
     </div>
   );
 }
