@@ -150,11 +150,10 @@ export default function AddCompany() {
     if (!data.permituscisno) {
       newErrors.permituscisno = "Work permit USCIS no required";
     }
-        if(data.workauthorization != "CITIZEN"){
-
-    if (!data.permitexpdate) {
-      newErrors.permitexpdate = "Work Permit Expiration Date required";
-    }
+    if (data.workauthorization != "CITIZEN") {
+      if (!data.permitexpdate) {
+        newErrors.permitexpdate = "Work Permit Expiration Date required";
+      }
     }
 
     if (!data.currentcdlissuedate) {
@@ -318,7 +317,7 @@ export default function AddCompany() {
               errormsg={errors.lname}
             />
 
-         {/*   <PanelFormInput
+            {/*   <PanelFormInput
               title="Active date"
               placeholder=""
               mandate={true}
@@ -329,14 +328,11 @@ export default function AddCompany() {
 */}
 
             <DateInput
-  name="activedate"
-  value=""
-   mandate={true}
-   title="Active date"
-/>
-
-
-
+              name="activedate"
+              value=""
+              mandate={true}
+              title="Active date"
+            />
           </div>
           <br />
 

@@ -23,36 +23,31 @@ export default function AddCompany() {
   const [serverMessageType, setServerMessageType] = useState("");
   const [res, setRes] = useState("");
 
-const fetchFileDetail = async (url) => {
+  const fetchFileDetail = async (url) => {
+    try {
+      const response = await api.get(url);
+      const detailData = response.data?.data;
+      setRes(detailData);
+    } catch (error) {
+      throw error;
+    }
+  };
 
+  useLayoutEffect(() => {
+    const role = localStorage.getItem("userRole");
 
-  try {
-    const response = await api.get(url);
-    const detailData = response.data?.data;
-    setRes(detailData);
-  } catch (error) {
-    throw error;
-  }
-};
+    if (role === "admin") {
+      navigate("/admin-dashboard", { replace: true });
+      return;
+    }
 
+    if (role === "company") {
+      fetchFileDetail(`/company/driver/${loginUserId}/${id}`);
+      return;
+    }
 
-
-
-useLayoutEffect(() => {
-  const role = localStorage.getItem("userRole");
-
-  if (role === "admin") {
-    navigate("/admin-dashboard", { replace: true });
-    return;
-  }
-
-  if (role === "company") {
-    fetchFileDetail(`/company/driver/${loginUserId}/${id}`);
-    return;
-  }
-
-  navigate("/", { replace: true });
-}, [navigate, loginUserId, id]);
+    navigate("/", { replace: true });
+  }, [navigate, loginUserId, id]);
 
   if (!res) {
     return false;
@@ -185,11 +180,11 @@ useLayoutEffect(() => {
       newErrors.permituscisno = "Work permit USCIS no required";
     }
 
-    if(data.workauthorization != "CITIZEN"){
-    if (!data.permitexpdate) {
-      newErrors.permitexpdate = "Work Permit Expiration Date required";
+    if (data.workauthorization != "CITIZEN") {
+      if (!data.permitexpdate) {
+        newErrors.permitexpdate = "Work Permit Expiration Date required";
+      }
     }
-  }
 
     if (!data.currentcdlissuedate) {
       newErrors.currentcdlissuedate = "Current cdl issue date required";
@@ -285,7 +280,6 @@ useLayoutEffect(() => {
       setServerMessage(result.message || "Driver added successfully");
       setServerMessageType("success");
       e.target.reset();
-
 
       navigate("/company-dashboard/drivers", {
         state: {
@@ -518,33 +512,33 @@ useLayoutEffect(() => {
                 Do you have legal right to work in the United States?
               </label>
             </div>
-          <div className="flex items-center gap-5">
-  <label className="flex items-center gap-2 cursor-pointer">
-    <input
-      type="radio"
-      name="legalrightsstatus"
-      value="1"
-      defaultChecked={
-        res?.legalrightsstatus === 1 ||
-        res?.legalrightsstatus === "1"
-      }
-    />
-    <span>YES</span>
-  </label>
+            <div className="flex items-center gap-5">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="radio"
+                  name="legalrightsstatus"
+                  value="1"
+                  defaultChecked={
+                    res?.legalrightsstatus === 1 ||
+                    res?.legalrightsstatus === "1"
+                  }
+                />
+                <span>YES</span>
+              </label>
 
-  <label className="flex items-center gap-2 cursor-pointer">
-    <input
-      type="radio"
-      name="legalrightsstatus"
-      value="0"
-      defaultChecked={
-        res?.legalrightsstatus === 0 ||
-        res?.legalrightsstatus === "0"
-      }
-    />
-    <span>NO</span>
-  </label>
-</div>
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="radio"
+                  name="legalrightsstatus"
+                  value="0"
+                  defaultChecked={
+                    res?.legalrightsstatus === 0 ||
+                    res?.legalrightsstatus === "0"
+                  }
+                />
+                <span>NO</span>
+              </label>
+            </div>
           </div>
           <br />
 

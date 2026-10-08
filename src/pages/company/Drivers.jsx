@@ -130,20 +130,12 @@ export default function Company() {
     if (!confirmed) return;
 
     try {
-    
-
-
-    const response = await api.delete(`/company/driver/delete/${id}`);
-    fetchAllData(`/company/drivers/${loginUserId}`);
- 
-
+      const response = await api.delete(`/company/driver/delete/${id}`);
+      fetchAllData(`/company/drivers/${loginUserId}`);
     } catch (error) {
       console.error("Failed to delete:", error);
     }
   };
-
-
-
 
   // ==========================================
   // EXCEL

@@ -13,6 +13,21 @@ export default function AddDriverEmployment() {
 
   const [documents, setDocuments] = useState([]);
 
+  const handleDelete = async (docId) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this company?",
+    );
+
+    if (!confirmed) return;
+    console.log(slug);
+    try {
+      const response = await api.delete(`/company/delete-document/${docId}`);
+      fetchDriversDocuments();
+    } catch (error) {
+      console.error("Failed to delete:", error);
+    }
+  };
+
   const fetchDriversDocuments = async () => {
     try {
       const response = await api.get(
@@ -58,6 +73,10 @@ export default function AddDriverEmployment() {
                 <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
                   <tr>
                     <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                      Action
+                    </th>
+
+                    <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
                       Document
                     </th>
 
@@ -84,6 +103,15 @@ export default function AddDriverEmployment() {
                     }${doc.file}`;
                     return (
                       <tr key={index} className="cap hover:bg-slate-50">
+                        <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                          <button
+                            type="button"
+                            onClick={() => handleDelete(doc.id)}
+                            className="px-3 py-1.5 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50 whitespace-nowrap"
+                          >
+                            <i className="fa-solid fa-trash"></i>
+                          </button>
+                        </td>
                         <td className="sticky left-0 z-10 bg-white px-6 py-2">
                           {doc.title}
                         </td>

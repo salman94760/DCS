@@ -35,35 +35,33 @@ export const ContextProvider = ({ children }) => {
   // =====================================
   // GET SINGLE COMPANY
   // =====================================
-const fetchDetail = async (url) => {
-  dispatch({
-    type: "FETCH_SINGLE_START",
-  });
-
-  try {
-    const response = await api.get(url);
-
-    console.log("FETCH DETAIL API:", response.data);
-
-    const detailData = response.data?.data;
-
+  const fetchDetail = async (url) => {
     dispatch({
-      type: "FETCH_SINGLE_SUCCESS",
-      payload: detailData,
+      type: "FETCH_SINGLE_START",
     });
 
-    return detailData;
-  } catch (error) {
-    dispatch({
-      type: "SET_ERROR",
-      payload:
-        error.response?.data?.message ||
-        "Failed to fetch driver",
-    });
+    try {
+      const response = await api.get(url);
 
-    throw error;
-  }
-};
+      console.log("FETCH DETAIL API:", response.data);
+
+      const detailData = response.data?.data;
+
+      dispatch({
+        type: "FETCH_SINGLE_SUCCESS",
+        payload: detailData,
+      });
+
+      return detailData;
+    } catch (error) {
+      dispatch({
+        type: "SET_ERROR",
+        payload: error.response?.data?.message || "Failed to fetch driver",
+      });
+
+      throw error;
+    }
+  };
 
   // =====================================
   // ADD COMPANY

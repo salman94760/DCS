@@ -5,8 +5,8 @@ export default function DateInput({
   value = "",
   placeholder = "MM/DD/YYYY",
   className = "",
-  title="",
-  mandate=false
+  title = "",
+  mandate = false,
 }) {
   const [displayValue, setDisplayValue] = useState("");
   const dateRef = useRef(null);
@@ -43,7 +43,7 @@ export default function DateInput({
 
     return `${numbers.slice(0, 2)}/${numbers.slice(
       2,
-      4
+      4,
     )}/${numbers.slice(4, 8)}`;
   };
 
@@ -61,11 +61,7 @@ export default function DateInput({
 
     const [month, day, year] = parts;
 
-    if (
-      month.length !== 2 ||
-      day.length !== 2 ||
-      year.length !== 4
-    ) {
+    if (month.length !== 2 || day.length !== 2 || year.length !== 4) {
       return "";
     }
 
@@ -92,7 +88,7 @@ export default function DateInput({
   return (
     <div className="relative w-full">
       {/* User types / pastes MM/DD/YYYY */}
-    	<label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+      <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
         {title}
 
         {mandate && <span className="text-red-500 ml-1">*</span>}
@@ -129,12 +125,7 @@ export default function DateInput({
       {/* IMPORTANT:
           FormData ko YYYY-MM-DD value deni hai
       */}
-      <input
-        type="hidden"
-        name={name}
-        value={getBackendDate()}
-        readOnly
-      />
+      <input type="hidden" name={name} value={getBackendDate()} readOnly />
     </div>
   );
 }

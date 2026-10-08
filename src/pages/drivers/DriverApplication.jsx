@@ -21,18 +21,18 @@ export default function DriverApplication() {
   const [photoLoading, setPhotoLoading] = useState(false);
 
   const DocumentItem = ({ number, text }) => (
-  <div className="border-b border-gray-500 p-1.5 sm:p-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight flex items-start">
-    <b className="mr-1 shrink-0">{number}</b>
-    <span>{text}</span>
-  </div>
-);
+    <div className="border-b border-gray-500 p-1.5 sm:p-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight flex items-start">
+      <b className="mr-1 shrink-0">{number}</b>
+      <span>{text}</span>
+    </div>
+  );
 
-const ReceiptItem = ({ text }) => (
-  <div className="p-1.5 sm:p-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight flex items-start">
-    <b className="mr-1 shrink-0">●</b>
-    <span>{text}</span>
-  </div>
-);
+  const ReceiptItem = ({ text }) => (
+    <div className="p-1.5 sm:p-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight flex items-start">
+      <b className="mr-1 shrink-0">●</b>
+      <span>{text}</span>
+    </div>
+  );
 
   const handlePhotoUpload = (e) => {
     const file = e.target.files?.[0];
@@ -2992,17 +2992,20 @@ const ReceiptItem = ({ text }) => (
                 The applicant named above was employed by us.
                 <span className="ml-[3px]">Yes</span>
                 <input
+                  name="p9employedyes"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 <span className="ml-[3px]">No</span>
                 <input
+                  name="p9employedno"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 <br />
                 Employed as
                 <input
+                  name="p9employedus"
                   className="w-[120px] sm:w-[160px]
                h-[15px]
                border border-[#26364d]
@@ -3011,6 +3014,7 @@ const ReceiptItem = ({ text }) => (
                 />
                 from (m/y)
                 <input
+                  name="p9employedfromdate"
                   className="w-[65px] sm:w-[80px]
                h-[15px]
                border border-[#26364d]
@@ -3019,6 +3023,7 @@ const ReceiptItem = ({ text }) => (
                 />
                 to (m/y)
                 <input
+                  name="p9employedtodate"
                   className="w-[65px] sm:w-[80px]
                h-[15px]
                border border-[#26364d]
@@ -3028,42 +3033,50 @@ const ReceiptItem = ({ text }) => (
                 <br />
                 1. Did he/she drive motor vehicle for you? Yes
                 <input
+                  name="p9employeddrivevehicleyes"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 No
                 <input
+                  name="p9employeddrivevehicleno"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 If yes, what type? Straight Truck
                 <input
+                  name="p9employeddrivevehicletruck"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 Tractor-Semitrailer
                 <input
+                  name="p9employeddrivevehiclesemitrailor"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 Bus
                 <input
+                  name="p9employeddrivevehiclebus"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 Cargo Tank
                 <input
+                  name="p9employeddrivevehictank"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 <br />
                 Doubles/Triples
                 <input
+                  name="p9employeddrivevehicletriples"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 Other (Specify)
                 <input
+                  name="p9employeddrivevehicleother"
                   className="w-[90px] sm:w-[105px]
                h-[15px]
                border border-[#26364d]
@@ -3073,26 +3086,31 @@ const ReceiptItem = ({ text }) => (
                 <br />
                 2. Reason for leaving your employment: Discharged
                 <input
+                  name="p9employedleavingdischarged"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 Resignation
                 <input
+                  name="p9employedleavingregistration"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 Lay Off
                 <input
+                  name="p9employedleavinglayoff"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 Military Duty
                 <input
+                  name="p9employedleavingmilitaryduty"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
                 If there is no safety performance history to report, check here
                 <input
+                  name="p9employedleavingperformance"
                   type="checkbox"
                   className="w-[10px] h-[10px] align-middle"
                 />
@@ -3147,6 +3165,7 @@ const ReceiptItem = ({ text }) => (
                     <tr className="h-[20px]">
                       <td className="border border-[#333] p-[3px]">
                         <input
+                          name="p9thisdriverdate1"
                           className="w-full h-[20px]
                        border border-[#26364d]
                        outline-none"
@@ -3155,6 +3174,7 @@ const ReceiptItem = ({ text }) => (
 
                       <td className="border border-[#333] p-[3px]">
                         <input
+                          name="p9thisdriverlocation1"
                           className="w-full h-[20px]
                        border border-[#26364d]
                        outline-none"
@@ -3163,6 +3183,7 @@ const ReceiptItem = ({ text }) => (
 
                       <td className="border border-[#333] p-[3px]">
                         <input
+                          name="p9thisdriverinjury1"
                           className="w-full h-[20px]
                        border border-[#26364d]
                        outline-none"
@@ -3171,6 +3192,7 @@ const ReceiptItem = ({ text }) => (
 
                       <td className="border border-[#333] p-[3px]">
                         <input
+                          name="p9thisdriverfatalities1"
                           className="w-full h-[20px]
                        border border-[#26364d]
                        outline-none"
@@ -3179,6 +3201,7 @@ const ReceiptItem = ({ text }) => (
 
                       <td className="border border-[#333] p-[3px]">
                         <input
+                          name="p9thisdriverhazmatfill1"
                           className="w-full h-[20px]
                        border border-[#26364d]
                        outline-none"
@@ -3188,45 +3211,75 @@ const ReceiptItem = ({ text }) => (
 
                     <tr className="h-[20px]">
                       <td className="border border-[#333] p-[3px]">
-                        <input className="w-full h-[20px] border border-[#26364d] outline-none" />
+                        <input
+                          name="p9thisdriverdate2"
+                          className="w-full h-[20px] border border-[#26364d] outline-none"
+                        />
                       </td>
 
                       <td className="border border-[#333] p-[3px]">
-                        <input className="w-full h-[20px] border border-[#26364d] outline-none" />
+                        <input
+                          name="p9thisdriverlocation2"
+                          className="w-full h-[20px] border border-[#26364d] outline-none"
+                        />
                       </td>
 
                       <td className="border border-[#333] p-[3px]">
-                        <input className="w-full h-[20px] border border-[#26364d] outline-none" />
+                        <input
+                          name="p9thisdriverinjury2"
+                          className="w-full h-[20px] border border-[#26364d] outline-none"
+                        />
                       </td>
 
                       <td className="border border-[#333] p-[3px]">
-                        <input className="w-full h-[20px] border border-[#26364d] outline-none" />
+                        <input
+                          name="p9thisdriverfatalities2"
+                          className="w-full h-[20px] border border-[#26364d] outline-none"
+                        />
                       </td>
 
                       <td className="border border-[#333] p-[3px]">
-                        <input className="w-full h-[20px] border border-[#26364d] outline-none" />
+                        <input
+                          name="p9thisdriverhazmatfill2"
+                          className="w-full h-[20px] border border-[#26364d] outline-none"
+                        />
                       </td>
                     </tr>
 
                     <tr className="h-[20px]">
                       <td className="border border-[#333] p-[3px]">
-                        <input className="w-full h-[20px] border border-[#26364d] outline-none" />
+                        <input
+                          name="p9thisdriverdate3"
+                          className="w-full h-[20px] border border-[#26364d] outline-none"
+                        />
                       </td>
 
                       <td className="border border-[#333] p-[3px]">
-                        <input className="w-full h-[20px] border border-[#26364d] outline-none" />
+                        <input
+                          name="p9thisdriverlocation3"
+                          className="w-full h-[20px] border border-[#26364d] outline-none"
+                        />
                       </td>
 
                       <td className="border border-[#333] p-[3px]">
-                        <input className="w-full h-[20px] border border-[#26364d] outline-none" />
+                        <input
+                          name="p9thisdriverinjury3"
+                          className="w-full h-[20px] border border-[#26364d] outline-none"
+                        />
                       </td>
 
                       <td className="border border-[#333] p-[3px]">
-                        <input className="w-full h-[20px] border border-[#26364d] outline-none" />
+                        <input
+                          name="p9thisdriverfatalities3"
+                          className="w-full h-[20px] border border-[#26364d] outline-none"
+                        />
                       </td>
 
                       <td className="border border-[#333] p-[3px]">
-                        <input className="w-full h-[20px] border border-[#26364d] outline-none" />
+                        <input
+                          name="p9thisdriverhazmatfill3"
+                          className="w-full h-[20px] border border-[#26364d] outline-none"
+                        />
                       </td>
                     </tr>
                   </tbody>
@@ -3246,6 +3299,7 @@ const ReceiptItem = ({ text }) => (
 
               <div className="mt-[3px]">
                 <input
+                  name="p9companypolicy1"
                   className="w-full
                h-[20px] sm:h-[20px]
                border border-[#26364d]
@@ -3253,6 +3307,7 @@ const ReceiptItem = ({ text }) => (
                 />
 
                 <input
+                  name="p9companypolicy2"
                   className="w-full
                h-[20px] sm:h-[20px]
                border border-[#26364d]
@@ -3270,6 +3325,7 @@ const ReceiptItem = ({ text }) => (
 
               <div className="mt-[3px]">
                 <input
+                  name="p9remarks1"
                   className="w-full
                h-[20px] sm:h-[20px]
                border border-[#26364d]
@@ -3277,6 +3333,7 @@ const ReceiptItem = ({ text }) => (
                 />
 
                 <input
+                  name="p9remarks2"
                   className="w-full
                h-[20px] sm:h-[20px]
                border border-[#26364d]
@@ -3293,13 +3350,29 @@ const ReceiptItem = ({ text }) => (
               >
                 <span className="whitespace-nowrap">Signature:</span>
 
-                <input
-                  className="w-full sm:w-[340px]
-               ml-0 sm:ml-[3px]
-               h-[20px] sm:h-[20px]
-               border border-[#26364d]
-               outline-none"
-                />
+                {!signatureData ? (
+                  <input
+                    onClick={() => setSignatureOpen(true)}
+                    className="box-border h-9 sm:h-[40px] w-full min-w-0 border border-black p-2 text-xs sm:text-sm"
+                    type="text"
+                  />
+                ) : (
+                  <span className="border border-black">
+                    {signatureData ? (
+                      <img
+                        className="w-full h-[40px] object-contain"
+                        src={`${
+                          window.location.hostname === "localhost"
+                            ? "http://localhost:8000/storage/"
+                            : "https://palegoldenrod-squid-977714.hostingersite.com/storage/app/public/"
+                        }${signatureData}`}
+                        alt={signatureData}
+                      />
+                    ) : (
+                      "No Image"
+                    )}
+                  </span>
+                )}
               </div>
 
               <div
@@ -3312,6 +3385,7 @@ const ReceiptItem = ({ text }) => (
                 <span>Title:</span>
 
                 <input
+                  name="p9title"
                   className="w-full sm:w-[180px]
                ml-0 sm:ml-[3px]
                h-[20px] sm:h-[20px]
@@ -3322,6 +3396,7 @@ const ReceiptItem = ({ text }) => (
                 <span className="ml-0 sm:ml-[8px]">Date:</span>
 
                 <input
+                  name="p9date"
                   className="w-full sm:w-[190px]
                ml-0 sm:ml-[3px]
                h-[20px] sm:h-[20px]
@@ -3443,6 +3518,7 @@ const ReceiptItem = ({ text }) => (
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              name="p10endtime"
                               className="h-[15px] w-full border border-black p-2"
                               type="text"
                             />
@@ -3512,15 +3588,15 @@ const ReceiptItem = ({ text }) => (
                         <td className="border border-[#555] text-left">
                           <div className="flex pl-2">
                             <input
-                              name="p10transmission"
-                              value="1"
+                              name="p10transmissionmanual"
+
                               className="border border-black"
                               type="checkbox"
                             />
                             &nbsp;Manual &nbsp;
                             <input
-                              name="p10transmission"
-                              value="2"
+                              name="p10transmissionautomatic"
+
                               className="border border-black"
                               type="checkbox"
                             />
@@ -3538,6 +3614,7 @@ const ReceiptItem = ({ text }) => (
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              name="p10testmiles"
                               className="h-[15px] w-full border border-black p-2"
                               type="text"
                             />
@@ -3554,6 +3631,7 @@ const ReceiptItem = ({ text }) => (
                         <td className="border border-[#555]  align-middle text-left text-[17px]">
                           <div className="flex items-center justify-center">
                             <input
+                              name="p10roadcondition"
                               className="h-[15px] w-full border border-black p-2"
                               type="text"
                             />
@@ -3611,27 +3689,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10pretrip4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10pretrip3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10pretrip2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10pretrip1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10pretrip0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[9.4px] p-1"></textarea>
+                          <textarea
+                            name="p10pretripcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[9.4px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -3648,27 +3749,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10coupling4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10coupling3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10coupling2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10coupling1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10coupling0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p10couplingcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -3685,27 +3809,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10cabsetup4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10cabsetup3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10cabsetup2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10cabsetup1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10cabsetup0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p10cabsetupcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -3722,27 +3869,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10brakesystem4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10brakesystem3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10brakesystem2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10brakesystem1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10brakesystem0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p10brakesystemcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -3759,27 +3929,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10shifting4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10shifting3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10shifting2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10shifting1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p10shifting0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p10shiftingcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
                     </tbody>
@@ -3814,27 +4007,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11steeringlane4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11steeringlane3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11steeringlane2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11steeringlane1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11steeringlane0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11steeringlanecomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -3851,27 +4067,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11rightofway4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11rightofway3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11rightofway2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11rightofway1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11rightofway0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11rightofwaycomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -3888,27 +4127,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11turns4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11turns3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11turns2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11turns1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11turns0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11turnscomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -3925,27 +4187,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11merging4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11merging3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11merging2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11merging1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11merging0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11mergingcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -3962,27 +4247,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11distance4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11distance3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11distance2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11distance1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11distance0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11distancecomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -3999,27 +4307,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11speed4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11speed3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11speed2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11speed1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11speed0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11speedcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -4036,27 +4367,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11beingpassed4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11beingpassed3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11beingpassed2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11beingpassed1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11beingpassed0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11beingpassedcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -4073,27 +4427,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11railroad4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11railroad3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11railroad2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11railroad1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11railroad0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11railroadcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -4110,27 +4487,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11stoping4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11stoping3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11stoping2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11stoping1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11stoping0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11stopingcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -4147,27 +4547,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11backing4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11backing3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11backing2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11backing1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11backing0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11backingcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -4184,27 +4607,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11securment4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11securment3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11securment2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11securment1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11securment0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11securmentcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -4221,27 +4667,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11perception4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11perception3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11perception2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11perception1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11perception0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11perceptioncomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -4258,27 +4727,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11defensive4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11defensive3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11defensive2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11defensive1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11defensive0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11defensivecomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -4295,27 +4787,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11communication4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11communication3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11communication2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11communication1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11communication0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11communicationcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -4331,27 +4846,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11eldhos4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11eldhos3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11eldhos2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11eldhos1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p11eldhos0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p11eldhoscomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
                     </tbody>
@@ -4385,27 +4923,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p12missingsalman4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p12missingsalman3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p12missingsalman2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p12missingsalman1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p12missingsalman0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p12missingsalmancomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
 
@@ -4422,27 +4983,50 @@ const ReceiptItem = ({ text }) => (
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p12defectreporting4"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p12defectreporting3"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p12defectreporting2"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p12defectreporting1"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] text-center p-1 align-middle">
-                          <input type="checkbox" className="w-4 h-4" />
+                          <input
+                            name="p12defectreporting0"
+                            type="checkbox"
+                            className="w-4 h-4"
+                          />
                         </td>
 
                         <td className="border border-[#555] p-1 align-top">
-                          <textarea className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"></textarea>
+                          <textarea
+                            name="p12defectreportingcomment"
+                            className="w-full min-w-0 h-[50px] sm:h-[50px] border border-black resize-none outline-none text-[11px] p-1"
+                          ></textarea>
                         </td>
                       </tr>
                     </tbody>
@@ -4467,6 +5051,7 @@ const ReceiptItem = ({ text }) => (
                           className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                         >
                           <input
+                            name="p12safetyremarks1"
                             className="w-full border border-black"
                             type="text"
                           />
@@ -4479,6 +5064,7 @@ const ReceiptItem = ({ text }) => (
                           className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                         >
                           <input
+                            name="p12safetyremarks2"
                             className="w-full border border-black"
                             type="text"
                           />
@@ -4491,6 +5077,7 @@ const ReceiptItem = ({ text }) => (
                           className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                         >
                           <input
+                            name="p12safetyremarks3"
                             className="w-full border border-black"
                             type="text"
                           />
@@ -4503,6 +5090,7 @@ const ReceiptItem = ({ text }) => (
                           className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                         >
                           <input
+                            name="p12safetyremarks4"
                             className="w-full border border-black"
                             type="text"
                           />
@@ -4515,6 +5103,7 @@ const ReceiptItem = ({ text }) => (
                           className=" px-[6px] py-[7px] align-middle text-left text-[17px]"
                         >
                           <input
+                            name="p12safetyremarks5"
                             className="w-full border border-black"
                             type="text"
                           />
@@ -4538,26 +5127,35 @@ const ReceiptItem = ({ text }) => (
                     <tbody>
                       <tr>
                         <td>
-                          <input type="checkbox" /> PASS - Driver demonstrated
-                          sufficient skill to safely operate the
-                          vehicle/equipment tested.
+                          <input
+                            name="p12examinerdetermination1"
+                            type="checkbox"
+                          />{" "}
+                          PASS - Driver demonstrated sufficient skill to safely
+                          operate the vehicle/equipment tested.
                         </td>
                       </tr>
 
                       <tr>
                         <td>
-                          <input type="checkbox" /> PASS WITH COACHING - Driver
-                          passed; non-critical coaching items are documented
-                          above.
+                          <input
+                            name="p12examinerdetermination2"
+                            type="checkbox"
+                          />{" "}
+                          PASS WITH COACHING - Driver passed; non-critical
+                          coaching items are documented above.
                         </td>
                       </tr>
 
                       <tr>
                         <td>
-                          <input type="checkbox" /> FAIL / RETEST REQUIRED -
-                          Driver did not demonstrate sufficient skill. Driver
-                          may not be assigned based on this test until carrier
-                          requirements are satisfied.
+                          <input
+                            name="p12examinerdetermination3"
+                            type="checkbox"
+                          />{" "}
+                          FAIL / RETEST REQUIRED - Driver did not demonstrate
+                          sufficient skill. Driver may not be assigned based on
+                          this test until carrier requirements are satisfied.
                         </td>
                       </tr>
                     </tbody>
@@ -4578,7 +5176,8 @@ const ReceiptItem = ({ text }) => (
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
-                              value={company.owner}
+                              name="Roneel Lal"
+                              value="Roneel Lal"
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4612,6 +5211,8 @@ const ReceiptItem = ({ text }) => (
                         <td className="border border-[#555]  align-middle text-left text-[11.4px]">
                           <div className="flex items-center justify-center">
                             <input
+                              name="Roneel Lal"
+                              value="Roneel Lal"
                               className="h-[28px] w-full border border-black p-2"
                               type="text"
                             />
@@ -4641,7 +5242,7 @@ const ReceiptItem = ({ text }) => (
                             <b>Driver Signature acknowledging results</b>
                           </span>
                         </td>
-                        <td className="border border-[#555]  align-middle text-left text-[11.4px]">
+                        <td className=" bg-white border border-[#555]  align-middle text-left text-[11.4px]">
                           {!signatureData ? (
                             <input
                               onClick={() => setSignatureOpen(true)}
@@ -5879,75 +6480,77 @@ const ReceiptItem = ({ text }) => (
                     <tbody>
                       <tr>
                         <td>
-                          <input type="checkbox" /> I received and reviewed: ELD
-                          & Hours-of-Service Policy
+                          <input name="p20check1" type="checkbox" /> I received
+                          and reviewed: ELD & Hours-of-Service Policy
                         </td>
                       </tr>
 
                       <tr>
                         <td>
-                          <input type="checkbox" /> I received and reviewed:
-                          Camera / Dash-Cam / Safety-Equipment Non-Tampering
+                          <input name="p20check2" type="checkbox" /> I received
+                          and reviewed: Camera / Dash-Cam / Safety-Equipment
+                          Non-Tampering Policy
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <input name="p20check3" type="checkbox" /> I received
+                          and reviewed: Seat-Belt Policy
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <input name="p20check4" type="checkbox" /> I received
+                          and reviewed: No Hand-Held Device / Distracted-Driving
                           Policy
                         </td>
                       </tr>
 
                       <tr>
                         <td>
-                          <input type="checkbox" /> I received and reviewed:
-                          Seat-Belt Policy
+                          <input name="p20check5" type="checkbox" /> I received
+                          and reviewed: Vehicle / Truck Abandonment &
+                          Return-of-Equipment Policy
                         </td>
                       </tr>
 
                       <tr>
                         <td>
-                          <input type="checkbox" /> I received and reviewed: No
-                          Hand-Held Device / Distracted-Driving Policy
+                          <input name="p20check6" type="checkbox" /> I received
+                          and reviewed: Passenger & Pet Policy
                         </td>
                       </tr>
 
                       <tr>
                         <td>
-                          <input type="checkbox" /> I received and reviewed:
-                          Vehicle / Truck Abandonment & Return-of-Equipment
-                          Policy
+                          <input name="p20check7" type="checkbox" /> I received
+                          and reviewed: Accident, Citation, Inspection &
+                          Violation Reporting Policy
                         </td>
                       </tr>
 
                       <tr>
                         <td>
-                          <input type="checkbox" /> I received and reviewed:
-                          Passenger & Pet Policy
+                          <input name="p20check8" type="checkbox" /> I received
+                          and reviewed: Damage to Company / Leased Equipment &
+                          Property Policy
                         </td>
                       </tr>
 
                       <tr>
                         <td>
-                          <input type="checkbox" /> I received and reviewed:
-                          Accident, Citation, Inspection & Violation Reporting
-                          Policy
+                          <input name="p20check9" type="checkbox" /> I received
+                          and reviewed: Vehicle Care, Inspection, Maintenance &
+                          Security Procedures
                         </td>
                       </tr>
 
                       <tr>
                         <td>
-                          <input type="checkbox" /> I received and reviewed:
-                          Damage to Company / Leased Equipment & Property Policy
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>
-                          <input type="checkbox" /> I received and reviewed:
-                          Vehicle Care, Inspection, Maintenance & Security
-                          Procedures
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>
-                          <input type="checkbox" /> I received and reviewed:
-                          Safe Driving & General Conduct
+                          <input name="p20check10" type="checkbox" /> I received
+                          and reviewed: Safe Driving & General Conduct
                         </td>
                       </tr>
                     </tbody>
@@ -6036,7 +6639,8 @@ const ReceiptItem = ({ text }) => (
                           </span>
                           <br />
                           <input
-                            value={company.owner}
+                            name="Roneel Lal"
+                            value="Roneel Lal"
                             className="border border-black"
                             type="text"
                           />
@@ -6057,11 +6661,20 @@ const ReceiptItem = ({ text }) => (
                             Representative Signature:
                           </span>
                           <br />
-                          <input className="border border-black" type="text" />
+                          <input
+                            name="Roneel Lal"
+                            value="Roneel Lal"
+                            className="border border-black"
+                            type="text"
+                          />
                         </td>
                         <td>
                           <span className="text-[13.4px]">Date:</span>
-                          <input className="border border-black" type="date" />
+                          <input
+                            value={cleHDate}
+                            className="border border-black"
+                            type="date"
+                          />
                         </td>
                       </tr>
                     </tbody>
@@ -10048,6 +10661,7 @@ const ReceiptItem = ({ text }) => (
                               CITY / STATE / ZIP:
                             </span>
                             <input
+                              name="p39citystatezip"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -10115,31 +10729,59 @@ const ReceiptItem = ({ text }) => (
                   <br />
                   <div className="flex text-[12px]">
                     <div className=" flex items-center gap-1 mr-3">
-                      <input type="checkbox" className="w-[12px] h-[12px]" />
+                      <input
+                        name="p39employerpositioncheck1"
+                        type="checkbox"
+                        className="w-[12px] h-[12px]"
+                      />
                       <span>Company Driver</span>
                     </div>
                     <div className=" flex items-center gap-1 mr-3">
-                      <input type="checkbox" className="w-[12px] h-[12px]" />
+                      <input
+                        name="p39employerpositioncheck2"
+                        type="checkbox"
+                        className="w-[12px] h-[12px]"
+                      />
                       <span>Owner-Operator</span>
                     </div>
                     <div className=" flex items-center gap-1 mr-3">
-                      <input type="checkbox" className="w-[12px] h-[12px]" />
+                      <input
+                        name="p39employerpositioncheck3"
+                        type="checkbox"
+                        className="w-[12px] h-[12px]"
+                      />
                       <span>Lease Driver</span>
                     </div>
                     <div className=" flex items-center gap-1 mr-3">
-                      <input type="checkbox" className="w-[12px] h-[12px]" />
+                      <input
+                        name="p39employerpositioncheck4"
+                        type="checkbox"
+                        className="w-[12px] h-[12px]"
+                      />
                       <span>Local</span>
                     </div>
                     <div className=" flex items-center gap-1 mr-3">
-                      <input type="checkbox" className="w-[12px] h-[12px]" />
+                      <input
+                        name="p39employerpositioncheck5"
+                        type="checkbox"
+                        className="w-[12px] h-[12px]"
+                      />
                       <span>Regional</span>
                     </div>
                     <div className=" flex items-center gap-1 mr-3">
-                      <input type="checkbox" className="w-[12px] h-[12px]" />
+                      <input
+                        name="p39employerpositioncheck6"
+                        type="checkbox"
+                        className="w-[12px] h-[12px]"
+                      />
                       <span>OTR</span>
                     </div>
                     <div className=" flex items-center gap-1 mr-3">
-                      <input type="checkbox" className="w-[12px] h-[12px]" />
+                      <input
+                        name="p39employerpositioncheck7"
+                        type="checkbox"
+                        className="w-[12px] h-[12px]"
+                      />
                       <span>Team</span>
                     </div>
                   </div>
@@ -10200,6 +10842,7 @@ const ReceiptItem = ({ text }) => (
                           <div className="flex items-center w-full">
                             <span className="whitespace-nowrap">SUFFIX:</span>
                             <input
+                              name="p39suffix"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -10314,6 +10957,7 @@ const ReceiptItem = ({ text }) => (
                               HOW LONG AT CURRENT ADDRESS?:
                             </span>
                             <input
+                              name="p39longcurrentaddress"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -10326,6 +10970,7 @@ const ReceiptItem = ({ text }) => (
                               PREFERRED CONTACT:
                             </span>
                             <input
+                              name="p39prefferedcontact"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -10337,22 +10982,39 @@ const ReceiptItem = ({ text }) => (
                   <br />
 
                   <div className="text-[12px] items-center gap-1 mr-3">
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p39applicantinfocheck1"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span>
                       {" "}
                       Are you legally eligible to work in the United States? Yes
                       / No
                     </span>{" "}
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
-                    <span>
-                      {" "}
-                      Are you at least 21 years of age? Yes / No
-                    </span>{" "}
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p39applicantinfocheck2"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
+                    <span> Are you at least 21 years of age? Yes / No</span>{" "}
+                    <input
+                      name="p39applicantinfocheck3"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span> Do you have a TWIC card? Yes / No</span>{" "}
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p39applicantinfocheck4"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span> Do you have a passport? Yes / No</span>{" "}
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p39applicantinfocheck5"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span>
                       {" "}
                       Have you previously worked for this company? Yes / No
@@ -10368,6 +11030,7 @@ const ReceiptItem = ({ text }) => (
                               IF PREVIOUSLY EMPLOYED, WHEN?:
                             </span>
                             <input
+                              name="p39employedwhen"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -10380,6 +11043,7 @@ const ReceiptItem = ({ text }) => (
                               EMPLOYEE / DRIVER ID (IF KNOWN):
                             </span>
                             <input
+                              name="p39employeddriverid"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -10419,6 +11083,7 @@ const ReceiptItem = ({ text }) => (
                               STREET ADDRESS:
                             </span>
                             <input
+                              name="p39residenthisstreet"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -10429,6 +11094,7 @@ const ReceiptItem = ({ text }) => (
                           <div className="flex items-center w-full">
                             <span className="whitespace-nowrap">CITY:</span>
                             <input
+                              name="p39residenthiscity"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -10441,6 +11107,7 @@ const ReceiptItem = ({ text }) => (
                               STATE / PROVINCE:
                             </span>
                             <input
+                              name="p39residenthisstate"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -10455,6 +11122,7 @@ const ReceiptItem = ({ text }) => (
                               ZIP / POSTAL CODE:
                             </span>
                             <input
+                              name="p39residenthiszipcode"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -10465,18 +11133,7 @@ const ReceiptItem = ({ text }) => (
                           <div className="flex items-center w-full">
                             <span className="whitespace-nowrap">COUNTRY:</span>
                             <input
-                              className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                              type="text"
-                            />
-                          </div>
-                        </td>
-
-                        <td className="font-bold text-[10px] align-top leading-[1.22]">
-                          <div className="flex items-center w-full">
-                            <span className="whitespace-nowrap">
-                              missing_salman:
-                            </span>
-                            <input
+                              name="p39residenthiscountry"
                               className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                               type="text"
                             />
@@ -10528,83 +11185,178 @@ const ReceiptItem = ({ text }) => (
                     </thead>
                     <tbody className="h-[60px]">
                       <tr className="border border-black">
-                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
-                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
-                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
-                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
-                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
-                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
-                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]"></td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]">
+                          <input
+                            type="text"
+                            className="border border-black w-[90%]"
+                            name="p40permithistorystate"
+                          />
+                        </td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]">
+                          <input
+                            type="text"
+                            className="border border-black w-[90%]"
+                            name="p40permithistorynumber"
+                          />
+                        </td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]">
+                          <input
+                            type="text"
+                            className="border border-black w-[90%]"
+                            name="p40permithistoryclass"
+                          />
+                        </td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]">
+                          <input
+                            type="text"
+                            className="border border-black w-[90%]"
+                            name="p40permithistoryendor"
+                          />
+                        </td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]">
+                          <input
+                            type="text"
+                            className="border border-black w-[90%]"
+                            name="p40permithistoryissued"
+                          />
+                        </td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]">
+                          <input
+                            type="text"
+                            className="border border-black w-[90%]"
+                            name="p40permithistoryexpires"
+                          />
+                        </td>
+                        <td className="border border-black font-bold text-[10px] align-top leading-[1.22]">
+                          <input
+                            type="text"
+                            className="border border-black w-[90%]"
+                            name="p40permithistoryrestriction"
+                          />
+                        </td>
                       </tr>
                     </tbody>
                   </table>
                   <br />
 
                   <div className="text-[12px] items-center gap-1 mr-3">
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck1"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span>Is your current license a CDL? Yes / No</span>
 
                     <span> CDL State:</span>
                     <input
                       type="text"
+                      name="p40permihischeck2"
                       className="border border-black w-[150px] h-[12px]"
                     />
                     <span> CDL Number: </span>
                     <input
                       type="text"
+                      name="p40permihischeck3"
                       className="border border-black w-[150px] h-[12px]"
                     />
                     <span> Issue Date: </span>
                     <input
                       type="text"
+                      name="p40permihischeck4"
                       className="border border-black w-[150px] h-[12px]"
                     />
                     <span> Expiry Date: </span>
                     <input
                       type="text"
+                      name="p40permihischeck5"
                       className="border border-black w-[150px] h-[12px]"
                     />
                   </div>
 
                   <div className="text-[12px] items-center gap-2 mr-3">
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck6"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span className="mr-2">Current CDL</span>
 
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck7"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span className="mr-2">Class A</span>
 
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck8"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span className="mr-2">Class B</span>
 
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck9"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span className="mr-2">Class C</span>
 
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck10"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span className="mr-2">CLP</span>
                   </div>
 
                   <div className="text-[12px] items-center gap-2 mr-3">
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck11"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span className="mr-2">Endorsements: H</span>
 
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck12"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span className="mr-2">N</span>
 
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck13"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span className="mr-2">P</span>
 
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck14"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span className="mr-2">S</span>
 
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck15"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span className="mr-2">T</span>
 
-                    <input type="checkbox" className="w-[12px] h-[12px]" />
+                    <input
+                      name="p40permihischeck16"
+                      type="checkbox"
+                      className="w-[12px] h-[12px]"
+                    />
                     <span className="mr-2">X</span>
 
                     <span> Other: </span>
                     <input
                       type="text"
+                      name="p40permihischeck17"
                       className="border border-black w-[75px] h-[12px]"
                     />
                   </div>
@@ -10617,7 +11369,11 @@ const ReceiptItem = ({ text }) => (
                 </div>
 
                 <div className="text-[12px] items-center gap-2 mr-3">
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p40licensedeniedcheck1"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="mr-2">
                     Have you ever been denied a license, permit, or privilege to
                     operate a motor vehicle? Yes / No
@@ -10625,7 +11381,11 @@ const ReceiptItem = ({ text }) => (
                 </div>
 
                 <div className="text-[12px] items-center gap-2 mr-3">
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p40licensedeniedcheck2"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="mr-2">
                     Has any license, permit, or driving privilege ever been
                     suspended or revoked? Yes / No
@@ -10641,24 +11401,28 @@ const ReceiptItem = ({ text }) => (
 
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p40licensedeniedexplain1"
                     type="text"
                     className="border border-black w-[60%] h-[12px]"
                   />
                 </div>
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p40licensedeniedexplain2"
                     type="text"
                     className="border border-black w-[60%] h-[12px]"
                   />
                 </div>
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p40licensedeniedexplain3"
                     type="text"
                     className="border border-black w-[60%] h-[12px]"
                   />
                 </div>
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p40licensedeniedexplain4"
                     type="text"
                     className="border border-black w-[60%] h-[12px]"
                   />
@@ -10686,6 +11450,7 @@ const ReceiptItem = ({ text }) => (
                       <td className="font-bold text-[9.4px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <input
+                            name="p40certificateexpiration"
                             className="w-full border border-black h-[20px]"
                             type="text"
                           />
@@ -10700,6 +11465,7 @@ const ReceiptItem = ({ text }) => (
                             TWIC EXPIRATION:
                           </span>
                           <input
+                            name="p40twicecertificateexpiration"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                             placeholder="MM/DD/YYYY or N/A "
@@ -10713,6 +11479,7 @@ const ReceiptItem = ({ text }) => (
                             PASSPORT EXPIRATION:
                           </span>
                           <input
+                            name="p40passportexpiration"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                             placeholder="MM/DD/YYYY or N/A "
@@ -10724,7 +11491,11 @@ const ReceiptItem = ({ text }) => (
                 </table>
                 <br />
                 <div className="text-[12px] items-center gap-2 mr-3">
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p40linkedtocdlcheck"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="mr-2">
                     Medical certificate is electronically linked to CDL / MVR,
                     if applicable: Yes / No / N/A
@@ -10798,14 +11569,17 @@ const ReceiptItem = ({ text }) => (
                         "Reefer",
                         "Dry Van",
                         "Other",
-                      ].map((equipment) => (
+                      ].map((equipment, index) => (
                         <tr key={equipment}>
                           <td className="border border-black px-2 py-2 font-bold whitespace-nowrap">
                             {equipment}
                           </td>
 
                           <td className="border border-black px-2 py-2">
-                            <select className="w-full min-w-[65px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]">
+                            <select
+                              name={`p41_${index}_status`}
+                              className="w-full min-w-[65px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+                            >
                               <option value="Yes">Yes</option>
                               <option value="No">No</option>
                             </select>
@@ -10813,28 +11587,32 @@ const ReceiptItem = ({ text }) => (
 
                           <td className="border border-black px-2 py-2">
                             <input
-                              className="w-full min-w-[125px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+                              name={`p41_${index}_from`}
+                              className="w-full rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
                               type="date"
                             />
                           </td>
 
                           <td className="border border-black px-2 py-2">
                             <input
-                              className="w-full min-w-[125px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+                              name={`p41_${index}_to`}
+                              className="w-full rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
                               type="date"
                             />
                           </td>
 
                           <td className="border border-black px-2 py-2">
                             <input
-                              className="w-full min-w-[100px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+                              name={`p41_${index}_miles`}
+                              className="w-[90%] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
                               type="text"
                             />
                           </td>
 
                           <td className="border border-black px-2 py-2">
                             <input
-                              className="w-full min-w-[200px] rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
+                              name={`p41_${index}_description`}
+                              className="w-full rounded-none border border-black bg-white px-1 py-1 text-[11px] outline-none focus:border-[#1F355A]"
                               type="text"
                             />
                           </td>
@@ -10876,12 +11654,20 @@ const ReceiptItem = ({ text }) => (
                 </table>
                 <br />
                 <div className="text-[12px] items-center gap-2 mr-3">
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p41nocrashcheck"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="ml-1 mr-2">
                     No accidents/crashes during the previous 3 years
                   </span>
 
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p41yescrashcheck"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="ml-1 mr-2">
                     Yes — accidents/crashes in the previous 3 years
                   </span>
@@ -10928,12 +11714,20 @@ const ReceiptItem = ({ text }) => (
                 </table>
                 <br />
                 <div className="text-[12px] items-center gap-2 mr-3">
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p42trafficconvictioncheckno"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="ml-1 mr-2">
                     No traffic convictions during the previous 3 years
                   </span>
 
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p42trafficconvictioncheckyes"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="ml-1 mr-2">
                     Yes - traffic convictions during the previous 3 years
                   </span>
@@ -10976,6 +11770,7 @@ const ReceiptItem = ({ text }) => (
                             EMPLOYER NAME:
                           </span>
                           <input
+                            name="p42emp1name"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -10986,6 +11781,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">PHONE:</span>
                           <input
+                            name="p42emp1phone"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11000,6 +11796,7 @@ const ReceiptItem = ({ text }) => (
                             STREET ADDRESS:
                           </span>
                           <input
+                            name="p42emp1address"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11012,6 +11809,7 @@ const ReceiptItem = ({ text }) => (
                             CITY / STATE / ZIP:
                           </span>
                           <input
+                            name="p42emp1citystatezip"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11026,6 +11824,7 @@ const ReceiptItem = ({ text }) => (
                             POSITION HELD:
                           </span>
                           <input
+                            name="p42emp1position"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11038,6 +11837,7 @@ const ReceiptItem = ({ text }) => (
                             SUPERVISOR / CONTACT:
                           </span>
                           <input
+                            name="p42emp1supervisor"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11050,6 +11850,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">FROM</span>
                           <input
+                            name="p42emp1from"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11060,6 +11861,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">TO:</span>
                           <input
+                            name="p42emp1to"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11074,6 +11876,7 @@ const ReceiptItem = ({ text }) => (
                             REASON FOR LEAVING:
                           </span>
                           <input
+                            name="p42emp1reason"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11086,6 +11889,7 @@ const ReceiptItem = ({ text }) => (
                             EMAIL / FAX:
                           </span>
                           <input
+                            name="p42emp1email"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11096,6 +11900,7 @@ const ReceiptItem = ({ text }) => (
                       <td colSpan="2">
                         <div className="text-[11.4px] mt-4 items-center gap-1 mr-3">
                           <input
+                            name="p42emp1check1"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11103,6 +11908,7 @@ const ReceiptItem = ({ text }) => (
                             Subject to FMCSRs while employed? Yes / No
                           </span>
                           <input
+                            name="p42emp1check2"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11115,11 +11921,13 @@ const ReceiptItem = ({ text }) => (
 
                         <div className="text-[11.4px] items-center gap-1 mr-3">
                           <input
+                            name="p42emp1check3"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
                           <span>Did you operate a CMV? Yes / No</span>
                           <input
+                            name="p42emp1check4"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11134,6 +11942,7 @@ const ReceiptItem = ({ text }) => (
                             Equipment operated / duties:
                           </span>
                           <input
+                            name="p42emp1duties"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11155,6 +11964,7 @@ const ReceiptItem = ({ text }) => (
                             EMPLOYER NAME:
                           </span>
                           <input
+                            name="p42emp2name"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11165,6 +11975,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">PHONE:</span>
                           <input
+                            name="p42emp2phone"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11179,6 +11990,7 @@ const ReceiptItem = ({ text }) => (
                             STREET ADDRESS:
                           </span>
                           <input
+                            name="p42emp2address"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11191,6 +12003,7 @@ const ReceiptItem = ({ text }) => (
                             CITY / STATE / ZIP:
                           </span>
                           <input
+                            name="p42emp2citystatezip"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11205,6 +12018,7 @@ const ReceiptItem = ({ text }) => (
                             POSITION HELD:
                           </span>
                           <input
+                            name="p42emp2position"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11217,6 +12031,7 @@ const ReceiptItem = ({ text }) => (
                             SUPERVISOR / CONTACT:
                           </span>
                           <input
+                            name="p42emp2supervisor"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11229,6 +12044,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">FROM</span>
                           <input
+                            name="p42emp2from"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11239,6 +12055,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">TO:</span>
                           <input
+                            name="p42emp2to"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11253,6 +12070,7 @@ const ReceiptItem = ({ text }) => (
                             REASON FOR LEAVING:
                           </span>
                           <input
+                            name="p42emp2reason"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11265,6 +12083,7 @@ const ReceiptItem = ({ text }) => (
                             EMAIL / FAX:
                           </span>
                           <input
+                            name="p42emp2email"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11275,6 +12094,7 @@ const ReceiptItem = ({ text }) => (
                       <td colSpan="2">
                         <div className="text-[11.4px] mt-4 items-center gap-1 mr-3">
                           <input
+                            name="p42emp2check1"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11282,6 +12102,7 @@ const ReceiptItem = ({ text }) => (
                             Subject to FMCSRs while employed? Yes / No
                           </span>
                           <input
+                            name="p42emp2check2"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11294,11 +12115,13 @@ const ReceiptItem = ({ text }) => (
 
                         <div className="text-[11.4px] items-center gap-1 mr-3">
                           <input
+                            name="p42emp2check3"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
                           <span>Did you operate a CMV? Yes / No</span>
                           <input
+                            name="p42emp2check4"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11313,6 +12136,7 @@ const ReceiptItem = ({ text }) => (
                             Equipment operated / duties:
                           </span>
                           <input
+                            name="p42emp2duties"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11346,6 +12170,7 @@ const ReceiptItem = ({ text }) => (
                             EMPLOYER NAME:
                           </span>
                           <input
+                            name="p43emp3name"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11356,6 +12181,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">PHONE:</span>
                           <input
+                            name="p43emp3phone"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11370,6 +12196,7 @@ const ReceiptItem = ({ text }) => (
                             STREET ADDRESS:
                           </span>
                           <input
+                            name="p43emp3address"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11382,6 +12209,7 @@ const ReceiptItem = ({ text }) => (
                             CITY / STATE / ZIP:
                           </span>
                           <input
+                            name="p43emp3citystatezip"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11396,6 +12224,7 @@ const ReceiptItem = ({ text }) => (
                             POSITION HELD:
                           </span>
                           <input
+                            name="p43emp3position"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11408,6 +12237,7 @@ const ReceiptItem = ({ text }) => (
                             SUPERVISOR / CONTACT:
                           </span>
                           <input
+                            name="p43emp3supervisor"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11420,6 +12250,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">FROM</span>
                           <input
+                            name="p43emp3from"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11430,6 +12261,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">TO:</span>
                           <input
+                            name="p43emp3to"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11444,6 +12276,7 @@ const ReceiptItem = ({ text }) => (
                             REASON FOR LEAVING:
                           </span>
                           <input
+                            name="p43emp3reason"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11456,6 +12289,7 @@ const ReceiptItem = ({ text }) => (
                             EMAIL / FAX:
                           </span>
                           <input
+                            name="p43emp3email"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11466,6 +12300,7 @@ const ReceiptItem = ({ text }) => (
                       <td colSpan="2">
                         <div className="text-[11.4px] mt-4 items-center gap-1 mr-3">
                           <input
+                            name="p43emp3check1"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11473,6 +12308,7 @@ const ReceiptItem = ({ text }) => (
                             Subject to FMCSRs while employed? Yes / No
                           </span>
                           <input
+                            name="p43emp3check2"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11485,11 +12321,13 @@ const ReceiptItem = ({ text }) => (
 
                         <div className="text-[11.4px] items-center gap-1 mr-3">
                           <input
+                            name="p43emp3check3"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
                           <span>Did you operate a CMV? Yes / No</span>
                           <input
+                            name="p43emp3check4"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11504,6 +12342,7 @@ const ReceiptItem = ({ text }) => (
                             Equipment operated / duties:
                           </span>
                           <input
+                            name="p43emp3duties"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11525,6 +12364,7 @@ const ReceiptItem = ({ text }) => (
                             EMPLOYER NAME:
                           </span>
                           <input
+                            name="p43emp4name"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11535,6 +12375,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">PHONE:</span>
                           <input
+                            name="p43emp4phone"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11549,6 +12390,7 @@ const ReceiptItem = ({ text }) => (
                             STREET ADDRESS:
                           </span>
                           <input
+                            name="p43emp4address"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11561,6 +12403,7 @@ const ReceiptItem = ({ text }) => (
                             CITY / STATE / ZIP:
                           </span>
                           <input
+                            name="p43emp4citystatezip"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11575,6 +12418,7 @@ const ReceiptItem = ({ text }) => (
                             POSITION HELD:
                           </span>
                           <input
+                            name="p43emp4position"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11587,6 +12431,7 @@ const ReceiptItem = ({ text }) => (
                             SUPERVISOR / CONTACT:
                           </span>
                           <input
+                            name="p43emp4supervisor"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11599,6 +12444,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">FROM</span>
                           <input
+                            name="p43emp4from"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11609,6 +12455,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">TO:</span>
                           <input
+                            name="p43emp4to"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11623,6 +12470,7 @@ const ReceiptItem = ({ text }) => (
                             REASON FOR LEAVING:
                           </span>
                           <input
+                            name="p43emp4reason"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11635,6 +12483,7 @@ const ReceiptItem = ({ text }) => (
                             EMAIL / FAX:
                           </span>
                           <input
+                            name="p43emp4email"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11645,6 +12494,7 @@ const ReceiptItem = ({ text }) => (
                       <td colSpan="2">
                         <div className="text-[11.4px] mt-4 items-center gap-1 mr-3">
                           <input
+                            name="p43emp4check1"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11652,6 +12502,7 @@ const ReceiptItem = ({ text }) => (
                             Subject to FMCSRs while employed? Yes / No
                           </span>
                           <input
+                            name="p43emp4check2"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11664,11 +12515,13 @@ const ReceiptItem = ({ text }) => (
 
                         <div className="text-[11.4px] items-center gap-1 mr-3">
                           <input
+                            name="p43emp4check3"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
                           <span>Did you operate a CMV? Yes / No</span>
                           <input
+                            name="p43emp4check4"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11683,6 +12536,7 @@ const ReceiptItem = ({ text }) => (
                             Equipment operated / duties:
                           </span>
                           <input
+                            name="p43emp4duties"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11703,6 +12557,7 @@ const ReceiptItem = ({ text }) => (
                             EMPLOYER NAME:
                           </span>
                           <input
+                            name="p43emp5name"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11713,6 +12568,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">PHONE:</span>
                           <input
+                            name="p43emp5phone"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11727,6 +12583,7 @@ const ReceiptItem = ({ text }) => (
                             STREET ADDRESS:
                           </span>
                           <input
+                            name="p43emp5address"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11739,6 +12596,7 @@ const ReceiptItem = ({ text }) => (
                             CITY / STATE / ZIP:
                           </span>
                           <input
+                            name="p43emp5citystatezip"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11753,6 +12611,7 @@ const ReceiptItem = ({ text }) => (
                             POSITION HELD:
                           </span>
                           <input
+                            name="p43emp5position"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11765,6 +12624,7 @@ const ReceiptItem = ({ text }) => (
                             SUPERVISOR / CONTACT:
                           </span>
                           <input
+                            name="p43emp5supervisor"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11777,6 +12637,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">FROM</span>
                           <input
+                            name="p43emp5from"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11787,6 +12648,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">TO:</span>
                           <input
+                            name="p43emp5to"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11801,6 +12663,7 @@ const ReceiptItem = ({ text }) => (
                             REASON FOR LEAVING:
                           </span>
                           <input
+                            name="p43emp5reason"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11813,6 +12676,7 @@ const ReceiptItem = ({ text }) => (
                             EMAIL / FAX:
                           </span>
                           <input
+                            name="p43emp5email"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11823,6 +12687,7 @@ const ReceiptItem = ({ text }) => (
                       <td colSpan="2">
                         <div className="text-[11.4px] mt-4 items-center gap-1 mr-3">
                           <input
+                            name="p43emp5check1"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11830,6 +12695,7 @@ const ReceiptItem = ({ text }) => (
                             Subject to FMCSRs while employed? Yes / No
                           </span>
                           <input
+                            name="p43emp5check2"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11842,11 +12708,13 @@ const ReceiptItem = ({ text }) => (
 
                         <div className="text-[11.4px] items-center gap-1 mr-3">
                           <input
+                            name="p43emp5check3"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
                           <span>Did you operate a CMV? Yes / No</span>
                           <input
+                            name="p43emp5check4"
                             type="checkbox"
                             className="w-[12px] h-[12px]"
                           />
@@ -11861,6 +12729,7 @@ const ReceiptItem = ({ text }) => (
                             Equipment operated / duties:
                           </span>
                           <input
+                            name="p43emp5duties"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11896,7 +12765,45 @@ const ReceiptItem = ({ text }) => (
                       <th>Explanation / CMV Duties </th>
                     </tr>
                   </thead>
-                  <tbody className="h-[60px]"></tbody>
+                  <tbody className="h-[60px]">
+                    <tr>
+                      <td className="border border-black">
+                        <input
+                          type="text"
+                          className="border border-black"
+                          name="p44from"
+                        />
+                      </td>
+                      <td className="border border-black">
+                        <input
+                          type="text"
+                          className="border border-black"
+                          name="p44to"
+                        />
+                      </td>
+                      <td className="border border-black">
+                        <input
+                          type="text"
+                          className="border border-black"
+                          name="p44school"
+                        />
+                      </td>
+                      <td className="border border-black">
+                        <input
+                          type="text"
+                          className="border border-black"
+                          name="p44city"
+                        />
+                      </td>
+                      <td className="border border-black">
+                        <input
+                          type="text"
+                          className="border border-black"
+                          name="p44cmv"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
                 </table>
               </section>
 
@@ -11912,6 +12819,7 @@ const ReceiptItem = ({ text }) => (
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">BRANCH:</span>
                           <input
+                            name="p44militarybranch"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11924,6 +12832,7 @@ const ReceiptItem = ({ text }) => (
                             DATES OF SERVICE:
                           </span>
                           <input
+                            name="p44militarydate"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -11938,6 +12847,7 @@ const ReceiptItem = ({ text }) => (
                             MOS / RATING:
                           </span>
                           <input
+                            name="p44militaryrating"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11950,6 +12860,7 @@ const ReceiptItem = ({ text }) => (
                             TYPE OF VEHICLE(S):
                           </span>
                           <input
+                            name="p44militaryvehicle"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11964,6 +12875,7 @@ const ReceiptItem = ({ text }) => (
                             APPROX. MILES / HOURS:
                           </span>
                           <input
+                            name="p44militarymiles"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11976,6 +12888,7 @@ const ReceiptItem = ({ text }) => (
                             DISCHARGE STATUS:
                           </span>
                           <input
+                            name="p44militarystatus"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -11991,108 +12904,54 @@ const ReceiptItem = ({ text }) => (
                   13 ADDITIONAL QUALIFICATIONS
                 </div>
 
-                <table className="mb-4 w-full table-fixed border-collapse text-[13.5px]">
-                  <tbody>
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">BRANCH:</span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            DATES OF SERVICE:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="date"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            MOS / RATING:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            TYPE OF VEHICLE(S):
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr className="border-b border-gray-300">
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            APPROX. MILES / HOURS:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-
-                      <td className="font-bold text-[10px] align-top leading-[1.22]">
-                        <div className="flex items-center w-full">
-                          <span className="whitespace-nowrap">
-                            DISCHARGE STATUS:
-                          </span>
-                          <input
-                            className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="text"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-
-              <section className="mt-[12px]">
-                <div className="mb-4 text-left w-full border border-[#1b3e5c] bg-[#1F355A] text-[16px] font-bold text-white">
-                  5 LICENSE DENIALS, SUSPENSIONS & REVOCATIONS
-                </div>
-
                 <div className="text-[12px] items-center gap-2 mr-3">
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p44additionalcheck1"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="mr-2">Hazmat Experience</span>
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p44additionalcheck2"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="mr-2">Tanker Experience</span>
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p44additionalcheck3"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="mr-2">Doubles/Triples</span>
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p44additionalcheck4"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="mr-2">Reefer</span>
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p44additionalcheck5"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="mr-2">Flatbed</span>
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p44additionalcheck6"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="mr-2">Port / TWIC</span>
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p44additionalcheck7"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="mr-2">Mountain</span>
-                  <input type="checkbox" className="w-[12px] h-[12px]" />
+                  <input
+                    name="p44additionalcheck8"
+                    type="checkbox"
+                    className="w-[12px] h-[12px]"
+                  />
                   <span className="mr-2">Snow / Ice</span>
                 </div>
 
@@ -12105,26 +12964,30 @@ const ReceiptItem = ({ text }) => (
 
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p44schooltrainingothersection1"
                     type="text"
-                    className="border border-black w-[60%] h-[12px]"
+                    className="border border-black w-full h-[12px]"
                   />
                 </div>
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p44schooltrainingothersection2"
                     type="text"
-                    className="border border-black w-[60%] h-[12px]"
+                    className="border border-black w-full h-[12px]"
                   />
                 </div>
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p44schooltrainingothersection3"
                     type="text"
-                    className="border border-black w-[60%] h-[12px]"
+                    className="border border-black w-full h-[12px]"
                   />
                 </div>
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p44schooltrainingothersection4"
                     type="text"
-                    className="border border-black w-[60%] h-[12px]"
+                    className="border border-black w-full h-[12px]"
                   />
                 </div>
               </section>
@@ -12322,11 +13185,13 @@ const ReceiptItem = ({ text }) => (
                 <p className="text-[12px] mt-2 items-start">
                   I,{" "}
                   <input
+                    name="p46fmcsadrugsection1"
                     type="text"
                     className="w-[30%] border border-black h-[15px]"
                   />{" "}
                   provide consent to{" "}
                   <input
+                    name="p46fmcsadrugsection2"
                     type="text"
                     className="w-[30%] border border-black h-[15px]"
                   />
@@ -12336,11 +13201,11 @@ const ReceiptItem = ({ text }) => (
                   in the Clearinghouse.
                 </p>
                 <p className="text-[12px] items-start">
-                  <input type="checkbox" />
+                  <input name="p46fmcsadrugcheck1" type="checkbox" />
                   One limited query only
-                  <input type="checkbox" />
+                  <input name="p46fmcsadrugcheck2" type="checkbox" />
                   Multiple limited queries during the stated consent period
-                  <input type="checkbox" />
+                  <input name="p46fmcsadrugcheck3" type="checkbox" />
                   Annual and other lawful limited queries during employment
                 </p>
                 <p className="text-[12px] mb-1 flex items-start">
@@ -12421,7 +13286,7 @@ const ReceiptItem = ({ text }) => (
                 </div>
 
                 <p className="text-[12px] mt-2 items-start">
-                  <input type="checkbox" />
+                  <input name="p46fpreempdrugcheck1" type="checkbox" />
                   Have you tested positive, or refused to test, on any
                   pre-employment DOT drug or alcohol test during the past 3
                   years for an employer that did not hire you? Yes / No
@@ -12437,24 +13302,28 @@ const ReceiptItem = ({ text }) => (
 
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p46preempsection1"
                     type="text"
                     className="border border-black w-[60%] h-[12px]"
                   />
                 </div>
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p46preempsection2"
                     type="text"
                     className="border border-black w-[60%] h-[12px]"
                   />
                 </div>
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p46preempsection3"
                     type="text"
                     className="border border-black w-[60%] h-[12px]"
                   />
                 </div>
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <input
+                    name="p46preempsection4"
                     type="text"
                     className="border border-black w-[60%] h-[12px]"
                   />
@@ -13622,7 +14491,7 @@ const ReceiptItem = ({ text }) => (
         </div>
         {/*****page 49 start********/}
         <br />
-               <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+        <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <p className="pageseries cap text-[12px] text-right">
             <i>page 50</i>
           </p>
@@ -13985,7 +14854,7 @@ const ReceiptItem = ({ text }) => (
             </div>
           </div>
         </div>
-       
+
         <br />
 
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
@@ -14228,209 +15097,150 @@ const ReceiptItem = ({ text }) => (
               </div>
 
               <div class="w-full bg-white text-black font-sans text-[16px] leading-[1.15]">
+                <div class="text-[10.7px] grid grid-cols-[44%_2.5%_53.5%] border-x-[2px] border-b-[2px] border-black font-bold text-center">
+                  <div class="border-r-[2px]  text-[10.7px] border-black py-0.5">
+                    List A
+                  </div>
 
+                  <div class="border-r-[2px] border-black py-0.5">OR</div>
 
+                  <div class="grid grid-cols-3">
+                    <div class=" py-0.5">List B</div>
+                    <div class="py-0.5">AND</div>
+                    <div class="py-0.5">List C</div>
+                  </div>
+                </div>
 
+                <div class="grid grid-cols-[44%_56%] border-x-[2px] border-black h-[430px]">
+                  <div class="border-r-[2px] border-black">
+                    <div class="text-[9.4px] grid grid-cols-[50%_50%]">
+                      <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3 font-bold">
+                        Document Title 1
+                      </div>
+                      <div class="bg-[#e6f1ff] border-b border-black px-1 py-3"></div>
 
+                      <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+                        Issuing Authority
+                      </div>
+                      <div class="border-b border-black px-1 py-3"></div>
 
-  <div class="text-[10.7px] grid grid-cols-[44%_2.5%_53.5%] border-x-[2px] border-b-[2px] border-black font-bold text-center">
+                      <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+                        Document Number (if any)
+                      </div>
+                      <div class="border-b border-black px-1 py-3"></div>
 
-    <div class="border-r-[2px]  text-[10.7px] border-black py-0.5">
-      List A
-    </div>
+                      <div class="bg-[#d9d9d9] border-b-[2px] border-r border-black px-1 py-3">
+                        Expiration Date (if any)
+                      </div>
+                      <div class="border-b-[2px] border-black px-1 py-3"></div>
+                    </div>
 
-    <div class="border-r-[2px] border-black py-0.5">
-      OR
-    </div>
+                    <div class="text-[9.4px] grid grid-cols-[50%_50%]">
+                      <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3 font-bold">
+                        Document Title 2 (if any)
+                      </div>
+                      <div class="border-b border-black px-1 py-3"></div>
 
-    <div class="grid grid-cols-3">
-      <div class=" py-0.5">
-        List B
-      </div>
-      <div class="py-0.5">
-        AND
-      </div>
-       <div class="py-0.5">
-       List C
-      </div>
-    </div>
+                      <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+                        Issuing Authority
+                      </div>
+                      <div class="border-b border-black px-1 py-3"></div>
 
-  </div>
+                      <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+                        Document Number (if any)
+                      </div>
+                      <div class="border-b border-black px-1 py-3"></div>
 
+                      <div class="bg-[#d9d9d9] border-b-[2px] border-r border-black px-1 py-3">
+                        Expiration Date (if any)
+                      </div>
+                      <div class="border-b-[2px] border-black px-1 py-3"></div>
+                    </div>
 
-  <div class="grid grid-cols-[44%_56%] border-x-[2px] border-black h-[430px]">
+                    <div class="text-[9.4px] grid grid-cols-[50%_50%]">
+                      <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3 font-bold">
+                        Document Title 3 (if any)
+                      </div>
+                      <div class="border-b border-black px-1 py-3"></div>
 
-   
-    <div class="border-r-[2px] border-black">
+                      <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+                        Issuing Authority
+                      </div>
+                      <div class="border-b border-black px-1 py-3"></div>
 
-      
-      <div class="text-[9.4px] grid grid-cols-[50%_50%]">
-        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3 font-bold">
-          Document Title 1
-        </div>
-        <div class="bg-[#e6f1ff] border-b border-black px-1 py-3"></div>
+                      <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
+                        Document Number (if any)
+                      </div>
+                      <div class="border-b border-black px-1 py-3"></div>
 
-        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
-          Issuing Authority
-        </div>
-        <div class="border-b border-black px-1 py-3"></div>
+                      <div class="bg-[#d9d9d9] border-r border-black px-1 py-3">
+                        Expiration Date (if any)
+                      </div>
+                      <div class="border-b border-black px-1 py-3"></div>
+                    </div>
+                  </div>
 
-        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
-          Document Number (if any)
-        </div>
-        <div class="border-b border-black px-1 py-3"></div>
+                  <div>
+                    <div class="grid grid-cols-3 grid-cols-[5%_45%_50%]">
+                      <div class="border-b-[2px] border-black bg-[#d9d9d9]"></div>
 
-        <div class="bg-[#d9d9d9] border-b-[2px] border-r border-black px-1 py-3">
-         Expiration Date (if any)
-        </div>
-        <div class="border-b-[2px] border-black px-1 py-3"></div>
-      </div>
+                      <div class="border-x-[2px] border-black">
+                        <div class="h-[36px] border-b border-black"></div>
+                        <div class="h-[36px] border-b border-black"></div>
+                        <div class="h-[36px] border-b border-black"></div>
+                        <div class="h-[36px] border-b-[2px] border-black"></div>
+                      </div>
 
-  
-      <div class="text-[9.4px] grid grid-cols-[50%_50%]">
+                      <div>
+                        <div class="h-[36px] border-b border-black"></div>
+                        <div class="h-[36px] border-b border-black"></div>
+                        <div class="h-[36px] border-b border-black"></div>
+                        <div class="h-[36px] border-b-[2px] border-black"></div>
+                      </div>
+                    </div>
 
-        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3 font-bold">
-          Document Title 2 (if any)
-        </div>
-        <div class="border-b border-black px-1 py-3"></div>
+                    <div>
+                      <div class="bg-[#d9d9d9] border-b-[2px] border-black px-2 py-1 font-bold text-[10.7px]">
+                        Additional Information
+                      </div>
 
-        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
-          Issuing Authority
-        </div>
-        <div class="border-b border-black px-1 py-3"></div>
+                      <div class="h-[218px]"></div>
 
-        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
-          Document Number (if any)
-        </div>
-        <div class="border-b border-black px-1 py-3"></div>
+                      <div class="flex items-center gap-2 px-2 py-3 text-[9.4px]">
+                        <input type="checkbox" />
+                        <span>
+                          Check here if you used an alternative procedure
+                          authorized by DHS to examine documents.
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-        <div class="bg-[#d9d9d9] border-b-[2px] border-r border-black px-1 py-3">
-          Expiration Date (if any)
-        </div>
-        <div class="border-b-[2px] border-black px-1 py-3"></div>
+                <div class="grid grid-cols-[78%_22%] border-t-[1px] border-b-[2px] border-black">
+                  <div class="px-2 py-2 font-bold text-[10.4px] leading-[1.25] border-r-[2px] border-black">
+                    <span class="font-bold">Certification:</span>
+                    <span>
+                      I attest, under penalty of perjury, that (1) I have
+                      examined the documentation presented by the above-named
+                      employee, (2) the above-listed documentation appears to be
+                      genuine and to relate to the employee named, and (3) to
+                      the best of my knowledge, the employee is authorized to
+                      work in the United States.
+                    </span>
+                  </div>
 
-      </div>
-
- 
-      <div class="text-[9.4px] grid grid-cols-[50%_50%]">
-
-        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3 font-bold">
-          Document Title 3 (if any)
-        </div>
-        <div class="border-b border-black px-1 py-3"></div>
-
-        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
-          Issuing Authority
-        </div>
-        <div class="border-b border-black px-1 py-3"></div>
-
-        <div class="bg-[#d9d9d9] border-b border-r border-black px-1 py-3">
-          Document Number (if any)
-        </div>
-        <div class="border-b border-black px-1 py-3"></div>
-
-        <div class="bg-[#d9d9d9] border-r border-black px-1 py-3">
-          Expiration Date (if any)
-        </div>
-        <div class="border-b border-black px-1 py-3"></div>
-
-      </div>
-
-    </div>
-
-
-    <div>
-
-  
-      <div class="grid grid-cols-3 grid-cols-[5%_45%_50%]">
-
-     
-        <div class="border-b-[2px] border-black bg-[#d9d9d9]">
-
-        
-
-        </div>
-
-        <div class="border-x-[2px] border-black">
-
-          <div class="h-[36px] border-b border-black"></div>
-          <div class="h-[36px] border-b border-black"></div>
-          <div class="h-[36px] border-b border-black"></div>
-          <div class="h-[36px] border-b-[2px] border-black"></div>
-
-        </div>
-
-  
-        <div>
-
-          <div class="h-[36px] border-b border-black"></div>
-          <div class="h-[36px] border-b border-black"></div>
-          <div class="h-[36px] border-b border-black"></div>
-          <div class="h-[36px] border-b-[2px] border-black"></div>
-
-        </div>
-
-      </div>
-
- 
-      <div>
-
-        <div class="bg-[#d9d9d9] border-b-[2px] border-black px-2 py-1 font-bold text-[10.7px]">
-          Additional Information
-        </div>
-
-        <div class="h-[218px]"></div>
-
-  
-        <div class="flex items-center gap-2 px-2 py-3 text-[9.4px]">
-         
-          <input type="checkbox" />
-          <span>
-            Check here if you used an alternative procedure authorized by DHS
-            to examine documents.
-          </span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="grid grid-cols-[78%_22%] border-t-[1px] border-b-[2px] border-black">
-
-    <div class="px-2 py-2 font-bold text-[10.4px] leading-[1.25] border-r-[2px] border-black">
-      <span class="font-bold">Certification:</span>
-      <span>
-        I attest, under penalty of perjury, that (1) I have examined the
-        documentation presented by the above-named employee, (2) the
-        above-listed documentation appears to be genuine and to relate to the
-        employee named, and (3) to the best of my knowledge, the employee is
-        authorized to work in the United States.
-      </span>
-    </div>
-
-    <div class="grid grid-cols-1">
-
-      <div class="px-3 py-1 text-[9.4px]">
-        First Day of Employment
-        <br />
-        (mm/dd/yyyy):
-        <br />
-        <input type="date"  className="border border-black"/>
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-             
-
-            
+                  <div class="grid grid-cols-1">
+                    <div class="px-3 py-1 text-[9.4px]">
+                      First Day of Employment
+                      <br />
+                      (mm/dd/yyyy):
+                      <br />
+                      <input type="date" className="border border-black" />
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               {/* Employer Signature */}
               <div className="grid grid-cols-12 border-t border-black">
@@ -14495,368 +15305,371 @@ const ReceiptItem = ({ text }) => (
         </div>
         <br />
         <div className="mx-auto w-full max-w-[210mm] min-h-screen bg-white px-2 py-4 sm:px-4 sm:py-5 md:px-6 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-  <div className="w-full">
+          <div className="w-full">
+            {/* Header */}
+            <div className="border-t-[4px] sm:border-t-[5px] border-black">
+              <div className="py-2 sm:py-3">
+                <div className="text-center px-1 sm:px-2">
+                  <h1 className="text-[13px] sm:text-[15px] md:text-[16px] lg:text-[17.4px] font-bold leading-tight">
+                    LISTS OF ACCEPTABLE DOCUMENTS
+                  </h1>
 
-    {/* Header */}
-    <div className="border-t-[4px] sm:border-t-[5px] border-black">
-      <div className="py-2 sm:py-3">
-        <div className="text-center px-1 sm:px-2">
+                  <p className="mt-1 text-[9px] sm:text-[10.5px] md:text-[12px] lg:text-[14.7px] leading-tight">
+                    All documents containing an expiration date must be
+                    unexpired.
+                    <br />
+                    * Documents extended by the issuing authority are considered
+                    unexpired.
+                    <br />
+                    Employees may present one selection from List A or a
+                    combination of one selection from List B and one selection
+                    from List C.
+                  </p>
 
-          <h1 className="text-[13px] sm:text-[15px] md:text-[16px] lg:text-[17.4px] font-bold leading-tight">
-            LISTS OF ACCEPTABLE DOCUMENTS
-          </h1>
+                  <h1 className="mt-1 text-[10px] sm:text-[11px] md:text-[13px] lg:text-[16.4px] font-bold leading-tight">
+                    Examples of many of these documents appear in the Handbook
+                    for Employers (M-274).
+                  </h1>
+                </div>
+              </div>
+            </div>
 
-          <p className="mt-1 text-[9px] sm:text-[10.5px] md:text-[12px] lg:text-[14.7px] leading-tight">
-            All documents containing an expiration date must be unexpired.
-            <br />
-            * Documents extended by the issuing authority are considered
-            unexpired.
-            <br />
-            Employees may present one selection from List A or a combination
-            of one selection from List B and one selection from List C.
-          </p>
+            {/* Table wrapper */}
+            <div className="w-full overflow-x-auto">
+              <table className="w-full min-w-[650px] border border-gray-500 border-collapse font-[Arial] table-fixed">
+                {/* Table Header */}
+                <thead>
+                  <tr>
+                    <th className="w-[31%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px] leading-tight">
+                      LIST A
+                      <br />
+                      Documents that Establish Both Identity and Employment
+                      Authorization
+                    </th>
 
-          <h1 className="mt-1 text-[10px] sm:text-[11px] md:text-[13px] lg:text-[16.4px] font-bold leading-tight">
-            Examples of many of these documents appear in the Handbook for
-            Employers (M-274).
-          </h1>
+                    <th className="w-[5%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px]">
+                      OR
+                    </th>
 
+                    <th className="w-[30%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px] leading-tight">
+                      LIST B
+                      <br />
+                      Documents that Establish Identity
+                    </th>
+
+                    <th className="w-[34%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px] leading-tight">
+                      LIST C
+                      <br />
+                      Documents that Establish Employment Authorization
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {/* Row 1 */}
+                  <tr>
+                    <td className="align-top border border-gray-500">
+                      <div className="text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] p-1 flex items-start leading-tight">
+                        <b className="mr-1 shrink-0">1.</b>
+                        <span>U.S. Passport or U.S. Passport Card</span>
+                      </div>
+                    </td>
+
+                    <td></td>
+
+                    {/* LIST B */}
+                    <td
+                      rowSpan={6}
+                      className="align-top border border-gray-500"
+                    >
+                      <DocumentItem
+                        number="1."
+                        text="Driver's license or ID card issued by a State or outlying possession of the United States provided it contains a photograph or information such as name, date of birth, sex, height, eye color, and address"
+                      />
+
+                      <DocumentItem
+                        number="2."
+                        text="ID card issued by federal, state or local government agencies or entities, provided it contains a photograph or information such as name, date of birth, sex, height, eye color, and address"
+                      />
+
+                      <DocumentItem
+                        number="3."
+                        text="School ID card with a photograph"
+                      />
+
+                      <DocumentItem
+                        number="4."
+                        text="Voter's registration card"
+                      />
+
+                      <DocumentItem
+                        number="5."
+                        text="U.S. Military card or draft record"
+                      />
+
+                      <DocumentItem
+                        number="6."
+                        text="Military dependent's ID card"
+                      />
+
+                      <DocumentItem
+                        number="7."
+                        text="U.S. Coast Guard Merchant Mariner Card"
+                      />
+
+                      <DocumentItem
+                        number="8."
+                        text="Native American tribal document"
+                      />
+
+                      <DocumentItem
+                        number="9."
+                        text="Driver's license issued by a Canadian government authority"
+                      />
+
+                      <div className="border-t border-gray-500 p-2 text-center text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] leading-tight">
+                        <b>
+                          For persons under age 18 who are
+                          <br />
+                          unable to present a document
+                          <br />
+                          listed above:
+                        </b>
+                      </div>
+
+                      <DocumentItem
+                        number="10."
+                        text="School record or report card"
+                      />
+
+                      <DocumentItem
+                        number="11."
+                        text="Clinic, doctor, or hospital record"
+                      />
+
+                      <DocumentItem
+                        number="12."
+                        text="Day-care or nursery school record"
+                      />
+                    </td>
+
+                    {/* LIST C */}
+                    <td
+                      rowSpan={6}
+                      className="align-top border border-gray-500"
+                    >
+                      <DocumentItem
+                        number="1."
+                        text="A Social Security Account Number card, unless the card includes one of the following restrictions:"
+                      />
+
+                      <div className="px-2 pb-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight">
+                        <div className="flex items-start">
+                          <b className="mr-1 shrink-0">(1)</b>
+                          <span>NOT VALID FOR EMPLOYMENT</span>
+                        </div>
+
+                        <div className="flex items-start">
+                          <b className="mr-1 shrink-0">(2)</b>
+                          <span>
+                            VALID FOR WORK ONLY WITH INS AUTHORIZATION
+                          </span>
+                        </div>
+
+                        <div className="flex items-start">
+                          <b className="mr-1 shrink-0">(3)</b>
+                          <span>
+                            VALID FOR WORK ONLY WITH DHS AUTHORIZATION
+                          </span>
+                        </div>
+                      </div>
+
+                      <DocumentItem
+                        number="2."
+                        text="Certification of report of birth issued by the Department of State (Forms DS-1350, FS-545, FS-240)"
+                      />
+
+                      <DocumentItem
+                        number="3."
+                        text="Original or certified copy of birth certificate issued by a State, county, municipal authority, or territory of the United States bearing an official seal"
+                      />
+
+                      <DocumentItem
+                        number="4."
+                        text="Native American tribal document"
+                      />
+
+                      <DocumentItem
+                        number="5."
+                        text="U.S. Citizen ID Card (Form I-197)"
+                      />
+
+                      <DocumentItem
+                        number="6."
+                        text="Identification Card for Use of Resident Citizen in the United States (Form I-179)"
+                      />
+
+                      <DocumentItem
+                        number="7."
+                        text="Employment authorization document issued by the Department of Homeland Security"
+                      />
+
+                      <div className="border-t border-gray-500 p-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight">
+                        <span>
+                          For examples, see{" "}
+                          <a
+                            className="font-bold text-blue-700 underline"
+                            href="https://www.uscis.gov/i-9-central/form-i-9-resources/handbook-for-employers-m-274/70-evidence-of-employment-authorization-for-certain-categories"
+                          >
+                            Section 7
+                          </a>{" "}
+                          and{" "}
+                          <a
+                            className="font-bold text-blue-700 underline"
+                            href="https://www.uscis.gov/i-9-central/form-i-9-resources/handbook-for-employers-m-274/130-acceptable-documents-for-verifying-employment-authorization-and-identity/133-list-c-documents-that-establish-employment-authorization"
+                          >
+                            Section 13
+                          </a>{" "}
+                          of the M-274 on{" "}
+                          <a
+                            className="font-bold text-blue-700 underline"
+                            href="https://www.uscis.gov/i-9-central"
+                          >
+                            uscis.gov/i-9-central.
+                          </a>
+                        </span>
+
+                        <br />
+                        <br />
+
+                        <span>
+                          The Form I-766, Employment Authorization Document, is
+                          a List A, <b>Item Number 4.</b> document, not a List C
+                          document.
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  {/* LIST A ITEMS */}
+                  <tr>
+                    <td className="border border-gray-500 align-top">
+                      <DocumentItem
+                        number="2."
+                        text="Permanent Resident Card or Alien Registration Receipt Card (Form I-551)"
+                      />
+                    </td>
+                    <td></td>
+                  </tr>
+
+                  <tr>
+                    <td className="border border-gray-500 align-top">
+                      <DocumentItem
+                        number="3."
+                        text="Foreign passport that contains a temporary I-551 stamp or temporary I-551 printed notation on a machine-readable immigrant visa"
+                      />
+                    </td>
+                    <td></td>
+                  </tr>
+
+                  <tr>
+                    <td className="border border-gray-500 align-top">
+                      <DocumentItem
+                        number="4."
+                        text="Employment Authorization Document that contains a photograph (Form I-766)"
+                      />
+                    </td>
+                    <td></td>
+                  </tr>
+
+                  <tr>
+                    <td className="border border-gray-500 align-top">
+                      <DocumentItem
+                        number="5."
+                        text="For an individual temporarily authorized to work for a specific employer because of his or her status or parole: a. Foreign passport; and b. Form I-94 or Form I-94A that has the required endorsement."
+                      />
+                    </td>
+                    <td></td>
+                  </tr>
+
+                  <tr>
+                    <td className="border border-gray-500 align-top">
+                      <DocumentItem
+                        number="6."
+                        text="Passport from the Federated States of Micronesia (FSM) or the Republic of the Marshall Islands (RMI) with Form I-94 or Form I-94A indicating nonimmigrant admission under the Compact of Free Association."
+                      />
+                    </td>
+                    <td></td>
+                  </tr>
+
+                  {/* Acceptable Receipts */}
+                  <tr>
+                    <td
+                      colSpan={4}
+                      className="border-t border-gray-500 px-3 sm:px-6 md:px-10 lg:px-[50px] py-3 text-center"
+                    >
+                      <h2 className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15.4px] font-bold">
+                        Acceptable Receipts
+                      </h2>
+
+                      <h3 className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[13.4px] leading-tight">
+                        May be presented in lieu of a document listed above for
+                        a temporary period. For receipt validity dates, see the
+                        M-274.
+                      </h3>
+                    </td>
+                  </tr>
+
+                  {/* Receipts */}
+                  <tr>
+                    <td className="border border-gray-500 align-top">
+                      <ReceiptItem text="Receipt for a replacement of a lost, stolen, or damaged List A document." />
+
+                      <ReceiptItem text="Form I-94 issued to a lawful permanent resident that contains an I-551 stamp and a photograph of the individual." />
+
+                      <ReceiptItem text="Form I-94 with “RE” notation or refugee stamp issued to a refugee." />
+                    </td>
+
+                    <td className="border border-gray-500 text-center text-[10px] sm:text-[11px] md:text-[12px]">
+                      <b>OR</b>
+                    </td>
+
+                    <td
+                      rowSpan={3}
+                      className="border border-gray-500 align-top"
+                    >
+                      <ReceiptItem text="Receipt for a replacement of a lost, stolen, or damaged List B document." />
+                    </td>
+
+                    <td
+                      rowSpan={3}
+                      className="border border-gray-500 align-top"
+                    >
+                      <ReceiptItem text="Receipt for a replacement of a lost, stolen, or damaged List C document." />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Footer */}
+            <div className="border-b border-black py-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[12px] leading-tight">
+              *Refer to the Employment Authorization Extensions page on{" "}
+              <a
+                className="font-bold text-blue-700 underline"
+                href="https://www.uscis.gov/i-9-central/form-i-9-acceptable-documents/employment-authorization-extensions"
+              >
+                I-9 Central
+              </a>{" "}
+              for more information.
+            </div>
+
+            <div className="flex flex-col gap-1 sm:flex-row sm:justify-between pt-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px]">
+              <span>Form I-9 Edition 01/20/25</span>
+              <span>Page 2 of 4</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-
-    {/* Table wrapper */}
-    <div className="w-full overflow-x-auto">
-
-      <table className="w-full min-w-[650px] border border-gray-500 border-collapse font-[Arial] table-fixed">
-
-        {/* Table Header */}
-        <thead>
-          <tr>
-            <th className="w-[31%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px] leading-tight">
-              LIST A
-              <br />
-              Documents that Establish Both Identity and Employment
-              Authorization
-            </th>
-
-            <th className="w-[5%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px]">
-              OR
-            </th>
-
-            <th className="w-[30%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px] leading-tight">
-              LIST B
-              <br />
-              Documents that Establish Identity
-            </th>
-
-            <th className="w-[34%] border border-gray-500 p-1 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[10.7px] leading-tight">
-              LIST C
-              <br />
-              Documents that Establish Employment Authorization
-            </th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          {/* Row 1 */}
-          <tr>
-            <td className="align-top border border-gray-500">
-              <div className="text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] p-1 flex items-start leading-tight">
-                <b className="mr-1 shrink-0">1.</b>
-                <span>
-                  U.S. Passport or U.S. Passport Card
-                </span>
-              </div>
-            </td>
-
-            <td></td>
-
-            {/* LIST B */}
-            <td rowSpan={6} className="align-top border border-gray-500">
-
-              <DocumentItem
-                number="1."
-                text="Driver's license or ID card issued by a State or outlying possession of the United States provided it contains a photograph or information such as name, date of birth, sex, height, eye color, and address"
-              />
-
-              <DocumentItem
-                number="2."
-                text="ID card issued by federal, state or local government agencies or entities, provided it contains a photograph or information such as name, date of birth, sex, height, eye color, and address"
-              />
-
-              <DocumentItem
-                number="3."
-                text="School ID card with a photograph"
-              />
-
-              <DocumentItem
-                number="4."
-                text="Voter's registration card"
-              />
-
-              <DocumentItem
-                number="5."
-                text="U.S. Military card or draft record"
-              />
-
-              <DocumentItem
-                number="6."
-                text="Military dependent's ID card"
-              />
-
-              <DocumentItem
-                number="7."
-                text="U.S. Coast Guard Merchant Mariner Card"
-              />
-
-              <DocumentItem
-                number="8."
-                text="Native American tribal document"
-              />
-
-              <DocumentItem
-                number="9."
-                text="Driver's license issued by a Canadian government authority"
-              />
-
-              <div className="border-t border-gray-500 p-2 text-center text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] leading-tight">
-                <b>
-                  For persons under age 18 who are
-                  <br />
-                  unable to present a document
-                  <br />
-                  listed above:
-                </b>
-              </div>
-
-              <DocumentItem
-                number="10."
-                text="School record or report card"
-              />
-
-              <DocumentItem
-                number="11."
-                text="Clinic, doctor, or hospital record"
-              />
-
-              <DocumentItem
-                number="12."
-                text="Day-care or nursery school record"
-              />
-
-            </td>
-
-            {/* LIST C */}
-            <td rowSpan={6} className="align-top border border-gray-500">
-
-              <DocumentItem
-                number="1."
-                text="A Social Security Account Number card, unless the card includes one of the following restrictions:"
-              />
-
-              <div className="px-2 pb-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight">
-                <div className="flex items-start">
-                  <b className="mr-1 shrink-0">(1)</b>
-                  <span>NOT VALID FOR EMPLOYMENT</span>
-                </div>
-
-                <div className="flex items-start">
-                  <b className="mr-1 shrink-0">(2)</b>
-                  <span>
-                    VALID FOR WORK ONLY WITH INS AUTHORIZATION
-                  </span>
-                </div>
-
-                <div className="flex items-start">
-                  <b className="mr-1 shrink-0">(3)</b>
-                  <span>
-                    VALID FOR WORK ONLY WITH DHS AUTHORIZATION
-                  </span>
-                </div>
-              </div>
-
-              <DocumentItem
-                number="2."
-                text="Certification of report of birth issued by the Department of State (Forms DS-1350, FS-545, FS-240)"
-              />
-
-              <DocumentItem
-                number="3."
-                text="Original or certified copy of birth certificate issued by a State, county, municipal authority, or territory of the United States bearing an official seal"
-              />
-
-              <DocumentItem
-                number="4."
-                text="Native American tribal document"
-              />
-
-              <DocumentItem
-                number="5."
-                text="U.S. Citizen ID Card (Form I-197)"
-              />
-
-              <DocumentItem
-                number="6."
-                text="Identification Card for Use of Resident Citizen in the United States (Form I-179)"
-              />
-
-              <DocumentItem
-                number="7."
-                text="Employment authorization document issued by the Department of Homeland Security"
-              />
-
-              <div className="border-t border-gray-500 p-2 text-[8px] sm:text-[8.5px] md:text-[9px] lg:text-[9.7px] leading-tight">
-
-                <span>
-                  For examples, see{" "}
-                  <a
-                    className="font-bold text-blue-700 underline"
-                    href="https://www.uscis.gov/i-9-central/form-i-9-resources/handbook-for-employers-m-274/70-evidence-of-employment-authorization-for-certain-categories"
-                  >
-                    Section 7
-                  </a>{" "}
-                  and{" "}
-                  <a
-                    className="font-bold text-blue-700 underline"
-                    href="https://www.uscis.gov/i-9-central/form-i-9-resources/handbook-for-employers-m-274/130-acceptable-documents-for-verifying-employment-authorization-and-identity/133-list-c-documents-that-establish-employment-authorization"
-                  >
-                    Section 13
-                  </a>{" "}
-                  of the M-274 on{" "}
-                  <a
-                    className="font-bold text-blue-700 underline"
-                    href="https://www.uscis.gov/i-9-central"
-                  >
-                    uscis.gov/i-9-central.
-                  </a>
-                </span>
-
-                <br />
-                <br />
-
-                <span>
-                  The Form I-766, Employment Authorization Document, is a List
-                  A, <b>Item Number 4.</b> document, not a List C document.
-                </span>
-
-              </div>
-
-            </td>
-          </tr>
-
-          {/* LIST A ITEMS */}
-          <tr>
-            <td className="border border-gray-500 align-top">
-              <DocumentItem
-                number="2."
-                text="Permanent Resident Card or Alien Registration Receipt Card (Form I-551)"
-              />
-            </td>
-            <td></td>
-          </tr>
-
-          <tr>
-            <td className="border border-gray-500 align-top">
-              <DocumentItem
-                number="3."
-                text="Foreign passport that contains a temporary I-551 stamp or temporary I-551 printed notation on a machine-readable immigrant visa"
-              />
-            </td>
-            <td></td>
-          </tr>
-
-          <tr>
-            <td className="border border-gray-500 align-top">
-              <DocumentItem
-                number="4."
-                text="Employment Authorization Document that contains a photograph (Form I-766)"
-              />
-            </td>
-            <td></td>
-          </tr>
-
-          <tr>
-            <td className="border border-gray-500 align-top">
-              <DocumentItem
-                number="5."
-                text="For an individual temporarily authorized to work for a specific employer because of his or her status or parole: a. Foreign passport; and b. Form I-94 or Form I-94A that has the required endorsement."
-              />
-            </td>
-            <td></td>
-          </tr>
-
-          <tr>
-            <td className="border border-gray-500 align-top">
-              <DocumentItem
-                number="6."
-                text="Passport from the Federated States of Micronesia (FSM) or the Republic of the Marshall Islands (RMI) with Form I-94 or Form I-94A indicating nonimmigrant admission under the Compact of Free Association."
-              />
-            </td>
-            <td></td>
-          </tr>
-
-          {/* Acceptable Receipts */}
-          <tr>
-            <td colSpan={4} className="border-t border-gray-500 px-3 sm:px-6 md:px-10 lg:px-[50px] py-3 text-center">
-              <h2 className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15.4px] font-bold">
-                Acceptable Receipts
-              </h2>
-
-              <h3 className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[13.4px] leading-tight">
-                May be presented in lieu of a document listed above for a
-                temporary period. For receipt validity dates, see the M-274.
-              </h3>
-            </td>
-          </tr>
-
-          {/* Receipts */}
-          <tr>
-            <td className="border border-gray-500 align-top">
-              <ReceiptItem text="Receipt for a replacement of a lost, stolen, or damaged List A document." />
-
-              <ReceiptItem text="Form I-94 issued to a lawful permanent resident that contains an I-551 stamp and a photograph of the individual." />
-
-              <ReceiptItem text="Form I-94 with “RE” notation or refugee stamp issued to a refugee." />
-            </td>
-
-            <td className="border border-gray-500 text-center text-[10px] sm:text-[11px] md:text-[12px]">
-              <b>OR</b>
-            </td>
-
-            <td rowSpan={3} className="border border-gray-500 align-top">
-              <ReceiptItem text="Receipt for a replacement of a lost, stolen, or damaged List B document." />
-            </td>
-
-            <td rowSpan={3} className="border border-gray-500 align-top">
-              <ReceiptItem text="Receipt for a replacement of a lost, stolen, or damaged List C document." />
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-
-    {/* Footer */}
-    <div className="border-b border-black py-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[12px] leading-tight">
-      *Refer to the Employment Authorization Extensions page on{" "}
-      <a
-        className="font-bold text-blue-700 underline"
-        href="https://www.uscis.gov/i-9-central/form-i-9-acceptable-documents/employment-authorization-extensions"
-      >
-        I-9 Central
-      </a>{" "}
-      for more information.
-    </div>
-
-    <div className="flex flex-col gap-1 sm:flex-row sm:justify-between pt-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px]">
-      <span>Form I-9 Edition 01/20/25</span>
-      <span>Page 2 of 4</span>
-    </div>
-
-  </div>
-</div>
         <br />
 
         <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
@@ -15390,7 +16203,6 @@ const ReceiptItem = ({ text }) => (
         </div>
         <br />
 
-
         <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <div className="mx-auto">
             {/* Header */}
@@ -15845,7 +16657,7 @@ const ReceiptItem = ({ text }) => (
                 </td>
 
                 <td className="border border-gray-500">
-                 <div className=" flex text-[9.4px] p-1">
+                  <div className=" flex text-[9.4px] p-1">
                     <input
                       type="checkbox"
                       className=" mr-1 border border-gray-500 p-1 w-full"
@@ -15866,915 +16678,779 @@ const ReceiptItem = ({ text }) => (
         </div>
         <br />
         <div className="font-[Arial] mx-auto w-full max-w-[210mm] min-h-screen overflow-hidden bg-white px-2 py-3 shadow-[0_2px_10px_rgba(0,0,0,0.25)] sm:px-4 sm:py-5 md:px-6 lg:px-[17mm] lg:py-[17mm]">
-
-  {/* =========================
+          {/* =========================
       PAGE 1
   ========================== */}
 
-  {/* Header */}
-  <div className="grid grid-cols-[75px_minmax(0,1fr)_80px] border-b-2 border-black sm:grid-cols-[90px_minmax(0,1fr)_110px] lg:grid-cols-[100px_minmax(0,1fr)_140px]">
+          {/* Header */}
+          <div className="grid grid-cols-[75px_minmax(0,1fr)_80px] border-b-2 border-black sm:grid-cols-[90px_minmax(0,1fr)_110px] lg:grid-cols-[100px_minmax(0,1fr)_140px]">
+            {/* Form W-4 */}
+            <div className="relative flex pr-1 sm:pr-2">
+              <div className="relative">
+                <div className="flex items-baseline">
+                  <span className="mr-1 text-[7px] sm:text-[8px] lg:text-[8.7px]">
+                    Form
+                  </span>
 
-    {/* Form W-4 */}
-    <div className="relative flex pr-1 sm:pr-2">
-      <div className="relative">
-        <div className="flex items-baseline">
-          <span className="mr-1 text-[7px] sm:text-[8px] lg:text-[8.7px]">
-            Form
-          </span>
+                  <span className="text-[25px] font-black leading-none sm:text-[30px] lg:text-[36px]">
+                    W-4
+                  </span>
+                </div>
 
-          <span className="text-[25px] font-black leading-none sm:text-[30px] lg:text-[36px]">
-            W-4
-          </span>
-        </div>
+                <div className="mt-2 text-[6px] leading-[1.05] sm:mt-3 sm:text-[7px] lg:mt-4 lg:text-[7.7px]">
+                  Department of the Treasury
+                  <br />
+                  Internal Revenue Service
+                </div>
+              </div>
+            </div>
 
-        <div className="mt-2 text-[6px] leading-[1.05] sm:mt-3 sm:text-[7px] lg:mt-4 lg:text-[7.7px]">
-          Department of the Treasury
-          <br />
-          Internal Revenue Service
-        </div>
-      </div>
-    </div>
+            {/* Center Header */}
+            <div className="border-l border-r border-black px-1 text-center sm:px-2 lg:px-3">
+              <h1 className="m-0 text-[11px] font-black leading-tight sm:text-[15px] lg:text-[18px]">
+                Employee’s Withholding Certificate
+              </h1>
 
-    {/* Center Header */}
-    <div className="border-l border-r border-black px-1 text-center sm:px-2 lg:px-3">
-      <h1 className="m-0 text-[11px] font-black leading-tight sm:text-[15px] lg:text-[18px]">
-        Employee’s Withholding Certificate
-      </h1>
+              <p className="mt-1 mb-0 text-[7px] font-bold leading-tight sm:text-[9px] lg:text-[10.7px]">
+                Complete Form W-4 so that your employer can withhold the correct
+                federal income tax from your pay.
+              </p>
 
-      <p className="mt-1 mb-0 text-[7px] font-bold leading-tight sm:text-[9px] lg:text-[10.7px]">
-        Complete Form W-4 so that your employer can withhold the correct
-        federal income tax from your pay.
-      </p>
+              <p className="mt-1 mb-0 text-[8px] font-bold leading-tight sm:text-[10px] lg:text-[13px]">
+                Give Form W-4 to your employer.
+              </p>
 
-      <p className="mt-1 mb-0 text-[8px] font-bold leading-tight sm:text-[10px] lg:text-[13px]">
-        Give Form W-4 to your employer.
-      </p>
+              <p className="mt-1 mb-1 text-[7px] font-bold leading-tight sm:text-[9px] lg:text-[12px]">
+                Your withholding is subject to review by the IRS.
+              </p>
+            </div>
 
-      <p className="mt-1 mb-1 text-[7px] font-bold leading-tight sm:text-[9px] lg:text-[12px]">
-        Your withholding is subject to review by the IRS.
-      </p>
-    </div>
+            {/* Year */}
+            <div className="min-w-0 text-center">
+              <div className="border-b border-black pb-1 text-[6px] sm:text-[8px] lg:text-[9.4px]">
+                OMB No. 1545-0074
+              </div>
 
-    {/* Year */}
-    <div className="min-w-0 text-center">
-      <div className="border-b border-black pb-1 text-[6px] sm:text-[8px] lg:text-[9.4px]">
-        OMB No. 1545-0074
-      </div>
+              <div className="pt-2 text-[18px] font-black leading-none sm:pt-3 sm:text-[23px] lg:text-[26.7px]">
+                2026
+              </div>
+            </div>
+          </div>
 
-      <div className="pt-2 text-[18px] font-black leading-none sm:pt-3 sm:text-[23px] lg:text-[26.7px]">
-        2026
-      </div>
-    </div>
-  </div>
-
-
-  {/* =========================
+          {/* =========================
       STEP 1
   ========================== */}
 
-  <div className="grid grid-cols-[75px_minmax(0,1fr)] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)] lg:grid-cols-[100px_minmax(0,1fr)]">
+          <div className="grid grid-cols-[75px_minmax(0,1fr)] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)] lg:grid-cols-[100px_minmax(0,1fr)]">
+            {/* Step Label */}
+            <div className="border-r border-black py-2 pr-1 sm:pr-2">
+              <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
+                Step 1:
+              </div>
 
-    {/* Step Label */}
-    <div className="border-r border-black py-2 pr-1 sm:pr-2">
-      <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
-        Step 1:
-      </div>
+              <div className="mt-2 text-[10px] font-black leading-tight sm:mt-3 sm:text-[12px] lg:text-[13.4px]">
+                Enter
+                <br />
+                Personal
+                <br />
+                Information
+              </div>
+            </div>
 
-      <div className="mt-2 text-[10px] font-black leading-tight sm:mt-3 sm:text-[12px] lg:text-[13.4px]">
-        Enter
-        <br />
-        Personal
-        <br />
-        Information
-      </div>
-    </div>
+            <div>
+              {/* Name / SSN */}
+              <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_100px] border-b border-black text-[7px] sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_135px] sm:text-[8.5px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_170px] lg:text-[9.4px]">
+                <div className="min-h-[38px] border-r border-black px-1 pt-1 sm:min-h-[42px] sm:px-2">
+                  <span className="mr-1 font-bold sm:mr-2">(a)</span>
+                  First name and middle initial
+                </div>
 
-    <div>
+                <div className="min-h-[38px] border-r border-black px-1 pt-1 sm:min-h-[42px] sm:px-2">
+                  Last name
+                </div>
 
-      {/* Name / SSN */}
-      <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_100px] border-b border-black text-[7px] sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_135px] sm:text-[8.5px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_170px] lg:text-[9.4px]">
+                <div className="min-w-0 px-1 pt-1 sm:px-2">
+                  <span className="font-bold">(b)</span>{" "}
+                  <span className="font-bold">Social security number</span>
+                </div>
+              </div>
 
-        <div className="min-h-[38px] border-r border-black px-1 pt-1 sm:min-h-[42px] sm:px-2">
-          <span className="mr-1 font-bold sm:mr-2">
-            (a)
-          </span>
+              {/* Address */}
+              <div className="grid grid-cols-[minmax(0,1fr)_105px] border-b border-black text-[7px] sm:grid-cols-[minmax(0,1fr)_135px] sm:text-[8.5px] lg:grid-cols-[minmax(0,1fr)_170px] lg:text-[9.4px]">
+                {/* Left */}
+                <div className="border-r border-black">
+                  <div className="border-b border-black px-1 py-2 sm:px-2">
+                    Address
+                  </div>
 
-          First name and middle initial
-        </div>
+                  <div className="px-1 py-2 sm:px-2">
+                    City or town, state, and ZIP code
+                  </div>
+                </div>
 
-        <div className="min-h-[38px] border-r border-black px-1 pt-1 sm:min-h-[42px] sm:px-2">
-          Last name
-        </div>
+                {/* Right */}
+                <div className="px-1 pt-0 pb-2 text-[7px] leading-[1.05] sm:px-2 sm:text-[8.5px] lg:text-[10px]">
+                  <strong>
+                    Does your name match the
+                    <br />
+                    name on your social security
+                    <br />
+                    card?
+                  </strong>{" "}
+                  If not, to ensure you get
+                  <br />
+                  credit for your earnings,
+                  <br />
+                  contact SSA at 800-772-1213
+                  <br />
+                  or go to <i>www.ssa.gov</i>.
+                </div>
+              </div>
 
-        <div className="min-w-0 px-1 pt-1 sm:px-2">
-          <span className="font-bold">(b)</span>{" "}
-          <span className="font-bold">
-            Social security number
-          </span>
-        </div>
-      </div>
+              {/* Filing Status */}
+              <div className="py-2 text-[7px] sm:text-[8.5px] lg:text-[9.4px]">
+                <div className="mb-1">
+                  <span className="mr-2 font-bold">(c)</span>
 
+                  <span className="inline-flex items-center">
+                    <strong>
+                      <input
+                        type="checkbox"
+                        className="mr-1 h-3 w-3 align-middle"
+                      />
+                      Single or Married filing separately
+                    </strong>
+                  </span>
+                </div>
 
-      {/* Address */}
-      <div className="grid grid-cols-[minmax(0,1fr)_105px] border-b border-black text-[7px] sm:grid-cols-[minmax(0,1fr)_135px] sm:text-[8.5px] lg:grid-cols-[minmax(0,1fr)_170px] lg:text-[9.4px]">
+                <div className="mb-1 ml-4 sm:ml-5">
+                  <strong>
+                    <input
+                      type="checkbox"
+                      className="mr-1 h-3 w-3 align-middle"
+                    />
+                    Married filing jointly or Qualifying surviving spouse
+                  </strong>
+                </div>
 
-        {/* Left */}
-        <div className="border-r border-black">
+                <div className="ml-4 sm:ml-5">
+                  <strong>
+                    <input
+                      type="checkbox"
+                      className="mr-1 h-3 w-3 align-middle"
+                    />
+                    Head of household
+                  </strong>{" "}
+                  <span>
+                    (Check only if you’re unmarried and pay more than half the
+                    costs of keeping up a home for yourself and a qualifying
+                    individual.)
+                  </span>
+                </div>
 
-          <div className="border-b border-black px-1 py-2 sm:px-2">
-            Address
+                {/* Caution */}
+                <div className="mt-2 border-t border-black pt-1">
+                  <strong>Caution:</strong> To claim certain credits or
+                  deductions on your tax return, you (and/or your spouse if
+                  married filing jointly) are required to have a social security
+                  number valid for employment. See page 2 for more information.
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="px-1 py-2 sm:px-2">
-            City or town, state, and ZIP code
-          </div>
-
-        </div>
-
-        {/* Right */}
-        <div className="px-1 pt-0 pb-2 text-[7px] leading-[1.05] sm:px-2 sm:text-[8.5px] lg:text-[10px]">
-
-          <strong>
-            Does your name match the
-            <br />
-            name on your social security
-            <br />
-            card?
-          </strong>{" "}
-
-          If not, to ensure you get
-          <br />
-          credit for your earnings,
-          <br />
-          contact SSA at 800-772-1213
-          <br />
-          or go to <i>www.ssa.gov</i>.
-
-        </div>
-      </div>
-
-
-      {/* Filing Status */}
-      <div className="py-2 text-[7px] sm:text-[8.5px] lg:text-[9.4px]">
-
-        <div className="mb-1">
-          <span className="mr-2 font-bold">
-            (c)
-          </span>
-
-          <span className="inline-flex items-center">
-            <strong>
-              <input
-                type="checkbox"
-                className="mr-1 h-3 w-3 align-middle"
-              />
-              Single or Married filing separately
-            </strong>
-          </span>
-        </div>
-
-        <div className="mb-1 ml-4 sm:ml-5">
-          <strong>
-            <input
-              type="checkbox"
-              className="mr-1 h-3 w-3 align-middle"
-            />
-            Married filing jointly or Qualifying surviving spouse
-          </strong>
-        </div>
-
-        <div className="ml-4 sm:ml-5">
-          <strong>
-            <input
-              type="checkbox"
-              className="mr-1 h-3 w-3 align-middle"
-            />
-            Head of household
-          </strong>{" "}
-
-          <span>
-            (Check only if you’re unmarried and pay more than half the
-            costs of keeping up a home for yourself and a qualifying
-            individual.)
-          </span>
-        </div>
-
-        {/* Caution */}
-        <div className="mt-2 border-t border-black pt-1">
-          <strong>Caution:</strong>{" "}
-          To claim certain credits or deductions on your tax return, you
-          (and/or your spouse if married filing jointly) are required to have
-          a social security number valid for employment. See page 2 for more
-          information.
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-  {/* =========================
+          {/* =========================
       TIP
   ========================== */}
 
-  <div className="border-b border-black py-2">
+          <div className="border-b border-black py-2">
+            <p className="m-0 text-[8px] leading-[1.15] sm:text-[9.5px] lg:text-[11px]">
+              <strong>TIP:</strong> Consider using the estimator at{" "}
+              <strong>
+                <i>www.irs.gov/W4App</i>
+              </strong>{" "}
+              to determine the most accurate withholding for the rest of the
+              year if you are completing this form after the beginning of the
+              year; expect to work only part of the year; or have changes during
+              the year in your marital status, number of jobs for you (and/or
+              your spouse if married filing jointly), dependents, other income
+              (not from jobs), deductions, or credits. Have your most recent pay
+              stub(s) from this year available when using the estimator. At the
+              beginning of next year, use the estimator again to recheck your
+              withholding.
+            </p>
 
-    <p className="m-0 text-[8px] leading-[1.15] sm:text-[9.5px] lg:text-[11px]">
-      <strong>TIP:</strong>{" "}
-      Consider using the estimator at{" "}
-      <strong>
-        <i>www.irs.gov/W4App</i>
-      </strong>{" "}
-      to determine the most accurate withholding for the rest of
-      the year if you are completing this form after the beginning
-      of the year; expect to work only part of the year; or have
-      changes during the year in your marital status, number of jobs
-      for you (and/or your spouse if married filing jointly), dependents,
-      other income (not from jobs), deductions, or credits. Have your
-      most recent pay stub(s) from this year available when using the
-      estimator. At the beginning of next year, use the estimator again
-      to recheck your withholding.
-    </p>
+            <p className="mt-2 mb-0 text-[8px] font-bold sm:text-[9.5px] lg:text-[11px]">
+              Complete Steps 2–4 ONLY if they apply to you; otherwise, skip to
+              Step 5. See page 2 for more information on each step, who can
+              claim exemption from withholding, and when to use the estimator at{" "}
+              <i>www.irs.gov/W4App</i>.
+            </p>
+          </div>
 
-    <p className="mt-2 mb-0 text-[8px] font-bold sm:text-[9.5px] lg:text-[11px]">
-      Complete Steps 2–4 ONLY if they apply to you; otherwise, skip to
-      Step 5. See page 2 for more information on each step, who can
-      claim exemption from withholding, and when to use the estimator at{" "}
-      <i>www.irs.gov/W4App</i>.
-    </p>
-
-  </div>
-
-
-  {/* =========================
+          {/* =========================
       STEP 2
   ========================== */}
 
-  <div className="grid grid-cols-[75px_minmax(0,1fr)] py-2 sm:grid-cols-[90px_minmax(0,1fr)] lg:grid-cols-[100px_minmax(0,1fr)]">
+          <div className="grid grid-cols-[75px_minmax(0,1fr)] py-2 sm:grid-cols-[90px_minmax(0,1fr)] lg:grid-cols-[100px_minmax(0,1fr)]">
+            <div className="pr-1 sm:pr-2">
+              <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
+                Step 2:
+              </div>
 
-    <div className="pr-1 sm:pr-2">
+              <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
+                Multiple Jobs
+                <br />
+                or Spouse
+                <br />
+                Works
+              </div>
+            </div>
 
-      <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
-        Step 2:
-      </div>
+            <div className="pl-2 text-[8px] sm:pl-3 sm:text-[9.5px] lg:text-[11px]">
+              <p className="m-0">
+                Complete this step if you (1) hold more than one job at a time,
+                or (2) are married filing jointly and your spouse also works.
+                The correct amount of withholding depends on income earned from
+                all of these jobs.
+              </p>
 
-      <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
-        Multiple Jobs
-        <br />
-        or Spouse
-        <br />
-        Works
-      </div>
+              <p className="mt-2 mb-1 font-bold">
+                Do only one of the following.
+              </p>
 
-    </div>
+              <div className="mb-1">
+                <strong>(a)</strong> Use the estimator at{" "}
+                <i>www.irs.gov/W4App</i> for the most accurate withholding for
+                this step (and Steps 3–4). If you or your spouse have
+                self-employment income, use this option; or
+              </div>
 
-    <div className="pl-2 text-[8px] sm:pl-3 sm:text-[9.5px] lg:text-[11px]">
+              <div className="mb-1">
+                <strong>(b)</strong> Use the Multiple Jobs Worksheet on page 3
+                and enter the result in Step 4(c) below; or
+              </div>
 
-      <p className="m-0">
-        Complete this step if you (1) hold more than one job at a time,
-        or (2) are married filing jointly and your spouse also works.
-        The correct amount of withholding depends on income earned from
-        all of these jobs.
-      </p>
+              <div>
+                <strong>(c)</strong> If there are only two jobs total, you may
+                check this box. Do the same on Form W-4 for the other job. This
+                option is generally more accurate than Step 2(b) if pay at the
+                lower paying job is more than half of the pay at the higher
+                paying job. Otherwise, Step 2(b) is more accurate . . . . . . .
+                . . . . . . . .
+                <input type="checkbox" className="ml-1 h-3 w-3 align-middle" />
+              </div>
+            </div>
+          </div>
 
-      <p className="mt-2 mb-1 font-bold">
-        Do only one of the following.
-      </p>
+          {/* Steps 3-4 Notice */}
+          <div className="border-b border-black py-1 text-[7.5px] sm:text-[9px] lg:text-[10px]">
+            <strong>
+              Complete Steps 3–4(b) on Form W-4 for only ONE of these jobs.
+            </strong>{" "}
+            Leave those steps blank for the other jobs. (Your withholding will
+            be most accurate if you complete Steps 3–4(b) on the Form W-4 for
+            the highest paying job.)
+          </div>
 
-      <div className="mb-1">
-        <strong>(a)</strong>{" "}
-        Use the estimator at <i>www.irs.gov/W4App</i> for the most
-        accurate withholding for this step (and Steps 3–4). If you or
-        your spouse have self-employment income, use this option; or
-      </div>
-
-      <div className="mb-1">
-        <strong>(b)</strong>{" "}
-        Use the Multiple Jobs Worksheet on page 3 and enter the result
-        in Step 4(c) below; or
-      </div>
-
-      <div>
-        <strong>(c)</strong>{" "}
-        If there are only two jobs total, you may check this box.
-        Do the same on Form W-4 for the other job. This option is
-        generally more accurate than Step 2(b) if pay at the lower
-        paying job is more than half of the pay at the higher paying
-        job. Otherwise, Step 2(b) is more accurate . . . . . . . . . . . . . . .
-
-        <input
-          type="checkbox"
-          className="ml-1 h-3 w-3 align-middle"
-        />
-      </div>
-
-    </div>
-  </div>
-
-
-  {/* Steps 3-4 Notice */}
-  <div className="border-b border-black py-1 text-[7.5px] sm:text-[9px] lg:text-[10px]">
-
-    <strong>
-      Complete Steps 3–4(b) on Form W-4 for only ONE of these jobs.
-    </strong>{" "}
-    Leave those steps blank for the other jobs. (Your withholding will
-    be most accurate if you complete Steps 3–4(b) on the Form W-4 for
-    the highest paying job.)
-
-  </div>
-
-
-  {/* =========================
+          {/* =========================
       STEP 3
   ========================== */}
 
-  <div className="grid grid-cols-[75px_minmax(0,1fr)_75px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_95px] lg:grid-cols-[100px_minmax(0,1fr)_120px]">
+          <div className="grid grid-cols-[75px_minmax(0,1fr)_75px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_95px] lg:grid-cols-[100px_minmax(0,1fr)_120px]">
+            <div className="border-r border-black py-2 pr-1 sm:pr-2">
+              <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
+                Step 3:
+              </div>
 
-    <div className="border-r border-black py-2 pr-1 sm:pr-2">
+              <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
+                Claim
+                <br />
+                Dependent
+                <br />
+                and Other
+                <br />
+                Credits
+              </div>
+            </div>
 
-      <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
-        Step 3:
-      </div>
+            <div className="px-2 py-2 text-[8px] sm:px-3 sm:text-[9.5px] lg:text-[11px]">
+              <p className="m-0">
+                If your total income will be $200,000 or less ($400,000 or less
+                if married filing jointly):
+              </p>
 
-      <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
-        Claim
-        <br />
-        Dependent
-        <br />
-        and Other
-        <br />
-        Credits
-      </div>
+              <div className="mt-2">
+                <strong>(a)</strong> Multiply the number of qualifying children
+                under age 17 by $2,200.
+              </div>
 
-    </div>
+              <div className="mt-2">
+                <strong>(b)</strong> Multiply the number of other dependents by
+                $500.
+              </div>
 
-    <div className="px-2 py-2 text-[8px] sm:px-3 sm:text-[9.5px] lg:text-[11px]">
+              <div className="mt-2">
+                Add the amounts from Steps 3(a) and 3(b), plus the amount for
+                other credits. Enter the total here.
+              </div>
+            </div>
 
-      <p className="m-0">
-        If your total income will be $200,000 or less ($400,000 or less
-        if married filing jointly):
-      </p>
+            <div className="border-l border-black text-[8px] sm:text-[9.5px] lg:text-[11px]">
+              <div className="border-b border-black px-1 py-3 sm:px-2">
+                <strong>3(a)</strong> $
+              </div>
 
-      <div className="mt-2">
-        <strong>(a)</strong>{" "}
-        Multiply the number of qualifying children under age 17 by
-        $2,200.
-      </div>
+              <div className="border-b border-black px-1 py-3 sm:px-2">
+                <strong>3(b)</strong> $
+              </div>
 
-      <div className="mt-2">
-        <strong>(b)</strong>{" "}
-        Multiply the number of other dependents by $500.
-      </div>
+              <div className="px-1 py-3 sm:px-2">
+                <strong>3</strong> $
+              </div>
+            </div>
+          </div>
 
-      <div className="mt-2">
-        Add the amounts from Steps 3(a) and 3(b), plus the amount for
-        other credits. Enter the total here.
-      </div>
-
-    </div>
-
-    <div className="border-l border-black text-[8px] sm:text-[9.5px] lg:text-[11px]">
-
-      <div className="border-b border-black px-1 py-3 sm:px-2">
-        <strong>3(a)</strong> $
-      </div>
-
-      <div className="border-b border-black px-1 py-3 sm:px-2">
-        <strong>3(b)</strong> $
-      </div>
-
-      <div className="px-1 py-3 sm:px-2">
-        <strong>3</strong> $
-      </div>
-
-    </div>
-
-  </div>
-
-
-  {/* =========================
+          {/* =========================
       STEP 4
   ========================== */}
 
-  <div className="grid grid-cols-[75px_minmax(0,1fr)_75px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_95px] lg:grid-cols-[100px_minmax(0,1fr)_120px]">
+          <div className="grid grid-cols-[75px_minmax(0,1fr)_75px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_95px] lg:grid-cols-[100px_minmax(0,1fr)_120px]">
+            <div className="border-r border-black py-2 pr-1 sm:pr-2">
+              <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
+                Step 4:
+              </div>
 
-    <div className="border-r border-black py-2 pr-1 sm:pr-2">
+              <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
+                Other
+                <br />
+                Adjustments
+              </div>
+            </div>
 
-      <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
-        Step 4:
-      </div>
+            <div className="px-2 py-2 text-[8px] sm:px-3 sm:text-[9.5px] lg:text-[11px]">
+              <div className="mb-3">
+                <strong>(a) Other income (not from jobs).</strong> If you want
+                tax withheld for other income you expect this year that won’t
+                have withholding, enter the amount of other income here. This
+                may include interest, dividends, and retirement income.
+              </div>
 
-      <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
-        Other
-        <br />
-        Adjustments
-      </div>
+              <div className="mb-3">
+                <strong>(b) Deductions.</strong> Use the Deductions Worksheet on
+                page 4 to determine the amount of deductions you may claim,
+                which will reduce your withholding. (If you skip this line, your
+                withholding will be based on the standard deduction.)
+              </div>
 
-    </div>
+              <div>
+                <strong>(c) Extra withholding.</strong> Enter any additional tax
+                you want withheld each pay period.
+              </div>
+            </div>
 
-    <div className="px-2 py-2 text-[8px] sm:px-3 sm:text-[9.5px] lg:text-[11px]">
+            <div className="border-l border-black text-[8px] sm:text-[9.5px] lg:text-[11px]">
+              <div className="border-b border-black px-1 py-4 sm:px-2">
+                <strong>4(a)</strong> $
+              </div>
 
-      <div className="mb-3">
-        <strong>(a) Other income (not from jobs).</strong>{" "}
-        If you want tax withheld for other income you expect this year
-        that won’t have withholding, enter the amount of other income
-        here. This may include interest, dividends, and retirement
-        income.
-      </div>
+              <div className="border-b border-black px-1 py-4 sm:px-2">
+                <strong>4(b)</strong> $
+              </div>
 
-      <div className="mb-3">
-        <strong>(b) Deductions.</strong>{" "}
-        Use the Deductions Worksheet on page 4 to determine the amount
-        of deductions you may claim, which will reduce your withholding.
-        (If you skip this line, your withholding will be based on the
-        standard deduction.)
-      </div>
+              <div className="px-1 py-4 sm:px-2">
+                <strong>4(c)</strong> $
+              </div>
+            </div>
+          </div>
 
-      <div>
-        <strong>(c) Extra withholding.</strong>{" "}
-        Enter any additional tax you want withheld each pay period.
-      </div>
-
-    </div>
-
-    <div className="border-l border-black text-[8px] sm:text-[9.5px] lg:text-[11px]">
-
-      <div className="border-b border-black px-1 py-4 sm:px-2">
-        <strong>4(a)</strong> $
-      </div>
-
-      <div className="border-b border-black px-1 py-4 sm:px-2">
-        <strong>4(b)</strong> $
-      </div>
-
-      <div className="px-1 py-4 sm:px-2">
-        <strong>4(c)</strong> $
-      </div>
-
-    </div>
-
-  </div>
-
-
-  {/* =========================
+          {/* =========================
       EXEMPT
   ========================== */}
 
-  <div className="grid grid-cols-[75px_minmax(0,1fr)_20px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_25px] lg:grid-cols-[100px_minmax(0,1fr)_25px]">
+          <div className="grid grid-cols-[75px_minmax(0,1fr)_20px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_25px] lg:grid-cols-[100px_minmax(0,1fr)_25px]">
+            <div className="border-r border-black py-2 pr-1 text-[7.5px] font-bold sm:pr-2 sm:text-[9px] lg:text-[10px]">
+              Exempt from
+              <br />
+              withholding
+            </div>
 
-    <div className="border-r border-black py-2 pr-1 text-[7.5px] font-bold sm:pr-2 sm:text-[9px] lg:text-[10px]">
-      Exempt from
-      <br />
-      withholding
-    </div>
+            <div className="px-1 py-2 text-[7.5px] sm:px-2 sm:text-[9px] lg:text-[10px]">
+              I claim exemption from withholding for 2026, and I certify that I
+              meet both of the conditions for exemption for 2026. See{" "}
+              <i>Exemption from withholding</i> on page 2. I understand I will
+              need to submit a new Form W-4 for 2027.
+            </div>
 
-    <div className="px-1 py-2 text-[7.5px] sm:px-2 sm:text-[9px] lg:text-[10px]">
-      I claim exemption from withholding for 2026, and I certify that I
-      meet both of the conditions for exemption for 2026. See{" "}
-      <i>Exemption from withholding</i> on page 2. I understand I will
-      need to submit a new Form W-4 for 2027.
-    </div>
+            <div className="flex items-center justify-center">
+              <span className="inline-block h-3 w-3 border border-black sm:h-4 sm:w-4" />
+            </div>
+          </div>
 
-    <div className="flex items-center justify-center">
-      <span className="inline-block h-3 w-3 border border-black sm:h-4 sm:w-4" />
-    </div>
-
-  </div>
-
-
-  {/* =========================
+          {/* =========================
       STEP 5
   ========================== */}
 
-  <div className="grid grid-cols-[75px_minmax(0,1fr)] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)] lg:grid-cols-[100px_minmax(0,1fr)]">
+          <div className="grid grid-cols-[75px_minmax(0,1fr)] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)] lg:grid-cols-[100px_minmax(0,1fr)]">
+            <div className="border-r border-black py-2 pr-1 sm:pr-2">
+              <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
+                Step 5:
+              </div>
 
-    <div className="border-r border-black py-2 pr-1 sm:pr-2">
+              <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
+                Sign
+                <br />
+                Here
+              </div>
+            </div>
 
-      <div className="text-[10px] font-black sm:text-[12px] lg:text-[13.4px]">
-        Step 5:
-      </div>
+            <div className="px-2 py-2 text-[8px] sm:px-3 sm:text-[9px] lg:text-[10px]">
+              <p className="m-0">
+                Under penalties of perjury, I declare that this certificate, to
+                the best of my knowledge and belief, is true, correct, and
+                complete.
+              </p>
 
-      <div className="mt-2 text-[10px] font-black leading-tight sm:text-[12px] lg:text-[13.4px]">
-        Sign
-        <br />
-        Here
-      </div>
+              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-[minmax(0,1fr)_120px] sm:gap-5 lg:grid-cols-[minmax(0,1fr)_200px] lg:gap-6">
+                <div>
+                  <div className="h-[20px] border-b border-black" />
 
-    </div>
+                  <div className="mt-1 font-bold">
+                    Employee’s signature{" "}
+                    <span className="font-normal">
+                      (This form is not valid unless you sign it.)
+                    </span>
+                  </div>
+                </div>
 
-    <div className="px-2 py-2 text-[8px] sm:px-3 sm:text-[9px] lg:text-[10px]">
+                <div>
+                  <div className="h-[20px] border-b border-black" />
 
-      <p className="m-0">
-        Under penalties of perjury, I declare that this certificate, to
-        the best of my knowledge and belief, is true, correct, and
-        complete.
-      </p>
-
-      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-[minmax(0,1fr)_120px] sm:gap-5 lg:grid-cols-[minmax(0,1fr)_200px] lg:gap-6">
-
-        <div>
-          <div className="h-[20px] border-b border-black" />
-
-          <div className="mt-1 font-bold">
-            Employee’s signature{" "}
-            <span className="font-normal">
-              (This form is not valid unless you sign it.)
-            </span>
+                  <div className="mt-1 font-bold">Date</div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <div className="h-[20px] border-b border-black" />
-
-          <div className="mt-1 font-bold">
-            Date
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
-
-  {/* =========================
+          {/* =========================
       EMPLOYER
   ========================== */}
 
-  <div className="grid grid-cols-[75px_minmax(0,1fr)_75px_100px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_100px_140px] lg:grid-cols-[100px_minmax(0,1fr)_130px_190px]">
+          <div className="grid grid-cols-[75px_minmax(0,1fr)_75px_100px] border-b border-black sm:grid-cols-[90px_minmax(0,1fr)_100px_140px] lg:grid-cols-[100px_minmax(0,1fr)_130px_190px]">
+            <div className="border-r border-black py-2 pr-1 text-[10px] font-black leading-tight sm:pr-2 sm:text-[11px] lg:text-[13.4px]">
+              Employers
+              <br />
+              Only
+            </div>
 
-    <div className="border-r border-black py-2 pr-1 text-[10px] font-black leading-tight sm:pr-2 sm:text-[11px] lg:text-[13.4px]">
-      Employers
-      <br />
-      Only
-    </div>
+            <div className="border-r border-black px-1 py-2 text-[7px] sm:px-2 sm:text-[9px] lg:text-[10px]">
+              Employer’s name and address
+            </div>
 
-    <div className="border-r border-black px-1 py-2 text-[7px] sm:px-2 sm:text-[9px] lg:text-[10px]">
-      Employer’s name and address
-    </div>
+            <div className="border-r border-black px-1 py-2 text-[7px] sm:px-2 sm:text-[9px] lg:text-[10px]">
+              First date of
+              <br />
+              employment
+            </div>
 
-    <div className="border-r border-black px-1 py-2 text-[7px] sm:px-2 sm:text-[9px] lg:text-[10px]">
-      First date of
-      <br />
-      employment
-    </div>
+            <div className="px-1 py-2 text-[7px] sm:px-2 sm:text-[9px] lg:text-[10px]">
+              Employer identification
+              <br />
+              number (EIN)
+            </div>
+          </div>
 
-    <div className="px-1 py-2 text-[7px] sm:px-2 sm:text-[9px] lg:text-[10px]">
-      Employer identification
-      <br />
-      number (EIN)
-    </div>
+          {/* Footer */}
+          <div className="flex flex-col gap-1 pt-2 text-[7px] font-bold sm:flex-row sm:items-center sm:justify-between sm:text-[8px] lg:text-[9px]">
+            <div>
+              For Privacy Act and Paperwork Reduction Act Notice, see page 4.
+            </div>
 
-  </div>
+            <div className="font-normal">Cat. No. 10220Q</div>
 
+            <div className="font-normal">Form W-4 (2026) Created 12/8/25</div>
+          </div>
+        </div>
 
-  {/* Footer */}
-  <div className="flex flex-col gap-1 pt-2 text-[7px] font-bold sm:flex-row sm:items-center sm:justify-between sm:text-[8px] lg:text-[9px]">
+        <br />
 
-    <div>
-      For Privacy Act and Paperwork Reduction Act Notice, see page 4.
-    </div>
-
-    <div className="font-normal">
-      Cat. No. 10220Q
-    </div>
-
-    <div className="font-normal">
-      Form W-4 (2026) Created 12/8/25
-    </div>
-
-  </div>
-
-</div>
-
-
-<br />
-
-
-{/* =====================================================
+        {/* =====================================================
     PAGE 2
 ===================================================== */}
 
-<div className="font-[Arial] mx-auto w-full max-w-[210mm] min-h-screen overflow-hidden bg-white px-2 py-3 shadow-[0_2px_10px_rgba(0,0,0,0.25)] sm:px-4 sm:py-5 md:px-6 lg:px-[17mm] lg:py-[17mm]">
+        <div className="font-[Arial] mx-auto w-full max-w-[210mm] min-h-screen overflow-hidden bg-white px-2 py-3 shadow-[0_2px_10px_rgba(0,0,0,0.25)] sm:px-4 sm:py-5 md:px-6 lg:px-[17mm] lg:py-[17mm]">
+          {/* Page Header */}
+          <div className="mb-3 flex items-center justify-between border-b-2 border-black pb-1 text-[8px] sm:text-[10px] lg:text-[11px]">
+            <span>Form W-4 (2026)</span>
 
-  {/* Page Header */}
-  <div className="mb-3 flex items-center justify-between border-b-2 border-black pb-1 text-[8px] sm:text-[10px] lg:text-[11px]">
+            <span>Page 2</span>
+          </div>
 
-    <span>
-      Form W-4 (2026)
-    </span>
-
-    <span>
-      Page 2
-    </span>
-
-  </div>
-
-
-  {/* Main Two Columns */}
-  <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-[0.35in]">
-
-
-    {/* =========================
+          {/* Main Two Columns */}
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-[0.35in]">
+            {/* =========================
         LEFT COLUMN
     ========================== */}
 
-    <div className="text-[9px] leading-[1.08] sm:text-[10px] lg:text-[11px]">
+            <div className="text-[9px] leading-[1.08] sm:text-[10px] lg:text-[11px]">
+              <h1 className="mb-1 text-[14px] font-black leading-none sm:text-[16px] lg:text-[17px]">
+                General Instructions
+              </h1>
 
-      <h1 className="mb-1 text-[14px] font-black leading-none sm:text-[16px] lg:text-[17px]">
-        General Instructions
-      </h1>
+              <p className="mb-2 text-[9px] leading-tight sm:text-[10px] lg:text-[11px]">
+                Section references are to the Internal Revenue Code unless
+                otherwise noted.
+              </p>
 
-      <p className="mb-2 text-[9px] leading-tight sm:text-[10px] lg:text-[11px]">
-        Section references are to the Internal Revenue Code unless
-        otherwise noted.
-      </p>
+              <h2 className="mb-1 text-[14px] font-black leading-none sm:text-[15px] lg:text-[16px]">
+                Future Developments
+              </h2>
 
+              <p className="mb-2">
+                For the latest information about developments related to Form
+                W-4, such as legislation enacted after it was published, go to{" "}
+                <strong>
+                  <i>www.irs.gov/FormW4</i>
+                </strong>
+                .
+              </p>
 
-      <h2 className="mb-1 text-[14px] font-black leading-none sm:text-[15px] lg:text-[16px]">
-        Future Developments
-      </h2>
+              <h2 className="mb-1 text-[14px] font-black leading-none sm:text-[16px] lg:text-[17px]">
+                Purpose of Form
+              </h2>
 
-      <p className="mb-2">
-        For the latest information about developments related to Form
-        W-4, such as legislation enacted after it was published, go to{" "}
-        <strong>
-          <i>www.irs.gov/FormW4</i>
-        </strong>
-        .
-      </p>
+              <p className="mb-2">
+                Complete Form W-4 so that your employer can withhold the correct
+                federal income tax from your pay. If too little is withheld, you
+                will generally owe tax when you file your tax return and may owe
+                a penalty. If too much is withheld, you will generally be due a
+                refund. Complete a new Form W-4 when changes to your personal or
+                financial situation would change the entries on the form. For
+                more information on withholding and when you must furnish a new
+                Form W-4, see Pub. 505, Tax Withholding and Estimated Tax.
+              </p>
 
+              <p className="mb-2">
+                <strong>Exemption from withholding.</strong> You may claim
+                exemption from withholding for 2026 if you meet both of the
+                following conditions: you had no federal income tax liability in
+                2025 and you expect to have no federal income tax liability in
+                2026. You had no federal income tax liability in 2025 if (1)
+                your total tax on line 24 on your 2025 Form 1040 or 1040-SR is
+                zero (or less than the sum of lines 27a, 28, 29, and 30), or (2)
+                you were not required to file a return because your income was
+                below the filing threshold for your correct filing status. If
+                you claim exemption, you will have no income tax withheld from
+                your paycheck and may owe taxes and penalties when you file your
+                2026 tax return. To claim exemption from withholding, certify
+                that you meet both of the conditions by checking the box in the{" "}
+                <i>Exempt from withholding</i> section. Then, complete Steps
+                1(a), 1(b), and 5. Do not complete any other steps. You will
+                need to submit a new Form W-4 by February 16, 2027.
+              </p>
 
-      <h2 className="mb-1 text-[14px] font-black leading-none sm:text-[16px] lg:text-[17px]">
-        Purpose of Form
-      </h2>
+              <p className="mb-2">
+                <strong>Your privacy.</strong> Steps 2(c) and 4(a) ask for
+                information regarding income you received from sources other
+                than the job associated with this Form W-4. If you have concerns
+                with providing the information asked for in Step 2(c), you may
+                choose Step 2(b) as an alternative; if you have concerns with
+                providing the information asked for in Step 4(a), you may enter
+                an additional amount you want withheld per pay period in Step
+                4(c) as an alternative.
+              </p>
 
-      <p className="mb-2">
-        Complete Form W-4 so that your employer can withhold the correct
-        federal income tax from your pay. If too little is withheld, you
-        will generally owe tax when you file your tax return and may owe
-        a penalty. If too much is withheld, you will generally be due a
-        refund. Complete a new Form W-4 when changes to your personal or
-        financial situation would change the entries on the form. For
-        more information on withholding and when you must furnish a new
-        Form W-4, see Pub. 505, Tax Withholding and Estimated Tax.
-      </p>
+              <p className="mb-1">
+                <strong>When to use the estimator.</strong> Consider using the
+                estimator at{" "}
+                <strong>
+                  <i>www.irs.gov/W4App</i>
+                </strong>{" "}
+                if you:
+              </p>
 
+              <ol className="mb-2 list-decimal space-y-1 pl-5">
+                <li>
+                  Are submitting this form after the beginning of the year;
+                </li>
 
-      <p className="mb-2">
-        <strong>Exemption from withholding.</strong>{" "}
-        You may claim exemption from withholding for 2026 if you meet
-        both of the following conditions: you had no federal income tax
-        liability in 2025 and you expect to have no federal income tax
-        liability in 2026. You had no federal income tax liability in
-        2025 if (1) your total tax on line 24 on your 2025 Form 1040 or
-        1040-SR is zero (or less than the sum of lines 27a, 28, 29, and
-        30), or (2) you were not required to file a return because your
-        income was below the filing threshold for your correct filing
-        status. If you claim exemption, you will have no income tax
-        withheld from your paycheck and may owe taxes and penalties when
-        you file your 2026 tax return. To claim exemption from
-        withholding, certify that you meet both of the conditions by
-        checking the box in the <i>Exempt from withholding</i> section.
-        Then, complete Steps 1(a), 1(b), and 5. Do not complete any
-        other steps. You will need to submit a new Form W-4 by February
-        16, 2027.
-      </p>
+                <li>Expect to work only part of the year;</li>
 
+                <li>
+                  Have changes during the year in your marital status, number of
+                  jobs for you (and/or your spouse if married filing jointly),
+                  or number of dependents, or changes in your deductions or
+                  credits;
+                </li>
 
-      <p className="mb-2">
-        <strong>Your privacy.</strong>{" "}
-        Steps 2(c) and 4(a) ask for information regarding income you
-        received from sources other than the job associated with this
-        Form W-4. If you have concerns with providing the information
-        asked for in Step 2(c), you may choose Step 2(b) as an
-        alternative; if you have concerns with providing the information
-        asked for in Step 4(a), you may enter an additional amount you
-        want withheld per pay period in Step 4(c) as an alternative.
-      </p>
+                <li>
+                  Receive dividends, capital gains, social security, bonuses, or
+                  business income, or are subject to the Additional Medicare Tax
+                  or Net Investment Income Tax; or
+                </li>
 
+                <li>
+                  Prefer the most accurate withholding for multiple job
+                  situations.
+                </li>
+              </ol>
 
-      <p className="mb-1">
-        <strong>When to use the estimator.</strong>{" "}
-        Consider using the estimator at{" "}
-        <strong>
-          <i>www.irs.gov/W4App</i>
-        </strong>{" "}
-        if you:
-      </p>
+              <p className="mb-2">
+                <strong>TIP:</strong> Have your most recent pay stub(s) from
+                this year available when using the estimator to account for
+                federal income tax that has already been withheld this year. At
+                the beginning of next year, use the estimator again to recheck
+                your withholding.
+              </p>
 
+              <p>
+                <strong>Self-employment.</strong> Generally, you will owe both
+                income and self-employment taxes on any self-employment income
+                you receive separate from the wages you receive as an employee.
+                If you want to pay these taxes through withholding from your
+                wages, use the estimator at{" "}
+                <strong>
+                  <i>www.irs.gov/W4App</i>
+                </strong>{" "}
+                to figure the amount to have withheld.
+              </p>
+            </div>
 
-      <ol className="mb-2 list-decimal space-y-1 pl-5">
-
-        <li>
-          Are submitting this form after the beginning of the year;
-        </li>
-
-        <li>
-          Expect to work only part of the year;
-        </li>
-
-        <li>
-          Have changes during the year in your marital status, number of
-          jobs for you (and/or your spouse if married filing jointly),
-          or number of dependents, or changes in your deductions or
-          credits;
-        </li>
-
-        <li>
-          Receive dividends, capital gains, social security, bonuses, or
-          business income, or are subject to the Additional Medicare Tax
-          or Net Investment Income Tax; or
-        </li>
-
-        <li>
-          Prefer the most accurate withholding for multiple job
-          situations.
-        </li>
-
-      </ol>
-
-
-      <p className="mb-2">
-        <strong>TIP:</strong>{" "}
-        Have your most recent pay stub(s) from this year available when
-        using the estimator to account for federal income tax that has
-        already been withheld this year. At the beginning of next year,
-        use the estimator again to recheck your withholding.
-      </p>
-
-
-      <p>
-        <strong>Self-employment.</strong>{" "}
-        Generally, you will owe both income and self-employment taxes on
-        any self-employment income you receive separate from the wages
-        you receive as an employee. If you want to pay these taxes
-        through withholding from your wages, use the estimator at{" "}
-        <strong>
-          <i>www.irs.gov/W4App</i>
-        </strong>{" "}
-        to figure the amount to have withheld.
-      </p>
-
-    </div>
-
-
-    {/* =========================
+            {/* =========================
         RIGHT COLUMN
     ========================== */}
 
-    <div className="text-[9px] leading-[1.08] sm:text-[10px] lg:text-[11px]">
+            <div className="text-[9px] leading-[1.08] sm:text-[10px] lg:text-[11px]">
+              <p className="mb-3">
+                <strong>Nonresident alien.</strong> If you’re a nonresident
+                alien, see Notice 1392, Supplemental Form W-4 Instructions for
+                Nonresident Aliens, before completing this form.
+              </p>
 
-      <p className="mb-3">
-        <strong>Nonresident alien.</strong>{" "}
-        If you’re a nonresident alien, see Notice 1392, Supplemental
-        Form W-4 Instructions for Nonresident Aliens, before completing
-        this form.
-      </p>
+              <h1 className="mb-1 text-[14px] font-black leading-none sm:text-[16px] lg:text-[17px]">
+                Specific Instructions
+              </h1>
 
+              <p className="mb-2">
+                <strong>Step 1(c).</strong> Check your anticipated filing
+                status. This will determine the standard deduction and tax rates
+                used to compute your withholding.
+              </p>
 
-      <h1 className="mb-1 text-[14px] font-black leading-none sm:text-[16px] lg:text-[17px]">
-        Specific Instructions
-      </h1>
+              <p className="mb-2">
+                <strong>Step 2.</strong> Use this step if you (1) have more than
+                one job at the same time, or (2) are married filing jointly and
+                you and your spouse both work. Submit a separate Form W-4 for
+                each job.
+              </p>
 
+              <p className="mb-2 pl-2 sm:pl-4">
+                Option <strong>(a)</strong> most accurately calculates the
+                additional tax you need to have withheld, while option{" "}
+                <strong>(b)</strong> does so with a little less accuracy.
+              </p>
 
-      <p className="mb-2">
-        <strong>Step 1(c).</strong>{" "}
-        Check your anticipated filing status. This will determine the
-        standard deduction and tax rates used to compute your
-        withholding.
-      </p>
+              <p className="mb-2 pl-2 sm:pl-4">
+                Instead, if you (and your spouse) have a total of only two jobs,
+                you may check the box in option <strong>(c)</strong>. The box
+                must also be checked on the Form W-4 for the other job. If the
+                box is checked, the standard deduction and tax brackets will be
+                cut in half for each job to calculate withholding. This option
+                is accurate for jobs with similar pay; otherwise, more tax than
+                necessary may be withheld, and this extra amount of tax withheld
+                will be larger the greater the difference in pay is between the
+                two jobs.
+              </p>
 
+              {/* CAUTION */}
+              <div className="mb-2 flex items-start gap-2 border-t border-b border-black py-2">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center bg-black text-[7px] font-black text-white sm:h-8 sm:w-8 sm:text-[8px]">
+                  ▲
+                  <br />
+                  CAUTION
+                </div>
 
-      <p className="mb-2">
-        <strong>Step 2.</strong>{" "}
-        Use this step if you (1) have more than one job at the same time,
-        or (2) are married filing jointly and you and your spouse both
-        work. Submit a separate Form W-4 for each job.
-      </p>
+                <div>
+                  <strong>
+                    <i>Multiple jobs.</i>
+                  </strong>{" "}
+                  Complete Steps 3 through 4(b) only on one Form W-4.
+                  Withholding will be most accurate if you do this on the Form
+                  W-4 for the highest paying job.
+                </div>
+              </div>
 
+              <p className="mb-2">
+                <strong>Step 3.</strong> This step provides instructions for
+                determining the amount of the child tax credit and the credit
+                for other dependents that you may be able to claim when you file
+                your tax return. To qualify for the child tax credit, the child
+                must be under age 17 as of December 31, must be your dependent
+                who generally lives with you for more than half the year, and
+                must have the required social security number. You (and/or your
+                spouse if married filing jointly) must have the required social
+                security number to claim certain credits. You may be able to
+                claim a credit for other dependents for whom a child tax credit
+                can’t be claimed, such as an older child or a qualifying
+                relative. For additional eligibility requirements for these
+                credits, see Pub. 501, Dependents, Standard Deduction, and
+                Filing Information. You can also include other tax credits for
+                which you are eligible in this step, such as the foreign tax
+                credit and the education tax credits. To do so, add an estimate
+                of the amount for the year to your credits for dependents and
+                enter the total amount in Step 3. Including these credits will
+                increase your paycheck and reduce the amount of any refund you
+                may receive when you file your tax return.
+              </p>
 
-      <p className="mb-2 pl-2 sm:pl-4">
-        Option <strong>(a)</strong> most accurately calculates the
-        additional tax you need to have withheld, while option{" "}
-        <strong>(b)</strong> does so with a little less accuracy.
-      </p>
+              <h2 className="text-[12px] font-black sm:text-[13px] lg:text-[14px]">
+                Step 4.
+              </h2>
 
+              <p className="mb-2 pl-2 sm:pl-3">
+                <strong>
+                  <i>Step 4(a).</i>
+                </strong>{" "}
+                Enter in this step the total of your other estimated income for
+                the year, if any. You shouldn’t include income from any jobs or
+                self-employment. If you complete Step 4(a), you likely won’t
+                have to make estimated tax payments for that income. If you
+                prefer to pay estimated tax rather than having tax on other
+                income withheld from your paycheck, see Form 1040-ES, Estimated
+                Tax for Individuals.
+              </p>
 
-      <p className="mb-2 pl-2 sm:pl-4">
-        Instead, if you (and your spouse) have a total of only two jobs,
-        you may check the box in option <strong>(c)</strong>. The box
-        must also be checked on the Form W-4 for the other job. If the
-        box is checked, the standard deduction and tax brackets will be
-        cut in half for each job to calculate withholding. This option is
-        accurate for jobs with similar pay; otherwise, more tax than
-        necessary may be withheld, and this extra amount of tax withheld
-        will be larger the greater the difference in pay is between the
-        two jobs.
-      </p>
+              <p className="mb-2 pl-2 sm:pl-3">
+                <strong>
+                  <i>Step 4(b).</i>
+                </strong>{" "}
+                Enter in this step the amount from the Deductions Worksheet,
+                line 15, if you expect to claim deductions other than the basic
+                standard deduction on your 2026 tax return and want to reduce
+                your withholding to account for these deductions. This includes
+                both itemized deductions and other deductions such as for
+                qualified tips, overtime compensation, student loan interest,
+                IRAs, and seniors. You (and/or your spouse if married filing
+                jointly) must have the required social security number to claim
+                certain deductions. For additional eligibility requirements, see
+                Pub. 501.
+              </p>
 
-
-      {/* CAUTION */}
-      <div className="mb-2 flex items-start gap-2 border-t border-b border-black py-2">
-
-        <div className="flex h-7 w-7 shrink-0 items-center justify-center bg-black text-[7px] font-black text-white sm:h-8 sm:w-8 sm:text-[8px]">
-          ▲
-          <br />
-          CAUTION
+              <p className="pl-2 sm:pl-3">
+                <strong>
+                  <i>Step 4(c).</i>
+                </strong>{" "}
+                Enter in this step any additional tax you want withheld from
+                your pay each pay period, including any amounts from the
+                Multiple Jobs Worksheet, line 4. Entering an amount here will
+                reduce your paycheck, and will either increase your refund or
+                reduce any amount of tax that you owe when you file your tax
+                return.
+              </p>
+            </div>
+          </div>
         </div>
-
-        <div>
-          <strong>
-            <i>Multiple jobs.</i>
-          </strong>{" "}
-          Complete Steps 3 through 4(b) only on one Form W-4.
-          Withholding will be most accurate if you do this on the Form
-          W-4 for the highest paying job.
-        </div>
-
-      </div>
-
-
-      <p className="mb-2">
-        <strong>Step 3.</strong>{" "}
-        This step provides instructions for determining the amount of
-        the child tax credit and the credit for other dependents that
-        you may be able to claim when you file your tax return. To
-        qualify for the child tax credit, the child must be under age 17
-        as of December 31, must be your dependent who generally lives
-        with you for more than half the year, and must have the required
-        social security number. You (and/or your spouse if married filing
-        jointly) must have the required social security number to claim
-        certain credits. You may be able to claim a credit for other
-        dependents for whom a child tax credit can’t be claimed, such as
-        an older child or a qualifying relative. For additional
-        eligibility requirements for these credits, see Pub. 501,
-        Dependents, Standard Deduction, and Filing Information. You can
-        also include other tax credits for which you are eligible in
-        this step, such as the foreign tax credit and the education tax
-        credits. To do so, add an estimate of the amount for the year to
-        your credits for dependents and enter the total amount in Step 3.
-        Including these credits will increase your paycheck and reduce
-        the amount of any refund you may receive when you file your tax
-        return.
-      </p>
-
-
-      <h2 className="text-[12px] font-black sm:text-[13px] lg:text-[14px]">
-        Step 4.
-      </h2>
-
-
-      <p className="mb-2 pl-2 sm:pl-3">
-        <strong>
-          <i>Step 4(a).</i>
-        </strong>{" "}
-        Enter in this step the total of your other estimated income for
-        the year, if any. You shouldn’t include income from any jobs or
-        self-employment. If you complete Step 4(a), you likely won’t
-        have to make estimated tax payments for that income. If you
-        prefer to pay estimated tax rather than having tax on other
-        income withheld from your paycheck, see Form 1040-ES, Estimated
-        Tax for Individuals.
-      </p>
-
-
-      <p className="mb-2 pl-2 sm:pl-3">
-        <strong>
-          <i>Step 4(b).</i>
-        </strong>{" "}
-        Enter in this step the amount from the Deductions Worksheet,
-        line 15, if you expect to claim deductions other than the basic
-        standard deduction on your 2026 tax return and want to reduce
-        your withholding to account for these deductions. This includes
-        both itemized deductions and other deductions such as for
-        qualified tips, overtime compensation, student loan interest,
-        IRAs, and seniors. You (and/or your spouse if married filing
-        jointly) must have the required social security number to claim
-        certain deductions. For additional eligibility requirements,
-        see Pub. 501.
-      </p>
-
-
-      <p className="pl-2 sm:pl-3">
-        <strong>
-          <i>Step 4(c).</i>
-        </strong>{" "}
-        Enter in this step any additional tax you want withheld from
-        your pay each pay period, including any amounts from the
-        Multiple Jobs Worksheet, line 4. Entering an amount here will
-        reduce your paycheck, and will either increase your refund or
-        reduce any amount of tax that you owe when you file your tax
-        return.
-      </p>
-
-    </div>
-
-  </div>
-
-</div>
-<br />
+        <br />
 
         <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <div className="mx-auto max-w-[1000px]">
@@ -17532,9 +18208,9 @@ const ReceiptItem = ({ text }) => (
           </div>
         </div>
         <br />
-        
-<div
-  className="
+
+        <div
+          className="
     font-[Arial]
     mx-auto
     w-full
@@ -17551,9 +18227,9 @@ const ReceiptItem = ({ text }) => (
     lg:py-[17mm]
     shadow-[0_2px_10px_rgba(0,0,0,0.25)]
   "
->
-  <div
-    className="
+        >
+          <div
+            className="
       mx-auto
       w-full
       max-w-[1000px]
@@ -17562,10 +18238,10 @@ const ReceiptItem = ({ text }) => (
       md:text-[11px]
       lg:text-[13px]
     "
-  >
-    {/* ================= HEADER ================= */}
-    <div
-      className="
+          >
+            {/* ================= HEADER ================= */}
+            <div
+              className="
         mb-1
         flex
         items-center
@@ -17579,17 +18255,17 @@ const ReceiptItem = ({ text }) => (
         md:text-[10px]
         lg:text-[12px]
       "
-    >
-      <span>Form W-4 (2026)</span>
-      <span>Page 5</span>
-    </div>
+            >
+              <span>Form W-4 (2026)</span>
+              <span>Page 5</span>
+            </div>
 
-    {/* ========================================================= */}
-    {/* ================= MARRIED FILING JOINTLY ================ */}
-    {/* ========================================================= */}
+            {/* ========================================================= */}
+            {/* ================= MARRIED FILING JOINTLY ================ */}
+            {/* ========================================================= */}
 
-    <h1
-      className="
+            <h1
+              className="
         border-b
         border-black
         py-1
@@ -17601,25 +18277,25 @@ const ReceiptItem = ({ text }) => (
         font-bold
         leading-tight
       "
-    >
-      Married Filing Jointly or Qualifying Surviving Spouse
-    </h1>
+            >
+              Married Filing Jointly or Qualifying Surviving Spouse
+            </h1>
 
-    {/* Mobile horizontal scroll */}
-    <div className="w-full overflow-x-auto overscroll-x-contain">
-      <table
-        className="
+            {/* Mobile horizontal scroll */}
+            <div className="w-full overflow-x-auto overscroll-x-contain">
+              <table
+                className="
           w-full
           min-w-[760px]
           border-collapse
           text-center
         "
-      >
-        <thead>
-          <tr>
-            <th
-              rowSpan="2"
-              className="
+              >
+                <thead>
+                  <tr>
+                    <th
+                      rowSpan="2"
+                      className="
                 w-[125px]
                 min-w-[125px]
                 border-b
@@ -17635,17 +18311,17 @@ const ReceiptItem = ({ text }) => (
                 font-bold
                 leading-tight
               "
-            >
-              Higher Paying Job
-              <br />
-              Annual Taxable
-              <br />
-              Wage & Salary
-            </th>
+                    >
+                      Higher Paying Job
+                      <br />
+                      Annual Taxable
+                      <br />
+                      Wage & Salary
+                    </th>
 
-            <th
-              colSpan="12"
-              className="
+                    <th
+                      colSpan="12"
+                      className="
                 border-b
                 border-black
                 p-1
@@ -17655,36 +18331,36 @@ const ReceiptItem = ({ text }) => (
                 lg:text-[11.4px]
                 font-bold
               "
-            >
-              Lower Paying Job Annual Taxable Wage & Salary
-            </th>
-          </tr>
+                    >
+                      Lower Paying Job Annual Taxable Wage & Salary
+                    </th>
+                  </tr>
 
-          <tr
-            className="
+                  <tr
+                    className="
               text-[7px]
               sm:text-[8px]
               md:text-[8.5px]
               lg:text-[9.7px]
             "
-          >
-            {[
-              "$0 - 9,999",
-              "$10,000 - 19,999",
-              "$20,000 - 29,999",
-              "$30,000 - 39,999",
-              "$40,000 - 49,999",
-              "$50,000 - 59,999",
-              "$60,000 - 69,999",
-              "$70,000 - 79,999",
-              "$80,000 - 89,999",
-              "$90,000 - 99,999",
-              "$100,000 - 109,999",
-              "$110,000 - 120,000",
-            ].map((item) => (
-              <th
-                key={item}
-                className="
+                  >
+                    {[
+                      "$0 - 9,999",
+                      "$10,000 - 19,999",
+                      "$20,000 - 29,999",
+                      "$30,000 - 39,999",
+                      "$40,000 - 49,999",
+                      "$50,000 - 59,999",
+                      "$60,000 - 69,999",
+                      "$70,000 - 79,999",
+                      "$80,000 - 89,999",
+                      "$90,000 - 99,999",
+                      "$100,000 - 109,999",
+                      "$110,000 - 120,000",
+                    ].map((item) => (
+                      <th
+                        key={item}
+                        className="
                   min-w-[53px]
                   border
                   border-gray-400
@@ -17693,251 +18369,251 @@ const ReceiptItem = ({ text }) => (
                   font-normal
                   leading-tight
                 "
-              >
-                {item}
-              </th>
-            ))}
-          </tr>
-        </thead>
+                      >
+                        {item}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
 
-        <tbody
-          className="
+                <tbody
+                  className="
             text-[7px]
             sm:text-[8px]
             md:text-[8.5px]
             lg:text-[9.7px]
           "
-        >
-          {[
-            [
-              "$0 - 9,999",
-              0,
-              0,
-              480,
-              850,
-              850,
-              1020,
-              1020,
-              1020,
-              1020,
-              1020,
-              1020,
-              1020,
-            ],
-            [
-              "$10,000 - 19,999",
-              0,
-              480,
-              1480,
-              1850,
-              2050,
-              2220,
-              2220,
-              2220,
-              2220,
-              2220,
-              2220,
-              2620,
-            ],
-            [
-              "$20,000 - 29,999",
-              480,
-              1480,
-              2480,
-              3050,
-              3250,
-              3420,
-              3420,
-              3420,
-              3420,
-              3420,
-              3820,
-              4820,
-            ],
-            [
-              "$30,000 - 39,999",
-              850,
-              1850,
-              3050,
-              3620,
-              3820,
-              3990,
-              3990,
-              3990,
-              3990,
-              4390,
-              5390,
-              6390,
-            ],
-            [
-              "$40,000 - 49,999",
-              850,
-              2050,
-              3250,
-              3820,
-              4020,
-              4190,
-              4360,
-              4590,
-              5590,
-              6590,
-              7590,
-              7590,
-            ],
-            [
-              "$50,000 - 59,999",
-              1020,
-              2220,
-              3420,
-              3990,
-              4190,
-              4360,
-              4760,
-              5760,
-              6760,
-              6760,
-              7760,
-              8760,
-            ],
-            [
-              "$60,000 - 69,999",
-              1020,
-              2220,
-              3420,
-              3990,
-              4190,
-              4360,
-              4760,
-              5760,
-              6760,
-              7760,
-              8760,
-              9760,
-            ],
-            [
-              "$70,000 - 79,999",
-              1020,
-              2220,
-              3420,
-              3990,
-              4190,
-              4760,
-              5760,
-              6760,
-              7760,
-              8760,
-              9760,
-              10760,
-            ],
-            [
-              "$80,000 - 99,999",
-              1020,
-              2220,
-              3420,
-              4240,
-              5440,
-              6610,
-              7610,
-              8610,
-              9610,
-              10610,
-              11610,
-              12610,
-            ],
-            [
-              "$100,000 - 149,999",
-              1870,
-              4070,
-              6270,
-              7840,
-              9040,
-              10210,
-              11210,
-              12210,
-              13210,
-              14210,
-              15360,
-              16560,
-            ],
-            [
-              "$150,000 - 239,999",
-              1870,
-              4100,
-              6500,
-              8270,
-              9670,
-              11040,
-              12240,
-              13440,
-              14640,
-              15840,
-              17040,
-              18240,
-            ],
-            [
-              "$240,000 - 319,999",
-              2040,
-              4440,
-              6840,
-              8610,
-              10010,
-              11380,
-              12580,
-              13780,
-              14980,
-              16180,
-              17380,
-              18580,
-            ],
-            [
-              "$320,000 - 364,999",
-              2040,
-              4440,
-              6840,
-              8610,
-              10010,
-              11380,
-              12580,
-              13860,
-              15860,
-              17860,
-              19860,
-              21860,
-            ],
-            [
-              "$365,000 - 524,999",
-              2720,
-              5920,
-              9390,
-              12260,
-              14760,
-              17230,
-              19530,
-              21830,
-              24130,
-              26430,
-              28730,
-              31030,
-            ],
-            [
-              "$525,000 and over",
-              3140,
-              6840,
-              10540,
-              13610,
-              16310,
-              18980,
-              21480,
-              23980,
-              26480,
-              28980,
-              31480,
-              33990,
-            ],
-          ].map((row) => (
-            <tr key={row[0]}>
-              <th
-                className="
+                >
+                  {[
+                    [
+                      "$0 - 9,999",
+                      0,
+                      0,
+                      480,
+                      850,
+                      850,
+                      1020,
+                      1020,
+                      1020,
+                      1020,
+                      1020,
+                      1020,
+                      1020,
+                    ],
+                    [
+                      "$10,000 - 19,999",
+                      0,
+                      480,
+                      1480,
+                      1850,
+                      2050,
+                      2220,
+                      2220,
+                      2220,
+                      2220,
+                      2220,
+                      2220,
+                      2620,
+                    ],
+                    [
+                      "$20,000 - 29,999",
+                      480,
+                      1480,
+                      2480,
+                      3050,
+                      3250,
+                      3420,
+                      3420,
+                      3420,
+                      3420,
+                      3420,
+                      3820,
+                      4820,
+                    ],
+                    [
+                      "$30,000 - 39,999",
+                      850,
+                      1850,
+                      3050,
+                      3620,
+                      3820,
+                      3990,
+                      3990,
+                      3990,
+                      3990,
+                      4390,
+                      5390,
+                      6390,
+                    ],
+                    [
+                      "$40,000 - 49,999",
+                      850,
+                      2050,
+                      3250,
+                      3820,
+                      4020,
+                      4190,
+                      4360,
+                      4590,
+                      5590,
+                      6590,
+                      7590,
+                      7590,
+                    ],
+                    [
+                      "$50,000 - 59,999",
+                      1020,
+                      2220,
+                      3420,
+                      3990,
+                      4190,
+                      4360,
+                      4760,
+                      5760,
+                      6760,
+                      6760,
+                      7760,
+                      8760,
+                    ],
+                    [
+                      "$60,000 - 69,999",
+                      1020,
+                      2220,
+                      3420,
+                      3990,
+                      4190,
+                      4360,
+                      4760,
+                      5760,
+                      6760,
+                      7760,
+                      8760,
+                      9760,
+                    ],
+                    [
+                      "$70,000 - 79,999",
+                      1020,
+                      2220,
+                      3420,
+                      3990,
+                      4190,
+                      4760,
+                      5760,
+                      6760,
+                      7760,
+                      8760,
+                      9760,
+                      10760,
+                    ],
+                    [
+                      "$80,000 - 99,999",
+                      1020,
+                      2220,
+                      3420,
+                      4240,
+                      5440,
+                      6610,
+                      7610,
+                      8610,
+                      9610,
+                      10610,
+                      11610,
+                      12610,
+                    ],
+                    [
+                      "$100,000 - 149,999",
+                      1870,
+                      4070,
+                      6270,
+                      7840,
+                      9040,
+                      10210,
+                      11210,
+                      12210,
+                      13210,
+                      14210,
+                      15360,
+                      16560,
+                    ],
+                    [
+                      "$150,000 - 239,999",
+                      1870,
+                      4100,
+                      6500,
+                      8270,
+                      9670,
+                      11040,
+                      12240,
+                      13440,
+                      14640,
+                      15840,
+                      17040,
+                      18240,
+                    ],
+                    [
+                      "$240,000 - 319,999",
+                      2040,
+                      4440,
+                      6840,
+                      8610,
+                      10010,
+                      11380,
+                      12580,
+                      13780,
+                      14980,
+                      16180,
+                      17380,
+                      18580,
+                    ],
+                    [
+                      "$320,000 - 364,999",
+                      2040,
+                      4440,
+                      6840,
+                      8610,
+                      10010,
+                      11380,
+                      12580,
+                      13860,
+                      15860,
+                      17860,
+                      19860,
+                      21860,
+                    ],
+                    [
+                      "$365,000 - 524,999",
+                      2720,
+                      5920,
+                      9390,
+                      12260,
+                      14760,
+                      17230,
+                      19530,
+                      21830,
+                      24130,
+                      26430,
+                      28730,
+                      31030,
+                    ],
+                    [
+                      "$525,000 and over",
+                      3140,
+                      6840,
+                      10540,
+                      13610,
+                      16310,
+                      18980,
+                      21480,
+                      23980,
+                      26480,
+                      28980,
+                      31480,
+                      33990,
+                    ],
+                  ].map((row) => (
+                    <tr key={row[0]}>
+                      <th
+                        className="
                   min-w-[125px]
                   whitespace-nowrap
                   border
@@ -17947,14 +18623,14 @@ const ReceiptItem = ({ text }) => (
                   text-left
                   font-normal
                 "
-              >
-                {row[0]}
-              </th>
+                      >
+                        {row[0]}
+                      </th>
 
-              {row.slice(1).map((value, index) => (
-                <td
-                  key={index}
-                  className="
+                      {row.slice(1).map((value, index) => (
+                        <td
+                          key={index}
+                          className="
                     min-w-[53px]
                     whitespace-nowrap
                     border
@@ -17962,22 +18638,22 @@ const ReceiptItem = ({ text }) => (
                     px-1
                     py-[2px]
                   "
-                >
-                  ${value.toLocaleString()}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+                        >
+                          ${value.toLocaleString()}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-    {/* ========================================================= */}
-    {/* ============== SINGLE / MARRIED SEPARATELY ============== */}
-    {/* ========================================================= */}
+            {/* ========================================================= */}
+            {/* ============== SINGLE / MARRIED SEPARATELY ============== */}
+            {/* ========================================================= */}
 
-    <h2
-      className="
+            <h2
+              className="
         mt-2
         border-b
         border-black
@@ -17990,24 +18666,24 @@ const ReceiptItem = ({ text }) => (
         font-bold
         leading-tight
       "
-    >
-      Single or Married Filing Separately
-    </h2>
+            >
+              Single or Married Filing Separately
+            </h2>
 
-    <div className="w-full overflow-x-auto overscroll-x-contain">
-      <table
-        className="
+            <div className="w-full overflow-x-auto overscroll-x-contain">
+              <table
+                className="
           w-full
           min-w-[760px]
           border-collapse
           text-center
         "
-      >
-        <thead>
-          <tr>
-            <th
-              rowSpan="2"
-              className="
+              >
+                <thead>
+                  <tr>
+                    <th
+                      rowSpan="2"
+                      className="
                 w-[125px]
                 min-w-[125px]
                 border-b
@@ -18023,17 +18699,17 @@ const ReceiptItem = ({ text }) => (
                 font-bold
                 leading-tight
               "
-            >
-              Higher Paying Job
-              <br />
-              Annual Taxable
-              <br />
-              Wage & Salary
-            </th>
+                    >
+                      Higher Paying Job
+                      <br />
+                      Annual Taxable
+                      <br />
+                      Wage & Salary
+                    </th>
 
-            <th
-              colSpan="12"
-              className="
+                    <th
+                      colSpan="12"
+                      className="
                 border-b
                 border-black
                 p-1
@@ -18043,36 +18719,36 @@ const ReceiptItem = ({ text }) => (
                 lg:text-[11.4px]
                 font-bold
               "
-            >
-              Lower Paying Job Annual Taxable Wage & Salary
-            </th>
-          </tr>
+                    >
+                      Lower Paying Job Annual Taxable Wage & Salary
+                    </th>
+                  </tr>
 
-          <tr
-            className="
+                  <tr
+                    className="
               text-[7px]
               sm:text-[8px]
               md:text-[8.5px]
               lg:text-[9.7px]
             "
-          >
-            {[
-              "$0 - 9,999",
-              "$10,000 - 19,999",
-              "$20,000 - 29,999",
-              "$30,000 - 39,999",
-              "$40,000 - 49,999",
-              "$50,000 - 59,999",
-              "$60,000 - 69,999",
-              "$70,000 - 79,999",
-              "$80,000 - 89,999",
-              "$90,000 - 99,999",
-              "$100,000 - 109,999",
-              "$110,000 - 120,000",
-            ].map((item) => (
-              <th
-                key={item}
-                className="
+                  >
+                    {[
+                      "$0 - 9,999",
+                      "$10,000 - 19,999",
+                      "$20,000 - 29,999",
+                      "$30,000 - 39,999",
+                      "$40,000 - 49,999",
+                      "$50,000 - 59,999",
+                      "$60,000 - 69,999",
+                      "$70,000 - 79,999",
+                      "$80,000 - 89,999",
+                      "$90,000 - 99,999",
+                      "$100,000 - 109,999",
+                      "$110,000 - 120,000",
+                    ].map((item) => (
+                      <th
+                        key={item}
+                        className="
                   min-w-[53px]
                   border
                   border-gray-400
@@ -18081,237 +18757,237 @@ const ReceiptItem = ({ text }) => (
                   font-normal
                   leading-tight
                 "
-              >
-                {item}
-              </th>
-            ))}
-          </tr>
-        </thead>
+                      >
+                        {item}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
 
-        <tbody
-          className="
+                <tbody
+                  className="
             text-[7px]
             sm:text-[8px]
             md:text-[8.5px]
             lg:text-[9.7px]
           "
-        >
-          {[
-            [
-              "$0 - 9,999",
-              90,
-              850,
-              1020,
-              1020,
-              1020,
-              1070,
-              1870,
-              1870,
-              1870,
-              1870,
-              1870,
-              1970,
-            ],
-            [
-              "$10,000 - 19,999",
-              850,
-              1780,
-              1980,
-              1980,
-              2030,
-              3030,
-              3830,
-              3830,
-              3830,
-              3830,
-              3930,
-              4130,
-            ],
-            [
-              "$20,000 - 29,999",
-              1020,
-              1980,
-              2180,
-              2230,
-              3230,
-              4230,
-              5030,
-              5030,
-              5030,
-              5030,
-              5130,
-              5330,
-              5530,
-            ],
-            [
-              "$30,000 - 39,999",
-              1020,
-              1980,
-              2230,
-              3230,
-              4230,
-              5230,
-              6030,
-              6030,
-              6130,
-              6330,
-              6530,
-              6730,
-            ],
-            [
-              "$40,000 - 59,999",
-              1020,
-              2880,
-              4080,
-              5080,
-              6080,
-              7080,
-              7950,
-              8150,
-              8350,
-              8550,
-              8750,
-              8950,
-            ],
-            [
-              "$60,000 - 79,999",
-              1870,
-              3830,
-              5030,
-              6030,
-              7100,
-              8300,
-              9300,
-              9500,
-              9700,
-              9900,
-              10100,
-              10300,
-            ],
-            [
-              "$80,000 - 99,999",
-              1870,
-              3830,
-              5100,
-              6300,
-              7500,
-              8700,
-              9700,
-              9900,
-              10100,
-              10300,
-              10500,
-              10700,
-            ],
-            [
-              "$100,000 - 124,999",
-              2030,
-              4190,
-              5590,
-              6790,
-              7990,
-              9190,
-              10190,
-              10390,
-              10590,
-              10940,
-              11940,
-              12940,
-            ],
-            [
-              "$125,000 - 149,999",
-              2040,
-              4200,
-              5600,
-              6800,
-              8000,
-              9200,
-              10200,
-              10950,
-              11950,
-              12950,
-              13950,
-              14950,
-            ],
-            [
-              "$150,000 - 174,999",
-              2040,
-              4200,
-              5600,
-              6800,
-              8150,
-              10150,
-              11950,
-              12950,
-              13950,
-              14950,
-              16170,
-              17470,
-            ],
-            [
-              "$175,000 - 199,999",
-              2040,
-              4200,
-              6150,
-              8150,
-              10150,
-              12150,
-              13950,
-              15020,
-              16320,
-              17620,
-              18920,
-              20220,
-            ],
-            [
-              "$200,000 - 249,999",
-              2720,
-              5680,
-              7880,
-              10140,
-              12440,
-              14740,
-              16840,
-              18140,
-              19440,
-              20740,
-              22040,
-              23340,
-            ],
-            [
-              "$250,000 - 449,999",
-              2970,
-              6230,
-              8730,
-              11030,
-              13330,
-              15630,
-              17730,
-              19030,
-              20330,
-              21630,
-              22930,
-              24240,
-            ],
-            [
-              "$450,000 and over",
-              3140,
-              6600,
-              9300,
-              11800,
-              14300,
-              16800,
-              19100,
-              20600,
-              22100,
-              23600,
-              25100,
-              26610,
-            ],
-          ].map((row) => (
-            <tr key={row[0]}>
-              <th
-                className="
+                >
+                  {[
+                    [
+                      "$0 - 9,999",
+                      90,
+                      850,
+                      1020,
+                      1020,
+                      1020,
+                      1070,
+                      1870,
+                      1870,
+                      1870,
+                      1870,
+                      1870,
+                      1970,
+                    ],
+                    [
+                      "$10,000 - 19,999",
+                      850,
+                      1780,
+                      1980,
+                      1980,
+                      2030,
+                      3030,
+                      3830,
+                      3830,
+                      3830,
+                      3830,
+                      3930,
+                      4130,
+                    ],
+                    [
+                      "$20,000 - 29,999",
+                      1020,
+                      1980,
+                      2180,
+                      2230,
+                      3230,
+                      4230,
+                      5030,
+                      5030,
+                      5030,
+                      5030,
+                      5130,
+                      5330,
+                      5530,
+                    ],
+                    [
+                      "$30,000 - 39,999",
+                      1020,
+                      1980,
+                      2230,
+                      3230,
+                      4230,
+                      5230,
+                      6030,
+                      6030,
+                      6130,
+                      6330,
+                      6530,
+                      6730,
+                    ],
+                    [
+                      "$40,000 - 59,999",
+                      1020,
+                      2880,
+                      4080,
+                      5080,
+                      6080,
+                      7080,
+                      7950,
+                      8150,
+                      8350,
+                      8550,
+                      8750,
+                      8950,
+                    ],
+                    [
+                      "$60,000 - 79,999",
+                      1870,
+                      3830,
+                      5030,
+                      6030,
+                      7100,
+                      8300,
+                      9300,
+                      9500,
+                      9700,
+                      9900,
+                      10100,
+                      10300,
+                    ],
+                    [
+                      "$80,000 - 99,999",
+                      1870,
+                      3830,
+                      5100,
+                      6300,
+                      7500,
+                      8700,
+                      9700,
+                      9900,
+                      10100,
+                      10300,
+                      10500,
+                      10700,
+                    ],
+                    [
+                      "$100,000 - 124,999",
+                      2030,
+                      4190,
+                      5590,
+                      6790,
+                      7990,
+                      9190,
+                      10190,
+                      10390,
+                      10590,
+                      10940,
+                      11940,
+                      12940,
+                    ],
+                    [
+                      "$125,000 - 149,999",
+                      2040,
+                      4200,
+                      5600,
+                      6800,
+                      8000,
+                      9200,
+                      10200,
+                      10950,
+                      11950,
+                      12950,
+                      13950,
+                      14950,
+                    ],
+                    [
+                      "$150,000 - 174,999",
+                      2040,
+                      4200,
+                      5600,
+                      6800,
+                      8150,
+                      10150,
+                      11950,
+                      12950,
+                      13950,
+                      14950,
+                      16170,
+                      17470,
+                    ],
+                    [
+                      "$175,000 - 199,999",
+                      2040,
+                      4200,
+                      6150,
+                      8150,
+                      10150,
+                      12150,
+                      13950,
+                      15020,
+                      16320,
+                      17620,
+                      18920,
+                      20220,
+                    ],
+                    [
+                      "$200,000 - 249,999",
+                      2720,
+                      5680,
+                      7880,
+                      10140,
+                      12440,
+                      14740,
+                      16840,
+                      18140,
+                      19440,
+                      20740,
+                      22040,
+                      23340,
+                    ],
+                    [
+                      "$250,000 - 449,999",
+                      2970,
+                      6230,
+                      8730,
+                      11030,
+                      13330,
+                      15630,
+                      17730,
+                      19030,
+                      20330,
+                      21630,
+                      22930,
+                      24240,
+                    ],
+                    [
+                      "$450,000 and over",
+                      3140,
+                      6600,
+                      9300,
+                      11800,
+                      14300,
+                      16800,
+                      19100,
+                      20600,
+                      22100,
+                      23600,
+                      25100,
+                      26610,
+                    ],
+                  ].map((row) => (
+                    <tr key={row[0]}>
+                      <th
+                        className="
                   min-w-[125px]
                   whitespace-nowrap
                   border
@@ -18321,14 +18997,14 @@ const ReceiptItem = ({ text }) => (
                   text-left
                   font-normal
                 "
-              >
-                {row[0]}
-              </th>
+                      >
+                        {row[0]}
+                      </th>
 
-              {row.slice(1).map((value, index) => (
-                <td
-                  key={index}
-                  className="
+                      {row.slice(1).map((value, index) => (
+                        <td
+                          key={index}
+                          className="
                     min-w-[53px]
                     whitespace-nowrap
                     border
@@ -18336,22 +19012,22 @@ const ReceiptItem = ({ text }) => (
                     px-1
                     py-[2px]
                   "
-                >
-                  ${value.toLocaleString()}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+                        >
+                          ${value.toLocaleString()}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-    {/* ========================================================= */}
-    {/* =================== HEAD OF HOUSEHOLD =================== */}
-    {/* ========================================================= */}
+            {/* ========================================================= */}
+            {/* =================== HEAD OF HOUSEHOLD =================== */}
+            {/* ========================================================= */}
 
-    <h2
-      className="
+            <h2
+              className="
         mt-2
         border-b
         border-black
@@ -18364,24 +19040,24 @@ const ReceiptItem = ({ text }) => (
         font-bold
         leading-tight
       "
-    >
-      Head of Household
-    </h2>
+            >
+              Head of Household
+            </h2>
 
-    <div className="w-full overflow-x-auto overscroll-x-contain">
-      <table
-        className="
+            <div className="w-full overflow-x-auto overscroll-x-contain">
+              <table
+                className="
           w-full
           min-w-[760px]
           border-collapse
           text-center
         "
-      >
-        <thead>
-          <tr>
-            <th
-              rowSpan="2"
-              className="
+              >
+                <thead>
+                  <tr>
+                    <th
+                      rowSpan="2"
+                      className="
                 w-[125px]
                 min-w-[125px]
                 border-b
@@ -18397,17 +19073,17 @@ const ReceiptItem = ({ text }) => (
                 font-bold
                 leading-tight
               "
-            >
-              Higher Paying Job
-              <br />
-              Annual Taxable
-              <br />
-              Wage & Salary
-            </th>
+                    >
+                      Higher Paying Job
+                      <br />
+                      Annual Taxable
+                      <br />
+                      Wage & Salary
+                    </th>
 
-            <th
-              colSpan="12"
-              className="
+                    <th
+                      colSpan="12"
+                      className="
                 border-b
                 border-black
                 p-1
@@ -18417,36 +19093,36 @@ const ReceiptItem = ({ text }) => (
                 lg:text-[11.4px]
                 font-bold
               "
-            >
-              Lower Paying Job Annual Taxable Wage & Salary
-            </th>
-          </tr>
+                    >
+                      Lower Paying Job Annual Taxable Wage & Salary
+                    </th>
+                  </tr>
 
-          <tr
-            className="
+                  <tr
+                    className="
               text-[7px]
               sm:text-[8px]
               md:text-[8.5px]
               lg:text-[9.7px]
             "
-          >
-            {[
-              "$0 - 9,999",
-              "$10,000 - 19,999",
-              "$20,000 - 29,999",
-              "$30,000 - 39,999",
-              "$40,000 - 49,999",
-              "$50,000 - 59,999",
-              "$60,000 - 69,999",
-              "$70,000 - 79,999",
-              "$80,000 - 89,999",
-              "$90,000 - 99,999",
-              "$100,000 - 109,999",
-              "$110,000 - 120,000",
-            ].map((item) => (
-              <th
-                key={item}
-                className="
+                  >
+                    {[
+                      "$0 - 9,999",
+                      "$10,000 - 19,999",
+                      "$20,000 - 29,999",
+                      "$30,000 - 39,999",
+                      "$40,000 - 49,999",
+                      "$50,000 - 59,999",
+                      "$60,000 - 69,999",
+                      "$70,000 - 79,999",
+                      "$80,000 - 89,999",
+                      "$90,000 - 99,999",
+                      "$100,000 - 109,999",
+                      "$110,000 - 120,000",
+                    ].map((item) => (
+                      <th
+                        key={item}
+                        className="
                   min-w-[53px]
                   border
                   border-gray-400
@@ -18455,236 +19131,236 @@ const ReceiptItem = ({ text }) => (
                   font-normal
                   leading-tight
                 "
-              >
-                {item}
-              </th>
-            ))}
-          </tr>
-        </thead>
+                      >
+                        {item}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
 
-        <tbody
-          className="
+                <tbody
+                  className="
             text-[7px]
             sm:text-[8px]
             md:text-[8.5px]
             lg:text-[9.7px]
           "
-        >
-          {[
-            [
-              "$0 - 9,999",
-              0,
-              280,
-              850,
-              950,
-              1020,
-              1020,
-              1020,
-              1020,
-              1560,
-              1870,
-              1870,
-              1870,
-            ],
-            [
-              "$10,000 - 19,999",
-              280,
-              1280,
-              1950,
-              2150,
-              2220,
-              2220,
-              2220,
-              2760,
-              3760,
-              4070,
-              4070,
-              4210,
-            ],
-            [
-              "$20,000 - 29,999",
-              850,
-              1950,
-              2720,
-              2920,
-              2980,
-              2980,
-              3520,
-              4520,
-              5520,
-              5830,
-              5980,
-              6180,
-            ],
-            [
-              "$30,000 - 39,999",
-              950,
-              2150,
-              2920,
-              3120,
-              3180,
-              3720,
-              4720,
-              5720,
-              6720,
-              7180,
-              7380,
-              7580,
-            ],
-            [
-              "$40,000 - 59,999",
-              1020,
-              2220,
-              2980,
-              3570,
-              4640,
-              5640,
-              6640,
-              7750,
-              8950,
-              9460,
-              9660,
-              9860,
-            ],
-            [
-              "$60,000 - 79,999",
-              1020,
-              2610,
-              4370,
-              5570,
-              6640,
-              7750,
-              8950,
-              10150,
-              11350,
-              11860,
-              12060,
-              12260,
-            ],
-            [
-              "$80,000 - 99,999",
-              1870,
-              4070,
-              5830,
-              7150,
-              8410,
-              9610,
-              10810,
-              12010,
-              13210,
-              13720,
-              13920,
-              14120,
-            ],
-            [
-              "$100,000 - 124,999",
-              1870,
-              4270,
-              6230,
-              7630,
-              8900,
-              10100,
-              11300,
-              12500,
-              13700,
-              14210,
-              14720,
-              15720,
-            ],
-            [
-              "$125,000 - 149,999",
-              2040,
-              4440,
-              6400,
-              7800,
-              9070,
-              10270,
-              11470,
-              12670,
-              14580,
-              15890,
-              16890,
-              17890,
-            ],
-            [
-              "$150,000 - 174,999",
-              2040,
-              4440,
-              6400,
-              7800,
-              9070,
-              10580,
-              12580,
-              14580,
-              16580,
-              17890,
-              18890,
-              20170,
-            ],
-            [
-              "$175,000 - 199,999",
-              2040,
-              4440,
-              6400,
-              8510,
-              10580,
-              12580,
-              14580,
-              16580,
-              18710,
-              20320,
-              21890,
-              22920,
-            ],
-            [
-              "$200,000 - 249,999",
-              2720,
-              5920,
-              8680,
-              10900,
-              13270,
-              15570,
-              17870,
-              20170,
-              22470,
-              24080,
-              25380,
-              26680,
-            ],
-            [
-              "$250,000 - 449,999",
-              2970,
-              6470,
-              9540,
-              12040,
-              14410,
-              16710,
-              19010,
-              21310,
-              23610,
-              25220,
-              26520,
-              27820,
-            ],
-            [
-              "$450,000 and over",
-              3140,
-              6840,
-              10110,
-              12810,
-              15380,
-              17880,
-              20380,
-              22880,
-              25380,
-              27190,
-              28690,
-              30190,
-            ],
-          ].map((row) => (
-            <tr key={row[0]}>
-              <th
-                className="
+                >
+                  {[
+                    [
+                      "$0 - 9,999",
+                      0,
+                      280,
+                      850,
+                      950,
+                      1020,
+                      1020,
+                      1020,
+                      1020,
+                      1560,
+                      1870,
+                      1870,
+                      1870,
+                    ],
+                    [
+                      "$10,000 - 19,999",
+                      280,
+                      1280,
+                      1950,
+                      2150,
+                      2220,
+                      2220,
+                      2220,
+                      2760,
+                      3760,
+                      4070,
+                      4070,
+                      4210,
+                    ],
+                    [
+                      "$20,000 - 29,999",
+                      850,
+                      1950,
+                      2720,
+                      2920,
+                      2980,
+                      2980,
+                      3520,
+                      4520,
+                      5520,
+                      5830,
+                      5980,
+                      6180,
+                    ],
+                    [
+                      "$30,000 - 39,999",
+                      950,
+                      2150,
+                      2920,
+                      3120,
+                      3180,
+                      3720,
+                      4720,
+                      5720,
+                      6720,
+                      7180,
+                      7380,
+                      7580,
+                    ],
+                    [
+                      "$40,000 - 59,999",
+                      1020,
+                      2220,
+                      2980,
+                      3570,
+                      4640,
+                      5640,
+                      6640,
+                      7750,
+                      8950,
+                      9460,
+                      9660,
+                      9860,
+                    ],
+                    [
+                      "$60,000 - 79,999",
+                      1020,
+                      2610,
+                      4370,
+                      5570,
+                      6640,
+                      7750,
+                      8950,
+                      10150,
+                      11350,
+                      11860,
+                      12060,
+                      12260,
+                    ],
+                    [
+                      "$80,000 - 99,999",
+                      1870,
+                      4070,
+                      5830,
+                      7150,
+                      8410,
+                      9610,
+                      10810,
+                      12010,
+                      13210,
+                      13720,
+                      13920,
+                      14120,
+                    ],
+                    [
+                      "$100,000 - 124,999",
+                      1870,
+                      4270,
+                      6230,
+                      7630,
+                      8900,
+                      10100,
+                      11300,
+                      12500,
+                      13700,
+                      14210,
+                      14720,
+                      15720,
+                    ],
+                    [
+                      "$125,000 - 149,999",
+                      2040,
+                      4440,
+                      6400,
+                      7800,
+                      9070,
+                      10270,
+                      11470,
+                      12670,
+                      14580,
+                      15890,
+                      16890,
+                      17890,
+                    ],
+                    [
+                      "$150,000 - 174,999",
+                      2040,
+                      4440,
+                      6400,
+                      7800,
+                      9070,
+                      10580,
+                      12580,
+                      14580,
+                      16580,
+                      17890,
+                      18890,
+                      20170,
+                    ],
+                    [
+                      "$175,000 - 199,999",
+                      2040,
+                      4440,
+                      6400,
+                      8510,
+                      10580,
+                      12580,
+                      14580,
+                      16580,
+                      18710,
+                      20320,
+                      21890,
+                      22920,
+                    ],
+                    [
+                      "$200,000 - 249,999",
+                      2720,
+                      5920,
+                      8680,
+                      10900,
+                      13270,
+                      15570,
+                      17870,
+                      20170,
+                      22470,
+                      24080,
+                      25380,
+                      26680,
+                    ],
+                    [
+                      "$250,000 - 449,999",
+                      2970,
+                      6470,
+                      9540,
+                      12040,
+                      14410,
+                      16710,
+                      19010,
+                      21310,
+                      23610,
+                      25220,
+                      26520,
+                      27820,
+                    ],
+                    [
+                      "$450,000 and over",
+                      3140,
+                      6840,
+                      10110,
+                      12810,
+                      15380,
+                      17880,
+                      20380,
+                      22880,
+                      25380,
+                      27190,
+                      28690,
+                      30190,
+                    ],
+                  ].map((row) => (
+                    <tr key={row[0]}>
+                      <th
+                        className="
                   min-w-[125px]
                   whitespace-nowrap
                   border
@@ -18694,14 +19370,14 @@ const ReceiptItem = ({ text }) => (
                   text-left
                   font-normal
                 "
-              >
-                {row[0]}
-              </th>
+                      >
+                        {row[0]}
+                      </th>
 
-              {row.slice(1).map((value, index) => (
-                <td
-                  key={index}
-                  className="
+                      {row.slice(1).map((value, index) => (
+                        <td
+                          key={index}
+                          className="
                     min-w-[53px]
                     whitespace-nowrap
                     border
@@ -18709,20 +19385,20 @@ const ReceiptItem = ({ text }) => (
                     px-1
                     py-[2px]
                   "
-                >
-                  ${value.toLocaleString()}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+                        >
+                          ${value.toLocaleString()}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
         <br />
         {/*******page pending request for taxpayer*******/}
-     
+
         <div className="font-[arial] mx-auto w-full max-w-[210mm] min-h-screen bg-white px-3 py-5 sm:px-5 sm:py-6 md:px-8 lg:px-[17mm] lg:py-[17mm] shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           {/* Header */}
           <div className="mb-3 flex items-center justify-between border-b-2 border-black pb-1 text-[11px]">

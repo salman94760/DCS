@@ -41,7 +41,7 @@ export default function AddDriverEmployment() {
   }, [id]);
 
   const documentByTitle = documents.reduce((acc, doc) => {
-    acc[doc.title] = doc;
+    acc[doc.slug] = doc;
     return acc;
   }, {});
 
