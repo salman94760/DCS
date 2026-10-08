@@ -13417,9 +13417,9 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             SSN - LAST 4:
                           </span>
-                          <input
+                          <input name="p47lastssn"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
-                            type="date"
+                            type="text"
                           />
                         </div>
                       </td>
@@ -13431,7 +13431,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             PREVIOUS EMPLOYER:
                           </span>
-                          <input
+                          <input name="p47prevemployer"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13443,7 +13443,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             PREVIOUS EMPLOYER ADDRESS:
                           </span>
-                          <input
+                          <input name="p47prevemployeraddress"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13457,7 +13457,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             CITY / STATE / ZIP:
                           </span>
-                          <input
+                          <input name="p47prevemployercitystatezip"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13469,7 +13469,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             PREVIOUS EMPLOYER PHONE:
                           </span>
-                          <input
+                          <input name="p47prevemployerphone"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13483,7 +13483,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             EMAIL / FAX:
                           </span>
-                          <input
+                          <input name="p47prevemployeremail"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13495,7 +13495,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             EMPLOYMENT FROM:
                           </span>
-                          <input
+                          <input name="p47prevemployerfrom"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13509,7 +13509,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             EMPLOYMENT TO:
                           </span>
-                          <input
+                          <input name="p47prevemployerto"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13566,6 +13566,7 @@ export default function DriverApplication() {
                             Date:
                           </span>
                           <input
+                            value={cleHDate}
                             className=" h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -13581,15 +13582,15 @@ export default function DriverApplication() {
                 </div>
 
                 <p className="text-[12px] mt-2 items-start">
-                  <input type="checkbox" />
+                  <input name="p47check1" type="checkbox" />
                   Applicant was employed by this company: Yes / No{" "}
-                  <input type="checkbox" />
+                  <input name="p47check2" type="checkbox" />
                   Dates confirmed: From To
                 </p>
                 <p className="text-[12px] items-start">
-                  <input type="checkbox" />
+                  <input name="p47check3" type="checkbox" />
                   Operated CMV: Yes / No
-                  <input type="checkbox" />
+                  <input name="p47check4" type="checkbox" />
                   Equipment: Straight Truck / Tractor-Semitrailer / Bus / Tank /
                   Doubles-Triples / Other
                 </p>
@@ -13600,9 +13601,9 @@ export default function DriverApplication() {
                       <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">
-                            AREASON FOR LEAVING:{" "}
+                            REASON FOR LEAVING:{" "}
                           </span>
-                          <input
+                          <input name="p47reasonleaving"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13614,7 +13615,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             ELIGIBLE FOR REHIRE?:
                           </span>
-                          <input
+                          <input name="p47rehire"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -13628,7 +13629,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             PERSON COMPLETING FORM:
                           </span>
-                          <input
+                          <input name="p47hireform"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13638,7 +13639,7 @@ export default function DriverApplication() {
                       <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">TITLE:</span>
-                          <input
+                          <input name="p47hireformtitle"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13652,7 +13653,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             PHONE / EMAIL:
                           </span>
-                          <input
+                          <input name="p47hirepersonemail"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -13677,7 +13678,28 @@ export default function DriverApplication() {
                       <th>Brief Description</th>
                     </tr>
                   </thead>
-                  <tbody className="h-[60px]"></tbody>
+                  <tbody className="border border-black h-[60px]"><tr>
+                    <td className="border border-black">
+                      <input type="text" className="border border-black" name="p47accidentdate"/>
+                    </td>
+                    <td className="border border-black">
+                      <input type="text" className="border border-black" name="p47accidentlocation"/>
+                    </td>
+                    <td className="border border-black">
+                      <input type="text" className="border border-black" name="p47accidentinjury"/>
+                    </td>
+                    <td className="border border-black">
+                      <input type="text" className="border border-black" name="p47accidentfatalities"/>
+                    </td>
+
+                      <td className="border border-black">
+                      <input type="text" className="border border-black" name="p47accidenthazmat"/>
+                    </td>
+
+                     <td className="border border-black">
+                      <input type="text" className="border border-black" name="p47accidentdesc"/>
+                    </td>
+                  </tr></tbody>
                 </table>
               </section>
             </div>
@@ -13730,14 +13752,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check1"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check2"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -13759,14 +13781,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check3"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check4"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -13788,14 +13810,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check5"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check6"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -13819,14 +13841,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check7"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check8"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -13850,14 +13872,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check9"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check10"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -13881,14 +13903,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check11"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check12"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -13911,14 +13933,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check13"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check14"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -13942,14 +13964,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check15"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check16"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -13972,14 +13994,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check17"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check18"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14000,14 +14022,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check19"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check20"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14028,14 +14050,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check21"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check22"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14054,14 +14076,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check23"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check24"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14079,14 +14101,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check25"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check26"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14125,14 +14147,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check1"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input  name="p48check2"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14151,14 +14173,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check3"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check4"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14179,14 +14201,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check5"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check6"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14208,14 +14230,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check7"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check8"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14238,14 +14260,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check9"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check10"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14267,14 +14289,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check11"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check12"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14296,14 +14318,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check13"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check14"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14325,14 +14347,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check15"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check16"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14354,14 +14376,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check17"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check18"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14384,14 +14406,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check19"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check20"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14412,14 +14434,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check21"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check22"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14440,14 +14462,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check23"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check24"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14465,14 +14487,14 @@ export default function DriverApplication() {
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check25"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
                       </td>
 
                       <td className="border border-[#555] px-[6px] py-[7px] align-middle text-left ">
-                        <input
+                        <input name="p48check26"
                           className="border border-3 border-black w-full p-2"
                           type="checkbox"
                         />
@@ -14510,7 +14532,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             APPLICATION REVIEWED BY:
                           </span>
-                          <input
+                          <input name="p50reviewedby"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -14523,7 +14545,7 @@ export default function DriverApplication() {
                             DATE:{" "}
                             <span className="text-gray-500">MM/DD/YYYY</span>
                           </span>
-                          <input
+                          <input name="p50revieweddate"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -14537,7 +14559,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             MVR REVIEWED BY:
                           </span>
-                          <input
+                          <input name="p50mvrreviewedby"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -14564,7 +14586,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap">
                             PREVIOUS EMPLOYER CHECKS BY:
                           </span>
-                          <input
+                          <input name="p50prevemployercheckby"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -14574,7 +14596,7 @@ export default function DriverApplication() {
                       <td className="font-bold text-[10px] align-top leading-[1.22]">
                         <div className="flex items-center w-full">
                           <span className="whitespace-nowrap">DATE:</span>
-                          <input
+                          <input name="p50prevemployercheckdate"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -14602,7 +14624,7 @@ export default function DriverApplication() {
                             DATE:{" "}
                             <span className="text-gray-500">MM/DD/YYYY</span>
                           </span>
-                          <input
+                          <input name="p50clearingdate"
                             className="border border-black h-[20px] flex-1 ml-2 min-w-0"
                             type="date"
                           />
@@ -14614,12 +14636,12 @@ export default function DriverApplication() {
               </section>
               <section className="mt-[12px]">
                 <p className="text-[12px] mt-2 items-start">
-                  <input type="checkbox" checked />
-                  Approved for Hire <input type="checkbox" />
+                  <input name="p50check1" type="checkbox" checked />
+                  Approved for Hire <input name="p50check2" type="checkbox" />
                   Conditional / Pending Documents
-                  <input type="checkbox" />
+                  <input name="p50check3" type="checkbox" />
                   Not Approved
-                  <input type="checkbox" />
+                  <input name="p50check4" type="checkbox" />
                   Withdrawn
                 </p>
 
@@ -14631,7 +14653,7 @@ export default function DriverApplication() {
 
                 <div className="text-[11.4px] items-center gap-2 mr-3">
                   <textarea
-                    type="text"
+                    type="text" name="p50omments"
                     className="border border-black w-full h-[50px]"
                   ></textarea>
                 </div>
@@ -14646,7 +14668,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap text-gray-400">
                             Authorized Representative Signature
                           </span>
-                          <input
+                          <input value="Roneel Lal"
                             className=" h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
@@ -14658,7 +14680,7 @@ export default function DriverApplication() {
                           <span className="whitespace-nowrap text-gray-400">
                             Title
                           </span>
-                          <input
+                          <input value="Owner"
                             className=" h-[20px] flex-1 ml-2 min-w-0"
                             type="text"
                           />
