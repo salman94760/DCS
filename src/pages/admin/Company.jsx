@@ -46,35 +46,38 @@ export default function Company() {
   // ==========================================
   // FILTER
   // ==========================================
-  const filtered = useMemo(() => {
-    const companies = Array.isArray(state.data) ? state.data : [];
+// ==========================================
+// FILTER
+// ==========================================
+const filtered = useMemo(() => {
+  const companies = Array.isArray(state.data) ? state.data : [];
 
-    const searchText = filters?.search?.toLowerCase().trim() || "";
-    const currentStatus = filters?.status || "all";
+  const searchText = search.toLowerCase().trim();
+  const currentStatus = status;
 
-    return companies.filter((com) => {
-      const companyName = String(com.cname || "").toLowerCase();
-      const owner = String(com.owner || "").toLowerCase();
-      const email = String(com.email || "").toLowerCase();
-      const usdot = String(com.usdot || "").toLowerCase();
+  return companies.filter((com) => {
+    const companyName = String(com.cname || "").toLowerCase();
+    const owner = String(com.owner || "").toLowerCase();
+    const email = String(com.email || "").toLowerCase();
+    const usdot = String(com.usdot || "").toLowerCase();
 
-      const matchesSearch =
-        !searchText ||
-        companyName.includes(searchText) ||
-        owner.includes(searchText) ||
-        email.includes(searchText) ||
-        usdot.includes(searchText);
+    const matchesSearch =
+      !searchText ||
+      companyName.includes(searchText) ||
+      owner.includes(searchText) ||
+      email.includes(searchText) ||
+      usdot.includes(searchText);
 
-      const companyStatus = Number(com.user?.user_info?.status);
+    const companyStatus = Number(com.user?.user_info?.status);
 
-      const matchesStatus =
-        currentStatus === "all" ||
-        (currentStatus === "active" && companyStatus === 1) ||
-        (currentStatus === "inactive" && companyStatus === 0);
+    const matchesStatus =
+      currentStatus === "all" ||
+      (currentStatus === "active" && companyStatus === 1) ||
+      (currentStatus === "inactive" && companyStatus === 0);
 
-      return matchesSearch && matchesStatus;
-    });
-  }, [state.data, filters]);
+    return matchesSearch && matchesStatus;
+  });
+}, [state.data, search, status]);
 
   // ==========================================
   // PAGINATION
@@ -118,16 +121,12 @@ export default function Company() {
   // ==========================================
   // RESET
   // ==========================================
-  const handleReset = () => {
-    setSearch("");
-    setRole("all");
-    setStatus("all");
-
-    resetFilters();
-
-    // Reset ke baad first page
-    setCurrentPage(1);
-  };
+const handleReset = () => {
+  setSearch("");
+  setRole("all");
+  setStatus("all");
+  setCurrentPage(1);
+};
 
   // ==========================================
   // CHANGE ROWS PER PAGE
