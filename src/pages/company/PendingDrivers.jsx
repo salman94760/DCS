@@ -350,83 +350,39 @@ export default function PendingDrivers() {
 
       <div className="w-full min-w-0 bg-white rounded-xl border border-slate-200">
         <div className="w-full max-h-[500px] overflow-auto">
-          <table className="min-w-[1500px] w-full text-sm border border-collapse">
+                    <table className=" w-full text-sm border border-collapse">
             <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
               <tr>
-                <th className="sticky left-0 z-30 bg-slate-50 text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="w-[12%] sticky left-0 z-30 bg-slate-50 text-left px-2 py-2 font-semibold text-slate-600">
                   Action
                 </th>
 
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+        <th className="w-[12%] cap text-left px-2 py-2 font-semibold text-slate-600">
                   Full name
                 </th>
 
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
+                <th className="w-[10%] cap text-left px-2 py-2 font-semibold text-slate-600">
+                  Cdl
+                </th>
+
+                <th className="w-[6%] cap text-left px-2 py-2 font-semibold text-slate-600">
+                  Dob
+                </th>
+
+                <th className="w-[7%] cap text-left px-2 py-2 font-semibold text-slate-600">
+                  Phone
+                </th>
+
+                <th className="w-[10%] cap text-left px-2 py-2 font-semibold text-slate-600">
+                  Email
+                </th>
+
+                <th className="w-[10%] cap text-left px-2 py-2 font-semibold text-slate-600 whitespace-nowrap">
+                  Social Security
+                </th>
+
+                <th className="w-[10%] cap text-left px-2 py-2 font-semibold text-slate-600">
                   Active date
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  dob
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  phone
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Emergency contact
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Emergency contact person
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  email
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Drug test Neagtive Date
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
-                  SOCIAL SECURITY
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  APPLIED FOR
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600 whitespace-nowrap">
-                  Driver Status
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Pre-employment Cleaning House Date
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Termination Date
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Reason For Leaving / Termination
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Authorized to work in the U.S.?
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  WORK AUTHORIZATION
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  USCIS NO
-                </th>
-
-                <th className="cap text-left px-6 py-4 font-semibold text-slate-600">
-                  Work Permit Expiration Date
                 </th>
               </tr>
             </thead>
@@ -443,59 +399,12 @@ export default function PendingDrivers() {
                   <tr key={com.id} className="cap hover:bg-slate-50">
                     {/* ACTION */}
 
-                    <td className="sticky left-0 z-10 bg-white px-6 py-4">
-                      <div className="flex items-center gap-2">
-                        {/*       <Link
-                          to={`/company-dashboard/driver/edit/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >
-                          Edit
-                        </Link>
-                        <Link
-                          target="_blank"
-                          title="Employment history"
-                          to={`/company-dashboard/driver/employment-history/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >
-                          Employment hisotry
-                        </Link>
-
-                        <Link
-                          target="_blank"
-                          title="Driver experience"
-                          to={`/company-dashboard/driver/experience/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >
-                          Experience
-                        </Link>
-
-                        
-
-                        <Link
-                          target="_blank"
-                          title="Document information"
-                          to={`/company-dashboard/driver/document/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                        >
-                          Document Information
-                        </Link>
-                        {com.esign === 0 ? (
-                          <Link
-                            title="Document information"
-                            target="_blank"
-                            to={`/driver/driver-application/${com.id}`}
-                            className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
-                          >
-                            E-Sign<i className="fa-solid fa-file-signature"></i>
-                          </Link>
-                        ) : (
-                          ""
-                        )}*/}
-
+                    <td className="sticky left-0 z-10 bg-white">
+                      <div className="p-1 flex items-center gap-2">
                         <Link
                           title="Driver Detail"
                           to={`/company-dashboard/driver/edit/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-edit"></i>
                         </Link>
@@ -504,7 +413,7 @@ export default function PendingDrivers() {
                           target="_blank"
                           title="Employment history"
                           to={`/company-dashboard/driver/employment-history/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-briefcase"></i>
                         </Link>
@@ -513,7 +422,7 @@ export default function PendingDrivers() {
                           target="_blank"
                           title="Driver experience"
                           to={`/company-dashboard/driver/experience/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-id-card"></i>
                         </Link>
@@ -522,108 +431,76 @@ export default function PendingDrivers() {
                           target="_blank"
                           title="Document information"
                           to={`/company-dashboard/driver/document/${com.id}`}
-                          className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-file-lines"></i>
                         </Link>
 
-                        {com.esign === 0 ? (
+                        {/* {com.esign === 0 ? (
                           <Link
                             title="Document information"
                             target="_blank"
                             to={`/driver/driver-application/${com.id}`}
-                            className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                            className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
                           >
                             <i className="fa-solid fa-file-signature"></i>
                           </Link>
                         ) : (
                           ""
-                        )}
+                        )}*/}
 
-                        {/*<button
+                        <button
                           type="button"
                           onClick={() => handleDelete(com.id)}
-                          className="px-3 py-1.5 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50 whitespace-nowrap"
+                          className="px-1 py-1 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50 whitespace-nowrap"
                         >
-                          Delete
-                        </button>*/}
+                          <i className="fa-solid fa-trash"></i>
+                        </button>
                       </div>
                     </td>
 
                     {/* USERNAME */}
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-2 py-2 text-slate-500 whitespace-nowrap">
                       {com.fname} {com.mname} {com.lname}
                     </td>
 
                     {/* PASSWORD */}
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.activedate}
+                    <td className="px-2 py-2 text-slate-500 whitespace-nowrap">
+                      {com.currentcdllicenseno}
                     </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.dob}
+                    <td className="px-2 py-2 text-slate-500 whitespace-nowrap">
+                      {formatDate(com.dob)}
                     </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-2 py-2 text-slate-500 whitespace-nowrap">
                       {com.phone}
                     </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.emecontactno}
-                    </td>
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.emecontactperson}
-                    </td>
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                     <td className="px-2 py-2 text-slate-500 whitespace-nowrap">
                       {com.email}
                     </td>
 
-                    <td className="px-6 py-4">
-                      <span className="font-medium text-slate-800 whitespace-nowrap">
-                        {com.drugnegativedate}
-                      </span>
-                    </td>
-
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-2 py-2 text-slate-500 whitespace-nowrap">
                       {com.socialsecurity}
                     </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.appliedfor}
+                    <td className="px-2 py-2 text-slate-500 whitespace-nowrap">
+                    
+                       {formatDate(com.activedate)}
                     </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.driverstatus}
-                    </td>
+                  
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.pclearinghousedate}
-                    </td>
+                   
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.terminationdate}
-                    </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.reasonleavingortermination}
-                    </td>
 
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {com.legalrightsstatus}
-                    </td>
+                    
 
-                    {/* STATUS */}
-
-                    <td className="px-6 py-4">{com.workauthorization}</td>
-                    <td className="px-6 py-4">{com.permituscisno}</td>
-
-                    <td className="px-6 py-4">{com.permitexpdate}</td>
-
-                    {/* LOGO */}
+                  
                   </tr>
                 ))
               )}
