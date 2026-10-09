@@ -443,7 +443,7 @@ export default function ActiveDrivers() {
                           <i className="fa-solid fa-file-lines"></i>
                         </Link>
 
-                        {/* {com.esign === 0 ? (
+                        {com.esign === 0 ? (
                           <Link
                             title="Document information"
                             target="_blank"
@@ -454,7 +454,7 @@ export default function ActiveDrivers() {
                           </Link>
                         ) : (
                           ""
-                        )}*/}
+                        )}
 
                         <button
                           type="button"

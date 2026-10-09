@@ -18,6 +18,12 @@ export default function AddDriverEmployment() {
   const [documents, setDocuments] = useState([]);
   const [drugtest, setDrugTest] = useState([]);
 
+    const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return isNaN(date.getTime()) ? "" : date.toLocaleDateString("en-US");
+  };
+
   const DownloadPdf = () => {};
 
   const EmailPdf = () => {};
@@ -235,7 +241,7 @@ export default function AddDriverEmployment() {
                         </td>
 
                         <td className="sticky left-0 z-10 bg-white px-6 py-2">
-                          {doc.driver[0]?.time_date || "-"}
+                          {formatDate(doc.driver[0]?.time_date)}
                         </td>
 
                         <td className="sticky left-0 z-10 bg-white px-6 py-2">
@@ -254,14 +260,13 @@ export default function AddDriverEmployment() {
                         </td>
 
                         <td className="sticky left-0 z-10 bg-white px-6 py-2">
-                          <Link
+                          <a
                             target="_blank"
-                            to="{`/company-dashboard/driver/documents-view/${encodeURIComponent(
-                          slug
-                        )}/${driverId}`}"
+                            href={`http://localhost:8000/storage/${doc.driver[0]?.applicationpath}`}
                           >
                             👁
-                          </Link>
+    
+                          </a>
                         </td>
                       </tr>
                     )}
