@@ -386,9 +386,8 @@ export default function AddDriverEmployment() {
                       driverId={id}
                     />
                     <TableTrTd
-                      title="Driver Road Test / Driver Proficiency & Vehicle
-                        Authorization Docs"
-                      subtitle="Driver Road Test / Driver Proficiency Date"
+                      title="Driver Road Test - Driver Proficiency With Vehicle Authorization Docs"
+                      subtitle="Driver Road Test Driver Proficiency Date"
                       documents={documents}
                       driverId={id}
                     />
