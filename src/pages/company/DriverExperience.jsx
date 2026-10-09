@@ -14,6 +14,14 @@ export default function DriverExperience() {
   const [serverMessage, setServerMessage] = useState("");
   const [serverMessageType, setServerMessageType] = useState("");
 
+  // Checkbox local state
+  const [noAccidents, setNoAccidents] = useState(false);
+  const [noConvictions, setNoConvictions] = useState(false);
+
+  // License fields local state
+  const [licenseDenied, setLicenseDenied] = useState("");
+  const [licenseSuspended, setLicenseSuspended] = useState("");
+
   // =========================================================
   // ACCIDENT RECORDS
   // =========================================================
@@ -27,6 +35,9 @@ export default function DriverExperience() {
 
   const [accidents, setAccidents] = useState([{ ...emptyAccident }]);
 
+  // =========================================================
+  // TRAFFIC CONVICTION RECORDS
+  // =========================================================
   const emptyTrafficConviction = {
     state: "",
     violationType: "",
@@ -40,9 +51,7 @@ export default function DriverExperience() {
   ]);
 
   const fetchDriverExperience = async () => {
-    if (!id) {
-      return;
-    }
+    if (!id) return;
 
     try {
       setFetchingData(true);
@@ -51,9 +60,7 @@ export default function DriverExperience() {
       setErrors({});
 
       const response = await api.get(`/company/driver-experience/${id}`);
-
       const result = response?.data || {};
-
       const payload =
         result?.data || result?.driver || result?.experience || result;
 
@@ -69,15 +76,28 @@ export default function DriverExperience() {
 
       const normalizeDate = (value) => {
         if (!value) return "";
-
         if (typeof value === "string") {
           return value.includes("T") ? value.split("T")[0] : value.slice(0, 10);
         }
-
         return "";
       };
 
-      setFetchingExperience(payload.experience);
+      const expData = payload.experience || {};
+      setFetchingExperience(expData);
+
+      // Checkbox and License radio states sync from API
+      setNoAccidents(
+        expData?.accidenthistory === 1 || expData?.noaccidents === "1"
+      );
+      setNoConvictions(
+        expData?.convictionhistory === 1 || expData?.notrafficconvictions === "1"
+      );
+      setLicenseDenied(
+        expData?.licensedeniedstatus || expData?.licensedenied || ""
+      );
+      setLicenseSuspended(
+        expData?.licensesuspendedstatus || expData?.licensesuspended || ""
+      );
 
       setAccidents(
         fetchedAccidents.length
@@ -85,7 +105,7 @@ export default function DriverExperience() {
               ...item,
               id: item?.id ?? item?._id ?? undefined,
               date: normalizeDate(
-                item?.date ?? item?.accidentDate ?? item?.accident_date,
+                item?.date ?? item?.accidentDate ?? item?.accident_date
               ),
               nature:
                 item?.nature ??
@@ -96,7 +116,7 @@ export default function DriverExperience() {
               injuries: String(item?.injuries ?? item?.injury ?? "0"),
               remark: item?.remark ?? item?.remarks ?? "",
             }))
-          : [{ ...emptyAccident }],
+          : [{ ...emptyAccident }]
       );
 
       setTrafficConvictions(
@@ -112,18 +132,17 @@ export default function DriverExperience() {
               violationType: item?.violationType ?? item?.violation_type ?? "",
               ticketDate: normalizeDate(item?.ticketDate ?? item?.ticket_date),
               convictionDate: normalizeDate(
-                item?.convictionDate ?? item?.conviction_date,
+                item?.convictionDate ?? item?.conviction_date
               ),
               remark: item?.remark ?? item?.remarks ?? "",
             }))
-          : [{ ...emptyTrafficConviction }],
+          : [{ ...emptyTrafficConviction }]
       );
     } catch (error) {
       console.error("FETCH DRIVER EXPERIENCE ERROR:", error);
-
       setServerMessage(
         error?.response?.data?.message ||
-          "Unable to fetch existing driver experience.",
+          "Unable to fetch existing driver experience."
       );
       setServerMessageType("error");
     } finally {
@@ -133,12 +152,9 @@ export default function DriverExperience() {
 
   useEffect(() => {
     const role = localStorage.getItem("userRole");
-
     if (role === "admin") {
       navigate("/admin-dashboard", { replace: true });
-    } else if (role === "company") {
-      // company allowed
-    } else {
+    } else if (role !== "company") {
       navigate("/", { replace: true });
     }
   }, [navigate]);
@@ -153,20 +169,14 @@ export default function DriverExperience() {
 
   const removeAccident = (index) => {
     if (accidents.length === 1) return;
-
     setAccidents((prev) => prev.filter((_, i) => i !== index));
   };
 
   const updateAccident = (index, field, value) => {
     setAccidents((prev) =>
       prev.map((accident, i) =>
-        i === index
-          ? {
-              ...accident,
-              [field]: value,
-            }
-          : accident,
-      ),
+        i === index ? { ...accident, [field]: value } : accident
+      )
     );
   };
 
@@ -176,90 +186,20 @@ export default function DriverExperience() {
 
   const removeTrafficConviction = (index) => {
     if (trafficConvictions.length === 1) return;
-
     setTrafficConvictions((prev) => prev.filter((_, i) => i !== index));
   };
 
   const updateTrafficConviction = (index, field, value) => {
     setTrafficConvictions((prev) =>
       prev.map((item, i) =>
-        i === index
-          ? {
-              ...item,
-              [field]: value,
-            }
-          : item,
-      ),
+        i === index ? { ...item, [field]: value } : item
+      )
     );
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-    accidents.forEach((accidents, index) => {
-      if (!accidents.date.trim()) {
-        newErrors[`accidents.${index}.date`] = "Company name is required";
-      }
-
-      // CONTACT NUMBER
-      if (!employer.contactno.trim()) {
-        newErrors[`employers.${index}.nature`] = "Contact no is required";
-      }
-
-      // EMAIL
-      if (!employer.email.trim()) {
-        newErrors[`employers.${index}.email`] = "Email is required";
-      } else {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(employer.email.trim())) {
-          newErrors[`employers.${index}.email`] = "Enter a valid email";
-        }
-      }
-
-      // POSITION
-      if (!employer.positionheld.trim()) {
-        newErrors[`employers.${index}.positionheld`] =
-          "Position held is required";
-      }
-
-      // START DATE
-      if (!employer.startdate.trim()) {
-        newErrors[`employers.${index}.startdate`] = "Start date is required";
-      }
-
-      // END DATE
-      if (!employer.enddate.trim()) {
-        newErrors[`employers.${index}.enddate`] = "End date is required";
-      }
-
-      // FMCSR
-      if (employer.fmcsr !== "1" && employer.fmcsr !== "0") {
-        newErrors[`employers.${index}.fmcsr`] = "Please select YES or NO";
-      }
-
-      // SAFETY SENSITIVE
-      if (
-        employer.safetysensitive !== "1" &&
-        employer.safetysensitive !== "0"
-      ) {
-        newErrors[`employers.${index}.safetysensitive`] =
-          "Please select YES or NO";
-      }
-    });
-
-    return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (loading) {
-      return;
-    }
-
-    // =======================================================
-    // CREATE FORM DATA
-    // =======================================================
+    if (loading) return;
 
     const formData = new FormData(e.target);
 
@@ -269,212 +209,105 @@ export default function DriverExperience() {
       fromdate: formData.get("fromdate")?.trim() || "",
       todate: formData.get("todate")?.trim() || "",
       miles: formData.get("miles")?.trim() || "",
-      noaccidents: formData.get("noaccidents")?.trim() || "",
-      notrafficconvictions: formData.get("notrafficconvictions")?.trim() || "",
-      licensedenied: formData.get("licensedenied")?.trim() || "",
+      noaccidents: noAccidents ? "1" : "0",
+      notrafficconvictions: noConvictions ? "1" : "0",
+      licensedenied: licenseDenied,
       licensedeniedexplanation:
         formData.get("licensedeniedexplanation")?.trim() || "",
-      licensesuspended: formData.get("licensesuspended")?.trim() || "",
+      licensesuspended: licenseSuspended,
       licensesuspendedexplanation:
         formData.get("licensesuspendedexplanation")?.trim() || "",
     };
 
-    // =======================================================
-    // VALIDATION
-    // =======================================================
-
     const newErrors = {};
 
-    // -------------------------------------------------------
-    // DRIVER EXPERIENCE
-    // -------------------------------------------------------
+    if (!data.equipment) newErrors.equipment = "Equipment is required.";
+    if (!data.equipmenttype) newErrors.equipmenttype = "Equipment type is required.";
+    if (!data.fromdate) newErrors.fromdate = "From date is required.";
+    if (!data.todate) newErrors.todate = "To date is required.";
 
-    if (!data.equipment) {
-      newErrors.equipment = "Equipment is required.";
-    }
-
-    if (!data.equipmenttype) {
-      newErrors.equipmenttype = "Equipment type is required.";
-    }
-
-    if (!data.fromdate) {
-      newErrors.fromdate = "From date is required.";
-    }
-
-    if (!data.todate) {
-      newErrors.todate = "To date is required.";
-    }
-
-    // From date / To date
     if (data.fromdate && data.todate) {
       if (new Date(data.todate) < new Date(data.fromdate)) {
         newErrors.todate = "To date must be after or equal to from date.";
       }
     }
 
-    // Miles
     if (!data.miles) {
       newErrors.miles = "Miles is required.";
     } else if (isNaN(Number(data.miles)) || Number(data.miles) < 0) {
       newErrors.miles = "Please enter a valid miles value.";
     }
 
-    // Accident history
-    // if (!data.noaccidents) {
-    //   newErrors.noaccidents =
-    //     "Please select accident history.";
-    // }
-
-    // Traffic conviction history
-    // if (!data.notrafficconvictions) {
-    //   newErrors.notrafficconvictions =
-    //     "Please select traffic conviction history.";
-    // }
-
-    // License denied
+    // License Denied validation
     if (!data.licensedenied) {
       newErrors.licensedenied = "Please select license denied status.";
     }
-
     if (data.licensedenied === "yes" && !data.licensedeniedexplanation) {
-      newErrors.licensedeniedexplanation =
-        "Please provide license denied explanation.";
+      newErrors.licensedeniedexplanation = "Please provide license denied explanation.";
     }
 
-    // License suspended
+    // License Suspended validation
     if (!data.licensesuspended) {
       newErrors.licensesuspended = "Please select license suspended status.";
     }
-
     if (data.licensesuspended === "yes" && !data.licensesuspendedexplanation) {
-      newErrors.licensesuspendedexplanation =
-        "Please provide license suspended explanation.";
+      newErrors.licensesuspendedexplanation = "Please provide license suspended explanation.";
     }
 
-    // =======================================================
-    // ACCIDENTS VALIDATION
-    // =======================================================
+    if (!noAccidents) {
+      accidents.forEach((accident, index) => {
+        const hasAccidentData =
+          accident.date ||
+          accident.nature ||
+          accident.remark ||
+          Number(accident.fatalities) > 0 ||
+          Number(accident.injuries) > 0;
 
-    accidents.forEach((accident, index) => {
-      // Check whether row contains any actual data
-      const hasAccidentData =
-        accident.date ||
-        accident.nature ||
-        accident.remark ||
-        Number(accident.fatalities) > 0 ||
-        Number(accident.injuries) > 0;
+        if (!hasAccidentData) return;
 
-      // Empty/default row ko ignore karo
-      if (!hasAccidentData) {
-        return;
-      }
+        if (!accident.date) newErrors[`accident_${index}_date`] = "Accident date is required.";
+        if (!accident.nature?.trim()) newErrors[`accident_${index}_nature`] = "Nature is required.";
+        if (!accident.remark?.trim()) newErrors[`accident_${index}_remark`] = "Remark is required.";
+      });
+    }
 
-      if (!accident.date) {
-        newErrors[`accident_${index}_date`] = "Accident date is required.";
-      }
+    if (!noConvictions) {
+      trafficConvictions.forEach((traffic, index) => {
+        const hasTrafficData =
+          traffic.state ||
+          traffic.violationType ||
+          traffic.ticketDate ||
+          traffic.convictionDate ||
+          traffic.remark;
 
-      if (!accident.nature?.trim()) {
-        newErrors[`accident_${index}_nature`] = "Nature is required.";
-      }
+        if (!hasTrafficData) return;
 
-      if (
-        accident.fatalities === "" ||
-        accident.fatalities === null ||
-        accident.fatalities === undefined
-      ) {
-        newErrors[`accident_${index}_fatalities`] = "Fatalities is required.";
-      }
+        if (!traffic.state?.trim()) newErrors[`traffic_${index}_state`] = "State is required.";
+        if (!traffic.violationType?.trim()) newErrors[`traffic_${index}_violationType`] = "Violation type is required.";
+        if (!traffic.ticketDate) newErrors[`traffic_${index}_ticketDate`] = "Ticket date is required.";
+        if (!traffic.convictionDate) newErrors[`traffic_${index}_convictionDate`] = "Conviction date is required.";
 
-      if (
-        accident.injuries === "" ||
-        accident.injuries === null ||
-        accident.injuries === undefined
-      ) {
-        newErrors[`accident_${index}_injuries`] = "Injuries is required.";
-      }
+        if (
+          traffic.ticketDate &&
+          traffic.convictionDate &&
+          new Date(traffic.convictionDate) < new Date(traffic.ticketDate)
+        ) {
+          newErrors[`traffic_${index}_convictionDate`] = "Conviction date must be after or equal to ticket date.";
+        }
+      });
+    }
 
-      if (!accident.remark?.trim()) {
-        newErrors[`accident_${index}_remark`] = "Remark is required.";
-      }
-    });
-
-    // =======================================================
-    // TRAFFIC CONVICTIONS VALIDATION
-    // =======================================================
-
-    trafficConvictions.forEach((traffic, index) => {
-      // Check whether row contains any actual data
-      const hasTrafficData =
-        traffic.state ||
-        traffic.violationType ||
-        traffic.ticketDate ||
-        traffic.convictionDate ||
-        traffic.remark;
-
-      // Empty/default row ko ignore karo
-      if (!hasTrafficData) {
-        return;
-      }
-
-      if (!traffic.state?.trim()) {
-        newErrors[`traffic_${index}_state`] = "State is required.";
-      }
-
-      if (!traffic.violationType?.trim()) {
-        newErrors[`traffic_${index}_violationType`] =
-          "Violation type is required.";
-      }
-
-      if (!traffic.ticketDate) {
-        newErrors[`traffic_${index}_ticketDate`] = "Ticket date is required.";
-      }
-
-      if (!traffic.convictionDate) {
-        newErrors[`traffic_${index}_convictionDate`] =
-          "Conviction date is required.";
-      }
-
-      // Ticket date / conviction date
-      if (
-        traffic.ticketDate &&
-        traffic.convictionDate &&
-        new Date(traffic.convictionDate) < new Date(traffic.ticketDate)
-      ) {
-        newErrors[`traffic_${index}_convictionDate`] =
-          "Conviction date must be after or equal to ticket date.";
-      }
-
-      if (!traffic.remark?.trim()) {
-        newErrors[`traffic_${index}_remark`] = "Remark is required.";
-      }
-    });
-
-    // =======================================================
-    // SHOW VALIDATION ERRORS
-    // =======================================================
-    console.log(newErrors);
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-
       setTimeout(() => {
         const firstError = document.querySelector(".border-red-500");
-
         if (firstError) {
-          firstError.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-
+          firstError.scrollIntoView({ behavior: "smooth", block: "center" });
           firstError.focus?.();
         }
       }, 100);
-
       return;
     }
-    console.log("here");
-    // =======================================================
-    // VALIDATION PASSED
-    // =======================================================
 
     setErrors({});
     setServerMessage("");
@@ -482,39 +315,17 @@ export default function DriverExperience() {
     setLoading(true);
 
     try {
-      // =====================================================
-      // GET USER
-      // =====================================================
-
       let user = null;
-
       try {
         user = JSON.parse(localStorage.getItem("user") || "null");
       } catch (parseError) {
         console.error("User JSON parse error:", parseError);
       }
 
-      // =====================================================
-      // CREATE UPLOAD FORM DATA
-      // =====================================================
-
       const uploadData = new FormData();
 
-      // =====================================================
-      // COMPANY INFORMATION
-      // =====================================================
-
-      if (user?.name) {
-        uploadData.append("cname", user.name);
-      }
-
-      if (user?.id) {
-        uploadData.append("company_id", user.id);
-      }
-
-      // =====================================================
-      // DRIVER EXPERIENCE
-      // =====================================================
+      if (user?.name) uploadData.append("cname", user.name);
+      if (user?.id) uploadData.append("company_id", user.id);
 
       uploadData.append("driver_id", id);
       uploadData.append("equipment", data.equipment);
@@ -525,99 +336,45 @@ export default function DriverExperience() {
       uploadData.append("noaccidents", data.noaccidents);
       uploadData.append("notrafficconvictions", data.notrafficconvictions);
       uploadData.append("licensedenied", data.licensedenied);
-      uploadData.append(
-        "licensedeniedexplanation",
-        data.licensedeniedexplanation,
-      );
+      uploadData.append("licensedeniedexplanation", data.licensedeniedexplanation);
       uploadData.append("licensesuspended", data.licensesuspended);
-      uploadData.append(
-        "licensesuspendedexplanation",
-        data.licensesuspendedexplanation,
-      );
-      console.log("here");
-      // =====================================================
-      // ACCIDENTS
-      // =====================================================
+      uploadData.append("licensesuspendedexplanation", data.licensesuspendedexplanation);
 
-      accidents.forEach((accident, index) => {
-        Object.entries(accident).forEach(([key, value]) => {
-          uploadData.append(`accidents[${index}][${key}]`, value ?? "");
+      if (!noAccidents) {
+        accidents.forEach((accident, index) => {
+          Object.entries(accident).forEach(([key, value]) => {
+            uploadData.append(`accidents[${index}][${key}]`, value ?? "");
+          });
         });
-      });
-
-      // =====================================================
-      // TRAFFIC CONVICTIONS
-      // =====================================================
-
-      trafficConvictions.forEach((traffic, index) => {
-        Object.entries(traffic).forEach(([key, value]) => {
-          uploadData.append(`traffic[${index}][${key}]`, value ?? "");
-        });
-      });
-      console.log("here");
-      // =====================================================
-      // DEBUG
-      // =====================================================
-
-      for (const [key, value] of uploadData.entries()) {
-        console.log(`${key}:`, value);
       }
 
-      // =====================================================
-      // API REQUEST
-      // =====================================================
+      if (!noConvictions) {
+        trafficConvictions.forEach((traffic, index) => {
+          Object.entries(traffic).forEach(([key, value]) => {
+            uploadData.append(`traffic[${index}][${key}]`, value ?? "");
+          });
+        });
+      }
 
-      const response = await api.post(
-        `/company/driver-experience/${id}`,
-        uploadData,
-      );
-
-      console.log("DRIVER EXPERIENCE SAVE RESPONSE:", response.data);
-
-      // =====================================================
-      // SUCCESS
-      // =====================================================
+      const response = await api.post(`/company/driver-experience/${id}`, uploadData);
 
       const result = response.data;
-
-      setServerMessage(
-        result?.message || "Driver experience saved successfully.",
-      );
-
+      setServerMessage(result?.message || "Driver experience saved successfully.");
       setServerMessageType("success");
-
-      // =====================================================
-      // RELOAD LATEST SERVER DATA
-      // =====================================================
 
       await fetchDriverExperience();
 
-      // =====================================================
-      // NAVIGATE
-      // =====================================================
-
       navigate("/company-dashboard/drivers", {
         replace: true,
-        state: {
-          success: result?.message || "Driver experience saved successfully.",
-        },
+        state: { success: result?.message || "Driver experience saved successfully." },
       });
     } catch (error) {
-      console.error("==============================");
-      console.error("DRIVER EXPERIENCE API ERROR");
-      console.error("==============================");
-
-      console.error("FULL ERROR:", error);
-      console.error("RESPONSE:", error?.response);
-      console.error("RESPONSE DATA:", error?.response?.data);
-      console.error("STATUS:", error?.response?.status);
-
+      console.error("DRIVER EXPERIENCE API ERROR:", error);
       const message =
         error?.response?.data?.message ||
         error?.response?.data?.error ||
         error?.message ||
         "Something went wrong.";
-
       setServerMessage(message);
       setServerMessageType("error");
     } finally {
@@ -627,16 +384,8 @@ export default function DriverExperience() {
 
   return (
     <div>
-      {/* =====================================================
-          HEADER
-      ===================================================== */}
       <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-900">
-            DRIVING EXPERIENCE
-          </h1>
-        </div>
-
+        <h1 className="text-2xl font-bold text-slate-900">DRIVING EXPERIENCE</h1>
         <Link
           to="/company-dashboard/drivers"
           className="bg-[#091122] text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800"
@@ -656,54 +405,21 @@ export default function DriverExperience() {
 
         <br />
 
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-5"
-          encType="multipart/form-data"
-        >
-          {/* =====================================================
-              DRIVING EXPERIENCE
-          ===================================================== */}
-
+        <form onSubmit={handleSubmit} className="space-y-5" encType="multipart/form-data">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
                 CLASS OF EQUIPMENT
               </label>
-
               <select
                 name="equipment"
+                defaultValue={fetchingExperience?.equipment || "straight_truck"}
                 className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
               >
-                <option
-                  selected={fetchingExperience?.equipment === "straight_truck"}
-                  value="straight_truck"
-                >
-                  STRAIGHT TRUCK
-                </option>
-
-                <option
-                  selected={
-                    fetchingExperience?.equipment === "tractor_semi_trailer"
-                  }
-                  value="tractor_semi_trailer"
-                >
-                  TRACTOR & SEMI-TRAILER
-                </option>
-
-                <option
-                  selected={fetchingExperience?.equipment === "tractor_tanker"}
-                  value="tractor_tanker"
-                >
-                  TRACTOR & TANKER
-                </option>
-
-                <option
-                  selected={fetchingExperience?.equipment === "other"}
-                  value="other"
-                >
-                  OTHER
-                </option>
+                <option value="straight_truck">STRAIGHT TRUCK</option>
+                <option value="tractor_semi_trailer">TRACTOR & SEMI-TRAILER</option>
+                <option value="tractor_tanker">TRACTOR & TANKER</option>
+                <option value="other">OTHER</option>
               </select>
             </div>
 
@@ -752,35 +468,33 @@ export default function DriverExperience() {
 
           <br />
 
-          {/* =====================================================
-              ACCIDENT RECORD
-          ===================================================== */}
-
+          {/* ACCIDENT RECORD */}
           <div className="flex items-center justify-between">
             <p className="font-semibold text-slate-800">
               ACCIDENT RECORD FOR THE PAST 3 YEARS
             </p>
-
-            <button
-              type="button"
-              onClick={addAccident}
-              className="bg-[#091122] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800"
-            >
-              + Add Accident
-            </button>
+            {!noAccidents && (
+              <button
+                type="button"
+                onClick={addAccident}
+                className="bg-[#091122] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800"
+              >
+                + Add Accident
+              </button>
+            )}
           </div>
 
           {/* NO ACCIDENT CHECKBOX */}
           <div className="border border-slate-200 rounded-lg p-4">
-            <label className="flex items-center gap-3 text-sm text-slate-700">
+            <label className="flex items-center gap-3 text-sm text-slate-700 cursor-pointer">
               <input
-                checked={fetchingExperience?.accidenthistory === 1}
                 type="checkbox"
                 name="noaccidents"
                 value="1"
-                className="w-4 h-4"
+                checked={noAccidents}
+                onChange={(e) => setNoAccidents(e.target.checked)}
+                className="w-4 h-4 cursor-pointer"
               />
-
               <span>
                 Check this box if you have had no accidents in the past 3 years
               </span>
@@ -788,182 +502,158 @@ export default function DriverExperience() {
           </div>
 
           {/* ACCIDENT ROWS */}
-          <div className="space-y-4">
-            {accidents.map((accident, index) => (
-              <div
-                key={accident.id ?? `new-accident-${index}`}
-                className="border border-slate-200 rounded-xl p-4 bg-slate-50"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold text-slate-800">
-                    Accident #{index + 1}
-                  </h3>
-
-                  {accidents.length > 1 && (
-                    <button
-                      type="button"
-                      onClick={() => removeAccident(index)}
-                      className="text-red-600 border border-red-200 bg-white px-3 py-1.5 rounded-lg text-sm hover:bg-red-50"
-                    >
-                      Remove
-                    </button>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                  {/* DATE */}
-                  <div>
-                    <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                      DATE
-                    </label>
-
-                    <input
-                      type="date"
-                      name={`accidents[${index}][date]`}
-                      value={accident.date}
-                      onChange={(e) =>
-                        updateAccident(index, "date", e.target.value)
-                      }
-                      className={`w-full border ${
-                        errors[`accident_${index}_date`]
-                          ? "border-red-500"
-                          : "border-slate-200"
-                      } rounded-lg px-4 py-2.5 text-sm outline-none`}
-                    />
-
-                    {errors[`accident_${index}_date`] && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors[`accident_${index}_date`]}
-                      </p>
+          {!noAccidents && (
+            <div className="space-y-4">
+              {accidents.map((accident, index) => (
+                <div
+                  key={accident.id ?? `new-accident-${index}`}
+                  className="border border-slate-200 rounded-xl p-4 bg-slate-50"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-semibold text-slate-800">
+                      Accident #{index + 1}
+                    </h3>
+                    {accidents.length > 1 && (
+                      <button
+                        type="button"
+                        onClick={() => removeAccident(index)}
+                        className="text-red-600 border border-red-200 bg-white px-3 py-1.5 rounded-lg text-sm hover:bg-red-50"
+                      >
+                        Remove
+                      </button>
                     )}
                   </div>
 
-                  {/* NATURE */}
-                  <div>
-                    <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                      NATURE OF ACCIDENT
-                    </label>
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                    <div>
+                      <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                        DATE
+                      </label>
+                      <input
+                        type="date"
+                        name={`accidents[${index}][date]`}
+                        value={accident.date}
+                        onChange={(e) => updateAccident(index, "date", e.target.value)}
+                        className={`w-full border ${
+                          errors[`accident_\${index}_date`]
+                            ? "border-red-500"
+                            : "border-slate-200"
+                        } rounded-lg px-4 py-2.5 text-sm outline-none`}
+                      />
+                      {errors[`accident_${index}_date`] && (
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors[`accident_${index}_date`]}
+                        </p>
+                      )}
+                    </div>
 
-                    <input
-                      type="text"
-                      name={`accidents[${index}][nature]`}
-                      value={accident.nature}
-                      onChange={(e) =>
-                        updateAccident(index, "nature", e.target.value)
-                      }
-                      placeholder="Head-on, rear-end, upset, etc."
-                      className={`w-full border ${
-                        errors[`accident_${index}_nature`]
-                          ? "border-red-500"
-                          : "border-slate-200"
-                      } rounded-lg px-4 py-2.5 text-sm outline-none`}
+                    <div>
+                      <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                        NATURE OF ACCIDENT
+                      </label>
+                      <input
+                        type="text"
+                        name={`accidents[${index}][nature]`}
+                        value={accident.nature}
+                        onChange={(e) => updateAccident(index, "nature", e.target.value)}
+                        placeholder="Head-on, rear-end, upset, etc."
+                        className={`w-full border ${
+                          errors[`accident_\${index}_nature`]
+                            ? "border-red-500"
+                            : "border-slate-200"
+                        } rounded-lg px-4 py-2.5 text-sm outline-none`}
+                      />
+                      {errors[`accident_${index}_nature`] && (
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors[`accident_${index}_nature`]}
+                        </p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                        FATALITIES
+                      </label>
+                      <select
+                        value={accident.fatalities}
+                        name={`accidents[${index}][fatalities]`}
+                        onChange={(e) => updateAccident(index, "fatalities", e.target.value)}
+                        className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
+                      >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                        INJURIES
+                      </label>
+                      <select
+                        value={accident.injuries}
+                        name={`accidents[${index}][injuries]`}
+                        onChange={(e) => updateAccident(index, "injuries", e.target.value)}
+                        className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
+                      >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="mt-3">
+                    <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                      REMARK (Driver Fault, Other Party Fault)
+                    </label>
+                    <textarea
+                      rows="3"
+                      value={accident.remark}
+                      name={`accidents[${index}][remark]`}
+                      onChange={(e) => updateAccident(index, "remark", e.target.value)}
+                      placeholder="Enter accident remark"
+                      className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
                     />
-
-                    {errors[`accident_${index}_nature`] && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors[`accident_${index}_nature`]}
-                      </p>
-                    )}
-                  </div>
-
-                  {/* FATALITIES */}
-                  <div>
-                    <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                      FATALITIES
-                    </label>
-
-                    <select
-                      value={accident.fatalities}
-                      name={`accidents[${index}][fatalities]`}
-                      onChange={(e) =>
-                        updateAccident(index, "fatalities", e.target.value)
-                      }
-                      className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-                    >
-                      <option value="0">0</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </select>
-                  </div>
-
-                  {/* INJURIES */}
-                  <div>
-                    <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                      INJURIES
-                    </label>
-
-                    <select
-                      value={accident.injuries}
-                      name={`accidents[${index}][injuries]`}
-                      onChange={(e) =>
-                        updateAccident(index, "injuries", e.target.value)
-                      }
-                      className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm outline-none"
-                    >
-                      <option value="0">0</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </select>
                   </div>
                 </div>
-
-                {/* REMARK */}
-                <div className="mt-3">
-                  <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                    REMARK (Driver Fault, Other Party Fault)
-                  </label>
-
-                  <textarea
-                    rows="3"
-                    value={accident.remark}
-                    name={`accidents[${index}][remark]`}
-                    onChange={(e) =>
-                      updateAccident(index, "remark", e.target.value)
-                    }
-                    placeholder="Enter accident remark"
-                    className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           <br />
 
-          {/* =====================================================
-              TRAFFIC CONVICTIONS
-          ===================================================== */}
-
+          {/* TRAFFIC CONVICTIONS */}
           <div className="flex items-center justify-between">
             <p className="font-semibold text-slate-800">
-              TRAFFIC CONVICTIONS AND FORFEITURES FOR THE PAST 3 YEARS (OTHER
-              THAN PARKING VIOLATIONS)
+              TRAFFIC CONVICTIONS AND FORFEITURES FOR THE PAST 3 YEARS
             </p>
-
-            <button
-              type="button"
-              onClick={addTrafficConviction}
-              className="bg-[#091122] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 whitespace-nowrap"
-            >
-              + Add Conviction
-            </button>
+            {!noConvictions && (
+              <button
+                type="button"
+                onClick={addTrafficConviction}
+                className="bg-[#091122] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 whitespace-nowrap"
+              >
+                + Add Conviction
+              </button>
+            )}
           </div>
 
           {/* NO CONVICTION CHECKBOX */}
           <div className="border border-slate-200 rounded-lg p-4">
-            <label className="flex items-center gap-3 text-sm text-slate-700">
+            <label className="flex items-center gap-3 text-sm text-slate-700 cursor-pointer">
               <input
-                checked={fetchingExperience?.convictionhistory === 1}
                 type="checkbox"
                 name="notrafficconvictions"
                 value="1"
-                className="w-4 h-4"
+                checked={noConvictions}
+                onChange={(e) => setNoConvictions(e.target.checked)}
+                className="w-4 h-4 cursor-pointer"
               />
-
               <span>
                 Check this box if you have no traffic convictions or forfeitures
                 in the past 3 years
@@ -972,309 +662,256 @@ export default function DriverExperience() {
           </div>
 
           {/* TRAFFIC ROWS */}
-          <div className="space-y-4">
-            {trafficConvictions.map((item, index) => (
-              <div
-                key={item.id ?? `new-conviction-${index}`}
-                className="border border-slate-200 rounded-xl p-4 bg-slate-50"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold text-slate-800">
-                    Traffic Conviction #{index + 1}
-                  </h3>
-
-                  {trafficConvictions.length > 1 && (
-                    <button
-                      type="button"
-                      onClick={() => removeTrafficConviction(index)}
-                      className="text-red-600 border border-red-200 bg-white px-3 py-1.5 rounded-lg text-sm hover:bg-red-50"
-                    >
-                      Remove
-                    </button>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                  {/* STATE */}
-                  <div>
-                    <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                      STATE OF VIOLATION
-                    </label>
-
-                    <input
-                      type="text"
-                      name={`traffic[${index}][state]`}
-                      value={item.state}
-                      onChange={(e) =>
-                        updateTrafficConviction(index, "state", e.target.value)
-                      }
-                      placeholder="Enter state"
-                      className={`w-full border ${
-                        errors[`traffic_${index}_state`]
-                          ? "border-red-500"
-                          : "border-slate-200"
-                      } rounded-lg px-4 py-2.5 text-sm outline-none`}
-                    />
-
-                    {errors[`traffic_${index}_state`] && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors[`traffic_${index}_state`]}
-                      </p>
+          {!noConvictions && (
+            <div className="space-y-4">
+              {trafficConvictions.map((item, index) => (
+                <div
+                  key={item.id ?? `new-conviction-${index}`}
+                  className="border border-slate-200 rounded-xl p-4 bg-slate-50"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-semibold text-slate-800">
+                      Traffic Conviction #{index + 1}
+                    </h3>
+                    {trafficConvictions.length > 1 && (
+                      <button
+                        type="button"
+                        onClick={() => removeTrafficConviction(index)}
+                        className="text-red-600 border border-red-200 bg-white px-3 py-1.5 rounded-lg text-sm hover:bg-red-50"
+                      >
+                        Remove
+                      </button>
                     )}
                   </div>
 
-                  {/* VIOLATION TYPE */}
-                  <div>
-                    <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                      VIOLATION TYPE
-                    </label>
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                    <div>
+                      <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                        STATE
+                      </label>
+                      <input
+                        type="text"
+                        name={`traffic[${index}][state]`}
+                        value={item.state}
+                        onChange={(e) => updateTrafficConviction(index, "state", e.target.value)}
+                        placeholder="State name"
+                        className={`w-full border ${
+                          errors[`traffic_\${index}_state`]
+                            ? "border-red-500"
+                            : "border-slate-200"
+                        } rounded-lg px-4 py-2.5 text-sm outline-none`}
+                      />
+                    </div>
 
-                    <input
-                      type="text"
-                      name={`traffic[${index}][violationType]`}
-                      value={item.violationType}
-                      onChange={(e) =>
-                        updateTrafficConviction(
-                          index,
-                          "violationType",
-                          e.target.value,
-                        )
-                      }
-                      placeholder="Enter violation type"
-                      className={`w-full border ${
-                        errors[`traffic_${index}_violationType`]
-                          ? "border-red-500"
-                          : "border-slate-200"
-                      } rounded-lg px-4 py-2.5 text-sm outline-none`}
-                    />
+                    <div>
+                      <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                        VIOLATION TYPE
+                      </label>
+                      <input
+                        type="text"
+                        name={`traffic[${index}][violationType]`}
+                        value={item.violationType}
+                        onChange={(e) => updateTrafficConviction(index, "violationType", e.target.value)}
+                        placeholder="Speeding, signal jump, etc."
+                        className={`w-full border ${
+                          errors[`traffic_\${index}_violationType`]
+                            ? "border-red-500"
+                            : "border-slate-200"
+                        } rounded-lg px-4 py-2.5 text-sm outline-none`}
+                      />
+                    </div>
 
-                    {errors[`traffic_${index}_violationType`] && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors[`traffic_${index}_violationType`]}
-                      </p>
-                    )}
+                    <div>
+                      <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                        TICKET DATE
+                      </label>
+                      <input
+                        type="date"
+                        name={`traffic[${index}][ticketDate]`}
+                        value={item.ticketDate}
+                        onChange={(e) => updateTrafficConviction(index, "ticketDate", e.target.value)}
+                        className={`w-full border ${
+                          errors[`traffic_\${index}_ticketDate`]
+                            ? "border-red-500"
+                            : "border-slate-200"
+                        } rounded-lg px-4 py-2.5 text-sm outline-none`}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
+                        CONVICTION DATE
+                      </label>
+                      <input
+                        type="date"
+                        name={`traffic[${index}][convictionDate]`}
+                        value={item.convictionDate}
+                        onChange={(e) => updateTrafficConviction(index, "convictionDate", e.target.value)}
+                        className={`w-full border ${
+                          errors[`traffic_\${index}_convictionDate`]
+                            ? "border-red-500"
+                            : "border-slate-200"
+                        } rounded-lg px-4 py-2.5 text-sm outline-none`}
+                      />
+                      {errors[`traffic_${index}_convictionDate`] && (
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors[`traffic_${index}_convictionDate`]}
+                        </p>
+                      )}
+                    </div>
                   </div>
 
-                  {/* TICKET DATE */}
-                  <div>
+                  <div className="mt-3">
                     <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                      TICKET DATE
+                      REMARK
                     </label>
-
-                    <input
-                      type="date"
-                      name={`traffic[${index}][ticketDate]`}
-                      value={item.ticketDate}
-                      onChange={(e) =>
-                        updateTrafficConviction(
-                          index,
-                          "ticketDate",
-                          e.target.value,
-                        )
-                      }
-                      className={`w-full border ${
-                        errors[`traffic_${index}_ticketDate`]
-                          ? "border-red-500"
-                          : "border-slate-200"
-                      } rounded-lg px-4 py-2.5 text-sm outline-none`}
+                    <textarea
+                      rows="3"
+                      value={item.remark}
+                      name={`traffic[${index}][remark]`}
+                      onChange={(e) => updateTrafficConviction(index, "remark", e.target.value)}
+                      placeholder="Enter remark"
+                      className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
                     />
-
-                    {errors[`traffic_${index}_ticketDate`] && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors[`traffic_${index}_ticketDate`]}
-                      </p>
-                    )}
-                  </div>
-
-                  {/* CONVICTION DATE */}
-                  <div>
-                    <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                      CONVICTION DATE
-                    </label>
-
-                    <input
-                      type="date"
-                      value={item.convictionDate}
-                      name={`traffic[${index}][convictionDate]`}
-                      onChange={(e) =>
-                        updateTrafficConviction(
-                          index,
-                          "convictionDate",
-                          e.target.value,
-                        )
-                      }
-                      className={`w-full border ${
-                        errors[`traffic_${index}_convictionDate`]
-                          ? "border-red-500"
-                          : "border-slate-200"
-                      } rounded-lg px-4 py-2.5 text-sm outline-none`}
-                    />
-
-                    {errors[`traffic_${index}_convictionDate`] && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors[`traffic_${index}_convictionDate`]}
-                      </p>
-                    )}
                   </div>
                 </div>
-
-                {/* REMARK */}
-                <div className="mt-3">
-                  <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                    REMARK (Guilty, Reduced to Zero, etc.)
-                  </label>
-
-                  <textarea
-                    rows="3"
-                    value={item.remark}
-                    name={`traffic[${index}][remark]`}
-                    onChange={(e) =>
-                      updateTrafficConviction(index, "remark", e.target.value)
-                    }
-                    placeholder="Enter conviction remark"
-                    className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           <br />
 
           {/* =====================================================
-              LICENSE QUESTIONS
+              LICENSE DENIED & SUSPENDED QUESTIONS
           ===================================================== */}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div>
-              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                Have you ever been denied a license, permit, or privilege to
-                operate a motor vehicle?
+          <div className="space-y-4 border-t border-slate-200 pt-5">
+            {/* LICENSE DENIED */}
+            <div className="border border-slate-200 rounded-xl p-4 bg-slate-50">
+              <label className="block text-sm font-medium text-slate-800 mb-2">
+                A. Have you ever been denied a license, permit, or privilege to operate a motor vehicle?
               </label>
+              <div className="flex items-center gap-6 mb-3">
+                <label className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="licensedenied"
+                    value="yes"
+                    checked={licenseDenied === "yes"}
+                    onChange={(e) => setLicenseDenied(e.target.value)}
+                  />
+                  <span>YES</span>
+                </label>
+                <label className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="licensedenied"
+                    value="no"
+                    checked={licenseDenied === "no"}
+                    onChange={(e) => setLicenseDenied(e.target.value)}
+                  />
+                  <span>NO</span>
+                </label>
+              </div>
+
+              {errors.licensedenied && (
+                <p className="text-red-500 text-xs mb-2">{errors.licensedenied}</p>
+              )}
+
+              {licenseDenied === "yes" && (
+                <div>
+                  <label className="block text-xs font-medium text-slate-600 mb-1">
+                    IF YES, EXPLAIN DETAILS:
+                  </label>
+                  <textarea
+                    name="licensedeniedexplanation"
+                    rows="2"
+                    defaultValue={fetchingExperience?.licensedeniedremarks || ""}
+                    placeholder="Provide details..."
+                    className={`w-full px-3 py-2 text-sm border ${
+                      errors.licensedeniedremarks ? "border-red-500" : "border-slate-200"
+                    } rounded-lg bg-white outline-none`}
+                  />
+                  {errors.licensedeniedexplanation && (
+                    <p className="text-red-500 text-xs mt-1">{errors.licensedeniedexplanation}</p>
+                  )}
+                </div>
+              )}
             </div>
 
-            <div className="flex items-center gap-5">
-              <label className="flex items-center gap-2">
-                <input
-                  checked={fetchingExperience?.licensedeniedstatus === "yes"}
-                  type="radio"
-                  value="yes"
-                  name="licensedenied"
-                />
-                YES
+            {/* LICENSE SUSPENDED */}
+            <div className="border border-slate-200 rounded-xl p-4 bg-slate-50">
+              <label className="block text-sm font-medium text-slate-800 mb-2">
+                B. Has any license, permit, or privilege ever been suspended or revoked?
               </label>
+              <div className="flex items-center gap-6 mb-3">
+                <label className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="licensesuspended"
+                    value="yes"
+                    checked={licenseSuspended === "yes"}
+                    onChange={(e) => setLicenseSuspended(e.target.value)}
+                  />
+                  <span>YES</span>
+                </label>
+                <label className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="licensesuspended"
+                    value="no"
+                    checked={licenseSuspended === "no"}
+                    onChange={(e) => setLicenseSuspended(e.target.value)}
+                  />
+                  <span>NO</span>
+                </label>
+              </div>
 
-              <label className="flex items-center gap-2">
-                <input
-                  checked={fetchingExperience?.licensedeniedstatus === "no"}
-                  type="radio"
-                  value="no"
-                  name="licensedenied"
-                />
-                NO
-              </label>
+              {errors.licensesuspended && (
+                <p className="text-red-500 text-xs mb-2">{errors.licensesuspended}</p>
+              )}
+
+              {licenseSuspended === "yes" && (
+                <div>
+                  <label className="block text-xs font-medium text-slate-600 mb-1">
+                    IF YES, EXPLAIN DETAILS:
+                  </label>
+                  <textarea
+                    name="licensesuspendedexplanation"
+                    rows="2"
+                    defaultValue={fetchingExperience?.licensesuspendedremarks || ""}
+                    placeholder="Provide details..."
+                    className={`w-full px-3 py-2 text-sm border ${
+                      errors.licensesuspendedexplanation ? "border-red-500" : "border-slate-200"
+                    } rounded-lg bg-white outline-none`}
+                  />
+                  {errors.licensesuspendedexplanation && (
+                    <p className="text-red-500 text-xs mt-1">{errors.licensesuspendedexplanation}</p>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 
-          <div>
-            <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-              If Yes, Please explain
-            </label>
-
-            <textarea
-              defaultValue={fetchingExperience?.licensedeniedremarks}
-              name="licensedeniedexplanation"
-              rows="3"
-              placeholder="Enter explanation"
-              className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div>
-              <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-                Has any license, permit, or privilege ever been suspended or
-                revoked?
-              </label>
-            </div>
-
-            <div className="flex items-center gap-5">
-              <label className="flex items-center gap-2">
-                <input
-                  checked={fetchingExperience?.licensesuspendedstatus === "yes"}
-                  type="radio"
-                  value="yes"
-                  name="licensesuspended"
-                />
-                YES
-              </label>
-
-              <label className="flex items-center gap-2">
-                <input
-                  checked={fetchingExperience?.licensesuspendedstatus === "no"}
-                  type="radio"
-                  value="no"
-                  name="licensesuspended"
-                />
-                NO
-              </label>
-            </div>
-          </div>
-
-          <div>
-            <label className="cap block text-sm font-medium text-slate-700 mb-1.5">
-              If Yes, Please explain
-            </label>
-
-            <textarea
-              defaultValue={fetchingExperience?.licensesuspendedremarks}
-              name="licensesuspendedexplanation"
-              rows="3"
-              placeholder="Enter explanation"
-              className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-            />
-          </div>
-
-          {/* =====================================================
-              BUTTONS
-          ===================================================== */}
-
-          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
-            <Link
-              to="/company-dashboard/drivers"
-              className="px-5 py-2.5 rounded-lg border border-slate-200 text-sm font-medium text-slate-600 hover:bg-slate-50"
-            >
-              Cancel
-            </Link>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className={`px-5 text-white rounded-lg py-2.5 text-sm font-medium transition ${
-                loading
-                  ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-[#091122] hover:bg-slate-800"
+          {serverMessage && (
+            <div
+              className={`p-4 rounded-lg text-sm ${
+                serverMessageType === "success"
+                  ? "bg-green-50 text-green-700 border border-green-200"
+                  : "bg-red-50 text-red-700 border border-red-200"
               }`}
             >
-              {loading ? "Saving..." : "Save Experience"}
-            </button>
-          </div>
-        </form>
+              {serverMessage}
+            </div>
+          )}
 
-        {/* =====================================================
-            SERVER MESSAGE
-        ===================================================== */}
-
-        {serverMessage && (
-          <div
-            className={`mt-3 mb-3 rounded-lg border px-3 py-2 text-sm text-center ${
-              serverMessageType === "error" ? "text-red-500" : "text-green-600"
-            }`}
-            style={{ borderColor: "#091122" }}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-[#091122] text-white py-3 rounded-lg font-medium hover:bg-slate-800 disabled:opacity-50"
           >
-            {serverMessage}
-          </div>
-        )}
+            {loading ? "Saving..." : "Save Driver Experience"}
+          </button>
+        </form>
       </div>
     </div>
   );
