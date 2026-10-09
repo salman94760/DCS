@@ -269,7 +269,7 @@ export default function AddDriverEmployment() {
     window.location.hostname === "127.0.0.1"
       ? "http://localhost:8000"
       : "https://palegoldenrod-squid-977714.hostingersite.com"
-  }/storage/${doc.driver[0]?.applicationpath}`}
+  }/storage/app/public/${doc.driver[0]?.applicationpath}`}
 >
   👁
 </a>
