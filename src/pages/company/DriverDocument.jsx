@@ -260,12 +260,8 @@ export default function AddDriverEmployment() {
                         </td>
 
                         <td className="sticky left-0 z-10 bg-white px-6 py-2">
-                          <a
-                            target="_blank"
-                            href={`http://localhost:8000/storage/${doc.driver[0]?.applicationpath}`}
-                          >
+                          <a target="_blank" rel="noopener noreferrer" href={`${process.env.REACT_APP_STORAGE_URL}/${doc.driver[0]?.applicationpath}`}>
                             👁
-    
                           </a>
                         </td>
                       </tr>
