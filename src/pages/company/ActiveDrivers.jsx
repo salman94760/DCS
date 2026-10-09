@@ -411,7 +411,7 @@ export default function ActiveDrivers() {
                         <Link
                           title="Driver Detail"
                           to={`/company-dashboard/driver/edit/${com.id}`}
-                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className=" text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-edit"></i>
                         </Link>
@@ -420,7 +420,7 @@ export default function ActiveDrivers() {
                           target="_blank"
                           title="Employment history"
                           to={`/company-dashboard/driver/employment-history/${com.id}`}
-                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className=" text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-briefcase"></i>
                         </Link>
@@ -429,7 +429,7 @@ export default function ActiveDrivers() {
                           target="_blank"
                           title="Driver experience"
                           to={`/company-dashboard/driver/experience/${com.id}`}
-                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className=" text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-id-card"></i>
                         </Link>
@@ -438,7 +438,7 @@ export default function ActiveDrivers() {
                           target="_blank"
                           title="Document information"
                           to={`/company-dashboard/driver/document/${com.id}`}
-                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className=" text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-file-lines"></i>
                         </Link>
@@ -448,7 +448,7 @@ export default function ActiveDrivers() {
                             title="Document information"
                             target="_blank"
                             to={`/driver/driver-application/${com.id}`}
-                            className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                            className=" text-xs hover:bg-slate-50"
                           >
                             <i className="fa-solid fa-file-signature"></i>
                           </Link>
@@ -459,7 +459,7 @@ export default function ActiveDrivers() {
                         <button
                           type="button"
                           onClick={() => handleDelete(com.id)}
-                          className="px-1 py-1 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50 whitespace-nowrap"
+                          className=" text-red-600 text-xs hover:bg-red-50 whitespace-nowrap"
                         >
                           <i className="fa-solid fa-trash"></i>
                         </button>
