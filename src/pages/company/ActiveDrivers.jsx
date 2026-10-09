@@ -360,7 +360,7 @@ export default function ActiveDrivers() {
                     <table className=" w-full text-sm border border-collapse">
             <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
               <tr>
-                <th className="w-[12%] sticky left-0 z-30 bg-slate-50 text-left px-2 py-2 font-semibold text-slate-600">
+                <th className="w-[5%] sticky left-0 z-30 bg-slate-50 text-left px-2 py-2 font-semibold text-slate-600">
                   Action
                 </th>
 
@@ -407,7 +407,7 @@ export default function ActiveDrivers() {
                     {/* ACTION */}
 
                     <td className="sticky left-0 z-10 bg-white">
-                      <div className="p-1 flex items-center gap-2">
+                      <div className="p-2 flex items-center gap-2">
                         <Link
                           title="Driver Detail"
                           to={`/company-dashboard/driver/edit/${com.id}`}

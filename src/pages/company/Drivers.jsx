@@ -369,7 +369,7 @@ export default function Company() {
           <table className=" w-full text-sm border border-collapse">
             <thead className="cap sticky top-0 z-20 bg-slate-50 border-b border-slate-200">
               <tr>
-                <th className="w-[12%] sticky left-0 z-30 bg-slate-50 text-left px-2 py-2 font-semibold text-slate-600">
+                <th className="w-[5%] sticky left-0 z-30 bg-slate-50 text-left px-2 py-2 font-semibold text-slate-600">
                   Action
                 </th>
 
@@ -416,11 +416,11 @@ export default function Company() {
                     {/* ACTION */}
 
                     <td className="sticky left-0 z-10 bg-white">
-                      <div className="p-1 flex items-center gap-2">
+                      <div className="p-2 flex items-center gap-2">
                         <Link
                           title="Driver Detail"
                           to={`/company-dashboard/driver/edit/${com.id}`}
-                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className=" text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-edit"></i>
                         </Link>
@@ -429,7 +429,7 @@ export default function Company() {
                           target="_blank"
                           title="Employment history"
                           to={`/company-dashboard/driver/employment-history/${com.id}`}
-                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className="text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-briefcase"></i>
                         </Link>
@@ -438,7 +438,7 @@ export default function Company() {
                           target="_blank"
                           title="Driver experience"
                           to={`/company-dashboard/driver/experience/${com.id}`}
-                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className=" text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-id-card"></i>
                         </Link>
@@ -447,7 +447,7 @@ export default function Company() {
                           target="_blank"
                           title="Document information"
                           to={`/company-dashboard/driver/document/${com.id}`}
-                          className="px-1 py-1 border border-slate-200 rounded-lg text-xs hover:bg-slate-50"
+                          className=" text-xs hover:bg-slate-50"
                         >
                           <i className="fa-solid fa-file-lines"></i>
                         </Link>
@@ -468,7 +468,7 @@ export default function Company() {
                         <button
                           type="button"
                           onClick={() => handleDelete(com.id)}
-                          className="px-1 py-1 border border-red-200 text-red-600 rounded-lg text-xs hover:bg-red-50 whitespace-nowrap"
+                          className=" text-red-600 text-xs hover:bg-red-50 whitespace-nowrap"
                         >
                           <i className="fa-solid fa-trash"></i>
                         </button>
