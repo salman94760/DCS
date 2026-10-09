@@ -260,13 +260,28 @@ export default function AddDriverEmployment() {
                         </td>
 
                         <td className="sticky left-0 z-10 bg-white px-6 py-2">
+                         
 <a
+  target="_blank"
+  rel="noopener noreferrer"
+  href={`${
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+      ? "http://localhost:8000"
+      : "https://palegoldenrod-squid-977714.hostingersite.com"
+  }/storage/${doc.driver[0]?.applicationpath}`}
+>
+  👁
+</a>
+
+
+   {/*                       <a
   target="_blank"
   rel="noopener noreferrer"
   href={`${import.meta.env.VITE_STORAGE_PATH}/${doc.driver[0]?.applicationpath}`}
 >
   👁
-</a>
+</a>*/}
                         </td>
                       </tr>
                     )}
