@@ -21,6 +21,12 @@ export default function TerminatedDrivers() {
     resetFilters,
   } = useDcsContext();
 
+    const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return isNaN(date.getTime()) ? "" : date.toLocaleDateString("en-US");
+  };
+
   const [search, setSearch] = useState("");
   const [role, setRole] = useState("all");
   const [status, setStatus] = useState("all");
